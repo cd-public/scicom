@@ -193,7 +193,7 @@
     "href": "01_python.html#environments",
     "title": "Python",
     "section": "Environments",
-    "text": "Environments\n\nThese slides are written in one environment for writing Python code: Quarto.\n\nRead more\n\nFor scientific computing, often use “Jupter” or “IPython”\n\nUsually through the web at Google Colab\nOr open source via Binder\nCan be used locally, such as in VS Code\nHistorically, via JupyterLab"
+    "text": "Environments\n\nFor scientific computing, often use “Jupter” or “IPython”\n\nUsually through the web at Google Colab\nOr open source via Binder\nHistorically on your device (not a website) via JupyterLab\n\nStill opens in a web browser!\n\nI like VS Code.\n\nEither Jupyter or Quarto"
   },
   {
     "objectID": "01_python.html#these-slides",
@@ -201,5 +201,110 @@
     "title": "Python",
     "section": "These slides",
     "text": "These slides\n\nCode blocks will be enclosed in a white box on a black background, with code in a monospace (all characters of the same width) font of slightly smaller size.\nThe code will be syntax highlighted, as it will be highlighted in most programs for writing Python.\nThere will be line numbers.\n\n\nprint(\"I will show code this way on these slides.\")\n\nI will show code this way on these slides.\n\n\n\nThe output of a Python expression will be in white text of the same size and font style under the code block."
+  },
+  {
+    "objectID": "01_python.html#colab",
+    "href": "01_python.html#colab",
+    "title": "Python",
+    "section": "Colab",
+    "text": "Colab\n\nGo to https://colab.research.google.com/\nThe landing page is a Colab guide.\nYou will have to log in to a Google account to run run code blocks.\nHere’s the Colab example:\n\n\nseconds_in_a_day = 24 * 60 * 60\nseconds_in_a_day\n\n86400"
+  },
+  {
+    "objectID": "01_python.html#cells",
+    "href": "01_python.html#cells",
+    "title": "Python",
+    "section": "Cells",
+    "text": "Cells\n\nColab, like many scientific computing platforms, uses the notion of cells.\nThis supports doing calculations rather than designing software.\nIt also suports scientific publishing the subject of a latter part of the course."
+  },
+  {
+    "objectID": "01_python.html#text-cells",
+    "href": "01_python.html#text-cells",
+    "title": "Python",
+    "section": "Text Cells",
+    "text": "Text Cells\n\nOne type of cell is the “Text” cell.\nThey are not related to Python or performing calculations.\nThey are used to take notes and keep track of process."
+  },
+  {
+    "objectID": "01_python.html#markdown",
+    "href": "01_python.html#markdown",
+    "title": "Python",
+    "section": "Markdown",
+    "text": "Markdown\n\nThese slides, and the text in text cells can be styled in Markdown.\nMarkdown is a way to styling text using only text characters.\n\nPlain text. **Bold**. *Italic*. [Link](https://xkcd.com/).\n\n- List item\n- List item\nPlain text. Bold. Italic. Link.\n\nList item\nList item"
+  },
+  {
+    "objectID": "01_python.html#on-markdown",
+    "href": "01_python.html#on-markdown",
+    "title": "Python",
+    "section": "On Markdown",
+    "text": "On Markdown\n\nMarkdown is a wonderful tool and will recur throughout this term.\nAll course materials are written in Markdown.\nLearn more here: Markdown Guide\nUse it here: Dillinger.io"
+  },
+  {
+    "objectID": "01_python.html#commonalities",
+    "href": "01_python.html#commonalities",
+    "title": "Python",
+    "section": "Commonalities",
+    "text": "Commonalities\n\nEach of these environments has..\n\nNotebooks\n\nThe “document” or “file” for computational work\nSaved as a “.ipynb” (Interactive PYthon NoteBooks)"
+  },
+  {
+    "objectID": "01_python.html#code-cells",
+    "href": "01_python.html#code-cells",
+    "title": "Python",
+    "section": "Code Cells",
+    "text": "Code Cells\n\nThe other type of cell is a code cell.\nThe text within a code cell is Python code\nBeneath the cell is output of the Python code.\n\n\n\"Like this\"\n\n'Like this'"
+  },
+  {
+    "objectID": "01_python.html#code-cells-1",
+    "href": "01_python.html#code-cells-1",
+    "title": "Python",
+    "section": "Code Cells",
+    "text": "Code Cells\n\nWe will learn more latter, but\nIn general, the output is whatever the result of last line is.\n\n\n\"This doesn't show up\"\n1 + 1\n\n2"
+  },
+  {
+    "objectID": "01_python.html#code-cells-2",
+    "href": "01_python.html#code-cells-2",
+    "title": "Python",
+    "section": "Code Cells",
+    "text": "Code Cells\n\nAfter survey of environments, we’ll get into writing code!"
+  },
+  {
+    "objectID": "01_python.html#saving-notebooks",
+    "href": "01_python.html#saving-notebooks",
+    "title": "Python",
+    "section": "Saving Notebooks",
+    "text": "Saving Notebooks\n\nSaving Colab notebooks I find annoying.\nThe best way is probably making a folder for course in Google drive, and naming with a number and a subject (today is 01_Python.ipynb in the SciCom folder) for me.\nThink about how to save all your code before writing any code."
+  },
+  {
+    "objectID": "01_python.html#notebooks",
+    "href": "01_python.html#notebooks",
+    "title": "Python",
+    "section": "Notebooks",
+    "text": "Notebooks\n\nA text file (.txt) contains an ordered collection of letters.\nA notebook is an ordered collection of cells.\n\nText cells contain notes, just like a text file\nCode cells contain calculations, like a “script” writting in programming language (like a Python file)"
+  },
+  {
+    "objectID": "01_python.html#binder",
+    "href": "01_python.html#binder",
+    "title": "Python",
+    "section": "Binder",
+    "text": "Binder\n\nIf you don’t like Google and do like browsers, the best option is probably Binder.\nBinder is community provided (not tech company provided).\nHere is a guide: Zero-to-Binder"
+  },
+  {
+    "objectID": "01_python.html#quick-demo",
+    "href": "01_python.html#quick-demo",
+    "title": "Python",
+    "section": "Quick Demo",
+    "text": "Quick Demo\n\nYou can navigate to https://mybinder.org\nYou can use a GitHub repository I made. https://github.com/cd-public/my-first-binder\nYou can use a file I made hello.ipynb\n\nInteractive PYthon NoteBook.\n\nWe will cover GitHub more soon!"
+  },
+  {
+    "objectID": "01_python.html#sample-link",
+    "href": "01_python.html#sample-link",
+    "title": "Python",
+    "section": "Sample Link",
+    "text": "Sample Link\n\nI think this link works to have something.\n\nLink\n\nNot a great way to save these.\n\nDownload, or\nSave to GitHub\nSaving on Binder saves only until browser window closes!"
+  },
+  {
+    "objectID": "01_python.html#jupyterlab",
+    "href": "01_python.html#jupyterlab",
+    "title": "Python",
+    "section": "JupyterLab",
+    "text": "JupyterLab\n\nSometimes the internet is out, etc.\nBefore Colab and Binder, JupyterLab could run on your own computer.\n\nDownload and install Python\nUse Python to download an extension to Python called JupyterLab\nUse Python to run Jupyterlab\n\nUsually down through the terminal"
   }
 ]
