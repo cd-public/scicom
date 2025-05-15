@@ -375,6 +375,223 @@
     "href": "01_python.html#wait",
     "title": "Python",
     "section": "Wait?",
-    "text": "Wait?\n\nUse Python? How?\nTo use Python to make this calculation, first we must install Python.\n\nIt is a program, like Firefox, MS Word or Fortnite\n\nWe go to the offial webpage to get a downloader for our computer:\n\nhttps://www.python.org/downloads/"
+    "text": "Wait?\n\nUse Python? How?\nTo use Python to make this calculation, first we must install Python.\n\nIt is a program, like Firefox, MS Word or Fortnite"
+  },
+  {
+    "objectID": "01_python.html#installation",
+    "href": "01_python.html#installation",
+    "title": "Python",
+    "section": "Installation",
+    "text": "Installation\n\nWe go to the offial webpage to get an installer for our computer:\n\nhttps://www.python.org/downloads/\n\nBe careful about starting it!\n\nYou can open it and check the next slide."
+  },
+  {
+    "objectID": "01_python.html#check-the-box",
+    "href": "01_python.html#check-the-box",
+    "title": "Python",
+    "section": "Check the Box!",
+    "text": "Check the Box!\n\nRun the installer\nAdd Python to PATH"
+  },
+  {
+    "objectID": "01_python.html#add-python-to-path",
+    "href": "01_python.html#add-python-to-path",
+    "title": "Python",
+    "section": "Add Python to PATH",
+    "text": "Add Python to PATH"
+  },
+  {
+    "objectID": "01_python.html#why",
+    "href": "01_python.html#why",
+    "title": "Python",
+    "section": "Why?",
+    "text": "Why?\n\nThe benefit of adding Python to path is that we can use it at\n&lt;dramatic music&gt;\nThe Command Line\n\nA text-based interface to computing resources, including its ability to do e.g. arithmetic and save notes."
+  },
+  {
+    "objectID": "01_python.html#terminal",
+    "href": "01_python.html#terminal",
+    "title": "Python",
+    "section": "Terminal",
+    "text": "Terminal\n\nOn MS Windows\n\nI press Windows key, type “terminal” then press enter.\n\nOn MacOS\n\nI open Launchpad, type “terminal” then press enter."
+  },
+  {
+    "objectID": "01_python.html#macos",
+    "href": "01_python.html#macos",
+    "title": "Python",
+    "section": "MacOS",
+    "text": "MacOS"
+  },
+  {
+    "objectID": "01_python.html#windows",
+    "href": "01_python.html#windows",
+    "title": "Python",
+    "section": "Windows",
+    "text": "Windows"
+  },
+  {
+    "objectID": "01_python.html#recall",
+    "href": "01_python.html#recall",
+    "title": "Python",
+    "section": "Recall",
+    "text": "Recall\n\nOur motivation example was calculating the result of the following expression:\n\n\n9 * -1 * -1 + 5\n\n14"
+  },
+  {
+    "objectID": "01_python.html#two-methods",
+    "href": "01_python.html#two-methods",
+    "title": "Python",
+    "section": "Two Methods",
+    "text": "Two Methods\n\nWe can run the terminal and use Python to evaluate individual expressions.\nWe can run Python in the terminal and submit queries to Python.\nA mysterious third thing."
+  },
+  {
+    "objectID": "01_python.html#expression-evaluation",
+    "href": "01_python.html#expression-evaluation",
+    "title": "Python",
+    "section": "Expression evaluation",
+    "text": "Expression evaluation\n\nReturning to the terminal, we can type at the “prompt”.\nOn MacOS, perhaps a line that begins with $ and a flashing cursor\nOn Window, perhaps PS C:\\Users\\calvin&gt;\n\nPS stands for “powershell” - more latter.\nC:\\Users\\calvin is the name of a folder - more latter\n&gt; is the prompt, with a flashing cursor."
+  },
+  {
+    "objectID": "01_python.html#terminal-1",
+    "href": "01_python.html#terminal-1",
+    "title": "Python",
+    "section": "Terminal",
+    "text": "Terminal\n\nI will also use code expression to show commands (not just Python code)\nI will prefix commands with % (rather than Mac $ or Windows &gt;) and use different highlighting.\nHere I demo echo which echoes text.\n\n\n%echo like this\n\nlike this"
+  },
+  {
+    "objectID": "01_python.html#terminal-expression",
+    "href": "01_python.html#terminal-expression",
+    "title": "Python",
+    "section": "Terminal Expression",
+    "text": "Terminal Expression\n\nOn Window we use python\nOne MacOS we use python3\nI will use python just because this slides are generated on Windows:\n\n\n%python -c \"print(9 * -1 * -1 + 5)\"\n\n14\n\n\nLet’s deconstruct what’s happening here."
+  },
+  {
+    "objectID": "01_python.html#the-prompt",
+    "href": "01_python.html#the-prompt",
+    "title": "Python",
+    "section": "The prompt",
+    "text": "The prompt\n\nThe first character shown is the prompt\n\nWe use %\nWindows will show &gt;, likely after the name of a folder\nMacOS will show $\n\nWe do not type the prompt! it is already there!\n\n\n%python -c \"print(9 * -1 * -1 + 5)\"\n\n14"
+  },
+  {
+    "objectID": "01_python.html#the-prompt-1",
+    "href": "01_python.html#the-prompt-1",
+    "title": "Python",
+    "section": "The prompt",
+    "text": "The prompt\n\nThe first thing we type is python\n\nLowercase!\nThis instructs the command line to run the Python program.\nIn early computing all programs ran this way!\n\n%python -c \"print(9 * -1 * -1 + 5)\""
+  },
+  {
+    "objectID": "01_python.html#the-command",
+    "href": "01_python.html#the-command",
+    "title": "Python",
+    "section": "The command",
+    "text": "The command\n\nThe first thing we type is python (or python3 on MacOS)\n\nLowercase!\nThis instructs the command line to run the Python program.\nIn early computing all programs ran this way!\n\nI term this the “command” - the command, direction, or instruction we provide to system.\n\n\n%python -c \"print(9 * -1 * -1 + 5)\"\n\n14"
+  },
+  {
+    "objectID": "01_python.html#the-flag",
+    "href": "01_python.html#the-flag",
+    "title": "Python",
+    "section": "The flag",
+    "text": "The flag\n\nNext, we type -c\n\nWe call this a flag by convention\nA dash-prefixed character or word that changes how the command is interpreted\n\nAnother example is -help!\n\n\n%python -help\n\nusage: python [option] ... [-c cmd | -m mod | file | -] [arg] ...\nOptions (and corresponding environment variables):\n-b     : issue warnings about converting bytes/bytearray to str and comparing\n         bytes/bytearray with str or bytes with int. (-bb: issue errors)\n-B     : don't write .pyc files on import; also PYTHONDONTWRITEBYTECODE=x\n-c cmd : program passed in as string (terminates option list)\n-d     : turn on parser debugging output (for experts only, only works on\n         debug builds); also PYTHONDEBUG=x\n-E     : ignore PYTHON* environment variables (such as PYTHONPATH)\n-h     : print this help message and exit (also -? or --help)\n-i     : inspect interactively after running script; forces a prompt even\n         if stdin does not appear to be a terminal; also PYTHONINSPECT=x\n-I     : isolate Python from the user's environment (implies -E and -s)\n-m mod : run library module as a script (terminates option list)\n-O     : remove assert and __debug__-dependent statements; add .opt-1 before\n         .pyc extension; also PYTHONOPTIMIZE=x\n-OO    : do -O changes and also discard docstrings; add .opt-2 before\n         .pyc extension\n-P     : don't prepend a potentially unsafe path to sys.path; also\n         PYTHONSAFEPATH\n-q     : don't print version and copyright messages on interactive startup\n-s     : don't add user site directory to sys.path; also PYTHONNOUSERSITE=x\n-S     : don't imply 'import site' on initialization\n-u     : force the stdout and stderr streams to be unbuffered;\n         this option has no effect on stdin; also PYTHONUNBUFFERED=x\n-v     : verbose (trace import statements); also PYTHONVERBOSE=x\n         can be supplied multiple times to increase verbosity\n-V     : print the Python version number and exit (also --version)\n         when given twice, print more information about the build\n-W arg : warning control; arg is action:message:category:module:lineno\n         also PYTHONWARNINGS=arg\n-x     : skip first line of source, allowing use of non-Unix forms of #!cmd\n-X opt : set implementation-specific option\n--check-hash-based-pycs always|default|never:\n         control how Python invalidates hash-based .pyc files\n--help-env: print help about Python environment variables and exit\n--help-xoptions: print help about implementation-specific -X options and exit\n--help-all: print complete help information and exit\n\nArguments:\nfile   : program read from script file\n-      : program read from stdin (default; interactive mode if a tty)\narg ...: arguments passed to program in sys.argv[1:]"
+  },
+  {
+    "objectID": "01_python.html#the-option",
+    "href": "01_python.html#the-option",
+    "title": "Python",
+    "section": "The option",
+    "text": "The option\n\nNext, we type -c\n\nWe call this the option (or sometimes “flag”)\nA dash-prefixed character or word that changes how the command is interpreted\n\nAnother example is -help!\n\n\n%python -help\n\nusage: python [option] ... [-c cmd | -m mod | file | -] [arg] ...\nOptions (and corresponding environment variables):\n-b     : issue warnings about converting bytes/bytearray to str and comparing\n         bytes/bytearray with str or bytes with int. (-bb: issue errors)\n-B     : don't write .pyc files on import; also PYTHONDONTWRITEBYTECODE=x\n-c cmd : program passed in as string (terminates option list)\n-d     : turn on parser debugging output (for experts only, only works on\n         debug builds); also PYTHONDEBUG=x\n-E     : ignore PYTHON* environment variables (such as PYTHONPATH)\n-h     : print this help message and exit (also -? or --help)\n-i     : inspect interactively after running script; forces a prompt even\n         if stdin does not appear to be a terminal; also PYTHONINSPECT=x\n-I     : isolate Python from the user's environment (implies -E and -s)\n-m mod : run library module as a script (terminates option list)\n-O     : remove assert and __debug__-dependent statements; add .opt-1 before\n         .pyc extension; also PYTHONOPTIMIZE=x\n-OO    : do -O changes and also discard docstrings; add .opt-2 before\n         .pyc extension\n-P     : don't prepend a potentially unsafe path to sys.path; also\n         PYTHONSAFEPATH\n-q     : don't print version and copyright messages on interactive startup\n-s     : don't add user site directory to sys.path; also PYTHONNOUSERSITE=x\n-S     : don't imply 'import site' on initialization\n-u     : force the stdout and stderr streams to be unbuffered;\n         this option has no effect on stdin; also PYTHONUNBUFFERED=x\n-v     : verbose (trace import statements); also PYTHONVERBOSE=x\n         can be supplied multiple times to increase verbosity\n-V     : print the Python version number and exit (also --version)\n         when given twice, print more information about the build\n-W arg : warning control; arg is action:message:category:module:lineno\n         also PYTHONWARNINGS=arg\n-x     : skip first line of source, allowing use of non-Unix forms of #!cmd\n-X opt : set implementation-specific option\n--check-hash-based-pycs always|default|never:\n         control how Python invalidates hash-based .pyc files\n--help-env: print help about Python environment variables and exit\n--help-xoptions: print help about implementation-specific -X options and exit\n--help-all: print complete help information and exit\n\nArguments:\nfile   : program read from script file\n-      : program read from stdin (default; interactive mode if a tty)\narg ...: arguments passed to program in sys.argv[1:]"
+  },
+  {
+    "objectID": "01_python.html#the-argument",
+    "href": "01_python.html#the-argument",
+    "title": "Python",
+    "section": "The argument",
+    "text": "The argument\n\nThink of an argument as “something we bring up with someone”\nHere we bring up “What is the result of this Python expression”\nWe can provide other arguments with other options!\n\n\n%python -c \"print(9 * -1 * -1 + 5)\"\n\n14"
+  },
+  {
+    "objectID": "01_python.html#the-print",
+    "href": "01_python.html#the-print",
+    "title": "Python",
+    "section": "The print",
+    "text": "The print\n\nTo see the result of an expression, we inform Python we wish the result to be printed.\nNamed before monitors were a things, and computational results were printed on tape!\nHere, it means “show the answer at the command line!”\nWe can compare:\n\n\n%python -c \"print(9 * -1 * -1 + 5)\"\n\n14\n\n\n\nWithout print - nothing shows up!\n\n\n%python -c \"(9 * -1 * -1 + 5)\""
+  },
+  {
+    "objectID": "01_python.html#the-print-function",
+    "href": "01_python.html#the-print-function",
+    "title": "Python",
+    "section": "The print function",
+    "text": "The print function\n\nTo see the result of an expression, we inform Python we wish the result to be printed.\nNamed before monitors were a things, and computational results were printed on tape!\nHere, it means “show the answer at the command line!”\nWe can compare:\n\n\n%python -c \"print(9 * -1 * -1 + 5)\"\n\n14"
+  },
+  {
+    "objectID": "01_python.html#functions",
+    "href": "01_python.html#functions",
+    "title": "Python",
+    "section": "Functions",
+    "text": "Functions"
+  },
+  {
+    "objectID": "01_python.html#non-printing",
+    "href": "01_python.html#non-printing",
+    "title": "Python",
+    "section": "Non-printing",
+    "text": "Non-printing\n\nWithout print - nothing shows up!\n\n\n%python -c \"(9 * -1 * -1 + 5)\"\n\n\nThe calculation is still performed, but it is not communicated back to us via the command line."
+  },
+  {
+    "objectID": "01_python.html#the-parens",
+    "href": "01_python.html#the-parens",
+    "title": "Python",
+    "section": "The “parens”",
+    "text": "The “parens”\n\nI call them “parens” because I don’t know how to spell “parentheses”\n\nHad to look it up for this slide.\n\nParens call a function.\nOtherwise nothing happens!\n\n\n%python -c \"print\"\n\n\nSee?"
+  },
+  {
+    "objectID": "01_python.html#compare",
+    "href": "01_python.html#compare",
+    "title": "Python",
+    "section": "Compare",
+    "text": "Compare\n\nEven if we print nothing, when we use parens we get to see the line of nothing at the command line.\n\n\n\n\nNo empty line is printed.\n\n\n%python -c \"print\"\n\n\nThis text is slightly higher.\n\n\n\nAn empty line is printed.\n\n\n%python -c \"print()\"\n\n\n\n\n\nThis text is slightly lower."
+  },
+  {
+    "objectID": "01_python.html#the-difference",
+    "href": "01_python.html#the-difference",
+    "title": "Python",
+    "section": "The Difference",
+    "text": "The Difference\n\nIf a print is called, the computer takes some action.\n\n\nprint()\n\n\n\n\n\nOtherwise, printing is kinda goofy.\n\n\nprint\n\n&lt;function print(*args, sep=' ', end='\\n', file=None, flush=False)&gt;\n\n\n\n(That is how the computer understands what `print`` is)"
+  },
+  {
+    "objectID": "01_python.html#the-print-function-1",
+    "href": "01_python.html#the-print-function-1",
+    "title": "Python",
+    "section": "The print function",
+    "text": "The print function\n\nTo see the result of an expression, we inform Python we wish the result to be printed.\nNamed before monitors were a things, and computational results were printed on tape!\nHere, it means “show the answer at the command line!”\n\n\n%python -c \"print(9 * -1 * -1 + 5)\"\n\n14"
+  },
+  {
+    "objectID": "01_python.html#review",
+    "href": "01_python.html#review",
+    "title": "Python",
+    "section": "Review:",
+    "text": "Review:\n\nTo see the result of an expression, we inform Python we wish the result to be printed.\nNamed before monitors were a things, and computational results were printed on tape!\nHere, it means “show the answer at the command line!”\n\n\n%python -c \"print(9 * -1 * -1 + 5)\"\n\n14"
+  },
+  {
+    "objectID": "01_python.html#review-arithmetic",
+    "href": "01_python.html#review-arithmetic",
+    "title": "Python",
+    "section": "Review: Arithmetic",
+    "text": "Review: Arithmetic\n\nIn Python, we can write many of the same arithmetic operations we use in our math and science classes.\n\n\n6 + 3\n\n9\n\n\n\n6 - 3\n\n3\n\n\n\n6 * 3\n\n18\n\n\n\n6 / 3\n\n2.0"
+  },
+  {
+    "objectID": "01_python.html#is-this-real",
+    "href": "01_python.html#is-this-real",
+    "title": "Python",
+    "section": "Is this real?",
+    "text": "Is this real?\n\nYes, it applies to income tax brackets, one of the most important drivers of human behavior in the largest economies in the world.\nWe use a simpler contrived example for simplicity.\n\n\n\nMarginal Tax Rate\n\n\nSingle Taxable Income\n\n\nMarried Filing Jointly or Qualified Widow(er) Taxable Income\n\n\nMarried Filing Separately Taxable Income\n\n\nHead of Household Taxable Income\n\n\n\n\n10%\n\n\n$0 – $9,275\n\n\n$0 – $18,550\n\n\n$0 – $9,275\n\n\n$0 – $13,250\n\n\n\n\n15%\n\n\n$9,276 – $37,650\n\n\n$18,551 – $75,300\n\n\n$9,276 – $37,650\n\n\n$13,251 – $50,400\n\n\n\n\n25%\n\n\n$37,651 – $91,150\n\n\n$75,301 – $151,900\n\n\n$37,651 – $75,950\n\n\n$50,401 – $130,150\n\n\n\n\n28%\n\n\n$91,151 – $190,150\n\n\n$151,901 – $231,450\n\n\n$75,951 – $115,725\n\n\n$130,151 – $210,800\n\n\n\n\n33%\n\n\n$190,151 – $413,350\n\n\n$231,451 – $413,350\n\n\n$115,726 – $206,675\n\n\n$210,801 – $413,350\n\n\n\n\n35%\n\n\n$413,351 – $415,050\n\n\n$413,351 – $466,950\n\n\n$206,676 – $233,475\n\n\n$413,351 – $441,000\n\n\n\n\n39.6%\n\n\n$415,051+\n\n\n$466,951+\n\n\n$233,476+\n\n\n$441,001+"
+  },
+  {
+    "objectID": "01_python.html#run-python",
+    "href": "01_python.html#run-python",
+    "title": "Python",
+    "section": "“Run” Python",
+    "text": "“Run” Python"
+  },
+  {
+    "objectID": "01_python.html#warning",
+    "href": "01_python.html#warning",
+    "title": "Python",
+    "section": "Warning!",
+    "text": "Warning!\n\nThere is a very important box to check while installing!\n\nBe careful working ahead!\nWe’ll teach how to fix not checking this box but not for a while"
   }
 ]

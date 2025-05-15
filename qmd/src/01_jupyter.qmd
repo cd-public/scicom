@@ -173,4 +173,155 @@ seconds_in_a_day
     - Download and install [Python](https://www.python.org/downloads/)
     - Use Python to download an extension to Python called [JupyterLab](https://jupyter.org/install)
     - Use Python to run Jupyterlab
-- Usually down through the *terminal*
+- Usually done through the *terminal*
+
+## Terminal
+
+- I will also use code expression to show *commands* (not just Python code)
+- I will prefix *commands* with `%` (rather than Mac `$` or Windows `>`) and use different highlighting.
+- Here I demo `echo` which echoes text.
+```{python}
+%echo like this
+```
+
+## Terminal Expression
+
+- On Window we use `python`
+- One MacOS we use `python3`
+- I will use `python` just because this slides are generated on Windows:
+
+:::{.content-visible when-format="pdf"}
+- If you can see this, there isn't a built-in "line magic" to use command line Python from within Jupyter.
+- I simply program one with `%alias`
+```{python}
+%alias python python
+```
+- This was out-of-scope for this lecture.
+:::
+
+```{python}
+%python -c "print(9 * -1 * -1 + 5)"
+```
+
+Let's deconstruct what's happening here.
+
+## The prompt
+
+- The first character shown is  the *prompt*
+    - We use `%`
+    - Windows will show `>`, likely after the name of a folder
+    - MacOS will show `$`
+- We do not type the prompt! it is already there!
+```{python}
+%python -c "print(9 * -1 * -1 + 5)"
+```
+
+## The command
+
+- The first thing we type is `python` (or `python3` on MacOS)
+    - Lowercase!
+    - This instructs the command line to run the Python program.
+    - In early computing all programs ran this way!
+- I term this the "command" - the command, direction, or instruction we provide to system.
+```{python}
+%python -c "print(9 * -1 * -1 + 5)"
+```
+
+## The option
+
+- Next, we type `-c`
+    - We call this the option (or sometimes "flag")
+    - A dash-prefixed character or word that changes how the command is interpreted
+- Another example is `-help`!
+```{python}
+%python -help
+```
+
+## The argument
+
+- Think of an argument as "something we bring up with someone"
+- Here we bring up "What is the result of this Python expression"
+- We can provide other arguments with other options!
+
+```{python}
+%python -c "print(9 * -1 * -1 + 5)"
+```
+
+## The print function
+
+- To see the result of an expression, we inform Python we wish the result to be `print`ed.
+- Named before monitors were a things, and computational results were printed on tape!
+- Here, it means "show the answer at the command line!"
+- We can compare:
+```{python}
+%python -c "print(9 * -1 * -1 + 5)"
+```
+
+## Non-printing
+
+- Without `print` - nothing shows up!
+```{python}
+%python -c "(9 * -1 * -1 + 5)"
+```
+- The calculation is still performed, but it is not *communicated* back to us via the command line.
+
+## The "parens"
+
+- I call them "parens" because I don't know how to spell "parentheses"
+    - Had to look it up for this slide.
+- Parens *call* a function.
+- Otherwise nothing happens!
+
+```{python}
+%python -c "print"
+```
+- See?
+
+## Compare
+
+- Even if we print *nothing*, when we use parens we get to see the line of nothing at the command line.
+
+:::: {.columns}
+
+::: {.column width="50%"}
+- No empty line is printed.
+```{python}
+%python -c "print"
+```
+
+- This text is slightly higher.
+:::
+
+::: {.column width="50%"}
+- An empty line is printed.
+```{python}
+%python -c "print()"
+```
+
+- This text is slightly lower.
+
+:::
+
+::::
+
+## The Difference
+
+- If a print is called, the computer takes some action.
+```{python}
+print()
+```
+- Otherwise, printing is kinda goofy.
+
+```{python}
+print
+```
+- (That is how the *computer* understands what `print`` is)
+
+## Review:
+
+- To see the result of an expression, we inform Python we wish the result to be `print`ed.
+- Named before monitors were a things, and computational results were printed on tape!
+- Here, it means "show the answer at the command line!"
+```{python}
+%python -c "print(9 * -1 * -1 + 5)"
+```

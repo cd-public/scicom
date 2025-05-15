@@ -54,6 +54,70 @@ $$
 \{-1, 4,5, 8, 11\}
 $$
 
+## Is this real?
+
+- Yes, it applies to income tax brackets, one of the most important drivers of human behavior in the largest economies in the world.
+- We use a simpler contrived example for simplicity.
+
+
+<table style="font-size:1em">
+<th>Marginal Tax Rate</th>
+<th>Single Taxable Income</th>
+<th>Married Filing Jointly or Qualified Widow(er) Taxable Income</th>
+<th>Married Filing Separately Taxable Income</th>
+<th>Head of Household Taxable Income</th>
+</tr>
+<tr>
+<th>10%</th>
+<td>$0 – $9,275</td>
+<td>$0 – $18,550</td>
+<td>$0 – $9,275</td>
+<td>$0 – $13,250</td>
+</tr>
+<tr>
+<th>15%</th>
+<td>$9,276 – $37,650</td>
+<td>$18,551 – $75,300</td>
+<td>$9,276 – $37,650</td>
+<td>$13,251 – $50,400</td>
+</tr>
+<tr>
+<th>25%</th>
+<td>$37,651 – $91,150</td>
+<td>$75,301 – $151,900</td>
+<td>$37,651 – $75,950</td>
+<td>$50,401 – $130,150</td>
+</tr>
+<tr>
+<th>28%</th>
+<td>$91,151 – $190,150</td>
+<td>$151,901 – $231,450</td>
+<td>$75,951 – $115,725</td>
+<td>$130,151 – $210,800</td>
+</tr>
+<tr>
+<th>33%</th>
+<td>$190,151 – $413,350</td>
+<td>$231,451 – $413,350</td>
+<td>$115,726 – $206,675</td>
+<td>$210,801 – $413,350</td>
+</tr>
+<tr>
+<th>35%</th>
+<td>$413,351 – $415,050</td>
+<td>$413,351 – $466,950</td>
+<td>$206,676 – $233,475</td>
+<td>$413,351 – $441,000</td>
+</tr>
+<tr>
+<th>39.6%</th>
+<td>$415,051+</td>
+<td>$466,951+</td>
+<td>$233,476+</td>
+<td>$441,001+</td>
+</table>
+
+
 ## How to solve?
 
 - Think about how you would solve such a problem.
@@ -116,8 +180,90 @@ $$
 - Use Python? How?
 - To use Python to make this calculation, first we must install Python.
     - It is a program, like Firefox, MS Word or Fortnite
-- We go to the offial webpage to get a downloader for our computer:
+
+## Warning!
+
+- There is a very important box to check while installing!
+    - Be careful working ahead!
+    - We'll teach how to fix not checking this box *but not for a while*
+
+## Installation
+
+- We go to the offial webpage to get an installer for our computer:
     - [https://www.python.org/downloads/](https://www.python.org/downloads/)
+- Be careful about starting it!
+    - You can open it and check the next slide.
+
+## Add Python to PATH
+
+![](img/add-python-to-path.png)
+
+## Why?
+
+- The benefit of adding Python to path is that we can use it at
+- &lt;dramatic music&gt;
+- *The Command Line*
+    - A text-based interface to computing resources, including its ability to do e.g. arithmetic and save notes.
+
+## Terminal
+
+- On MS Windows
+    - I press Windows key, type "terminal" then press enter.
+- On MacOS
+    - I open Launchpad, type "terminal" then press enter.
+
+
+## MacOS
+
+![](img/zsh.png)
+
+## Windows
+
+![](img/ps.webp)
+
+
+## Expression evaluation
+
+- Returning to the terminal, we can type at the "prompt".
+- On MacOS, perhaps a line that begins with `$` and a flashing cursor
+- On Window, perhaps `PS C:\Users\calvin>`
+    - `PS` stands for "powershell" - more latter.
+    - `C:\Users\calvin` is the name of a folder - more latter
+    - `>` is the prompt, with a flashing cursor.
+
+## "Run" Python
+
+
+
+## Recall
+
+- Our motivation example was calculating the result of the following expression:
+
+```{python}
+9 * -1 * -1 + 5
+```
+
+
+
+## Review: Arithmetic
+
+- In Python, we can write many of the same arithmetic operations we use in our math and science classes.
+```{python}
+6 + 3
+```
+
+```{python}
+6 - 3
+```
+
+```{python}
+6 * 3
+```
+
+```{python}
+6 / 3
+```
+
 
 ## A.4.2 Indexing and Lists
 
