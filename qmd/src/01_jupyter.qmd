@@ -1,0 +1,176 @@
+---
+title: Python
+---
+
+## Why Python?
+
+* Python is free,
+* Python is very widely used,
+* Python is flexible,
+* Python is relatively easy to learn,
+* and Python is quite powerful.
+
+## Why not Python?
+
+- Python is a general purpose language used for Scientific Computing. 
+- _Not_ to build apps, build software, manage databases, or develop user interfaces. 
+- Solve scientific and mathematical problems.
+
+## Python libraries
+
+There is an overwhelming abundance of information available about Python and the suite of tools that we will frequently use.
+
+* [Python](https://www.python.org/),
+* [`numpy` (numerical Python)](https://www.numpy.org/),
+* [`matplotlib` (a suite of plotting tools)](https://matplotlib.org/),
+* [`scipy` (scientific Python)](https://www.scipy.org/), and
+* [`sympy` (symbolic Python)](https://www.sympy.org/en/index.html).
+
+## Hello, World!
+
+```{python}
+print("Hello, world!")
+```
+
+- `print` is a function
+    - It is a *built-in* function
+- `()` are used to *call*"* a function
+- Double quotes `""` are used to enclose a *string* of characters
+    - Single quotes `''` may also be used.
+    - Only stay "string" instead of "word" as may be multiple words, an email address, etc.
+
+## These slides
+
+- Code blocks will be enclosed in a white box on a black background, with code in a *monospace* (all characters of the same width) font of slightly smaller size.
+- The code will be *syntax highlighted*, as it will be highlighted in most programs for writing Python.
+- There will be line numbers.
+
+```{python}
+print("I will show code this way on these slides.")
+```
+
+- The output of a Python expression will be in white text of the same size and font style under the code block.
+
+
+## Environments
+
+- For scientific computing, often use "Jupter" or "IPython"
+    - Usually through the web at [Google Colab](https://colab.research.google.com/)
+    - Or open source via [Binder](mybinder.org)
+    - Historically on your device (not a website) via [JupyterLab](https://jupyter.org/)
+        - Still opens in a web browser!
+    - I like [VS Code](https://code.visualstudio.com/docs/datascience/jupyter-notebooks).
+        - Either [Jupyter](https://code.visualstudio.com/docs/datascience/jupyter-notebooks) or [Quarto](https://quarto.org/docs/tools/vscode.html)
+
+## Commonalities
+
+- Each of these environments has..
+    - *Notebooks*
+        - The "document" or "file" for computational work
+        - Saved as a ".ipynb" (**I**nteractive **PY**thon **N**ote**B**ooks)
+
+## Notebooks
+
+- A text file (.txt) contains an ordered collection of letters.
+- A notebook is an ordered collection of cells.
+    - Text cells contain notes, just like a text file
+    - Code cells contain calculations, like a "script" writting in programming language (like a Python file)
+
+## Text Cells
+
+- One type of cell is the "Text" cell.
+- They are not related to Python or performing calculations.
+- They are used to take notes and keep track of process.
+
+## Markdown
+
+- These slides, and the text in text cells can be styled in Markdown.
+- Markdown is a way to styling text using only text characters.
+```{.md}
+Plain text. **Bold**. *Italic*. [Link](https://xkcd.com/).
+
+- List item
+- List item
+```
+Plain text. **Bold**. *Italic*.  [Link](https://xkcd.com/).
+
+- List item
+- List item
+
+## On Markdown
+
+- Markdown is a wonderful tool and will recur throughout this term.
+- All course materials are written in Markdown.
+- Learn more here: [Markdown Guide](https://www.markdownguide.org/getting-started/#flavors-of-markdown)
+- Use it here: [Dillinger.io](https://dillinger.io/)
+
+## Code Cells
+
+- The other type of cell is a code cell.
+- The text within a code cell is Python code
+- *Beneath* the cell is output of the Python code.
+```{python}
+"Like this"
+```
+
+## Code Cells
+
+- We will learn more latter, but
+- In general, the output is whatever the result of *last* line is.
+```{python}
+"This doesn't show up"
+1 + 1
+```
+
+## Code Cells
+
+- After survey of environments, we'll get into writing code!
+
+## Colab
+
+- Go to [https://colab.research.google.com/](https://colab.research.google.com/)
+- The landing page is a Colab guide.
+- You will have to log in to a Google account to run run code blocks.
+- Here's the Colab example:
+```{python}
+seconds_in_a_day = 24 * 60 * 60
+seconds_in_a_day
+```
+
+## Saving Notebooks
+
+- Saving Colab notebooks I find *annoying*.
+- The best way is probably making a folder for course in Google drive, and naming with a number and a subject (today is `01_Python.ipynb` in the `SciCom` folder) for me.
+- Think about *how* to save all your code **before** writing any code.
+
+## Binder
+
+- If you don't like Google and do like browsers, the best option is probably Binder.
+- Binder is community provided (not tech company provided).
+- Here is a guide: [Zero-to-Binder](https://the-turing-way.netlify.app/communication/binder/zero-to-binder.html)
+
+## Quick Demo
+
+- You can navigate to [https://mybinder.org](https://mybinder.org)
+- You can use a GitHub repository I made. [https://github.com/cd-public/my-first-binder](https://github.com/cd-public/my-first-binder)
+- You can use a file I made `hello.ipynb`
+    - **I**nteractive **PY**thon **N**ote**B**ook.
+- We will cover GitHub more soon!
+
+## Sample Link
+
+- I think this link works to have something. 
+    - [Link](https://mybinder.org/v2/gh/cd-public/my-first-binder/87acf03a6f87b2f4de46a4cc939097db4911e9f2?urlpath=lab%2Ftree%2Fhello.ipynb)
+- Not a great way to save these.
+    - Download, or
+    - Save to GitHub
+    - Saving on Binder saves only until browser window closes!
+
+## JupyterLab
+
+- Sometimes the internet is out, etc.
+- Before Colab and Binder, JupyterLab could run on your own computer.
+    - Download and install [Python](https://www.python.org/downloads/)
+    - Use Python to download an extension to Python called [JupyterLab](https://jupyter.org/install)
+    - Use Python to run Jupyterlab
+- Usually down through the *terminal*

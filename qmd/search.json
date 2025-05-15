@@ -18,7 +18,7 @@
     "href": "01_python.html#hello-world",
     "title": "Python",
     "section": "Hello, World!",
-    "text": "Hello, World!\n\nprint(\"Hello, world!\")\n\nHello, world!\n\n\n\nprint is a function\n\nIt is a built-in function\n\n() are used to call”* a function\nDouble quotes \"\" are used to enclose a string of characters\n\nSingle quotes '' may also be used.\nOnly stay “string” instead of “word” as may be multiple words, an email address, etc."
+    "text": "Hello, World!\n\nprint(\"Hello, world!\")\n\nHello, world!\n\n\n\nprint is a function\n\nIt is a built-in function\n\n() are used to call a function\n\nLike f(x) = 2x in math class\n\nThe double quotes \"\" denote something is textual data\n\nNot the name of some code (like print)"
   },
   {
     "objectID": "01_python.html#a.4-python-programming-basics",
@@ -186,7 +186,7 @@
     "href": "01_python.html#python-libraries",
     "title": "Python",
     "section": "Python libraries",
-    "text": "Python libraries\nThere is an overwhelming abundance of information available about Python and the suite of tools that we will frequently use.\n\nPython,\nnumpy (numerical Python),\nmatplotlib (a suite of plotting tools),\nscipy (scientific Python), and\nsympy (symbolic Python)."
+    "text": "Python libraries\nScientists often use the following:\n\nPython,\nnumpy (numerical Python),\nmatplotlib (a suite of plotting tools),\nscipy (scientific Python), and\nsympy (symbolic Python).\n\nWe’ll get to these."
   },
   {
     "objectID": "01_python.html#environments",
@@ -200,7 +200,7 @@
     "href": "01_python.html#these-slides",
     "title": "Python",
     "section": "These slides",
-    "text": "These slides\n\nCode blocks will be enclosed in a white box on a black background, with code in a monospace (all characters of the same width) font of slightly smaller size.\nThe code will be syntax highlighted, as it will be highlighted in most programs for writing Python.\nThere will be line numbers.\n\n\nprint(\"I will show code this way on these slides.\")\n\nI will show code this way on these slides.\n\n\n\nThe output of a Python expression will be in white text of the same size and font style under the code block."
+    "text": "These slides\n\nCode blocks will be enclosed in a white box on a black background, with code in a monospace (all characters of the same width) font of slightly smaller size.\nThe code will be syntax highlighted, as it will be highlighted in most programs for writing Python.\nThere will be line numbers."
   },
   {
     "objectID": "01_python.html#colab",
@@ -306,5 +306,75 @@
     "title": "Python",
     "section": "JupyterLab",
     "text": "JupyterLab\n\nSometimes the internet is out, etc.\nBefore Colab and Binder, JupyterLab could run on your own computer.\n\nDownload and install Python\nUse Python to download an extension to Python called JupyterLab\nUse Python to run Jupyterlab\n\nUsually down through the terminal"
+  },
+  {
+    "objectID": "01_python.html#motivating-example",
+    "href": "01_python.html#motivating-example",
+    "title": "Python",
+    "section": "Motivating Example",
+    "text": "Motivating Example\n\nRecently, I helped a student stuck on this:\n\n\\[\nf(x) =\n\\begin{cases}\n  9x^2 + 5 & x &lt; 4 \\\\\n  9 & 4 \\leq x \\leq 8 \\\\\n  2 - x & x &gt; 8\n\\end{cases}\n\\]\n\nFind \\(f(x)\\) for each of the following \\(x\\) values: \\[\n\\{-1, 4,5, 8, 11\\}\n\\]"
+  },
+  {
+    "objectID": "01_python.html#rewrite",
+    "href": "01_python.html#rewrite",
+    "title": "Python",
+    "section": "Rewrite",
+    "text": "Rewrite\n\\[\nf(x) =\n\\begin{cases}\n  9x^2 + 5 & x &lt; 4 \\\\\n  9 & 4 \\leq x \\leq 8 \\\\\n  2 - x & x &gt; 8\n\\end{cases}\n\\]\n\nWe are asked \\(f(x)\\) for the following \\(x\\) values: \\[\n\\{-1, 4,5, 8, -11\\}\n\\]"
+  },
+  {
+    "objectID": "01_python.html#example",
+    "href": "01_python.html#example",
+    "title": "Python",
+    "section": "Example",
+    "text": "Example\n\nprint(\"I will show code this way on these slides.\")\n\nI will show code this way on these slides.\n\n\n\nThe output of a Python expression will be in white text of the same size and font style under the code block."
+  },
+  {
+    "objectID": "01_python.html#a.4.2-indexing-and-lists",
+    "href": "01_python.html#a.4.2-indexing-and-lists",
+    "title": "Python",
+    "section": "A.4.2 Indexing and Lists",
+    "text": "A.4.2 Indexing and Lists\nLists are a key component to storing data in Python. Lists are exactly what the name says: lists of things (in our case, usually the entries are floating point numbers).\nWarning: Python indexing starts at 0 whereas some other programming languages have indexing starting at 1. We just have to keep this in mind.\nWe can extract a part of a list using the syntax name[start:stop] which extracts elements between index start and stop-1. Take note that Python stops reading at the second to last index. This often catches people off guard when they first start with Python.\nSome things to keep in mind with Python lists:\n\nPython starts indexing at 0\nPython stops reading at the second to last index\nThe following blocks of code show this feature in action for several different lists."
+  },
+  {
+    "objectID": "01_python.html#how-to-solve",
+    "href": "01_python.html#how-to-solve",
+    "title": "Python",
+    "section": "How to solve?",
+    "text": "How to solve?\n\nThink about how you would solve such a problem.\nWhat steps would you take?\nWhat would making solving it hard?\n\nKeep track of details?\nPerforming the arithmetic?\nAnything else?\n\nPython, in my view, is a way to solve these problems."
+  },
+  {
+    "objectID": "01_python.html#python-in-action",
+    "href": "01_python.html#python-in-action",
+    "title": "Python",
+    "section": "Python in action",
+    "text": "Python in action\n\nMy preferred way to do calculation as an experienced Python user is writing code:\n\n\n\n\\[\n\\begin{cases}\n  9x^2 + 5 & x &lt; 4 \\\\\n  9 & 4 \\leq x \\leq 8 \\\\\n  2 - x & x &gt; 8\n\\end{cases}\n\\]\n\n\n9 * -1 * -1 + 5\n\n14\n\n\n\n\nI write x * x for \\(x^2\\) because it’s non-obvious how to write “squared” yet."
+  },
+  {
+    "objectID": "01_python.html#how-to-use-python",
+    "href": "01_python.html#how-to-use-python",
+    "title": "Python",
+    "section": "How to use Python",
+    "text": "How to use Python\n\nTo use Python to make this calculation, first we must install Python.\n\nIt is a program, like Firefox, MS Word or Fortnite\n\nWe go to the offial webpage to get a downloader for our computer:\n\nhttps://www.python.org/downloads/"
+  },
+  {
+    "objectID": "01_python.html#diving-in",
+    "href": "01_python.html#diving-in",
+    "title": "Python",
+    "section": "Diving In",
+    "text": "Diving In\n\nTaking Python as a given, we’ll:\n\nUse an example of something I helped a student with recently\nShow step-by-step how to use Python\nIntroduce a number of Python features to solve the problem more easily.\n\nThis was from an introductory physics class I believe; I don’t know the context."
+  },
+  {
+    "objectID": "01_python.html#arithmetic",
+    "href": "01_python.html#arithmetic",
+    "title": "Python",
+    "section": "Arithmetic",
+    "text": "Arithmetic\n\nIn Python, we can write many of the same arithmetic operations we use in our math and science classes.\n\n\n6 + 3\n\n9\n\n\n\n6 - 3\n\n3\n\n\n\n6 * 3\n\n18\n\n\n\n6 / 3\n\n2.0"
+  },
+  {
+    "objectID": "01_python.html#wait",
+    "href": "01_python.html#wait",
+    "title": "Python",
+    "section": "Wait?",
+    "text": "Wait?\n\nUse Python? How?\nTo use Python to make this calculation, first we must install Python.\n\nIt is a program, like Firefox, MS Word or Fortnite\n\nWe go to the offial webpage to get a downloader for our computer:\n\nhttps://www.python.org/downloads/"
   }
 ]
