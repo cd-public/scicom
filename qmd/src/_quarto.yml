@@ -1,13 +1,23 @@
 project:
-  type: website
-  output-dir: ../
+    type: website
+    output-dir: ../
+
+website:
+    title: "Scientific Computing in Python"
+    search:
+        location: navbar
+        type: overlay
+    navbar:
+        background: primary
 
 subtitle: "Scientific Computing"
 author: "Prof. Calvin"
   
 jupyter: python3
 
-format: 
+format:
+    html:
+        theme: darkly 
     revealjs: 
         theme: dark
         mainfont: monospace
@@ -16,6 +26,7 @@ format:
         width: 1050
         height: 700
         footer: "[Home](../index.html)"
+        output-ext: rjs.html
 
 execute:
     echo: true
