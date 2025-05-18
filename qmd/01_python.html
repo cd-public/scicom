@@ -1,211 +1,173 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.30">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Python – Scientific Computing in Python</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-html/tabby.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.6.42">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-a4a11d514c7d463668e07712114998e6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-70c9a4798e5f6abb0636bcdc3eed0e90.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
 
-  <meta name="author" content="Prof.&nbsp;Calvin">
-  <title>Python</title>
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="site_libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="site_libs/revealjs/dist/reveal.css">
-  <style>
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-    ul.task-list li input[type="checkbox"] {
-      width: 0.8em;
-      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
-      vertical-align: middle;
-    }
-    /* CSS for syntax highlighting */
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
       }
-    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-    div.sourceCode
-      { color: #f8f8f2;  }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
     }
-    code span { color: #f8f8f2; } /* Normal */
-    code span.al { color: #f07178; background-color: #2a0f15; font-weight: bold; } /* Alert */
-    code span.an { color: #d4d0ab; } /* Annotation */
-    code span.at { color: #00e0e0; } /* Attribute */
-    code span.bn { color: #d4d0ab; } /* BaseN */
-    code span.bu { color: #abe338; } /* BuiltIn */
-    code span.cf { color: #ffa07a; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #abe338; } /* Char */
-    code span.cn { color: #ffd700; } /* Constant */
-    code span.co { color: #f8f8f2; font-style: italic; } /* Comment */
-    code span.cv { color: #ffd700; } /* CommentVar */
-    code span.do { color: #f8f8f2; } /* Documentation */
-    code span.dt { color: #ffa07a; } /* DataType */
-    code span.dv { color: #d4d0ab; } /* DecVal */
-    code span.er { color: #f07178; text-decoration: underline; } /* Error */
-    code span.ex { color: #00e0e0; font-weight: bold; } /* Extension */
-    code span.fl { color: #d4d0ab; } /* Float */
-    code span.fu { color: #ffa07a; } /* Function */
-    code span.im { color: #abe338; } /* Import */
-    code span.in { color: #d4d0ab; } /* Information */
-    code span.kw { color: #ffa07a; font-weight: bold; } /* Keyword */
-    code span.op { color: #ffa07a; } /* Operator */
-    code span.ot { color: #00e0e0; } /* Other */
-    code span.pp { color: #dcc6e0; } /* Preprocessor */
-    code span.re { color: #00e0e0; background-color: #f8f8f2; } /* RegionMarker */
-    code span.sc { color: #abe338; } /* SpecialChar */
-    code span.ss { color: #abe338; } /* SpecialString */
-    code span.st { color: #abe338; } /* String */
-    code span.va { color: #00e0e0; } /* Variable */
-    code span.vs { color: #abe338; } /* VerbatimString */
-    code span.wa { color: #dcc6e0; } /* Warning */
-  </style>
-  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-2d3a7233fc6c7b59581a5bec7603c650.css">
-  <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
-  <style type="text/css">
-    .reveal div.sourceCode {
-      margin: 0;
-      overflow: auto;
-    }
-    .reveal div.hanging-indent {
-      margin-left: 1em;
-      text-indent: -1em;
-    }
-    .reveal .slide:not(.center) {
-      height: 100%;
-    }
-    .reveal .slide.scrollable {
-      overflow-y: auto;
-    }
-    .reveal .footnotes {
-      height: 100%;
-      overflow-y: auto;
-    }
-    .reveal .slide .absolute {
-      position: absolute;
-      display: block;
-    }
-    .reveal .footnotes ol {
-      counter-reset: ol;
-      list-style-type: none; 
-      margin-left: 0;
-    }
-    .reveal .footnotes ol li:before {
-      counter-increment: ol;
-      content: counter(ol) ". "; 
-    }
-    .reveal .footnotes ol li > p:first-child {
-      display: inline-block;
-    }
-    .reveal .slide ul,
-    .reveal .slide ol {
-      margin-bottom: 0.5em;
-    }
-    .reveal .slide ul li,
-    .reveal .slide ol li {
-      margin-top: 0.4em;
-      margin-bottom: 0.2em;
-    }
-    .reveal .slide ul[role="tablist"] li {
-      margin-bottom: 0;
-    }
-    .reveal .slide ul li > *:first-child,
-    .reveal .slide ol li > *:first-child {
-      margin-block-start: 0;
-    }
-    .reveal .slide ul li > *:last-child,
-    .reveal .slide ol li > *:last-child {
-      margin-block-end: 0;
-    }
-    .reveal .slide .columns:nth-child(3) {
-      margin-block-start: 0.8em;
-    }
-    .reveal blockquote {
-      box-shadow: none;
-    }
-    .reveal .tippy-content>* {
-      margin-top: 0.2em;
-      margin-bottom: 0.7em;
-    }
-    .reveal .tippy-content>*:last-child {
-      margin-bottom: 0.2em;
-    }
-    .reveal .slide > img.stretch.quarto-figure-center,
-    .reveal .slide > img.r-stretch.quarto-figure-center {
-      display: block;
-      margin-left: auto;
-      margin-right: auto; 
-    }
-    .reveal .slide > img.stretch.quarto-figure-left,
-    .reveal .slide > img.r-stretch.quarto-figure-left  {
-      display: block;
-      margin-left: 0;
-      margin-right: auto; 
-    }
-    .reveal .slide > img.stretch.quarto-figure-right,
-    .reveal .slide > img.r-stretch.quarto-figure-right  {
-      display: block;
-      margin-left: auto;
-      margin-right: 0; 
-    }
-  </style>
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 </head>
-<body class="quarto-dark">
-  <div class="reveal">
-    <div class="slides">
 
-<section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Python</h1>
-  <p class="subtitle">Scientific Computing</p>
+<body>
 
-<div class="quarto-title-authors">
-<div class="quarto-title-author">
-<div class="quarto-title-author-name">
-Prof.&nbsp;Calvin 
-</div>
-</div>
+<div id="quarto-search-results"></div>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="01_python.rjs.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Python</h1>
 </div>
 
-</section>
-<section id="why-python" class="slide level2">
-<h2>Why Python?</h2>
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="why-python" class="level1">
+<h1>Why Python?</h1>
+<section id="on-python" class="level2">
+<h2 class="anchored" data-anchor-id="on-python">On Python</h2>
 <ul>
 <li>Python is free,</li>
 <li>Python is very widely used,</li>
@@ -214,16 +176,16 @@ Prof.&nbsp;Calvin
 <li>and Python is quite powerful.</li>
 </ul>
 </section>
-<section id="why-not-python" class="slide level2">
-<h2>Why not Python?</h2>
+<section id="why-not-python" class="level2">
+<h2 class="anchored" data-anchor-id="why-not-python">Why not Python?</h2>
 <ul>
 <li>Python is a general purpose language used for Scientific Computing.</li>
 <li><em>Not</em> to build apps, build software, manage databases, or develop user interfaces.</li>
 <li>Solve scientific and mathematical problems.</li>
 </ul>
 </section>
-<section id="python-libraries" class="slide level2">
-<h2>Python libraries</h2>
+<section id="python-libraries" class="level2">
+<h2 class="anchored" data-anchor-id="python-libraries">Python libraries</h2>
 <p>Scientists often use the following:</p>
 <ul>
 <li><a href="https://www.python.org/">Python</a>,</li>
@@ -234,8 +196,11 @@ Prof.&nbsp;Calvin
 </ul>
 <p>We’ll get to these.</p>
 </section>
-<section id="diving-in" class="slide level2">
-<h2>Diving In</h2>
+</section>
+<section id="running-example" class="level1">
+<h1>Running Example</h1>
+<section id="diving-in" class="level2">
+<h2 class="anchored" data-anchor-id="diving-in">Diving In</h2>
 <ul>
 <li>Taking Python as a given, we’ll:
 <ul>
@@ -246,8 +211,8 @@ Prof.&nbsp;Calvin
 <li>This was from an introductory physics class I believe; I don’t know the context.</li>
 </ul>
 </section>
-<section id="motivating-example" class="slide level2">
-<h2>Motivating Example</h2>
+<section id="motivating-example" class="level2">
+<h2 class="anchored" data-anchor-id="motivating-example">Motivating Example</h2>
 <ul>
 <li>Recently, I helped a student stuck on this:</li>
 </ul>
@@ -261,17 +226,17 @@ f(x) =
 \]</span></p>
 <ul>
 <li>Find <span class="math inline">\(f(x)\)</span> for each of the following <span class="math inline">\(x\)</span> values: <span class="math display">\[
-\{-1, 4,5, 8, 11\}
+\{-1, 4, 5, 8, 11\}
 \]</span></li>
 </ul>
 </section>
-<section id="is-this-real" class="slide level2">
-<h2>Is this real?</h2>
+<section id="is-this-real" class="level2">
+<h2 class="anchored" data-anchor-id="is-this-real">Is this “real”?</h2>
 <ul>
-<li>Yes, it applies to income tax brackets, one of the most important drivers of human behavior in the largest economies in the world.</li>
-<li>We use a simpler contrived example for simplicity.</li>
+<li>Models income tax brackets, one of the most important drivers of human behavior in the largest economies in the world.</li>
+<li>We use a simpler contrived example for now…</li>
 </ul>
-<table style="font-size:1em">
+<table style="font-size:12px">
 <tbody><tr><th>
 Marginal Tax Rate
 </th>
@@ -408,8 +373,8 @@ $441,001+
 </td>
 </tr></tbody></table>
 </section>
-<section id="how-to-solve" class="slide level2">
-<h2>How to solve?</h2>
+<section id="how-to-solve" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-solve">How to solve?</h2>
 <ul>
 <li>Think about how you would solve such a problem.</li>
 <li>What steps would you take?</li>
@@ -422,64 +387,70 @@ $441,001+
 <li>Python, in my view, is a way to solve these problems.</li>
 </ul>
 </section>
-<section id="python-in-action" class="slide level2">
-<h2>Python in action</h2>
+<section id="python-in-action" class="level2">
+<h2 class="anchored" data-anchor-id="python-in-action">Python in action</h2>
 <ul>
-<li>My preferred way to do calculation as an experienced Python user is writing code:</li>
+<li>My preferred way to do calculation as an experienced Python user is writing <em>code</em>:</li>
 </ul>
 <div class="columns">
 <div class="column" style="width:50%;">
-<p><span class="math display">\[
+<ul>
+<li>Mathematical expression <span class="math display">\[
 \begin{cases}
-  9x^2 + 5 &amp; x &lt; 4 \\
-  9 &amp; 4 \leq x \leq 8 \\
-  2 - x &amp; x &gt; 8
+9x^2 + 5 &amp; x &lt; 4 \\
+9 &amp; 4 \leq x \leq 8 \\
+2 - x &amp; x &gt; 8
 \end{cases}
-\]</span></p>
+\]</span></li>
+</ul>
 </div><div class="column" style="width:50%;">
-<div id="d6ebffaf" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="dv">9</span> <span class="op">*</span> <span class="op">-</span><span class="dv">1</span> <span class="op">*</span> <span class="op">-</span><span class="dv">1</span> <span class="op">+</span> <span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="1">
+<ul>
+<li>Python expression (code)</li>
+</ul>
+<div id="102da258" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">9</span> <span class="op">*</span> <span class="op">-</span><span class="dv">1</span> <span class="op">*</span> <span class="op">-</span><span class="dv">1</span> <span class="op">+</span> <span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="501">
 <pre><code>14</code></pre>
 </div>
 </div>
-</div></div>
+</div>
+</div>
 <ul>
 <li>I write <code>x * x</code> for <span class="math inline">\(x^2\)</span> because it’s non-obvious how to write “squared” yet.</li>
 </ul>
 </section>
-<section id="arithmetic" class="slide level2">
-<h2>Arithmetic</h2>
+<section id="arithmetic-operations" class="level2">
+<h2 class="anchored" data-anchor-id="arithmetic-operations">Arithmetic Operations</h2>
 <ul>
 <li>In Python, we can write many of the same arithmetic operations we use in our math and science classes.</li>
 </ul>
-<div id="2c8455af" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a><span class="dv">6</span> <span class="op">+</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="2">
+<div id="ac259a13" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dv">6</span> <span class="op">+</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="502">
 <pre><code>9</code></pre>
 </div>
 </div>
-<div id="d1d5fd04" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a><span class="dv">6</span> <span class="op">-</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
+<div id="233fab4a" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dv">6</span> <span class="op">-</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="503">
 <pre><code>3</code></pre>
 </div>
 </div>
-<div id="94173f88" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a><span class="dv">6</span> <span class="op">*</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
+<div id="119c9592" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dv">6</span> <span class="op">*</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="504">
 <pre><code>18</code></pre>
 </div>
 </div>
-<div id="240c0e3b" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a><span class="dv">6</span> <span class="op">/</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="5">
+<div id="0fa0688a" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dv">6</span> <span class="op">/</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="505">
 <pre><code>2.0</code></pre>
 </div>
 </div>
 </section>
-<section id="wait" class="slide level2">
-<h2>Wait?</h2>
+<section id="wait" class="level2">
+<h2 class="anchored" data-anchor-id="wait">Wait?</h2>
 <ul>
 <li>Use Python? How?</li>
 <li>To use Python to make this calculation, first we must install Python.
@@ -488,8 +459,11 @@ $441,001+
 </ul></li>
 </ul>
 </section>
-<section id="warning" class="slide level2">
-<h2>Warning!</h2>
+</section>
+<section id="installing-python" class="level1">
+<h1>Installing Python</h1>
+<section id="warning" class="level2">
+<h2 class="anchored" data-anchor-id="warning">Warning!</h2>
 <ul>
 <li>There is a very important box to check while installing!
 <ul>
@@ -498,8 +472,8 @@ $441,001+
 </ul></li>
 </ul>
 </section>
-<section id="installation" class="slide level2">
-<h2>Installation</h2>
+<section id="installation" class="level2">
+<h2 class="anchored" data-anchor-id="installation">Installation</h2>
 <ul>
 <li>We go to the offial webpage to get an installer for our computer:
 <ul>
@@ -511,12 +485,12 @@ $441,001+
 </ul></li>
 </ul>
 </section>
-<section id="add-python-to-path" class="slide level2">
-<h2>Add Python to PATH</h2>
-
-<img data-src="img/add-python-to-path.png" class="r-stretch"></section>
-<section id="why" class="slide level2">
-<h2>Why?</h2>
+<section id="add-python-to-path" class="level2">
+<h2 class="anchored" data-anchor-id="add-python-to-path">Add Python to PATH</h2>
+<p><img src="img/add-python-to-path.png" class="img-fluid"></p>
+</section>
+<section id="why" class="level2">
+<h2 class="anchored" data-anchor-id="why">Why?</h2>
 <ul>
 <li>The benefit of adding Python to path is that we can use it at</li>
 <li>&lt;dramatic music&gt;</li>
@@ -526,8 +500,8 @@ $441,001+
 </ul></li>
 </ul>
 </section>
-<section id="terminal" class="slide level2">
-<h2>Terminal</h2>
+<section id="terminal" class="level2">
+<h2 class="anchored" data-anchor-id="terminal">Terminal</h2>
 <ul>
 <li>On MS Windows
 <ul>
@@ -539,16 +513,16 @@ $441,001+
 </ul></li>
 </ul>
 </section>
-<section id="macos" class="slide level2">
-<h2>MacOS</h2>
-
-<img data-src="img/zsh.png" class="r-stretch"></section>
-<section id="windows" class="slide level2">
-<h2>Windows</h2>
-
-<img data-src="img/ps.webp" class="r-stretch"></section>
-<section id="expression-evaluation" class="slide level2">
-<h2>Expression evaluation</h2>
+<section id="macos" class="level2">
+<h2 class="anchored" data-anchor-id="macos">MacOS</h2>
+<p><img src="img/zsh.png" class="img-fluid"></p>
+</section>
+<section id="windows" class="level2">
+<h2 class="anchored" data-anchor-id="windows">Windows</h2>
+<p><img src="img/ps.webp" class="img-fluid"></p>
+</section>
+<section id="expression-evaluation" class="level2">
+<h2 class="anchored" data-anchor-id="expression-evaluation">Expression evaluation</h2>
 <ul>
 <li>Returning to the terminal, we can type at the “prompt”.</li>
 <li>On MacOS, perhaps a line that begins with <code>$</code> and a flashing cursor</li>
@@ -560,2086 +534,1023 @@ $441,001+
 </ul></li>
 </ul>
 </section>
-<section id="run-python" class="slide level2">
-<h2>“Run” Python</h2>
-</section>
-<section id="recall" class="slide level2">
-<h2>Recall</h2>
+<section id="run-python" class="level2">
+<h2 class="anchored" data-anchor-id="run-python">“Run” Python</h2>
+<p><em>In the following examples, I remove line numbers to denote they are not Python code snippets.</em></p>
 <ul>
-<li>Our motivation example was calculating the result of the following expression:</li>
+<li>On Windows, type <code>python</code></li>
 </ul>
-<div id="11eff388" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a><span class="dv">9</span> <span class="op">*</span> <span class="op">-</span><span class="dv">1</span> <span class="op">*</span> <span class="op">-</span><span class="dv">1</span> <span class="op">+</span> <span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="6">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Windows</strong></pre>
+</div>
+<div class="sourceCode" id="cb11" data-filename="Windows"><pre class="sourceCode ps code-with-copy"><code class="sourceCode postscript"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>PS C:\Users\calvin&gt; python</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>On MacOS, type <code>python3</code></li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>MacOS</strong></pre>
+</div>
+<div class="sourceCode" id="cb12" data-filename="MacOS"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> python3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>On both, press the <strong>↵ᴇɴᴛᴇʀ</strong> key.</li>
+</ul>
+</section>
+<section id="see-python" class="level2">
+<h2 class="anchored" data-anchor-id="see-python">See Python</h2>
+<ul>
+<li>You’ll see something like this:</li>
+</ul>
+<div class="sourceCode" id="cb13"><pre class="sourceCode email code-with-copy"><code class="sourceCode email"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>Python 3.12.5 (tags/v3.12.5:ff3bc82, Aug  6 2024, 20:45:27) [MSC v.1940 64 bit (AMD64)] on win32</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>Type "help", "copyright", "credits" or "license" for more information.</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>&gt;&gt;&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Take note of the prompt!</li>
+<li><code>&gt;&gt;&gt;</code></li>
+<li>Those three are how you know it is Python, and not the Terminal, that you are working in.</li>
+</ul>
+</section>
+<section id="example" class="level2">
+<h2 class="anchored" data-anchor-id="example">Example</h2>
+<ul>
+<li>If I type <code>python</code> at the command line</li>
+<li>Then <code>9 * -1 * -1 + 5</code> <em>within</em> Python</li>
+<li>It will look like this:</li>
+</ul>
+<div class="sourceCode" id="cb14"><pre class="sourceCode email code-with-copy"><code class="sourceCode email"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>PS C:\Users\calvin&gt; python</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>Python 3.12.5 (tags/v3.12.5:ff3bc82, Aug  6 2024, 20:45:27) [MSC v.1940 64 bit (AMD64)] on win32</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>Type "help", "copyright", "credits" or "license" for more information.</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>&gt;&gt;&gt; 9 * -1 * -1 + 5</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>14</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>&gt;&gt;&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>This is how Python shows that <code>9 * -1 * -1 + 5</code> is <code>14</code></li>
+</ul>
+</section>
+</section>
+<section id="evaluating-expressions" class="level1">
+<h1>Evaluating Expressions</h1>
+<section id="recall" class="level2">
+<h2 class="anchored" data-anchor-id="recall">Recall</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><span class="math display">\[
+\begin{cases}
+  9x^2 + 5 &amp; x &lt; 4 \\
+  9 &amp; 4 \leq x \leq 8 \\
+  2 - x &amp; x &gt; 8
+\end{cases}
+\]</span> <span class="math display">\[
+\{-1, 4, 5, 8, 11\}
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="dv">9</span> <span class="op">*</span> <span class="op">-</span><span class="dv">1</span> <span class="op">*</span> <span class="op">-</span><span class="dv">1</span> <span class="op">+</span> <span class="dv">5</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="dv">14</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="dv">9</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="dv">9</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="dv">9</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="dv">9</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="dv">2</span> <span class="op">-</span> <span class="dv">8</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="op">-</span><span class="dv">6</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="dv">2</span> <span class="op">-</span> <span class="dv">11</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="op">-</span><span class="dv">9</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<ul>
+<li>This is still quite tedious and annoying!</li>
+</ul>
+</section>
+<section id="inequality-testing" class="level2">
+<h2 class="anchored" data-anchor-id="inequality-testing">(In)equality testing</h2>
+<ul>
+<li>Like <code>+</code> or <code>-</code> which we use to calculate numbers…</li>
+<li>We can use <code>&lt;</code> or <code>&gt;</code> to calculate inequalities.</li>
+<li>Specifically, we see whether an inequality is <code>True</code> or <code>False</code></li>
+</ul>
+<div id="9c97ef89" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="op">-</span><span class="dv">1</span> <span class="op">&lt;</span> <span class="dv">4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="506">
+<pre><code>True</code></pre>
+</div>
+</div>
+<div id="e0fc265f" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span> <span class="op">&lt;</span> <span class="dv">4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="507">
+<pre><code>False</code></pre>
+</div>
+</div>
+</section>
+<section id="accomodating-keyboards" class="level2">
+<h2 class="anchored" data-anchor-id="accomodating-keyboards">Accomodating Keyboards</h2>
+<ul>
+<li>Some things aren’t super easy to type.</li>
+<li>I don’t have a “<span class="math inline">\(\leq\)</span>” key on my keyboard.</li>
+<li>Combine with <code>=</code> as <code>&lt;=</code> for “less than or equal” or “<span class="math inline">\(\leq\)</span>”</li>
+</ul>
+<div id="174cf9fd" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span> <span class="op">&lt;=</span> <span class="dv">4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="508">
+<pre><code>True</code></pre>
+</div>
+</div>
+<ul>
+<li>We can “chain” inequalities as well - one after another.</li>
+</ul>
+<div id="ff67645f" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span> <span class="op">&lt;=</span> <span class="dv">4</span> <span class="op">&lt;=</span> <span class="dv">8</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="509">
+<pre><code>True</code></pre>
+</div>
+</div>
+</section>
+<section id="a-note" class="level2">
+<h2 class="anchored" data-anchor-id="a-note">A note</h2>
+<ul>
+<li>We always put the equal sign <code>=</code> second.</li>
+</ul>
+<div id="69a1b80f" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span> <span class="op">&lt;=</span> <span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="510">
+<pre><code>True</code></pre>
+</div>
+</div>
+<div id="790c54f5" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="op">&gt;=</span> <span class="dv">4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="511">
+<pre><code>True</code></pre>
+</div>
+</div>
+<ul>
+<li>A (somewhat confusing) error if we try <code>=&gt;</code></li>
+</ul>
+<div class="sourceCode" id="cb28"><pre class="sourceCode email code-with-copy"><code class="sourceCode email"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>&gt;&gt;&gt; 4 =&gt; 5</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  File "&lt;stdin&gt;", line 1</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    4 =&gt; 5</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    ^</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="fu">SyntaxError: </span>cannot assign to literal</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="and" class="level1">
+<h1><code>=</code> and <code>==</code></h1>
+<section id="new-topics" class="level2">
+<h2 class="anchored" data-anchor-id="new-topics">New Topics</h2>
+<ul>
+<li>We have now touch on two new topics:
+<ul>
+<li><code>True</code> and <code>False</code>
+<ul>
+<li>Expressions which don’t <em>evaluate</em> to a number</li>
+<li>Called “booleans”</li>
+</ul></li>
+<li>“Assignment”
+<ul>
+<li>Associated with the <code>=</code> sign</li>
+<li>Different from inequality testing!</li>
+</ul></li>
+</ul></li>
+<li>We’ll explore both!</li>
+</ul>
+</section>
+<section id="booleans" class="level2">
+<h2 class="anchored" data-anchor-id="booleans">Booleans</h2>
+<ul>
+<li>Sometimes, a Python <em>expression</em> is a numerical value.</li>
+</ul>
+<div id="20784dd1" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="op">+</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="512">
+<pre><code>4</code></pre>
+</div>
+</div>
+<div id="26c13926" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="dv">7</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="513">
+<pre><code>7</code></pre>
+</div>
+</div>
+<ul>
+<li>But it doesn’t have to be!</li>
+</ul>
+<div id="666ecd20" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="op">&lt;</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="514">
+<pre><code>False</code></pre>
+</div>
+</div>
+</section>
+<section id="if" class="level2">
+<h2 class="anchored" data-anchor-id="if">If</h2>
+<ul>
+<li>Booleans are mostly useful for writing <code>if</code> statements.
+<ul>
+<li>These are <em>multiline</em> expressions in Python.</li>
+</ul></li>
+<li>To see the result of multi-line expression, we have to print the result…</li>
+</ul>
+<div id="1c1e71b6" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="dv">1</span> <span class="op">&lt;=</span> <span class="dv">1</span>):</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="dv">2</span> <span class="op">+</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>4</code></pre>
+</div>
+</div>
+<div id="ff0f6c68" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="dv">1</span> <span class="op">&lt;</span> <span class="dv">1</span>):</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="dv">2</span> <span class="op">+</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="piecewise" class="level2">
+<h2 class="anchored" data-anchor-id="piecewise">Piecewise</h2>
+<ul>
+<li>We can see the immediate use of this in a piecewise function!</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><span class="math display">\[
+\begin{cases}
+  9x^2 + 5 &amp; x &lt; 4 \\
+  9 &amp; 4 \leq x \leq 8 \\
+  2 - x &amp; x &gt; 8
+\end{cases}
+\]</span> <span class="math display">\[
+\{-1, 4, 5, 8, 11\}
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<div id="ccca5d23" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="op">-</span><span class="dv">1</span> <span class="op">&lt;</span> <span class="dv">4</span>):</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="dv">9</span> <span class="op">*</span> <span class="op">-</span><span class="dv">1</span> <span class="op">*</span> <span class="op">-</span><span class="dv">1</span> <span class="op">+</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
 <pre><code>14</code></pre>
 </div>
 </div>
-</section>
-<section id="review-arithmetic" class="slide level2">
-<h2>Review: Arithmetic</h2>
 <ul>
-<li>In Python, we can write many of the same arithmetic operations we use in our math and science classes.</li>
+<li>Or least part of one…</li>
 </ul>
-<div id="ab62c24a" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a></a><span class="dv">6</span> <span class="op">+</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="7">
+<div id="74143807" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="dv">4</span> <span class="op">&lt;</span> <span class="dv">4</span>):</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="dv">9</span> <span class="op">*</span> <span class="dv">4</span> <span class="op">*</span> <span class="dv">4</span> <span class="op">+</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Uh oh!</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="else" class="level2">
+<h2 class="anchored" data-anchor-id="else">Else</h2>
+<ul>
+<li>Oftentimes, we use <code>if</code> with <code>else</code></li>
+</ul>
+<div id="82bd67cc" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="dv">1</span> <span class="op">&lt;</span> <span class="dv">1</span>):</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"1 is less than 1"</span>)</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"1 is not less than 1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>1 is not less than 1</code></pre>
+</div>
+</div>
+</section>
+<section id="elif" class="level2">
+<h2 class="anchored" data-anchor-id="elif">Elif</h2>
+<ul>
+<li>If we have more than two options, we can place a special <code>elif</code> in the middle.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div id="bcd0317e" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="dv">1</span> <span class="op">&lt;</span> <span class="dv">1</span>):</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"1 is less than 1"</span>)</span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> (<span class="dv">1</span> <span class="op">&gt;</span> <span class="dv">1</span>):</span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"1 is greater than 1"</span>)</span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"1 is equal to 1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>1 is equal to 1</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div id="65986604" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="dv">2</span> <span class="op">&lt;</span> <span class="dv">1</span>):</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"2 is less than 1"</span>)</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> (<span class="dv">2</span> <span class="op">&gt;</span> <span class="dv">1</span>):</span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"2 is greater than 1"</span>)</span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"2 is equal to 1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>2 is greater than 1</code></pre>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li>By the way, it is extremely obnoxious to manually type <code>2</code> in <em>5 different places</em></li>
+</ul>
+</section>
+<section id="assignment" class="level2">
+<h2 class="anchored" data-anchor-id="assignment">Assignment</h2>
+<ul>
+<li>We can also assign variables!
+<ul>
+<li>I call this <em>single-equals assignment</em></li>
+<li>Use a single equals sign <code>=</code> and some variable name, like <code>x</code></li>
+</ul></li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div id="fb4e8abc" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (x <span class="op">&lt;</span> <span class="dv">1</span>):</span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"x is less than 1"</span>)</span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> (x <span class="op">&gt;</span> <span class="dv">1</span>):</span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"x is greater than 1"</span>)</span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"x is equal to 1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>x is equal to 1</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div id="01c06cd9" class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (x <span class="op">&lt;</span> <span class="dv">1</span>):</span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"x is less than 1"</span>)</span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> (x <span class="op">&gt;</span> <span class="dv">1</span>):</span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"x is greater than 1"</span>)</span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"x is equal to 1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>x is greater than 1</code></pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="double-equals-equality" class="level2">
+<h2 class="anchored" data-anchor-id="double-equals-equality">Double equals equality</h2>
+<ul>
+<li>I call it <em>single-equals assignment</em> because sometimes we check if a variable is precisely equal to some value.</li>
+<li>That is somewhat confusingly done with <code>==</code> <em>double equals equality</em> test.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div id="f393764c" class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (x <span class="op">==</span> <span class="dv">1</span>):</span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"x is equal to 1"</span>)</span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"x is not equal to 1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>x is equal to 1</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div id="3dcf7cc6" class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (x <span class="op">==</span> <span class="dv">1</span>):</span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"x is equal to 1"</span>)</span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"x is not equal to 1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>x is not equal to 1</code></pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="double-exponentation" class="level2">
+<h2 class="anchored" data-anchor-id="double-exponentation">Double ** Exponentation</h2>
+<ul>
+<li>Doubling is used in a few other cases.</li>
+<li>Double asterisk <code>**</code> is exponentiation.</li>
+</ul>
+<div id="6510fc51" class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="op">**</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="526">
+<pre><code>25</code></pre>
+</div>
+</div>
+</section>
+<section id="piecewise-1" class="level2">
+<h2 class="anchored" data-anchor-id="piecewise-1">Piecewise</h2>
+<ul>
+<li>We can finally write the piecewise expression!</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><span class="math display">\[
+\begin{cases}
+  9x^2 + 5 &amp; x &lt; 4 \\
+  9 &amp; 4 \leq x \leq 8 \\
+  2 - x &amp; x &gt; 8
+\end{cases}
+\]</span> <span class="math display">\[
+\{-1, 4, 5, 8, 11\}
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<div id="f650ee85" class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">11</span></span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (x <span class="op">&lt;</span> <span class="dv">4</span>):</span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="dv">9</span> <span class="op">*</span> x <span class="op">**</span> <span class="dv">2</span> <span class="op">+</span> <span class="dv">5</span>)</span>
+<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> (<span class="dv">4</span> <span class="op">&lt;=</span> x <span class="op">&lt;=</span> <span class="dv">8</span>):</span>
+<span id="cb57-5"><a href="#cb57-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="dv">9</span>)</span>
+<span id="cb57-6"><a href="#cb57-6" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> (x <span class="op">&gt;</span> <span class="dv">8</span>):</span>
+<span id="cb57-7"><a href="#cb57-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="dv">2</span> <span class="op">-</span> x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>-9</code></pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="code-reuse" class="level1">
+<h1>Code Reuse</h1>
+<section id="recycle" class="level2">
+<h2 class="anchored" data-anchor-id="recycle">Recycle</h2>
+<ul>
+<li>It is still extremely tedious to either:
+<ul>
+<li>Copy-paste, or</li>
+<li>Type more than once.</li>
+</ul></li>
+<li>Also very annoying/difficult to write them many lines without error!</li>
+<li>We introduce the <code>def</code> keyword to define <code>functions</code></li>
+<li>A way to reuse code we have already written.</li>
+</ul>
+</section>
+<section id="def" class="level2">
+<h2 class="anchored" data-anchor-id="def"><code>def</code></h2>
+<div id="649e29ee" class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> double(x):</span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(x <span class="op">+</span> x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><code>def</code> + <em>some function name</em> + <code>(</code> + <em>some variable name</em> + <code>):</code></li>
+</ul>
+<div id="bfabb9d6" class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>double(<span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>14</code></pre>
+</div>
+</div>
+<ul>
+<li>“Call” functions the same way we call <code>print</code> - with parens.</li>
+</ul>
+</section>
+<section id="return" class="level2">
+<h2 class="anchored" data-anchor-id="return"><code>return</code></h2>
+<ul>
+<li>It is more common to use <code>return</code> than <code>print</code> in a function.</li>
+<li>When we call a function, we can think of it as expression with some value.</li>
+<li>That value is defined by the value that is return.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div id="2f3074c7" class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> six_gt_five_return():</span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="e9be1deb" class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (six_gt_five_return()):</span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"it is"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>True</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div id="6643e013" class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> six_gt_five_print():</span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="va">True</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="a8831c98" class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (six_gt_five_print()):</span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"it is"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>it is</code></pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="example-1" class="level2">
+<h2 class="anchored" data-anchor-id="example-1">Example</h2>
+<ul>
+<li>Suppose an interest rate doubles our savings every ~7 years.</li>
+<li>How much savings in 14 years?</li>
+</ul>
+<div id="cc490afc" class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>savings <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>savings <span class="op">=</span> double(savings) <span class="co"># 7 yrs</span></span>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>savings</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>20</code></pre>
+</div>
+</div>
+</section>
+<section id="use-return" class="level2">
+<h2 class="anchored" data-anchor-id="use-return">Use return</h2>
+<div id="7c22a6ae" class="cell" data-execution_count="36">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> double(x):</span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x <span class="op">+</span> x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Now, <code>double(savings)</code> becomes equal to <code>x + x</code></li>
+</ul>
+<div id="e36803b9" class="cell" data-execution_count="37">
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>savings <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a>savings <span class="op">=</span> double(savings) <span class="co"># 7 yrs</span></span>
+<span id="cb71-3"><a href="#cb71-3" aria-hidden="true" tabindex="-1"></a>savings</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="536">
+<pre><code>20</code></pre>
+</div>
+</div>
+<div id="1df50e16" class="cell" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>double(savings)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="537">
+<pre><code>40</code></pre>
+</div>
+</div>
+<ul>
+<li>Or even</li>
+</ul>
+<div id="2ec4ddb6" class="cell" data-execution_count="39">
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>double(double(<span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="538">
+<pre><code>40</code></pre>
+</div>
+</div>
+</section>
+<section id="piecewise-2" class="level2">
+<h2 class="anchored" data-anchor-id="piecewise-2">Piecewise</h2>
+<ul>
+<li>We can finally write the piecewise function (was: expression)!
+<ul>
+<li>Function: use many times in many expressions</li>
+<li>Expression: evaluate once and get one answer</li>
+</ul></li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><span class="math display">\[
+\begin{cases}
+  9x^2 + 5 &amp; x &lt; 4 \\
+  9 &amp; 4 \leq x \leq 8 \\
+  2 - x &amp; x &gt; 8
+\end{cases}
+\]</span> <span class="math display">\[
+\{-1, 4, 5, 8, 11\}
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<div id="1378c546" class="cell" data-execution_count="40">
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> piecewise(x):</span>
+<span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (x <span class="op">&lt;</span> <span class="dv">4</span>):</span>
+<span id="cb77-3"><a href="#cb77-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">9</span> <span class="op">*</span> x <span class="op">**</span> <span class="dv">2</span> <span class="op">+</span> <span class="dv">5</span></span>
+<span id="cb77-4"><a href="#cb77-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> (<span class="dv">4</span> <span class="op">&lt;=</span> x <span class="op">&lt;=</span> <span class="dv">8</span>):</span>
+<span id="cb77-5"><a href="#cb77-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">9</span></span>
+<span id="cb77-6"><a href="#cb77-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> (x <span class="op">&gt;</span> <span class="dv">8</span>):</span>
+<span id="cb77-7"><a href="#cb77-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">2</span> <span class="op">-</span> x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="2a8a36ec" class="cell" data-execution_count="41">
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>piecewise(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="540">
 <pre><code>9</code></pre>
 </div>
 </div>
-<div id="913e9bec" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a></a><span class="dv">6</span> <span class="op">-</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="8">
-<pre><code>3</code></pre>
 </div>
 </div>
-<div id="b157ac39" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a></a><span class="dv">6</span> <span class="op">*</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="9">
-<pre><code>18</code></pre>
-</div>
-</div>
-<div id="086e9233" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a></a><span class="dv">6</span> <span class="op">/</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="10">
-<pre><code>2.0</code></pre>
-</div>
-</div>
-</section>
-<section id="a.4.2-indexing-and-lists" class="slide level2">
-<h2>A.4.2 Indexing and Lists</h2>
-<p>Lists are a key component to storing data in Python. Lists are exactly what the name says: lists of things (in our case, usually the entries are floating point numbers).</p>
-<p><strong>Warning:</strong> Python indexing starts at 0 whereas some other programming languages have indexing starting at 1. We just have to keep this in mind.</p>
-<p>We can extract a part of a list using the syntax <code>name[start:stop]</code> which extracts elements between index <code>start</code> and <code>stop-1</code>. Take note that Python stops reading at the second to last index. This often catches people off guard when they first start with Python.</p>
-<p>Some things to keep in mind with Python lists:</p>
-<ul>
-<li>Python starts indexing at 0</li>
-<li>Python stops reading at the second to last index</li>
-<li>The following blocks of code show this feature in action for several different lists.</li>
-</ul>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.1 (Lists and Indexing)</strong> Let’s look at a few examples of indexing from lists. In this example we will use the list of numbers 0 through 8. This list contains 9 numbers indexed from 0 to 8.</p>
-<ul>
-<li><p>Create the list of numbers 0 through 8 and then print only the element with index 0.</p>
-<p>MyList = [0,1,2,3,4,5,6,7,8] print(MyList[0])</p>
-<p>## 0</p></li>
-<li><p>Print all elements up to, but not including, the third element of <code>MyList</code>.</p>
-<p>MyList = [0,1,2,3,4,5,6,7,8] print(MyList[:2])</p>
-<p>## [0, 1]</p></li>
-<li><p>Print the last element of <code>MyList</code> (this is a handy trick!).</p>
-<p>MyList = [0,1,2,3,4,5,6,7,8] print(MyList[-1])</p>
-<p>## 8</p></li>
-<li><p>Print the elements indexed 1 through 4. Beware! This is not the first through fifth element.</p>
-<p>MyList = [0,1,2,3,4,5,6,7,8] print(MyList[1:5])</p>
-<p>## [1, 2, 3, 4]</p></li>
-<li><p>Print every other element in the list starting with the first.</p>
-<p>MyList = [0,1,2,3,4,5,6,7,8] print(MyList[0::2])</p>
-<p>## [0, 2, 4, 6, 8]</p></li>
-<li><p>Print the last three elements of <code>MyList</code></p>
-<p>MyList = [0,1,2,3,4,5,6,7,8] print(MyList[-3:])</p>
-<p>## [6, 7, 8]</p></li>
-</ul>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.2 (Range and Lists)</strong> Let’s look at another example of indexing in lists. In this one we’ll use the <code>range</code> command to build the initial list of numbers. Read the code carefully so you know what each line does.</p>
-<pre><code># range is a handy command for creating a sequence of integers
-MySecondList = range(4,20) 
-print(MySecondList) # this is a "range object" in Python.  
-# When using range() we won't actually store all of the 
-# values in memory.
-
-## range(4, 20)
-
-print(list(MySecondList)) 
-# notice that we didn't create the last element!
-
-## [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
-
-print(MySecondList[0]) # print the first element (index 0)
-
-## 4
-
-print(MySecondList[-5]) # print the fifth element from the end
-
-## 15
-
-print(MySecondList[-1:0:-1]) # this creates a new range object.  
-# Take careful note of how the above range object is defined.
-# Print the last element to the one indexed by 1 counting backward
-
-## range(19, 4, -1)
-
-print(list(MySecondList[-1:0:-1])) 
-
-## [19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5]
-
-print(MySecondList[-1::-1]) # this creates another new range object
-
-## range(19, 3, -1)
-
-print(list(MySecondList[-1::-1])) # print the whole list backwards
-
-## [19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4]
-
-print(MySecondList[::2]) # create another new range object
-
-## range(4, 20, 2)
-
-print(list(MySecondList[::2])) # print every other element 
-
-## [4, 6, 8, 10, 12, 14, 16, 18]</code></pre>
-</section>
-<section class="slide level2">
-
-<p>In Python, elements in a list do not need to be the same type. You can mix integers, floats, strings, lists, etc.</p>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.3</strong> In this example we see a list of several items that have different data types: float, integer, string, and complex. Note that the imaginary number \(i\) is represented by \(j\) in Python. This is common in many scientific disciplines and is just another thing that we’ll need to get used to in Python.</p>
-<pre><code>MixedList = [1.0, 7, 'Bob', 1-1j]
-print(MixedList)
-
-## [1.0, 7, 'Bob', (1-1j)]
-
-print(type(MixedList[0]))
-
-## &lt;class 'float'&gt;
-
-print(type(MixedList[1]))
-
-## &lt;class 'int'&gt;
-
-print(type(MixedList[2]))
-
-## &lt;class 'str'&gt;
-
-print(type(MixedList[3])) 
-# Notice that we use 1j for the imaginary number "i".
-
-## &lt;class 'complex'&gt;</code></pre>
-</section>
-<section class="slide level2">
-
-<p><strong>Exercise A.6</strong> In this exercise you will put your new list skills into practice.</p>
-<ol type="1">
-<li>Create the list of the first several Fibonacci numbers: \[1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89.\]</li>
-<li>Print the first four elements of the list.</li>
-<li>Print every third element of the list starting from the first.</li>
-<li>Print the last element of the list.</li>
-<li>Print the list in reverse order.</li>
-<li>Print the list starting at the last element and counting backward by every other element.</li>
-</ol>
-</section>
-<section class="slide level2">
-
-<h3 id="a.4.3-list-operations">A.4.3 List Operations</h3>
-<p>Python is awesome about allowing you to do things like appending items to lists, removing items from lists, and inserting items into lists. Note in all of the examples below that we are using the code<br>
-<code>variable.command</code><br>
-where you put the variable name, a dot, and the thing that you would like to do to that variable. For example, <code>MyList.append(7)</code> will append the number 7 to the list <code>MyList</code>. This is a common programming feature in Python and we’ll use it often.</p>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.4 (.append)</strong> The <code>.append</code> command can be used to append an element to the end of a list.</p>
-<pre><code>MyList = [0,1,2,3]
-print(MyList)
-
-## [0, 1, 2, 3]
-
-MyList.append('a') # append the string 'a' to the end of the list
-print(MyList)
-
-## [0, 1, 2, 3, 'a']
-
-MyList.append('a') # do it again ... just for fun
-print(MyList)
-
-## [0, 1, 2, 3, 'a', 'a']
-
-MyList.append(15) # append the number 15 to the end of the list
-print(MyList)
-
-## [0, 1, 2, 3, 'a', 'a', 15]</code></pre>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.5 (.remove)</strong> The <code>.remove</code> command can be used to remove an element from a list.</p>
-<pre><code>MyList = [0,1,2,3]
-MyList.append('a') # append the string 'a' to the end of the list
-MyList.append('a') # do it again ... just for fun
-MyList.append(15) # append the number 15 to the end of the list
-MyList.remove('a') # remove the first instance of `a` from the list
-print(MyList)
-
-## [0, 1, 2, 3, 'a', 15]
-
-MyList.remove(3) # now let's remove the 3
-print(MyList)
-
-## [0, 1, 2, 'a', 15]</code></pre>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.6 (.insert)</strong> The <code>.insert</code> command can be used to insert an element at a location in a list.</p>
-<pre><code>MyList = [0,1,2,3]
-MyList.append('a') # append the string 'a' to the end of the list
-MyList.append('a') # do it again ... just for fun
-MyList.append(15) # append the number 15 to the end of the list
-MyList.remove('a') # remove the first instance `a` from the list
-MyList.remove(3) # now let's remove the 3
-print(MyList)
-
-## [0, 1, 2, 'a', 15]
-
-MyList.insert(0,'A') # insert the letter `A` at the 0-indexed spot
-# insert the letter `B` at the spot with index 3 
-MyList.insert(3,'B') 
-# remember that index 3 means the fourth spot in the list
-print(MyList)
-
-## ['A', 0, 1, 'B', 2, 'a', 15]</code></pre>
-</section>
-<section class="slide level2">
-
-<p><strong>Exercise A.7</strong> In this exercise you will go a bit further with your list operation skills.</p>
-<ol type="1">
-<li>Create the list of the first several Lucas Numbers: \(1,3,4,7,11,18,29,47.\)</li>
-<li>Add the next three Lucas Numbers to the end of the list.</li>
-<li>Remove the number 3 from the list.</li>
-<li>Insert the 3 back into the list in the correct spot.</li>
-<li>Print the list in reverse order.</li>
-<li>Do a few other list operations to this list and report your findings.</li>
-</ol>
-</section>
-<section class="slide level2">
-
-<h3 id="a.4.4-tuples">A.4.4 Tuples</h3>
-<p>In Python, a “tuple” is like an ordered pair (or order triple, or order quadruple, …) in mathematics. We will occasionally see tuples in our work in numerical analysis so for now let’s just give a couple of code snippets showing how to store and read them.</p>
-<p>We can define the tuple of numbers \((10,20)\) in Python as follows.</p>
-<pre><code>point = 10, 20 # notice that I don't need the parenthesis
-print(point, type(point))
-
-## (10, 20) &lt;class 'tuple'&gt;</code></pre>
-<p>We can also define a tuple with parenthesis if we like. Python doesn’t care.</p>
-<pre><code>point = (10, 20) # now we define the tuple with parenthesis
-print(point, type(point))
-
-## (10, 20) &lt;class 'tuple'&gt;</code></pre>
-<p>We can then unpack the tuple into components if we wish.</p>
-<pre><code>point = (10, 20)
-x, y = point
-print("x = ", x)
-
-## x =  10
-
-print("y = ", y)
-
-## y =  20</code></pre>
-<h3 id="a.4.5-control-flow-loops-and-if-statements">A.4.5 Control Flow: Loops and If Statements</h3>
-<p>Any time you’re doing some repetitive task with a programming language you should actually be using a loop. Just like in other programming languages we can do loops and conditional statements in very easy ways in Python. The thing to keep in mind is that the Python language is very white-space-dependent. This means that your indentations need to be correct in order for a loop to work. You could get away with sloppy indention in other languages but not so in Python. Also, in some languages (like R and Java) you need to wrap your loops in curly braces. Again, not so in Python.</p>
-<p><strong>Caution:</strong> Be really careful of the white space in your code when you write loops.</p>
-<h4 id="a.4.5.1-for-loops">A.4.5.1 <code>for</code> Loops</h4>
-<p>A <code>for</code> loop is designed to do a task a certain number of times and then stop. This is a great tool for automating repetitive tasks, but it also nice numerically for building sequences, summing series, or just checking lots of examples. The following are several examples of Python for loops. Take careful note of the syntax for a for loop as it is the same as for other loops and conditional statements:</p>
-<ul>
-<li>a control statement,</li>
-<li>a colon, a new line,</li>
-<li>indent four spaces,</li>
-<li>some programming statements</li>
-</ul>
-<p>When you are done with the loop just back out of the indention. There is no need for an <code>end</code> command or a curly brace. All of the control statements in Python are white-space-dependent.</p>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.7</strong> Print the first 6 perfect square.</p>
-<pre><code>for x in [1,2,3,4,5,6]:
-    print(x**2)
-
-## 1
-## 4
-## 9
-## 16
-## 25
-## 36</code></pre>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.8</strong> Print the names in a list.</p>
-<pre><code>NamesList = ['Alice','Billy','Charlie','Dom','Enrique','Francisco']
-for name in NamesList:
-    print(name)
-
-## Alice
-## Billy
-## Charlie
-## Dom
-## Enrique
-## Francisco</code></pre>
-</section>
-<section class="slide level2">
-
-<p>In Python you can use a more compact notation for <code>for</code> loops sometimes. This takes a bit of getting used to, but is super slick!</p>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.9</strong> Create a list of the perfect squares from 1 to 9.</p>
-<pre><code># create a list of the perfect squares from 1 to 9
-CoolList = [x**2 for x in range(1,10)]
-print(CoolList)
-# Then print the sum of this list
-
-## [1, 4, 9, 16, 25, 36, 49, 64, 81]
-
-print("The sum of the first 9 perfect squares is",sum(CoolList))
-
-## The sum of the first 9 perfect squares is 285</code></pre>
-</section>
-<section class="slide level2">
-
-<p><code>for</code> loops can also be used to build recursive sequences as can be seen in the next couple of examples.</p>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.10</strong> In the following code we write a for loop that outputs a list of the first 7 iterations of the sequence \(x_{n+1}=-0.5x_n+1\) starting with \(x_0=3\). Notice that we’re using the command <code>x.append</code> instead of \(x[n+1]\) to append the new term to the list. This allows us to grow the length of the list dynamically as the loop progresses.</p>
-<pre><code>x=[3.0]
-for n in range(0,7):
-    x.append(-0.5*x[n] + 1)
-    print(x) # print the whole list x at each step of the loop
-
-## [3.0, -0.5]
-## [3.0, -0.5, 1.25]
-## [3.0, -0.5, 1.25, 0.375]
-## [3.0, -0.5, 1.25, 0.375, 0.8125]
-## [3.0, -0.5, 1.25, 0.375, 0.8125, 0.59375]
-## [3.0, -0.5, 1.25, 0.375, 0.8125, 0.59375, 0.703125]
-## [3.0, -0.5, 1.25, 0.375, 0.8125, 0.59375, 0.703125, 0.6484375]</code></pre>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.11</strong> As an alternative to the code from the previous example we can pre-allocate the memory in an array of zeros. This is done with the clever code <code>x = [0] * 10</code>. Literally multiplying a list by some number, like 10, says to repeat that list 10 times.</p>
-<p>Now we’ll build the sequence with pre-allocated memory.</p>
-<pre><code>x = [0] * 7
-x[0] = 3.0
-for n in range(0,6):
-    x[n+1] = -0.5*x[n]+1
-    print(x) # This print statement shows x at each iteration
-
-## [3.0, -0.5, 0, 0, 0, 0, 0]
-## [3.0, -0.5, 1.25, 0, 0, 0, 0]
-## [3.0, -0.5, 1.25, 0.375, 0, 0, 0]
-## [3.0, -0.5, 1.25, 0.375, 0.8125, 0, 0]
-## [3.0, -0.5, 1.25, 0.375, 0.8125, 0.59375, 0]
-## [3.0, -0.5, 1.25, 0.375, 0.8125, 0.59375, 0.703125]</code></pre>
-</section>
-<section class="slide level2">
-
-<p><strong>Exercise A.8</strong> We want to sum the first 100 perfect cubes. Let’s do this in two ways.</p>
-<ol type="1">
-<li><p>Start off a variable called Total at 0 and write a <code>for</code> loop that adds the next perfect cube to the running total.</p></li>
-<li><p>Write a <code>for</code> loop that builds the sequence of the first 100 perfect cubes. After the list has been built find the sum with the sum command.</p></li>
-</ol>
-<p>The answer is: 25,502,500 so check your work.</p>
-</section>
-<section class="slide level2">
-
-<p><strong>Exercise A.9</strong> Write a <code>for</code> loop that builds the first 20 terms of the sequence \(x_{n+1}=1-x_n^2\) with \(x_0=0.1\). Pre-allocate enough memory in your list and then fill it with the terms of the sequence. Only print the list after all of the computations have been completed.</p>
-</section>
-<section class="slide level2">
-
-<h4 id="a.4.5.2-while-loops">A.4.5.2 While Loops</h4>
-<p>A <code>while</code> loop repeats some task (or sequence of tasks) while a logical condition is true. It stops when the logical condition turns from true to false. The structure in Python is the same as with <code>for</code> loops.</p>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.12</strong> Print the numbers 0 through 4 and then the word “done.” We’ll do this by starting a counter variable, <code>i</code>, at 0 and increment it every time we pass through the loop.</p>
-<pre><code>i = 0
-while i &lt; 5:
-    print(i)
-    i += 1 # increment the counter
-
-## 0
-## 1
-## 2
-## 3
-## 4
-
-print("done")
-
-## done</code></pre>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.13</strong> Now let’s use a while loop to build the sequence of Fibonacci numbers and stop when the newest number in the sequence is greater than 1000. Notice that we want to keep looping until the condition that the last term is greater than 1000 – this is the perfect task for a <code>while</code> loop, instead of a <code>for</code> loop, since we don’t know how many steps it will take before we start the task</p>
-<pre><code>Fib = [1,1]
-while Fib[-1] &lt;= 1000:
-    Fib.append(Fib[-1] + Fib[-2])
-print("The last few terms in the list are:\n",Fib[-3:])
-
-## The last few terms in the list are:
-##  [610, 987, 1597]</code></pre>
-</section>
-<section class="slide level2">
-
-<p><strong>Exercise A.10</strong> Write a <code>while</code> loop that sums the terms in the Fibonacci sequence until the sum is larger than 1000</p>
-</section>
-<section class="slide level2">
-
-<h4 id="a.4.5.3-if-statements">A.4.5.3 If Statements</h4>
-<p>Conditional (<code>if</code>) statements allow you to run a piece of code only under certain conditions. This is handy when you have different tasks to perform under different conditions.</p>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.14</strong> Let’s look at a simple example of an <code>if</code> statement in Python.</p>
-<pre><code>Name = "Alice"
-if Name == "Alice":
-    print("Hello, Alice.  Isn't it a lovely day to learn Python?")
-else:
-    print("You're not Alice.  Where is Alice?")
-
-## Hello, Alice.  Isn't it a lovely day to learn Python?
-
-Name = "Billy"
-if Name == "Alice":
-    print("Hello, Alice.  Isn't it a lovely day to learn Python?")
-else:
-    print("You're not Alice.  Where is Alice?")
-
-## You're not Alice.  Where is Alice?</code></pre>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.15</strong> For another example, if we get a random number between 0 and 1 we could have Python print a different message depending on whether it was above or below 0.5. Run the code below several times and you’ll see different results each time.</p>
-<p>Note: We had to import the <code>numpy</code> package to get the random number generator in Python. Don’t worry about that for now. We’ll talk about packages in a moment.</p>
-<pre><code>import numpy as np
-x = np.random.rand(1,1) # get a random 1x1 matrix using numpy
-x = x[0,0] # pull the entry from the first row and first column
-if x &lt; 0.5:
-    print(x," is less than a half")
-else:
-    print(x, "is NOT less than a half")
-
-## 0.6702695466506146 is NOT less than a half</code></pre>
-<p>(Take note that the output will change every time you run it)</p>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.16</strong> In many programming tasks it is handy to have several different choices between tasks instead of just two choices as in the previous examples. This is a job for the <code>elif</code> command.</p>
-<p>This is the same code as last time except we will make the decision at 0.33 and 0.67</p>
-<pre><code>import numpy as np
-x = np.random.rand(1,1) # get a random 1x1 matrix using numpy
-x = x[0,0] # pull the entry from the first row and first column
-if x &lt; 0.33:
-    print(x," &lt; 1/3")
-elif x &lt; 0.67:
-    print("1/3 &lt;= ",x,"&lt; 2/3")
-else:
-    print(x, "&gt;= 2/3")
-
-## 1/3 &lt;=  0.557138182217778 &lt; 2/3</code></pre>
-<p>(Take note that the output will change every time you run it)</p>
-</section>
-<section class="slide level2">
-
-<p><strong>Exercise A.11</strong> Write code to give the Collatz Sequence \[x_{n+1} = \left\{ \begin{array}{ll} x_n / 2, &amp; \text{<span class="math inline">\(x\_n\)</span> is even} \&nbsp;3 x_n + 1, &amp; \text{otherwise} \end{array} \right.\] starting with a positive integer of your choosing. The sequence will converge<a href="#/fn15">15</a> to 1 so your code should stop when the sequence reaches 1.</p>
-</section>
-<section class="slide level2">
-
-<h3 id="a.4.6-functions">A.4.6 Functions</h3>
-<p>Mathematicians and programmers talk about functions in very similar ways, but they aren’t exactly the same. When we say “function” in a programming sense we are talking about a chunk of code that you can pass parameters and expect an output of some sort. This is not unlike the mathematician’s version, but unlike a mathematical function we can have multiple outputs for a programmatic function. We are not going to be talking about symbolic computation on functions in this section. Symbolic computations will have to wait for the ‘sympy’ tutorial.</p>
-<p>In Python, to define a function we start with <code>def</code>, followed by the function’s name, any input variables in parenthesis, and a colon. The indented code after the colon is what defines the actions of the function.</p>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.17</strong> The following code defines the polynomial \(f(x) = x^3 + 3x^2 + 3x + 1\) and then evaluates the function at a point \(x=2.3\).</p>
-<pre><code>def f(x):
-    return(x**3 + 3*x**2 + 3*x + 1)
-f(2.3)
-
-## 35.937</code></pre>
-</section>
-<section class="slide level2">
-
-<p>Take careful note of several things in the previous example:</p>
-<ul>
-<li>To define the function we can not just type it like we would see it one paper. This is not how Python recognizes functions. We just have to get used to it.</li>
-<li>Once we have the function defined we can call upon it just like we would on paper.</li>
-<li>We cannot pass symbols into this type of function. See the section on <code>sympy</code> in this chapter if you want to do symbolic computation.</li>
-</ul>
-</section>
-<section class="slide level2">
-
-<p><strong>Exercise A.12</strong> Define the function \(g(n) = n^2 + n + 41\) as a Python function. Write a loop that gives the output for this function for integers from \(n=0\) to \(n=39\). It is curious to note that each of these outputs is a prime number (check this on your own). Will the function produce a prime for \(n=40\)? For \(n=41\)?</p>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.18</strong> One cool thing that you can do with Python functions is call them recursively. That is, you can call the same function from within the function itself. This turns out to be really handy in several mathematical situations.</p>
-<p>Now let’s define a function for the factorial. This function is naturally going to be recursive in the sense that it calls on itself!</p>
-<pre><code>def Fact(n):
-    if n==0:
-        return(1)
-    else:
-        return( n*Fact(n-1) ) 
-        # Note: we are calling the function recursively.</code></pre>
-<p>When you run this code there will be no output. You have just defined the function so you can use it later. So let’s use it to make a list of the first several factorials. Note the use of a for loop in the following code.</p>
-<pre><code>FactList = [Fact(n) for n in range(0,10)]
-FactList
-
-## [1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880]</code></pre>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.19</strong> For this next example let’s define the sequence \[x_{n+1} = \left\{ \begin{array}{ll} 2x_n, &amp; x_n \in [0,0.5] \&nbsp;2x_n - 1, &amp; x_n \in (0.5,1] \end{array} \right.\] as a function and then build a loop to find the first several iterates of the sequence starting at any real number between 0 and 1.</p>
-<pre><code># Define the function
-def MySeq(xn):
-    if xn &lt;= 0.5:
-        return(2*xn)
-    else:
-        return(2*xn-1)
-# Now build a sequence with this function
-x = [0.125] # arbitrary starting point
-for n in range(0,5): # Let's only build the first 5 terms
-    x.append(MySeq(x[-1]))
-print(x)
-
-## [0.125, 0.25, 0.5, 1.0, 1.0, 1.0]</code></pre>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.20</strong> A fun way to approximate the square root of two is to start with any positive real number and iterate over the sequence \[x_{n+1} = \frac{1}{2} x_n + \frac{1}{x_n}\] until we are within any tolerance we like of the square root of \(2\). Write code that defines the sequence as a function and then iterates in a while loop until we are within \(10^{-8}\) of the square root of 2.</p>
-<p>Hint: Import the <code>math</code> package so that you get the square root. More about packages in the next section.</p>
-<pre><code>from math import sqrt
-def f(x):
-    return(0.5*x + 1/x)
-x = 1.1 # arbitrary starting point
-print("approximation \t\t exact \t\t abs error")
-while abs(x-sqrt(2)) &gt; 10**(-8):
-    x = f(x)
-    print(x, sqrt(2), abs(x - sqrt(2)))
-
-## approximation         exact       abs error
-
-## 1.459090909090909 1.4142135623730951 0.04487734671781385
-## 1.414903709997168 1.4142135623730951 0.0006901476240728233
-## 1.4142137306897584 1.4142135623730951 1.6831666327377093e-07
-## 1.4142135623731051 1.4142135623730951 9.992007221626409e-15</code></pre>
-</section>
-<section class="slide level2">
-
-<p><strong>Exercise A.13</strong> The previous example is a special case of the Babylonian Algorithm for calculating square roots. If you want the square root of \(S\) then iterate the sequence \[x_{n+1} = \frac{1}{2} \left( x_n + \frac{S}{x_n} \right)\] until you are within an appropriate tolerance.</p>
-<p>Modify the code given in the previous example to give a list of approximations of the square roots of the natural numbers 2 through 20, each to within \(10^{-8}\). This problem will require that you build a function, write a ‘for’ loop (for the integers 2-20), and write a ‘while’ loop inside your ‘for’ loop to do the iterations.</p>
-</section>
-<section class="slide level2">
-
-<h3 id="a.4.7-lambda-functions">A.4.7 Lambda Functions</h3>
-<p>Using <code>def</code> to define a function as in the previous subsection is really nice when you have a function that is complicated or requires some bit of code to evaluate. However, in the case of mathematical functions we have a convenient alternative: <code>lambda</code> Functions.</p>
-<p>The basic idea of a <code>lambda</code> Function is that we just want to state what the variable is and what the rule is for evaluating the function. This is the most like the way that we write mathematical functions. For example, let’s define the mathematical function \(f(x) = x^2+3\) in two different ways.</p>
-<ul>
-<li><p>As a Python function with <code>def</code>:</p>
-<p>def f(x): return(x**2+3)</p></li>
-<li><p>As a <code>lambda</code> function:</p>
-<p>f = lambda x: x**2+3</p></li>
-</ul>
-<p>You can see that in the Lambda Function we are explicitly stating the name of the variable immediately after the word <code>lambda</code>, then we put a colon, and then the function definition.</p>
-<p>Now if we want to evaluate the function at a point, say \(x=1.5\), then we can write code just like we would mathematically: \(f(1.5)\)</p>
-<pre><code>f = lambda x: x**2+3
-f(1.5) # evaluate the function at x=1.5
-
-## 5.25</code></pre>
-<p>where the result is exactly the floating point number we were interested in.</p>
-<p>The distinct mathematical advantage for using <code>lambda</code> functions is that the code for setting up a Lambda Function is about as close as we’re going to get to a mathematically defined function as we would write it on paper, but the code for evaluating a <code>lambda</code> Function is <em>exactly</em> what we would write on paper. Additionally, there is less coding overhead than for defining a function with the command.</p>
-<p>We can also define Lambda Functions of several variables. For example, if we want to define the mathematical function \(f(x,y) = x^2 + xy + y^3\) we could write the code</p>
-<pre><code>f = lambda x, y: x**2 + x*y + y**3</code></pre>
-<p>If we wanted the value \(f(2,4)\) we could now write the code <code>f(2,4)</code>.</p>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.21</strong> You may recall Euler’s Method from your differential equations training. Euler’s Method will give a list of approximate values of the solution to a first order differential equation at given times.</p>
-<p>Consider the differential equation \(y’ = -0.25y + 2\) with the initial condition \(y(0) = 1.1\). We can define the right-hand side of the differential equation as a <code>lambda</code> Function in our code so that we can call on it over and over again in our Euler’s Method solution. We’ll take 10 Euler steps starting at the proper initial condition. Pay particular attention to how we use the <code>lambda</code> function.</p>
-<pre><code>import numpy as np
-RightSide = lambda y: -0.25*y + 2 # define the right-hand side
-dt = 0.125 # define the delta t in Euler's method
-t = [0] # initial time
-y = [1.1] # initial condition
-for n in range(0,10):
-    t.append(t[n] + dt) # increment the time
-    y.append(y[n] + dt*RightSide(y[n])) # approx soln at next pt
-print(t) # print the times
-
-## [0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1.0, 1.125, 1.25]
-
-print(np.round(y,2)) 
-# round the approx y values to 2 decimal places
-
-## [1.1  1.32 1.52 1.73 1.92 2.11 2.3  2.48 2.65 2.81 2.98]</code></pre>
-</section>
-<section class="slide level2">
-
-<p><strong>Exercise A.14</strong> Go back to Exercise <a href="ch:python.html#exr:prime-gen">A.12</a> and repeat this exercise using a <code>lambda</code> Function instead of a Python function.</p>
-</section>
-<section class="slide level2">
-
-<p><strong>Exercise A.15</strong> Go back tp problem <a href="ch:python.html#exr:babylonian-sqrt">A.13</a> and repeat this exercise using a <code>lambda</code> function instead of a Python function.</p>
-</section>
-<section class="slide level2">
-
-<h3 id="a.4.8-packages">A.4.8 Packages</h3>
-<p>Unlike mathematical programming languages like MATLAB, Maple, or Mathematica, where every package is already installed and ready to use, Python allows you to only load the packages that you might need for a given task. There are several advantages to this along with a few disadvantages.</p>
-<p><strong>Advantages:</strong></p>
-<ol type="1">
-<li><p>You can have the same function doing different things in different scenarios. For example, there could be a symbolic differentiation command and a numerical differentiation command coming from different packages that are used in different ways.</p></li>
-<li><p>Housekeeping. It is highly advantageous to have a good understanding of where your functions come from. MATLAB, for example, uses the same name for multiple purposes with no indication of how it might behave depending on the inputs. With Python you can avoid that by only importing the appropriate packages for your current use.</p></li>
-<li><p>Your code will be ultimately more readable (more on this later).</p></li>
-</ol>
-<p><strong>Disadvantages:</strong></p>
-<ol type="1">
-<li><p>It is often challenging to keep track of which function does which task when they have exactly the same name. For example, you could be working with the <code>sin()</code> function numerically from the <code>numpy</code> package or symbolically from the <code>sympy</code> package, and these functions will behave differently in Python - even though they are exactly the same mathematically.</p></li>
-<li><p>You need to remember which functions live in which packages so that you can load the right ones. It is helpful to keep a list of commonly used packages and functions at least while you’re getting started.</p></li>
-</ol>
-<p>Let’s start with the <code>math</code> package.</p>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.22</strong> The code below imports the <code>math</code> package into your instance of Python and calculates the cosine of \(\pi/4\).</p>
-<pre><code>import math
-x = math.cos(math.pi / 4)
-print(x)
-
-## 0.7071067811865476</code></pre>
-<p>The answer, unsurprisingly, is the decimal form of \(\sqrt{2}/2\).</p>
-</section>
-<section class="slide level2">
-
-<p>You might already see a potential disadvantage to Python’s packages: there is now more typing involved! Let’s fix this. When you import a package you could just import all of the functions so they can be used by their proper names.</p>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.23</strong> Here we import the entire math package so we can use every one of the functions therein without having to use the <code>math</code> prefix.</p>
-<pre><code>from math import * # read this as: from math import everything
-x = cos(pi / 4)
-print(x)
-
-## 0.7071067811865476</code></pre>
-<p>The end result is exactly the same: the decimal form of \(\sqrt{2}/2\), but now we had less typing to do.</p>
-</section>
-<section class="slide level2">
-
-<p>Now you can freely use the functions that were imported from the math package. There is a disadvantage to this, however. What if we have two packages that import functions with the same name. For example, in the <code>math</code> package and in the <code>numpy</code> package there is a <code>cos()</code> function. In the next block of code we’ll import both <code>math</code> and <code>numpy</code>, but instead we will import them with shortened names so we can type things a bit faster.</p>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.24</strong> Here we import <code>math</code> and <code>numpy</code> under aliases so we can use the shortened aliases and not mix up which functions belong to which packages.</p>
-<pre><code>import math as ma
-import numpy as np
-# use the math version of the cosine function
-x = ma.cos( ma.pi / 4) 
-# use the numpy version of the cosine function
-y = np.cos( np.pi / 4) 
-print(x, y)
-
-## 0.7071067811865476 0.7071067811865476</code></pre>
-<p>Both <code>x</code> and <code>y</code> in the code give the decimal approximation of \(\sqrt{2}/2\). This is clearly pretty redundant in this really simple case, but you should be able to see where you might want to use this and where you might run into troubles.</p>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.25 (Contents of a Library)</strong> Once you have a package imported you can see what is inside of it using the <code>dir</code> command. The following block of code prints a list of all of the functions inside the <code>math</code> package.</p>
-<pre><code>import math
-print(dir(math))</code></pre>
-</section>
-<section class="slide level2">
-
-<p>Of course, there will be times when you need help with a function. You can use the <code>help</code> command to view the help documentation for any function. For example, you can run the code <code>help(math.acos)</code> to get help on the arc cosine function from the <code>math</code> package.</p>
-</section>
-<section class="slide level2">
-
-<p><strong>Exercise A.16</strong> Import the math package, figure out how the <code>log</code> function works, and write code to calculate the logarithm of the number 8.3 in base 10, base 2, base 16, and base \(e\) (the natural logarithm).</p>
-</section>
-<section id="a.5-numerical-python-with-numpy" class="slide level2">
-<h2>A.5 Numerical Python with <code>numpy</code></h2>
-<p>The base implementation of Python includes the basic programming language, the tools to write loops, check conditions, build and manipulate lists, and all of the other things that we saw in the previous section. In this section we will explore the package <code>numpy</code> that contains optimized numerical routines for doing numerical computations in scientific computing.</p>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.26</strong> To start with let’s look at a really simple example. Say you have a list of real numbers and you want to take the sine every element in the list. If you just try to take the sine of the list you will get an error. Try it yourself.</p>
-<pre><code>from math import pi, sin
-MyList = [0,pi/6, pi/4, pi/3, pi/2, 2*pi/3, 3*pi/4, 5*pi/6, pi]
-sin(MyList)</code></pre>
-<p>You could get around this error using some of the tools from base Python, but none of them are very elegant from a programming perspective.</p>
-<pre><code>from math import pi, sin
-MyList = [0,pi/6, pi/4, pi/3, pi/2, 2*pi/3, 3*pi/4, 5*pi/6, pi]
-SineList = [sin(n) for n in MyList]
-print(SineList)
-
-from math import pi, sin
-MyList = [0,pi/6, pi/4, pi/3, pi/2, 2*pi/3, 3*pi/4, 5*pi/6, pi]
-SineList = [ ]
-for n in range(0,len(MyList)):
-    SineList.append( sin(MyList[n]) )
-print(SineList)</code></pre>
-</section>
-<section class="slide level2">
-
-<p>The package <code>numpy</code> is used in many (most) mathematical computations in numerical analysis using Python. It provides algorithms for matrix and vector arithmetic. Furthermore, it is optimized to be able to do these computations in the most efficient possible way (both in terms of memory and in terms of speed).</p>
-<p>Typically when we import <code>numpy</code> we use <code>import numpy as np</code>. This is the standard way to name the <code>numpy</code> package. This means that we will have lots of function with the prefix “np” in order to call on the <code>numpy</code> commands. Let’s first see what is inside the package with the code <code>print(dir(np))</code> after importing <code>numpy</code> as <code>np</code>. A brief glimpse through the list reveals a huge wealth of mathematical functions that are optimized to work in the best possible way with the Python language. (We are intentionally not showing the output here since it is quite extensive, run it so you can see.)</p>
-<h3 id="a.5.1-numpy-arrays-array-operations-and-matrix-operations">A.5.1 Numpy Arrays, Array Operations, and Matrix Operations</h3>
-<p>In the previous section you worked with Python lists. As we pointed out, the shortcoming of Python lists is that they don’t behave well when we want to apply mathematical functions to the vector as a whole. The “numpy array”, <code>np.array</code>, is essentially the same as a Python list with the notable exception that</p>
-<ul>
-<li>In a <code>numpy</code> array every entry is a floating point number</li>
-<li>In a <code>numpy</code> array the memory usage is more efficient (mostly since Python is expecting data of all the same type)</li>
-<li>With a <code>numpy</code> array there are ready-made functions that can act directly on the array as a matrix or a vector</li>
-</ul>
-<p>Let’s just look at a few examples. What we’re going to do is to define a matrix \(A\) and vectors \(v\) and \(w\) as \[A = \begin{pmatrix} 1 &amp; 2 \&nbsp;3 &amp; 4 \end{pmatrix}, \quad v = \begin{pmatrix} 5\\6 \end{pmatrix} \quad \text{and} \quad w = v^T = \begin{pmatrix} 5 &amp; 6 \end{pmatrix}.\] Then we’ll do the following</p>
-<ul>
-<li>Get the size and shape of these arrays</li>
-<li>Get individual elements, rows, and columns from these arrays</li>
-<li>Treat these arrays as with linear algebra to
-<ul>
-<li>do element-wise multiplication</li>
-<li>do matrix a vector products</li>
-<li>do scalar multiplication</li>
-<li>take the transpose of matrices</li>
-<li>take the inverse of matrices</li>
-</ul></li>
-</ul>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.27 (numpy Matrices)</strong> The first thing to note is that a matrix is a list of lists (each row is a list).</p>
-<pre><code>import numpy as np
-A = np.array([[1,2],[3,4]])
-print("The matrix A is:\n",A)
-
-## The matrix A is:
-##  [[1 2]
-##  [3 4]]
-
-v = np.array([[5],[6]]) # this creates a column vector
-print("The vector v is:\n",v)
-
-## The vector v is:
-##  [[5]
-##  [6]]
-
-w = np.array([5,6]) # this creates a row vector
-print("The vector w is:\n",w)
-
-## The vector w is:
-##  [5 6]</code></pre>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.28 (variable.shape)</strong> The <code>variable.shape</code> command can be used to give the shape of a <code>numpy</code> array. Notice that the output is a tuple showing the size <code>(rows, columns)</code>. Also notice that the row vector doesn’t give (1,2) as expected. Instead it just gives (2,).</p>
-<pre><code>import numpy as np
-A = np.array([[1,2],[3,4]])
-print(A.shape) # Shape of the matrix A
-
-## (2, 2)
-
-v = np.array([[5],[6]])
-print(v.shape) # Shape of the column vector v
-
-## (2, 1)
-
-w = np.array([5,6])
-print(w.shape) # Shape of the row vector w
-
-## (2,)</code></pre>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.29 (variable.size)</strong> The <code>variable.size</code> command can be used to give the size of a <code>numpy</code> array. The size of a matrix or vector will be the total number of elements in the array. You can think of this as the product of the values in the tuple coming from the shape command.</p>
-<pre><code>import numpy as np
-A = np.array([[1,2],[3,4]])
-v = np.array([[5],[6]])
-w = np.array([5,6])
-print(A.size) # Size (number of elements) of A
-
-## 4
-
-print(v.size) # Size (number of elements) of v
-
-## 2
-
-print(w.size) # Size (number of elements) of w
-
-## 2</code></pre>
-</section>
-<section class="slide level2">
-
-<p>Reading individual elements from a <code>numpy</code> array is the same, essentially, as reading elements from a Python list. We will use square brackets to get the row and column. Remember that the indexing all starts from 0, not 1!</p>
-<p><strong>Example A.30</strong> Let’s read the top left and bottom right entries of the matrix \(A\).</p>
-<pre><code>import numpy as np
-A = np.array([[1,2],[3,4]])
-print(A[0,0]) # top left
-
-## 1
-
-print(A[1,1]) # bottom right
-
-## 4</code></pre>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.31</strong> Let’s read the first row from that matrix \(A\).</p>
-<pre><code>import numpy as np
-A = np.array([[1,2],[3,4]])
-print(A[0,:])
-
-## [1 2]</code></pre>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.32</strong> Let’s read the second column from the matrix \(A\).</p>
-<pre><code>import numpy as np
-A = np.array([[1,2],[3,4]])
-print(A[:,1])
-
-## [2 4]</code></pre>
-<p>Notice when we read the column it was displayed as a column. Be careful. Reading a column from a matrix will automatically flatten it into an array, not a matrix.</p>
-</section>
-<section class="slide level2">
-
-<p>If we try to multiply either \(A\) and \(v\) or \(A\) and \(A\) we will get some funky results. Unlike programming languages like MATLAB, the default notion of multiplication is NOT matrix multiplication. Instead, the default is element-wise multiplication.</p>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.33</strong> If we write the code <code>A*A</code> we do NOT do matrix multiplication. Instead we do element-by-element multiplication. This is a common source of issues when dealing with matrices and linear algebra in Python.</p>
-<pre><code>import numpy as np
-A = np.array([[1,2],[3,4]])
-# Notice that A*A is NOT the same as A*A with matrix mult.
-print(A * A) 
-
-## [[ 1  4]
-##  [ 9 16]]</code></pre>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.34</strong> If we write <code>A * v</code> Python will do element-wise multiplication across each column since \(v\) is a column vector.</p>
-<pre><code>import numpy as np
-A = np.array([[1,2],[3,4]])
-v = np.array([[5],[6]])
-print(A * v) 
-# A * v will do element wise multiplication on each column
-
-## [[ 5 10]
-##  [18 24]]</code></pre>
-</section>
-<section class="slide level2">
-
-<p>If, however, we recast these arrays as matrices we can get them to behave as we would expect from Linear Algebra. It is up to you to check that these products are indeed correct from the definitions of matrix multiplication from Linear Algebra.</p>
-<p><strong>Example A.35</strong> Recasting the numpy arrays as matrices allows you to use multiplication as we would expect from linear algebra.</p>
-<pre><code>import numpy as np
-A = np.matrix([[1,2],[3,4]])
-v = np.matrix([[5],[6]])
-w = np.matrix([5,6])
-print("The product A*A is:\n",A*A)
-
-## The product A*A is:
-##  [[ 7 10]
-##  [15 22]]
-
-print("The product A*v is:\n",A*v)
-
-## The product A*v is:
-##  [[17]
-##  [39]]
-
-print("The product w*A is:\n",w*A)
-
-## The product w*A is:
-##  [[23 34]]</code></pre>
-</section>
-<section class="slide level2">
-
-<p>It remains to show some of the other basic linear algebra operations: inverses, determinants, the trace, and the transpose.</p>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.36 (Matrix Transpose)</strong> Taking the transpose of a matrix (swapping the rows and columns) is done with the <code>matrix.T</code> command. This is just like other array commands we have seen in Python (like <code>.append</code>, <code>.remove</code>, <code>.shape</code>, etc.).</p>
-<pre><code>import numpy as np
-A = np.matrix([[1,2],[3,4]])
-print(A.T) # The transpose is relatively simple
-
-## [[1 3]
-##  [2 4]]</code></pre>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.37 (Matrix Inverse)</strong> The inverse of a square matrix is done with <code>A.I</code>.</p>
-<pre><code>import numpy as np
-A = np.matrix([[1,2],[3,4]])
-Ainv = A.I # Taking the inverse is also pretty simple
-print(Ainv)
-
-## [[-2.   1. ]
-##  [ 1.5 -0.5]]
-
-print(A * Ainv) # check that we get the identity matrix back
-
-## [[1.0000000e+00 0.0000000e+00]
-##  [8.8817842e-16 1.0000000e+00]]</code></pre>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.38 (Matrix Determinant)</strong> The determinant command is hiding under the <code>linalg</code> subpackage inside <code>numpy</code>. Therefore we need to call it as such.</p>
-<pre><code>import numpy as np
-A = np.matrix([[1,2],[3,4]])
-# The determinant is inside the numpy.linalg package
-print(np.linalg.det(A)) 
-
-## -2.0000000000000004</code></pre>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.39 (Trace of a Matrix)</strong> The trace is done with <code>matrix.trace()</code></p>
-<pre><code>import numpy as np
-A = np.matrix([[1,2],[3,4]])
-print(A.trace()) # The trace is pretty darn easy too
-
-## [[5]]</code></pre>
-<p>Oddly enough, the trace returns a matrix, not a scalar Therefore you’ll have to read the first entry (index <code>[0,0]</code>) from the answer to just get the trace.</p>
-</section>
-<section class="slide level2">
-
-<p><strong>Exercise A.17</strong> Now that we can do some basic linear algebra with <code>numpy</code> it is your turn. Define the matrix \(B\) and the vector \(u\) as<br>
-\[B = \begin{pmatrix} 1 &amp; 4 &amp; 8 \&nbsp;2 &amp; 3 &amp; -1 \&nbsp;0 &amp; 9 &amp; -3 \end{pmatrix} \quad \text{and} \quad u = \begin{pmatrix} 6 \&nbsp;3 \&nbsp;-7 \end{pmatrix}.\]</p>
-<p>Then find</p>
-<ol type="1">
-<li>\(Bu\)</li>
-<li>\(B^2\) (in the traditional linear algebra sense)</li>
-<li>The size and shape of \(B\)</li>
-<li>\(B^T u\)</li>
-<li>The element-by-element product of \(B\) with itself</li>
-<li>The dot product of \(u\) with the first row of \(B\)</li>
-</ol>
-</section>
-<section class="slide level2">
-
-<h3 id="a.5.2-arange-linspace-zeros-ones-and-meshgrid">A.5.2 <code>arange, linspace, zeros, ones</code>, and <code>meshgrid</code></h3>
-<p>There are a few built-in ways to build arrays in <code>numpy</code> that save a bit of time in many scientific computing settings.</p>
-<ul>
-<li><code>arange</code> (array range) builds an array of floating point numbers with the arguments <code>start, stop,</code> and <code>step</code>. Note that you may not actually get to the <code>stop</code> point if the distance <code>stop-start</code> is not evenly divisible by the ‘step.’</li>
-<li><code>linspace</code> (linearly spaced points) builds an array of floating point numbers starting at one point, ending at the next point, and have exactly the number of points specified with equal spacing in between: <code>start, stop, number of points</code>. In a linear space you are always guaranteed to hit the stop point exactly, but you don’t have direct control over the stop size.</li>
-<li>The <code>zeros</code> and <code>ones</code> commands create matrices of zeros or ones.</li>
-<li><code>meshgrid</code> builds two arrays that when paired make up the ordered pairs for a 2D (or higher D) mesh grid of points. This is the same as the <code>meshgrid</code> command in MATLAB.</li>
-</ul>
-<p>Note: Just like with all Python lists, the “stop” number is the one immediately after where you intended to stop.</p>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.40 (np.arange)</strong> The <code>np.arange</code> command is great for building sequences.</p>
-<pre><code>import numpy as np
-x = np.arange(0,0.6,0.1)
-print(x)
-
-## [0.  0.1 0.2 0.3 0.4 0.5]</code></pre>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.41 (np.linspace)</strong> The <code>np.linspace</code> command builds a list with equal (linear) spacing between the starting and ending values.</p>
-<pre><code>import numpy as np
-y = np.linspace(0,5,11)
-print(y)
-
-## [0.  0.5 1.  1.5 2.  2.5 3.  3.5 4.  4.5 5. ]</code></pre>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.42 (np.zeros)</strong> The <code>np.zeros</code> command builds an array of zeros. This is handy for pre-allocating memory.</p>
-<pre><code>import numpy as np
-z = np.zeros((3,5)) # create a 3x5 matrix of zeros
-print(z)
-
-## [[0. 0. 0. 0. 0.]
-##  [0. 0. 0. 0. 0.]
-##  [0. 0. 0. 0. 0.]]</code></pre>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.43 (np.ones)</strong> The <code>np.ones</code> command builds an array of ones.</p>
-<pre><code>import numpy as np
-u = np.ones((3,5)) # create a 3x5 matrix of ones
-print(u)
-
-## [[1. 1. 1. 1. 1.]
-##  [1. 1. 1. 1. 1.]
-##  [1. 1. 1. 1. 1.]]</code></pre>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.44 (mesh grid)</strong> The <code>np.meshgrid</code> command creates a mesh grid. This is handy for building 2D (or higher dimensional) arrays of data for multi-variable functions. Notice that the output is defined as a tuple.</p>
-<pre><code>import numpy as np
-x, y = np.meshgrid( np.linspace(0,5,6) , np.linspace(0,5,6) )
-print("x = ", x)
-
-## x =  [[0. 1. 2. 3. 4. 5.]
-##  [0. 1. 2. 3. 4. 5.]
-##  [0. 1. 2. 3. 4. 5.]
-##  [0. 1. 2. 3. 4. 5.]
-##  [0. 1. 2. 3. 4. 5.]
-##  [0. 1. 2. 3. 4. 5.]]
-
-print("y = ", y)
-
-## y =  [[0. 0. 0. 0. 0. 0.]
-##  [1. 1. 1. 1. 1. 1.]
-##  [2. 2. 2. 2. 2. 2.]
-##  [3. 3. 3. 3. 3. 3.]
-##  [4. 4. 4. 4. 4. 4.]
-##  [5. 5. 5. 5. 5. 5.]]</code></pre>
-<p>The thing to notice with the <code>np.meshgrid()</code> command is that when you lay the two matrices on top of each other, the matching entries give every ordered pair in the domain.</p>
-</section>
-<section class="slide level2">
-
-<p><strong>Exercise A.18</strong> Now time to practice with some of these <code>numpy</code> commands.</p>
-<ol type="1">
-<li>Create a <code>numpy</code> array of the numbers 1 through 10 and square every entry in the list without using a loop.</li>
-<li>Create a \(10 \times 10\) identity matrix and change the top right corner to a 5. Hint: <code>np.identity()</code></li>
-<li>Find the matrix-vector product of the answer to part (a) (as a column) and the answer to part (b).</li>
-<li>Change the bottom row of your matrix from part (b) to all 3’s, then change the third column to all 7’s, and then find the \(5^{th}\) power of this matrix.</li>
-</ol>
-</section>
-<section id="a.6-plotting-with-matplotlib" class="slide level2">
-<h2>A.6 Plotting with <code>matplotlib</code></h2>
-<p>A key part of scientific computing is plotting your results or your data. The tool in Python best-suited to this task is the package <code>matplotlib</code>. As with all of the other packages in Python, it is best to learn just the basics first and then to dig deeper later. One advantage to using <code>matplotlib</code> in Python is that it is modeled off of MATLAB’s plotting tools. People coming from a MATLAB background should feel pretty comfortable here, but there are some differences to be aware of.</p>
-<p>Note: The reader should note that we will NOT be plotting symbolically defined functions in this section. The <code>plot</code> command that we will be using is reserved for numerically defined plots (i.e.&nbsp;plots of data points), not functions that are symbolically defined. If you have a symbolically defined function and need a plot, then pick a domain, build some \(x\) data, use the function to build the corresponding \(y\) data, and use the plotting tools discussed here. If you need a plot of a symbolic function and for some reason these steps are too much to ask, then look to the section of this Appendix on <code>sympy</code>.</p>
-<h3 id="a.6.1-basics-with-plt.plot">A.6.1 Basics with <code>plt.plot()</code></h3>
-<p>We are going to start right away with an example. In this example, however, we’ll walk through each of the code chunks one-by-one so that we understand how to set up a proper plot. Something to keep in mind. The author strongly encourages students and readers to use Jupyter Notebooks for their Python coding. As such, there are some tricks for getting the plots to render that only apply to Jupyter Notebooks. If you are using Google Colab then you may not need some of these little tricks.</p>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.45 (Plotting with matplotlib)</strong> In the first example we want to simply plot the sine function on the domain \(x \in [0,2\pi]\), color it green, put a grid on it, and give a meaningful legend and axis labels. To do so we first need to take care of a couple of housekeeping items.</p>
-<ul>
-<li><p>Import <code>numpy</code> so we can take advantage of some good numerical routines.</p></li>
-<li><p>Import <code>matplotlib</code>’s <code>pyplot</code> module. The standard way to pull it is in is with the nickname <code>plt</code> (just like with <code>numpy</code> when we import it as <code>np</code>).</p>
-<p>import numpy as np import matplotlib.pyplot as plt</p></li>
-</ul>
-<p>In Jupyter Notebooks the plots will not show up unless you tell the notebook to put them “inline.” Usually we will use the following command to get the plots to show up. You do not need to do this in Google Colab. The percent sign is called a <em>magic</em> command in Jupyter Notebooks. This is not a Python command, but it is a command for controlling the Jupyter IDE specifically.</p>
-<pre><code>%matplotlib inline</code></pre>
-<p>Now we’ll build a <code>numpy</code> array of \(x\) values (using the <code>np.linspace</code> command) and a <code>numpy</code> array of \(y\) values for the sine function.</p>
-<pre><code># 100 equally spaced points from 0 to 2pi
-x = np.linspace(0,2*np.pi, 100) 
-y = np.sin(x)</code></pre>
-<ul>
-<li><p>Finally, build the plot with <code>plt.plot()</code>. The syntax is: <code>plt.plot(x, y, ’color’, ...)</code>&nbsp;where you have several options that you can pass (more on that later).</p></li>
-<li><p>Notice that we send the plot legend in directly to the plot command. This is optional and could set the legend up separately if we like.</p></li>
-<li><p>Then we’ll add the grid with <code>plt.grid()</code></p></li>
-<li><p>Then we’ll add the legend to the plot</p></li>
-<li><p>Finally we’ll add the axis labels</p></li>
-<li><p>We end the plotting code with <code>plt.show()</code> to tell Python to finally show the plot. This line of code tells Python that you’re done building that plot.</p>
-<p>plt.plot(x,y, ‘green’, label=‘The Sine Function’) plt.grid() plt.legend() plt.xlabel(“x axis”) plt.ylabel(“y axis”) plt.show()</p></li>
-</ul>
-
-<img data-src="images/Ch07_SineFunction.png" class="r-stretch quarto-figure-center"><p class="caption">The sine function</p><p>Figure A.1: The sine function</p>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.46</strong> Now let’s do a second example, but this time we want to show four different plots on top of each other. When you start a figure, <code>matplotlib</code> is expecting all of those plots to be layered on top of each other.(Note:For MATLAB users, this means that you do not need the <code>hold on</code> command since it is automatically “on.”)</p>
-<p>In this example we will plot \[y_0 = \sin(2\pi x) \quad y_1 = \cos(2 \pi x) \quad y_2 = y_0 + y_1 \quad \text{and} \quad y_3 = y_0 - y_1\] on the domain \(x \in [0,1]\) with 100 equally spaced points. We’ll give each of the plots a different line style, built a legend, put a grid on the plot, and give axis labels.</p>
-<pre><code>import numpy as np
-import matplotlib.pyplot as plt
-# %matplotlib inline # you may need this in Jupyter Notebooks
-
-# build the x and y values
-x = np.linspace(0,1,100)
-y0 = np.sin(2*np.pi*x)
-y1 = np.cos(2*np.pi*x)
-y2 = y0 + y1
-y3 = y0 - y1
-
-# plot each of the functions 
-# (notice that they will be on the same axes)
-plt.plot(x, y0, 'b-.', label=r"$y_0 = \sin(2\pi x)$")
-plt.plot(x, y1, 'r--', label=r"$y_1 = \cos(2\pi x)$")
-plt.plot(x, y2, 'g:', label=r"$y_2 = y_0 + y_1$")
-plt.plot(x, y3, 'k-', label=r"$y_3 = y_0 - y_1$")
-
-# put in a grid, legend, title, and axis labels
-plt.grid()
-plt.legend()
-plt.title("Awesome Title")
-plt.xlabel('x axis label')
-plt.ylabel('y axis label')
-plt.show()</code></pre>
-
-<img data-src="images/Ch07_SeveralSines.png" class="r-stretch quarto-figure-center"><p class="caption">Plots of the sine, cosine, and sums and differences.</p><p>Figure A.2: Plots of the sine, cosine, and sums and differences.</p>
-<p>Notice that the legend was placed automatically. There are ways to control the placement of the legend if you wish, but for now just let Python and <code>matplotlib</code> have control over the placement.</p>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.47</strong> Now let’s create the same plot with slightly different code. The <code>plot</code> command can take several \((x, y)\) pairs in the same line of code. This can really shrink the amount of coding that you have to do when plotting several functions on top of each other.</p>
-<pre><code># The next line of code does all of the plotting of all 
-# of the functions.  Notice the order: x, y, color and 
-# line style, repeat
-import numpy as np
-import matplotlib.pyplot as plt
-x = np.linspace(0,1,100)
-y0 = np.sin(2*np.pi*x)
-y1 = np.cos(2*np.pi*x)
-y2 = y0 + y1
-y3 = y0 - y1
-plt.plot(x, y0, 'b-.', x, y1, 'r--', x, y2, 'g:', x, y3, 'k-')
-
-plt.grid()
-plt.legend([r"$y_0 = \sin(2\pi x)$",r"$y_1 = \cos(2\pi x)$",\
-            r"$y_2 = y_0 + y_1$",r"$y_3 = y_0 - y_1$"])
-plt.title("Awesome Title")
-plt.xlabel('x axis label')
-plt.ylabel('y axis label')
-plt.show()</code></pre>
-
-<img data-src="images/Ch07_SeveralSines2.png" class="r-stretch quarto-figure-center"><p class="caption">A second plot of the sine, cosine, and sums and differences.</p><p>Figure A.3: A second plot of the sine, cosine, and sums and differences.</p>
-</section>
-<section class="slide level2">
-
-<p><strong>Exercise A.19</strong> Plot the functions \(f(x) = x^2\), \(g(x) = x^3\), and \(h(x) = x^4\) on the same axes. Use the domain \(x \in [0,1]\) and the range \(y \in [0,1]\). Put a grid, a legend, a title, and appropriate labels on the axes.</p>
-</section>
-<section class="slide level2">
-
-<h3 id="a.6.2-subplots">A.6.2 Subplots</h3>
-<p>It is often very handy to place plots side-by-side or as some array of plots. The <code>subplots</code> command allows us that control. The main idea is that we are setting up a matrix of blank plots and then populating the axes with the plots that we want.</p>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.48</strong> Let’s repeat the previous exercise, but this time we will put each of the plots in its own subplot. There are a few extra coding quirks that come along with building subplots so we’ll highlight each block of code separately.</p>
-<ul>
-<li><p>First we set up the plot area with <code>plt.subplots()</code>. The first two inputs to the <code>subplots</code> command are the number of rows and the number of columns in your plot array. For the first example we will do 2 rows of plots with 2 columns – so there are four plots total. The last input for the <code>subplots</code> command is the size of the figure (this is really just so that it shows up well in Jupyter Notebooks – spend some time playing with the figure size to get it to look right).</p></li>
-<li><p>Then we build each plot individually telling <code>matplotlib</code> which axes to use for each of the things in the plots.</p></li>
-<li><p>Notice the small differences in how we set the titles and labels</p></li>
-<li><p>In this example we are setting the \(y\)-axis to the interval \([-2,2]\) for consistency across all of the plots.</p>
-<p># set up the blank matrix of plots import numpy as np import matplotlib.pyplot as plt x = np.linspace(0,1,100) y0 = np.sin(2<em>np.pi</em>x) y1 = np.cos(2<em>np.pi</em>x) y2 = y0 + y1 y3 = y0 - y1</p>
-<p>fig, axes = plt.subplots(nrows = 2, ncols = 2, figsize = (10,5))</p>
-<p># Build the first plot axes[0,0].plot(x, y0, ‘b-.’) axes[0,0].grid() axes[0,0].set_title(r”<span class="math inline">\(y_0 = \sin(2\pi x)\)</span>“) axes[0,0].set_ylim(-2,2) axes[0,0].set_xlabel(”x”) axes[0,0].set_ylabel(“y”)</p>
-<p># Build the second plot axes[0,1].plot(x, y1, ‘r–’) axes[0,1].grid() axes[0,1].set_title(r”<span class="math inline">\(y_1 = \cos(2\pi x)\)</span>“) axes[0,1].set_ylim(-2,2) axes[0,1].set_xlabel(”x”) axes[0,1].set_ylabel(“y”)</p>
-<p># Build the first plot axes[1,0].plot(x, y2, ‘g:’) axes[1,0].grid() axes[1,0].set_title(r”<span class="math inline">\(y_2 = y_0 + y_1\)</span>“) axes[1,0].set_ylim(-2,2) axes[1,0].set_xlabel(”x”) axes[1,0].set_ylabel(“y”)</p>
-<p># Build the first plot axes[1,1].plot(x, y3, ‘k-’) axes[1,1].grid() axes[1,1].set_title(r”<span class="math inline">\(y_3 = y_0 - y_1\)</span>“) axes[1,1].set_ylim(-2,2) axes[1,1].set_xlabel(”x”) axes[1,1].set_ylabel(“y”)</p>
-<p>fig.tight_layout() plt.show()</p></li>
-</ul>
-<p>The <code>fig.tight_layout()</code> command makes the plot labels a bit more readable in this instance (again, something you can play with).</p>
-
-<img data-src="images/Ch07_Subplots.png" class="r-stretch quarto-figure-center"><p class="caption">An example of subplots</p><p>Figure A.4: An example of subplots</p>
-</section>
-<section class="slide level2">
-
-<p><strong>Exercise A.20</strong> Put the functions \(f(x) = x^2\), \(g(x) = x^3\) and \(h(x) = x^4\) in a subplot environment with 1 row and 3 columns of plots. Use the unit interval as the domain and range for all three plot, but sure that each plot has a grid, appropriate labels, an appropriate title, and the overall figure has a title.</p>
-</section>
-<section class="slide level2">
-
-<h3 id="a.6.3-logarithmic-scaling-with-semilogy-semilogx-and-loglog">A.6.3 Logarithmic Scaling with <code>semilogy</code>, <code>semilogx</code>, and <code>loglog</code></h3>
-<p>It is occasionally useful to scale an axis logarithmically. This arises most often when we’re examining an exponential function, or some other function, that is close to zero for much of the domain. Scaling logarithmically allows us to see how small the function is getting in orders of magnitude instead of as a raw real number. We’ll use this often in numerical methods.</p>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.49</strong> In this example we’ll plot the function \(y = 10^{-0.01x}\) on a regular (linear) scale and on a logarithmic scale on the \(y\) axis. Use the interval \([0,500]\).</p>
-<pre><code>import numpy as np
-import matplotlib.pyplot as plt
-x = np.linspace(0,500,1000)
-y = 10**(-0.01*x)
-fig, axis = plt.subplots(1,2, figsize = (10,5))
-
-axis[0].plot(x,y, 'r')
-axis[0].grid()
-axis[0].set_title("Linearly scaled y axis")
-axis[0].set_xlabel("x")
-axis[0].set_ylabel("y")
-
-axis[1].semilogy(x,y, 'k--')
-axis[1].grid()
-axis[1].set_title("Logarithmically scaled y axis")
-axis[1].set_xlabel("x")
-axis[1].set_ylabel("Log(y)")
-plt.show()</code></pre>
-<p>It should be noted that the same result can be achieved using the <code>yscale</code> command along with the <code>plot</code> command instead of using the <code>semilogy</code> command. Pay careful attention to the subtle changes in the following code.</p>
-<pre><code>import numpy as np
-import matplotlib.pyplot as plt
-x = np.linspace(0,500,1000)
-y = 10**(-0.01*x)
-fig, axis = plt.subplots(1,2, figsize = (10,5))
-
-axis[0].plot(x,y, 'r')
-axis[0].grid()
-axis[0].set_title("Linearly scaled y axis")
-axis[0].set_xlabel("x")
-axis[0].set_ylabel("y")
-
-axis[1].plot(x,y, 'k--') # &lt;----- Notice the change here
-axis[1].set_yscale("log") # &lt;----- And we added this line
-axis[1].grid()
-axis[1].set_title("Logarithmically scaled y axis")
-axis[1].set_xlabel("x")
-axis[1].set_ylabel("Log(y)")</code></pre>
-
-<img data-src="images/Ch07_LogScale.png" class="r-stretch quarto-figure-center"><p class="caption">An example of using logarithmic scaling.</p><p>Figure A.5: An example of using logarithmic scaling.</p>
-</section>
-<section class="slide level2">
-
-<p><strong>Exercise A.21</strong> Plot the function \(f(x) = x^3\) for \(x \in [0,1]\) on linearly scaled axes, logarithmic axis in the \(y\) direction, logarithmically scaled axes in the \(x\) direction, and a log-log plot with logarithmic scaling on both axes. Use <code>subplots</code> to put your plots side-by-side. Give appropriate labels, titles, etc.</p>
-</section>
-<section id="a.7-symbolic-python-with-sympy" class="slide level2">
-<h2>A.7 Symbolic Python with <code>sympy</code></h2>
-<p>In this section we will learn the tools necessary to do symbolic mathematics in Python. The relevant package is <code>sympy</code> (symbolic Python) and it works much like Mathematica, Maple, or MATLAB’s symbolic toolbox. That being said, Mathematica and Maple are designed to do symbolic computation in the fastest and best possible ways, so in some sense, <code>sympy</code> is a little step-sibling to these much bigger pieces of software. Remember: Python is free, and this is a book on numerical analysis – we will not be doing much symbolic work in this particular class, but these tools do occasionally come in handy.</p>
-<p>Let’s import <code>sympy</code> in the usual way. We will use the nickname <code>sp</code> (just like we used <code>np</code> for <code>numpy</code>). This is not a standard nickname in the Python literature, but it will suffice for our purposes.</p>
-</section>
-<section class="slide level2">
-
-<p><strong>Exercise A.22</strong> Load <code>sympy</code> and use the <code>dir()</code> command to see what functions are inside the <code>sympy</code> library.</p>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.50</strong> If you include the command <code>sp.init_printing()</code> after you load <code>sympy</code> you will get some nice LaTeX style output in your Jupyter Notebooks.</p>
-</section>
-<section class="slide level2">
-
-<h3 id="a.7.1-symbolic-variables-with-symbols">A.7.1 Symbolic Variables with <code>symbols</code></h3>
-<p>When you are working with symbolic variables you have to tell Python that that’s what you’re doing. In other words, we actually have to type-cast the variables when we name them. Otherwise Python won’t know what to do with them – we need to explicitly tell it that we are working with symbols!</p>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.51</strong> Let’s define the variable \(x\) as a symbolic variable. Then we’ll define a few symbolic expressions that use \(x\) as a variable.</p>
-<pre><code>import sympy as sp
-x = sp.Symbol('x') # note the capitalization</code></pre>
-<p>Now we’ll define the function \(f(x) = (x+2)^3\) and spend the next few examples playing with it.</p>
-<pre><code>f = (x+2)**3 # A symbolic function
-print(f)
-
-## (x + 2)**3</code></pre>
-<p>Notice that the output of these lines of code is not necessarily very nicely formatted as a symbolic expression. What we would really want to see is \(\displaystyle (x+2)^3\). If you include the code <code>sp.init_printing()</code> after you import the <code>sympy</code> library then you should get nice LaTeX style formatting in your answers.</p>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.52</strong> Be careful that you are using symbolically defined function along with your symbols. For example, see the code below:</p>
-<pre><code># this line gives an error since it doesn't know 
-# which "sine" to use.
-g = sin(x) 
-
-import sympy as sp
-x = sp.Symbol('x')
-g = sp.sin(x) # this one works
-print(g)
-
-## sin(x)</code></pre>
-</section>
-<section class="slide level2">
-
-<h3 id="a.7.2-symbolic-algebra">A.7.2 Symbolic Algebra</h3>
-<p>One of the primary purposes of doing symbolic programming is to do symbolic algebra (the other is typically symbolic calculus). In this section we’ll look at a few of the common algebraic exercises that can be handled with <code>sympy</code>.</p>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.53 (symbolic expand)</strong> Expand the function \(f(x) = (x+2)^3\). In other words, multiply this out fully so that it is a sum or difference of monomials instead of the cube of a binomial.</p>
-<pre><code>import sympy as sp
-x = sp.Symbol('x')
-f = (x+2)**3
-sp.expand(f) # do the multiplication to expand the polynomial
-
-## x**3 + 6*x**2 + 12*x + 8</code></pre>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.54 (symbolic factoring)</strong> We will factor the polynomial \(h(x) = x^2 + 4x + 3\).</p>
-<pre><code>import sympy as sp
-x = sp.Symbol('x')
-h = x**2 + 4*x + 3
-sp.factor(h) # factor this polynomial
-
-## (x + 1)*(x + 3)</code></pre>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.55 (Trigonometric Simplification)</strong> The <code>sympy</code> package knows how to work with trigonometric identities. In this example we show how <code>sympy</code> expands \(\sin(a+b)\).</p>
-<pre><code>import sympy as sp
-a, b = sp.symbols('a b')
-j = sp.sin(a+b)
-sp.expand(j, trig=True) # Trig identities are built in!
-
-## sin(a)*cos(b) + sin(b)*cos(a)</code></pre>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.56 (Symbolic Simplification)</strong> In this example we will simplify the function \(g(x) = x^3 + 5x^3 + 12x^2 +1\).</p>
-<pre><code>import sympy as sp
-x = sp.Symbol('x')
-g = x**3 + 5*x**3 + 12*x**2 + 1
-sp.simplify(g) # Simplify some algebraic expression
-
-## 6*x**3 + 12*x**2 + 1</code></pre>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.57</strong> In this example we’ll simplify an expression that involves trigonometry.</p>
-<pre><code>import sympy as sp
-x = sp.Symbol('x')
-sp.simplify( sp.sin(x) / sp.cos(x)) # simplify a trig expression.
-
-## tan(x)</code></pre>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.58 (Symbolic Equation Solving)</strong> The primary goal of many algebra problems is to solve an equation. We will dedicate more time to algebraic equation solving later in this section, but this example gives a simple example of how it works in <code>sympy</code>.</p>
-<p>We want to solve the equation \(x^2 + 4x + 3 = 0\) for \(x\).</p>
-<pre><code>import sympy as sp
-x = sp.Symbol('x')
-h = x**2 + 4*x + 3
-sp.solve(h,x)
-
-## [-3, -1]</code></pre>
-<p>As expected, the roots of the function \(h(x)\) are \(x=-3\) and \(x=1\) since \(h(x)\) factors into \(h(x) = (x+3)(x-1)\).</p>
-</section>
-<section class="slide level2">
-
-<h3 id="a.7.3-symbolic-function-evaluation">A.7.3 Symbolic Function Evaluation</h3>
-<p>In <code>sympy</code> we cannot simply just evaluate functions as we would on paper. Let’s say we have the function \(f(x)= (x+2)^3\) and we want to find \(f(5)\). We would say that we “substitute 5 into f for x,” and that is exactly what we have to tell Python. Unfortunately we cannot just write <code>f(5)</code> since that would mean that <code>f</code> is a Python function and we are sending the number 5 into that function. This is an unfortunate double-use of the word “function,” but stop and think about it for a second: When we write <code>f = (x+2)**3</code> we are just telling Python that <code>f</code> is a symbolic expression in terms of the symbol <code>x</code>, but we did not use <code>def</code> to define it as a function as we did for all other function.</p>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.59</strong> The following code is what the mathematicians in us would like to do:</p>
-<pre><code>import sympy as sp
-x = sp.Symbol('x')
-f = (x+2)**3
-f(5) # This gives an error!</code></pre>
-<p>… but this is how it should be done:</p>
-<pre><code>import sympy as sp
-x = sp.Symbol('x')
-f = (x+2)**3
-f.subs(x,5) # This actually substitutes 5 for x in f
-
-## 343</code></pre>
-</section>
-<section class="slide level2">
-
-<h3 id="a.7.4-symbolic-calculus">A.7.4 Symbolic Calculus</h3>
-<p>The <code>sympy</code> package has routines to take symbolic derivatives, antiderivatives, limits, and Taylor series just like other computer algebra systems.</p>
-<h4 id="a.7.4.1-derivatives">A.7.4.1 Derivatives</h4>
-<p>The <code>diff</code> command in <code>sympy</code> does differentiation: <code>sp.diff(function, variable, [order])</code>.</p>
-<p>Take careful note that <code>diff</code> is defined both in <code>sympy</code> and in <code>numpy</code>. That means that there are symbolic and numerical routines for taking derivatives in Python …and we need to tell our instance of Python which one we’re working with every time we use it.</p>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.60 (Symbolic Differentiation)</strong> In this example we’ll differentiate the function \(f(x) = (x+2)^3\).</p>
-<pre><code>import sympy as sp 
-x = sp.Symbol('x') # Define the symbol x
-f = (x+2)**3 # Define a symbolic function f(x) = (x+2)^3
-df = sp.diff(f,x) # Take the derivative of f and call it "df"
-print("f(x) = ", f)
-
-## f(x) =  (x + 2)**3
-
-print("f'(x) = ",df)
-
-## f'(x) =  3*(x + 2)**2
-
-print("f'(x) = ", sp.expand(df))
-
-## f'(x) =  3*x**2 + 12*x + 12</code></pre>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.61</strong> Now let’s get the first, second, third, and fourth derivatives of the function <code>f</code>.</p>
-<pre><code>import sympy as sp 
-x = sp.Symbol('x') # Define the symbol x
-f = (x+2)**3 # Define a symbolic function f(x) = (x+2)^3
-df = sp.diff(f,x,1) # first derivative
-ddf = sp.diff(f,x,2) # second deriative
-dddf = sp.diff(f,x,3) # third deriative
-ddddf = sp.diff(f,x,4) # fourth deriative
-print("f'(x) = ",df)
-
-## f'(x) =  3*(x + 2)**2
-
-print("f''(x) = ",sp.simplify(ddf))
-
-## f''(x) =  6*x + 12
-
-print("f'''(x) = ",sp.simplify(dddf))
-
-## f'''(x) =  6
-
-print("f''''(x) = ",sp.simplify(ddddf))
-
-## f''''(x) =  0</code></pre>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.62</strong> Now let’s do some partial derivatives. The <code>diff</code> command is still the right tool. You just have to tell it which variable you’re working with.</p>
-<pre><code>import sympy as sp
-x, y = sp.symbols('x y') # Define the symbols
-f = sp.sin(x*y) + sp.cos(x**2) # Define the function
-fx = sp.diff(f,x)
-fy = sp.diff(f,y)
-print("f(x,y) = ", f)
-
-## f(x,y) =  sin(x*y) + cos(x**2)
-
-print("f_x(x,y) = ", fx)
-
-## f_x(x,y) =  -2*x*sin(x**2) + y*cos(x*y)
-
-print("f_y(x,y) = ", fy)
-
-## f_y(x,y) =  x*cos(x*y)</code></pre>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.63</strong> It is worth noting that when you have a symbolically defined function you can ask <code>sympy</code> to give you the LaTeX code for the symbolic function so you can use it when you write about it.</p>
-<pre><code>import sympy as sp
-x, y = sp.symbols('x y') # Define the symbols
-f = sp.sin(x*y) + sp.cos(x**2) # Define the function
-sp.latex(f)
-
-## '\\sin{\\left(x y \\right)} + \\cos{\\left(x^{2} \\right)}'</code></pre>
-</section>
-<section class="slide level2">
 
-<h4 id="a.7.4.2-integrals">A.7.4.2 Integrals</h4>
-<p>For integration, the <code>sp.integrate</code> tool is the command for the job: <code>sp.integrate(function, variable)</code> will find an antiderivative and <code>sp.integrate(function, (variable, lower, upper))</code> will evaluate a definite integral.</p>
-<p>The <code>integrate</code> command in <code>sympy</code> accepts a symbolically defined function along with the variable of integration and optional bounds. If the bounds aren’t given then the command finds the antiderivative. Otherwise it finds the definite integral.</p>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.64</strong> Find the antiderivative of the function \(f(x) = (x+2)^3\).</p>
-<pre><code>import sympy as sp 
-x = sp.Symbol('x')
-f = (x+2)**3
-F = sp.integrate(f,x)
-print(F)
-
-## x**4/4 + 2*x**3 + 6*x**2 + 8*x</code></pre>
-<p>The output of these lines of code is the expression \(\frac{x^{4}}{4} + 2 x^{3} + 6 x^{2} + 8 x\) which is indeed the antiderivative.</p>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.65</strong> Consider the multivariable antiderivative \[\int \sin(xy) + \cos(x) dx.\] The <code>sympy</code> package deals with the second variable just as it should.</p>
-<pre><code>import sympy as sp 
-x, y = sp.symbols('x y')
-g = sp.sin(x*y) + sp.cos(x)
-G = sp.integrate(g,x) 
-print(G)
-
-## Piecewise((-cos(x*y)/y, Ne(y, 0)), (0, True)) + sin(x)</code></pre>
-<p>It is apparent that <code>sympy</code> was sensitive to the fact that there was some trouble at \(y=0\) and took care of it with a piece wise function.</p>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.66</strong> Consider the integral \[\int_0^\pi \sin(x) dx.\] Notice that the variable and the bounds are sent to the <code>integrate</code> command as a tuple. Furthermore, notice that we had to send the symbolic version of \(\pi\) instead of any other version (e.g.&nbsp;<code>numpy</code>).</p>
-<pre><code>import sympy as sp
-x = sp.Symbol('x')
-sp.integrate( sp.sin(x), (x,0,sp.pi))
-
-## 2</code></pre>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.67</strong> This is a fun one. Let’s do the definite integral \[\int_{-\infty}^\infty e<sup>{-x</sup>2} dx.\] We have to use the “infinity” symbol from <code>sympy</code>. It is two lower-case O’s next to each other: <code>oo</code>. It kind of looks like and infinity I suppose.</p>
-<pre><code>import sympy as sp
-x = sp.Symbol('x')
-sp.integrate( sp.exp(-x**2) , (x, -sp.oo, sp.oo))
-
-## sqrt(pi)</code></pre>
-</section>
-<section class="slide level2">
-
-<h4 id="a.7.4.3-limits">A.7.4.3 Limits</h4>
-<p>The <code>limit</code> command in <code>sympy</code> takes symbolic limits: <code>sp.limit(function, variable, value, [direction])</code></p>
-<p>The direction (left or right) is optional and if you leave it off then the limit is considered from both directions.</p>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.68</strong> Let’s take the limit \[\lim_{x \to 0} \frac{\sin(x)}{x}.\]</p>
-<pre><code>import sympy as sp
-x = sp.Symbol('x')
-sp.limit( sp.sin(x)/x, x, 0)
-
-## 1</code></pre>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.69</strong> Let’s do the difference quotient \[\lim_{h \to 0} \frac{ f(x+h) - f(x)}{h}\] for the function \(f(x) = (x+2)^3\). Taking the limit should give the derivative so we’ll check that the <code>diff</code> command gives us the same thing using <code>==</code> …warning!</p>
-<pre><code>import sympy as sp
-x = sp.Symbol('x')
-f = (x+2)**3
-print(sp.diff(f,x))
-
-## 3*(x + 2)**2
-
-h = sp.Symbol('h')
-df = sp.limit( (f.subs(x,x+h) - f) / h , h , 0 )
-print(df)
-
-## 3*x**2 + 12*x + 12
-
-print(df == sp.diff(f,x)) 
-# notice that these are not "symbolically" equal
-
-## False
-
-print(df == sp.expand(sp.diff(f,x))) # but these are
-
-## True</code></pre>
-<p>Notice that when we check to see if two symbolic functions are equal they must be in the same exact symbolic form. Otherwise <code>sympy</code> won’t recognize them as actually being equal even though they are mathematically equivalent.</p>
-</section>
-<section class="slide level2">
-
-<p><strong>Exercise A.23</strong> Define the function \(f(x) = 3x^2 + x\sin(x^2)\) symbolically and then do the following:</p>
-<ol type="1">
-<li>Evaluate the function at \(x=2\) and get symbolic and numerical answers.</li>
-<li>Take the first and second derivative</li>
-<li>Take the antiderivative</li>
-<li>Find the definite integral from 0 to 1</li>
-<li>Find the limit as \(x\) goes to 3</li>
-</ol>
-</section>
-<section class="slide level2">
-
-<h4 id="a.7.4.4-taylor-series">A.7.4.4 Taylor Series</h4>
-<p>The <code>sympy</code> package has a tool for expanding Taylor Series of symbolic functions: <code>sp.series( function, variable, [center], [num terms])</code>.</p>
-<p>The center defaults to \(0\) and the number of terms defaults to \(5\).</p>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.70</strong> Find the Taylor series for \(f(x) = e^x\) centered at \(x=0\) and centered at \(x=1\).</p>
-<pre><code>import sympy as sp
-x = sp.Symbol('x')
-sp.series( sp.exp(x),x)
-
-## 1 + x + x**2/2 + x**3/6 + x**4/24 + x**5/120 + O(x**6)
-
-import sympy as sp
-x = sp.Symbol('x')
-sp.series( sp.exp(x), x, 1, 3) # expand at x=1 (3 terms)
-
-## E + E*(x - 1) + E*(x - 1)**2/2 + O((x - 1)**3, (x, 1))</code></pre>
-<p>Finally, if we want more terms then we can send the number of desired terms to the <code>series</code> command.</p>
-<pre><code>import sympy as sp
-x = sp.Symbol('x')
-sp.series( sp.exp(x), x, 0, 3) # expand at x=0 and give 3 terms
-
-## 1 + x + x**2/2 + O(x**3)</code></pre>
-</section>
-<section class="slide level2">
-
-<h3 id="a.7.5-solving-equations-symbolically">A.7.5 Solving Equations Symbolically</h3>
-<p>One of the big reasons to use a symbolic toolboxes such as <code>sympy</code> is to solve algebraic equations exactly. This isn’t always going to be possible, but when it is we get some nice results. The <code>solve</code> command in <code>sympy</code> is the tool for the job: <code>sp.solve( equation, variable )</code></p>
-<p>The equation doesn’t actually need to be the whole equation. For any equation-solving problem we can always re-frame it so that we are solving \(f(x) = 0\) by subtracting the right-hand side of the equation to the left-hand side. Hence we can leave the equal sign and the zero off and <code>sympy</code> understands what we’re doing.</p>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.71</strong> Let’s solve the equation \(x^2 - 2 = 0\) for \(x\). We know that the roots are \(\pm \sqrt{2}\) so this should be pretty trivial for a symbolic solver.</p>
-<pre><code>import sympy as sp
-x = sp.Symbol('x')
-sp.solve( x**2 - 2, x)
-
-## [-sqrt(2), sqrt(2)]</code></pre>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.72</strong> Now let’s solve the equation \(x^4 - x^2 - 1= 0\) for \(x\). You might recognize this as a quadratic equation in disguise so you can definitely do it by hand … if you want to. (You could also recognize that this equation is related to the golden ratio!)</p>
-<pre><code>import sympy as sp
-x = sp.Symbol('x')
-sp.solve( x**4 - x**2 - 1, x)</code></pre>
-<p>Run the code yourself to see the output. In nicer LaTeX style formatting, the answer is \[\left[ - i \sqrt{- \frac{1}{2} + \frac{\sqrt{5}}{2}}, &nbsp;i \sqrt{- \frac{1}{2} + \frac{\sqrt{5}}{2}}, &nbsp;- \sqrt{\frac{1}{2} + \frac{\sqrt{5}}{2}}, &nbsp;\sqrt{\frac{1}{2} + \frac{\sqrt{5}}{2}}\right]\] Notice that <code>sympy</code> has no problem dealing with the complex roots.</p>
-</section>
-<section class="slide level2">
-
-<p>In the previous example the answers may be a bit hard to read due to their symbolic form. This is particularly true for far more complicated equation solving problems. The next example shows how you can loop through the solutions and then print them in decimal form so they are a bit more readable.</p>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.73</strong> We will again solve the equation \(x^4 - x^2 - 1= 0\) for \(x\), but this time we will output the answers as floating point decimals. We are using the <code>N</code> command to convert from symbolic to numerical.</p>
-<pre><code>import sympy as sp
-x = sp.Symbol('x')
-soln = sp.solve( x**4 - x**2 - 1, x)
-for j in range(0, len(soln)):
-    print(sp.N(soln[j]))
-
-## -0.786151377757423*I
-## 0.786151377757423*I
-## -1.27201964951407
-## 1.27201964951407</code></pre>
-<p>The <code>N</code> command gives a numerical approximation for a symbolic expression (this is taken straight from Mathematica!).</p>
-</section>
-<section class="slide level2">
-
-<p><strong>Exercise A.24</strong> Give the exact and floating point solutions to the equation \(x^4 - x^2 - x + 5 = 0\).</p>
-</section>
-<section class="slide level2">
-
-<p>When you want to solve a symbolic equation numerically you can use the <code>nsolve</code> command. This will do something like Newton’s method in the background. You need to give it a starting point where it can look for you the solution to your equation: <code>sp.nsolve( equation, variable, intial guess )</code></p>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.74</strong> Let’s solve the equation \(x^3 - x^2 - 2\) for \(x\) both symbolically and numerically. The numerical solution with <code>nsolve</code> will search for the solution near \(x=1\).</p>
-<pre><code>import sympy as sp
-x = sp.Symbol('x')
-ExactSoln = sp.solve(x**3 - x**2 - 2, x) # symbolic solution
-print(ExactSoln)</code></pre>
-<p>Run the code yourself to see the exact solution. In nicer LaTeX style formatting the answer is: \[\begin{aligned} \left[ \frac{1}{3} + \left(- \frac{1}{2} - \frac{\sqrt{3} i}{2}\right) \sqrt[3]{\frac{\sqrt{87}}{9} + \frac{28}{27}} + \frac{1}{9 \left(- \frac{1}{2} - \frac{\sqrt{3} i}{2}\right) \sqrt[3]{\frac{\sqrt{87}}{9} + \frac{28}{27}}}, \right. \&nbsp;\frac{1}{3} + \frac{1}{9 \left(- \frac{1}{2} + \frac{\sqrt{3} i}{2}\right) \sqrt[3]{\frac{\sqrt{87}}{9} + \frac{28}{27}}} + \left(- \frac{1}{2} + \frac{\sqrt{3} i}{2}\right) \sqrt[3]{\frac{\sqrt{87}}{9} + \frac{28}{27}}, \&nbsp;\left. \frac{1}{9 \sqrt[3]{\frac{\sqrt{87}}{9} + \frac{28}{27}}} + \frac{1}{3} + \sqrt[3]{\frac{\sqrt{87}}{9} + \frac{28}{27}}\right]\end{aligned}\] which is rather challenging to read. We can give all of the floating point approximations with the following code.</p>
-<pre><code>import sympy as sp
-x = sp.Symbol('x')
-ExactSoln = sp.solve(x**3 - x**2 - 2, x) # symbolic solution
-print("First Solution: ",sp.N(ExactSoln[0]))
-
-## First Solution:  -0.347810384779931 - 1.02885225413669*I
-
-print("Second Solution: ",sp.N(ExactSoln[1]))
-
-## Second Solution:  -0.347810384779931 + 1.02885225413669*I
-
-print("Third Solution: ",sp.N(ExactSoln[2]))
-
-## Third Solution:  1.69562076955986</code></pre>
-<p>If we were only looking for the floating point real solution near \(x=1\) then we could just use <code>nsolve</code>.</p>
-<pre><code>import sympy as sp
-x = sp.Symbol('x')
-NumericalSoln = sp.nsolve(x**3 - x**2 - 2, x, 1) # solution near x=1
-print(NumericalSoln)
-
-## 1.69562076955986</code></pre>
-</section>
-<section class="slide level2">
-
-<p><strong>Exercise A.25</strong> Solve the equation \[x^3 \ln(x) = 7\] and give your answer both symbolically and numerically.</p>
-</section>
-<section class="slide level2">
-
-<h3 id="a.7.6-symbolic-plotting">A.7.6 Symbolic Plotting</h3>
-<p>In this final section we will show how to make plots of symbolically defined functions. Be careful here. There are times when you want to plot a symbolically defined function and there are times when you want to plot data: <code>sp.plot( function, (variable, left, right) )</code></p>
-<p>It is easy to get confused since they both use the <code>plot</code> function in their own packages (<code>sympy</code> and <code>matplotlib</code> respectively).</p>
-<p>Note: For MATLAB users, the <code>sympy.plot</code> command is similar to MATLAB’s <code>ezplot</code> command or <code>fplot</code> command.</p>
-<p>In numerical analysis we do not often need to make plots of symbolically defined functions. There is more that could be said about <code>sympy</code>’s plotting routine, but since it won’t be used often in this text it doesn’t seem necessary to give those details here. When you need to make a plot just make a careful consideration as to whether you need a symbolic plot (with <code>sympy</code>) or a plot of data points (with <code>matplotlib</code>).</p>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.75</strong> Let’s get a quick plot of the function \(f(x) = (x+2)^3\) on the domain \(x \in [-5,2]\).</p>
-<pre><code>import sympy as sp
-x = sp.Symbol('x')
-f = (x+2)**3
-sp.plot(f,(x,-5,2))</code></pre>
-
-<img data-src="images/Ch07_SymbolicFigure1.png" class="r-stretch quarto-figure-center"><p class="caption">A plot of a symbolically defined function.</p><p>Figure A.6: A plot of a symbolically defined function.</p>
-</section>
-<section class="slide level2">
-
-<p><strong>Example A.76</strong> Multiple plots can be done at the same time with the <code>sympy.plot</code> command.</p>
-<p>Plot \(f(x) = (x+2)^3\) and \(g(x) = 20\cos(x)\) on the same axes on the domain \(x \in [-5,2]\).</p>
-<pre><code>import sympy as sp
-x = sp.Symbol('x')
-f = (x+2)**3
-g = 20*sp.cos(x)
-sp.plot(f, g, (x,-5,2))</code></pre>
 
-<img data-src="images/Ch07_SymbolicFigure2.png" class="r-stretch quarto-figure-center"><p class="caption">A second plot of symbolically defined functions.</p><p>Figure A.7: A second plot of symbolically defined functions.</p>
 </section>
-<section class="slide level2">
-
-<p><strong>Exercise A.26</strong> Make a symbolic plot of the function \(f(x) = x^3 \ln(x) - 7\) on the domain \([0,3]\).</p>
-</section>
-<section class="slide level2">
-
-<ol start="15" type="1">
-<li>Actually, it is still an open mathematical question that <em>every</em> integer seed will converge to 1. The Collatz sequence has been checked for many millions of initial seeds and they all converge to 1, but there is no mathematical proof that it will always happen.<a href="ch:python.html#fnref15">↩︎</a></li>
-</ol>
-
-
 </section>
-    </div>
-  <div class="quarto-auto-generated-content" style="display: none;">
-<div class="footer footer-default">
-<p><a href="../index.html">Home</a></p>
-</div>
-</div></div>
-
-  <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="site_libs/revealjs/dist/reveal.js"></script>
-  <!-- reveal.js plugins -->
-  <script src="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="site_libs/revealjs/plugin/quarto-support/support.js"></script>
-  
-
-  <script src="site_libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="site_libs/revealjs/plugin/search/search.js"></script>
-  <script src="site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="site_libs/revealjs/plugin/math/math.js"></script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
-
-  <script>
-
-      // Full list of configuration options available at:
-      // https://revealjs.com/config/
-      Reveal.initialize({
-'controlsAuto': true,
-'previewLinksAuto': false,
-'pdfSeparateFragments': false,
-'autoAnimateEasing': "ease",
-'autoAnimateDuration': 1,
-'autoAnimateUnmatched': true,
-'jumpToSlide': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
-'smaller': false,
- 
-        // Display controls in the bottom right corner
-        controls: false,
-
-        // Help the user learn the controls by providing hints, for example by
-        // bouncing the down arrow when they first encounter a vertical slide
-        controlsTutorial: false,
-
-        // Determines where controls appear, "edges" or "bottom-right"
-        controlsLayout: 'edges',
-
-        // Visibility rule for backwards navigation arrows; "faded", "hidden"
-        // or "visible"
-        controlsBackArrows: 'faded',
-
-        // Display a presentation progress bar
-        progress: true,
-
-        // Display the page number of the current slide
-        slideNumber: 'c/t',
-
-        // 'all', 'print', or 'speaker'
-        showSlideNumber: 'all',
-
-        // Add the current slide number to the URL hash so that reloading the
-        // page/copying the URL will return you to the same slide
-        hash: true,
-
-        // Start with 1 for the hash rather than 0
-        hashOneBasedIndex: false,
-
-        // Flags if we should monitor the hash and change slides accordingly
-        respondToHashChanges: true,
-
-        // Push each slide change to the browser history
-        history: true,
-
-        // Enable keyboard shortcuts for navigation
-        keyboard: true,
-
-        // Enable the slide overview mode
-        overview: true,
-
-        // Disables the default reveal.js slide layout (scaling and centering)
-        // so that you can use custom CSS layout
-        disableLayout: false,
-
-        // Vertical centering of slides
-        center: false,
-
-        // Enables touch navigation on devices with touch input
-        touch: true,
-
-        // Loop the presentation
-        loop: false,
-
-        // Change the presentation direction to be RTL
-        rtl: false,
-
-        // see https://revealjs.com/vertical-slides/#navigation-mode
-        navigationMode: 'linear',
-
-        // Randomizes the order of slides each time the presentation loads
-        shuffle: false,
-
-        // Turns fragments on and off globally
-        fragments: true,
-
-        // Flags whether to include the current fragment in the URL,
-        // so that reloading brings you to the same fragment position
-        fragmentInURL: false,
-
-        // Flags if the presentation is running in an embedded mode,
-        // i.e. contained within a limited portion of the screen
-        embedded: false,
-
-        // Flags if we should show a help overlay when the questionmark
-        // key is pressed
-        help: true,
-
-        // Flags if it should be possible to pause the presentation (blackout)
-        pause: true,
-
-        // Flags if speaker notes should be visible to all viewers
-        showNotes: false,
-
-        // Global override for autoplaying embedded media (null/true/false)
-        autoPlayMedia: null,
-
-        // Global override for preloading lazy-loaded iframes (null/true/false)
-        preloadIframes: null,
-
-        // Number of milliseconds between automatically proceeding to the
-        // next slide, disabled when set to 0, this value can be overwritten
-        // by using a data-autoslide attribute on your slides
-        autoSlide: 0,
-
-        // Stop auto-sliding after user input
-        autoSlideStoppable: true,
-
-        // Use this method for navigation when auto-sliding
-        autoSlideMethod: null,
-
-        // Specify the average time in seconds that you think you will spend
-        // presenting each slide. This is used to show a pacing timer in the
-        // speaker view
-        defaultTiming: null,
-
-        // Enable slide navigation via mouse wheel
-        mouseWheel: false,
-
-        // The display mode that will be used to show slides
-        display: 'block',
-
-        // Hide cursor if inactive
-        hideInactiveCursor: true,
-
-        // Time before the cursor is hidden (in ms)
-        hideCursorTime: 5000,
-
-        // Opens links in an iframe preview overlay
-        previewLinks: false,
-
-        // Transition style (none/fade/slide/convex/concave/zoom)
-        transition: 'none',
-
-        // Transition speed (default/fast/slow)
-        transitionSpeed: 'default',
-
-        // Transition style for full page slide backgrounds
-        // (none/fade/slide/convex/concave/zoom)
-        backgroundTransition: 'none',
-
-        // Number of slides away from the current that are visible
-        viewDistance: 3,
-
-        // Number of slides away from the current that are visible on mobile
-        // devices. It is advisable to set this to a lower number than
-        // viewDistance in order to save resources.
-        mobileViewDistance: 2,
-
-        // The "normal" size of the presentation, aspect ratio will be preserved
-        // when the presentation is scaled to fit different resolutions. Can be
-        // specified using percentage units.
-        width: 1050,
-
-        height: 700,
-
-        // Factor of the display size that should remain empty around the content
-        margin: 0.1,
-
-        math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
-          config: 'TeX-AMS_HTML-full',
-          tex2jax: {
-            inlineMath: [['\\(','\\)']],
-            displayMath: [['\\[','\\]']],
-            balanceBraces: true,
-            processEscapes: false,
-            processRefs: true,
-            processEnvironments: true,
-            preview: 'TeX',
-            skipTags: ['script','noscript','style','textarea','pre','code'],
-            ignoreClass: 'tex2jax_ignore',
-            processClass: 'tex2jax_process'
-          },
-        },
-
-        // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
 
-          RevealMath,
-          RevealNotes,
-          RevealSearch,
-          RevealZoom
-        ]
-      });
-    </script>
-    <script id="quarto-html-after-body" type="application/javascript">
-    window.document.addEventListener("DOMContentLoaded", function (event) {
-      const toggleBodyColorMode = (bsSheetEl) => {
-        const mode = bsSheetEl.getAttribute("data-mode");
-        const bodyEl = window.document.querySelector("body");
-        if (mode === "dark") {
-          bodyEl.classList.add("quarto-dark");
-          bodyEl.classList.remove("quarto-light");
-        } else {
-          bodyEl.classList.add("quarto-light");
-          bodyEl.classList.remove("quarto-dark");
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
       }
-      const toggleBodyColorPrimary = () => {
-        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-        if (bsSheetEl) {
-          toggleBodyColorMode(bsSheetEl);
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
         }
       }
-      toggleBodyColorPrimary();  
-      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
-      tabsets.forEach(function(tabset) {
-        const tabby = new Tabby('#' + tabset.id);
-      });
-      const isCodeAnnotation = (el) => {
-        for (const clz of el.classList) {
-          if (clz.startsWith('code-annotation-')) {                     
-            return true;
-          }
-        }
-        return false;
-      }
-      const onCopySuccess = function(e) {
-        // button target
-        const button = e.trigger;
-        // don't keep focus
-        button.blur();
-        // flash "checked"
-        button.classList.add('code-copy-button-checked');
-        var currentTitle = button.getAttribute("title");
-        button.setAttribute("title", "Copied!");
-        let tooltip;
-        if (window.bootstrap) {
-          button.setAttribute("data-bs-toggle", "tooltip");
-          button.setAttribute("data-bs-placement", "left");
-          button.setAttribute("data-bs-title", "Copied!");
-          tooltip = new bootstrap.Tooltip(button, 
-            { trigger: "manual", 
-              customClass: "code-copy-button-tooltip",
-              offset: [0, -8]});
-          tooltip.show();    
-        }
-        setTimeout(function() {
-          if (tooltip) {
-            tooltip.hide();
-            button.removeAttribute("data-bs-title");
-            button.removeAttribute("data-bs-toggle");
-            button.removeAttribute("data-bs-placement");
-          }
-          button.setAttribute("title", currentTitle);
-          button.classList.remove('code-copy-button-checked');
-        }, 1000);
-        // clear code selection
-        e.clearSelection();
-      }
-      const getTextToCopy = function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-      }
-      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-        text: getTextToCopy
-      });
-      clipboard.on('success', onCopySuccess);
-      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-          text: getTextToCopy,
-          container: window.document.getElementById('quarto-embedded-source-code-modal')
-        });
-        clipboardModal.on('success', onCopySuccess);
-      }
-        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-        var mailtoRegex = new RegExp(/^mailto:/);
-          var filterRegex = new RegExp('/' + window.location.host + '/');
-        var isInternal = (href) => {
-            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-        }
-        // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-        for (var i=0; i<links.length; i++) {
-          const link = links[i];
-          if (!isInternal(link.href)) {
-            // undo the damage that might have been done by quarto-nav.js in the case of
-            // links that we want to consider external
-            if (link.dataset.originalHref !== undefined) {
-              link.href = link.dataset.originalHref;
-            }
-          }
-        }
-      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-        const config = {
-          allowHTML: true,
-          maxWidth: 500,
-          delay: 100,
-          arrow: false,
-          appendTo: function(el) {
-              return el.closest('section.slide') || el.parentElement;
-          },
-          interactive: true,
-          interactiveBorder: 10,
-          theme: 'light-border',
-          placement: 'bottom-start',
-        };
-        if (contentFn) {
-          config.content = contentFn;
-        }
-        if (onTriggerFn) {
-          config.onTrigger = onTriggerFn;
-        }
-        if (onUntriggerFn) {
-          config.onUntrigger = onUntriggerFn;
-        }
-          config['offset'] = [0,0];
-          config['maxWidth'] = 700;
-        window.tippy(el, config); 
-      }
-      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-      for (var i=0; i<noterefs.length; i++) {
-        const ref = noterefs[i];
-        tippyHover(ref, function() {
-          // use id or data attribute instead here
-          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-          try { href = new URL(href).hash; } catch {}
-          const id = href.replace(/^#\/?/, "");
-          const note = window.document.getElementById(id);
-          if (note) {
-            return note.innerHTML;
-          } else {
-            return "";
-          }
-        });
-      }
-      const findCites = (el) => {
-        const parentEl = el.parentElement;
-        if (parentEl) {
-          const cites = parentEl.dataset.cites;
-          if (cites) {
-            return {
-              el,
-              cites: cites.split(' ')
-            };
-          } else {
-            return findCites(el.parentElement)
-          }
-        } else {
-          return undefined;
-        }
-      };
-      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-      for (var i=0; i<bibliorefs.length; i++) {
-        const ref = bibliorefs[i];
-        const citeInfo = findCites(ref);
-        if (citeInfo) {
-          tippyHover(citeInfo.el, function() {
-            var popup = window.document.createElement('div');
-            citeInfo.cites.forEach(function(cite) {
-              var citeDiv = window.document.createElement('div');
-              citeDiv.classList.add('hanging-indent');
-              citeDiv.classList.add('csl-entry');
-              var biblioDiv = window.document.getElementById('ref-' + cite);
-              if (biblioDiv) {
-                citeDiv.innerHTML = biblioDiv.innerHTML;
-              }
-              popup.appendChild(citeDiv);
-            });
-            return popup.innerHTML;
-          });
-        }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
       }
     });
-    </script>
-    
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
 
 </body></html>
