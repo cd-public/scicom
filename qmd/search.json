@@ -1,297 +1,10 @@
 [
   {
-    "objectID": "01_python.html",
-    "href": "01_python.html",
-    "title": "Python",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Readme",
     "section": "",
-    "text": "Python is free,\nPython is very widely used,\nPython is flexible,\nPython is relatively easy to learn,\nand Python is quite powerful.\n\n\n\n\n\nPython is a general purpose language used for Scientific Computing.\nNot to build apps, build software, manage databases, or develop user interfaces.\nSolve scientific and mathematical problems.\n\n\n\n\nScientists often use the following:\n\nPython,\nnumpy (numerical Python),\nmatplotlib (a suite of plotting tools),\nscipy (scientific Python), and\nsympy (symbolic Python).\n\nWe’ll get to these."
-  },
-  {
-    "objectID": "01_python.html#on-python",
-    "href": "01_python.html#on-python",
-    "title": "Python",
-    "section": "",
-    "text": "Python is free,\nPython is very widely used,\nPython is flexible,\nPython is relatively easy to learn,\nand Python is quite powerful."
-  },
-  {
-    "objectID": "01_python.html#why-not-python",
-    "href": "01_python.html#why-not-python",
-    "title": "Python",
-    "section": "",
-    "text": "Python is a general purpose language used for Scientific Computing.\nNot to build apps, build software, manage databases, or develop user interfaces.\nSolve scientific and mathematical problems."
-  },
-  {
-    "objectID": "01_python.html#python-libraries",
-    "href": "01_python.html#python-libraries",
-    "title": "Python",
-    "section": "",
-    "text": "Scientists often use the following:\n\nPython,\nnumpy (numerical Python),\nmatplotlib (a suite of plotting tools),\nscipy (scientific Python), and\nsympy (symbolic Python).\n\nWe’ll get to these."
-  },
-  {
-    "objectID": "01_python.html#diving-in",
-    "href": "01_python.html#diving-in",
-    "title": "Python",
-    "section": "Diving In",
-    "text": "Diving In\n\nTaking Python as a given, we’ll:\n\nUse an example of something I helped a student with recently\nShow step-by-step how to use Python\nIntroduce a number of Python features to solve the problem more easily.\n\nThis was from an introductory physics class I believe; I don’t know the context."
-  },
-  {
-    "objectID": "01_python.html#motivating-example",
-    "href": "01_python.html#motivating-example",
-    "title": "Python",
-    "section": "Motivating Example",
-    "text": "Motivating Example\n\nRecently, I helped a student stuck on this:\n\n\\[\nf(x) =\n\\begin{cases}\n  9x^2 + 5 & x &lt; 4 \\\\\n  9 & 4 \\leq x \\leq 8 \\\\\n  2 - x & x &gt; 8\n\\end{cases}\n\\]\n\nFind \\(f(x)\\) for each of the following \\(x\\) values: \\[\n\\{-1, 4, 5, 8, 11\\}\n\\]"
-  },
-  {
-    "objectID": "01_python.html#is-this-real",
-    "href": "01_python.html#is-this-real",
-    "title": "Python",
-    "section": "Is this “real”?",
-    "text": "Is this “real”?\n\nModels income tax brackets, one of the most important drivers of human behavior in the largest economies in the world.\nWe use a simpler contrived example for now…\n\n\n\nMarginal Tax Rate\n\n\nSingle Taxable Income\n\n\nMarried Filing Jointly or Qualified Widow(er) Taxable Income\n\n\nMarried Filing Separately Taxable Income\n\n\nHead of Household Taxable Income\n\n\n\n\n10%\n\n\n$0 – $9,275\n\n\n$0 – $18,550\n\n\n$0 – $9,275\n\n\n$0 – $13,250\n\n\n\n\n15%\n\n\n$9,276 – $37,650\n\n\n$18,551 – $75,300\n\n\n$9,276 – $37,650\n\n\n$13,251 – $50,400\n\n\n\n\n25%\n\n\n$37,651 – $91,150\n\n\n$75,301 – $151,900\n\n\n$37,651 – $75,950\n\n\n$50,401 – $130,150\n\n\n\n\n28%\n\n\n$91,151 – $190,150\n\n\n$151,901 – $231,450\n\n\n$75,951 – $115,725\n\n\n$130,151 – $210,800\n\n\n\n\n33%\n\n\n$190,151 – $413,350\n\n\n$231,451 – $413,350\n\n\n$115,726 – $206,675\n\n\n$210,801 – $413,350\n\n\n\n\n35%\n\n\n$413,351 – $415,050\n\n\n$413,351 – $466,950\n\n\n$206,676 – $233,475\n\n\n$413,351 – $441,000\n\n\n\n\n39.6%\n\n\n$415,051+\n\n\n$466,951+\n\n\n$233,476+\n\n\n$441,001+"
-  },
-  {
-    "objectID": "01_python.html#how-to-solve",
-    "href": "01_python.html#how-to-solve",
-    "title": "Python",
-    "section": "How to solve?",
-    "text": "How to solve?\n\nThink about how you would solve such a problem.\nWhat steps would you take?\nWhat would making solving it hard?\n\nKeep track of details?\nPerforming the arithmetic?\nAnything else?\n\nPython, in my view, is a way to solve these problems."
-  },
-  {
-    "objectID": "01_python.html#python-in-action",
-    "href": "01_python.html#python-in-action",
-    "title": "Python",
-    "section": "Python in action",
-    "text": "Python in action\n\nMy preferred way to do calculation as an experienced Python user is writing code:\n\n\n\n\nMathematical expression \\[\n\\begin{cases}\n9x^2 + 5 & x &lt; 4 \\\\\n9 & 4 \\leq x \\leq 8 \\\\\n2 - x & x &gt; 8\n\\end{cases}\n\\]\n\n\n\nPython expression (code)\n\n\n9 * -1 * -1 + 5\n\n14\n\n\n\n\n\nI write x * x for \\(x^2\\) because it’s non-obvious how to write “squared” yet."
-  },
-  {
-    "objectID": "01_python.html#arithmetic-operations",
-    "href": "01_python.html#arithmetic-operations",
-    "title": "Python",
-    "section": "Arithmetic Operations",
-    "text": "Arithmetic Operations\n\nIn Python, we can write many of the same arithmetic operations we use in our math and science classes.\n\n\n6 + 3\n\n9\n\n\n\n6 - 3\n\n3\n\n\n\n6 * 3\n\n18\n\n\n\n6 / 3\n\n2.0"
-  },
-  {
-    "objectID": "01_python.html#wait",
-    "href": "01_python.html#wait",
-    "title": "Python",
-    "section": "Wait?",
-    "text": "Wait?\n\nUse Python? How?\nTo use Python to make this calculation, first we must install Python.\n\nIt is a program, like Firefox, MS Word or Fortnite"
-  },
-  {
-    "objectID": "01_python.html#warning",
-    "href": "01_python.html#warning",
-    "title": "Python",
-    "section": "Warning!",
-    "text": "Warning!\n\nThere is a very important box to check while installing!\n\nBe careful working ahead!\nWe’ll teach how to fix not checking this box but not for a while"
-  },
-  {
-    "objectID": "01_python.html#installation",
-    "href": "01_python.html#installation",
-    "title": "Python",
-    "section": "Installation",
-    "text": "Installation\n\nWe go to the offial webpage to get an installer for our computer:\n\nhttps://www.python.org/downloads/\n\nBe careful about starting it!\n\nYou can open it and check the next slide."
-  },
-  {
-    "objectID": "01_python.html#add-python-to-path",
-    "href": "01_python.html#add-python-to-path",
-    "title": "Python",
-    "section": "Add Python to PATH",
-    "text": "Add Python to PATH"
-  },
-  {
-    "objectID": "01_python.html#why",
-    "href": "01_python.html#why",
-    "title": "Python",
-    "section": "Why?",
-    "text": "Why?\n\nThe benefit of adding Python to path is that we can use it at\n&lt;dramatic music&gt;\nThe Command Line\n\nA text-based interface to computing resources, including its ability to do e.g. arithmetic and save notes."
-  },
-  {
-    "objectID": "01_python.html#terminal",
-    "href": "01_python.html#terminal",
-    "title": "Python",
-    "section": "Terminal",
-    "text": "Terminal\n\nOn MS Windows\n\nI press Windows key, type “terminal” then press enter.\n\nOn MacOS\n\nI open Launchpad, type “terminal” then press enter."
-  },
-  {
-    "objectID": "01_python.html#macos",
-    "href": "01_python.html#macos",
-    "title": "Python",
-    "section": "MacOS",
-    "text": "MacOS"
-  },
-  {
-    "objectID": "01_python.html#windows",
-    "href": "01_python.html#windows",
-    "title": "Python",
-    "section": "Windows",
-    "text": "Windows"
-  },
-  {
-    "objectID": "01_python.html#expression-evaluation",
-    "href": "01_python.html#expression-evaluation",
-    "title": "Python",
-    "section": "Expression evaluation",
-    "text": "Expression evaluation\n\nReturning to the terminal, we can type at the “prompt”.\nOn MacOS, perhaps a line that begins with $ and a flashing cursor\nOn Window, perhaps PS C:\\Users\\calvin&gt;\n\nPS stands for “powershell” - more latter.\nC:\\Users\\calvin is the name of a folder - more latter\n&gt; is the prompt, with a flashing cursor."
-  },
-  {
-    "objectID": "01_python.html#run-python",
-    "href": "01_python.html#run-python",
-    "title": "Python",
-    "section": "“Run” Python",
-    "text": "“Run” Python\nIn the following examples, I remove line numbers to denote they are not Python code snippets.\n\nOn Windows, type python\n\n\n\nWindows\n\nPS C:\\Users\\calvin&gt; python\n\n\nOn MacOS, type python3\n\n\n\nMacOS\n\n$ python3\n\n\nOn both, press the ↵ᴇɴᴛᴇʀ key."
-  },
-  {
-    "objectID": "01_python.html#see-python",
-    "href": "01_python.html#see-python",
-    "title": "Python",
-    "section": "See Python",
-    "text": "See Python\n\nYou’ll see something like this:\n\nPython 3.12.5 (tags/v3.12.5:ff3bc82, Aug  6 2024, 20:45:27) [MSC v.1940 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n&gt;&gt;&gt;\n\nTake note of the prompt!\n&gt;&gt;&gt;\nThose three are how you know it is Python, and not the Terminal, that you are working in."
-  },
-  {
-    "objectID": "01_python.html#example",
-    "href": "01_python.html#example",
-    "title": "Python",
-    "section": "Example",
-    "text": "Example\n\nIf I type python at the command line\nThen 9 * -1 * -1 + 5 within Python\nIt will look like this:\n\nPS C:\\Users\\calvin&gt; python\nPython 3.12.5 (tags/v3.12.5:ff3bc82, Aug  6 2024, 20:45:27) [MSC v.1940 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n&gt;&gt;&gt; 9 * -1 * -1 + 5\n14\n&gt;&gt;&gt;\n\nThis is how Python shows that 9 * -1 * -1 + 5 is 14"
-  },
-  {
-    "objectID": "01_python.html#recall",
-    "href": "01_python.html#recall",
-    "title": "Python",
-    "section": "Recall",
-    "text": "Recall\n\n\n\\[\n\\begin{cases}\n  9x^2 + 5 & x &lt; 4 \\\\\n  9 & 4 \\leq x \\leq 8 \\\\\n  2 - x & x &gt; 8\n\\end{cases}\n\\] \\[\n\\{-1, 4, 5, 8, 11\\}\n\\]\n\n&gt;&gt;&gt; 9 * -1 * -1 + 5\n14\n&gt;&gt;&gt; 9\n9\n&gt;&gt;&gt; 9\n9\n&gt;&gt;&gt; 2 - 8\n-6\n&gt;&gt;&gt; 2 - 11\n-9\n\n\n\nThis is still quite tedious and annoying!"
-  },
-  {
-    "objectID": "01_python.html#inequality-testing",
-    "href": "01_python.html#inequality-testing",
-    "title": "Python",
-    "section": "(In)equality testing",
-    "text": "(In)equality testing\n\nLike + or - which we use to calculate numbers…\nWe can use &lt; or &gt; to calculate inequalities.\nSpecifically, we see whether an inequality is True or False\n\n\n-1 &lt; 4\n\nTrue\n\n\n\n4 &lt; 4\n\nFalse"
-  },
-  {
-    "objectID": "01_python.html#accomodating-keyboards",
-    "href": "01_python.html#accomodating-keyboards",
-    "title": "Python",
-    "section": "Accomodating Keyboards",
-    "text": "Accomodating Keyboards\n\nSome things aren’t super easy to type.\nI don’t have a “\\(\\leq\\)” key on my keyboard.\nCombine with = as &lt;= for “less than or equal” or “\\(\\leq\\)”\n\n\n4 &lt;= 4\n\nTrue\n\n\n\nWe can “chain” inequalities as well - one after another.\n\n\n4 &lt;= 4 &lt;= 8\n\nTrue"
-  },
-  {
-    "objectID": "01_python.html#a-note",
-    "href": "01_python.html#a-note",
-    "title": "Python",
-    "section": "A note",
-    "text": "A note\n\nWe always put the equal sign = second.\n\n\n4 &lt;= 5\n\nTrue\n\n\n\n5 &gt;= 4\n\nTrue\n\n\n\nA (somewhat confusing) error if we try =&gt;\n\n&gt;&gt;&gt; 4 =&gt; 5\n  File \"&lt;stdin&gt;\", line 1\n    4 =&gt; 5\n    ^\nSyntaxError: cannot assign to literal"
-  },
-  {
-    "objectID": "01_python.html#new-topics",
-    "href": "01_python.html#new-topics",
-    "title": "Python",
-    "section": "New Topics",
-    "text": "New Topics\n\nWe have now touch on two new topics:\n\nTrue and False\n\nExpressions which don’t evaluate to a number\nCalled “booleans”\n\n“Assignment”\n\nAssociated with the = sign\nDifferent from inequality testing!\n\n\nWe’ll explore both!"
-  },
-  {
-    "objectID": "01_python.html#booleans",
-    "href": "01_python.html#booleans",
-    "title": "Python",
-    "section": "Booleans",
-    "text": "Booleans\n\nSometimes, a Python expression is a numerical value.\n\n\n2 + 2\n\n4\n\n\n\n7\n\n7\n\n\n\nBut it doesn’t have to be!\n\n\n2 &lt; 2\n\nFalse"
-  },
-  {
-    "objectID": "01_python.html#if",
-    "href": "01_python.html#if",
-    "title": "Python",
-    "section": "If",
-    "text": "If\n\nBooleans are mostly useful for writing if statements.\n\nThese are multiline expressions in Python.\n\nTo see the result of multi-line expression, we have to print the result…\n\n\nif (1 &lt;= 1):\n    print(2 + 2)\n\n4\n\n\n\nif (1 &lt; 1):\n    print(2 + 2)"
-  },
-  {
-    "objectID": "01_python.html#piecewise",
-    "href": "01_python.html#piecewise",
-    "title": "Python",
-    "section": "Piecewise",
-    "text": "Piecewise\n\nWe can see the immediate use of this in a piecewise function!\n\n\n\n\\[\n\\begin{cases}\n  9x^2 + 5 & x &lt; 4 \\\\\n  9 & 4 \\leq x \\leq 8 \\\\\n  2 - x & x &gt; 8\n\\end{cases}\n\\] \\[\n\\{-1, 4, 5, 8, 11\\}\n\\]\n\n\nif (-1 &lt; 4):\n    print(9 * -1 * -1 + 5)\n\n14\n\n\n\nOr least part of one…\n\n\nif (4 &lt; 4):\n    print(9 * 4 * 4 + 5)\n\n\nUh oh!"
-  },
-  {
-    "objectID": "01_python.html#else",
-    "href": "01_python.html#else",
-    "title": "Python",
-    "section": "Else",
-    "text": "Else\n\nOftentimes, we use if with else\n\n\nif (1 &lt; 1):\n    print(\"1 is less than 1\")\nelse:\n    print(\"1 is not less than 1\")\n\n1 is not less than 1"
-  },
-  {
-    "objectID": "01_python.html#elif",
-    "href": "01_python.html#elif",
-    "title": "Python",
-    "section": "Elif",
-    "text": "Elif\n\nIf we have more than two options, we can place a special elif in the middle.\n\n\n\n\nif (1 &lt; 1):\n    print(\"1 is less than 1\")\nelif (1 &gt; 1):\n    print(\"1 is greater than 1\")\nelse:\n    print(\"1 is equal to 1\")\n\n1 is equal to 1\n\n\n\n\nif (2 &lt; 1):\n    print(\"2 is less than 1\")\nelif (2 &gt; 1):\n    print(\"2 is greater than 1\")\nelse:\n    print(\"2 is equal to 1\")\n\n2 is greater than 1\n\n\n\n\n\nBy the way, it is extremely obnoxious to manually type 2 in 5 different places"
-  },
-  {
-    "objectID": "01_python.html#assignment",
-    "href": "01_python.html#assignment",
-    "title": "Python",
-    "section": "Assignment",
-    "text": "Assignment\n\nWe can also assign variables!\n\nI call this single-equals assignment\nUse a single equals sign = and some variable name, like x\n\n\n\n\n\nx = 1\nif (x &lt; 1):\n    print(\"x is less than 1\")\nelif (x &gt; 1):\n    print(\"x is greater than 1\")\nelse:\n    print(\"x is equal to 1\")\n\nx is equal to 1\n\n\n\n\nx = 2\nif (x &lt; 1):\n    print(\"x is less than 1\")\nelif (x &gt; 1):\n    print(\"x is greater than 1\")\nelse:\n    print(\"x is equal to 1\")\n\nx is greater than 1"
-  },
-  {
-    "objectID": "01_python.html#double-equals-equality",
-    "href": "01_python.html#double-equals-equality",
-    "title": "Python",
-    "section": "Double equals equality",
-    "text": "Double equals equality\n\nI call it single-equals assignment because sometimes we check if a variable is precisely equal to some value.\nThat is somewhat confusingly done with == double equals equality test.\n\n\n\n\nx = 1\nif (x == 1):\n    print(\"x is equal to 1\")\nelse:\n    print(\"x is not equal to 1\")\n\nx is equal to 1\n\n\n\n\nx = 2\nif (x == 1):\n    print(\"x is equal to 1\")\nelse:\n    print(\"x is not equal to 1\")\n\nx is not equal to 1"
-  },
-  {
-    "objectID": "01_python.html#double-exponentation",
-    "href": "01_python.html#double-exponentation",
-    "title": "Python",
-    "section": "Double ** Exponentation",
-    "text": "Double ** Exponentation\n\nDoubling is used in a few other cases.\nDouble asterisk ** is exponentiation.\n\n\n5 ** 2\n\n25"
-  },
-  {
-    "objectID": "01_python.html#piecewise-1",
-    "href": "01_python.html#piecewise-1",
-    "title": "Python",
-    "section": "Piecewise",
-    "text": "Piecewise\n\nWe can finally write the piecewise expression!\n\n\n\n\\[\n\\begin{cases}\n  9x^2 + 5 & x &lt; 4 \\\\\n  9 & 4 \\leq x \\leq 8 \\\\\n  2 - x & x &gt; 8\n\\end{cases}\n\\] \\[\n\\{-1, 4, 5, 8, 11\\}\n\\]\n\n\nx = 11\nif (x &lt; 4):\n    print(9 * x ** 2 + 5)\nelif (4 &lt;= x &lt;= 8):\n    print(9)\nelif (x &gt; 8):\n    print(2 - x)\n\n-9"
-  },
-  {
-    "objectID": "01_python.html#recycle",
-    "href": "01_python.html#recycle",
-    "title": "Python",
-    "section": "Recycle",
-    "text": "Recycle\n\nIt is still extremely tedious to either:\n\nCopy-paste, or\nType more than once.\n\nAlso very annoying/difficult to write them many lines without error!\nWe introduce the def keyword to define functions\nA way to reuse code we have already written."
-  },
-  {
-    "objectID": "01_python.html#def",
-    "href": "01_python.html#def",
-    "title": "Python",
-    "section": "def",
-    "text": "def\n\ndef double(x):\n    print(x + x)\n\n\ndef + some function name + ( + some variable name + ):\n\n\ndouble(7)\n\n14\n\n\n\n“Call” functions the same way we call print - with parens."
-  },
-  {
-    "objectID": "01_python.html#return",
-    "href": "01_python.html#return",
-    "title": "Python",
-    "section": "return",
-    "text": "return\n\nIt is more common to use return than print in a function.\nWhen we call a function, we can think of it as expression with some value.\nThat value is defined by the value that is return.\n\n\n\n\ndef six_gt_five_return():\n    print(True)\n\n\nif (six_gt_five_return()):\n    print(\"it is\")\n\nTrue\n\n\n\n\ndef six_gt_five_print():\n    return True\n\n\nif (six_gt_five_print()):\n    print(\"it is\")\n\nit is"
-  },
-  {
-    "objectID": "01_python.html#example-1",
-    "href": "01_python.html#example-1",
-    "title": "Python",
-    "section": "Example",
-    "text": "Example\n\nSuppose an interest rate doubles our savings every ~7 years.\nHow much savings in 14 years?\n\n\nsavings = 10\nsavings = double(savings) # 7 yrs\nsavings\n\n20"
-  },
-  {
-    "objectID": "01_python.html#use-return",
-    "href": "01_python.html#use-return",
-    "title": "Python",
-    "section": "Use return",
-    "text": "Use return\n\ndef double(x):\n    return x + x\n\n\nNow, double(savings) becomes equal to x + x\n\n\nsavings = 10\nsavings = double(savings) # 7 yrs\nsavings\n\n20\n\n\n\ndouble(savings)\n\n40\n\n\n\nOr even\n\n\ndouble(double(10))\n\n40"
-  },
-  {
-    "objectID": "01_python.html#piecewise-2",
-    "href": "01_python.html#piecewise-2",
-    "title": "Python",
-    "section": "Piecewise",
-    "text": "Piecewise\n\nWe can finally write the piecewise function (was: expression)!\n\nFunction: use many times in many expressions\nExpression: evaluate once and get one answer\n\n\n\n\n\\[\n\\begin{cases}\n  9x^2 + 5 & x &lt; 4 \\\\\n  9 & 4 \\leq x \\leq 8 \\\\\n  2 - x & x &gt; 8\n\\end{cases}\n\\] \\[\n\\{-1, 4, 5, 8, 11\\}\n\\]\n\n\ndef piecewise(x):\n    if (x &lt; 4):\n        return 9 * x ** 2 + 5\n    elif (4 &lt;= x &lt;= 8):\n        return 9\n    elif (x &gt; 8):\n        return 2 - x\n\n\npiecewise(4)\n\n9"
+    "text": "Readme\nThis self-documenting book introduces the usage of the Python technology stack with Quarto, VS Code, and GitHub for communicating results within the computational sciences."
   },
   {
     "objectID": "01_python.rjs.html#on-python",
@@ -581,10 +294,423 @@
     "text": "Piecewise\n\nWe can finally write the piecewise function (was: expression)!\n\nFunction: use many times in many expressions\nExpression: evaluate once and get one answer\n\n\n\n\n\\[\n\\begin{cases}\n  9x^2 + 5 & x &lt; 4 \\\\\n  9 & 4 \\leq x \\leq 8 \\\\\n  2 - x & x &gt; 8\n\\end{cases}\n\\] \\[\n\\{-1, 4, 5, 8, 11\\}\n\\]\n\n\ndef piecewise(x):\n    if (x &lt; 4):\n        return 9 * x ** 2 + 5\n    elif (4 &lt;= x &lt;= 8):\n        return 9\n    elif (x &gt; 8):\n        return 2 - x\n\n\npiecewise(4)\n\n9"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Readme",
+    "objectID": "01_python.html",
+    "href": "01_python.html",
+    "title": "Python",
     "section": "",
-    "text": "Readme\nThis self-documenting book introduces the usage of the Python technology stack with Quarto, VS Code, and GitHub for communicating results within the computational sciences."
+    "text": "Python is free,\nPython is very widely used,\nPython is flexible,\nPython is relatively easy to learn,\nand Python is quite powerful.\n\n\n\n\n\nPython is a general purpose language used for Scientific Computing.\nNot to build apps, build software, manage databases, or develop user interfaces.\nSolve scientific and mathematical problems.\n\n\n\n\nScientists often use the following:\n\nPython,\nnumpy (numerical Python),\nmatplotlib (a suite of plotting tools),\nscipy (scientific Python), and\nsympy (symbolic Python).\n\nWe’ll get to these.",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.html#on-python",
+    "href": "01_python.html#on-python",
+    "title": "Python",
+    "section": "",
+    "text": "Python is free,\nPython is very widely used,\nPython is flexible,\nPython is relatively easy to learn,\nand Python is quite powerful.",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.html#why-not-python",
+    "href": "01_python.html#why-not-python",
+    "title": "Python",
+    "section": "",
+    "text": "Python is a general purpose language used for Scientific Computing.\nNot to build apps, build software, manage databases, or develop user interfaces.\nSolve scientific and mathematical problems.",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.html#python-libraries",
+    "href": "01_python.html#python-libraries",
+    "title": "Python",
+    "section": "",
+    "text": "Scientists often use the following:\n\nPython,\nnumpy (numerical Python),\nmatplotlib (a suite of plotting tools),\nscipy (scientific Python), and\nsympy (symbolic Python).\n\nWe’ll get to these.",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.html#diving-in",
+    "href": "01_python.html#diving-in",
+    "title": "Python",
+    "section": "Diving In",
+    "text": "Diving In\n\nTaking Python as a given, we’ll:\n\nUse an example of something I helped a student with recently\nShow step-by-step how to use Python\nIntroduce a number of Python features to solve the problem more easily.\n\nThis was from an introductory physics class I believe; I don’t know the context.",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.html#motivating-example",
+    "href": "01_python.html#motivating-example",
+    "title": "Python",
+    "section": "Motivating Example",
+    "text": "Motivating Example\n\nRecently, I helped a student stuck on this:\n\n\\[\nf(x) =\n\\begin{cases}\n  9x^2 + 5 & x &lt; 4 \\\\\n  9 & 4 \\leq x \\leq 8 \\\\\n  2 - x & x &gt; 8\n\\end{cases}\n\\]\n\nFind \\(f(x)\\) for each of the following \\(x\\) values: \\[\n\\{-1, 4, 5, 8, 11\\}\n\\]",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.html#is-this-real",
+    "href": "01_python.html#is-this-real",
+    "title": "Python",
+    "section": "Is this “real”?",
+    "text": "Is this “real”?\n\nModels income tax brackets, one of the most important drivers of human behavior in the largest economies in the world.\nWe use a simpler contrived example for now…\n\n\n\nMarginal Tax Rate\n\n\nSingle Taxable Income\n\n\nMarried Filing Jointly or Qualified Widow(er) Taxable Income\n\n\nMarried Filing Separately Taxable Income\n\n\nHead of Household Taxable Income\n\n\n\n\n10%\n\n\n$0 – $9,275\n\n\n$0 – $18,550\n\n\n$0 – $9,275\n\n\n$0 – $13,250\n\n\n\n\n15%\n\n\n$9,276 – $37,650\n\n\n$18,551 – $75,300\n\n\n$9,276 – $37,650\n\n\n$13,251 – $50,400\n\n\n\n\n25%\n\n\n$37,651 – $91,150\n\n\n$75,301 – $151,900\n\n\n$37,651 – $75,950\n\n\n$50,401 – $130,150\n\n\n\n\n28%\n\n\n$91,151 – $190,150\n\n\n$151,901 – $231,450\n\n\n$75,951 – $115,725\n\n\n$130,151 – $210,800\n\n\n\n\n33%\n\n\n$190,151 – $413,350\n\n\n$231,451 – $413,350\n\n\n$115,726 – $206,675\n\n\n$210,801 – $413,350\n\n\n\n\n35%\n\n\n$413,351 – $415,050\n\n\n$413,351 – $466,950\n\n\n$206,676 – $233,475\n\n\n$413,351 – $441,000\n\n\n\n\n39.6%\n\n\n$415,051+\n\n\n$466,951+\n\n\n$233,476+\n\n\n$441,001+",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.html#how-to-solve",
+    "href": "01_python.html#how-to-solve",
+    "title": "Python",
+    "section": "How to solve?",
+    "text": "How to solve?\n\nThink about how you would solve such a problem.\nWhat steps would you take?\nWhat would making solving it hard?\n\nKeep track of details?\nPerforming the arithmetic?\nAnything else?\n\nPython, in my view, is a way to solve these problems.",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.html#python-in-action",
+    "href": "01_python.html#python-in-action",
+    "title": "Python",
+    "section": "Python in action",
+    "text": "Python in action\n\nMy preferred way to do calculation as an experienced Python user is writing code:\n\n\n\n\nMathematical expression \\[\n\\begin{cases}\n9x^2 + 5 & x &lt; 4 \\\\\n9 & 4 \\leq x \\leq 8 \\\\\n2 - x & x &gt; 8\n\\end{cases}\n\\]\n\n\n\nPython expression (code)\n\n\n9 * -1 * -1 + 5\n\n14\n\n\n\n\n\nI write x * x for \\(x^2\\) because it’s non-obvious how to write “squared” yet.",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.html#arithmetic-operations",
+    "href": "01_python.html#arithmetic-operations",
+    "title": "Python",
+    "section": "Arithmetic Operations",
+    "text": "Arithmetic Operations\n\nIn Python, we can write many of the same arithmetic operations we use in our math and science classes.\n\n\n6 + 3\n\n9\n\n\n\n6 - 3\n\n3\n\n\n\n6 * 3\n\n18\n\n\n\n6 / 3\n\n2.0",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.html#wait",
+    "href": "01_python.html#wait",
+    "title": "Python",
+    "section": "Wait?",
+    "text": "Wait?\n\nUse Python? How?\nTo use Python to make this calculation, first we must install Python.\n\nIt is a program, like Firefox, MS Word or Fortnite",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.html#warning",
+    "href": "01_python.html#warning",
+    "title": "Python",
+    "section": "Warning!",
+    "text": "Warning!\n\nThere is a very important box to check while installing!\n\nBe careful working ahead!\nWe’ll teach how to fix not checking this box but not for a while",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.html#installation",
+    "href": "01_python.html#installation",
+    "title": "Python",
+    "section": "Installation",
+    "text": "Installation\n\nWe go to the offial webpage to get an installer for our computer:\n\nhttps://www.python.org/downloads/\n\nBe careful about starting it!\n\nYou can open it and check the next slide.",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.html#add-python-to-path",
+    "href": "01_python.html#add-python-to-path",
+    "title": "Python",
+    "section": "Add Python to PATH",
+    "text": "Add Python to PATH",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.html#why",
+    "href": "01_python.html#why",
+    "title": "Python",
+    "section": "Why?",
+    "text": "Why?\n\nThe benefit of adding Python to path is that we can use it at\n&lt;dramatic music&gt;\nThe Command Line\n\nA text-based interface to computing resources, including its ability to do e.g. arithmetic and save notes.",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.html#terminal",
+    "href": "01_python.html#terminal",
+    "title": "Python",
+    "section": "Terminal",
+    "text": "Terminal\n\nOn MS Windows\n\nI press Windows key, type “terminal” then press enter.\n\nOn MacOS\n\nI open Launchpad, type “terminal” then press enter.",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.html#macos",
+    "href": "01_python.html#macos",
+    "title": "Python",
+    "section": "MacOS",
+    "text": "MacOS",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.html#windows",
+    "href": "01_python.html#windows",
+    "title": "Python",
+    "section": "Windows",
+    "text": "Windows",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.html#expression-evaluation",
+    "href": "01_python.html#expression-evaluation",
+    "title": "Python",
+    "section": "Expression evaluation",
+    "text": "Expression evaluation\n\nReturning to the terminal, we can type at the “prompt”.\nOn MacOS, perhaps a line that begins with $ and a flashing cursor\nOn Window, perhaps PS C:\\Users\\calvin&gt;\n\nPS stands for “powershell” - more latter.\nC:\\Users\\calvin is the name of a folder - more latter\n&gt; is the prompt, with a flashing cursor.",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.html#run-python",
+    "href": "01_python.html#run-python",
+    "title": "Python",
+    "section": "“Run” Python",
+    "text": "“Run” Python\nIn the following examples, I remove line numbers to denote they are not Python code snippets.\n\nOn Windows, type python\n\n\n\nWindows\n\nPS C:\\Users\\calvin&gt; python\n\n\nOn MacOS, type python3\n\n\n\nMacOS\n\n$ python3\n\n\nOn both, press the ↵ᴇɴᴛᴇʀ key.",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.html#see-python",
+    "href": "01_python.html#see-python",
+    "title": "Python",
+    "section": "See Python",
+    "text": "See Python\n\nYou’ll see something like this:\n\nPython 3.12.5 (tags/v3.12.5:ff3bc82, Aug  6 2024, 20:45:27) [MSC v.1940 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n&gt;&gt;&gt;\n\nTake note of the prompt!\n&gt;&gt;&gt;\nThose three are how you know it is Python, and not the Terminal, that you are working in.",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.html#example",
+    "href": "01_python.html#example",
+    "title": "Python",
+    "section": "Example",
+    "text": "Example\n\nIf I type python at the command line\nThen 9 * -1 * -1 + 5 within Python\nIt will look like this:\n\nPS C:\\Users\\calvin&gt; python\nPython 3.12.5 (tags/v3.12.5:ff3bc82, Aug  6 2024, 20:45:27) [MSC v.1940 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n&gt;&gt;&gt; 9 * -1 * -1 + 5\n14\n&gt;&gt;&gt;\n\nThis is how Python shows that 9 * -1 * -1 + 5 is 14",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.html#recall",
+    "href": "01_python.html#recall",
+    "title": "Python",
+    "section": "Recall",
+    "text": "Recall\n\n\n\\[\n\\begin{cases}\n  9x^2 + 5 & x &lt; 4 \\\\\n  9 & 4 \\leq x \\leq 8 \\\\\n  2 - x & x &gt; 8\n\\end{cases}\n\\] \\[\n\\{-1, 4, 5, 8, 11\\}\n\\]\n\n&gt;&gt;&gt; 9 * -1 * -1 + 5\n14\n&gt;&gt;&gt; 9\n9\n&gt;&gt;&gt; 9\n9\n&gt;&gt;&gt; 2 - 8\n-6\n&gt;&gt;&gt; 2 - 11\n-9\n\n\n\nThis is still quite tedious and annoying!",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.html#inequality-testing",
+    "href": "01_python.html#inequality-testing",
+    "title": "Python",
+    "section": "(In)equality testing",
+    "text": "(In)equality testing\n\nLike + or - which we use to calculate numbers…\nWe can use &lt; or &gt; to calculate inequalities.\nSpecifically, we see whether an inequality is True or False\n\n\n-1 &lt; 4\n\nTrue\n\n\n\n4 &lt; 4\n\nFalse",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.html#accomodating-keyboards",
+    "href": "01_python.html#accomodating-keyboards",
+    "title": "Python",
+    "section": "Accomodating Keyboards",
+    "text": "Accomodating Keyboards\n\nSome things aren’t super easy to type.\nI don’t have a “\\(\\leq\\)” key on my keyboard.\nCombine with = as &lt;= for “less than or equal” or “\\(\\leq\\)”\n\n\n4 &lt;= 4\n\nTrue\n\n\n\nWe can “chain” inequalities as well - one after another.\n\n\n4 &lt;= 4 &lt;= 8\n\nTrue",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.html#a-note",
+    "href": "01_python.html#a-note",
+    "title": "Python",
+    "section": "A note",
+    "text": "A note\n\nWe always put the equal sign = second.\n\n\n4 &lt;= 5\n\nTrue\n\n\n\n5 &gt;= 4\n\nTrue\n\n\n\nA (somewhat confusing) error if we try =&gt;\n\n&gt;&gt;&gt; 4 =&gt; 5\n  File \"&lt;stdin&gt;\", line 1\n    4 =&gt; 5\n    ^\nSyntaxError: cannot assign to literal",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.html#new-topics",
+    "href": "01_python.html#new-topics",
+    "title": "Python",
+    "section": "New Topics",
+    "text": "New Topics\n\nWe have now touch on two new topics:\n\nTrue and False\n\nExpressions which don’t evaluate to a number\nCalled “booleans”\n\n“Assignment”\n\nAssociated with the = sign\nDifferent from inequality testing!\n\n\nWe’ll explore both!",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.html#booleans",
+    "href": "01_python.html#booleans",
+    "title": "Python",
+    "section": "Booleans",
+    "text": "Booleans\n\nSometimes, a Python expression is a numerical value.\n\n\n2 + 2\n\n4\n\n\n\n7\n\n7\n\n\n\nBut it doesn’t have to be!\n\n\n2 &lt; 2\n\nFalse",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.html#if",
+    "href": "01_python.html#if",
+    "title": "Python",
+    "section": "If",
+    "text": "If\n\nBooleans are mostly useful for writing if statements.\n\nThese are multiline expressions in Python.\n\nTo see the result of multi-line expression, we have to print the result…\n\n\nif (1 &lt;= 1):\n    print(2 + 2)\n\n4\n\n\n\nif (1 &lt; 1):\n    print(2 + 2)",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.html#piecewise",
+    "href": "01_python.html#piecewise",
+    "title": "Python",
+    "section": "Piecewise",
+    "text": "Piecewise\n\nWe can see the immediate use of this in a piecewise function!\n\n\n\n\\[\n\\begin{cases}\n  9x^2 + 5 & x &lt; 4 \\\\\n  9 & 4 \\leq x \\leq 8 \\\\\n  2 - x & x &gt; 8\n\\end{cases}\n\\] \\[\n\\{-1, 4, 5, 8, 11\\}\n\\]\n\n\nif (-1 &lt; 4):\n    print(9 * -1 * -1 + 5)\n\n14\n\n\n\nOr least part of one…\n\n\nif (4 &lt; 4):\n    print(9 * 4 * 4 + 5)\n\n\nUh oh!",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.html#else",
+    "href": "01_python.html#else",
+    "title": "Python",
+    "section": "Else",
+    "text": "Else\n\nOftentimes, we use if with else\n\n\nif (1 &lt; 1):\n    print(\"1 is less than 1\")\nelse:\n    print(\"1 is not less than 1\")\n\n1 is not less than 1",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.html#elif",
+    "href": "01_python.html#elif",
+    "title": "Python",
+    "section": "Elif",
+    "text": "Elif\n\nIf we have more than two options, we can place a special elif in the middle.\n\n\n\n\nif (1 &lt; 1):\n    print(\"1 is less than 1\")\nelif (1 &gt; 1):\n    print(\"1 is greater than 1\")\nelse:\n    print(\"1 is equal to 1\")\n\n1 is equal to 1\n\n\n\n\nif (2 &lt; 1):\n    print(\"2 is less than 1\")\nelif (2 &gt; 1):\n    print(\"2 is greater than 1\")\nelse:\n    print(\"2 is equal to 1\")\n\n2 is greater than 1\n\n\n\n\n\nBy the way, it is extremely obnoxious to manually type 2 in 5 different places",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.html#assignment",
+    "href": "01_python.html#assignment",
+    "title": "Python",
+    "section": "Assignment",
+    "text": "Assignment\n\nWe can also assign variables!\n\nI call this single-equals assignment\nUse a single equals sign = and some variable name, like x\n\n\n\n\n\nx = 1\nif (x &lt; 1):\n    print(\"x is less than 1\")\nelif (x &gt; 1):\n    print(\"x is greater than 1\")\nelse:\n    print(\"x is equal to 1\")\n\nx is equal to 1\n\n\n\n\nx = 2\nif (x &lt; 1):\n    print(\"x is less than 1\")\nelif (x &gt; 1):\n    print(\"x is greater than 1\")\nelse:\n    print(\"x is equal to 1\")\n\nx is greater than 1",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.html#double-equals-equality",
+    "href": "01_python.html#double-equals-equality",
+    "title": "Python",
+    "section": "Double equals equality",
+    "text": "Double equals equality\n\nI call it single-equals assignment because sometimes we check if a variable is precisely equal to some value.\nThat is somewhat confusingly done with == double equals equality test.\n\n\n\n\nx = 1\nif (x == 1):\n    print(\"x is equal to 1\")\nelse:\n    print(\"x is not equal to 1\")\n\nx is equal to 1\n\n\n\n\nx = 2\nif (x == 1):\n    print(\"x is equal to 1\")\nelse:\n    print(\"x is not equal to 1\")\n\nx is not equal to 1",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.html#double-exponentation",
+    "href": "01_python.html#double-exponentation",
+    "title": "Python",
+    "section": "Double ** Exponentation",
+    "text": "Double ** Exponentation\n\nDoubling is used in a few other cases.\nDouble asterisk ** is exponentiation.\n\n\n5 ** 2\n\n25",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.html#piecewise-1",
+    "href": "01_python.html#piecewise-1",
+    "title": "Python",
+    "section": "Piecewise",
+    "text": "Piecewise\n\nWe can finally write the piecewise expression!\n\n\n\n\\[\n\\begin{cases}\n  9x^2 + 5 & x &lt; 4 \\\\\n  9 & 4 \\leq x \\leq 8 \\\\\n  2 - x & x &gt; 8\n\\end{cases}\n\\] \\[\n\\{-1, 4, 5, 8, 11\\}\n\\]\n\n\nx = 11\nif (x &lt; 4):\n    print(9 * x ** 2 + 5)\nelif (4 &lt;= x &lt;= 8):\n    print(9)\nelif (x &gt; 8):\n    print(2 - x)\n\n-9",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.html#recycle",
+    "href": "01_python.html#recycle",
+    "title": "Python",
+    "section": "Recycle",
+    "text": "Recycle\n\nIt is still extremely tedious to either:\n\nCopy-paste, or\nType more than once.\n\nAlso very annoying/difficult to write them many lines without error!\nWe introduce the def keyword to define functions\nA way to reuse code we have already written.",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.html#def",
+    "href": "01_python.html#def",
+    "title": "Python",
+    "section": "def",
+    "text": "def\n\ndef double(x):\n    print(x + x)\n\n\ndef + some function name + ( + some variable name + ):\n\n\ndouble(7)\n\n14\n\n\n\n“Call” functions the same way we call print - with parens.",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.html#return",
+    "href": "01_python.html#return",
+    "title": "Python",
+    "section": "return",
+    "text": "return\n\nIt is more common to use return than print in a function.\nWhen we call a function, we can think of it as expression with some value.\nThat value is defined by the value that is return.\n\n\n\n\ndef six_gt_five_return():\n    print(True)\n\n\nif (six_gt_five_return()):\n    print(\"it is\")\n\nTrue\n\n\n\n\ndef six_gt_five_print():\n    return True\n\n\nif (six_gt_five_print()):\n    print(\"it is\")\n\nit is",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.html#example-1",
+    "href": "01_python.html#example-1",
+    "title": "Python",
+    "section": "Example",
+    "text": "Example\n\nSuppose an interest rate doubles our savings every ~7 years.\nHow much savings in 14 years?\n\n\nsavings = 10\nsavings = double(savings) # 7 yrs\nsavings\n\n20",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.html#use-return",
+    "href": "01_python.html#use-return",
+    "title": "Python",
+    "section": "Use return",
+    "text": "Use return\n\ndef double(x):\n    return x + x\n\n\nNow, double(savings) becomes equal to x + x\n\n\nsavings = 10\nsavings = double(savings) # 7 yrs\nsavings\n\n20\n\n\n\ndouble(savings)\n\n40\n\n\n\nOr even\n\n\ndouble(double(10))\n\n40",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.html#piecewise-2",
+    "href": "01_python.html#piecewise-2",
+    "title": "Python",
+    "section": "Piecewise",
+    "text": "Piecewise\n\nWe can finally write the piecewise function (was: expression)!\n\nFunction: use many times in many expressions\nExpression: evaluate once and get one answer\n\n\n\n\n\\[\n\\begin{cases}\n  9x^2 + 5 & x &lt; 4 \\\\\n  9 & 4 \\leq x \\leq 8 \\\\\n  2 - x & x &gt; 8\n\\end{cases}\n\\] \\[\n\\{-1, 4, 5, 8, 11\\}\n\\]\n\n\ndef piecewise(x):\n    if (x &lt; 4):\n        return 9 * x ** 2 + 5\n    elif (4 &lt;= x &lt;= 8):\n        return 9\n    elif (x &gt; 8):\n        return 2 - x\n\n\npiecewise(4)\n\n9",
+    "crumbs": [
+      "Python"
+    ]
   }
 ]

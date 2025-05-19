@@ -1,19 +1,27 @@
 project:
     type: website
     output-dir: ../
-    render:
-        - index.qmd
-        - 01_python.qmd
-    
+
 website:
     title: "Scientific Computing in Python"
-    
+    sidebar:
+        contents: auto
+    search: true
+    page-navigation: true
+    repo-url: https://github.com/cd-public/scicom
+    repo-actions: [source, issue]
 
+
+
+subtitle: "Scientific Computing"
+author: "Prof. Calvin"
   
-format: 
+jupyter: python3
+
+format:
+    html:
+        theme: darkly 
     revealjs: 
-        author: "Prof. Calvin"
-        subtitle: "Scientific Computing"
         theme: dark
         mainfont: monospace
         slide-number: true
@@ -22,13 +30,8 @@ format:
         height: 700
         footer: "[Home](../index.html)"
         output-ext: rjs.html
-    html:
-        theme: Darkly
-     
-jupyter: python3
 
 execute:
     echo: true
     cache: true
     freeze: true  # never re-render during project render
-
