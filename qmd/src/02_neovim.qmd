@@ -455,4 +455,27 @@ Type "help", "copyright", "credits" or "license" for more information.
 ```
 - I only show you the other methods to make it clear what this method is doing.
 
+# Using Terminal
+
+## Command Line Utilities
+
+I find the following tedious:
+1. `neovim`
+2. Write some code
+3. `:w somefile.py`
+4. `:x`
+5. `python`
+6. `from somefile import somefunction`
+7. `somefunction(x)`
+
+## Using args
+
+- We have an alternative:
+- Running `.py` files as arguements to `python`
+- Providing values to functions as arguments *to the `.py` file.*
+
+We'll step through an example.
+
+## Return to Neovim
+
 
