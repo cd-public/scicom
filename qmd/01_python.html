@@ -187,8 +187,99 @@ window.Quarto = {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="01_python.rjs.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#why-python" id="toc-why-python" class="nav-link active" data-scroll-target="#why-python">Why Python?</a>
+  <ul class="collapse">
+  <li><a href="#on-python" id="toc-on-python" class="nav-link" data-scroll-target="#on-python">On Python</a></li>
+  <li><a href="#why-not-python" id="toc-why-not-python" class="nav-link" data-scroll-target="#why-not-python">Why not Python?</a></li>
+  <li><a href="#python-libraries" id="toc-python-libraries" class="nav-link" data-scroll-target="#python-libraries">Python libraries</a></li>
+  </ul></li>
+  <li><a href="#running-example" id="toc-running-example" class="nav-link" data-scroll-target="#running-example">Running Example</a>
+  <ul class="collapse">
+  <li><a href="#diving-in" id="toc-diving-in" class="nav-link" data-scroll-target="#diving-in">Diving In</a></li>
+  <li><a href="#motivating-example" id="toc-motivating-example" class="nav-link" data-scroll-target="#motivating-example">Motivating Example</a></li>
+  <li><a href="#is-this-real" id="toc-is-this-real" class="nav-link" data-scroll-target="#is-this-real">Is this “real”?</a></li>
+  <li><a href="#how-to-solve" id="toc-how-to-solve" class="nav-link" data-scroll-target="#how-to-solve">How to solve?</a></li>
+  <li><a href="#python-in-action" id="toc-python-in-action" class="nav-link" data-scroll-target="#python-in-action">Python in action</a></li>
+  <li><a href="#arithmetic-operations" id="toc-arithmetic-operations" class="nav-link" data-scroll-target="#arithmetic-operations">Arithmetic Operations</a></li>
+  <li><a href="#wait" id="toc-wait" class="nav-link" data-scroll-target="#wait">Wait?</a></li>
+  </ul></li>
+  <li><a href="#installing-python" id="toc-installing-python" class="nav-link" data-scroll-target="#installing-python">Installing Python</a>
+  <ul class="collapse">
+  <li><a href="#warning" id="toc-warning" class="nav-link" data-scroll-target="#warning">Warning!</a></li>
+  <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation">Installation</a></li>
+  <li><a href="#add-python-to-path" id="toc-add-python-to-path" class="nav-link" data-scroll-target="#add-python-to-path">Add Python to PATH</a></li>
+  <li><a href="#why" id="toc-why" class="nav-link" data-scroll-target="#why">Why?</a></li>
+  <li><a href="#terminal" id="toc-terminal" class="nav-link" data-scroll-target="#terminal">Terminal</a></li>
+  <li><a href="#macos" id="toc-macos" class="nav-link" data-scroll-target="#macos">MacOS</a></li>
+  <li><a href="#windows" id="toc-windows" class="nav-link" data-scroll-target="#windows">Windows</a></li>
+  <li><a href="#expression-evaluation" id="toc-expression-evaluation" class="nav-link" data-scroll-target="#expression-evaluation">Expression evaluation</a></li>
+  <li><a href="#run-python" id="toc-run-python" class="nav-link" data-scroll-target="#run-python">“Run” Python</a></li>
+  <li><a href="#see-python" id="toc-see-python" class="nav-link" data-scroll-target="#see-python">See Python</a></li>
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
+  </ul></li>
+  <li><a href="#evaluating-expressions" id="toc-evaluating-expressions" class="nav-link" data-scroll-target="#evaluating-expressions">Evaluating Expressions</a>
+  <ul class="collapse">
+  <li><a href="#recall" id="toc-recall" class="nav-link" data-scroll-target="#recall">Recall</a></li>
+  <li><a href="#inequality-testing" id="toc-inequality-testing" class="nav-link" data-scroll-target="#inequality-testing">(In)equality testing</a></li>
+  <li><a href="#accomodating-keyboards" id="toc-accomodating-keyboards" class="nav-link" data-scroll-target="#accomodating-keyboards">Accomodating Keyboards</a></li>
+  <li><a href="#a-note" id="toc-a-note" class="nav-link" data-scroll-target="#a-note">A note</a></li>
+  </ul></li>
+  <li><a href="#and" id="toc-and" class="nav-link" data-scroll-target="#and"><code>=</code> and <code>==</code></a>
+  <ul class="collapse">
+  <li><a href="#new-topics" id="toc-new-topics" class="nav-link" data-scroll-target="#new-topics">New Topics</a></li>
+  <li><a href="#booleans" id="toc-booleans" class="nav-link" data-scroll-target="#booleans">Booleans</a></li>
+  <li><a href="#if" id="toc-if" class="nav-link" data-scroll-target="#if">If</a></li>
+  <li><a href="#piecewise" id="toc-piecewise" class="nav-link" data-scroll-target="#piecewise">Piecewise</a></li>
+  <li><a href="#else" id="toc-else" class="nav-link" data-scroll-target="#else">Else</a></li>
+  <li><a href="#elif" id="toc-elif" class="nav-link" data-scroll-target="#elif">Elif</a></li>
+  <li><a href="#assignment" id="toc-assignment" class="nav-link" data-scroll-target="#assignment">Assignment</a></li>
+  <li><a href="#double-equals-equality" id="toc-double-equals-equality" class="nav-link" data-scroll-target="#double-equals-equality">Double equals equality</a></li>
+  <li><a href="#double-exponentation" id="toc-double-exponentation" class="nav-link" data-scroll-target="#double-exponentation">Double ** Exponentation</a></li>
+  <li><a href="#piecewise-1" id="toc-piecewise-1" class="nav-link" data-scroll-target="#piecewise-1">Piecewise</a></li>
+  </ul></li>
+  <li><a href="#code-reuse" id="toc-code-reuse" class="nav-link" data-scroll-target="#code-reuse">Code Reuse</a>
+  <ul class="collapse">
+  <li><a href="#recycle" id="toc-recycle" class="nav-link" data-scroll-target="#recycle">Recycle</a></li>
+  <li><a href="#def" id="toc-def" class="nav-link" data-scroll-target="#def"><code>def</code></a></li>
+  <li><a href="#return" id="toc-return" class="nav-link" data-scroll-target="#return"><code>return</code></a></li>
+  <li><a href="#example-1" id="toc-example-1" class="nav-link" data-scroll-target="#example-1">Example</a></li>
+  <li><a href="#use-return" id="toc-use-return" class="nav-link" data-scroll-target="#use-return">Use return</a></li>
+  <li><a href="#piecewise-2" id="toc-piecewise-2" class="nav-link" data-scroll-target="#piecewise-2">Piecewise</a></li>
+  </ul></li>
+  <li><a href="#iteration" id="toc-iteration" class="nav-link" data-scroll-target="#iteration">Iteration</a>
+  <ul class="collapse">
+  <li><a href="#tedium" id="toc-tedium" class="nav-link" data-scroll-target="#tedium">Tedium</a></li>
+  <li><a href="#sets" id="toc-sets" class="nav-link" data-scroll-target="#sets">Sets</a></li>
+  <li><a href="#type" id="toc-type" class="nav-link" data-scroll-target="#type">Type</a></li>
+  <li><a href="#loops" id="toc-loops" class="nav-link" data-scroll-target="#loops">Loops</a></li>
+  <li><a href="#example-2" id="toc-example-2" class="nav-link" data-scroll-target="#example-2">Example</a></li>
+  <li><a href="#example-3" id="toc-example-3" class="nav-link" data-scroll-target="#example-3">Example</a></li>
+  <li><a href="#ordering" id="toc-ordering" class="nav-link" data-scroll-target="#ordering">Ordering</a></li>
+  <li><a href="#example-4" id="toc-example-4" class="nav-link" data-scroll-target="#example-4">Example</a></li>
+  <li><a href="#seeing-lists" id="toc-seeing-lists" class="nav-link" data-scroll-target="#seeing-lists">Seeing lists</a></li>
+  <li><a href="#updating-lists" id="toc-updating-lists" class="nav-link" data-scroll-target="#updating-lists">Updating lists</a></li>
+  <li><a href="#adding-lists" id="toc-adding-lists" class="nav-link" data-scroll-target="#adding-lists">Adding lists</a></li>
+  </ul></li>
+  <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise">Exercise</a>
+  <ul class="collapse">
+  <li><a href="#income-tax" id="toc-income-tax" class="nav-link" data-scroll-target="#income-tax">Income tax</a></li>
+  <li><a href="#singles-only" id="toc-singles-only" class="nav-link" data-scroll-target="#singles-only">Singles only…</a></li>
+  <li><a href="#motivating-example-1" id="toc-motivating-example-1" class="nav-link" data-scroll-target="#motivating-example-1">Motivating example</a></li>
+  <li><a href="#sum-it-up" id="toc-sum-it-up" class="nav-link" data-scroll-target="#sum-it-up">Sum it up!</a></li>
+  <li><a href="#add-as-you-go" id="toc-add-as-you-go" class="nav-link" data-scroll-target="#add-as-you-go">Add as you go</a></li>
+  <li><a href="#assign-update" id="toc-assign-update" class="nav-link" data-scroll-target="#assign-update">Assign-update</a></li>
+  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise</a></li>
+  <li><a href="#solution" id="toc-solution" class="nav-link" data-scroll-target="#solution">Solution</a></li>
+  <li><a href="#challenge-problem" id="toc-challenge-problem" class="nav-link" data-scroll-target="#challenge-problem">Challenge Problem</a></li>
+  <li><a href="#bonus-solution" id="toc-bonus-solution" class="nav-link" data-scroll-target="#bonus-solution">Bonus Solution</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="01_python.rjs.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 

@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "On Scientific Computing",
     "section": "",
-    "text": "I created this book, of sorts, as I came across what I think to be a lack of combined “Scientific Computing” and “Scientific Publishing” (or, perhaps, typesetting) courses available that were: 1. Based in Python 2. Covered command line tools 3. Fully open source.\nI would remiss not to credit, by two biggest inspirations:\nYou can view the source and see its history under various forms on GitHub.\nWere I a student, I would work through this book, chapter-wise, ensuring I can amicably complete the exercises at the end of each chapter and understand the solutions if they differ from mine (as they often will, given the variety of ways of solving scientific computing problems).\nWere I an instructor, as I am, I would either fork this repository and make any changes I wish, recompiling using Quarto and hosting via GitHub Pages, or simply link directly to these pages and slidedecks. I suspect I will keep them up-to-date for some time!"
+    "text": "I created this book, of sorts, as I came across what I think to be a lack of combined “Scientific Computing” and “Scientific Publishing” (or, perhaps, typesetting) courses available that were: 1. Based in Python 2. Covered command line tools 3. Fully open source.\nI would remiss not to credit my two biggest inspirations:\nYou can view the source and see its history under various forms on GitHub.\nWere I a student, I would work through this book, chapter-wise, ensuring I can amicably complete the exercises at the end of each chapter and understand the solutions if they differ from mine (as they often will, given the variety of ways of solving scientific computing problems).\nWere I an instructor, as I am, I would either fork this repository and make any changes I wish, recompiling using Quarto and hosting via GitHub Pages, or simply link directly to these pages and slidedecks. I suspect I will keep them up-to-date for some time!"
   },
   {
     "objectID": "index.html#core-scientific-computing-environment-and-tools",
@@ -1365,6 +1365,27 @@
     "text": "Using from\n\nThird, we can use the from keyword in our import.\n\nThis is by far preferred (it is more clear)\n\n&gt;&gt;&gt; from pw import piecewise\n&gt;&gt;&gt; piecewise(11)\n-9\nI only show you the other methods to make it clear what this method is doing."
   },
   {
+    "objectID": "02_neovim.rjs.html#command-line-utilities",
+    "href": "02_neovim.rjs.html#command-line-utilities",
+    "title": "Neovim",
+    "section": "Command Line Utilities",
+    "text": "Command Line Utilities\nI find the following tedious: 1. neovim 2. Write some code 3. :w somefile.py 4. :x 5. python 6. from somefile import somefunction 7. somefunction(x)"
+  },
+  {
+    "objectID": "02_neovim.rjs.html#using-args",
+    "href": "02_neovim.rjs.html#using-args",
+    "title": "Neovim",
+    "section": "Using args",
+    "text": "Using args\n\nWe have an alternative:\nRunning .py files as arguements to python\nProviding values to functions as arguments to the .py file.\n\nWe’ll step through an example."
+  },
+  {
+    "objectID": "02_neovim.rjs.html#return-to-neovim",
+    "href": "02_neovim.rjs.html#return-to-neovim",
+    "title": "Neovim",
+    "section": "Return to Neovim",
+    "text": "Return to Neovim"
+  },
+  {
     "objectID": "02_neovim.html",
     "href": "02_neovim.html",
     "title": "Neovim",
@@ -1710,6 +1731,36 @@
     "title": "Neovim",
     "section": "Using from",
     "text": "Using from\n\nThird, we can use the from keyword in our import.\n\nThis is by far preferred (it is more clear)\n\n&gt;&gt;&gt; from pw import piecewise\n&gt;&gt;&gt; piecewise(11)\n-9\nI only show you the other methods to make it clear what this method is doing.",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#command-line-utilities",
+    "href": "02_neovim.html#command-line-utilities",
+    "title": "Neovim",
+    "section": "Command Line Utilities",
+    "text": "Command Line Utilities\nI find the following tedious: 1. neovim 2. Write some code 3. :w somefile.py 4. :x 5. python 6. from somefile import somefunction 7. somefunction(x)",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#using-args",
+    "href": "02_neovim.html#using-args",
+    "title": "Neovim",
+    "section": "Using args",
+    "text": "Using args\n\nWe have an alternative:\nRunning .py files as arguements to python\nProviding values to functions as arguments to the .py file.\n\nWe’ll step through an example.",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#return-to-neovim",
+    "href": "02_neovim.html#return-to-neovim",
+    "title": "Neovim",
+    "section": "Return to Neovim",
+    "text": "Return to Neovim",
     "crumbs": [
       "Neovim"
     ]

@@ -158,8 +158,68 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="02_neovim.rjs.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#why-neovim" id="toc-why-neovim" class="nav-link active" data-scroll-target="#why-neovim">Why Neovim?</a>
+  <ul class="collapse">
+  <li><a href="#on-neovim" id="toc-on-neovim" class="nav-link" data-scroll-target="#on-neovim">On Neovim</a></li>
+  <li><a href="#why-not-neovim" id="toc-why-not-neovim" class="nav-link" data-scroll-target="#why-not-neovim">Why not Neovim?</a></li>
+  </ul></li>
+  <li><a href="#running-example" id="toc-running-example" class="nav-link" data-scroll-target="#running-example">Running Example</a>
+  <ul class="collapse">
+  <li><a href="#diving-in" id="toc-diving-in" class="nav-link" data-scroll-target="#diving-in">Diving In</a></li>
+  <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise">Exercise</a></li>
+  <li><a href="#solutions" id="toc-solutions" class="nav-link" data-scroll-target="#solutions">Solutions</a></li>
+  <li><a href="#tedious-to-type" id="toc-tedious-to-type" class="nav-link" data-scroll-target="#tedious-to-type">Tedious to Type</a></li>
+  <li><a href="#instead-.py-files" id="toc-instead-.py-files" class="nav-link" data-scroll-target="#instead-.py-files">Instead: .py files</a></li>
+  <li><a href="#test-based" id="toc-test-based" class="nav-link" data-scroll-target="#test-based">Test-based</a></li>
+  <li><a href="#enter-neovim" id="toc-enter-neovim" class="nav-link" data-scroll-target="#enter-neovim">Enter Neovim</a></li>
+  </ul></li>
+  <li><a href="#getting-neovim" id="toc-getting-neovim" class="nav-link" data-scroll-target="#getting-neovim">Getting Neovim</a>
+  <ul class="collapse">
+  <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation">Installation</a></li>
+  <li><a href="#install-from-download" id="toc-install-from-download" class="nav-link" data-scroll-target="#install-from-download">Install from download</a></li>
+  <li><a href="#terminal" id="toc-terminal" class="nav-link" data-scroll-target="#terminal">Terminal</a></li>
+  <li><a href="#macos" id="toc-macos" class="nav-link" data-scroll-target="#macos">MacOS</a></li>
+  <li><a href="#windows" id="toc-windows" class="nav-link" data-scroll-target="#windows">Windows</a></li>
+  <li><a href="#expression-evaluation" id="toc-expression-evaluation" class="nav-link" data-scroll-target="#expression-evaluation">Expression evaluation</a></li>
+  <li><a href="#run-neovim" id="toc-run-neovim" class="nav-link" data-scroll-target="#run-neovim">Run Neovim</a></li>
+  <li><a href="#see-neovim" id="toc-see-neovim" class="nav-link" data-scroll-target="#see-neovim">See Neovim</a></li>
+  </ul></li>
+  <li><a href="#modes" id="toc-modes" class="nav-link" data-scroll-target="#modes">Modes</a>
+  <ul class="collapse">
+  <li><a href="#modality" id="toc-modality" class="nav-link" data-scroll-target="#modality">Modality</a></li>
+  <li><a href="#insert-mode" id="toc-insert-mode" class="nav-link" data-scroll-target="#insert-mode">Insert Mode</a></li>
+  <li><a href="#piecewise" id="toc-piecewise" class="nav-link" data-scroll-target="#piecewise">Piecewise</a></li>
+  <li><a href="#command-mode" id="toc-command-mode" class="nav-link" data-scroll-target="#command-mode">Command Mode</a></li>
+  <li><a href="#issuing-commands" id="toc-issuing-commands" class="nav-link" data-scroll-target="#issuing-commands">Issuing commands</a></li>
+  <li><a href="#save-and-quit" id="toc-save-and-quit" class="nav-link" data-scroll-target="#save-and-quit">Save and Quit</a></li>
+  </ul></li>
+  <li><a href="#scripting" id="toc-scripting" class="nav-link" data-scroll-target="#scripting">Scripting</a>
+  <ul class="collapse">
+  <li><a href="#back-in-terminal" id="toc-back-in-terminal" class="nav-link" data-scroll-target="#back-in-terminal">Back in Terminal</a></li>
+  <li><a href="#aside-terminal-commands" id="toc-aside-terminal-commands" class="nav-link" data-scroll-target="#aside-terminal-commands">Aside: Terminal Commands</a></li>
+  <li><a href="#aside-using-ls" id="toc-aside-using-ls" class="nav-link" data-scroll-target="#aside-using-ls">Aside: Using <code>ls</code></a></li>
+  <li><a href="#checkpoint" id="toc-checkpoint" class="nav-link" data-scroll-target="#checkpoint">Checkpoint</a></li>
+  <li><a href="#py-files" id="toc-py-files" class="nav-link" data-scroll-target="#py-files">.py files</a></li>
+  <li><a href="#see-python" id="toc-see-python" class="nav-link" data-scroll-target="#see-python">See Python</a></li>
+  <li><a href="#import" id="toc-import" class="nav-link" data-scroll-target="#import">Import</a></li>
+  <li><a href="#modules" id="toc-modules" class="nav-link" data-scroll-target="#modules">Modules</a></li>
+  <li><a href="#importing-functions" id="toc-importing-functions" class="nav-link" data-scroll-target="#importing-functions">Importing Functions</a></li>
+  <li><a href="#renaming-functions" id="toc-renaming-functions" class="nav-link" data-scroll-target="#renaming-functions">Renaming Functions</a></li>
+  <li><a href="#using-from" id="toc-using-from" class="nav-link" data-scroll-target="#using-from">Using <code>from</code></a></li>
+  </ul></li>
+  <li><a href="#using-terminal" id="toc-using-terminal" class="nav-link" data-scroll-target="#using-terminal">Using Terminal</a>
+  <ul class="collapse">
+  <li><a href="#command-line-utilities" id="toc-command-line-utilities" class="nav-link" data-scroll-target="#command-line-utilities">Command Line Utilities</a></li>
+  <li><a href="#using-args" id="toc-using-args" class="nav-link" data-scroll-target="#using-args">Using args</a></li>
+  <li><a href="#return-to-neovim" id="toc-return-to-neovim" class="nav-link" data-scroll-target="#return-to-neovim">Return to Neovim</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="02_neovim.rjs.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -764,6 +824,25 @@ Give it a shot!
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>-9</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 <li>I only show you the other methods to make it clear what this method is doing.</li>
 </ul>
+</section>
+</section>
+<section id="using-terminal" class="level1">
+<h1>Using Terminal</h1>
+<section id="command-line-utilities" class="level2">
+<h2 class="anchored" data-anchor-id="command-line-utilities">Command Line Utilities</h2>
+<p>I find the following tedious: 1. <code>neovim</code> 2. Write some code 3. <code>:w somefile.py</code> 4. <code>:x</code> 5. <code>python</code> 6. <code>from somefile import somefunction</code> 7. <code>somefunction(x)</code></p>
+</section>
+<section id="using-args" class="level2">
+<h2 class="anchored" data-anchor-id="using-args">Using args</h2>
+<ul>
+<li>We have an alternative:</li>
+<li>Running <code>.py</code> files as arguements to <code>python</code></li>
+<li>Providing values to functions as arguments <em>to the <code>.py</code> file.</em></li>
+</ul>
+<p>We’ll step through an example.</p>
+</section>
+<section id="return-to-neovim" class="level2">
+<h2 class="anchored" data-anchor-id="return-to-neovim">Return to Neovim</h2>
 
 
 <!-- -->
@@ -1709,6 +1788,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb24-459"><a href="#cb24-459"></a><span class="in">```</span></span>
 <span id="cb24-460"><a href="#cb24-460"></a><span class="ss">- </span>I only show you the other methods to make it clear what this method is doing.</span>
 <span id="cb24-461"><a href="#cb24-461"></a></span>
+<span id="cb24-462"><a href="#cb24-462"></a><span class="fu"># Using Terminal</span></span>
+<span id="cb24-463"><a href="#cb24-463"></a></span>
+<span id="cb24-464"><a href="#cb24-464"></a><span class="fu">## Command Line Utilities</span></span>
+<span id="cb24-465"><a href="#cb24-465"></a></span>
+<span id="cb24-466"><a href="#cb24-466"></a>I find the following tedious:</span>
+<span id="cb24-467"><a href="#cb24-467"></a><span class="ss">1. </span><span class="in">`neovim`</span></span>
+<span id="cb24-468"><a href="#cb24-468"></a><span class="ss">2. </span>Write some code</span>
+<span id="cb24-469"><a href="#cb24-469"></a><span class="ss">3. </span><span class="in">`:w somefile.py`</span></span>
+<span id="cb24-470"><a href="#cb24-470"></a><span class="ss">4. </span><span class="in">`:x`</span></span>
+<span id="cb24-471"><a href="#cb24-471"></a><span class="ss">5. </span><span class="in">`python`</span></span>
+<span id="cb24-472"><a href="#cb24-472"></a><span class="ss">6. </span><span class="in">`from somefile import somefunction`</span></span>
+<span id="cb24-473"><a href="#cb24-473"></a><span class="ss">7. </span><span class="in">`somefunction(x)`</span></span>
+<span id="cb24-474"><a href="#cb24-474"></a></span>
+<span id="cb24-475"><a href="#cb24-475"></a><span class="fu">## Using args</span></span>
+<span id="cb24-476"><a href="#cb24-476"></a></span>
+<span id="cb24-477"><a href="#cb24-477"></a><span class="ss">- </span>We have an alternative:</span>
+<span id="cb24-478"><a href="#cb24-478"></a><span class="ss">- </span>Running <span class="in">`.py`</span> files as arguements to <span class="in">`python`</span></span>
+<span id="cb24-479"><a href="#cb24-479"></a><span class="ss">- </span>Providing values to functions as arguments *to the `.py` file.*</span>
+<span id="cb24-480"><a href="#cb24-480"></a></span>
+<span id="cb24-481"><a href="#cb24-481"></a>We'll step through an example.</span>
+<span id="cb24-482"><a href="#cb24-482"></a></span>
+<span id="cb24-483"><a href="#cb24-483"></a><span class="fu">## Return to Neovim</span></span>
+<span id="cb24-484"><a href="#cb24-484"></a></span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

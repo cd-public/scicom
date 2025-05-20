@@ -18,6 +18,7 @@ jupyter: python3
 
 format:
     html:
+        toc: true
         theme: darkly 
         code-line-numbers: true
         code-tools:

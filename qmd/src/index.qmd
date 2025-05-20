@@ -7,7 +7,7 @@ title: On Scientific Computing
 2. Covered command line tools
 3. Fully open source.
 
-I would remiss not to credit, by two biggest inspirations:
+I would remiss not to credit my two biggest inspirations:
 
 - [PHY 546: Python for Scientific Computing](https://sbu-python-class.github.io/python-science/Introduction.html)
 - [Numerical Methods: An Inquiry-Based Approach With Python](https://numericalmethodssullivan.github.io/))
