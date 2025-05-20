@@ -686,7 +686,7 @@ if (six_gt_five_print()):
 
 ```{python}
 savings = 10
-savings = double(savings) # 7 yrs
+savings = double(savings)
 savings
 ```
 
@@ -701,7 +701,7 @@ def double(x):
 
 ```{python}
 savings = 10
-savings = double(savings) # 7 yrs
+savings = double(savings)
 savings
 ```
 
@@ -756,3 +756,487 @@ piecewise(4)
 
 ::::
 
+# Iteration
+
+## Tedium
+
+- This is still quite tedious.
+
+```{python}
+piecewise(-1)
+```
+```{python}
+piecewise(4)
+```
+```{python}
+piecewise(5)
+```
+```{python}
+piecewise(8)
+```
+```{python}
+piecewise(11)
+```
+
+## Sets
+
+- This is a *set*:
+
+$$
+\{-1, 4, 5, 8, 11\}
+$$
+
+- A set is an *unordered* collection of *elements*.
+    - In this case, elements are integers - whole numbers.
+- Python can also recognize sets!
+
+```{python}
+{-1, 4, 5, 8, 11}
+```
+
+## Type
+
+- To be sure that is, in fact, a set, we use the helpful built-in `type()` to ask Python.
+
+```{python}
+s = {-1, 4, 5, 8, 11}
+type(s)
+```
+
+- We have also worked with **int**egers.
+
+```{python}
+type(1)
+```
+
+- And ***bool**eans* - `True` and `False` values.
+```{python}
+type(1 == 1)
+```
+
+## Loops
+
+- With a set, do something *to each element*
+- In Python, use a `for` loop:
+    - The `for` keyword
+    - The name to refer to an element, like `e` or `x`
+    - The `in` keyword
+    - The set/collection (or its variable name)
+    - The `:` colon special character
+    - An indented new line of code
+
+## Example
+
+- for element in collection
+    - do thing
+```{python}
+for e in {-1, 4, 5, 8, 11}:
+    print(piecewise(e))
+```
+- What do you see?
+
+## Example
+
+- What if we just try to print the elements?
+    - Easier to think about!
+```{python}
+for e in {-1, 4, 5, 8, 11}:
+    print(e)
+```
+- What do you see?
+
+## Ordering
+
+- Recall: "A set is an *unordered* collection of *elements*".
+- We need to put things in order!
+- The most common way to do this in Python is with a *list*.
+- Almost the same as sets, just use "boxy brackets" `[]`
+```{python}
+type([1,2,3])
+```
+
+## Example
+
+- for element in collection
+    - do thing
+```{python}
+for e in [-1, 4, 5, 8, 11]:
+    print(piecewise(e))
+```
+- What do you see?
+
+## Seeing lists
+
+- We can also use lists to print multiple values!
+    - Very helpful for keeping track of things!
+```{python}
+for e in [-1, 4, 5, 8, 11]:
+    print([e, piecewise(e)])
+```
+
+
+## Updating lists
+
+- Each element is a lot like a variable.
+    - They just have a name *and* number, use `[]`
+    - The initial element is number `0` (*not* 1)
+```{python}
+xs = [-1, 4, 5, 8, 11]
+xs[0]
+```
+- And like variables, we can assign a value with `=`
+```{python}
+xs[0] = -2
+xs
+```
+
+## Adding lists
+
+- Lists also helpfully support addition with `+`
+```{python}
+[-1] + [4, 5, 8, 11]
+```
+- We often use this to make new lists.
+
+```{python}
+result = []
+for e in [-1, 4, 5, 8, 11]:
+    result = result + [piecewise(e)]
+```
+- This pattern also works with numbers!
+```{python}
+x = 0 
+x = x + 1
+x
+```
+
+# Exercise
+
+## Income tax
+
+- Recall the example of a piecewise function:
+
+<table style="font-size:12px">
+<th>Marginal Tax Rate</th>
+<th>Single Taxable Income</th>
+<th>Married Filing Jointly or Qualified Widow(er) Taxable Income</th>
+<th>Married Filing Separately Taxable Income</th>
+<th>Head of Household Taxable Income</th>
+</tr>
+<tr>
+<th>10%</th>
+<td>$0 – $9,275</td>
+<td>$0 – $18,550</td>
+<td>$0 – $9,275</td>
+<td>$0 – $13,250</td>
+</tr>
+<tr>
+<th>15%</th>
+<td>$9,276 – $37,650</td>
+<td>$18,551 – $75,300</td>
+<td>$9,276 – $37,650</td>
+<td>$13,251 – $50,400</td>
+</tr>
+<tr>
+<th>25%</th>
+<td>$37,651 – $91,150</td>
+<td>$75,301 – $151,900</td>
+<td>$37,651 – $75,950</td>
+<td>$50,401 – $130,150</td>
+</tr>
+<tr>
+<th>28%</th>
+<td>$91,151 – $190,150</td>
+<td>$151,901 – $231,450</td>
+<td>$75,951 – $115,725</td>
+<td>$130,151 – $210,800</td>
+</tr>
+<tr>
+<th>33%</th>
+<td>$190,151 – $413,350</td>
+<td>$231,451 – $413,350</td>
+<td>$115,726 – $206,675</td>
+<td>$210,801 – $413,350</td>
+</tr>
+<tr>
+<th>35%</th>
+<td>$413,351 – $415,050</td>
+<td>$413,351 – $466,950</td>
+<td>$206,676 – $233,475</td>
+<td>$413,351 – $441,000</td>
+</tr>
+<tr>
+<th>39.6%</th>
+<td>$415,051+</td>
+<td>$466,951+</td>
+<td>$233,476+</td>
+<td>$441,001+</td>
+</table>
+
+## Singles only...
+
+| Rate   | From    |
+|--------|--------:|
+| 10%    | 0       |
+| 15%    | 9275    |
+| 25%    | 37650   |
+| 28%    | 91150   |
+| 33%    | 190150  |
+| 35%    | 413350  |
+| 39.6%  | 415050  |
+
+## Motivating example
+
+- How much would a single making 400k pay?
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+- 10% on 9275
+- 15% on 37650 - 9275
+- 25% on 91150 - 37650
+- 28% on 190150 - 91150
+- 33% on 400000 - 190150
+
+:::
+
+::: {.column width="50%"}
+
+| Rate   | From    |
+|--------|--------:|
+| 10%    | 0       |
+| 15%    | 9275    |
+| 25%    | 37650   |
+| 28%    | 91150   |
+| 33%    | 190150  |
+| 35%    | 413350  |
+| 39.6%  | 415050  |
+
+:::
+
+::::
+
+## Sum it up!
+
+- Watch out for order-of-operations!
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+- 10% on 9275
+- 15% on 37650 - 9275
+- 25% on 91150 - 37650
+- 28% on 190150 - 91150
+- 33% on 400000 - 190150
+
+:::
+
+::: {.column width="50%"}
+
+```{python} 
+x = .10 * 9275
+y = .15 * (37650 - 9275)
+z = .25 * (91150 - 37650)
+r = .28 * (190150 - 91150)
+s = .33 * (400000 - 190150)
+x + y + z + r + s
+```
+
+:::
+
+::::
+
+## Add as you go
+
+- We may set a variable to an expression *over that variable*
+    - I think of this as an "old" version of the variable on the right side of the equal sign.
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{python} 
+x = .10 * 9275
+x = x + .15 * (37650 - 9275)
+x = x + .25 * (91150 - 37650)
+x = x + .28 * (190150 - 91150)
+x + .33 * (400000 - 190150)
+```
+
+:::
+
+::: {.column width="50%"}
+
+```{python} 
+x = .10 * 9275
+y = .15 * (37650 - 9275)
+z = .25 * (91150 - 37650)
+r = .28 * (190150 - 91150)
+s = .33 * (400000 - 190150)
+x + y + z + r + s
+```
+
+:::
+
+::::
+
+## Assign-update
+
+- We may use an "assignment operator" `+=`
+    - Reassign a variable based on the result of an arithmetic operation.
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{python} 
+x = .10 * 9275
+x = x + .15 * (37650 - 9275)
+x = x + .25 * (91150 - 37650)
+x = x + .28 * (190150 - 91150)
+x + .33 * (400000 - 190150)
+```
+
+:::
+
+::: {.column width="50%"}
+
+```{python} 
+x = .10 * 9275
+x += .15 * (37650 - 9275)
+x += .25 * (91150 - 37650)
+x += .28 * (190150 - 91150)
+x + .33 * (400000 - 190150)
+```
+
+:::
+
+::::
+
+## Exercise
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+- Write function
+- `def single_tax(pay):`
+- *Return* tax cost.
+    - Return not print!
+- Bonus: Also write `single_tax_rate` which returns the percent tax rate at some income level.
+
+:::
+
+::: {.column width="50%"}
+
+| Rate   | From    |
+|--------|--------:|
+| 10%    | 0       |
+| 15%    | 9275    |
+| 25%    | 37650   |
+| 28%    | 91150   |
+| 33%    | 190150  |
+| 35%    | 413350  |
+| 39.6%  | 415050  |
+
+:::
+
+::::
+
+## Solution
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+- Spoiler alert!
+
+```{python}
+#| code-fold: true
+def single_tax(pay):
+    tax = 0
+    if pay > 415050:
+        tax += (pay - 415050) * .396
+        pay = 415050
+    if pay > 413350:
+        tax += (pay - 413350) * .35
+        pay = 413350
+    if pay > 190150:
+        tax += (pay - 190150) * .33
+        pay = 190150
+    if pay > 91150:
+        tax += (pay - 91150) * .28
+        pay = 91150
+    if pay > 37650:
+        tax += (pay - 37650) * .25
+        pay = 37650
+    if pay > 9275:
+        tax += (pay - 9275) * .15
+        pay = 9275
+    return tax + pay * .1
+
+```
+
+:::
+
+::: {.column width="50%"}
+
+- The solution gives the following results!
+
+```{python} 
+[
+    single_tax(100000),
+    single_tax(100000),
+    single_tax(200000),
+    single_tax(300000),
+    single_tax(400000),
+]
+```
+
+- `115529.25` matches our calculations.
+
+:::
+
+::::
+
+## Challenge Problem
+
+- Calculate at what income does the tax rate reach the second highest marginal tax rate of 35%?
+    - That is, at what `pay` does `tax == pay * .35`
+```{python}
+#| code-fold: true
+m = .396
+b = 0
+b += (415050 - 413350) * .35
+b += (413350 - 190150) * .33
+b += (190150 - 91150) * .28
+b += (91150 - 37650) * .25
+b += (37650 - 9275) * .15
+b += 9275 * .1
+(m * -415050 + b)/(.35 - m)
+```
+
+
+## Bonus Solution
+
+- `single_tax` with loops
+```{python}
+#| code-fold: true
+def single_tax(pay):
+    tax_policy = [
+        [415050, .396], 
+        [413350, .35],
+        [190150, .33],
+        [91150, .28],
+        [37650, .25],
+        [9275, .15]
+    ]
+    tax = 0
+    for bracket in tax_policy:
+        if pay > bracket[0]:
+            tax += (pay - bracket[0]) * bracket[1]
+            pay = bracket[0]
+    return tax + pay * .1
+```

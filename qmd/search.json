@@ -277,14 +277,14 @@
     "href": "01_python.rjs.html#example-1",
     "title": "Python",
     "section": "Example",
-    "text": "Example\n\nSuppose an interest rate doubles our savings every ~7 years.\nHow much savings in 14 years?\n\n\nsavings = 10\nsavings = double(savings) # 7 yrs\nsavings\n\n20"
+    "text": "Example\n\nSuppose an interest rate doubles our savings every ~7 years.\nHow much savings in 14 years?\n\n\nsavings = 10\nsavings = double(savings)\nsavings\n\n20"
   },
   {
     "objectID": "01_python.rjs.html#use-return",
     "href": "01_python.rjs.html#use-return",
     "title": "Python",
     "section": "Use return",
-    "text": "Use return\n\ndef double(x):\n    return x + x\n\n\nNow, double(savings) becomes equal to x + x\n\n\nsavings = 10\nsavings = double(savings) # 7 yrs\nsavings\n\n20\n\n\n\ndouble(savings)\n\n40\n\n\n\nOr even\n\n\ndouble(double(10))\n\n40"
+    "text": "Use return\n\ndef double(x):\n    return x + x\n\n\nNow, double(savings) becomes equal to x + x\n\n\nsavings = 10\nsavings = double(savings)\nsavings\n\n20\n\n\n\ndouble(savings)\n\n40\n\n\n\nOr even\n\n\ndouble(double(10))\n\n40"
   },
   {
     "objectID": "01_python.rjs.html#piecewise-2",
@@ -688,7 +688,7 @@
     "href": "01_python.html#example-1",
     "title": "Python",
     "section": "Example",
-    "text": "Example\n\nSuppose an interest rate doubles our savings every ~7 years.\nHow much savings in 14 years?\n\n\nsavings = 10\nsavings = double(savings) # 7 yrs\nsavings\n\n20",
+    "text": "Example\n\nSuppose an interest rate doubles our savings every ~7 years.\nHow much savings in 14 years?\n\n\nsavings = 10\nsavings = double(savings)\nsavings\n\n20",
     "crumbs": [
       "Python"
     ]
@@ -698,7 +698,7 @@
     "href": "01_python.html#use-return",
     "title": "Python",
     "section": "Use return",
-    "text": "Use return\n\ndef double(x):\n    return x + x\n\n\nNow, double(savings) becomes equal to x + x\n\n\nsavings = 10\nsavings = double(savings) # 7 yrs\nsavings\n\n20\n\n\n\ndouble(savings)\n\n40\n\n\n\nOr even\n\n\ndouble(double(10))\n\n40",
+    "text": "Use return\n\ndef double(x):\n    return x + x\n\n\nNow, double(savings) becomes equal to x + x\n\n\nsavings = 10\nsavings = double(savings)\nsavings\n\n20\n\n\n\ndouble(savings)\n\n40\n\n\n\nOr even\n\n\ndouble(double(10))\n\n40",
     "crumbs": [
       "Python"
     ]
@@ -712,5 +712,532 @@
     "crumbs": [
       "Python"
     ]
+  },
+  {
+    "objectID": "01_python.html#lists",
+    "href": "01_python.html#lists",
+    "title": "Python",
+    "section": "Lists",
+    "text": "Lists\n\nThis is still quite tedious.\n\n\\[\n\\{-1, 4, 5, 8, 11\\}\n\\]\n\npiecewise(-1)\n\n14\n\n\n\npiecewise(4)\n\n9\n\n\n\npiecewise(5)\n\n9\n\n\n\npiecewise(8)\n\n9\n\n\n\npiecewise(11)\n\n-9",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.rjs.html#lists",
+    "href": "01_python.rjs.html#lists",
+    "title": "Python",
+    "section": "Lists",
+    "text": "Lists\n\nThis is still quite tedious.\n\n\\[\n\\{-1, 4, 5, 8, 11\\}\n\\]\n\npiecewise(-1)\n\n14\n\n\n\npiecewise(4)\n\n9\n\n\n\npiecewise(5)\n\n9\n\n\n\npiecewise(8)\n\n9\n\n\n\npiecewise(11)\n\n-9"
+  },
+  {
+    "objectID": "01_python.html#sets",
+    "href": "01_python.html#sets",
+    "title": "Python",
+    "section": "Sets",
+    "text": "Sets\n\nThis is a set:\n\n\\[\n\\{-1, 4, 5, 8, 11\\}\n\\]\n\nA set is an unordered collection of elements.\n\nIn this case, elements are integers - whole numbers.\n\nPython can also recognize sets!\n\n\n{-1, 4, 5, 8, 11}\n\n{-1, 4, 5, 8, 11}",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.rjs.html#sets",
+    "href": "01_python.rjs.html#sets",
+    "title": "Python",
+    "section": "Sets",
+    "text": "Sets\n\nThis is a set:\n\n\\[\n\\{-1, 4, 5, 8, 11\\}\n\\]\n\nA set is an unordered collection of elements.\n\nIn this case, elements are integers - whole numbers.\n\nPython can also recognize sets!\n\n\n{-1, 4, 5, 8, 11}\n\n{-1, 4, 5, 8, 11}"
+  },
+  {
+    "objectID": "01_python.html#tedium",
+    "href": "01_python.html#tedium",
+    "title": "Python",
+    "section": "Tedium",
+    "text": "Tedium\n\nThis is still quite tedious.\n\n\npiecewise(-1)\n\n14\n\n\n\npiecewise(4)\n\n9\n\n\n\npiecewise(5)\n\n9\n\n\n\npiecewise(8)\n\n9\n\n\n\npiecewise(11)\n\n-9",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.html#type",
+    "href": "01_python.html#type",
+    "title": "Python",
+    "section": "Type",
+    "text": "Type\n\nTo be sure that is, in fact, a set, we use the helpful built-in type() to ask Python.\n\n\ns = {-1, 4, 5, 8, 11}\ntype(s)\n\nset\n\n\n\nWe have also worked with integers.\n\n\ntype(1)\n\nint\n\n\n\nAnd booleans - True and False values.\n\n\ntype(1 == 1)\n\nbool",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.rjs.html#tedium",
+    "href": "01_python.rjs.html#tedium",
+    "title": "Python",
+    "section": "Tedium",
+    "text": "Tedium\n\nThis is still quite tedious.\n\n\npiecewise(-1)\n\n14\n\n\n\npiecewise(4)\n\n9\n\n\n\npiecewise(5)\n\n9\n\n\n\npiecewise(8)\n\n9\n\n\n\npiecewise(11)\n\n-9"
+  },
+  {
+    "objectID": "01_python.rjs.html#type",
+    "href": "01_python.rjs.html#type",
+    "title": "Python",
+    "section": "Type",
+    "text": "Type\n\nTo be sure that is, in fact, a set, we use the helpful built-in type() to ask Python.\n\n\ns = {-1, 4, 5, 8, 11}\ntype(s)\n\nset\n\n\n\nWe have also worked with integers.\n\n\ntype(1)\n\nint\n\n\n\nAnd booleans - True and False values.\n\n\ntype(1 == 1)\n\nbool"
+  },
+  {
+    "objectID": "01_python.html#loops",
+    "href": "01_python.html#loops",
+    "title": "Python",
+    "section": "Loops",
+    "text": "Loops\n\nWith a set, do something to each element\nIn Python, use a for loop:\n\nThe for keyword\nThe name to refer to an element, like e or x\nThe in keyword\nThe set/collection (or its variable name)\nThe : colon special character\nAn indented new line of code",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.html#example-2",
+    "href": "01_python.html#example-2",
+    "title": "Python",
+    "section": "Example",
+    "text": "Example\n\nfor element in collection\n\ndo thing\n\n\n\nfor e in {-1, 4, 5, 8, 11}:\n    print(piecewise(e))\n\n9\n9\n9\n-9\n14\n\n\n\nWhat do you see?",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.rjs.html#loops",
+    "href": "01_python.rjs.html#loops",
+    "title": "Python",
+    "section": "Loops",
+    "text": "Loops\n\nWith a set, do something to each element\nIn Python, use a for loop:\n\nThe for keyword\nThe name to refer to an element, like e or x\nThe in keyword\nThe set/collection (or its variable name)\nThe : colon special character\nAn indented new line of code"
+  },
+  {
+    "objectID": "01_python.rjs.html#example-2",
+    "href": "01_python.rjs.html#example-2",
+    "title": "Python",
+    "section": "Example",
+    "text": "Example\n\nfor element in collection\n\ndo thing\n\n\n\nfor e in {-1, 4, 5, 8, 11}:\n    print(piecewise(e))\n\n9\n9\n9\n-9\n14\n\n\n\nWhat do you see?"
+  },
+  {
+    "objectID": "01_python.html#ordering",
+    "href": "01_python.html#ordering",
+    "title": "Python",
+    "section": "Ordering",
+    "text": "Ordering\n\nRecall: “A set is an unordered collection of elements”.\nWe need to put things in order!\nThe most common way to do this in Python is with a list.\nAlmost the same as sets, just use “boxy brackets” []\n\n\ntype([1,2,3])\n\nlist",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.rjs.html#ordering",
+    "href": "01_python.rjs.html#ordering",
+    "title": "Python",
+    "section": "Ordering",
+    "text": "Ordering\n\nRecall: “A set is an unordered collection of elements”.\nWe need to put things in order!\nThe most common way to do this in Python is with a list.\nAlmost the same as sets, just use “boxy brackets” []\n\n\ntype([1,2,3])\n\nlist"
+  },
+  {
+    "objectID": "01_python.html#example-3",
+    "href": "01_python.html#example-3",
+    "title": "Python",
+    "section": "Example",
+    "text": "Example\n\nWhat if we just try to print the elements?\n\nEasier to think about!\n\n\n\nfor e in {-1, 4, 5, 8, 11}:\n    print(e)\n\n4\n5\n8\n11\n-1\n\n\n\nWhat do you see?",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.rjs.html#example-3",
+    "href": "01_python.rjs.html#example-3",
+    "title": "Python",
+    "section": "Example",
+    "text": "Example\n\nWhat if we just try to print the elements?\n\nEasier to think about!\n\n\n\nfor e in {-1, 4, 5, 8, 11}:\n    print(e)\n\n4\n5\n8\n11\n-1\n\n\n\nWhat do you see?"
+  },
+  {
+    "objectID": "01_python.html#example-4",
+    "href": "01_python.html#example-4",
+    "title": "Python",
+    "section": "Example",
+    "text": "Example\n\nfor element in collection\n\ndo thing\n\n\n\nfor e in [-1, 4, 5, 8, 11]:\n    print(piecewise(e))\n\n14\n9\n9\n9\n-9\n\n\n\nWhat do you see?",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.rjs.html#example-4",
+    "href": "01_python.rjs.html#example-4",
+    "title": "Python",
+    "section": "Example",
+    "text": "Example\n\nfor element in collection\n\ndo thing\n\n\n\nfor e in [-1, 4, 5, 8, 11]:\n    print(piecewise(e))\n\n14\n9\n9\n9\n-9\n\n\n\nWhat do you see?"
+  },
+  {
+    "objectID": "01_python.html#seeing-lists",
+    "href": "01_python.html#seeing-lists",
+    "title": "Python",
+    "section": "Seeing lists",
+    "text": "Seeing lists\n\nWe can also use lists to print multiple values!\n\nVery helpful for keeping track of things!\n\n\n\nfor e in [-1, 4, 5, 8, 11]:\n    print([e, piecewise(e)])\n\n[-1, 14]\n[4, 9]\n[5, 9]\n[8, 9]\n[11, -9]",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.rjs.html#seeing-lists",
+    "href": "01_python.rjs.html#seeing-lists",
+    "title": "Python",
+    "section": "Seeing lists",
+    "text": "Seeing lists\n\nWe can also use lists to print multiple values!\n\nVery helpful for keeping track of things!\n\n\n\nfor e in [-1, 4, 5, 8, 11]:\n    print([e, piecewise(e)])\n\n[-1, 14]\n[4, 9]\n[5, 9]\n[8, 9]\n[11, -9]"
+  },
+  {
+    "objectID": "01_python.html#income-tax",
+    "href": "01_python.html#income-tax",
+    "title": "Python",
+    "section": "Income tax",
+    "text": "Income tax\n\nRecall the example of a piecewise function:\n\n\n\nMarginal Tax Rate\n\n\nSingle Taxable Income\n\n\nMarried Filing Jointly or Qualified Widow(er) Taxable Income\n\n\nMarried Filing Separately Taxable Income\n\n\nHead of Household Taxable Income\n\n\n\n\n10%\n\n\n$0 – $9,275\n\n\n$0 – $18,550\n\n\n$0 – $9,275\n\n\n$0 – $13,250\n\n\n\n\n15%\n\n\n$9,276 – $37,650\n\n\n$18,551 – $75,300\n\n\n$9,276 – $37,650\n\n\n$13,251 – $50,400\n\n\n\n\n25%\n\n\n$37,651 – $91,150\n\n\n$75,301 – $151,900\n\n\n$37,651 – $75,950\n\n\n$50,401 – $130,150\n\n\n\n\n28%\n\n\n$91,151 – $190,150\n\n\n$151,901 – $231,450\n\n\n$75,951 – $115,725\n\n\n$130,151 – $210,800\n\n\n\n\n33%\n\n\n$190,151 – $413,350\n\n\n$231,451 – $413,350\n\n\n$115,726 – $206,675\n\n\n$210,801 – $413,350\n\n\n\n\n35%\n\n\n$413,351 – $415,050\n\n\n$413,351 – $466,950\n\n\n$206,676 – $233,475\n\n\n$413,351 – $441,000\n\n\n\n\n39.6%\n\n\n$415,051+\n\n\n$466,951+\n\n\n$233,476+\n\n\n$441,001+",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.rjs.html#income-tax",
+    "href": "01_python.rjs.html#income-tax",
+    "title": "Python",
+    "section": "Income tax",
+    "text": "Income tax\n\nRecall the example of a piecewise function:\n\n\n\nMarginal Tax Rate\n\n\nSingle Taxable Income\n\n\nMarried Filing Jointly or Qualified Widow(er) Taxable Income\n\n\nMarried Filing Separately Taxable Income\n\n\nHead of Household Taxable Income\n\n\n\n\n10%\n\n\n$0 – $9,275\n\n\n$0 – $18,550\n\n\n$0 – $9,275\n\n\n$0 – $13,250\n\n\n\n\n15%\n\n\n$9,276 – $37,650\n\n\n$18,551 – $75,300\n\n\n$9,276 – $37,650\n\n\n$13,251 – $50,400\n\n\n\n\n25%\n\n\n$37,651 – $91,150\n\n\n$75,301 – $151,900\n\n\n$37,651 – $75,950\n\n\n$50,401 – $130,150\n\n\n\n\n28%\n\n\n$91,151 – $190,150\n\n\n$151,901 – $231,450\n\n\n$75,951 – $115,725\n\n\n$130,151 – $210,800\n\n\n\n\n33%\n\n\n$190,151 – $413,350\n\n\n$231,451 – $413,350\n\n\n$115,726 – $206,675\n\n\n$210,801 – $413,350\n\n\n\n\n35%\n\n\n$413,351 – $415,050\n\n\n$413,351 – $466,950\n\n\n$206,676 – $233,475\n\n\n$413,351 – $441,000\n\n\n\n\n39.6%\n\n\n$415,051+\n\n\n$466,951+\n\n\n$233,476+\n\n\n$441,001+"
+  },
+  {
+    "objectID": "01_python.html#simplify",
+    "href": "01_python.html#simplify",
+    "title": "Python",
+    "section": "Simplify",
+    "text": "Simplify\n\nLet’s look at singles only.\n\n\n\n\nRate\nFrom\n\n\n\n\n10%\n0\n\n\n15%\n9275\n\n\n25%\n37650\n\n\n28%\n91150\n\n\n33%\n190150\n\n\n35%\n413350\n\n\n39.6%\n415050",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.rjs.html#simplify",
+    "href": "01_python.rjs.html#simplify",
+    "title": "Python",
+    "section": "Simplify",
+    "text": "Simplify\n\nLet’s look at singles only.\n\n\n\n\nRate\nFrom\n\n\n\n\n10%\n0\n\n\n15%\n9275\n\n\n25%\n37650\n\n\n28%\n91150\n\n\n33%\n190150\n\n\n35%\n413350\n\n\n39.6%\n415050"
+  },
+  {
+    "objectID": "01_python.html#part-1",
+    "href": "01_python.html#part-1",
+    "title": "Python",
+    "section": "Part 1",
+    "text": "Part 1\n\nWatch out for order-of-operations!\n\n\n\n\n10% on 9275\n15% on 37650 - 9275\n25% on 91150 - 37650\n28% on 190150 - 91150\n33% on 400000 - 190150\n\n\n\nx = .10 * 9275\ny = .15 * (37650 - 9275)\nz = .25 * (91150 - 37650)\nr = .28 * (190150 - 91150)\ns = .33 * (400000 - 190150)\nx + y + z + r + s\n\n115529.25",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.rjs.html#part-1",
+    "href": "01_python.rjs.html#part-1",
+    "title": "Python",
+    "section": "Part 1",
+    "text": "Part 1\n\nWatch out for order-of-operations!\n\n\n\n\n10% on 9275\n15% on 37650 - 9275\n25% on 91150 - 37650\n28% on 190150 - 91150\n33% on 400000 - 190150\n\n\n\nx = .10 * 9275\ny = .15 * (37650 - 9275)\nz = .25 * (91150 - 37650)\nr = .28 * (190150 - 91150)\ns = .33 * (400000 - 190150)\nx + y + z + r + s\n\n115529.25"
+  },
+  {
+    "objectID": "01_python.html#singles-only.",
+    "href": "01_python.html#singles-only.",
+    "title": "Python",
+    "section": "Singles only.",
+    "text": "Singles only.\n\n\n\nRate\nFrom\n\n\n\n\n10%\n0\n\n\n15%\n9275\n\n\n25%\n37650\n\n\n28%\n91150\n\n\n33%\n190150\n\n\n35%\n413350\n\n\n39.6%\n415050",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.rjs.html#singles-only.",
+    "href": "01_python.rjs.html#singles-only.",
+    "title": "Python",
+    "section": "Singles only.",
+    "text": "Singles only.\n\n\n\nRate\nFrom\n\n\n\n\n10%\n0\n\n\n15%\n9275\n\n\n25%\n37650\n\n\n28%\n91150\n\n\n33%\n190150\n\n\n35%\n413350\n\n\n39.6%\n415050"
+  },
+  {
+    "objectID": "01_python.html#part-1-1",
+    "href": "01_python.html#part-1-1",
+    "title": "Python",
+    "section": "Part 1",
+    "text": "Part 1\n\nCan also “add as you go”\n\n\n\n\nx = .10 * 9275\nx = x + .15 * (37650 - 9275)\nx = x + .25 * (91150 - 37650)\nx = x + .28 * (190150 - 91150)\nx + .33 * (400000 - 190150)\n\n115529.25\n\n\n\n\nx = .10 * 9275\ny = .15 * (37650 - 9275)\nz = .25 * (91150 - 37650)\nr = .28 * (190150 - 91150)\ns = .33 * (400000 - 190150)\nx + y + z + r + s\n\n115529.25",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.rjs.html#part-1-1",
+    "href": "01_python.rjs.html#part-1-1",
+    "title": "Python",
+    "section": "Part 1",
+    "text": "Part 1\n\nCan also “add as you go”\n\n\n\n\nx = .10 * 9275\nx = x + .15 * (37650 - 9275)\nx = x + .25 * (91150 - 37650)\nx = x + .28 * (190150 - 91150)\nx + .33 * (400000 - 190150)\n\n115529.25\n\n\n\n\nx = .10 * 9275\ny = .15 * (37650 - 9275)\nz = .25 * (91150 - 37650)\nr = .28 * (190150 - 91150)\ns = .33 * (400000 - 190150)\nx + y + z + r + s\n\n115529.25"
+  },
+  {
+    "objectID": "01_python.html#part-1-2",
+    "href": "01_python.html#part-1-2",
+    "title": "Python",
+    "section": "Part 1",
+    "text": "Part 1\n\nYou can also “assignment update” operation `+=\n\n\n\n\nx = .10 * 9275\nx = x + .15 * (37650 - 9275)\nx = x + .25 * (91150 - 37650)\nx = x + .28 * (190150 - 91150)\nx + .33 * (400000 - 190150)\n\n115529.25\n\n\n\n\nx = .10 * 9275\nx += .15 * (37650 - 9275)\nx += .25 * (91150 - 37650)\nx += .28 * (190150 - 91150)\nx + .33 * (400000 - 190150)\n\n115529.25",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.rjs.html#part-1-2",
+    "href": "01_python.rjs.html#part-1-2",
+    "title": "Python",
+    "section": "Part 1",
+    "text": "Part 1\n\nYou can also “assignment update” operation `+=\n\n\n\n\nx = .10 * 9275\nx = x + .15 * (37650 - 9275)\nx = x + .25 * (91150 - 37650)\nx = x + .28 * (190150 - 91150)\nx + .33 * (400000 - 190150)\n\n115529.25\n\n\n\n\nx = .10 * 9275\nx += .15 * (37650 - 9275)\nx += .25 * (91150 - 37650)\nx += .28 * (190150 - 91150)\nx + .33 * (400000 - 190150)\n\n115529.25"
+  },
+  {
+    "objectID": "01_python.html#part-1-3",
+    "href": "01_python.html#part-1-3",
+    "title": "Python",
+    "section": "Part 1",
+    "text": "Part 1\n\nYou can also “assignment update” operation `+=\n\n\n\n\nx = .10 * 9275\nx = x + .15 * (37650 - 9275)\nx = x + .25 * (91150 - 37650)\nx = x + .28 * (190150 - 91150)\nx + .33 * (400000 - 190150)\n\n115529.25\n\n\n\n\nx = .10 * 9275\nx += .15 * (37650 - 9275)\nx += .25 * (91150 - 37650)\nx += .28 * (190150 - 91150)\nx + .33 * (400000 - 190150)\n\n115529.25",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.rjs.html#part-1-3",
+    "href": "01_python.rjs.html#part-1-3",
+    "title": "Python",
+    "section": "Part 1",
+    "text": "Part 1\n\nYou can also “assignment update” operation `+=\n\n\n\n\nx = .10 * 9275\nx = x + .15 * (37650 - 9275)\nx = x + .25 * (91150 - 37650)\nx = x + .28 * (190150 - 91150)\nx + .33 * (400000 - 190150)\n\n115529.25\n\n\n\n\nx = .10 * 9275\nx += .15 * (37650 - 9275)\nx += .25 * (91150 - 37650)\nx += .28 * (190150 - 91150)\nx + .33 * (400000 - 190150)\n\n115529.25"
+  },
+  {
+    "objectID": "01_python.html#singles-only",
+    "href": "01_python.html#singles-only",
+    "title": "Python",
+    "section": "Singles only…",
+    "text": "Singles only…\n\n\n\nRate\nFrom\n\n\n\n\n10%\n0\n\n\n15%\n9275\n\n\n25%\n37650\n\n\n28%\n91150\n\n\n33%\n190150\n\n\n35%\n413350\n\n\n39.6%\n415050",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.html#motivating-example-1",
+    "href": "01_python.html#motivating-example-1",
+    "title": "Python",
+    "section": "Motivating example",
+    "text": "Motivating example\n\nHow much would a single making 400k pay?\n\n\n\n\n10% on 9275\n15% on 37650 - 9275\n25% on 91150 - 37650\n28% on 190150 - 91150\n33% on 400000 - 190150\n\n\n\n\n\nRate\nFrom\n\n\n\n\n10%\n0\n\n\n15%\n9275\n\n\n25%\n37650\n\n\n28%\n91150\n\n\n33%\n190150\n\n\n35%\n413350\n\n\n39.6%\n415050",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.rjs.html#singles-only",
+    "href": "01_python.rjs.html#singles-only",
+    "title": "Python",
+    "section": "Singles only…",
+    "text": "Singles only…\n\n\n\nRate\nFrom\n\n\n\n\n10%\n0\n\n\n15%\n9275\n\n\n25%\n37650\n\n\n28%\n91150\n\n\n33%\n190150\n\n\n35%\n413350\n\n\n39.6%\n415050"
+  },
+  {
+    "objectID": "01_python.rjs.html#motivating-example-1",
+    "href": "01_python.rjs.html#motivating-example-1",
+    "title": "Python",
+    "section": "Motivating example",
+    "text": "Motivating example\n\nHow much would a single making 400k pay?\n\n\n\n\n10% on 9275\n15% on 37650 - 9275\n25% on 91150 - 37650\n28% on 190150 - 91150\n33% on 400000 - 190150\n\n\n\n\n\nRate\nFrom\n\n\n\n\n10%\n0\n\n\n15%\n9275\n\n\n25%\n37650\n\n\n28%\n91150\n\n\n33%\n190150\n\n\n35%\n413350\n\n\n39.6%\n415050"
+  },
+  {
+    "objectID": "01_python.html#sum-it-up",
+    "href": "01_python.html#sum-it-up",
+    "title": "Python",
+    "section": "Sum it up!",
+    "text": "Sum it up!\n\nWatch out for order-of-operations!\n\n\n\n\n10% on 9275\n15% on 37650 - 9275\n25% on 91150 - 37650\n28% on 190150 - 91150\n33% on 400000 - 190150\n\n\n\nx = .10 * 9275\ny = .15 * (37650 - 9275)\nz = .25 * (91150 - 37650)\nr = .28 * (190150 - 91150)\ns = .33 * (400000 - 190150)\nx + y + z + r + s\n\n115529.25",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.html#add-as-you-go",
+    "href": "01_python.html#add-as-you-go",
+    "title": "Python",
+    "section": "Add as you go",
+    "text": "Add as you go\n\nWe may set a variable to an expression over that variable\n\nI think of this as an “old” version of the variable on the right side of the equal sign.\n\n\n\n\n\nx = .10 * 9275\nx = x + .15 * (37650 - 9275)\nx = x + .25 * (91150 - 37650)\nx = x + .28 * (190150 - 91150)\nx + .33 * (400000 - 190150)\n\n115529.25\n\n\n\n\nx = .10 * 9275\ny = .15 * (37650 - 9275)\nz = .25 * (91150 - 37650)\nr = .28 * (190150 - 91150)\ns = .33 * (400000 - 190150)\nx + y + z + r + s\n\n115529.25",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.html#assign-update",
+    "href": "01_python.html#assign-update",
+    "title": "Python",
+    "section": "Assign-update",
+    "text": "Assign-update\n\nWe may use an “assignment operator” +=\n\nReassign a variable based on the result of an arithmetic operation.\n\n\n\n\n\nx = .10 * 9275\nx = x + .15 * (37650 - 9275)\nx = x + .25 * (91150 - 37650)\nx = x + .28 * (190150 - 91150)\nx + .33 * (400000 - 190150)\n\n115529.25\n\n\n\n\nx = .10 * 9275\nx += .15 * (37650 - 9275)\nx += .25 * (91150 - 37650)\nx += .28 * (190150 - 91150)\nx + .33 * (400000 - 190150)\n\n115529.25",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.rjs.html#sum-it-up",
+    "href": "01_python.rjs.html#sum-it-up",
+    "title": "Python",
+    "section": "Sum it up!",
+    "text": "Sum it up!\n\nWatch out for order-of-operations!\n\n\n\n\n10% on 9275\n15% on 37650 - 9275\n25% on 91150 - 37650\n28% on 190150 - 91150\n33% on 400000 - 190150\n\n\n\nx = .10 * 9275\ny = .15 * (37650 - 9275)\nz = .25 * (91150 - 37650)\nr = .28 * (190150 - 91150)\ns = .33 * (400000 - 190150)\nx + y + z + r + s\n\n115529.25"
+  },
+  {
+    "objectID": "01_python.rjs.html#add-as-you-go",
+    "href": "01_python.rjs.html#add-as-you-go",
+    "title": "Python",
+    "section": "Add as you go",
+    "text": "Add as you go\n\nWe may set a variable to an expression over that variable\n\nI think of this as an “old” version of the variable on the right side of the equal sign.\n\n\n\n\n\nx = .10 * 9275\nx = x + .15 * (37650 - 9275)\nx = x + .25 * (91150 - 37650)\nx = x + .28 * (190150 - 91150)\nx + .33 * (400000 - 190150)\n\n115529.25\n\n\n\n\nx = .10 * 9275\ny = .15 * (37650 - 9275)\nz = .25 * (91150 - 37650)\nr = .28 * (190150 - 91150)\ns = .33 * (400000 - 190150)\nx + y + z + r + s\n\n115529.25"
+  },
+  {
+    "objectID": "01_python.rjs.html#assign-update",
+    "href": "01_python.rjs.html#assign-update",
+    "title": "Python",
+    "section": "Assign-update",
+    "text": "Assign-update\n\nWe may use an “assignment operator” +=\n\nReassign a variable based on the result of an arithmetic operation.\n\n\n\n\n\nx = .10 * 9275\nx = x + .15 * (37650 - 9275)\nx = x + .25 * (91150 - 37650)\nx = x + .28 * (190150 - 91150)\nx + .33 * (400000 - 190150)\n\n115529.25\n\n\n\n\nx = .10 * 9275\nx += .15 * (37650 - 9275)\nx += .25 * (91150 - 37650)\nx += .28 * (190150 - 91150)\nx + .33 * (400000 - 190150)\n\n115529.25"
+  },
+  {
+    "objectID": "01_python.html#exercise-1",
+    "href": "01_python.html#exercise-1",
+    "title": "Python",
+    "section": "Exercise",
+    "text": "Exercise\n\n\n\nWrite function\ndef single_tax(pay):\nReturn tax cost.\n\nReturn not print!\n\nBonus: Also write single_tax_rate which returns the percent tax rate at some income level.\n\n\n\n\n\nRate\nFrom\n\n\n\n\n10%\n0\n\n\n15%\n9275\n\n\n25%\n37650\n\n\n28%\n91150\n\n\n33%\n190150\n\n\n35%\n413350\n\n\n39.6%\n415050",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.rjs.html#exercise-1",
+    "href": "01_python.rjs.html#exercise-1",
+    "title": "Python",
+    "section": "Exercise",
+    "text": "Exercise\n\n\n\nWrite function\ndef single_tax(pay):\nReturn tax cost.\n\nReturn not print!\n\nBonus: Also write single_tax_rate which returns the percent tax rate at some income level.\n\n\n\n\n\nRate\nFrom\n\n\n\n\n10%\n0\n\n\n15%\n9275\n\n\n25%\n37650\n\n\n28%\n91150\n\n\n33%\n190150\n\n\n35%\n413350\n\n\n39.6%\n415050"
+  },
+  {
+    "objectID": "01_python.html#solution",
+    "href": "01_python.html#solution",
+    "title": "Python",
+    "section": "Solution",
+    "text": "Solution\n\n\n\nSpoiler alert!\n\n\n\nCode\ndef single_tax(pay):\n    tax = 0\n    if pay &gt; 415050:\n        tax += (pay - 415050) * .396\n        pay = 415050\n    if pay &gt; 413350:\n        tax += (pay - 413350) * .35\n        pay = 413350\n    if pay &gt; 190150:\n        tax += (pay - 190150) * .33\n        pay = 190150\n    if pay &gt; 91150:\n        tax += (pay - 91150) * .28\n        pay = 91150\n    if pay &gt; 37650:\n        tax += (pay - 37650) * .25\n        pay = 37650\n    if pay &gt; 9275:\n        tax += (pay - 9275) * .15\n        pay = 9275\n    return tax + pay * .1\n\n\n\n\nThe solution gives the following results!\n\n\n[\n    single_tax(100000),\n    single_tax(100000),\n    single_tax(200000),\n    single_tax(300000),\n    single_tax(400000),\n]\n\n[21036.75, 21036.75, 49529.25, 82529.25, 115529.25]\n\n\n\n115529.25 matches our calculations.",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.rjs.html#solution",
+    "href": "01_python.rjs.html#solution",
+    "title": "Python",
+    "section": "Solution",
+    "text": "Solution\n\n\n\nSpoiler alert!\n\n\n\nCode\ndef single_tax(pay):\n    tax = 0\n    if pay &gt; 415050:\n        tax += (pay - 415050) * .396\n        pay = 415050\n    if pay &gt; 413350:\n        tax += (pay - 413350) * .35\n        pay = 413350\n    if pay &gt; 190150:\n        tax += (pay - 190150) * .33\n        pay = 190150\n    if pay &gt; 91150:\n        tax += (pay - 91150) * .28\n        pay = 91150\n    if pay &gt; 37650:\n        tax += (pay - 37650) * .25\n        pay = 37650\n    if pay &gt; 9275:\n        tax += (pay - 9275) * .15\n        pay = 9275\n    return tax + pay * .1\n\n\n\n\nThe solution gives the following results!\n\n\n[\n    single_tax(100000),\n    single_tax(100000),\n    single_tax(200000),\n    single_tax(300000),\n    single_tax(400000),\n]\n\n[21036.75, 21036.75, 49529.25, 82529.25, 115529.25]\n\n\n\n115529.25 matches our calculations."
+  },
+  {
+    "objectID": "01_python.html#updating-lists",
+    "href": "01_python.html#updating-lists",
+    "title": "Python",
+    "section": "Updating lists",
+    "text": "Updating lists\n\nEach element is a lot like a variable.\n\nThey just have a name and number, use []\nThe initial element is number 0 (not 1)\n\n\n\nxs = [-1, 4, 5, 8, 11]\nxs[0]\n\n-1\n\n\n\nAnd like variables, we can assign a value with =\n\n\nxs[0] = -2\nxs\n\n[-2, 4, 5, 8, 11]",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.html#making-lists",
+    "href": "01_python.html#making-lists",
+    "title": "Python",
+    "section": "Making lists",
+    "text": "Making lists\n\nIt is common to wish to return a list from a function.\n\nOften based on some provided list.",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.html#updating-lists-1",
+    "href": "01_python.html#updating-lists-1",
+    "title": "Python",
+    "section": "Updating lists",
+    "text": "Updating lists",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.rjs.html#updating-lists",
+    "href": "01_python.rjs.html#updating-lists",
+    "title": "Python",
+    "section": "Updating lists",
+    "text": "Updating lists\n\nEach element is a lot like a variable.\n\nThey just have a name and number, use []\nThe initial element is number 0 (not 1)\n\n\n\nxs = [-1, 4, 5, 8, 11]\nxs[0]\n\n-1\n\n\n\nAnd like variables, we can assign a value with =\n\n\nxs[0] = -2\nxs\n\n[-2, 4, 5, 8, 11]"
+  },
+  {
+    "objectID": "01_python.rjs.html#making-lists",
+    "href": "01_python.rjs.html#making-lists",
+    "title": "Python",
+    "section": "Making lists",
+    "text": "Making lists\n\nIt is common to wish to return a list from a function.\n\nOften based on some provided list."
+  },
+  {
+    "objectID": "01_python.rjs.html#updating-lists-1",
+    "href": "01_python.rjs.html#updating-lists-1",
+    "title": "Python",
+    "section": "Updating lists",
+    "text": "Updating lists"
+  },
+  {
+    "objectID": "01_python.html#adding-lists",
+    "href": "01_python.html#adding-lists",
+    "title": "Python",
+    "section": "Adding lists",
+    "text": "Adding lists\n\nLists also helpfully support addition with +\n\n\n[-1] + [4, 5, 8, 11]\n\n[-1, 4, 5, 8, 11]\n\n\n\nWe often use this to make new lists.\n\n\nresult = []\nfor e in [-1, 4, 5, 8, 11]:\n    result = result + [piecewise(e)]\n\n\nThis pattern also works with numbers!\n\n\nx = 0 \nx = x + 1\nx\n\n1",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.rjs.html#adding-lists",
+    "href": "01_python.rjs.html#adding-lists",
+    "title": "Python",
+    "section": "Adding lists",
+    "text": "Adding lists\n\nLists also helpfully support addition with +\n\n\n[-1] + [4, 5, 8, 11]\n\n[-1, 4, 5, 8, 11]\n\n\n\nWe often use this to make new lists.\n\n\nresult = []\nfor e in [-1, 4, 5, 8, 11]:\n    result = result + [piecewise(e)]\n\n\nThis pattern also works with numbers!\n\n\nx = 0 \nx = x + 1\nx\n\n1"
+  },
+  {
+    "objectID": "01_python.html#single_tax",
+    "href": "01_python.html#single_tax",
+    "title": "Python",
+    "section": "single_tax",
+    "text": "single_tax\n\n\n\nWrite function\ndef single_tax(pay):\nReturn tax cost.\n\nReturn not print!\n\nBonus: Also write single_tax_rate which returns the percent tax rate at some income level.\n\n\n\n\n\nRate\nFrom\n\n\n\n\n10%\n0\n\n\n15%\n9275\n\n\n25%\n37650\n\n\n28%\n91150\n\n\n33%\n190150\n\n\n35%\n413350\n\n\n39.6%\n415050",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.rjs.html#single_tax",
+    "href": "01_python.rjs.html#single_tax",
+    "title": "Python",
+    "section": "single_tax",
+    "text": "single_tax\n\n\n\nWrite function\ndef single_tax(pay):\nReturn tax cost.\n\nReturn not print!\n\nBonus: Also write single_tax_rate which returns the percent tax rate at some income level.\n\n\n\n\n\nRate\nFrom\n\n\n\n\n10%\n0\n\n\n15%\n9275\n\n\n25%\n37650\n\n\n28%\n91150\n\n\n33%\n190150\n\n\n35%\n413350\n\n\n39.6%\n415050"
+  },
+  {
+    "objectID": "01_python.html#challenge-problem",
+    "href": "01_python.html#challenge-problem",
+    "title": "Python",
+    "section": "Challenge Problem",
+    "text": "Challenge Problem\n\nCalculate at what income does the tax rate reach the second highest marginal tax rate of 35%?\n\nThat is, at what pay does tax == pay * .35\n\n\n\n\nCode\nm = .396\nb = 0\nb += (415050 - 413350) * .35\nb += (413350 - 190150) * .33\nb += (190150 - 91150) * .28\nb += (91150 - 37650) * .25\nb += (37650 - 9275) * .15\nb += 9275 * .1\n(m * -415050 + b)/(.35 - m)\n\n\n952827.173913043",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.rjs.html#challenge-problem",
+    "href": "01_python.rjs.html#challenge-problem",
+    "title": "Python",
+    "section": "Challenge Problem",
+    "text": "Challenge Problem\n\nCalculate at what income does the tax rate reach the second highest marginal tax rate of 35%?\n\nThat is, at what pay does tax == pay * .35\n\n\n\n\nCode\nm = .396\nb = 0\nb += (415050 - 413350) * .35\nb += (413350 - 190150) * .33\nb += (190150 - 91150) * .28\nb += (91150 - 37650) * .25\nb += (37650 - 9275) * .15\nb += 9275 * .1\n(m * -415050 + b)/(.35 - m)\n\n\n952827.173913043"
+  },
+  {
+    "objectID": "01_python.html#bonus-solution",
+    "href": "01_python.html#bonus-solution",
+    "title": "Python",
+    "section": "Bonus Solution",
+    "text": "Bonus Solution\n\nsingle_tax with loops\n\n\n\nCode\ndef single_tax(pay):\n    tax_policy = [\n        [415050, .396], \n        [413350, .35],\n        [190150, .33],\n        [91150, .28],\n        [37650, .25],\n        [9275, .15]\n    ]\n    tax = 0\n    for bracket in tax_policy:\n        if pay &gt; bracket[0]:\n            tax += (pay - bracket[0]) * bracket[1]\n            pay = bracket[0]\n    return tax + pay * .1",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.rjs.html#bonus-solution",
+    "href": "01_python.rjs.html#bonus-solution",
+    "title": "Python",
+    "section": "Bonus Solution",
+    "text": "Bonus Solution\n\nsingle_tax with loops\n\n\n\nCode\ndef single_tax(pay):\n    tax_policy = [\n        [415050, .396], \n        [413350, .35],\n        [190150, .33],\n        [91150, .28],\n        [37650, .25],\n        [9275, .15]\n    ]\n    tax = 0\n    for bracket in tax_policy:\n        if pay &gt; bracket[0]:\n            tax += (pay - bracket[0]) * bracket[1]\n            pay = bracket[0]\n    return tax + pay * .1"
   }
 ]
