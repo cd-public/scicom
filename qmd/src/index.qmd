@@ -1,0 +1,4 @@
+# Readme {.unnumbered}
+
+This self-documenting book introduces the usage of the Python technology stack with Quarto, VS Code, and GitHub for communicating results within the computational sciences.
+
