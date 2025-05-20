@@ -1,0 +1,458 @@
+---
+title: Neovim
+---
+
+# Why Neovim?
+
+## On Neovim
+
+* Neovim is free,
+* Neovim is very widely available,
+* Neovim is highly customizable,
+* Neovim is stable, year-on-year,
+* and Neovim is quite powerful.
+
+[Watch more](https://www.youtube.com/watch?v=dR00OugPlLc&list=PLabWm-zCaD1axcMGvf7wFxJz8FZmyHSJ7&index=14)
+
+## Why not Neovim?
+
+
+- **Modal** - it is not a "What you see is what you get" (WYSIWYG) editor like MS Word, Google Docs, Notepad, or VS Code
+- **Terminal-based** - it is used within the terminal and not often as a stand-alone program.
+- **Steep-learning curve** - students generally find it difficult to get started, though it is widely briefed by experienced users
+
+# Running Example
+
+## Diving In
+
+- Taking Neovim as a given, we'll:
+    - Continue the *piecewise functions* example
+    - Touch on Python and the terminal in the context of Neovim
+    - Introduce Neovim *modes*, *motions*, and *operators*.
+- Spoilers for the last exercise!
+
+
+## Exercise
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+- Write function
+- `def single_tax(pay):`
+- *Return* tax cost.
+    - Return not print!
+- Bonus: Also write `single_tax_rate` which returns the percent tax rate at some income level.
+
+:::
+
+::: {.column width="50%"}
+
+| Rate   | From    |
+|--------|--------:|
+| 10%    | 0       |
+| 15%    | 9275    |
+| 25%    | 37650   |
+| 28%    | 91150   |
+| 33%    | 190150  |
+| 35%    | 413350  |
+| 39.6%  | 415050  |
+
+:::
+
+::::
+
+## Solutions
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{python}
+def single_tax(pay):
+    tax = 0
+    if pay > 415050:
+        tax += (pay - 415050) * .396
+        pay = 415050
+    if pay > 413350:
+        tax += (pay - 413350) * .35
+        pay = 413350
+    if pay > 190150:
+        tax += (pay - 190150) * .33
+        pay = 190150
+    if pay > 91150:
+        tax += (pay - 91150) * .28
+        pay = 91150
+    if pay > 37650:
+        tax += (pay - 37650) * .25
+        pay = 37650
+    if pay > 9275:
+        tax += (pay - 9275) * .15
+        pay = 9275
+    return tax + pay * .1
+
+```
+:::
+
+::: {.column width="50%"}
+
+```{python}
+def single_tax(pay):
+    tax_policy = [
+        [415050, .396], 
+        [413350, .35],
+        [190150, .33],
+        [91150, .28],
+        [37650, .25],
+        [9275, .15]
+    ]
+    tax = 0
+    for bracket in tax_policy:
+        if pay > bracket[0]:
+            tax += (pay - bracket[0]) * bracket[1]
+            pay = bracket[0]
+    return tax + pay * .1
+```
+
+:::
+
+::::
+
+## Tedious to Type
+
+```{.bash code-line-numbers="false"}
+PS C:\Users\calvin> python
+Python 3.12.5 (tags/v3.12.5:ff3bc82, Aug  6 2024, 20:45:27) [MSC v.1940 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> def single_tax(pay):
+...     tax_policy = [
+...         [415050, .396],
+...         [413350, .35],
+...         [190150, .33],
+...         [91150, .28],
+...         [37650, .25],
+...         [9275, .15]
+...     ]
+...     tax = 0
+...     for bracket in tax_policy:
+...         if pay > bracket[0]:
+...             tax += (pay - bracket[0]) * bracket[1]
+...             pay = bracket[0]
+...     return tax + pay * .1
+...
+>>> single_tax(400000)
+115529.25
+>>>
+```
+
+## Instead: .py files
+
+- Python has an associated file type, the `.py` file.
+    - Similar to `.png` (portable network graphic) for images
+    - Similar to `.pdf` (portable document format) for papers
+
+## Test-based
+
+- The `.py` file is much like a `.txt` file in that:
+    - It is a small, lightweight file containing only typed characters.
+    - It can be opened, edited, and viewed in many editors.
+- The `.py` file can save typed code to be used within `python`.
+
+## Enter Neovim
+
+- Neovim is a *great* way to edit text.
+
+::: {.callout-tip}
+
+## Give it a shot!
+
+Students often object to switching from WYSIWYG editors but:
+
+- Many students know *no other way* to write text-based files, and
+- We've ample time this term to properly explore Neovim
+
+Be patient, but also work hard!
+
+:::
+
+# Getting Neovim
+
+## Installation
+
+- We go to the offial webpage to get an installer for our computer:
+    - [https://neovim.io/](https://neovim.io/)
+- Neovim offers a few more installation options than you may be used to.
+- I recommend...
+
+## Install from download
+
+Downloads are available on the [Releases](https://github.com/neovim/neovim/releases) page.
+
+* Latest [stable release](https://github.com/neovim/neovim/releases/latest)
+    * [macOS x86_64](https://github.com/neovim/neovim/releases/latest/download/nvim-macos-x86_64.tar.gz)
+    * [macOS arm64](https://github.com/neovim/neovim/releases/latest/download/nvim-macos-arm64.tar.gz)
+    * [Linux x86_64](https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz)
+    * [Linux arm64](https://github.com/neovim/neovim/releases/latest/download/nvim-linux-arm64.tar.gz)
+    * [Windows](https://github.com/neovim/neovim/releases/latest/download/nvim-win64.msi)
+
+## Terminal
+
+- On MS Windows
+    - I press Windows key, type "terminal" then press enter.
+- On MacOS
+    - I open Launchpad, type "terminal" then press enter.
+
+## MacOS
+
+![](img/zsh.png)
+
+## Windows
+
+![](img/ps.webp)
+
+## Expression evaluation
+
+- Returning to the terminal, we can type at the "prompt".
+- On MacOS, perhaps a line that begins with `$` and a flashing cursor
+- On Window, perhaps `PS C:\Users\calvin>`
+    - `PS` stands for "powershell" - more latter.
+    - `C:\Users\calvin` is the name of a folder - more latter
+    - `>` is the prompt, with a flashing cursor.
+
+## Run Neovim 
+
+*In the following examples, I remove line numbers to denote they are not Python code snippets.*
+
+- On MacOS, type `nvim`
+```{.zsh filename="MacOS" code-line-numbers="false"}
+$ nvim
+```
+- On Windows, type `nvim`
+```{.ps filename="Windows" code-line-numbers="false"}
+PS C:\Users\calvin> nvim
+```
+- On both, press the **↵ᴇɴᴛᴇʀ** key.
+
+## See Neovim
+
+- You'll see something like this:
+```{.bash code-line-numbers="false"}
+                  NVIM v0.11.1
+
+  Nvim is open source and freely distributable
+           https://neovim.io/#chat
+
+ type :help nvim<Enter>               if you are new!
+ type :checkhealth<Enter>             to optimize Nvim
+ type :q<Enter>                       to exit
+ type :help<Enter>                    for help
+
+type :help news<Enter> to see changes in v0.11
+
+        Help poor children in Uganda!
+ type :help iccf<Enter>               for information
+```
+
+# Modes
+
+## Modality
+
+- `nvim` is a *modal* text editor
+- By default, typed characters will not appear in the document.
+- Rather, by default, we being in *command* mode.
+- We won't worry about that too much, but the first command to learn is
+```{.bash code-line-numbers="false"}
+i
+```
+- `i` for insert
+
+## Insert Mode
+
+- By the way, you should see `-- INSERT --` at the bottom of the terminal window.
+- Insert mode is not unlike WYSIWYG
+- Use it prolificly until you are more comfortable.
+- Navigate with arrow keys or (depending on system) mouse
+- For now, let's copy paste in the `piecewise` function.
+
+
+## Piecewise
+
+- For me, basic copy/paste commands like:
+	- ctrl/cmd+c, ctrl/cmd+v 
+	- rclick->menu->copy
+- Worked amicably in `i` insert mode
+
+```{.python}
+def piecewise(x):
+    if (x < 4):
+        return 9 * x ** 2 + 5
+    elif (4 <= x <= 8):
+        return 9
+    elif (x > 8):
+        return 2 - x
+```
+
+## Command Mode
+
+- Having written some text, we now need to save it to a file.
+- Press `:` to return to command mode
+- Your cursor will move the bottom of the terminal, where `-- INSERT --` was
+
+## Issuing commands
+
+- After `:` type `w` (write) and the name of the file
+- Include the `.py` ending!
+- I wrote:
+```{.bash code-line-numbers="false"}
+:w pw.py
+```
+
+## Save and Quit
+
+- You can always use `:w` to save while working.
+- Make any edits you make need to make - a missed paren perhaps.
+- Then both save *and* exit `nvim` with `:x`
+	- This special command saves the file and exists `nvim`
+- You will return to the command line you started with, likely without incident.
+  	- But there will now be a new file you can use!
+
+# Scripting
+
+## Back in Terminal
+
+- On MacOS, you'll see `nvim` and a new prompt
+```{.zsh filename="MacOS" code-line-numbers="false"}
+$ nvim
+$
+```
+- On Windows, the same
+```{.ps filename="Windows" code-line-numbers="false"}
+PS C:\Users\calvin> nvim
+PS C:\Users\calvin> 
+```
+
+## Aside: Terminal Commands
+
+- Like Python and Neovim, there are also terminal commands!
+  - Two are `python`/`python3` and `neovim`!
+- Another is `ls`, which stands for "list"
+	- This command has been around so long, it is from an era when commands were shorter to save precious computer memory!
+- It "lists" local files, and can list them by name!
+
+## Aside: Using `ls`
+
+- Try out this command, to see that you have a `pw.py` file!
+```{.ps  code-line-numbers="false"}
+$ ls pw.py
+```
+- What do you see (different on Windows and MacOS)?
+
+## Checkpoint
+
+- If you do not have a `pw.py` file, stop here until you have one!
+```{.ps filename="Windows" code-line-numbers="false"}
+PS C:\Users\calvin> ls pw.py
+
+
+    Directory: C:\Users\cd-desk
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----         5/20/2025   3:21 PM            151 pw.py
+```
+```{.zsh filename="MacOS" code-line-numbers="false"}
+$ ls pw.py
+pw.py
+$
+```
+
+## .py files
+
+- There are two common ways to use `.py` files
+- I believe the most common is via `import`
+- To begin, at the command line, start Pythoni
+
+- On Windows, type `python`
+```{.ps filename="Windows" code-line-numbers="false"}
+PS C:\Users\calvin> python
+```
+- On MacOS, type `python3`
+```{.zsh filename="MacOS" code-line-numbers="false"}
+$ python3
+```
+- On both, press the **↵ᴇɴᴛᴇʀ** key.
+
+## See Python
+
+- You'll see something like this:
+```{.email code-line-numbers="false"}
+Python 3.12.5 (tags/v3.12.5:ff3bc82, Aug  6 2024, 20:45:27) [MSC v.1940 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+```
+- Take note of the prompt!
+- `>>>`
+- Those three are how you know it is Python, and not the Terminal, that you are working in.
+
+## Import
+
+- Versus last time, we now have a piecewise function written in a `.py` file we can reference.
+- To do so, we:
+	- Type `import` followed by a space
+	- Type the filename less the `.py` *extension*
+	- It should look like this:
+
+```{.email code-line-numbers="false"}
+PS C:\Users\calvin> python
+Python 3.12.5 (tags/v3.12.5:ff3bc82, Aug  6 2024, 20:45:27) [MSC v.1940 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import pw
+>>>
+```
+
+## Modules
+
+- `import pw` will introduce a new variable to Python to which we can refer by name (pw)
+- It is of a new type for us, "module"
+```{.email code-line-numbers="false"}
+>>> type(pw)
+<class 'module'>
+```
+- Modules correspond to `.py` files!
+```{.email code-line-numbers="false"}
+>>> pw
+<module 'pw' from 'C:\\Users\\calvin\\pw.py'>
+```
+- (The `from` will look different on different computers)
+
+## Importing Functions
+
+- We can use functions inside modules in a few ways.
+- First, we can use the module name (`pw`) followed by a dot or period (`.`) followed by the name of the function.
+```{.email code-line-numbers="false"}
+>>> pw.piecewise(-1)
+14
+```
+
+## Renaming Functions
+
+- Second, we can just use single equals assignment
+```{.email code-line-numbers="false"}
+>>> piecewise = pw.piecewise
+>>> piecewise(4)
+9
+```
+
+## Using `from`
+
+- Third, we can use the `from` keyword in our import.
+	- This is *by far* preferred (it is more clear)
+```{.email code-line-numbers="false"}
+>>> from pw import piecewise
+>>> piecewise(11)
+-9
+```
+- I only show you the other methods to make it clear what this method is doing.
+
+

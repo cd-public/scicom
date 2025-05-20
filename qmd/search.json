@@ -2,296 +2,65 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Readme",
+    "title": "On Scientific Computing",
     "section": "",
-    "text": "Readme\nThis self-documenting book introduces the usage of the Python technology stack with Quarto, VS Code, and GitHub for communicating results within the computational sciences."
+    "text": "I created this book, of sorts, as I came across what I think to be a lack of combined “Scientific Computing” and “Scientific Publishing” (or, perhaps, typesetting) courses available that were: 1. Based in Python 2. Covered command line tools 3. Fully open source.\nI would remiss not to credit, by two biggest inspirations:\nYou can view the source and see its history under various forms on GitHub.\nWere I a student, I would work through this book, chapter-wise, ensuring I can amicably complete the exercises at the end of each chapter and understand the solutions if they differ from mine (as they often will, given the variety of ways of solving scientific computing problems).\nWere I an instructor, as I am, I would either fork this repository and make any changes I wish, recompiling using Quarto and hosting via GitHub Pages, or simply link directly to these pages and slidedecks. I suspect I will keep them up-to-date for some time!"
   },
   {
-    "objectID": "01_python.rjs.html#on-python",
-    "href": "01_python.rjs.html#on-python",
-    "title": "Python",
-    "section": "On Python",
-    "text": "On Python\n\nPython is free,\nPython is very widely used,\nPython is flexible,\nPython is relatively easy to learn,\nand Python is quite powerful."
+    "objectID": "index.html#core-scientific-computing-environment-and-tools",
+    "href": "index.html#core-scientific-computing-environment-and-tools",
+    "title": "On Scientific Computing",
+    "section": "Core Scientific Computing Environment and Tools",
+    "text": "Core Scientific Computing Environment and Tools\n\nTopic 1: Utilize fundamental command-line tools (Bash) and a text editor (Neovim) for efficient scientific programming and workflow management.\nTopic 2: Write and execute Python scripts for scientific computing tasks, demonstrating proficiency in basic Python syntax and structures."
   },
   {
-    "objectID": "01_python.rjs.html#why-not-python",
-    "href": "01_python.rjs.html#why-not-python",
-    "title": "Python",
-    "section": "Why not Python?",
-    "text": "Why not Python?\n\nPython is a general purpose language used for Scientific Computing.\nNot to build apps, build software, manage databases, or develop user interfaces.\nSolve scientific and mathematical problems."
+    "objectID": "index.html#numerical-computation-and-data-analysis",
+    "href": "index.html#numerical-computation-and-data-analysis",
+    "title": "On Scientific Computing",
+    "section": "Numerical Computation and Data Analysis",
+    "text": "Numerical Computation and Data Analysis\n\nTopic 3: Apply advanced numerical methods and understand the properties of floating-point arithmetic for accurate scientific computations.\nTopic 4: Implement and analyze high-performance computing techniques using Python libraries such as NumPy, SciPy, and SymPy for numerical analysis and symbolic mathematics.\nTopic 5: Process, analyze, and visualize scientific datasets effectively using Pandas and Matplotlib."
   },
   {
-    "objectID": "01_python.rjs.html#python-libraries",
-    "href": "01_python.rjs.html#python-libraries",
-    "title": "Python",
-    "section": "Python libraries",
-    "text": "Python libraries\nScientists often use the following:\n\nPython,\nnumpy (numerical Python),\nmatplotlib (a suite of plotting tools),\nscipy (scientific Python), and\nsympy (symbolic Python).\n\nWe’ll get to these."
+    "objectID": "index.html#performance-optimization-for-scientific-code",
+    "href": "index.html#performance-optimization-for-scientific-code",
+    "title": "On Scientific Computing",
+    "section": "Performance Optimization for Scientific Code",
+    "text": "Performance Optimization for Scientific Code\n\nTopic 6: Optimize the performance of scientific code using techniques like Just-In-Time (JIT) compilation with Numba, static compilation with Cython, and integration with Fortran.\nTopic 7: Compare and contrast the strengths and weaknesses of different programming languages and tools for high-performance scientific computing."
   },
   {
-    "objectID": "01_python.rjs.html#diving-in",
-    "href": "01_python.rjs.html#diving-in",
-    "title": "Python",
-    "section": "Diving In",
-    "text": "Diving In\n\nTaking Python as a given, we’ll:\n\nUse an example of something I helped a student with recently\nShow step-by-step how to use Python\nIntroduce a number of Python features to solve the problem more easily.\n\nThis was from an introductory physics class I believe; I don’t know the context."
+    "objectID": "index.html#scientific-publishing-and-communication",
+    "href": "index.html#scientific-publishing-and-communication",
+    "title": "On Scientific Computing",
+    "section": "Scientific Publishing and Communication",
+    "text": "Scientific Publishing and Communication\n\nTopic 8: Create professional scientific documents and presentations using markup languages and tools such as Markdown, HTML/CSS, LaTeX, Quarto, Typst, and Sphinx."
   },
   {
-    "objectID": "01_python.rjs.html#motivating-example",
-    "href": "01_python.rjs.html#motivating-example",
-    "title": "Python",
-    "section": "Motivating Example",
-    "text": "Motivating Example\n\nRecently, I helped a student stuck on this:\n\n\\[\nf(x) =\n\\begin{cases}\n  9x^2 + 5 & x &lt; 4 \\\\\n  9 & 4 \\leq x \\leq 8 \\\\\n  2 - x & x &gt; 8\n\\end{cases}\n\\]\n\nFind \\(f(x)\\) for each of the following \\(x\\) values: \\[\n\\{-1, 4, 5, 8, 11\\}\n\\]"
+    "objectID": "index.rjs.html#core-scientific-computing-environment-and-tools",
+    "href": "index.rjs.html#core-scientific-computing-environment-and-tools",
+    "title": "On Scientific Computing",
+    "section": "Core Scientific Computing Environment and Tools",
+    "text": "Core Scientific Computing Environment and Tools\n\nTopic 1: Utilize fundamental command-line tools (Bash) and a text editor (Neovim) for efficient scientific programming and workflow management.\nTopic 2: Write and execute Python scripts for scientific computing tasks, demonstrating proficiency in basic Python syntax and structures."
   },
   {
-    "objectID": "01_python.rjs.html#is-this-real",
-    "href": "01_python.rjs.html#is-this-real",
-    "title": "Python",
-    "section": "Is this “real”?",
-    "text": "Is this “real”?\n\nModels income tax brackets, one of the most important drivers of human behavior in the largest economies in the world.\nWe use a simpler contrived example for now…\n\n\n\nMarginal Tax Rate\n\n\nSingle Taxable Income\n\n\nMarried Filing Jointly or Qualified Widow(er) Taxable Income\n\n\nMarried Filing Separately Taxable Income\n\n\nHead of Household Taxable Income\n\n\n\n\n10%\n\n\n$0 – $9,275\n\n\n$0 – $18,550\n\n\n$0 – $9,275\n\n\n$0 – $13,250\n\n\n\n\n15%\n\n\n$9,276 – $37,650\n\n\n$18,551 – $75,300\n\n\n$9,276 – $37,650\n\n\n$13,251 – $50,400\n\n\n\n\n25%\n\n\n$37,651 – $91,150\n\n\n$75,301 – $151,900\n\n\n$37,651 – $75,950\n\n\n$50,401 – $130,150\n\n\n\n\n28%\n\n\n$91,151 – $190,150\n\n\n$151,901 – $231,450\n\n\n$75,951 – $115,725\n\n\n$130,151 – $210,800\n\n\n\n\n33%\n\n\n$190,151 – $413,350\n\n\n$231,451 – $413,350\n\n\n$115,726 – $206,675\n\n\n$210,801 – $413,350\n\n\n\n\n35%\n\n\n$413,351 – $415,050\n\n\n$413,351 – $466,950\n\n\n$206,676 – $233,475\n\n\n$413,351 – $441,000\n\n\n\n\n39.6%\n\n\n$415,051+\n\n\n$466,951+\n\n\n$233,476+\n\n\n$441,001+"
+    "objectID": "index.rjs.html#numerical-computation-and-data-analysis",
+    "href": "index.rjs.html#numerical-computation-and-data-analysis",
+    "title": "On Scientific Computing",
+    "section": "Numerical Computation and Data Analysis",
+    "text": "Numerical Computation and Data Analysis\n\nTopic 3: Apply advanced numerical methods and understand the properties of floating-point arithmetic for accurate scientific computations.\nTopic 4: Implement and analyze high-performance computing techniques using Python libraries such as NumPy, SciPy, and SymPy for numerical analysis and symbolic mathematics.\nTopic 5: Process, analyze, and visualize scientific datasets effectively using Pandas and Matplotlib."
   },
   {
-    "objectID": "01_python.rjs.html#how-to-solve",
-    "href": "01_python.rjs.html#how-to-solve",
-    "title": "Python",
-    "section": "How to solve?",
-    "text": "How to solve?\n\nThink about how you would solve such a problem.\nWhat steps would you take?\nWhat would making solving it hard?\n\nKeep track of details?\nPerforming the arithmetic?\nAnything else?\n\nPython, in my view, is a way to solve these problems."
+    "objectID": "index.rjs.html#performance-optimization-for-scientific-code",
+    "href": "index.rjs.html#performance-optimization-for-scientific-code",
+    "title": "On Scientific Computing",
+    "section": "Performance Optimization for Scientific Code",
+    "text": "Performance Optimization for Scientific Code\n\nTopic 6: Optimize the performance of scientific code using techniques like Just-In-Time (JIT) compilation with Numba, static compilation with Cython, and integration with Fortran.\nTopic 7: Compare and contrast the strengths and weaknesses of different programming languages and tools for high-performance scientific computing."
   },
   {
-    "objectID": "01_python.rjs.html#python-in-action",
-    "href": "01_python.rjs.html#python-in-action",
-    "title": "Python",
-    "section": "Python in action",
-    "text": "Python in action\n\nMy preferred way to do calculation as an experienced Python user is writing code:\n\n\n\n\nMathematical expression \\[\n\\begin{cases}\n9x^2 + 5 & x &lt; 4 \\\\\n9 & 4 \\leq x \\leq 8 \\\\\n2 - x & x &gt; 8\n\\end{cases}\n\\]\n\n\n\nPython expression (code)\n\n\n9 * -1 * -1 + 5\n\n14\n\n\n\n\nI write x * x for \\(x^2\\) because it’s non-obvious how to write “squared” yet."
-  },
-  {
-    "objectID": "01_python.rjs.html#arithmetic-operations",
-    "href": "01_python.rjs.html#arithmetic-operations",
-    "title": "Python",
-    "section": "Arithmetic Operations",
-    "text": "Arithmetic Operations\n\nIn Python, we can write many of the same arithmetic operations we use in our math and science classes.\n\n\n6 + 3\n\n9\n\n\n\n6 - 3\n\n3\n\n\n\n6 * 3\n\n18\n\n\n\n6 / 3\n\n2.0"
-  },
-  {
-    "objectID": "01_python.rjs.html#wait",
-    "href": "01_python.rjs.html#wait",
-    "title": "Python",
-    "section": "Wait?",
-    "text": "Wait?\n\nUse Python? How?\nTo use Python to make this calculation, first we must install Python.\n\nIt is a program, like Firefox, MS Word or Fortnite"
-  },
-  {
-    "objectID": "01_python.rjs.html#warning",
-    "href": "01_python.rjs.html#warning",
-    "title": "Python",
-    "section": "Warning!",
-    "text": "Warning!\n\nThere is a very important box to check while installing!\n\nBe careful working ahead!\nWe’ll teach how to fix not checking this box but not for a while"
-  },
-  {
-    "objectID": "01_python.rjs.html#installation",
-    "href": "01_python.rjs.html#installation",
-    "title": "Python",
-    "section": "Installation",
-    "text": "Installation\n\nWe go to the offial webpage to get an installer for our computer:\n\nhttps://www.python.org/downloads/\n\nBe careful about starting it!\n\nYou can open it and check the next slide."
-  },
-  {
-    "objectID": "01_python.rjs.html#add-python-to-path",
-    "href": "01_python.rjs.html#add-python-to-path",
-    "title": "Python",
-    "section": "Add Python to PATH",
-    "text": "Add Python to PATH"
-  },
-  {
-    "objectID": "01_python.rjs.html#why",
-    "href": "01_python.rjs.html#why",
-    "title": "Python",
-    "section": "Why?",
-    "text": "Why?\n\nThe benefit of adding Python to path is that we can use it at\n&lt;dramatic music&gt;\nThe Command Line\n\nA text-based interface to computing resources, including its ability to do e.g. arithmetic and save notes."
-  },
-  {
-    "objectID": "01_python.rjs.html#terminal",
-    "href": "01_python.rjs.html#terminal",
-    "title": "Python",
-    "section": "Terminal",
-    "text": "Terminal\n\nOn MS Windows\n\nI press Windows key, type “terminal” then press enter.\n\nOn MacOS\n\nI open Launchpad, type “terminal” then press enter."
-  },
-  {
-    "objectID": "01_python.rjs.html#macos",
-    "href": "01_python.rjs.html#macos",
-    "title": "Python",
-    "section": "MacOS",
-    "text": "MacOS"
-  },
-  {
-    "objectID": "01_python.rjs.html#windows",
-    "href": "01_python.rjs.html#windows",
-    "title": "Python",
-    "section": "Windows",
-    "text": "Windows"
-  },
-  {
-    "objectID": "01_python.rjs.html#expression-evaluation",
-    "href": "01_python.rjs.html#expression-evaluation",
-    "title": "Python",
-    "section": "Expression evaluation",
-    "text": "Expression evaluation\n\nReturning to the terminal, we can type at the “prompt”.\nOn MacOS, perhaps a line that begins with $ and a flashing cursor\nOn Window, perhaps PS C:\\Users\\calvin&gt;\n\nPS stands for “powershell” - more latter.\nC:\\Users\\calvin is the name of a folder - more latter\n&gt; is the prompt, with a flashing cursor."
-  },
-  {
-    "objectID": "01_python.rjs.html#run-python",
-    "href": "01_python.rjs.html#run-python",
-    "title": "Python",
-    "section": "“Run” Python",
-    "text": "“Run” Python\nIn the following examples, I remove line numbers to denote they are not Python code snippets.\n\nOn Windows, type python\n\n\n\nWindows\n\nPS C:\\Users\\calvin&gt; python\n\n\nOn MacOS, type python3\n\n\n\nMacOS\n\n$ python3\n\n\nOn both, press the ↵ᴇɴᴛᴇʀ key."
-  },
-  {
-    "objectID": "01_python.rjs.html#see-python",
-    "href": "01_python.rjs.html#see-python",
-    "title": "Python",
-    "section": "See Python",
-    "text": "See Python\n\nYou’ll see something like this:\n\nPython 3.12.5 (tags/v3.12.5:ff3bc82, Aug  6 2024, 20:45:27) [MSC v.1940 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n&gt;&gt;&gt;\n\nTake note of the prompt!\n&gt;&gt;&gt;\nThose three are how you know it is Python, and not the Terminal, that you are working in."
-  },
-  {
-    "objectID": "01_python.rjs.html#example",
-    "href": "01_python.rjs.html#example",
-    "title": "Python",
-    "section": "Example",
-    "text": "Example\n\nIf I type python at the command line\nThen 9 * -1 * -1 + 5 within Python\nIt will look like this:\n\nPS C:\\Users\\calvin&gt; python\nPython 3.12.5 (tags/v3.12.5:ff3bc82, Aug  6 2024, 20:45:27) [MSC v.1940 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n&gt;&gt;&gt; 9 * -1 * -1 + 5\n14\n&gt;&gt;&gt;\n\nThis is how Python shows that 9 * -1 * -1 + 5 is 14"
-  },
-  {
-    "objectID": "01_python.rjs.html#recall",
-    "href": "01_python.rjs.html#recall",
-    "title": "Python",
-    "section": "Recall",
-    "text": "Recall\n\n\n\\[\n\\begin{cases}\n  9x^2 + 5 & x &lt; 4 \\\\\n  9 & 4 \\leq x \\leq 8 \\\\\n  2 - x & x &gt; 8\n\\end{cases}\n\\] \\[\n\\{-1, 4, 5, 8, 11\\}\n\\]\n\n&gt;&gt;&gt; 9 * -1 * -1 + 5\n14\n&gt;&gt;&gt; 9\n9\n&gt;&gt;&gt; 9\n9\n&gt;&gt;&gt; 2 - 8\n-6\n&gt;&gt;&gt; 2 - 11\n-9\n\n\nThis is still quite tedious and annoying!"
-  },
-  {
-    "objectID": "01_python.rjs.html#inequality-testing",
-    "href": "01_python.rjs.html#inequality-testing",
-    "title": "Python",
-    "section": "(In)equality testing",
-    "text": "(In)equality testing\n\nLike + or - which we use to calculate numbers…\nWe can use &lt; or &gt; to calculate inequalities.\nSpecifically, we see whether an inequality is True or False\n\n\n-1 &lt; 4\n\nTrue\n\n\n\n4 &lt; 4\n\nFalse"
-  },
-  {
-    "objectID": "01_python.rjs.html#accomodating-keyboards",
-    "href": "01_python.rjs.html#accomodating-keyboards",
-    "title": "Python",
-    "section": "Accomodating Keyboards",
-    "text": "Accomodating Keyboards\n\nSome things aren’t super easy to type.\nI don’t have a “\\(\\leq\\)” key on my keyboard.\nCombine with = as &lt;= for “less than or equal” or “\\(\\leq\\)”\n\n\n4 &lt;= 4\n\nTrue\n\n\n\nWe can “chain” inequalities as well - one after another.\n\n\n4 &lt;= 4 &lt;= 8\n\nTrue"
-  },
-  {
-    "objectID": "01_python.rjs.html#a-note",
-    "href": "01_python.rjs.html#a-note",
-    "title": "Python",
-    "section": "A note",
-    "text": "A note\n\nWe always put the equal sign = second.\n\n\n4 &lt;= 5\n\nTrue\n\n\n\n5 &gt;= 4\n\nTrue\n\n\n\nA (somewhat confusing) error if we try =&gt;\n\n&gt;&gt;&gt; 4 =&gt; 5\n  File \"&lt;stdin&gt;\", line 1\n    4 =&gt; 5\n    ^\nSyntaxError: cannot assign to literal"
-  },
-  {
-    "objectID": "01_python.rjs.html#new-topics",
-    "href": "01_python.rjs.html#new-topics",
-    "title": "Python",
-    "section": "New Topics",
-    "text": "New Topics\n\nWe have now touch on two new topics:\n\nTrue and False\n\nExpressions which don’t evaluate to a number\nCalled “booleans”\n\n“Assignment”\n\nAssociated with the = sign\nDifferent from inequality testing!\n\n\nWe’ll explore both!"
-  },
-  {
-    "objectID": "01_python.rjs.html#booleans",
-    "href": "01_python.rjs.html#booleans",
-    "title": "Python",
-    "section": "Booleans",
-    "text": "Booleans\n\nSometimes, a Python expression is a numerical value.\n\n\n2 + 2\n\n4\n\n\n\n7\n\n7\n\n\n\nBut it doesn’t have to be!\n\n\n2 &lt; 2\n\nFalse"
-  },
-  {
-    "objectID": "01_python.rjs.html#if",
-    "href": "01_python.rjs.html#if",
-    "title": "Python",
-    "section": "If",
-    "text": "If\n\nBooleans are mostly useful for writing if statements.\n\nThese are multiline expressions in Python.\n\nTo see the result of multi-line expression, we have to print the result…\n\n\nif (1 &lt;= 1):\n    print(2 + 2)\n\n4\n\n\n\nif (1 &lt; 1):\n    print(2 + 2)"
-  },
-  {
-    "objectID": "01_python.rjs.html#piecewise",
-    "href": "01_python.rjs.html#piecewise",
-    "title": "Python",
-    "section": "Piecewise",
-    "text": "Piecewise\n\nWe can see the immediate use of this in a piecewise function!\n\n\n\n\\[\n\\begin{cases}\n  9x^2 + 5 & x &lt; 4 \\\\\n  9 & 4 \\leq x \\leq 8 \\\\\n  2 - x & x &gt; 8\n\\end{cases}\n\\] \\[\n\\{-1, 4, 5, 8, 11\\}\n\\]\n\n\nif (-1 &lt; 4):\n    print(9 * -1 * -1 + 5)\n\n14\n\n\n\nOr least part of one…\n\n\nif (4 &lt; 4):\n    print(9 * 4 * 4 + 5)\n\n\nUh oh!"
-  },
-  {
-    "objectID": "01_python.rjs.html#else",
-    "href": "01_python.rjs.html#else",
-    "title": "Python",
-    "section": "Else",
-    "text": "Else\n\nOftentimes, we use if with else\n\n\nif (1 &lt; 1):\n    print(\"1 is less than 1\")\nelse:\n    print(\"1 is not less than 1\")\n\n1 is not less than 1"
-  },
-  {
-    "objectID": "01_python.rjs.html#elif",
-    "href": "01_python.rjs.html#elif",
-    "title": "Python",
-    "section": "Elif",
-    "text": "Elif\n\nIf we have more than two options, we can place a special elif in the middle.\n\n\n\n\nif (1 &lt; 1):\n    print(\"1 is less than 1\")\nelif (1 &gt; 1):\n    print(\"1 is greater than 1\")\nelse:\n    print(\"1 is equal to 1\")\n\n1 is equal to 1\n\n\n\n\nif (2 &lt; 1):\n    print(\"2 is less than 1\")\nelif (2 &gt; 1):\n    print(\"2 is greater than 1\")\nelse:\n    print(\"2 is equal to 1\")\n\n2 is greater than 1\n\n\n\n\nBy the way, it is extremely obnoxious to manually type 2 in 5 different places"
-  },
-  {
-    "objectID": "01_python.rjs.html#assignment",
-    "href": "01_python.rjs.html#assignment",
-    "title": "Python",
-    "section": "Assignment",
-    "text": "Assignment\n\nWe can also assign variables!\n\nI call this single-equals assignment\nUse a single equals sign = and some variable name, like x\n\n\n\n\n\nx = 1\nif (x &lt; 1):\n    print(\"x is less than 1\")\nelif (x &gt; 1):\n    print(\"x is greater than 1\")\nelse:\n    print(\"x is equal to 1\")\n\nx is equal to 1\n\n\n\n\nx = 2\nif (x &lt; 1):\n    print(\"x is less than 1\")\nelif (x &gt; 1):\n    print(\"x is greater than 1\")\nelse:\n    print(\"x is equal to 1\")\n\nx is greater than 1"
-  },
-  {
-    "objectID": "01_python.rjs.html#double-equals-equality",
-    "href": "01_python.rjs.html#double-equals-equality",
-    "title": "Python",
-    "section": "Double equals equality",
-    "text": "Double equals equality\n\nI call it single-equals assignment because sometimes we check if a variable is precisely equal to some value.\nThat is somewhat confusingly done with == double equals equality test.\n\n\n\n\nx = 1\nif (x == 1):\n    print(\"x is equal to 1\")\nelse:\n    print(\"x is not equal to 1\")\n\nx is equal to 1\n\n\n\n\nx = 2\nif (x == 1):\n    print(\"x is equal to 1\")\nelse:\n    print(\"x is not equal to 1\")\n\nx is not equal to 1"
-  },
-  {
-    "objectID": "01_python.rjs.html#double-exponentation",
-    "href": "01_python.rjs.html#double-exponentation",
-    "title": "Python",
-    "section": "Double ** Exponentation",
-    "text": "Double ** Exponentation\n\nDoubling is used in a few other cases.\nDouble asterisk ** is exponentiation.\n\n\n5 ** 2\n\n25"
-  },
-  {
-    "objectID": "01_python.rjs.html#piecewise-1",
-    "href": "01_python.rjs.html#piecewise-1",
-    "title": "Python",
-    "section": "Piecewise",
-    "text": "Piecewise\n\nWe can finally write the piecewise expression!\n\n\n\n\\[\n\\begin{cases}\n  9x^2 + 5 & x &lt; 4 \\\\\n  9 & 4 \\leq x \\leq 8 \\\\\n  2 - x & x &gt; 8\n\\end{cases}\n\\] \\[\n\\{-1, 4, 5, 8, 11\\}\n\\]\n\n\nx = 11\nif (x &lt; 4):\n    print(9 * x ** 2 + 5)\nelif (4 &lt;= x &lt;= 8):\n    print(9)\nelif (x &gt; 8):\n    print(2 - x)\n\n-9"
-  },
-  {
-    "objectID": "01_python.rjs.html#recycle",
-    "href": "01_python.rjs.html#recycle",
-    "title": "Python",
-    "section": "Recycle",
-    "text": "Recycle\n\nIt is still extremely tedious to either:\n\nCopy-paste, or\nType more than once.\n\nAlso very annoying/difficult to write them many lines without error!\nWe introduce the def keyword to define functions\nA way to reuse code we have already written."
-  },
-  {
-    "objectID": "01_python.rjs.html#def",
-    "href": "01_python.rjs.html#def",
-    "title": "Python",
-    "section": "def",
-    "text": "def\n\ndef double(x):\n    print(x + x)\n\n\ndef + some function name + ( + some variable name + ):\n\n\ndouble(7)\n\n14\n\n\n\n“Call” functions the same way we call print - with parens."
-  },
-  {
-    "objectID": "01_python.rjs.html#return",
-    "href": "01_python.rjs.html#return",
-    "title": "Python",
-    "section": "return",
-    "text": "return\n\nIt is more common to use return than print in a function.\nWhen we call a function, we can think of it as expression with some value.\nThat value is defined by the value that is return.\n\n\n\n\ndef six_gt_five_return():\n    print(True)\n\n\nif (six_gt_five_return()):\n    print(\"it is\")\n\nTrue\n\n\n\n\ndef six_gt_five_print():\n    return True\n\n\nif (six_gt_five_print()):\n    print(\"it is\")\n\nit is"
-  },
-  {
-    "objectID": "01_python.rjs.html#example-1",
-    "href": "01_python.rjs.html#example-1",
-    "title": "Python",
-    "section": "Example",
-    "text": "Example\n\nSuppose an interest rate doubles our savings every ~7 years.\nHow much savings in 14 years?\n\n\nsavings = 10\nsavings = double(savings)\nsavings\n\n20"
-  },
-  {
-    "objectID": "01_python.rjs.html#use-return",
-    "href": "01_python.rjs.html#use-return",
-    "title": "Python",
-    "section": "Use return",
-    "text": "Use return\n\ndef double(x):\n    return x + x\n\n\nNow, double(savings) becomes equal to x + x\n\n\nsavings = 10\nsavings = double(savings)\nsavings\n\n20\n\n\n\ndouble(savings)\n\n40\n\n\n\nOr even\n\n\ndouble(double(10))\n\n40"
-  },
-  {
-    "objectID": "01_python.rjs.html#piecewise-2",
-    "href": "01_python.rjs.html#piecewise-2",
-    "title": "Python",
-    "section": "Piecewise",
-    "text": "Piecewise\n\nWe can finally write the piecewise function (was: expression)!\n\nFunction: use many times in many expressions\nExpression: evaluate once and get one answer\n\n\n\n\n\\[\n\\begin{cases}\n  9x^2 + 5 & x &lt; 4 \\\\\n  9 & 4 \\leq x \\leq 8 \\\\\n  2 - x & x &gt; 8\n\\end{cases}\n\\] \\[\n\\{-1, 4, 5, 8, 11\\}\n\\]\n\n\ndef piecewise(x):\n    if (x &lt; 4):\n        return 9 * x ** 2 + 5\n    elif (4 &lt;= x &lt;= 8):\n        return 9\n    elif (x &gt; 8):\n        return 2 - x\n\n\npiecewise(4)\n\n9"
+    "objectID": "index.rjs.html#scientific-publishing-and-communication",
+    "href": "index.rjs.html#scientific-publishing-and-communication",
+    "title": "On Scientific Computing",
+    "section": "Scientific Publishing and Communication",
+    "text": "Scientific Publishing and Communication\n\nTopic 8: Create professional scientific documents and presentations using markup languages and tools such as Markdown, HTML/CSS, LaTeX, Quarto, Typst, and Sphinx."
   },
   {
     "objectID": "01_python.html",
@@ -714,21 +483,14 @@
     ]
   },
   {
-    "objectID": "01_python.html#lists",
-    "href": "01_python.html#lists",
+    "objectID": "01_python.html#tedium",
+    "href": "01_python.html#tedium",
     "title": "Python",
-    "section": "Lists",
-    "text": "Lists\n\nThis is still quite tedious.\n\n\\[\n\\{-1, 4, 5, 8, 11\\}\n\\]\n\npiecewise(-1)\n\n14\n\n\n\npiecewise(4)\n\n9\n\n\n\npiecewise(5)\n\n9\n\n\n\npiecewise(8)\n\n9\n\n\n\npiecewise(11)\n\n-9",
+    "section": "Tedium",
+    "text": "Tedium\n\nThis is still quite tedious.\n\n\npiecewise(-1)\n\n14\n\n\n\npiecewise(4)\n\n9\n\n\n\npiecewise(5)\n\n9\n\n\n\npiecewise(8)\n\n9\n\n\n\npiecewise(11)\n\n-9",
     "crumbs": [
       "Python"
     ]
-  },
-  {
-    "objectID": "01_python.rjs.html#lists",
-    "href": "01_python.rjs.html#lists",
-    "title": "Python",
-    "section": "Lists",
-    "text": "Lists\n\nThis is still quite tedious.\n\n\\[\n\\{-1, 4, 5, 8, 11\\}\n\\]\n\npiecewise(-1)\n\n14\n\n\n\npiecewise(4)\n\n9\n\n\n\npiecewise(5)\n\n9\n\n\n\npiecewise(8)\n\n9\n\n\n\npiecewise(11)\n\n-9"
   },
   {
     "objectID": "01_python.html#sets",
@@ -736,23 +498,6 @@
     "title": "Python",
     "section": "Sets",
     "text": "Sets\n\nThis is a set:\n\n\\[\n\\{-1, 4, 5, 8, 11\\}\n\\]\n\nA set is an unordered collection of elements.\n\nIn this case, elements are integers - whole numbers.\n\nPython can also recognize sets!\n\n\n{-1, 4, 5, 8, 11}\n\n{-1, 4, 5, 8, 11}",
-    "crumbs": [
-      "Python"
-    ]
-  },
-  {
-    "objectID": "01_python.rjs.html#sets",
-    "href": "01_python.rjs.html#sets",
-    "title": "Python",
-    "section": "Sets",
-    "text": "Sets\n\nThis is a set:\n\n\\[\n\\{-1, 4, 5, 8, 11\\}\n\\]\n\nA set is an unordered collection of elements.\n\nIn this case, elements are integers - whole numbers.\n\nPython can also recognize sets!\n\n\n{-1, 4, 5, 8, 11}\n\n{-1, 4, 5, 8, 11}"
-  },
-  {
-    "objectID": "01_python.html#tedium",
-    "href": "01_python.html#tedium",
-    "title": "Python",
-    "section": "Tedium",
-    "text": "Tedium\n\nThis is still quite tedious.\n\n\npiecewise(-1)\n\n14\n\n\n\npiecewise(4)\n\n9\n\n\n\npiecewise(5)\n\n9\n\n\n\npiecewise(8)\n\n9\n\n\n\npiecewise(11)\n\n-9",
     "crumbs": [
       "Python"
     ]
@@ -766,20 +511,6 @@
     "crumbs": [
       "Python"
     ]
-  },
-  {
-    "objectID": "01_python.rjs.html#tedium",
-    "href": "01_python.rjs.html#tedium",
-    "title": "Python",
-    "section": "Tedium",
-    "text": "Tedium\n\nThis is still quite tedious.\n\n\npiecewise(-1)\n\n14\n\n\n\npiecewise(4)\n\n9\n\n\n\npiecewise(5)\n\n9\n\n\n\npiecewise(8)\n\n9\n\n\n\npiecewise(11)\n\n-9"
-  },
-  {
-    "objectID": "01_python.rjs.html#type",
-    "href": "01_python.rjs.html#type",
-    "title": "Python",
-    "section": "Type",
-    "text": "Type\n\nTo be sure that is, in fact, a set, we use the helpful built-in type() to ask Python.\n\n\ns = {-1, 4, 5, 8, 11}\ntype(s)\n\nset\n\n\n\nWe have also worked with integers.\n\n\ntype(1)\n\nint\n\n\n\nAnd booleans - True and False values.\n\n\ntype(1 == 1)\n\nbool"
   },
   {
     "objectID": "01_python.html#loops",
@@ -802,18 +533,14 @@
     ]
   },
   {
-    "objectID": "01_python.rjs.html#loops",
-    "href": "01_python.rjs.html#loops",
-    "title": "Python",
-    "section": "Loops",
-    "text": "Loops\n\nWith a set, do something to each element\nIn Python, use a for loop:\n\nThe for keyword\nThe name to refer to an element, like e or x\nThe in keyword\nThe set/collection (or its variable name)\nThe : colon special character\nAn indented new line of code"
-  },
-  {
-    "objectID": "01_python.rjs.html#example-2",
-    "href": "01_python.rjs.html#example-2",
+    "objectID": "01_python.html#example-3",
+    "href": "01_python.html#example-3",
     "title": "Python",
     "section": "Example",
-    "text": "Example\n\nfor element in collection\n\ndo thing\n\n\n\nfor e in {-1, 4, 5, 8, 11}:\n    print(piecewise(e))\n\n9\n9\n9\n-9\n14\n\n\n\nWhat do you see?"
+    "text": "Example\n\nWhat if we just try to print the elements?\n\nEasier to think about!\n\n\n\nfor e in {-1, 4, 5, 8, 11}:\n    print(e)\n\n4\n5\n8\n11\n-1\n\n\n\nWhat do you see?",
+    "crumbs": [
+      "Python"
+    ]
   },
   {
     "objectID": "01_python.html#ordering",
@@ -826,30 +553,6 @@
     ]
   },
   {
-    "objectID": "01_python.rjs.html#ordering",
-    "href": "01_python.rjs.html#ordering",
-    "title": "Python",
-    "section": "Ordering",
-    "text": "Ordering\n\nRecall: “A set is an unordered collection of elements”.\nWe need to put things in order!\nThe most common way to do this in Python is with a list.\nAlmost the same as sets, just use “boxy brackets” []\n\n\ntype([1,2,3])\n\nlist"
-  },
-  {
-    "objectID": "01_python.html#example-3",
-    "href": "01_python.html#example-3",
-    "title": "Python",
-    "section": "Example",
-    "text": "Example\n\nWhat if we just try to print the elements?\n\nEasier to think about!\n\n\n\nfor e in {-1, 4, 5, 8, 11}:\n    print(e)\n\n4\n5\n8\n11\n-1\n\n\n\nWhat do you see?",
-    "crumbs": [
-      "Python"
-    ]
-  },
-  {
-    "objectID": "01_python.rjs.html#example-3",
-    "href": "01_python.rjs.html#example-3",
-    "title": "Python",
-    "section": "Example",
-    "text": "Example\n\nWhat if we just try to print the elements?\n\nEasier to think about!\n\n\n\nfor e in {-1, 4, 5, 8, 11}:\n    print(e)\n\n4\n5\n8\n11\n-1\n\n\n\nWhat do you see?"
-  },
-  {
     "objectID": "01_python.html#example-4",
     "href": "01_python.html#example-4",
     "title": "Python",
@@ -858,13 +561,6 @@
     "crumbs": [
       "Python"
     ]
-  },
-  {
-    "objectID": "01_python.rjs.html#example-4",
-    "href": "01_python.rjs.html#example-4",
-    "title": "Python",
-    "section": "Example",
-    "text": "Example\n\nfor element in collection\n\ndo thing\n\n\n\nfor e in [-1, 4, 5, 8, 11]:\n    print(piecewise(e))\n\n14\n9\n9\n9\n-9\n\n\n\nWhat do you see?"
   },
   {
     "objectID": "01_python.html#seeing-lists",
@@ -877,11 +573,24 @@
     ]
   },
   {
-    "objectID": "01_python.rjs.html#seeing-lists",
-    "href": "01_python.rjs.html#seeing-lists",
+    "objectID": "01_python.html#updating-lists",
+    "href": "01_python.html#updating-lists",
     "title": "Python",
-    "section": "Seeing lists",
-    "text": "Seeing lists\n\nWe can also use lists to print multiple values!\n\nVery helpful for keeping track of things!\n\n\n\nfor e in [-1, 4, 5, 8, 11]:\n    print([e, piecewise(e)])\n\n[-1, 14]\n[4, 9]\n[5, 9]\n[8, 9]\n[11, -9]"
+    "section": "Updating lists",
+    "text": "Updating lists\n\nEach element is a lot like a variable.\n\nThey just have a name and number, use []\nThe initial element is number 0 (not 1)\n\n\n\nxs = [-1, 4, 5, 8, 11]\nxs[0]\n\n-1\n\n\n\nAnd like variables, we can assign a value with =\n\n\nxs[0] = -2\nxs\n\n[-2, 4, 5, 8, 11]",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.html#adding-lists",
+    "href": "01_python.html#adding-lists",
+    "title": "Python",
+    "section": "Adding lists",
+    "text": "Adding lists\n\nLists also helpfully support addition with +\n\n\n[-1] + [4, 5, 8, 11]\n\n[-1, 4, 5, 8, 11]\n\n\n\nWe often use this to make new lists.\n\n\nresult = []\nfor e in [-1, 4, 5, 8, 11]:\n    result = result + [piecewise(e)]\n\n\nThis pattern also works with numbers!\n\n\nx = 0 \nx = x + 1\nx\n\n1",
+    "crumbs": [
+      "Python"
+    ]
   },
   {
     "objectID": "01_python.html#income-tax",
@@ -892,115 +601,6 @@
     "crumbs": [
       "Python"
     ]
-  },
-  {
-    "objectID": "01_python.rjs.html#income-tax",
-    "href": "01_python.rjs.html#income-tax",
-    "title": "Python",
-    "section": "Income tax",
-    "text": "Income tax\n\nRecall the example of a piecewise function:\n\n\n\nMarginal Tax Rate\n\n\nSingle Taxable Income\n\n\nMarried Filing Jointly or Qualified Widow(er) Taxable Income\n\n\nMarried Filing Separately Taxable Income\n\n\nHead of Household Taxable Income\n\n\n\n\n10%\n\n\n$0 – $9,275\n\n\n$0 – $18,550\n\n\n$0 – $9,275\n\n\n$0 – $13,250\n\n\n\n\n15%\n\n\n$9,276 – $37,650\n\n\n$18,551 – $75,300\n\n\n$9,276 – $37,650\n\n\n$13,251 – $50,400\n\n\n\n\n25%\n\n\n$37,651 – $91,150\n\n\n$75,301 – $151,900\n\n\n$37,651 – $75,950\n\n\n$50,401 – $130,150\n\n\n\n\n28%\n\n\n$91,151 – $190,150\n\n\n$151,901 – $231,450\n\n\n$75,951 – $115,725\n\n\n$130,151 – $210,800\n\n\n\n\n33%\n\n\n$190,151 – $413,350\n\n\n$231,451 – $413,350\n\n\n$115,726 – $206,675\n\n\n$210,801 – $413,350\n\n\n\n\n35%\n\n\n$413,351 – $415,050\n\n\n$413,351 – $466,950\n\n\n$206,676 – $233,475\n\n\n$413,351 – $441,000\n\n\n\n\n39.6%\n\n\n$415,051+\n\n\n$466,951+\n\n\n$233,476+\n\n\n$441,001+"
-  },
-  {
-    "objectID": "01_python.html#simplify",
-    "href": "01_python.html#simplify",
-    "title": "Python",
-    "section": "Simplify",
-    "text": "Simplify\n\nLet’s look at singles only.\n\n\n\n\nRate\nFrom\n\n\n\n\n10%\n0\n\n\n15%\n9275\n\n\n25%\n37650\n\n\n28%\n91150\n\n\n33%\n190150\n\n\n35%\n413350\n\n\n39.6%\n415050",
-    "crumbs": [
-      "Python"
-    ]
-  },
-  {
-    "objectID": "01_python.rjs.html#simplify",
-    "href": "01_python.rjs.html#simplify",
-    "title": "Python",
-    "section": "Simplify",
-    "text": "Simplify\n\nLet’s look at singles only.\n\n\n\n\nRate\nFrom\n\n\n\n\n10%\n0\n\n\n15%\n9275\n\n\n25%\n37650\n\n\n28%\n91150\n\n\n33%\n190150\n\n\n35%\n413350\n\n\n39.6%\n415050"
-  },
-  {
-    "objectID": "01_python.html#part-1",
-    "href": "01_python.html#part-1",
-    "title": "Python",
-    "section": "Part 1",
-    "text": "Part 1\n\nWatch out for order-of-operations!\n\n\n\n\n10% on 9275\n15% on 37650 - 9275\n25% on 91150 - 37650\n28% on 190150 - 91150\n33% on 400000 - 190150\n\n\n\nx = .10 * 9275\ny = .15 * (37650 - 9275)\nz = .25 * (91150 - 37650)\nr = .28 * (190150 - 91150)\ns = .33 * (400000 - 190150)\nx + y + z + r + s\n\n115529.25",
-    "crumbs": [
-      "Python"
-    ]
-  },
-  {
-    "objectID": "01_python.rjs.html#part-1",
-    "href": "01_python.rjs.html#part-1",
-    "title": "Python",
-    "section": "Part 1",
-    "text": "Part 1\n\nWatch out for order-of-operations!\n\n\n\n\n10% on 9275\n15% on 37650 - 9275\n25% on 91150 - 37650\n28% on 190150 - 91150\n33% on 400000 - 190150\n\n\n\nx = .10 * 9275\ny = .15 * (37650 - 9275)\nz = .25 * (91150 - 37650)\nr = .28 * (190150 - 91150)\ns = .33 * (400000 - 190150)\nx + y + z + r + s\n\n115529.25"
-  },
-  {
-    "objectID": "01_python.html#singles-only.",
-    "href": "01_python.html#singles-only.",
-    "title": "Python",
-    "section": "Singles only.",
-    "text": "Singles only.\n\n\n\nRate\nFrom\n\n\n\n\n10%\n0\n\n\n15%\n9275\n\n\n25%\n37650\n\n\n28%\n91150\n\n\n33%\n190150\n\n\n35%\n413350\n\n\n39.6%\n415050",
-    "crumbs": [
-      "Python"
-    ]
-  },
-  {
-    "objectID": "01_python.rjs.html#singles-only.",
-    "href": "01_python.rjs.html#singles-only.",
-    "title": "Python",
-    "section": "Singles only.",
-    "text": "Singles only.\n\n\n\nRate\nFrom\n\n\n\n\n10%\n0\n\n\n15%\n9275\n\n\n25%\n37650\n\n\n28%\n91150\n\n\n33%\n190150\n\n\n35%\n413350\n\n\n39.6%\n415050"
-  },
-  {
-    "objectID": "01_python.html#part-1-1",
-    "href": "01_python.html#part-1-1",
-    "title": "Python",
-    "section": "Part 1",
-    "text": "Part 1\n\nCan also “add as you go”\n\n\n\n\nx = .10 * 9275\nx = x + .15 * (37650 - 9275)\nx = x + .25 * (91150 - 37650)\nx = x + .28 * (190150 - 91150)\nx + .33 * (400000 - 190150)\n\n115529.25\n\n\n\n\nx = .10 * 9275\ny = .15 * (37650 - 9275)\nz = .25 * (91150 - 37650)\nr = .28 * (190150 - 91150)\ns = .33 * (400000 - 190150)\nx + y + z + r + s\n\n115529.25",
-    "crumbs": [
-      "Python"
-    ]
-  },
-  {
-    "objectID": "01_python.rjs.html#part-1-1",
-    "href": "01_python.rjs.html#part-1-1",
-    "title": "Python",
-    "section": "Part 1",
-    "text": "Part 1\n\nCan also “add as you go”\n\n\n\n\nx = .10 * 9275\nx = x + .15 * (37650 - 9275)\nx = x + .25 * (91150 - 37650)\nx = x + .28 * (190150 - 91150)\nx + .33 * (400000 - 190150)\n\n115529.25\n\n\n\n\nx = .10 * 9275\ny = .15 * (37650 - 9275)\nz = .25 * (91150 - 37650)\nr = .28 * (190150 - 91150)\ns = .33 * (400000 - 190150)\nx + y + z + r + s\n\n115529.25"
-  },
-  {
-    "objectID": "01_python.html#part-1-2",
-    "href": "01_python.html#part-1-2",
-    "title": "Python",
-    "section": "Part 1",
-    "text": "Part 1\n\nYou can also “assignment update” operation `+=\n\n\n\n\nx = .10 * 9275\nx = x + .15 * (37650 - 9275)\nx = x + .25 * (91150 - 37650)\nx = x + .28 * (190150 - 91150)\nx + .33 * (400000 - 190150)\n\n115529.25\n\n\n\n\nx = .10 * 9275\nx += .15 * (37650 - 9275)\nx += .25 * (91150 - 37650)\nx += .28 * (190150 - 91150)\nx + .33 * (400000 - 190150)\n\n115529.25",
-    "crumbs": [
-      "Python"
-    ]
-  },
-  {
-    "objectID": "01_python.rjs.html#part-1-2",
-    "href": "01_python.rjs.html#part-1-2",
-    "title": "Python",
-    "section": "Part 1",
-    "text": "Part 1\n\nYou can also “assignment update” operation `+=\n\n\n\n\nx = .10 * 9275\nx = x + .15 * (37650 - 9275)\nx = x + .25 * (91150 - 37650)\nx = x + .28 * (190150 - 91150)\nx + .33 * (400000 - 190150)\n\n115529.25\n\n\n\n\nx = .10 * 9275\nx += .15 * (37650 - 9275)\nx += .25 * (91150 - 37650)\nx += .28 * (190150 - 91150)\nx + .33 * (400000 - 190150)\n\n115529.25"
-  },
-  {
-    "objectID": "01_python.html#part-1-3",
-    "href": "01_python.html#part-1-3",
-    "title": "Python",
-    "section": "Part 1",
-    "text": "Part 1\n\nYou can also “assignment update” operation `+=\n\n\n\n\nx = .10 * 9275\nx = x + .15 * (37650 - 9275)\nx = x + .25 * (91150 - 37650)\nx = x + .28 * (190150 - 91150)\nx + .33 * (400000 - 190150)\n\n115529.25\n\n\n\n\nx = .10 * 9275\nx += .15 * (37650 - 9275)\nx += .25 * (91150 - 37650)\nx += .28 * (190150 - 91150)\nx + .33 * (400000 - 190150)\n\n115529.25",
-    "crumbs": [
-      "Python"
-    ]
-  },
-  {
-    "objectID": "01_python.rjs.html#part-1-3",
-    "href": "01_python.rjs.html#part-1-3",
-    "title": "Python",
-    "section": "Part 1",
-    "text": "Part 1\n\nYou can also “assignment update” operation `+=\n\n\n\n\nx = .10 * 9275\nx = x + .15 * (37650 - 9275)\nx = x + .25 * (91150 - 37650)\nx = x + .28 * (190150 - 91150)\nx + .33 * (400000 - 190150)\n\n115529.25\n\n\n\n\nx = .10 * 9275\nx += .15 * (37650 - 9275)\nx += .25 * (91150 - 37650)\nx += .28 * (190150 - 91150)\nx + .33 * (400000 - 190150)\n\n115529.25"
   },
   {
     "objectID": "01_python.html#singles-only",
@@ -1021,20 +621,6 @@
     "crumbs": [
       "Python"
     ]
-  },
-  {
-    "objectID": "01_python.rjs.html#singles-only",
-    "href": "01_python.rjs.html#singles-only",
-    "title": "Python",
-    "section": "Singles only…",
-    "text": "Singles only…\n\n\n\nRate\nFrom\n\n\n\n\n10%\n0\n\n\n15%\n9275\n\n\n25%\n37650\n\n\n28%\n91150\n\n\n33%\n190150\n\n\n35%\n413350\n\n\n39.6%\n415050"
-  },
-  {
-    "objectID": "01_python.rjs.html#motivating-example-1",
-    "href": "01_python.rjs.html#motivating-example-1",
-    "title": "Python",
-    "section": "Motivating example",
-    "text": "Motivating example\n\nHow much would a single making 400k pay?\n\n\n\n\n10% on 9275\n15% on 37650 - 9275\n25% on 91150 - 37650\n28% on 190150 - 91150\n33% on 400000 - 190150\n\n\n\n\n\nRate\nFrom\n\n\n\n\n10%\n0\n\n\n15%\n9275\n\n\n25%\n37650\n\n\n28%\n91150\n\n\n33%\n190150\n\n\n35%\n413350\n\n\n39.6%\n415050"
   },
   {
     "objectID": "01_python.html#sum-it-up",
@@ -1067,6 +653,431 @@
     ]
   },
   {
+    "objectID": "01_python.html#exercise-1",
+    "href": "01_python.html#exercise-1",
+    "title": "Python",
+    "section": "Exercise",
+    "text": "Exercise\n\n\n\nWrite function\ndef single_tax(pay):\nReturn tax cost.\n\nReturn not print!\n\nBonus: Also write single_tax_rate which returns the percent tax rate at some income level.\n\n\n\n\n\nRate\nFrom\n\n\n\n\n10%\n0\n\n\n15%\n9275\n\n\n25%\n37650\n\n\n28%\n91150\n\n\n33%\n190150\n\n\n35%\n413350\n\n\n39.6%\n415050",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.html#solution",
+    "href": "01_python.html#solution",
+    "title": "Python",
+    "section": "Solution",
+    "text": "Solution\n\n\n\nSpoiler alert!\n\n\n\nCode\ndef single_tax(pay):\n    tax = 0\n    if pay &gt; 415050:\n        tax += (pay - 415050) * .396\n        pay = 415050\n    if pay &gt; 413350:\n        tax += (pay - 413350) * .35\n        pay = 413350\n    if pay &gt; 190150:\n        tax += (pay - 190150) * .33\n        pay = 190150\n    if pay &gt; 91150:\n        tax += (pay - 91150) * .28\n        pay = 91150\n    if pay &gt; 37650:\n        tax += (pay - 37650) * .25\n        pay = 37650\n    if pay &gt; 9275:\n        tax += (pay - 9275) * .15\n        pay = 9275\n    return tax + pay * .1\n\n\n\n\nThe solution gives the following results!\n\n\n[\n    single_tax(100000),\n    single_tax(100000),\n    single_tax(200000),\n    single_tax(300000),\n    single_tax(400000),\n]\n\n[21036.75, 21036.75, 49529.25, 82529.25, 115529.25]\n\n\n\n115529.25 matches our calculations.",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.html#challenge-problem",
+    "href": "01_python.html#challenge-problem",
+    "title": "Python",
+    "section": "Challenge Problem",
+    "text": "Challenge Problem\n\nCalculate at what income does the tax rate reach the second highest marginal tax rate of 35%?\n\nThat is, at what pay does tax == pay * .35\n\n\n\n\nCode\nm = .396\nb = 0\nb += (415050 - 413350) * .35\nb += (413350 - 190150) * .33\nb += (190150 - 91150) * .28\nb += (91150 - 37650) * .25\nb += (37650 - 9275) * .15\nb += 9275 * .1\n(m * -415050 + b)/(.35 - m)\n\n\n952827.173913043",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.html#bonus-solution",
+    "href": "01_python.html#bonus-solution",
+    "title": "Python",
+    "section": "Bonus Solution",
+    "text": "Bonus Solution\n\nsingle_tax with loops\n\n\n\nCode\ndef single_tax(pay):\n    tax_policy = [\n        [415050, .396], \n        [413350, .35],\n        [190150, .33],\n        [91150, .28],\n        [37650, .25],\n        [9275, .15]\n    ]\n    tax = 0\n    for bracket in tax_policy:\n        if pay &gt; bracket[0]:\n            tax += (pay - bracket[0]) * bracket[1]\n            pay = bracket[0]\n    return tax + pay * .1",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "01_python.rjs.html#on-python",
+    "href": "01_python.rjs.html#on-python",
+    "title": "Python",
+    "section": "On Python",
+    "text": "On Python\n\nPython is free,\nPython is very widely used,\nPython is flexible,\nPython is relatively easy to learn,\nand Python is quite powerful."
+  },
+  {
+    "objectID": "01_python.rjs.html#why-not-python",
+    "href": "01_python.rjs.html#why-not-python",
+    "title": "Python",
+    "section": "Why not Python?",
+    "text": "Why not Python?\n\nPython is a general purpose language used for Scientific Computing.\nNot to build apps, build software, manage databases, or develop user interfaces.\nSolve scientific and mathematical problems."
+  },
+  {
+    "objectID": "01_python.rjs.html#python-libraries",
+    "href": "01_python.rjs.html#python-libraries",
+    "title": "Python",
+    "section": "Python libraries",
+    "text": "Python libraries\nScientists often use the following:\n\nPython,\nnumpy (numerical Python),\nmatplotlib (a suite of plotting tools),\nscipy (scientific Python), and\nsympy (symbolic Python).\n\nWe’ll get to these."
+  },
+  {
+    "objectID": "01_python.rjs.html#diving-in",
+    "href": "01_python.rjs.html#diving-in",
+    "title": "Python",
+    "section": "Diving In",
+    "text": "Diving In\n\nTaking Python as a given, we’ll:\n\nUse an example of something I helped a student with recently\nShow step-by-step how to use Python\nIntroduce a number of Python features to solve the problem more easily.\n\nThis was from an introductory physics class I believe; I don’t know the context."
+  },
+  {
+    "objectID": "01_python.rjs.html#motivating-example",
+    "href": "01_python.rjs.html#motivating-example",
+    "title": "Python",
+    "section": "Motivating Example",
+    "text": "Motivating Example\n\nRecently, I helped a student stuck on this:\n\n\\[\nf(x) =\n\\begin{cases}\n  9x^2 + 5 & x &lt; 4 \\\\\n  9 & 4 \\leq x \\leq 8 \\\\\n  2 - x & x &gt; 8\n\\end{cases}\n\\]\n\nFind \\(f(x)\\) for each of the following \\(x\\) values: \\[\n\\{-1, 4, 5, 8, 11\\}\n\\]"
+  },
+  {
+    "objectID": "01_python.rjs.html#is-this-real",
+    "href": "01_python.rjs.html#is-this-real",
+    "title": "Python",
+    "section": "Is this “real”?",
+    "text": "Is this “real”?\n\nModels income tax brackets, one of the most important drivers of human behavior in the largest economies in the world.\nWe use a simpler contrived example for now…\n\n\n\nMarginal Tax Rate\n\n\nSingle Taxable Income\n\n\nMarried Filing Jointly or Qualified Widow(er) Taxable Income\n\n\nMarried Filing Separately Taxable Income\n\n\nHead of Household Taxable Income\n\n\n\n\n10%\n\n\n$0 – $9,275\n\n\n$0 – $18,550\n\n\n$0 – $9,275\n\n\n$0 – $13,250\n\n\n\n\n15%\n\n\n$9,276 – $37,650\n\n\n$18,551 – $75,300\n\n\n$9,276 – $37,650\n\n\n$13,251 – $50,400\n\n\n\n\n25%\n\n\n$37,651 – $91,150\n\n\n$75,301 – $151,900\n\n\n$37,651 – $75,950\n\n\n$50,401 – $130,150\n\n\n\n\n28%\n\n\n$91,151 – $190,150\n\n\n$151,901 – $231,450\n\n\n$75,951 – $115,725\n\n\n$130,151 – $210,800\n\n\n\n\n33%\n\n\n$190,151 – $413,350\n\n\n$231,451 – $413,350\n\n\n$115,726 – $206,675\n\n\n$210,801 – $413,350\n\n\n\n\n35%\n\n\n$413,351 – $415,050\n\n\n$413,351 – $466,950\n\n\n$206,676 – $233,475\n\n\n$413,351 – $441,000\n\n\n\n\n39.6%\n\n\n$415,051+\n\n\n$466,951+\n\n\n$233,476+\n\n\n$441,001+"
+  },
+  {
+    "objectID": "01_python.rjs.html#how-to-solve",
+    "href": "01_python.rjs.html#how-to-solve",
+    "title": "Python",
+    "section": "How to solve?",
+    "text": "How to solve?\n\nThink about how you would solve such a problem.\nWhat steps would you take?\nWhat would making solving it hard?\n\nKeep track of details?\nPerforming the arithmetic?\nAnything else?\n\nPython, in my view, is a way to solve these problems."
+  },
+  {
+    "objectID": "01_python.rjs.html#python-in-action",
+    "href": "01_python.rjs.html#python-in-action",
+    "title": "Python",
+    "section": "Python in action",
+    "text": "Python in action\n\nMy preferred way to do calculation as an experienced Python user is writing code:\n\n\n\n\nMathematical expression \\[\n\\begin{cases}\n9x^2 + 5 & x &lt; 4 \\\\\n9 & 4 \\leq x \\leq 8 \\\\\n2 - x & x &gt; 8\n\\end{cases}\n\\]\n\n\n\nPython expression (code)\n\n\n9 * -1 * -1 + 5\n\n14\n\n\n\n\nI write x * x for \\(x^2\\) because it’s non-obvious how to write “squared” yet."
+  },
+  {
+    "objectID": "01_python.rjs.html#arithmetic-operations",
+    "href": "01_python.rjs.html#arithmetic-operations",
+    "title": "Python",
+    "section": "Arithmetic Operations",
+    "text": "Arithmetic Operations\n\nIn Python, we can write many of the same arithmetic operations we use in our math and science classes.\n\n\n6 + 3\n\n9\n\n\n\n6 - 3\n\n3\n\n\n\n6 * 3\n\n18\n\n\n\n6 / 3\n\n2.0"
+  },
+  {
+    "objectID": "01_python.rjs.html#wait",
+    "href": "01_python.rjs.html#wait",
+    "title": "Python",
+    "section": "Wait?",
+    "text": "Wait?\n\nUse Python? How?\nTo use Python to make this calculation, first we must install Python.\n\nIt is a program, like Firefox, MS Word or Fortnite"
+  },
+  {
+    "objectID": "01_python.rjs.html#warning",
+    "href": "01_python.rjs.html#warning",
+    "title": "Python",
+    "section": "Warning!",
+    "text": "Warning!\n\nThere is a very important box to check while installing!\n\nBe careful working ahead!\nWe’ll teach how to fix not checking this box but not for a while"
+  },
+  {
+    "objectID": "01_python.rjs.html#installation",
+    "href": "01_python.rjs.html#installation",
+    "title": "Python",
+    "section": "Installation",
+    "text": "Installation\n\nWe go to the offial webpage to get an installer for our computer:\n\nhttps://www.python.org/downloads/\n\nBe careful about starting it!\n\nYou can open it and check the next slide."
+  },
+  {
+    "objectID": "01_python.rjs.html#add-python-to-path",
+    "href": "01_python.rjs.html#add-python-to-path",
+    "title": "Python",
+    "section": "Add Python to PATH",
+    "text": "Add Python to PATH"
+  },
+  {
+    "objectID": "01_python.rjs.html#why",
+    "href": "01_python.rjs.html#why",
+    "title": "Python",
+    "section": "Why?",
+    "text": "Why?\n\nThe benefit of adding Python to path is that we can use it at\n&lt;dramatic music&gt;\nThe Command Line\n\nA text-based interface to computing resources, including its ability to do e.g. arithmetic and save notes."
+  },
+  {
+    "objectID": "01_python.rjs.html#terminal",
+    "href": "01_python.rjs.html#terminal",
+    "title": "Python",
+    "section": "Terminal",
+    "text": "Terminal\n\nOn MS Windows\n\nI press Windows key, type “terminal” then press enter.\n\nOn MacOS\n\nI open Launchpad, type “terminal” then press enter."
+  },
+  {
+    "objectID": "01_python.rjs.html#macos",
+    "href": "01_python.rjs.html#macos",
+    "title": "Python",
+    "section": "MacOS",
+    "text": "MacOS"
+  },
+  {
+    "objectID": "01_python.rjs.html#windows",
+    "href": "01_python.rjs.html#windows",
+    "title": "Python",
+    "section": "Windows",
+    "text": "Windows"
+  },
+  {
+    "objectID": "01_python.rjs.html#expression-evaluation",
+    "href": "01_python.rjs.html#expression-evaluation",
+    "title": "Python",
+    "section": "Expression evaluation",
+    "text": "Expression evaluation\n\nReturning to the terminal, we can type at the “prompt”.\nOn MacOS, perhaps a line that begins with $ and a flashing cursor\nOn Window, perhaps PS C:\\Users\\calvin&gt;\n\nPS stands for “powershell” - more latter.\nC:\\Users\\calvin is the name of a folder - more latter\n&gt; is the prompt, with a flashing cursor."
+  },
+  {
+    "objectID": "01_python.rjs.html#run-python",
+    "href": "01_python.rjs.html#run-python",
+    "title": "Python",
+    "section": "“Run” Python",
+    "text": "“Run” Python\nIn the following examples, I remove line numbers to denote they are not Python code snippets.\n\nOn Windows, type python\n\n\n\nWindows\n\nPS C:\\Users\\calvin&gt; python\n\n\nOn MacOS, type python3\n\n\n\nMacOS\n\n$ python3\n\n\nOn both, press the ↵ᴇɴᴛᴇʀ key."
+  },
+  {
+    "objectID": "01_python.rjs.html#see-python",
+    "href": "01_python.rjs.html#see-python",
+    "title": "Python",
+    "section": "See Python",
+    "text": "See Python\n\nYou’ll see something like this:\n\nPython 3.12.5 (tags/v3.12.5:ff3bc82, Aug  6 2024, 20:45:27) [MSC v.1940 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n&gt;&gt;&gt;\n\nTake note of the prompt!\n&gt;&gt;&gt;\nThose three are how you know it is Python, and not the Terminal, that you are working in."
+  },
+  {
+    "objectID": "01_python.rjs.html#example",
+    "href": "01_python.rjs.html#example",
+    "title": "Python",
+    "section": "Example",
+    "text": "Example\n\nIf I type python at the command line\nThen 9 * -1 * -1 + 5 within Python\nIt will look like this:\n\nPS C:\\Users\\calvin&gt; python\nPython 3.12.5 (tags/v3.12.5:ff3bc82, Aug  6 2024, 20:45:27) [MSC v.1940 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n&gt;&gt;&gt; 9 * -1 * -1 + 5\n14\n&gt;&gt;&gt;\n\nThis is how Python shows that 9 * -1 * -1 + 5 is 14"
+  },
+  {
+    "objectID": "01_python.rjs.html#recall",
+    "href": "01_python.rjs.html#recall",
+    "title": "Python",
+    "section": "Recall",
+    "text": "Recall\n\n\n\\[\n\\begin{cases}\n  9x^2 + 5 & x &lt; 4 \\\\\n  9 & 4 \\leq x \\leq 8 \\\\\n  2 - x & x &gt; 8\n\\end{cases}\n\\] \\[\n\\{-1, 4, 5, 8, 11\\}\n\\]\n\n&gt;&gt;&gt; 9 * -1 * -1 + 5\n14\n&gt;&gt;&gt; 9\n9\n&gt;&gt;&gt; 9\n9\n&gt;&gt;&gt; 2 - 8\n-6\n&gt;&gt;&gt; 2 - 11\n-9\n\n\nThis is still quite tedious and annoying!"
+  },
+  {
+    "objectID": "01_python.rjs.html#inequality-testing",
+    "href": "01_python.rjs.html#inequality-testing",
+    "title": "Python",
+    "section": "(In)equality testing",
+    "text": "(In)equality testing\n\nLike + or - which we use to calculate numbers…\nWe can use &lt; or &gt; to calculate inequalities.\nSpecifically, we see whether an inequality is True or False\n\n\n-1 &lt; 4\n\nTrue\n\n\n\n4 &lt; 4\n\nFalse"
+  },
+  {
+    "objectID": "01_python.rjs.html#accomodating-keyboards",
+    "href": "01_python.rjs.html#accomodating-keyboards",
+    "title": "Python",
+    "section": "Accomodating Keyboards",
+    "text": "Accomodating Keyboards\n\nSome things aren’t super easy to type.\nI don’t have a “\\(\\leq\\)” key on my keyboard.\nCombine with = as &lt;= for “less than or equal” or “\\(\\leq\\)”\n\n\n4 &lt;= 4\n\nTrue\n\n\n\nWe can “chain” inequalities as well - one after another.\n\n\n4 &lt;= 4 &lt;= 8\n\nTrue"
+  },
+  {
+    "objectID": "01_python.rjs.html#a-note",
+    "href": "01_python.rjs.html#a-note",
+    "title": "Python",
+    "section": "A note",
+    "text": "A note\n\nWe always put the equal sign = second.\n\n\n4 &lt;= 5\n\nTrue\n\n\n\n5 &gt;= 4\n\nTrue\n\n\n\nA (somewhat confusing) error if we try =&gt;\n\n&gt;&gt;&gt; 4 =&gt; 5\n  File \"&lt;stdin&gt;\", line 1\n    4 =&gt; 5\n    ^\nSyntaxError: cannot assign to literal"
+  },
+  {
+    "objectID": "01_python.rjs.html#new-topics",
+    "href": "01_python.rjs.html#new-topics",
+    "title": "Python",
+    "section": "New Topics",
+    "text": "New Topics\n\nWe have now touch on two new topics:\n\nTrue and False\n\nExpressions which don’t evaluate to a number\nCalled “booleans”\n\n“Assignment”\n\nAssociated with the = sign\nDifferent from inequality testing!\n\n\nWe’ll explore both!"
+  },
+  {
+    "objectID": "01_python.rjs.html#booleans",
+    "href": "01_python.rjs.html#booleans",
+    "title": "Python",
+    "section": "Booleans",
+    "text": "Booleans\n\nSometimes, a Python expression is a numerical value.\n\n\n2 + 2\n\n4\n\n\n\n7\n\n7\n\n\n\nBut it doesn’t have to be!\n\n\n2 &lt; 2\n\nFalse"
+  },
+  {
+    "objectID": "01_python.rjs.html#if",
+    "href": "01_python.rjs.html#if",
+    "title": "Python",
+    "section": "If",
+    "text": "If\n\nBooleans are mostly useful for writing if statements.\n\nThese are multiline expressions in Python.\n\nTo see the result of multi-line expression, we have to print the result…\n\n\nif (1 &lt;= 1):\n    print(2 + 2)\n\n4\n\n\n\nif (1 &lt; 1):\n    print(2 + 2)"
+  },
+  {
+    "objectID": "01_python.rjs.html#piecewise",
+    "href": "01_python.rjs.html#piecewise",
+    "title": "Python",
+    "section": "Piecewise",
+    "text": "Piecewise\n\nWe can see the immediate use of this in a piecewise function!\n\n\n\n\\[\n\\begin{cases}\n  9x^2 + 5 & x &lt; 4 \\\\\n  9 & 4 \\leq x \\leq 8 \\\\\n  2 - x & x &gt; 8\n\\end{cases}\n\\] \\[\n\\{-1, 4, 5, 8, 11\\}\n\\]\n\n\nif (-1 &lt; 4):\n    print(9 * -1 * -1 + 5)\n\n14\n\n\n\nOr least part of one…\n\n\nif (4 &lt; 4):\n    print(9 * 4 * 4 + 5)\n\n\nUh oh!"
+  },
+  {
+    "objectID": "01_python.rjs.html#else",
+    "href": "01_python.rjs.html#else",
+    "title": "Python",
+    "section": "Else",
+    "text": "Else\n\nOftentimes, we use if with else\n\n\nif (1 &lt; 1):\n    print(\"1 is less than 1\")\nelse:\n    print(\"1 is not less than 1\")\n\n1 is not less than 1"
+  },
+  {
+    "objectID": "01_python.rjs.html#elif",
+    "href": "01_python.rjs.html#elif",
+    "title": "Python",
+    "section": "Elif",
+    "text": "Elif\n\nIf we have more than two options, we can place a special elif in the middle.\n\n\n\n\nif (1 &lt; 1):\n    print(\"1 is less than 1\")\nelif (1 &gt; 1):\n    print(\"1 is greater than 1\")\nelse:\n    print(\"1 is equal to 1\")\n\n1 is equal to 1\n\n\n\n\nif (2 &lt; 1):\n    print(\"2 is less than 1\")\nelif (2 &gt; 1):\n    print(\"2 is greater than 1\")\nelse:\n    print(\"2 is equal to 1\")\n\n2 is greater than 1\n\n\n\n\nBy the way, it is extremely obnoxious to manually type 2 in 5 different places"
+  },
+  {
+    "objectID": "01_python.rjs.html#assignment",
+    "href": "01_python.rjs.html#assignment",
+    "title": "Python",
+    "section": "Assignment",
+    "text": "Assignment\n\nWe can also assign variables!\n\nI call this single-equals assignment\nUse a single equals sign = and some variable name, like x\n\n\n\n\n\nx = 1\nif (x &lt; 1):\n    print(\"x is less than 1\")\nelif (x &gt; 1):\n    print(\"x is greater than 1\")\nelse:\n    print(\"x is equal to 1\")\n\nx is equal to 1\n\n\n\n\nx = 2\nif (x &lt; 1):\n    print(\"x is less than 1\")\nelif (x &gt; 1):\n    print(\"x is greater than 1\")\nelse:\n    print(\"x is equal to 1\")\n\nx is greater than 1"
+  },
+  {
+    "objectID": "01_python.rjs.html#double-equals-equality",
+    "href": "01_python.rjs.html#double-equals-equality",
+    "title": "Python",
+    "section": "Double equals equality",
+    "text": "Double equals equality\n\nI call it single-equals assignment because sometimes we check if a variable is precisely equal to some value.\nThat is somewhat confusingly done with == double equals equality test.\n\n\n\n\nx = 1\nif (x == 1):\n    print(\"x is equal to 1\")\nelse:\n    print(\"x is not equal to 1\")\n\nx is equal to 1\n\n\n\n\nx = 2\nif (x == 1):\n    print(\"x is equal to 1\")\nelse:\n    print(\"x is not equal to 1\")\n\nx is not equal to 1"
+  },
+  {
+    "objectID": "01_python.rjs.html#double-exponentation",
+    "href": "01_python.rjs.html#double-exponentation",
+    "title": "Python",
+    "section": "Double ** Exponentation",
+    "text": "Double ** Exponentation\n\nDoubling is used in a few other cases.\nDouble asterisk ** is exponentiation.\n\n\n5 ** 2\n\n25"
+  },
+  {
+    "objectID": "01_python.rjs.html#piecewise-1",
+    "href": "01_python.rjs.html#piecewise-1",
+    "title": "Python",
+    "section": "Piecewise",
+    "text": "Piecewise\n\nWe can finally write the piecewise expression!\n\n\n\n\\[\n\\begin{cases}\n  9x^2 + 5 & x &lt; 4 \\\\\n  9 & 4 \\leq x \\leq 8 \\\\\n  2 - x & x &gt; 8\n\\end{cases}\n\\] \\[\n\\{-1, 4, 5, 8, 11\\}\n\\]\n\n\nx = 11\nif (x &lt; 4):\n    print(9 * x ** 2 + 5)\nelif (4 &lt;= x &lt;= 8):\n    print(9)\nelif (x &gt; 8):\n    print(2 - x)\n\n-9"
+  },
+  {
+    "objectID": "01_python.rjs.html#recycle",
+    "href": "01_python.rjs.html#recycle",
+    "title": "Python",
+    "section": "Recycle",
+    "text": "Recycle\n\nIt is still extremely tedious to either:\n\nCopy-paste, or\nType more than once.\n\nAlso very annoying/difficult to write them many lines without error!\nWe introduce the def keyword to define functions\nA way to reuse code we have already written."
+  },
+  {
+    "objectID": "01_python.rjs.html#def",
+    "href": "01_python.rjs.html#def",
+    "title": "Python",
+    "section": "def",
+    "text": "def\n\ndef double(x):\n    print(x + x)\n\n\ndef + some function name + ( + some variable name + ):\n\n\ndouble(7)\n\n14\n\n\n\n“Call” functions the same way we call print - with parens."
+  },
+  {
+    "objectID": "01_python.rjs.html#return",
+    "href": "01_python.rjs.html#return",
+    "title": "Python",
+    "section": "return",
+    "text": "return\n\nIt is more common to use return than print in a function.\nWhen we call a function, we can think of it as expression with some value.\nThat value is defined by the value that is return.\n\n\n\n\ndef six_gt_five_return():\n    print(True)\n\n\nif (six_gt_five_return()):\n    print(\"it is\")\n\nTrue\n\n\n\n\ndef six_gt_five_print():\n    return True\n\n\nif (six_gt_five_print()):\n    print(\"it is\")\n\nit is"
+  },
+  {
+    "objectID": "01_python.rjs.html#example-1",
+    "href": "01_python.rjs.html#example-1",
+    "title": "Python",
+    "section": "Example",
+    "text": "Example\n\nSuppose an interest rate doubles our savings every ~7 years.\nHow much savings in 14 years?\n\n\nsavings = 10\nsavings = double(savings)\nsavings\n\n20"
+  },
+  {
+    "objectID": "01_python.rjs.html#use-return",
+    "href": "01_python.rjs.html#use-return",
+    "title": "Python",
+    "section": "Use return",
+    "text": "Use return\n\ndef double(x):\n    return x + x\n\n\nNow, double(savings) becomes equal to x + x\n\n\nsavings = 10\nsavings = double(savings)\nsavings\n\n20\n\n\n\ndouble(savings)\n\n40\n\n\n\nOr even\n\n\ndouble(double(10))\n\n40"
+  },
+  {
+    "objectID": "01_python.rjs.html#piecewise-2",
+    "href": "01_python.rjs.html#piecewise-2",
+    "title": "Python",
+    "section": "Piecewise",
+    "text": "Piecewise\n\nWe can finally write the piecewise function (was: expression)!\n\nFunction: use many times in many expressions\nExpression: evaluate once and get one answer\n\n\n\n\n\\[\n\\begin{cases}\n  9x^2 + 5 & x &lt; 4 \\\\\n  9 & 4 \\leq x \\leq 8 \\\\\n  2 - x & x &gt; 8\n\\end{cases}\n\\] \\[\n\\{-1, 4, 5, 8, 11\\}\n\\]\n\n\ndef piecewise(x):\n    if (x &lt; 4):\n        return 9 * x ** 2 + 5\n    elif (4 &lt;= x &lt;= 8):\n        return 9\n    elif (x &gt; 8):\n        return 2 - x\n\n\npiecewise(4)\n\n9"
+  },
+  {
+    "objectID": "01_python.rjs.html#tedium",
+    "href": "01_python.rjs.html#tedium",
+    "title": "Python",
+    "section": "Tedium",
+    "text": "Tedium\n\nThis is still quite tedious.\n\n\npiecewise(-1)\n\n14\n\n\n\npiecewise(4)\n\n9\n\n\n\npiecewise(5)\n\n9\n\n\n\npiecewise(8)\n\n9\n\n\n\npiecewise(11)\n\n-9"
+  },
+  {
+    "objectID": "01_python.rjs.html#sets",
+    "href": "01_python.rjs.html#sets",
+    "title": "Python",
+    "section": "Sets",
+    "text": "Sets\n\nThis is a set:\n\n\\[\n\\{-1, 4, 5, 8, 11\\}\n\\]\n\nA set is an unordered collection of elements.\n\nIn this case, elements are integers - whole numbers.\n\nPython can also recognize sets!\n\n\n{-1, 4, 5, 8, 11}\n\n{-1, 4, 5, 8, 11}"
+  },
+  {
+    "objectID": "01_python.rjs.html#type",
+    "href": "01_python.rjs.html#type",
+    "title": "Python",
+    "section": "Type",
+    "text": "Type\n\nTo be sure that is, in fact, a set, we use the helpful built-in type() to ask Python.\n\n\ns = {-1, 4, 5, 8, 11}\ntype(s)\n\nset\n\n\n\nWe have also worked with integers.\n\n\ntype(1)\n\nint\n\n\n\nAnd booleans - True and False values.\n\n\ntype(1 == 1)\n\nbool"
+  },
+  {
+    "objectID": "01_python.rjs.html#loops",
+    "href": "01_python.rjs.html#loops",
+    "title": "Python",
+    "section": "Loops",
+    "text": "Loops\n\nWith a set, do something to each element\nIn Python, use a for loop:\n\nThe for keyword\nThe name to refer to an element, like e or x\nThe in keyword\nThe set/collection (or its variable name)\nThe : colon special character\nAn indented new line of code"
+  },
+  {
+    "objectID": "01_python.rjs.html#example-2",
+    "href": "01_python.rjs.html#example-2",
+    "title": "Python",
+    "section": "Example",
+    "text": "Example\n\nfor element in collection\n\ndo thing\n\n\n\nfor e in {-1, 4, 5, 8, 11}:\n    print(piecewise(e))\n\n9\n9\n9\n-9\n14\n\n\n\nWhat do you see?"
+  },
+  {
+    "objectID": "01_python.rjs.html#example-3",
+    "href": "01_python.rjs.html#example-3",
+    "title": "Python",
+    "section": "Example",
+    "text": "Example\n\nWhat if we just try to print the elements?\n\nEasier to think about!\n\n\n\nfor e in {-1, 4, 5, 8, 11}:\n    print(e)\n\n4\n5\n8\n11\n-1\n\n\n\nWhat do you see?"
+  },
+  {
+    "objectID": "01_python.rjs.html#ordering",
+    "href": "01_python.rjs.html#ordering",
+    "title": "Python",
+    "section": "Ordering",
+    "text": "Ordering\n\nRecall: “A set is an unordered collection of elements”.\nWe need to put things in order!\nThe most common way to do this in Python is with a list.\nAlmost the same as sets, just use “boxy brackets” []\n\n\ntype([1,2,3])\n\nlist"
+  },
+  {
+    "objectID": "01_python.rjs.html#example-4",
+    "href": "01_python.rjs.html#example-4",
+    "title": "Python",
+    "section": "Example",
+    "text": "Example\n\nfor element in collection\n\ndo thing\n\n\n\nfor e in [-1, 4, 5, 8, 11]:\n    print(piecewise(e))\n\n14\n9\n9\n9\n-9\n\n\n\nWhat do you see?"
+  },
+  {
+    "objectID": "01_python.rjs.html#seeing-lists",
+    "href": "01_python.rjs.html#seeing-lists",
+    "title": "Python",
+    "section": "Seeing lists",
+    "text": "Seeing lists\n\nWe can also use lists to print multiple values!\n\nVery helpful for keeping track of things!\n\n\n\nfor e in [-1, 4, 5, 8, 11]:\n    print([e, piecewise(e)])\n\n[-1, 14]\n[4, 9]\n[5, 9]\n[8, 9]\n[11, -9]"
+  },
+  {
+    "objectID": "01_python.rjs.html#updating-lists",
+    "href": "01_python.rjs.html#updating-lists",
+    "title": "Python",
+    "section": "Updating lists",
+    "text": "Updating lists\n\nEach element is a lot like a variable.\n\nThey just have a name and number, use []\nThe initial element is number 0 (not 1)\n\n\n\nxs = [-1, 4, 5, 8, 11]\nxs[0]\n\n-1\n\n\n\nAnd like variables, we can assign a value with =\n\n\nxs[0] = -2\nxs\n\n[-2, 4, 5, 8, 11]"
+  },
+  {
+    "objectID": "01_python.rjs.html#adding-lists",
+    "href": "01_python.rjs.html#adding-lists",
+    "title": "Python",
+    "section": "Adding lists",
+    "text": "Adding lists\n\nLists also helpfully support addition with +\n\n\n[-1] + [4, 5, 8, 11]\n\n[-1, 4, 5, 8, 11]\n\n\n\nWe often use this to make new lists.\n\n\nresult = []\nfor e in [-1, 4, 5, 8, 11]:\n    result = result + [piecewise(e)]\n\n\nThis pattern also works with numbers!\n\n\nx = 0 \nx = x + 1\nx\n\n1"
+  },
+  {
+    "objectID": "01_python.rjs.html#income-tax",
+    "href": "01_python.rjs.html#income-tax",
+    "title": "Python",
+    "section": "Income tax",
+    "text": "Income tax\n\nRecall the example of a piecewise function:\n\n\n\nMarginal Tax Rate\n\n\nSingle Taxable Income\n\n\nMarried Filing Jointly or Qualified Widow(er) Taxable Income\n\n\nMarried Filing Separately Taxable Income\n\n\nHead of Household Taxable Income\n\n\n\n\n10%\n\n\n$0 – $9,275\n\n\n$0 – $18,550\n\n\n$0 – $9,275\n\n\n$0 – $13,250\n\n\n\n\n15%\n\n\n$9,276 – $37,650\n\n\n$18,551 – $75,300\n\n\n$9,276 – $37,650\n\n\n$13,251 – $50,400\n\n\n\n\n25%\n\n\n$37,651 – $91,150\n\n\n$75,301 – $151,900\n\n\n$37,651 – $75,950\n\n\n$50,401 – $130,150\n\n\n\n\n28%\n\n\n$91,151 – $190,150\n\n\n$151,901 – $231,450\n\n\n$75,951 – $115,725\n\n\n$130,151 – $210,800\n\n\n\n\n33%\n\n\n$190,151 – $413,350\n\n\n$231,451 – $413,350\n\n\n$115,726 – $206,675\n\n\n$210,801 – $413,350\n\n\n\n\n35%\n\n\n$413,351 – $415,050\n\n\n$413,351 – $466,950\n\n\n$206,676 – $233,475\n\n\n$413,351 – $441,000\n\n\n\n\n39.6%\n\n\n$415,051+\n\n\n$466,951+\n\n\n$233,476+\n\n\n$441,001+"
+  },
+  {
+    "objectID": "01_python.rjs.html#singles-only",
+    "href": "01_python.rjs.html#singles-only",
+    "title": "Python",
+    "section": "Singles only…",
+    "text": "Singles only…\n\n\n\nRate\nFrom\n\n\n\n\n10%\n0\n\n\n15%\n9275\n\n\n25%\n37650\n\n\n28%\n91150\n\n\n33%\n190150\n\n\n35%\n413350\n\n\n39.6%\n415050"
+  },
+  {
+    "objectID": "01_python.rjs.html#motivating-example-1",
+    "href": "01_python.rjs.html#motivating-example-1",
+    "title": "Python",
+    "section": "Motivating example",
+    "text": "Motivating example\n\nHow much would a single making 400k pay?\n\n\n\n\n10% on 9275\n15% on 37650 - 9275\n25% on 91150 - 37650\n28% on 190150 - 91150\n33% on 400000 - 190150\n\n\n\n\n\nRate\nFrom\n\n\n\n\n10%\n0\n\n\n15%\n9275\n\n\n25%\n37650\n\n\n28%\n91150\n\n\n33%\n190150\n\n\n35%\n413350\n\n\n39.6%\n415050"
+  },
+  {
     "objectID": "01_python.rjs.html#sum-it-up",
     "href": "01_python.rjs.html#sum-it-up",
     "title": "Python",
@@ -1088,31 +1099,11 @@
     "text": "Assign-update\n\nWe may use an “assignment operator” +=\n\nReassign a variable based on the result of an arithmetic operation.\n\n\n\n\n\nx = .10 * 9275\nx = x + .15 * (37650 - 9275)\nx = x + .25 * (91150 - 37650)\nx = x + .28 * (190150 - 91150)\nx + .33 * (400000 - 190150)\n\n115529.25\n\n\n\n\nx = .10 * 9275\nx += .15 * (37650 - 9275)\nx += .25 * (91150 - 37650)\nx += .28 * (190150 - 91150)\nx + .33 * (400000 - 190150)\n\n115529.25"
   },
   {
-    "objectID": "01_python.html#exercise-1",
-    "href": "01_python.html#exercise-1",
-    "title": "Python",
-    "section": "Exercise",
-    "text": "Exercise\n\n\n\nWrite function\ndef single_tax(pay):\nReturn tax cost.\n\nReturn not print!\n\nBonus: Also write single_tax_rate which returns the percent tax rate at some income level.\n\n\n\n\n\nRate\nFrom\n\n\n\n\n10%\n0\n\n\n15%\n9275\n\n\n25%\n37650\n\n\n28%\n91150\n\n\n33%\n190150\n\n\n35%\n413350\n\n\n39.6%\n415050",
-    "crumbs": [
-      "Python"
-    ]
-  },
-  {
     "objectID": "01_python.rjs.html#exercise-1",
     "href": "01_python.rjs.html#exercise-1",
     "title": "Python",
     "section": "Exercise",
     "text": "Exercise\n\n\n\nWrite function\ndef single_tax(pay):\nReturn tax cost.\n\nReturn not print!\n\nBonus: Also write single_tax_rate which returns the percent tax rate at some income level.\n\n\n\n\n\nRate\nFrom\n\n\n\n\n10%\n0\n\n\n15%\n9275\n\n\n25%\n37650\n\n\n28%\n91150\n\n\n33%\n190150\n\n\n35%\n413350\n\n\n39.6%\n415050"
-  },
-  {
-    "objectID": "01_python.html#solution",
-    "href": "01_python.html#solution",
-    "title": "Python",
-    "section": "Solution",
-    "text": "Solution\n\n\n\nSpoiler alert!\n\n\n\nCode\ndef single_tax(pay):\n    tax = 0\n    if pay &gt; 415050:\n        tax += (pay - 415050) * .396\n        pay = 415050\n    if pay &gt; 413350:\n        tax += (pay - 413350) * .35\n        pay = 413350\n    if pay &gt; 190150:\n        tax += (pay - 190150) * .33\n        pay = 190150\n    if pay &gt; 91150:\n        tax += (pay - 91150) * .28\n        pay = 91150\n    if pay &gt; 37650:\n        tax += (pay - 37650) * .25\n        pay = 37650\n    if pay &gt; 9275:\n        tax += (pay - 9275) * .15\n        pay = 9275\n    return tax + pay * .1\n\n\n\n\nThe solution gives the following results!\n\n\n[\n    single_tax(100000),\n    single_tax(100000),\n    single_tax(200000),\n    single_tax(300000),\n    single_tax(400000),\n]\n\n[21036.75, 21036.75, 49529.25, 82529.25, 115529.25]\n\n\n\n115529.25 matches our calculations.",
-    "crumbs": [
-      "Python"
-    ]
   },
   {
     "objectID": "01_python.rjs.html#solution",
@@ -1122,101 +1113,6 @@
     "text": "Solution\n\n\n\nSpoiler alert!\n\n\n\nCode\ndef single_tax(pay):\n    tax = 0\n    if pay &gt; 415050:\n        tax += (pay - 415050) * .396\n        pay = 415050\n    if pay &gt; 413350:\n        tax += (pay - 413350) * .35\n        pay = 413350\n    if pay &gt; 190150:\n        tax += (pay - 190150) * .33\n        pay = 190150\n    if pay &gt; 91150:\n        tax += (pay - 91150) * .28\n        pay = 91150\n    if pay &gt; 37650:\n        tax += (pay - 37650) * .25\n        pay = 37650\n    if pay &gt; 9275:\n        tax += (pay - 9275) * .15\n        pay = 9275\n    return tax + pay * .1\n\n\n\n\nThe solution gives the following results!\n\n\n[\n    single_tax(100000),\n    single_tax(100000),\n    single_tax(200000),\n    single_tax(300000),\n    single_tax(400000),\n]\n\n[21036.75, 21036.75, 49529.25, 82529.25, 115529.25]\n\n\n\n115529.25 matches our calculations."
   },
   {
-    "objectID": "01_python.html#updating-lists",
-    "href": "01_python.html#updating-lists",
-    "title": "Python",
-    "section": "Updating lists",
-    "text": "Updating lists\n\nEach element is a lot like a variable.\n\nThey just have a name and number, use []\nThe initial element is number 0 (not 1)\n\n\n\nxs = [-1, 4, 5, 8, 11]\nxs[0]\n\n-1\n\n\n\nAnd like variables, we can assign a value with =\n\n\nxs[0] = -2\nxs\n\n[-2, 4, 5, 8, 11]",
-    "crumbs": [
-      "Python"
-    ]
-  },
-  {
-    "objectID": "01_python.html#making-lists",
-    "href": "01_python.html#making-lists",
-    "title": "Python",
-    "section": "Making lists",
-    "text": "Making lists\n\nIt is common to wish to return a list from a function.\n\nOften based on some provided list.",
-    "crumbs": [
-      "Python"
-    ]
-  },
-  {
-    "objectID": "01_python.html#updating-lists-1",
-    "href": "01_python.html#updating-lists-1",
-    "title": "Python",
-    "section": "Updating lists",
-    "text": "Updating lists",
-    "crumbs": [
-      "Python"
-    ]
-  },
-  {
-    "objectID": "01_python.rjs.html#updating-lists",
-    "href": "01_python.rjs.html#updating-lists",
-    "title": "Python",
-    "section": "Updating lists",
-    "text": "Updating lists\n\nEach element is a lot like a variable.\n\nThey just have a name and number, use []\nThe initial element is number 0 (not 1)\n\n\n\nxs = [-1, 4, 5, 8, 11]\nxs[0]\n\n-1\n\n\n\nAnd like variables, we can assign a value with =\n\n\nxs[0] = -2\nxs\n\n[-2, 4, 5, 8, 11]"
-  },
-  {
-    "objectID": "01_python.rjs.html#making-lists",
-    "href": "01_python.rjs.html#making-lists",
-    "title": "Python",
-    "section": "Making lists",
-    "text": "Making lists\n\nIt is common to wish to return a list from a function.\n\nOften based on some provided list."
-  },
-  {
-    "objectID": "01_python.rjs.html#updating-lists-1",
-    "href": "01_python.rjs.html#updating-lists-1",
-    "title": "Python",
-    "section": "Updating lists",
-    "text": "Updating lists"
-  },
-  {
-    "objectID": "01_python.html#adding-lists",
-    "href": "01_python.html#adding-lists",
-    "title": "Python",
-    "section": "Adding lists",
-    "text": "Adding lists\n\nLists also helpfully support addition with +\n\n\n[-1] + [4, 5, 8, 11]\n\n[-1, 4, 5, 8, 11]\n\n\n\nWe often use this to make new lists.\n\n\nresult = []\nfor e in [-1, 4, 5, 8, 11]:\n    result = result + [piecewise(e)]\n\n\nThis pattern also works with numbers!\n\n\nx = 0 \nx = x + 1\nx\n\n1",
-    "crumbs": [
-      "Python"
-    ]
-  },
-  {
-    "objectID": "01_python.rjs.html#adding-lists",
-    "href": "01_python.rjs.html#adding-lists",
-    "title": "Python",
-    "section": "Adding lists",
-    "text": "Adding lists\n\nLists also helpfully support addition with +\n\n\n[-1] + [4, 5, 8, 11]\n\n[-1, 4, 5, 8, 11]\n\n\n\nWe often use this to make new lists.\n\n\nresult = []\nfor e in [-1, 4, 5, 8, 11]:\n    result = result + [piecewise(e)]\n\n\nThis pattern also works with numbers!\n\n\nx = 0 \nx = x + 1\nx\n\n1"
-  },
-  {
-    "objectID": "01_python.html#single_tax",
-    "href": "01_python.html#single_tax",
-    "title": "Python",
-    "section": "single_tax",
-    "text": "single_tax\n\n\n\nWrite function\ndef single_tax(pay):\nReturn tax cost.\n\nReturn not print!\n\nBonus: Also write single_tax_rate which returns the percent tax rate at some income level.\n\n\n\n\n\nRate\nFrom\n\n\n\n\n10%\n0\n\n\n15%\n9275\n\n\n25%\n37650\n\n\n28%\n91150\n\n\n33%\n190150\n\n\n35%\n413350\n\n\n39.6%\n415050",
-    "crumbs": [
-      "Python"
-    ]
-  },
-  {
-    "objectID": "01_python.rjs.html#single_tax",
-    "href": "01_python.rjs.html#single_tax",
-    "title": "Python",
-    "section": "single_tax",
-    "text": "single_tax\n\n\n\nWrite function\ndef single_tax(pay):\nReturn tax cost.\n\nReturn not print!\n\nBonus: Also write single_tax_rate which returns the percent tax rate at some income level.\n\n\n\n\n\nRate\nFrom\n\n\n\n\n10%\n0\n\n\n15%\n9275\n\n\n25%\n37650\n\n\n28%\n91150\n\n\n33%\n190150\n\n\n35%\n413350\n\n\n39.6%\n415050"
-  },
-  {
-    "objectID": "01_python.html#challenge-problem",
-    "href": "01_python.html#challenge-problem",
-    "title": "Python",
-    "section": "Challenge Problem",
-    "text": "Challenge Problem\n\nCalculate at what income does the tax rate reach the second highest marginal tax rate of 35%?\n\nThat is, at what pay does tax == pay * .35\n\n\n\n\nCode\nm = .396\nb = 0\nb += (415050 - 413350) * .35\nb += (413350 - 190150) * .33\nb += (190150 - 91150) * .28\nb += (91150 - 37650) * .25\nb += (37650 - 9275) * .15\nb += 9275 * .1\n(m * -415050 + b)/(.35 - m)\n\n\n952827.173913043",
-    "crumbs": [
-      "Python"
-    ]
-  },
-  {
     "objectID": "01_python.rjs.html#challenge-problem",
     "href": "01_python.rjs.html#challenge-problem",
     "title": "Python",
@@ -1224,20 +1120,598 @@
     "text": "Challenge Problem\n\nCalculate at what income does the tax rate reach the second highest marginal tax rate of 35%?\n\nThat is, at what pay does tax == pay * .35\n\n\n\n\nCode\nm = .396\nb = 0\nb += (415050 - 413350) * .35\nb += (413350 - 190150) * .33\nb += (190150 - 91150) * .28\nb += (91150 - 37650) * .25\nb += (37650 - 9275) * .15\nb += 9275 * .1\n(m * -415050 + b)/(.35 - m)\n\n\n952827.173913043"
   },
   {
-    "objectID": "01_python.html#bonus-solution",
-    "href": "01_python.html#bonus-solution",
-    "title": "Python",
-    "section": "Bonus Solution",
-    "text": "Bonus Solution\n\nsingle_tax with loops\n\n\n\nCode\ndef single_tax(pay):\n    tax_policy = [\n        [415050, .396], \n        [413350, .35],\n        [190150, .33],\n        [91150, .28],\n        [37650, .25],\n        [9275, .15]\n    ]\n    tax = 0\n    for bracket in tax_policy:\n        if pay &gt; bracket[0]:\n            tax += (pay - bracket[0]) * bracket[1]\n            pay = bracket[0]\n    return tax + pay * .1",
-    "crumbs": [
-      "Python"
-    ]
-  },
-  {
     "objectID": "01_python.rjs.html#bonus-solution",
     "href": "01_python.rjs.html#bonus-solution",
     "title": "Python",
     "section": "Bonus Solution",
     "text": "Bonus Solution\n\nsingle_tax with loops\n\n\n\nCode\ndef single_tax(pay):\n    tax_policy = [\n        [415050, .396], \n        [413350, .35],\n        [190150, .33],\n        [91150, .28],\n        [37650, .25],\n        [9275, .15]\n    ]\n    tax = 0\n    for bracket in tax_policy:\n        if pay &gt; bracket[0]:\n            tax += (pay - bracket[0]) * bracket[1]\n            pay = bracket[0]\n    return tax + pay * .1"
+  },
+  {
+    "objectID": "02_neovim.rjs.html#on-neovim",
+    "href": "02_neovim.rjs.html#on-neovim",
+    "title": "Neovim",
+    "section": "On Neovim",
+    "text": "On Neovim\n\nNeovim is free,\nNeovim is very widely available,\nNeovim is highly customizable,\nNeovim is stable, year-on-year,\nand Neovim is quite powerful.\n\nWatch more"
+  },
+  {
+    "objectID": "02_neovim.rjs.html#why-not-neovim",
+    "href": "02_neovim.rjs.html#why-not-neovim",
+    "title": "Neovim",
+    "section": "Why not Neovim?",
+    "text": "Why not Neovim?\n\nModal - it is not a “What you see is what you get” (WYSIWYG) editor like MS Word, Google Docs, Notepad, or VS Code\nTerminal-based - it is used within the terminal and not often as a stand-alone program.\nSteep-learning curve - students generally find it difficult to get started, though it is widely briefed by experienced users"
+  },
+  {
+    "objectID": "02_neovim.rjs.html#diving-in",
+    "href": "02_neovim.rjs.html#diving-in",
+    "title": "Neovim",
+    "section": "Diving In",
+    "text": "Diving In\n\nTaking Neovim as a given, we’ll:\n\nContinue the piecewise functions example\nTouch on Python and the terminal in the context of Neovim\nIntroduce Neovim modes, motions, and operators.\n\nSpoilers for the last exercise!"
+  },
+  {
+    "objectID": "02_neovim.rjs.html#exercise",
+    "href": "02_neovim.rjs.html#exercise",
+    "title": "Neovim",
+    "section": "Exercise",
+    "text": "Exercise\n\n\n\nWrite function\ndef single_tax(pay):\nReturn tax cost.\n\nReturn not print!\n\nBonus: Also write single_tax_rate which returns the percent tax rate at some income level.\n\n\n\n\n\nRate\nFrom\n\n\n\n\n10%\n0\n\n\n15%\n9275\n\n\n25%\n37650\n\n\n28%\n91150\n\n\n33%\n190150\n\n\n35%\n413350\n\n\n39.6%\n415050"
+  },
+  {
+    "objectID": "02_neovim.rjs.html#solutions",
+    "href": "02_neovim.rjs.html#solutions",
+    "title": "Neovim",
+    "section": "Solutions",
+    "text": "Solutions\n\n\n\ndef single_tax(pay):\n    tax = 0\n    if pay &gt; 415050:\n        tax += (pay - 415050) * .396\n        pay = 415050\n    if pay &gt; 413350:\n        tax += (pay - 413350) * .35\n        pay = 413350\n    if pay &gt; 190150:\n        tax += (pay - 190150) * .33\n        pay = 190150\n    if pay &gt; 91150:\n        tax += (pay - 91150) * .28\n        pay = 91150\n    if pay &gt; 37650:\n        tax += (pay - 37650) * .25\n        pay = 37650\n    if pay &gt; 9275:\n        tax += (pay - 9275) * .15\n        pay = 9275\n    return tax + pay * .1\n\n\n\ndef single_tax(pay):\n    tax_policy = [\n        [415050, .396], \n        [413350, .35],\n        [190150, .33],\n        [91150, .28],\n        [37650, .25],\n        [9275, .15]\n    ]\n    tax = 0\n    for bracket in tax_policy:\n        if pay &gt; bracket[0]:\n            tax += (pay - bracket[0]) * bracket[1]\n            pay = bracket[0]\n    return tax + pay * .1"
+  },
+  {
+    "objectID": "02_neovim.rjs.html#tedious-to-type",
+    "href": "02_neovim.rjs.html#tedious-to-type",
+    "title": "Neovim",
+    "section": "Tedious to Type",
+    "text": "Tedious to Type\nPS C:\\Users\\calvin&gt; python\nPython 3.12.5 (tags/v3.12.5:ff3bc82, Aug  6 2024, 20:45:27) [MSC v.1940 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n&gt;&gt;&gt; def single_tax(pay):\n...     tax_policy = [\n...         [415050, .396],\n...         [413350, .35],\n...         [190150, .33],\n...         [91150, .28],\n...         [37650, .25],\n...         [9275, .15]\n...     ]\n...     tax = 0\n...     for bracket in tax_policy:\n...         if pay &gt; bracket[0]:\n...             tax += (pay - bracket[0]) * bracket[1]\n...             pay = bracket[0]\n...     return tax + pay * .1\n...\n&gt;&gt;&gt; single_tax(400000)\n115529.25\n&gt;&gt;&gt;"
+  },
+  {
+    "objectID": "02_neovim.rjs.html#instead-.py-files",
+    "href": "02_neovim.rjs.html#instead-.py-files",
+    "title": "Neovim",
+    "section": "Instead: .py files",
+    "text": "Instead: .py files\n\nPython has an associated file type, the .py file.\n\nSimilar to .png (portable network graphic) for images\nSimilar to .pdf (portable document format) for papers"
+  },
+  {
+    "objectID": "02_neovim.rjs.html#test-based",
+    "href": "02_neovim.rjs.html#test-based",
+    "title": "Neovim",
+    "section": "Test-based",
+    "text": "Test-based\n\nThe .py file is much like a .txt file in that:\n\nIt is a small, lightweight file containing only typed characters.\nIt can be opened, edited, and viewed in many editors.\n\nThe .py file can save typed code to be used within python."
+  },
+  {
+    "objectID": "02_neovim.rjs.html#enter-neovim",
+    "href": "02_neovim.rjs.html#enter-neovim",
+    "title": "Neovim",
+    "section": "Enter Neovim",
+    "text": "Enter Neovim\n\nNeovim is a great way to edit text.\n\n\n\n\n\n\n\nGive it a shot!\n\n\nStudents often object to switching from WYSIWYG editors but:\n\nMany students know no other way to write text-based files, and\nWe’ve ample time this term to properly explore Neovim\n\nBe patient, but also work hard!"
+  },
+  {
+    "objectID": "02_neovim.rjs.html#installation",
+    "href": "02_neovim.rjs.html#installation",
+    "title": "Neovim",
+    "section": "Installation",
+    "text": "Installation\n\nWe go to the offial webpage to get an installer for our computer:\n\nhttps://neovim.io/\n\nNeovim offers a few more installation options than you may be used to.\nI recommend…"
+  },
+  {
+    "objectID": "02_neovim.rjs.html#install-from-download",
+    "href": "02_neovim.rjs.html#install-from-download",
+    "title": "Neovim",
+    "section": "Install from download",
+    "text": "Install from download\nDownloads are available on the Releases page.\n\nLatest stable release\n\nmacOS x86_64\nmacOS arm64\nLinux x86_64\nLinux arm64\nWindows"
+  },
+  {
+    "objectID": "02_neovim.rjs.html#terminal",
+    "href": "02_neovim.rjs.html#terminal",
+    "title": "Neovim",
+    "section": "Terminal",
+    "text": "Terminal\n\nOn MS Windows\n\nI press Windows key, type “terminal” then press enter.\n\nOn MacOS\n\nI open Launchpad, type “terminal” then press enter."
+  },
+  {
+    "objectID": "02_neovim.rjs.html#macos",
+    "href": "02_neovim.rjs.html#macos",
+    "title": "Neovim",
+    "section": "MacOS",
+    "text": "MacOS"
+  },
+  {
+    "objectID": "02_neovim.rjs.html#windows",
+    "href": "02_neovim.rjs.html#windows",
+    "title": "Neovim",
+    "section": "Windows",
+    "text": "Windows"
+  },
+  {
+    "objectID": "02_neovim.rjs.html#expression-evaluation",
+    "href": "02_neovim.rjs.html#expression-evaluation",
+    "title": "Neovim",
+    "section": "Expression evaluation",
+    "text": "Expression evaluation\n\nReturning to the terminal, we can type at the “prompt”.\nOn MacOS, perhaps a line that begins with $ and a flashing cursor\nOn Window, perhaps PS C:\\Users\\calvin&gt;\n\nPS stands for “powershell” - more latter.\nC:\\Users\\calvin is the name of a folder - more latter\n&gt; is the prompt, with a flashing cursor."
+  },
+  {
+    "objectID": "02_neovim.rjs.html#run-neovim",
+    "href": "02_neovim.rjs.html#run-neovim",
+    "title": "Neovim",
+    "section": "Run Neovim",
+    "text": "Run Neovim\nIn the following examples, I remove line numbers to denote they are not Python code snippets.\n\nOn MacOS, type nvim\n\n\n\nMacOS\n\n$ nvim\n\n\nOn Windows, type nvim\n\n\n\nWindows\n\nPS C:\\Users\\calvin&gt; nvim\n\n\nOn both, press the ↵ᴇɴᴛᴇʀ key."
+  },
+  {
+    "objectID": "02_neovim.rjs.html#see-neovim",
+    "href": "02_neovim.rjs.html#see-neovim",
+    "title": "Neovim",
+    "section": "See Neovim",
+    "text": "See Neovim\n\nYou’ll see something like this:\n\n                  NVIM v0.11.1\n\n  Nvim is open source and freely distributable\n           https://neovim.io/#chat\n\n type :help nvim&lt;Enter&gt;               if you are new!\n type :checkhealth&lt;Enter&gt;             to optimize Nvim\n type :q&lt;Enter&gt;                       to exit\n type :help&lt;Enter&gt;                    for help\n\ntype :help news&lt;Enter&gt; to see changes in v0.11\n\n        Help poor children in Uganda!\n type :help iccf&lt;Enter&gt;               for information"
+  },
+  {
+    "objectID": "02_neovim.rjs.html#modality",
+    "href": "02_neovim.rjs.html#modality",
+    "title": "Neovim",
+    "section": "Modality",
+    "text": "Modality\n\nnvim is a modal text editor\nBy default, typed characters will not appear in the document.\nRather, by default, we being in command mode.\nWe won’t worry about that too much, but the first command to learn is\n\ni\n\ni for insert"
+  },
+  {
+    "objectID": "02_neovim.rjs.html#insert-mode",
+    "href": "02_neovim.rjs.html#insert-mode",
+    "title": "Neovim",
+    "section": "Insert Mode",
+    "text": "Insert Mode\n\nBy the way, you should see -- INSERT -- at the bottom of the terminal window.\nInsert mode is not unlike WYSIWYG\nUse it prolificly until you are more comfortable.\nNavigate with arrow keys or (depending on system) mouse\nFor now, let’s copy paste in the piecewise function."
+  },
+  {
+    "objectID": "02_neovim.rjs.html#piecewise",
+    "href": "02_neovim.rjs.html#piecewise",
+    "title": "Neovim",
+    "section": "Piecewise",
+    "text": "Piecewise\n\nFor me, basic copy/paste commands like:\n\nctrl/cmd+c, ctrl/cmd+v\nrclick-&gt;menu-&gt;copy\n\nWorked amicably in i insert mode\n\ndef piecewise(x):\n    if (x &lt; 4):\n        return 9 * x ** 2 + 5\n    elif (4 &lt;= x &lt;= 8):\n        return 9\n    elif (x &gt; 8):\n        return 2 - x"
+  },
+  {
+    "objectID": "02_neovim.rjs.html#command-mode",
+    "href": "02_neovim.rjs.html#command-mode",
+    "title": "Neovim",
+    "section": "Command Mode",
+    "text": "Command Mode\n\nHaving written some text, we now need to save it to a file.\nPress : to return to command mode\nYour cursor will move the bottom of the terminal, where -- INSERT -- was"
+  },
+  {
+    "objectID": "02_neovim.rjs.html#issuing-commands",
+    "href": "02_neovim.rjs.html#issuing-commands",
+    "title": "Neovim",
+    "section": "Issuing commands",
+    "text": "Issuing commands\n\nAfter : type w (write) and the name of the file\nInclude the .py ending!\nI wrote:\n\n:w pw.py"
+  },
+  {
+    "objectID": "02_neovim.rjs.html#save-and-quit",
+    "href": "02_neovim.rjs.html#save-and-quit",
+    "title": "Neovim",
+    "section": "Save and Quit",
+    "text": "Save and Quit\n\nYou can always use :w to save while working.\nMake any edits you make need to make - a missed paren perhaps.\nThen both save and exit nvim with :x\n\nThis special command saves the file and exists nvim\n\nYou will return to the command line you started with, likely without incident.\n\nBut there will now be a new file you can use!"
+  },
+  {
+    "objectID": "02_neovim.rjs.html#back-in-terminal",
+    "href": "02_neovim.rjs.html#back-in-terminal",
+    "title": "Neovim",
+    "section": "Back in Terminal",
+    "text": "Back in Terminal\n\nOn MacOS, you’ll see nvim and a new prompt\n\n\n\nMacOS\n\n$ nvim\n$\n\n\nOn Windows, the same\n\n\n\nWindows\n\nPS C:\\Users\\calvin&gt; nvim\nPS C:\\Users\\calvin&gt;"
+  },
+  {
+    "objectID": "02_neovim.rjs.html#aside-terminal-commands",
+    "href": "02_neovim.rjs.html#aside-terminal-commands",
+    "title": "Neovim",
+    "section": "Aside: Terminal Commands",
+    "text": "Aside: Terminal Commands\n\nLike Python and Neovim, there are also terminal commands!\n\nTwo are python/python3 and neovim!\n\nAnother is ls, which stands for “list”\n\nThis command has been around so long, it is from an era when commands were shorter to save precious computer memory!\n\nIt “lists” local files, and can list them by name!"
+  },
+  {
+    "objectID": "02_neovim.rjs.html#aside-using-ls",
+    "href": "02_neovim.rjs.html#aside-using-ls",
+    "title": "Neovim",
+    "section": "Aside: Using ls",
+    "text": "Aside: Using ls\n\nTry out this command, to see that you have a pw.py file!\n\n$ ls pw.py\n\nWhat do you see (different on Windows and MacOS)?"
+  },
+  {
+    "objectID": "02_neovim.rjs.html#checkpoint",
+    "href": "02_neovim.rjs.html#checkpoint",
+    "title": "Neovim",
+    "section": "Checkpoint",
+    "text": "Checkpoint\n\nIf you do not have a pw.py file, stop here until you have one!\n\n\n\nWindows\n\nPS C:\\Users\\calvin&gt; ls pw.py\n\n\n    Directory: C:\\Users\\cd-desk\n\n\nMode                 LastWriteTime         Length Name\n----                 -------------         ------ ----\n-a----         5/20/2025   3:21 PM            151 pw.py\n\n\n\nMacOS\n\n$ ls pw.py\npw.py\n$"
+  },
+  {
+    "objectID": "02_neovim.rjs.html#py-files",
+    "href": "02_neovim.rjs.html#py-files",
+    "title": "Neovim",
+    "section": ".py files",
+    "text": ".py files\n\nThere are two common ways to use .py files\nI believe the most common is via import\nTo begin, at the command line, start Pythoni\nOn Windows, type python\n\n\n\nWindows\n\nPS C:\\Users\\calvin&gt; python\n\n\nOn MacOS, type python3\n\n\n\nMacOS\n\n$ python3\n\n\nOn both, press the ↵ᴇɴᴛᴇʀ key."
+  },
+  {
+    "objectID": "02_neovim.rjs.html#see-python",
+    "href": "02_neovim.rjs.html#see-python",
+    "title": "Neovim",
+    "section": "See Python",
+    "text": "See Python\n\nYou’ll see something like this:\n\nPython 3.12.5 (tags/v3.12.5:ff3bc82, Aug  6 2024, 20:45:27) [MSC v.1940 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n&gt;&gt;&gt;\n\nTake note of the prompt!\n&gt;&gt;&gt;\nThose three are how you know it is Python, and not the Terminal, that you are working in."
+  },
+  {
+    "objectID": "02_neovim.rjs.html#import",
+    "href": "02_neovim.rjs.html#import",
+    "title": "Neovim",
+    "section": "Import",
+    "text": "Import\n\nVersus last time, we now have a piecewise function written in a .py file we can reference.\nTo do so, we:\n\nType import followed by a space\nType the filename less the .py extension\nIt should look like this:\n\n\nPS C:\\Users\\calvin&gt; python\nPython 3.12.5 (tags/v3.12.5:ff3bc82, Aug  6 2024, 20:45:27) [MSC v.1940 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n&gt;&gt;&gt; import pw\n&gt;&gt;&gt;"
+  },
+  {
+    "objectID": "02_neovim.rjs.html#modules",
+    "href": "02_neovim.rjs.html#modules",
+    "title": "Neovim",
+    "section": "Modules",
+    "text": "Modules\n\nimport pw will introduce a new variable to Python to which we can refer by name (pw)\nIt is of a new type for us, “module”\n\n&gt;&gt;&gt; type(pw)\n&lt;class 'module'&gt;\n\nModules correspond to .py files!\n\n&gt;&gt;&gt; pw\n&lt;module 'pw' from 'C:\\\\Users\\\\calvin\\\\pw.py'&gt;\n\n(The from will look different on different computers)"
+  },
+  {
+    "objectID": "02_neovim.rjs.html#importing-functions",
+    "href": "02_neovim.rjs.html#importing-functions",
+    "title": "Neovim",
+    "section": "Importing Functions",
+    "text": "Importing Functions\n\nWe can use functions inside modules in a few ways.\nFirst, we can use the module name (pw) followed by a dot or period (.) followed by the name of the function.\n\n&gt;&gt;&gt; pw.piecewise(-1)\n14"
+  },
+  {
+    "objectID": "02_neovim.rjs.html#renaming-functions",
+    "href": "02_neovim.rjs.html#renaming-functions",
+    "title": "Neovim",
+    "section": "Renaming Functions",
+    "text": "Renaming Functions\n\nSecond, we can just use single equals assignment\n\n&gt;&gt;&gt; piecewise = pw.piecewise\n&gt;&gt;&gt; piecewise(4)\n9"
+  },
+  {
+    "objectID": "02_neovim.rjs.html#using-from",
+    "href": "02_neovim.rjs.html#using-from",
+    "title": "Neovim",
+    "section": "Using from",
+    "text": "Using from\n\nThird, we can use the from keyword in our import.\n\nThis is by far preferred (it is more clear)\n\n&gt;&gt;&gt; from pw import piecewise\n&gt;&gt;&gt; piecewise(11)\n-9\nI only show you the other methods to make it clear what this method is doing."
+  },
+  {
+    "objectID": "02_neovim.html",
+    "href": "02_neovim.html",
+    "title": "Neovim",
+    "section": "",
+    "text": "Neovim is free,\nNeovim is very widely available,\nNeovim is highly customizable,\nNeovim is stable, year-on-year,\nand Neovim is quite powerful.\n\nWatch more\n\n\n\n\nModal - it is not a “What you see is what you get” (WYSIWYG) editor like MS Word, Google Docs, Notepad, or VS Code\nTerminal-based - it is used within the terminal and not often as a stand-alone program.\nSteep-learning curve - students generally find it difficult to get started, though it is widely briefed by experienced users",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#on-neovim",
+    "href": "02_neovim.html#on-neovim",
+    "title": "Neovim",
+    "section": "",
+    "text": "Neovim is free,\nNeovim is very widely available,\nNeovim is highly customizable,\nNeovim is stable, year-on-year,\nand Neovim is quite powerful.\n\nWatch more",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#why-not-neovim",
+    "href": "02_neovim.html#why-not-neovim",
+    "title": "Neovim",
+    "section": "",
+    "text": "Modal - it is not a “What you see is what you get” (WYSIWYG) editor like MS Word, Google Docs, Notepad, or VS Code\nTerminal-based - it is used within the terminal and not often as a stand-alone program.\nSteep-learning curve - students generally find it difficult to get started, though it is widely briefed by experienced users",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#diving-in",
+    "href": "02_neovim.html#diving-in",
+    "title": "Neovim",
+    "section": "Diving In",
+    "text": "Diving In\n\nTaking Neovim as a given, we’ll:\n\nContinue the piecewise functions example\nTouch on Python and the terminal in the context of Neovim\nIntroduce Neovim modes, motions, and operators.\n\nSpoilers for the last exercise!",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#exercise",
+    "href": "02_neovim.html#exercise",
+    "title": "Neovim",
+    "section": "Exercise",
+    "text": "Exercise\n\n\n\nWrite function\ndef single_tax(pay):\nReturn tax cost.\n\nReturn not print!\n\nBonus: Also write single_tax_rate which returns the percent tax rate at some income level.\n\n\n\n\n\nRate\nFrom\n\n\n\n\n10%\n0\n\n\n15%\n9275\n\n\n25%\n37650\n\n\n28%\n91150\n\n\n33%\n190150\n\n\n35%\n413350\n\n\n39.6%\n415050",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#solutions",
+    "href": "02_neovim.html#solutions",
+    "title": "Neovim",
+    "section": "Solutions",
+    "text": "Solutions\n\n\n\ndef single_tax(pay):\n    tax = 0\n    if pay &gt; 415050:\n        tax += (pay - 415050) * .396\n        pay = 415050\n    if pay &gt; 413350:\n        tax += (pay - 413350) * .35\n        pay = 413350\n    if pay &gt; 190150:\n        tax += (pay - 190150) * .33\n        pay = 190150\n    if pay &gt; 91150:\n        tax += (pay - 91150) * .28\n        pay = 91150\n    if pay &gt; 37650:\n        tax += (pay - 37650) * .25\n        pay = 37650\n    if pay &gt; 9275:\n        tax += (pay - 9275) * .15\n        pay = 9275\n    return tax + pay * .1\n\n\n\ndef single_tax(pay):\n    tax_policy = [\n        [415050, .396], \n        [413350, .35],\n        [190150, .33],\n        [91150, .28],\n        [37650, .25],\n        [9275, .15]\n    ]\n    tax = 0\n    for bracket in tax_policy:\n        if pay &gt; bracket[0]:\n            tax += (pay - bracket[0]) * bracket[1]\n            pay = bracket[0]\n    return tax + pay * .1",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#tedious-to-type",
+    "href": "02_neovim.html#tedious-to-type",
+    "title": "Neovim",
+    "section": "Tedious to Type",
+    "text": "Tedious to Type\nPS C:\\Users\\calvin&gt; python\nPython 3.12.5 (tags/v3.12.5:ff3bc82, Aug  6 2024, 20:45:27) [MSC v.1940 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n&gt;&gt;&gt; def single_tax(pay):\n...     tax_policy = [\n...         [415050, .396],\n...         [413350, .35],\n...         [190150, .33],\n...         [91150, .28],\n...         [37650, .25],\n...         [9275, .15]\n...     ]\n...     tax = 0\n...     for bracket in tax_policy:\n...         if pay &gt; bracket[0]:\n...             tax += (pay - bracket[0]) * bracket[1]\n...             pay = bracket[0]\n...     return tax + pay * .1\n...\n&gt;&gt;&gt; single_tax(400000)\n115529.25\n&gt;&gt;&gt;",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#instead-.py-files",
+    "href": "02_neovim.html#instead-.py-files",
+    "title": "Neovim",
+    "section": "Instead: .py files",
+    "text": "Instead: .py files\n\nPython has an associated file type, the .py file.\n\nSimilar to .png (portable network graphic) for images\nSimilar to .pdf (portable document format) for papers",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#test-based",
+    "href": "02_neovim.html#test-based",
+    "title": "Neovim",
+    "section": "Test-based",
+    "text": "Test-based\n\nThe .py file is much like a .txt file in that:\n\nIt is a small, lightweight file containing only typed characters.\nIt can be opened, edited, and viewed in many editors.\n\nThe .py file can save typed code to be used within python.",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#enter-neovim",
+    "href": "02_neovim.html#enter-neovim",
+    "title": "Neovim",
+    "section": "Enter Neovim",
+    "text": "Enter Neovim\n\nNeovim is a great way to edit text.\n\n\n\n\n\n\n\nGive it a shot!\n\n\n\nStudents often object to switching from WYSIWYG editors but:\n\nMany students know no other way to write text-based files, and\nWe’ve ample time this term to properly explore Neovim\n\nBe patient, but also work hard!",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#installation",
+    "href": "02_neovim.html#installation",
+    "title": "Neovim",
+    "section": "Installation",
+    "text": "Installation\n\nWe go to the offial webpage to get an installer for our computer:\n\nhttps://neovim.io/\n\nNeovim offers a few more installation options than you may be used to.\nI recommend…",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#install-from-download",
+    "href": "02_neovim.html#install-from-download",
+    "title": "Neovim",
+    "section": "Install from download",
+    "text": "Install from download\nDownloads are available on the Releases page.\n\nLatest stable release\n\nmacOS x86_64\nmacOS arm64\nLinux x86_64\nLinux arm64\nWindows",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#terminal",
+    "href": "02_neovim.html#terminal",
+    "title": "Neovim",
+    "section": "Terminal",
+    "text": "Terminal\n\nOn MS Windows\n\nI press Windows key, type “terminal” then press enter.\n\nOn MacOS\n\nI open Launchpad, type “terminal” then press enter.",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#macos",
+    "href": "02_neovim.html#macos",
+    "title": "Neovim",
+    "section": "MacOS",
+    "text": "MacOS",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#windows",
+    "href": "02_neovim.html#windows",
+    "title": "Neovim",
+    "section": "Windows",
+    "text": "Windows",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#expression-evaluation",
+    "href": "02_neovim.html#expression-evaluation",
+    "title": "Neovim",
+    "section": "Expression evaluation",
+    "text": "Expression evaluation\n\nReturning to the terminal, we can type at the “prompt”.\nOn MacOS, perhaps a line that begins with $ and a flashing cursor\nOn Window, perhaps PS C:\\Users\\calvin&gt;\n\nPS stands for “powershell” - more latter.\nC:\\Users\\calvin is the name of a folder - more latter\n&gt; is the prompt, with a flashing cursor.",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#run-neovim",
+    "href": "02_neovim.html#run-neovim",
+    "title": "Neovim",
+    "section": "Run Neovim",
+    "text": "Run Neovim\nIn the following examples, I remove line numbers to denote they are not Python code snippets.\n\nOn MacOS, type nvim\n\n\n\nMacOS\n\n$ nvim\n\n\nOn Windows, type nvim\n\n\n\nWindows\n\nPS C:\\Users\\calvin&gt; nvim\n\n\nOn both, press the ↵ᴇɴᴛᴇʀ key.",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#see-neovim",
+    "href": "02_neovim.html#see-neovim",
+    "title": "Neovim",
+    "section": "See Neovim",
+    "text": "See Neovim\n\nYou’ll see something like this:\n\n                  NVIM v0.11.1\n\n  Nvim is open source and freely distributable\n           https://neovim.io/#chat\n\n type :help nvim&lt;Enter&gt;               if you are new!\n type :checkhealth&lt;Enter&gt;             to optimize Nvim\n type :q&lt;Enter&gt;                       to exit\n type :help&lt;Enter&gt;                    for help\n\ntype :help news&lt;Enter&gt; to see changes in v0.11\n\n        Help poor children in Uganda!\n type :help iccf&lt;Enter&gt;               for information",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#modality",
+    "href": "02_neovim.html#modality",
+    "title": "Neovim",
+    "section": "Modality",
+    "text": "Modality\n\nnvim is a modal text editor\nBy default, typed characters will not appear in the document.\nRather, by default, we being in command mode.\nWe won’t worry about that too much, but the first command to learn is\n\ni\n\ni for insert",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#insert-mode",
+    "href": "02_neovim.html#insert-mode",
+    "title": "Neovim",
+    "section": "Insert Mode",
+    "text": "Insert Mode\n\nBy the way, you should see -- INSERT -- at the bottom of the terminal window.\nInsert mode is not unlike WYSIWYG\nUse it prolificly until you are more comfortable.\nNavigate with arrow keys or (depending on system) mouse\nFor now, let’s copy paste in the piecewise function.",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#piecewise",
+    "href": "02_neovim.html#piecewise",
+    "title": "Neovim",
+    "section": "Piecewise",
+    "text": "Piecewise\n\nFor me, basic copy/paste commands like:\n\nctrl/cmd+c, ctrl/cmd+v\nrclick-&gt;menu-&gt;copy\n\nWorked amicably in i insert mode\n\ndef piecewise(x):\n    if (x &lt; 4):\n        return 9 * x ** 2 + 5\n    elif (4 &lt;= x &lt;= 8):\n        return 9\n    elif (x &gt; 8):\n        return 2 - x",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#command-mode",
+    "href": "02_neovim.html#command-mode",
+    "title": "Neovim",
+    "section": "Command Mode",
+    "text": "Command Mode\n\nHaving written some text, we now need to save it to a file.\nPress : to return to command mode\nYour cursor will move the bottom of the terminal, where -- INSERT -- was",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#issuing-commands",
+    "href": "02_neovim.html#issuing-commands",
+    "title": "Neovim",
+    "section": "Issuing commands",
+    "text": "Issuing commands\n\nAfter : type w (write) and the name of the file\nInclude the .py ending!\nI wrote:\n\n:w pw.py",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#save-and-quit",
+    "href": "02_neovim.html#save-and-quit",
+    "title": "Neovim",
+    "section": "Save and Quit",
+    "text": "Save and Quit\n\nYou can always use :w to save while working.\nMake any edits you make need to make - a missed paren perhaps.\nThen both save and exit nvim with :x\n\nThis special command saves the file and exists nvim\n\nYou will return to the command line you started with, likely without incident.\n\nBut there will now be a new file you can use!",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#back-in-terminal",
+    "href": "02_neovim.html#back-in-terminal",
+    "title": "Neovim",
+    "section": "Back in Terminal",
+    "text": "Back in Terminal\n\nOn MacOS, you’ll see nvim and a new prompt\n\n\n\nMacOS\n\n$ nvim\n$\n\n\nOn Windows, the same\n\n\n\nWindows\n\nPS C:\\Users\\calvin&gt; nvim\nPS C:\\Users\\calvin&gt;",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#aside-terminal-commands",
+    "href": "02_neovim.html#aside-terminal-commands",
+    "title": "Neovim",
+    "section": "Aside: Terminal Commands",
+    "text": "Aside: Terminal Commands\n\nLike Python and Neovim, there are also terminal commands!\n\nTwo are python/python3 and neovim!\n\nAnother is ls, which stands for “list”\n\nThis command has been around so long, it is from an era when commands were shorter to save precious computer memory!\n\nIt “lists” local files, and can list them by name!",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#aside-using-ls",
+    "href": "02_neovim.html#aside-using-ls",
+    "title": "Neovim",
+    "section": "Aside: Using ls",
+    "text": "Aside: Using ls\n\nTry out this command, to see that you have a pw.py file!\n\n$ ls pw.py\n\nWhat do you see (different on Windows and MacOS)?",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#checkpoint",
+    "href": "02_neovim.html#checkpoint",
+    "title": "Neovim",
+    "section": "Checkpoint",
+    "text": "Checkpoint\n\nIf you do not have a pw.py file, stop here until you have one!\n\n\n\nWindows\n\nPS C:\\Users\\calvin&gt; ls pw.py\n\n\n    Directory: C:\\Users\\cd-desk\n\n\nMode                 LastWriteTime         Length Name\n----                 -------------         ------ ----\n-a----         5/20/2025   3:21 PM            151 pw.py\n\n\n\nMacOS\n\n$ ls pw.py\npw.py\n$",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#py-files",
+    "href": "02_neovim.html#py-files",
+    "title": "Neovim",
+    "section": ".py files",
+    "text": ".py files\n\nThere are two common ways to use .py files\nI believe the most common is via import\nTo begin, at the command line, start Pythoni\nOn Windows, type python\n\n\n\nWindows\n\nPS C:\\Users\\calvin&gt; python\n\n\nOn MacOS, type python3\n\n\n\nMacOS\n\n$ python3\n\n\nOn both, press the ↵ᴇɴᴛᴇʀ key.",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#see-python",
+    "href": "02_neovim.html#see-python",
+    "title": "Neovim",
+    "section": "See Python",
+    "text": "See Python\n\nYou’ll see something like this:\n\nPython 3.12.5 (tags/v3.12.5:ff3bc82, Aug  6 2024, 20:45:27) [MSC v.1940 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n&gt;&gt;&gt;\n\nTake note of the prompt!\n&gt;&gt;&gt;\nThose three are how you know it is Python, and not the Terminal, that you are working in.",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#import",
+    "href": "02_neovim.html#import",
+    "title": "Neovim",
+    "section": "Import",
+    "text": "Import\n\nVersus last time, we now have a piecewise function written in a .py file we can reference.\nTo do so, we:\n\nType import followed by a space\nType the filename less the .py extension\nIt should look like this:\n\n\nPS C:\\Users\\calvin&gt; python\nPython 3.12.5 (tags/v3.12.5:ff3bc82, Aug  6 2024, 20:45:27) [MSC v.1940 64 bit (AMD64)] on win32\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n&gt;&gt;&gt; import pw\n&gt;&gt;&gt;",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#modules",
+    "href": "02_neovim.html#modules",
+    "title": "Neovim",
+    "section": "Modules",
+    "text": "Modules\n\nimport pw will introduce a new variable to Python to which we can refer by name (pw)\nIt is of a new type for us, “module”\n\n&gt;&gt;&gt; type(pw)\n&lt;class 'module'&gt;\n\nModules correspond to .py files!\n\n&gt;&gt;&gt; pw\n&lt;module 'pw' from 'C:\\\\Users\\\\calvin\\\\pw.py'&gt;\n\n(The from will look different on different computers)",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#importing-functions",
+    "href": "02_neovim.html#importing-functions",
+    "title": "Neovim",
+    "section": "Importing Functions",
+    "text": "Importing Functions\n\nWe can use functions inside modules in a few ways.\nFirst, we can use the module name (pw) followed by a dot or period (.) followed by the name of the function.\n\n&gt;&gt;&gt; pw.piecewise(-1)\n14",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#renaming-functions",
+    "href": "02_neovim.html#renaming-functions",
+    "title": "Neovim",
+    "section": "Renaming Functions",
+    "text": "Renaming Functions\n\nSecond, we can just use single equals assignment\n\n&gt;&gt;&gt; piecewise = pw.piecewise\n&gt;&gt;&gt; piecewise(4)\n9",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#using-from",
+    "href": "02_neovim.html#using-from",
+    "title": "Neovim",
+    "section": "Using from",
+    "text": "Using from\n\nThird, we can use the from keyword in our import.\n\nThis is by far preferred (it is more clear)\n\n&gt;&gt;&gt; from pw import piecewise\n&gt;&gt;&gt; piecewise(11)\n-9\nI only show you the other methods to make it clear what this method is doing.",
+    "crumbs": [
+      "Neovim"
+    ]
   }
 ]

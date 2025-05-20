@@ -8,7 +8,7 @@
 
 <meta name="author" content="Prof.&nbsp;Calvin">
 
-<title>Scientific Computing in Python</title>
+<title>On Scientific Computing – Scientific Computing</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -81,7 +115,7 @@ ul.task-list li input[type="checkbox"] {
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
-      Scientific Computing in Python
+      Scientific Computing
       </li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
@@ -97,7 +131,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Scientific Computing in Python</a> 
+      <a href="./">Scientific Computing</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -113,6 +147,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Python</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02_neovim.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Neovim</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -126,6 +166,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">On Scientific Computing</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i></button></div></div>
 <p class="subtitle lead">Scientific Computing</p>
 </div>
 
@@ -149,10 +190,45 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="readme" class="level1 unnumbered">
-<h1 class="unnumbered">Readme</h1>
-<p>This self-documenting book introduces the usage of the Python technology stack with Quarto, VS Code, and GitHub for communicating results within the computational sciences.</p>
+<p><a href="https://cd-public.github.io/">I</a> created this book, of sorts, as I came across what I think to be a lack of combined “Scientific Computing” and “Scientific Publishing” (or, perhaps, typesetting) courses available that were: 1. Based in Python 2. Covered command line tools 3. Fully open source.</p>
+<p>I would remiss not to credit, by two biggest inspirations:</p>
+<ul>
+<li><a href="https://sbu-python-class.github.io/python-science/Introduction.html">PHY 546: Python for Scientific Computing</a></li>
+<li><a href="https://numericalmethodssullivan.github.io/">Numerical Methods: An Inquiry-Based Approach With Python</a>)</li>
+</ul>
+<p>You can view the source and see its history under various forms on <a href="https://github.com/cd-public/scicom">GitHub</a>.</p>
+<p>Were I a student, I would work through this book, chapter-wise, ensuring I can amicably complete the exercises at the end of each chapter and understand the solutions if they differ from mine (as they often will, given the variety of ways of solving scientific computing problems).</p>
+<p>Were I an instructor, as I am, I would either fork this repository and make any changes I wish, recompiling using <a href="https://quarto.org/">Quarto</a> and hosting via <a href="https://pages.github.com/">GitHub Pages</a>, or simply link directly to these pages and slidedecks. I suspect I will keep them up-to-date for some time!</p>
+<section id="core-scientific-computing-environment-and-tools" class="level2">
+<h2 class="anchored" data-anchor-id="core-scientific-computing-environment-and-tools">Core Scientific Computing Environment and Tools</h2>
+<ul>
+<li><strong>Topic 1:</strong> Utilize fundamental command-line tools (Bash) and a text editor (Neovim) for efficient scientific programming and workflow management.</li>
+<li><strong>Topic 2:</strong> Write and execute Python scripts for scientific computing tasks, demonstrating proficiency in basic Python syntax and structures.</li>
+</ul>
+</section>
+<section id="numerical-computation-and-data-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="numerical-computation-and-data-analysis">Numerical Computation and Data Analysis</h2>
+<ul>
+<li><strong>Topic 3:</strong> Apply advanced numerical methods and understand the properties of floating-point arithmetic for accurate scientific computations.</li>
+<li><strong>Topic 4:</strong> Implement and analyze high-performance computing techniques using Python libraries such as NumPy, SciPy, and SymPy for numerical analysis and symbolic mathematics.</li>
+<li><strong>Topic 5:</strong> Process, analyze, and visualize scientific datasets effectively using Pandas and Matplotlib.</li>
+</ul>
+</section>
+<section id="performance-optimization-for-scientific-code" class="level2">
+<h2 class="anchored" data-anchor-id="performance-optimization-for-scientific-code">Performance Optimization for Scientific Code</h2>
+<ul>
+<li><strong>Topic 6:</strong> Optimize the performance of scientific code using techniques like Just-In-Time (JIT) compilation with Numba, static compilation with Cython, and integration with Fortran.</li>
+<li><strong>Topic 7:</strong> Compare and contrast the strengths and weaknesses of different programming languages and tools for high-performance scientific computing.</li>
+</ul>
+</section>
+<section id="scientific-publishing-and-communication" class="level2">
+<h2 class="anchored" data-anchor-id="scientific-publishing-and-communication">Scientific Publishing and Communication</h2>
+<ul>
+<li><strong>Topic 8:</strong> Create professional scientific documents and presentations using markup languages and tools such as Markdown, HTML/CSS, LaTeX, Quarto, Typst, and Sphinx.</li>
+</ul>
 
+
+<!-- -->
 
 </section>
 
@@ -246,6 +322,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       container: window.document.getElementById('quarto-embedded-source-code-modal')
     });
     clipboardModal.on('success', onCopySuccess);
+  }
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
@@ -576,10 +703,51 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">---</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="an">title:</span><span class="co"> On Scientific Computing</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="co">---</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="co">[</span><span class="ot">I</span><span class="co">](https://cd-public.github.io/)</span> created this book, of sorts, as I came across what I think to be a lack of combined "Scientific Computing" and "Scientific Publishing" (or, perhaps, typesetting) courses available that were:</span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="ss">1. </span>Based in Python</span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="ss">2. </span>Covered command line tools</span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="ss">3. </span>Fully open source.</span>
+<span id="cb1-9"><a href="#cb1-9"></a></span>
+<span id="cb1-10"><a href="#cb1-10"></a>I would remiss not to credit, by two biggest inspirations:</span>
+<span id="cb1-11"><a href="#cb1-11"></a></span>
+<span id="cb1-12"><a href="#cb1-12"></a><span class="ss">- </span><span class="co">[</span><span class="ot">PHY 546: Python for Scientific Computing</span><span class="co">](https://sbu-python-class.github.io/python-science/Introduction.html)</span></span>
+<span id="cb1-13"><a href="#cb1-13"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Numerical Methods: An Inquiry-Based Approach With Python</span><span class="co">](https://numericalmethodssullivan.github.io/)</span>)</span>
+<span id="cb1-14"><a href="#cb1-14"></a></span>
+<span id="cb1-15"><a href="#cb1-15"></a>You can view the source and see its history under various forms on <span class="co">[</span><span class="ot">GitHub</span><span class="co">](https://github.com/cd-public/scicom)</span>.</span>
+<span id="cb1-16"><a href="#cb1-16"></a></span>
+<span id="cb1-17"><a href="#cb1-17"></a>Were I a student, I would work through this book, chapter-wise, ensuring I can amicably complete the exercises at the end of each chapter and understand the solutions if they differ from mine (as they often will, given the variety of ways of solving scientific computing problems).</span>
+<span id="cb1-18"><a href="#cb1-18"></a></span>
+<span id="cb1-19"><a href="#cb1-19"></a>Were I an instructor, as I am, I would either fork this repository and make any changes I wish, recompiling using <span class="co">[</span><span class="ot">Quarto</span><span class="co">](https://quarto.org/)</span> and hosting via <span class="co">[</span><span class="ot">GitHub Pages</span><span class="co">](https://pages.github.com/)</span>, or simply link directly to these pages and slidedecks. I suspect I will keep them up-to-date for some time!</span>
+<span id="cb1-20"><a href="#cb1-20"></a></span>
+<span id="cb1-21"><a href="#cb1-21"></a></span>
+<span id="cb1-22"><a href="#cb1-22"></a><span class="fu">## Core Scientific Computing Environment and Tools</span></span>
+<span id="cb1-23"><a href="#cb1-23"></a></span>
+<span id="cb1-24"><a href="#cb1-24"></a><span class="ss">* </span>**Topic 1:** Utilize fundamental command-line tools (Bash) and a text editor (Neovim) for efficient scientific programming and workflow management.</span>
+<span id="cb1-25"><a href="#cb1-25"></a><span class="ss">* </span>**Topic 2:** Write and execute Python scripts for scientific computing tasks, demonstrating proficiency in basic Python syntax and structures.</span>
+<span id="cb1-26"><a href="#cb1-26"></a></span>
+<span id="cb1-27"><a href="#cb1-27"></a><span class="fu">## Numerical Computation and Data Analysis</span></span>
+<span id="cb1-28"><a href="#cb1-28"></a></span>
+<span id="cb1-29"><a href="#cb1-29"></a><span class="ss">* </span>**Topic 3:** Apply advanced numerical methods and understand the properties of floating-point arithmetic for accurate scientific computations.</span>
+<span id="cb1-30"><a href="#cb1-30"></a><span class="ss">* </span>**Topic 4:** Implement and analyze high-performance computing techniques using Python libraries such as NumPy, SciPy, and SymPy for numerical analysis and symbolic mathematics.</span>
+<span id="cb1-31"><a href="#cb1-31"></a><span class="ss">* </span>**Topic 5:** Process, analyze, and visualize scientific datasets effectively using Pandas and Matplotlib.</span>
+<span id="cb1-32"><a href="#cb1-32"></a></span>
+<span id="cb1-33"><a href="#cb1-33"></a><span class="fu">## Performance Optimization for Scientific Code</span></span>
+<span id="cb1-34"><a href="#cb1-34"></a></span>
+<span id="cb1-35"><a href="#cb1-35"></a><span class="ss">* </span>**Topic 6:** Optimize the performance of scientific code using techniques like Just-In-Time (JIT) compilation with Numba, static compilation with Cython, and integration with Fortran.</span>
+<span id="cb1-36"><a href="#cb1-36"></a><span class="ss">* </span>**Topic 7:** Compare and contrast the strengths and weaknesses of different programming languages and tools for high-performance scientific computing.</span>
+<span id="cb1-37"><a href="#cb1-37"></a></span>
+<span id="cb1-38"><a href="#cb1-38"></a><span class="fu">## Scientific Publishing and Communication</span></span>
+<span id="cb1-39"><a href="#cb1-39"></a></span>
+<span id="cb1-40"><a href="#cb1-40"></a><span class="ss">* </span>**Topic 8:** Create professional scientific documents and presentations using markup languages and tools such as Markdown, HTML/CSS, LaTeX, Quarto, Typst, and Sphinx.</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/cd-public/scicom/blob/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/cd-public/scicom/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+</body></html>
