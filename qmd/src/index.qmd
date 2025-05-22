@@ -2,10 +2,15 @@
 title: On Scientific Computing
 ---
 
+# This "Book"
+
 [I](https://cd-public.github.io/) created this book, of sorts, as I came across what I think to be a lack of combined "Scientific Computing" and "Scientific Publishing" (or, perhaps, typesetting) courses available that were:
+
 1. Based in Python
 2. Covered command line tools
 3. Fully open source.
+
+# Credits
 
 I would remiss not to credit my two biggest inspirations:
 
@@ -14,27 +19,32 @@ I would remiss not to credit my two biggest inspirations:
 
 You can view the source and see its history under various forms on [GitHub](https://github.com/cd-public/scicom).
 
+# For Students
+
 Were I a student, I would work through this book, chapter-wise, ensuring I can amicably complete the exercises at the end of each chapter and understand the solutions if they differ from mine (as they often will, given the variety of ways of solving scientific computing problems).
+
+# For Instructors
 
 Were I an instructor, as I am, I would either fork this repository and make any changes I wish, recompiling using [Quarto](https://quarto.org/) and hosting via [GitHub Pages](https://pages.github.com/), or simply link directly to these pages and slidedecks. I suspect I will keep them up-to-date for some time!
 
+# Topics
 
-## Core Scientific Computing Environment and Tools
+## Scientific Computing Environment
 
 * **Topic 1:** Utilize fundamental command-line tools (Bash) and a text editor (Neovim) for efficient scientific programming and workflow management.
 * **Topic 2:** Write and execute Python scripts for scientific computing tasks, demonstrating proficiency in basic Python syntax and structures.
 
-## Numerical Computation and Data Analysis
+## Numerical Computation
 
 * **Topic 3:** Apply advanced numerical methods and understand the properties of floating-point arithmetic for accurate scientific computations.
 * **Topic 4:** Implement and analyze high-performance computing techniques using Python libraries such as NumPy, SciPy, and SymPy for numerical analysis and symbolic mathematics.
 * **Topic 5:** Process, analyze, and visualize scientific datasets effectively using Pandas and Matplotlib.
 
-## Performance Optimization for Scientific Code
+## Performance Optimization
 
 * **Topic 6:** Optimize the performance of scientific code using techniques like Just-In-Time (JIT) compilation with Numba, static compilation with Cython, and integration with Fortran.
 * **Topic 7:** Compare and contrast the strengths and weaknesses of different programming languages and tools for high-performance scientific computing.
 
-## Scientific Publishing and Communication
+## Scientific Publishing
 
 * **Topic 8:** Create professional scientific documents and presentations using markup languages and tools such as Markdown, HTML/CSS, LaTeX, Quarto, Typst, and Sphinx.

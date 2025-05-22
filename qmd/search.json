@@ -4,63 +4,63 @@
     "href": "index.html",
     "title": "On Scientific Computing",
     "section": "",
-    "text": "I created this book, of sorts, as I came across what I think to be a lack of combined “Scientific Computing” and “Scientific Publishing” (or, perhaps, typesetting) courses available that were: 1. Based in Python 2. Covered command line tools 3. Fully open source.\nI would remiss not to credit my two biggest inspirations:\nYou can view the source and see its history under various forms on GitHub.\nWere I a student, I would work through this book, chapter-wise, ensuring I can amicably complete the exercises at the end of each chapter and understand the solutions if they differ from mine (as they often will, given the variety of ways of solving scientific computing problems).\nWere I an instructor, as I am, I would either fork this repository and make any changes I wish, recompiling using Quarto and hosting via GitHub Pages, or simply link directly to these pages and slidedecks. I suspect I will keep them up-to-date for some time!"
+    "text": "I created this book, of sorts, as I came across what I think to be a lack of combined “Scientific Computing” and “Scientific Publishing” (or, perhaps, typesetting) courses available that were:\n\nBased in Python\nCovered command line tools\nFully open source."
   },
   {
-    "objectID": "index.html#core-scientific-computing-environment-and-tools",
-    "href": "index.html#core-scientific-computing-environment-and-tools",
+    "objectID": "index.html#scientific-computing-environment",
+    "href": "index.html#scientific-computing-environment",
     "title": "On Scientific Computing",
-    "section": "Core Scientific Computing Environment and Tools",
-    "text": "Core Scientific Computing Environment and Tools\n\nTopic 1: Utilize fundamental command-line tools (Bash) and a text editor (Neovim) for efficient scientific programming and workflow management.\nTopic 2: Write and execute Python scripts for scientific computing tasks, demonstrating proficiency in basic Python syntax and structures."
+    "section": "Scientific Computing Environment",
+    "text": "Scientific Computing Environment\n\nTopic 1: Utilize fundamental command-line tools (Bash) and a text editor (Neovim) for efficient scientific programming and workflow management.\nTopic 2: Write and execute Python scripts for scientific computing tasks, demonstrating proficiency in basic Python syntax and structures."
   },
   {
-    "objectID": "index.html#numerical-computation-and-data-analysis",
-    "href": "index.html#numerical-computation-and-data-analysis",
+    "objectID": "index.html#numerical-computation",
+    "href": "index.html#numerical-computation",
     "title": "On Scientific Computing",
-    "section": "Numerical Computation and Data Analysis",
-    "text": "Numerical Computation and Data Analysis\n\nTopic 3: Apply advanced numerical methods and understand the properties of floating-point arithmetic for accurate scientific computations.\nTopic 4: Implement and analyze high-performance computing techniques using Python libraries such as NumPy, SciPy, and SymPy for numerical analysis and symbolic mathematics.\nTopic 5: Process, analyze, and visualize scientific datasets effectively using Pandas and Matplotlib."
+    "section": "Numerical Computation",
+    "text": "Numerical Computation\n\nTopic 3: Apply advanced numerical methods and understand the properties of floating-point arithmetic for accurate scientific computations.\nTopic 4: Implement and analyze high-performance computing techniques using Python libraries such as NumPy, SciPy, and SymPy for numerical analysis and symbolic mathematics.\nTopic 5: Process, analyze, and visualize scientific datasets effectively using Pandas and Matplotlib."
   },
   {
-    "objectID": "index.html#performance-optimization-for-scientific-code",
-    "href": "index.html#performance-optimization-for-scientific-code",
+    "objectID": "index.html#performance-optimization",
+    "href": "index.html#performance-optimization",
     "title": "On Scientific Computing",
-    "section": "Performance Optimization for Scientific Code",
-    "text": "Performance Optimization for Scientific Code\n\nTopic 6: Optimize the performance of scientific code using techniques like Just-In-Time (JIT) compilation with Numba, static compilation with Cython, and integration with Fortran.\nTopic 7: Compare and contrast the strengths and weaknesses of different programming languages and tools for high-performance scientific computing."
+    "section": "Performance Optimization",
+    "text": "Performance Optimization\n\nTopic 6: Optimize the performance of scientific code using techniques like Just-In-Time (JIT) compilation with Numba, static compilation with Cython, and integration with Fortran.\nTopic 7: Compare and contrast the strengths and weaknesses of different programming languages and tools for high-performance scientific computing."
   },
   {
-    "objectID": "index.html#scientific-publishing-and-communication",
-    "href": "index.html#scientific-publishing-and-communication",
+    "objectID": "index.html#scientific-publishing",
+    "href": "index.html#scientific-publishing",
     "title": "On Scientific Computing",
-    "section": "Scientific Publishing and Communication",
-    "text": "Scientific Publishing and Communication\n\nTopic 8: Create professional scientific documents and presentations using markup languages and tools such as Markdown, HTML/CSS, LaTeX, Quarto, Typst, and Sphinx."
+    "section": "Scientific Publishing",
+    "text": "Scientific Publishing\n\nTopic 8: Create professional scientific documents and presentations using markup languages and tools such as Markdown, HTML/CSS, LaTeX, Quarto, Typst, and Sphinx."
   },
   {
-    "objectID": "index.rjs.html#core-scientific-computing-environment-and-tools",
-    "href": "index.rjs.html#core-scientific-computing-environment-and-tools",
+    "objectID": "index.rjs.html#scientific-computing-environment",
+    "href": "index.rjs.html#scientific-computing-environment",
     "title": "On Scientific Computing",
-    "section": "Core Scientific Computing Environment and Tools",
-    "text": "Core Scientific Computing Environment and Tools\n\nTopic 1: Utilize fundamental command-line tools (Bash) and a text editor (Neovim) for efficient scientific programming and workflow management.\nTopic 2: Write and execute Python scripts for scientific computing tasks, demonstrating proficiency in basic Python syntax and structures."
+    "section": "Scientific Computing Environment",
+    "text": "Scientific Computing Environment\n\nTopic 1: Utilize fundamental command-line tools (Bash) and a text editor (Neovim) for efficient scientific programming and workflow management.\nTopic 2: Write and execute Python scripts for scientific computing tasks, demonstrating proficiency in basic Python syntax and structures."
   },
   {
-    "objectID": "index.rjs.html#numerical-computation-and-data-analysis",
-    "href": "index.rjs.html#numerical-computation-and-data-analysis",
+    "objectID": "index.rjs.html#numerical-computation",
+    "href": "index.rjs.html#numerical-computation",
     "title": "On Scientific Computing",
-    "section": "Numerical Computation and Data Analysis",
-    "text": "Numerical Computation and Data Analysis\n\nTopic 3: Apply advanced numerical methods and understand the properties of floating-point arithmetic for accurate scientific computations.\nTopic 4: Implement and analyze high-performance computing techniques using Python libraries such as NumPy, SciPy, and SymPy for numerical analysis and symbolic mathematics.\nTopic 5: Process, analyze, and visualize scientific datasets effectively using Pandas and Matplotlib."
+    "section": "Numerical Computation",
+    "text": "Numerical Computation\n\nTopic 3: Apply advanced numerical methods and understand the properties of floating-point arithmetic for accurate scientific computations.\nTopic 4: Implement and analyze high-performance computing techniques using Python libraries such as NumPy, SciPy, and SymPy for numerical analysis and symbolic mathematics.\nTopic 5: Process, analyze, and visualize scientific datasets effectively using Pandas and Matplotlib."
   },
   {
-    "objectID": "index.rjs.html#performance-optimization-for-scientific-code",
-    "href": "index.rjs.html#performance-optimization-for-scientific-code",
+    "objectID": "index.rjs.html#performance-optimization",
+    "href": "index.rjs.html#performance-optimization",
     "title": "On Scientific Computing",
-    "section": "Performance Optimization for Scientific Code",
-    "text": "Performance Optimization for Scientific Code\n\nTopic 6: Optimize the performance of scientific code using techniques like Just-In-Time (JIT) compilation with Numba, static compilation with Cython, and integration with Fortran.\nTopic 7: Compare and contrast the strengths and weaknesses of different programming languages and tools for high-performance scientific computing."
+    "section": "Performance Optimization",
+    "text": "Performance Optimization\n\nTopic 6: Optimize the performance of scientific code using techniques like Just-In-Time (JIT) compilation with Numba, static compilation with Cython, and integration with Fortran.\nTopic 7: Compare and contrast the strengths and weaknesses of different programming languages and tools for high-performance scientific computing."
   },
   {
-    "objectID": "index.rjs.html#scientific-publishing-and-communication",
-    "href": "index.rjs.html#scientific-publishing-and-communication",
+    "objectID": "index.rjs.html#scientific-publishing",
+    "href": "index.rjs.html#scientific-publishing",
     "title": "On Scientific Computing",
-    "section": "Scientific Publishing and Communication",
-    "text": "Scientific Publishing and Communication\n\nTopic 8: Create professional scientific documents and presentations using markup languages and tools such as Markdown, HTML/CSS, LaTeX, Quarto, Typst, and Sphinx."
+    "section": "Scientific Publishing",
+    "text": "Scientific Publishing\n\nTopic 8: Create professional scientific documents and presentations using markup languages and tools such as Markdown, HTML/CSS, LaTeX, Quarto, Typst, and Sphinx."
   },
   {
     "objectID": "01_python.html",
@@ -1264,28 +1264,35 @@
     "href": "02_neovim.rjs.html#piecewise",
     "title": "Neovim",
     "section": "Piecewise",
-    "text": "Piecewise\n\nFor me, basic copy/paste commands like:\n\nctrl/cmd+c, ctrl/cmd+v\nrclick-&gt;menu-&gt;copy\n\nWorked amicably in i insert mode\n\ndef piecewise(x):\n    if (x &lt; 4):\n        return 9 * x ** 2 + 5\n    elif (4 &lt;= x &lt;= 8):\n        return 9\n    elif (x &gt; 8):\n        return 2 - x"
+    "text": "Piecewise\n\nFor me, basic copy/paste commands like:\n\nctrl/cmd+c, ctrl/cmd+v\nrclick-&gt;menu-&gt;copy\n\nWorked amicably in i insert mode\n\n\n\npw.py\n\ndef piecewise(x):\n    if (x &lt; 4):\n        return 9 * x ** 2 + 5\n    elif (4 &lt;= x &lt;= 8):\n        return 9\n    elif (x &gt; 8):\n        return 2 - x\n\n\nFor .py files I’ll include line numbers but add a filename on top."
   },
   {
     "objectID": "02_neovim.rjs.html#command-mode",
     "href": "02_neovim.rjs.html#command-mode",
     "title": "Neovim",
     "section": "Command Mode",
-    "text": "Command Mode\n\nHaving written some text, we now need to save it to a file.\nPress : to return to command mode\nYour cursor will move the bottom of the terminal, where -- INSERT -- was"
+    "text": "Command Mode\n\nHaving written some text, we now need to save it to a file.\nPress the “ESC” (Escape) key to return to command mode\nYour cursor will move the bottom of the terminal, where -- INSERT -- was"
+  },
+  {
+    "objectID": "02_neovim.rjs.html#remember",
+    "href": "02_neovim.rjs.html#remember",
+    "title": "Neovim",
+    "section": "Remember!",
+    "text": "Remember!\n\n\n\n\n\n\nRemember to press escape!\n\n\n\nIn nvim examples today, it will not always be easy to make a note of when to press escape!\nAs a rule, use escape before anytime you try to do something (exit, save)\nThese “do things” usually are : prefixed\nPress i to get back to typing (insert mode)"
   },
   {
     "objectID": "02_neovim.rjs.html#issuing-commands",
     "href": "02_neovim.rjs.html#issuing-commands",
     "title": "Neovim",
     "section": "Issuing commands",
-    "text": "Issuing commands\n\nAfter : type w (write) and the name of the file\nInclude the .py ending!\nI wrote:\n\n:w pw.py"
+    "text": "Issuing commands\n\nAfter :w (write) and the name of the file\nInclude the .py ending!\nI wrote:\n\n:w pw.py"
   },
   {
     "objectID": "02_neovim.rjs.html#save-and-quit",
     "href": "02_neovim.rjs.html#save-and-quit",
     "title": "Neovim",
     "section": "Save and Quit",
-    "text": "Save and Quit\n\nYou can always use :w to save while working.\nMake any edits you make need to make - a missed paren perhaps.\nThen both save and exit nvim with :x\n\nThis special command saves the file and exists nvim\n\nYou will return to the command line you started with, likely without incident.\n\nBut there will now be a new file you can use!"
+    "text": "Save and Quit\n\nYou can always use :w to save while working.\nMake any edits you make need to make - a missed paren perhaps.\nThen both save and exit nvim with :x\n\nThis special command saves the file and exits nvim\n\nYou will return to the command line you started with, likely without incident.\n\nBut there will now be a new file you can use!"
   },
   {
     "objectID": "02_neovim.rjs.html#back-in-terminal",
@@ -1299,7 +1306,7 @@
     "href": "02_neovim.rjs.html#aside-terminal-commands",
     "title": "Neovim",
     "section": "Aside: Terminal Commands",
-    "text": "Aside: Terminal Commands\n\nLike Python and Neovim, there are also terminal commands!\n\nTwo are python/python3 and neovim!\n\nAnother is ls, which stands for “list”\n\nThis command has been around so long, it is from an era when commands were shorter to save precious computer memory!\n\nIt “lists” local files, and can list them by name!"
+    "text": "Aside: Terminal Commands\n\nLike Python and Neovim, there are also terminal commands!\n\nTwo are python/python3 and nvim!\n\nAnother is ls, which stands for “list”\n\nThis command has been around so long, it is from an era when commands were shorter to save precious computer memory!\n\nIt “lists” local files, and can list them by name!"
   },
   {
     "objectID": "02_neovim.rjs.html#aside-using-ls",
@@ -1362,28 +1369,224 @@
     "href": "02_neovim.rjs.html#using-from",
     "title": "Neovim",
     "section": "Using from",
-    "text": "Using from\n\nThird, we can use the from keyword in our import.\n\nThis is by far preferred (it is more clear)\n\n&gt;&gt;&gt; from pw import piecewise\n&gt;&gt;&gt; piecewise(11)\n-9\nI only show you the other methods to make it clear what this method is doing."
+    "text": "Using from\n\nThird, we can use the from keyword in our import.\n\nThis is by far preferred (it is more clear)\n\n\n&gt;&gt;&gt; from pw import piecewise\n&gt;&gt;&gt; piecewise(11)\n-9\n\nI only show you the other methods to make it clear what this method is doing."
+  },
+  {
+    "objectID": "02_neovim.rjs.html#exit-python",
+    "href": "02_neovim.rjs.html#exit-python",
+    "title": "Neovim",
+    "section": "Exit Python",
+    "text": "Exit Python\n\nOftentimes, we’ll run a bit of Python then want to go back to the command line to use nvim\n\n\n\n\n\n\n\nexit()\n\n\nYou can exit the Python &gt;&gt;&gt; prompt back to Windows &gt; or MacOS $ at any time:\n\nUse exit()\nUse quit()\nUse ctrl/cmd+z\n\nPractice starting and leaving Python a few times!"
   },
   {
     "objectID": "02_neovim.rjs.html#command-line-utilities",
     "href": "02_neovim.rjs.html#command-line-utilities",
     "title": "Neovim",
     "section": "Command Line Utilities",
-    "text": "Command Line Utilities\nI find the following tedious: 1. neovim 2. Write some code 3. :w somefile.py 4. :x 5. python 6. from somefile import somefunction 7. somefunction(x)"
+    "text": "Command Line Utilities\nI find the following tedious:\n\nnvim\nWrite some code\n:w somefile.py\nESC then :x\npython\nfrom somefile import somefunction\nsomefunction(x)\nexit()"
   },
   {
-    "objectID": "02_neovim.rjs.html#using-args",
-    "href": "02_neovim.rjs.html#using-args",
+    "objectID": "02_neovim.rjs.html#alternative",
+    "href": "02_neovim.rjs.html#alternative",
     "title": "Neovim",
-    "section": "Using args",
-    "text": "Using args\n\nWe have an alternative:\nRunning .py files as arguements to python\nProviding values to functions as arguments to the .py file.\n\nWe’ll step through an example."
+    "section": "Alternative",
+    "text": "Alternative\n\nWe will instead:\n\nShow how to how run script files\nShow how to provide input to script files"
   },
   {
-    "objectID": "02_neovim.rjs.html#return-to-neovim",
-    "href": "02_neovim.rjs.html#return-to-neovim",
+    "objectID": "02_neovim.rjs.html#hello-terminal",
+    "href": "02_neovim.rjs.html#hello-terminal",
     "title": "Neovim",
-    "section": "Return to Neovim",
-    "text": "Return to Neovim"
+    "section": "Hello, Terminal",
+    "text": "Hello, Terminal\n\nTo begin, we will do terminal “Hello, World!”\nI use nvim hi.py to create and open a new file named hi.py\nThen I write:\n\n\n\nhi.py\n\nprint(\"Hello, terminal!\")"
+  },
+  {
+    "objectID": "02_neovim.rjs.html#running-scripts",
+    "href": "02_neovim.rjs.html#running-scripts",
+    "title": "Neovim",
+    "section": "Running Scripts",
+    "text": "Running Scripts\n\nI save and exit via :x\nThen I run the Python script via python hi.py\nFor me, it looks like this:\n\n$ nvim hi.py\n$ python3 hi.py\nHello, terminal!\n$"
+  },
+  {
+    "objectID": "02_neovim.rjs.html#what-happened",
+    "href": "02_neovim.rjs.html#what-happened",
+    "title": "Neovim",
+    "section": "What happened?",
+    "text": "What happened?\n\nBasically, Python runs the code written in the file as if it were entered at the prompts.\nIt then provides the expected print statements.\nWe can run multiple times without rewriting the script."
+  },
+  {
+    "objectID": "02_neovim.rjs.html#piecewise-script",
+    "href": "02_neovim.rjs.html#piecewise-script",
+    "title": "Neovim",
+    "section": "Piecewise Script",
+    "text": "Piecewise Script\n\nSay we wish to find the piecewise results from the prior lecture.\nnvim pw.py\nI use G to jump to the end of the file\n\nThis is a “vim motion”\n\nI use i to change into insert mode, and add:\n\n\n\npw.py\n\nfor e in [-1, 4, 5, 8, 11]:\n    print([e, piecewise(e)])\n\n\nSave and exit with (escape then) :x"
+  },
+  {
+    "objectID": "02_neovim.rjs.html#test-it",
+    "href": "02_neovim.rjs.html#test-it",
+    "title": "Neovim",
+    "section": "Test it",
+    "text": "Test it\n$ nvim pw.py\n$ python3 pw.py\n[-1, 14]\n[4, 9]\n[5, 9]\n[8, 9]\n[11, -9]\n$"
+  },
+  {
+    "objectID": "02_neovim.rjs.html#using-input",
+    "href": "02_neovim.rjs.html#using-input",
+    "title": "Neovim",
+    "section": "Using input",
+    "text": "Using input\n\nFortunately, Python has a built-in function that is (basically) the opposite of print\nWithin the terminal, run python\nThen within Python, call input()\n\n&gt;&gt;&gt; input() \n\nWhat happens?"
+  },
+  {
+    "objectID": "02_neovim.rjs.html#what-if",
+    "href": "02_neovim.rjs.html#what-if",
+    "title": "Neovim",
+    "section": "What if?",
+    "text": "What if?\n\nWe want to be able to check values without either\n\nOpening python and doing an import, or\nOpening nvim and editing the list\n\nWe can do that by providing input\n\nWe write a script that expects us to type in some information!"
+  },
+  {
+    "objectID": "02_neovim.rjs.html#python-input",
+    "href": "02_neovim.rjs.html#python-input",
+    "title": "Neovim",
+    "section": "Python input",
+    "text": "Python input\n\nPython helpfully has an input that is basically the opposite of print.\ninput\nIt is easiest to learn by trying it out!"
+  },
+  {
+    "objectID": "02_neovim.rjs.html#providing-input",
+    "href": "02_neovim.rjs.html#providing-input",
+    "title": "Neovim",
+    "section": "Providing input",
+    "text": "Providing input\n\nOpen Python\nCall the function input()\nType something - anything - then press enter.\n\n&gt;&gt;&gt; input()\nsomething anything\n'something anything'\n\nThe input() function returns the text that is typed in"
+  },
+  {
+    "objectID": "02_neovim.rjs.html#script-input",
+    "href": "02_neovim.rjs.html#script-input",
+    "title": "Neovim",
+    "section": "Script input",
+    "text": "Script input\n\nLet’s make a little script to try out input()\n\n\n\nreply.py\n\nx = input()\nprint(x)\n\n\nThink about the steps to create and run this file!"
+  },
+  {
+    "objectID": "02_neovim.rjs.html#example",
+    "href": "02_neovim.rjs.html#example",
+    "title": "Neovim",
+    "section": "Example",
+    "text": "Example\n$ nvim\n$ python3 reply.py\nI wrote this text then pressed enter.\nI wrote this text then pressed enter.\n$\n\nTry it out!"
+  },
+  {
+    "objectID": "02_neovim.rjs.html#return-v.-print",
+    "href": "02_neovim.rjs.html#return-v.-print",
+    "title": "Neovim",
+    "section": "Return v. Print",
+    "text": "Return v. Print\n\n\n\n\n\n\nPrint, Not Return\n\n\n\nTo see the results of some expression or computation other work in the terminal, we must print within scripts.\nprint() for terminal\nreturn within Python"
+  },
+  {
+    "objectID": "02_neovim.rjs.html#a-wrinkle",
+    "href": "02_neovim.rjs.html#a-wrinkle",
+    "title": "Neovim",
+    "section": "A Wrinkle",
+    "text": "A Wrinkle\n\nThere’s one little problem here.\nLet’s update pw.py to to run on input() and see what happens.\n\n\n\npw.py\n\ndef piecewise(x):\n    if (x &lt; 4):\n        return 9 * x ** 2 + 5\n    elif (4 &lt;= x &lt;= 8):\n        return 9\n    elif (x &gt; 8):\n        return 2 - x\n\nx = input()\ny = piecewise(x)\nprint(y)"
+  },
+  {
+    "objectID": "02_neovim.rjs.html#uh-oh",
+    "href": "02_neovim.rjs.html#uh-oh",
+    "title": "Neovim",
+    "section": "Uh oh!",
+    "text": "Uh oh!\n\nI see the following:\n\n$ python3 pw.py\n10\nTraceback (most recent call last):\n  File \"/home/user/pw.py\", line 10, in &lt;module&gt;\n    y = piecewise(x)\n  File \"/home/user/pw.py\", line 2, in piecewise\n    if (x &lt; 4):\nTypeError: '&lt;' not supported between instances of 'str' and 'int'\n$"
+  },
+  {
+    "objectID": "02_neovim.rjs.html#recall",
+    "href": "02_neovim.rjs.html#recall",
+    "title": "Neovim",
+    "section": "Recall",
+    "text": "Recall\n\nWe worked with different types last time:\n\nThink about what is happening here\n\n\n\n[type(1), type(1 == 2), type([1,2]), type({1,2})]\n\n[int, bool, list, set]\n\n\n\nThe type of input() is a new type - str\n\nShort for “string” - as in string of characters\n\n\n\ntype(\"Hello, world!\")\n\nstr"
+  },
+  {
+    "objectID": "02_neovim.rjs.html#casting",
+    "href": "02_neovim.rjs.html#casting",
+    "title": "Neovim",
+    "section": "Casting",
+    "text": "Casting\n\nChanging data of one type (like str) into another (like int) is called casting\nIn Python, to cast we use the name of the type we want as a function on the value in the type we don’t want.\nEasy to try within python"
+  },
+  {
+    "objectID": "02_neovim.rjs.html#try-it",
+    "href": "02_neovim.rjs.html#try-it",
+    "title": "Neovim",
+    "section": "Try it",
+    "text": "Try it\n&gt;&gt;&gt; x = input()\n10\n&gt;&gt;&gt; x\n'10'\n&gt;&gt;&gt; type(x)\n&lt;class 'str'&gt;\n&gt;&gt;&gt; y = int(x)\n&gt;&gt;&gt; y\n10\n&gt;&gt;&gt; type(y)\n&lt;class 'int'&gt;\n&gt;&gt;&gt; y &lt; 11\nTrue\n\nPython shows something is a string by enclosing it within quote marks ''"
+  },
+  {
+    "objectID": "02_neovim.rjs.html#fix-pw.py",
+    "href": "02_neovim.rjs.html#fix-pw.py",
+    "title": "Neovim",
+    "section": "Fix pw.py",
+    "text": "Fix pw.py\n\n\npw.py\n\ndef piecewise(x):\n    if (x &lt; 4):\n        return 9 * x ** 2 + 5\n    elif (4 &lt;= x &lt;= 8):\n        return 9\n    elif (x &gt; 8):\n        return 2 - x\n\nx = input()\ny = int(x)\nz = piecewise(y)\nprint(z)"
+  },
+  {
+    "objectID": "02_neovim.rjs.html#use-it",
+    "href": "02_neovim.rjs.html#use-it",
+    "title": "Neovim",
+    "section": "Use it",
+    "text": "Use it\n$ nvim pw.py\n$ python3 pw.py\n10\n-8\n$ python3 pw.py\n-1\n14\n$"
+  },
+  {
+    "objectID": "02_neovim.rjs.html#income-tax",
+    "href": "02_neovim.rjs.html#income-tax",
+    "title": "Neovim",
+    "section": "Income Tax",
+    "text": "Income Tax\n\nWe’ll return to the income tax example, and\nAdd a wrinkle.\nHere’s an income tax solution:\n\n\n\nCode\ndef single_tax(pay):\n    tax_policy = [\n        [415050, .396], \n        [413350, .35],\n        [190150, .33],\n        [91150, .28],\n        [37650, .25],\n        [9275, .15]\n    ]\n    tax = 0\n    for bracket in tax_policy:\n        if pay &gt; bracket[0]:\n            tax += (pay - bracket[0]) * bracket[1]\n            pay = bracket[0]\n    return tax + pay * .1"
+  },
+  {
+    "objectID": "02_neovim.rjs.html#arguments",
+    "href": "02_neovim.rjs.html#arguments",
+    "title": "Neovim",
+    "section": "Arguments",
+    "text": "Arguments\n\nThere is one other way to specify what you want a script to do.\nCommand line arguments\nThis is my favorite way (simpliest to use)\n\n(Bit harder to write)\n\nIt is based on the Python sys module"
+  },
+  {
+    "objectID": "02_neovim.rjs.html#sys",
+    "href": "02_neovim.rjs.html#sys",
+    "title": "Neovim",
+    "section": "sys",
+    "text": "sys\n\nCreate and try out the following file:\n\n\n\nargs.py\n\nimport sys\n\nprint(sys.argv)\n\n\nWhat does it do?"
+  },
+  {
+    "objectID": "02_neovim.rjs.html#argv",
+    "href": "02_neovim.rjs.html#argv",
+    "title": "Neovim",
+    "section": "‘argv’",
+    "text": "‘argv’\n\n‘argv’ stands for “argument vector”\nYou may have noticed it is a list\n\nOther programming languages sometimes call lists vectors\nComputer systems often call lists vectors\nPython follows this convention"
+  },
+  {
+    "objectID": "02_neovim.rjs.html#add-an-arg",
+    "href": "02_neovim.rjs.html#add-an-arg",
+    "title": "Neovim",
+    "section": "Add an arg",
+    "text": "Add an arg\n\nWhat happens if you do this?\n\n$ python3 args.py hello world"
+  },
+  {
+    "objectID": "02_neovim.rjs.html#remember-1",
+    "href": "02_neovim.rjs.html#remember-1",
+    "title": "Neovim",
+    "section": "Remember!",
+    "text": "Remember!\n\n\n\n\n\n\nLists begin with zero!\n\n\n\nWhen using argv, recall it is a Python list!\nThe initial element - what we would often call first - is at position zero\nWould would print only this element as follows:\n\n\n\nargs.py\n\nimport sys\n\nprint(sys.argv[0])"
+  },
+  {
+    "objectID": "02_neovim.rjs.html#exercise-2",
+    "href": "02_neovim.rjs.html#exercise-2",
+    "title": "Neovim",
+    "section": "Exercise",
+    "text": "Exercise\n\nCreate a file tax.py\nHave it accept an income as a command line argument\nHave it print a tax cost at command line.\nHere’s an example how it should work!\n\n$ python3 tax.py 40000\n115529.25"
+  },
+  {
+    "objectID": "02_neovim.rjs.html#challenge-problem",
+    "href": "02_neovim.rjs.html#challenge-problem",
+    "title": "Neovim",
+    "section": "Challenge Problem",
+    "text": "Challenge Problem\n\nAccept two command line arguments\n\nIncome, and\nOne of ['single', 'married', 'separate', 'head']\n\nPrint the tax regardless of “single-ness”"
+  },
+  {
+    "objectID": "02_neovim.rjs.html#solution",
+    "href": "02_neovim.rjs.html#solution",
+    "title": "Neovim",
+    "section": "Solution",
+    "text": "Solution\n\n\nCode\n\nimport sys\n\nprint(single_tax(int(sys.argv[1])))"
   },
   {
     "objectID": "02_neovim.html",
@@ -1590,7 +1793,7 @@
     "href": "02_neovim.html#piecewise",
     "title": "Neovim",
     "section": "Piecewise",
-    "text": "Piecewise\n\nFor me, basic copy/paste commands like:\n\nctrl/cmd+c, ctrl/cmd+v\nrclick-&gt;menu-&gt;copy\n\nWorked amicably in i insert mode\n\ndef piecewise(x):\n    if (x &lt; 4):\n        return 9 * x ** 2 + 5\n    elif (4 &lt;= x &lt;= 8):\n        return 9\n    elif (x &gt; 8):\n        return 2 - x",
+    "text": "Piecewise\n\nFor me, basic copy/paste commands like:\n\nctrl/cmd+c, ctrl/cmd+v\nrclick-&gt;menu-&gt;copy\n\nWorked amicably in i insert mode\n\n\n\npw.py\n\ndef piecewise(x):\n    if (x &lt; 4):\n        return 9 * x ** 2 + 5\n    elif (4 &lt;= x &lt;= 8):\n        return 9\n    elif (x &gt; 8):\n        return 2 - x\n\n\nFor .py files I’ll include line numbers but add a filename on top.",
     "crumbs": [
       "Neovim"
     ]
@@ -1600,7 +1803,17 @@
     "href": "02_neovim.html#command-mode",
     "title": "Neovim",
     "section": "Command Mode",
-    "text": "Command Mode\n\nHaving written some text, we now need to save it to a file.\nPress : to return to command mode\nYour cursor will move the bottom of the terminal, where -- INSERT -- was",
+    "text": "Command Mode\n\nHaving written some text, we now need to save it to a file.\nPress the “ESC” (Escape) key to return to command mode\nYour cursor will move the bottom of the terminal, where -- INSERT -- was",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#remember",
+    "href": "02_neovim.html#remember",
+    "title": "Neovim",
+    "section": "Remember!",
+    "text": "Remember!\n\n\n\n\n\n\nRemember to press escape!\n\n\n\n\nIn nvim examples today, it will not always be easy to make a note of when to press escape!\nAs a rule, use escape before anytime you try to do something (exit, save)\nThese “do things” usually are : prefixed\nPress i to get back to typing (insert mode)",
     "crumbs": [
       "Neovim"
     ]
@@ -1610,7 +1823,7 @@
     "href": "02_neovim.html#issuing-commands",
     "title": "Neovim",
     "section": "Issuing commands",
-    "text": "Issuing commands\n\nAfter : type w (write) and the name of the file\nInclude the .py ending!\nI wrote:\n\n:w pw.py",
+    "text": "Issuing commands\n\nAfter :w (write) and the name of the file\nInclude the .py ending!\nI wrote:\n\n:w pw.py",
     "crumbs": [
       "Neovim"
     ]
@@ -1620,7 +1833,7 @@
     "href": "02_neovim.html#save-and-quit",
     "title": "Neovim",
     "section": "Save and Quit",
-    "text": "Save and Quit\n\nYou can always use :w to save while working.\nMake any edits you make need to make - a missed paren perhaps.\nThen both save and exit nvim with :x\n\nThis special command saves the file and exists nvim\n\nYou will return to the command line you started with, likely without incident.\n\nBut there will now be a new file you can use!",
+    "text": "Save and Quit\n\nYou can always use :w to save while working.\nMake any edits you make need to make - a missed paren perhaps.\nThen both save and exit nvim with :x\n\nThis special command saves the file and exits nvim\n\nYou will return to the command line you started with, likely without incident.\n\nBut there will now be a new file you can use!",
     "crumbs": [
       "Neovim"
     ]
@@ -1640,7 +1853,7 @@
     "href": "02_neovim.html#aside-terminal-commands",
     "title": "Neovim",
     "section": "Aside: Terminal Commands",
-    "text": "Aside: Terminal Commands\n\nLike Python and Neovim, there are also terminal commands!\n\nTwo are python/python3 and neovim!\n\nAnother is ls, which stands for “list”\n\nThis command has been around so long, it is from an era when commands were shorter to save precious computer memory!\n\nIt “lists” local files, and can list them by name!",
+    "text": "Aside: Terminal Commands\n\nLike Python and Neovim, there are also terminal commands!\n\nTwo are python/python3 and nvim!\n\nAnother is ls, which stands for “list”\n\nThis command has been around so long, it is from an era when commands were shorter to save precious computer memory!\n\nIt “lists” local files, and can list them by name!",
     "crumbs": [
       "Neovim"
     ]
@@ -1730,7 +1943,17 @@
     "href": "02_neovim.html#using-from",
     "title": "Neovim",
     "section": "Using from",
-    "text": "Using from\n\nThird, we can use the from keyword in our import.\n\nThis is by far preferred (it is more clear)\n\n&gt;&gt;&gt; from pw import piecewise\n&gt;&gt;&gt; piecewise(11)\n-9\nI only show you the other methods to make it clear what this method is doing.",
+    "text": "Using from\n\nThird, we can use the from keyword in our import.\n\nThis is by far preferred (it is more clear)\n\n\n&gt;&gt;&gt; from pw import piecewise\n&gt;&gt;&gt; piecewise(11)\n-9\n\nI only show you the other methods to make it clear what this method is doing.",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#exit-python",
+    "href": "02_neovim.html#exit-python",
+    "title": "Neovim",
+    "section": "Exit Python",
+    "text": "Exit Python\n\nOftentimes, we’ll run a bit of Python then want to go back to the command line to use nvim\n\n\n\n\n\n\n\nexit()\n\n\n\nYou can exit the Python &gt;&gt;&gt; prompt back to Windows &gt; or MacOS $ at any time:\n\nUse exit()\nUse quit()\nUse ctrl/cmd+z\n\nPractice starting and leaving Python a few times!",
     "crumbs": [
       "Neovim"
     ]
@@ -1740,27 +1963,297 @@
     "href": "02_neovim.html#command-line-utilities",
     "title": "Neovim",
     "section": "Command Line Utilities",
-    "text": "Command Line Utilities\nI find the following tedious: 1. neovim 2. Write some code 3. :w somefile.py 4. :x 5. python 6. from somefile import somefunction 7. somefunction(x)",
+    "text": "Command Line Utilities\nI find the following tedious:\n\nnvim\nWrite some code\n:w somefile.py\nESC then :x\npython\nfrom somefile import somefunction\nsomefunction(x)\nexit()",
     "crumbs": [
       "Neovim"
     ]
   },
   {
-    "objectID": "02_neovim.html#using-args",
-    "href": "02_neovim.html#using-args",
+    "objectID": "02_neovim.html#alternative",
+    "href": "02_neovim.html#alternative",
     "title": "Neovim",
-    "section": "Using args",
-    "text": "Using args\n\nWe have an alternative:\nRunning .py files as arguements to python\nProviding values to functions as arguments to the .py file.\n\nWe’ll step through an example.",
+    "section": "Alternative",
+    "text": "Alternative\n\nWe will instead:\n\nShow how to how run script files\nShow how to provide input to script files",
     "crumbs": [
       "Neovim"
     ]
   },
   {
-    "objectID": "02_neovim.html#return-to-neovim",
-    "href": "02_neovim.html#return-to-neovim",
+    "objectID": "02_neovim.html#hello-terminal",
+    "href": "02_neovim.html#hello-terminal",
     "title": "Neovim",
-    "section": "Return to Neovim",
-    "text": "Return to Neovim",
+    "section": "Hello, Terminal",
+    "text": "Hello, Terminal\n\nTo begin, we will do terminal “Hello, World!”\nI use nvim hi.py to create and open a new file named hi.py\nThen I write:\n\n\n\nhi.py\n\nprint(\"Hello, terminal!\")",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#running-scripts",
+    "href": "02_neovim.html#running-scripts",
+    "title": "Neovim",
+    "section": "Running Scripts",
+    "text": "Running Scripts\n\nI save and exit via :x\nThen I run the Python script via python hi.py\nFor me, it looks like this:\n\n$ nvim hi.py\n$ python3 hi.py\nHello, terminal!\n$",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#what-happened",
+    "href": "02_neovim.html#what-happened",
+    "title": "Neovim",
+    "section": "What happened?",
+    "text": "What happened?\n\nBasically, Python runs the code written in the file as if it were entered at the prompts.\nIt then provides the expected print statements.\nWe can run multiple times without rewriting the script.",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#piecewise-script",
+    "href": "02_neovim.html#piecewise-script",
+    "title": "Neovim",
+    "section": "Piecewise Script",
+    "text": "Piecewise Script\n\nSay we wish to find the piecewise results from the prior lecture.\nnvim pw.py\nI use G to jump to the end of the file\n\nThis is a “vim motion”\n\nI use i to change into insert mode, and add:\n\n\n\npw.py\n\nfor e in [-1, 4, 5, 8, 11]:\n    print([e, piecewise(e)])\n\n\nSave and exit with (escape then) :x",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#test-it",
+    "href": "02_neovim.html#test-it",
+    "title": "Neovim",
+    "section": "Test it",
+    "text": "Test it\n$ nvim pw.py\n$ python3 pw.py\n[-1, 14]\n[4, 9]\n[5, 9]\n[8, 9]\n[11, -9]\n$",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#using-input",
+    "href": "02_neovim.html#using-input",
+    "title": "Neovim",
+    "section": "Using input",
+    "text": "Using input\n\nFortunately, Python has a built-in function that is (basically) the opposite of print\nWithin the terminal, run python\nThen within Python, call input()\n\n&gt;&gt;&gt; input() \n\nWhat happens?",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#what-if",
+    "href": "02_neovim.html#what-if",
+    "title": "Neovim",
+    "section": "What if?",
+    "text": "What if?\n\nWe want to be able to check values without either\n\nOpening python and doing an import, or\nOpening nvim and editing the list\n\nWe can do that by providing input\n\nWe write a script that expects us to type in some information!",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#python-input",
+    "href": "02_neovim.html#python-input",
+    "title": "Neovim",
+    "section": "Python input",
+    "text": "Python input\n\nPython helpfully has an input that is basically the opposite of print.\ninput\nIt is easiest to learn by trying it out!",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#providing-input",
+    "href": "02_neovim.html#providing-input",
+    "title": "Neovim",
+    "section": "Providing input",
+    "text": "Providing input\n\nOpen Python\nCall the function input()\nType something - anything - then press enter.\n\n&gt;&gt;&gt; input()\nsomething anything\n'something anything'\n\nThe input() function returns the text that is typed in",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#script-input",
+    "href": "02_neovim.html#script-input",
+    "title": "Neovim",
+    "section": "Script input",
+    "text": "Script input\n\nLet’s make a little script to try out input()\n\n\n\nreply.py\n\nx = input()\nprint(x)\n\n\nThink about the steps to create and run this file!",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#example",
+    "href": "02_neovim.html#example",
+    "title": "Neovim",
+    "section": "Example",
+    "text": "Example\n$ nvim\n$ python3 reply.py\nI wrote this text then pressed enter.\nI wrote this text then pressed enter.\n$\n\nTry it out!",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#return-v.-print",
+    "href": "02_neovim.html#return-v.-print",
+    "title": "Neovim",
+    "section": "Return v. Print",
+    "text": "Return v. Print\n\n\n\n\n\n\nPrint, Not Return\n\n\n\n\nTo see the results of some expression or computation other work in the terminal, we must print within scripts.\nprint() for terminal\nreturn within Python",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#a-wrinkle",
+    "href": "02_neovim.html#a-wrinkle",
+    "title": "Neovim",
+    "section": "A Wrinkle",
+    "text": "A Wrinkle\n\nThere’s one little problem here.\nLet’s update pw.py to to run on input() and see what happens.\n\n\n\npw.py\n\ndef piecewise(x):\n    if (x &lt; 4):\n        return 9 * x ** 2 + 5\n    elif (4 &lt;= x &lt;= 8):\n        return 9\n    elif (x &gt; 8):\n        return 2 - x\n\nx = input()\ny = piecewise(x)\nprint(y)",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#uh-oh",
+    "href": "02_neovim.html#uh-oh",
+    "title": "Neovim",
+    "section": "Uh oh!",
+    "text": "Uh oh!\n\nI see the following:\n\n$ python3 pw.py\n10\nTraceback (most recent call last):\n  File \"/home/user/pw.py\", line 10, in &lt;module&gt;\n    y = piecewise(x)\n  File \"/home/user/pw.py\", line 2, in piecewise\n    if (x &lt; 4):\nTypeError: '&lt;' not supported between instances of 'str' and 'int'\n$",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#recall",
+    "href": "02_neovim.html#recall",
+    "title": "Neovim",
+    "section": "Recall",
+    "text": "Recall\n\nWe worked with different types last time:\n\nThink about what is happening here\n\n\n\n[type(1), type(1 == 2), type([1,2]), type({1,2})]\n\n[int, bool, list, set]\n\n\n\nThe type of input() is a new type - str\n\nShort for “string” - as in string of characters\n\n\n\ntype(\"Hello, world!\")\n\nstr",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#casting",
+    "href": "02_neovim.html#casting",
+    "title": "Neovim",
+    "section": "Casting",
+    "text": "Casting\n\nChanging data of one type (like str) into another (like int) is called casting\nIn Python, to cast we use the name of the type we want as a function on the value in the type we don’t want.\nEasy to try within python",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#try-it",
+    "href": "02_neovim.html#try-it",
+    "title": "Neovim",
+    "section": "Try it",
+    "text": "Try it\n&gt;&gt;&gt; x = input()\n10\n&gt;&gt;&gt; x\n'10'\n&gt;&gt;&gt; type(x)\n&lt;class 'str'&gt;\n&gt;&gt;&gt; y = int(x)\n&gt;&gt;&gt; y\n10\n&gt;&gt;&gt; type(y)\n&lt;class 'int'&gt;\n&gt;&gt;&gt; y &lt; 11\nTrue\n\nPython shows something is a string by enclosing it within quote marks ''",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#fix-pw.py",
+    "href": "02_neovim.html#fix-pw.py",
+    "title": "Neovim",
+    "section": "Fix pw.py",
+    "text": "Fix pw.py\n\n\npw.py\n\ndef piecewise(x):\n    if (x &lt; 4):\n        return 9 * x ** 2 + 5\n    elif (4 &lt;= x &lt;= 8):\n        return 9\n    elif (x &gt; 8):\n        return 2 - x\n\nx = input()\ny = int(x)\nz = piecewise(y)\nprint(z)",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#use-it",
+    "href": "02_neovim.html#use-it",
+    "title": "Neovim",
+    "section": "Use it",
+    "text": "Use it\n$ nvim pw.py\n$ python3 pw.py\n10\n-8\n$ python3 pw.py\n-1\n14\n$",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#income-tax",
+    "href": "02_neovim.html#income-tax",
+    "title": "Neovim",
+    "section": "Income Tax",
+    "text": "Income Tax\n\nWe’ll return to the income tax example, and\nAdd a wrinkle.\nHere’s an income tax solution:\n\n\n\nCode\ndef single_tax(pay):\n    tax_policy = [\n        [415050, .396], \n        [413350, .35],\n        [190150, .33],\n        [91150, .28],\n        [37650, .25],\n        [9275, .15]\n    ]\n    tax = 0\n    for bracket in tax_policy:\n        if pay &gt; bracket[0]:\n            tax += (pay - bracket[0]) * bracket[1]\n            pay = bracket[0]\n    return tax + pay * .1",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#arguments",
+    "href": "02_neovim.html#arguments",
+    "title": "Neovim",
+    "section": "Arguments",
+    "text": "Arguments\n\nThere is one other way to specify what you want a script to do.\nCommand line arguments\nThis is my favorite way (simpliest to use)\n\n(Bit harder to write)\n\nIt is based on the Python sys module",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#sys",
+    "href": "02_neovim.html#sys",
+    "title": "Neovim",
+    "section": "sys",
+    "text": "sys\n\nCreate and try out the following file:\n\n\n\nargs.py\n\nimport sys\n\nprint(sys.argv)\n\n\nWhat does it do?",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#argv",
+    "href": "02_neovim.html#argv",
+    "title": "Neovim",
+    "section": "‘argv’",
+    "text": "‘argv’\n\n‘argv’ stands for “argument vector”\nYou may have noticed it is a list\n\nOther programming languages sometimes call lists vectors\nComputer systems often call lists vectors\nPython follows this convention",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#add-an-arg",
+    "href": "02_neovim.html#add-an-arg",
+    "title": "Neovim",
+    "section": "Add an arg",
+    "text": "Add an arg\n\nWhat happens if you do this?\n\n$ python3 args.py hello world",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#remember-1",
+    "href": "02_neovim.html#remember-1",
+    "title": "Neovim",
+    "section": "Remember!",
+    "text": "Remember!\n\n\n\n\n\n\nLists begin with zero!\n\n\n\n\nWhen using argv, recall it is a Python list!\nThe initial element - what we would often call first - is at position zero\nWould would print only this element as follows:\n\n\n\nargs.py\n\nimport sys\n\nprint(sys.argv[0])",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#exercise-2",
+    "href": "02_neovim.html#exercise-2",
+    "title": "Neovim",
+    "section": "Exercise",
+    "text": "Exercise\n\nCreate a file tax.py\nHave it accept an income as a command line argument\nHave it print a tax cost at command line.\nHere’s an example how it should work!\n\n$ python3 tax.py 40000\n115529.25",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#challenge-problem",
+    "href": "02_neovim.html#challenge-problem",
+    "title": "Neovim",
+    "section": "Challenge Problem",
+    "text": "Challenge Problem\n\nAccept two command line arguments\n\nIncome, and\nOne of ['single', 'married', 'separate', 'head']\n\nPrint the tax regardless of “single-ness”",
+    "crumbs": [
+      "Neovim"
+    ]
+  },
+  {
+    "objectID": "02_neovim.html#solution",
+    "href": "02_neovim.html#solution",
+    "title": "Neovim",
+    "section": "Solution",
+    "text": "Solution\n\n\nCode\n\nimport sys\n\nprint(single_tax(int(sys.argv[1])))",
     "crumbs": [
       "Neovim"
     ]

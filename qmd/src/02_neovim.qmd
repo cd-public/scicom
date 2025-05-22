@@ -282,7 +282,7 @@ i
 	- rclick->menu->copy
 - Worked amicably in `i` insert mode
 
-```{.python}
+```{.python filename="pw.py"}
 def piecewise(x):
     if (x < 4):
         return 9 * x ** 2 + 5
@@ -292,15 +292,30 @@ def piecewise(x):
         return 2 - x
 ```
 
+- For `.py` files I'll include line numbers but add a filename on top.
+
 ## Command Mode
 
 - Having written some text, we now need to save it to a file.
-- Press `:` to return to command mode
+- Press the "ESC" (Escape) key to return to command mode
 - Your cursor will move the bottom of the terminal, where `-- INSERT --` was
+
+## Remember!
+
+::: {.callout-note appearance="simple"}
+
+## Remember to press escape!
+
+- In `nvim` examples today, it will not always be easy to make a note of when to press escape!
+- As a rule, use escape before anytime you try to do something (exit, save)
+- These "do things" usually are `:` prefixed
+- Press `i` to get back to typing (insert mode)
+
+:::
 
 ## Issuing commands
 
-- After `:` type `w` (write) and the name of the file
+- After `:w` (write) and the name of the file
 - Include the `.py` ending!
 - I wrote:
 ```{.bash code-line-numbers="false"}
@@ -312,7 +327,7 @@ def piecewise(x):
 - You can always use `:w` to save while working.
 - Make any edits you make need to make - a missed paren perhaps.
 - Then both save *and* exit `nvim` with `:x`
-	- This special command saves the file and exists `nvim`
+	- This special command saves the file and exits `nvim`
 - You will return to the command line you started with, likely without incident.
   	- But there will now be a new file you can use!
 
@@ -334,7 +349,7 @@ PS C:\Users\calvin>
 ## Aside: Terminal Commands
 
 - Like Python and Neovim, there are also terminal commands!
-  - Two are `python`/`python3` and `neovim`!
+  - Two are `python`/`python3` and `nvim`!
 - Another is `ls`, which stands for "list"
 	- This command has been around so long, it is from an era when commands were shorter to save precious computer memory!
 - It "lists" local files, and can list them by name!
@@ -448,34 +463,389 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 - Third, we can use the `from` keyword in our import.
 	- This is *by far* preferred (it is more clear)
+
 ```{.email code-line-numbers="false"}
 >>> from pw import piecewise
 >>> piecewise(11)
 -9
 ```
+
 - I only show you the other methods to make it clear what this method is doing.
+
+## Exit Python
+
+- Oftentimes, we'll run a bit of Python then want to go back to the command line to use `nvim`
+
+::: {.callout-tip}
+
+## `exit()`
+
+You can exit the Python `>>>` prompt back to Windows `>` or MacOS `$` at any time:
+
+- Use `exit()` 
+- Use `quit()`
+- Use ctrl/cmd+z
+
+Practice starting and leaving Python a few times!
+
+:::
 
 # Using Terminal
 
 ## Command Line Utilities
 
 I find the following tedious:
-1. `neovim`
+
+1. `nvim`
 2. Write some code
 3. `:w somefile.py`
-4. `:x`
+4. ESC then `:x`
 5. `python`
 6. `from somefile import somefunction`
 7. `somefunction(x)`
+8. `exit()`
 
-## Using args
+## Alternative
 
-- We have an alternative:
-- Running `.py` files as arguements to `python`
-- Providing values to functions as arguments *to the `.py` file.*
+- We will instead:
+  - Show how to how run script files
+  - Show how to provide input to script files
 
-We'll step through an example.
+## Hello, Terminal
 
-## Return to Neovim
+- To begin, we will do terminal "Hello, World!"
+- I use `nvim hi.py` to create *and* open a new file named `hi.py`
+- Then I write:
+```{.py filename="hi.py"}
+print("Hello, terminal!")
+```
+
+## Running Scripts
+
+- I save and exit via `:x`
+- Then I run the Python script via `python hi.py`
+- For me, it looks like this:
+```{.email code-line-numbers="false"}
+$ nvim hi.py
+$ python3 hi.py
+Hello, terminal!
+$
+```
+
+## What happened?
+
+- Basically, Python runs the code written in the file as if it were entered at the prompts.
+- It then provides the expected print statements.
+- We can run multiple times without rewriting the script.
+
+## Piecewise Script
+
+- Say we wish to find the piecewise results from the prior lecture.
+- `nvim pw.py`
+- I use `G` to jump to the end of the file
+	- This is a "vim motion"
+- I use `i` to change into insert mode, and add:
+```{.py filename="pw.py"}
+for e in [-1, 4, 5, 8, 11]:
+    print([e, piecewise(e)])
+```
+- Save and exit with (escape then) `:x` 
+
+## Test it
+
+```{.email code-line-numbers="false"}
+$ nvim pw.py
+$ python3 pw.py
+[-1, 14]
+[4, 9]
+[5, 9]
+[8, 9]
+[11, -9]
+$
+```
+
+## Using input
+
+- Fortunately, Python has a built-in function that is (basically) the opposite of `print`
+- Within the terminal, run `python`
+- Then within Python, call `input()`
+```{.email code-line-numbers="false"}
+>>> input() 
+```
+- What happens?
+
+## What if?
+
+- We want to be able to check values without either
+  - Opening `python` and doing an `import`, or
+  - Opening `nvim` and editing the list
+- We can do that by providing *input*
+  - We write a script that expects us to type in some information!
+
+## Python input
+
+- Python helpfully has an input that is basically the opposite of print.
+- `input`
+- It is easiest to learn by trying it out!
+
+## Providing input
+
+- Open Python
+- Call the function `input()`
+- Type something - anything - then press enter.
 
 
+```{.email code-line-numbers="false"}
+>>> input()
+something anything
+'something anything'
+```
+
+- *The `input()` function **returns** the text that is typed in*
+
+## Script input
+
+- Let's make a little script to try out `input()`
+```{.py filename="reply.py"}
+x = input()
+print(x)
+```
+- Think about the steps to create and run this file!
+
+## Example
+
+```{.email code-line-numbers="false"}
+$ nvim
+$ python3 reply.py
+I wrote this text then pressed enter.
+I wrote this text then pressed enter.
+$
+```
+
+- Try it out!
+
+## Return v. Print
+
+::: {.callout-note appearance="simple"}
+
+## Print, Not Return
+
+- To see the results of some expression or computation other work in the terminal, we must `print` within scripts.
+- `print()` for terminal
+- `return` within Python
+
+:::
+
+# Datatypes
+
+## A Wrinkle
+
+- There's one little problem here.
+- Let's update `pw.py` to to run on `input()` and see what happens.
+```{.py filename="pw.py"}
+def piecewise(x):
+    if (x < 4):
+        return 9 * x ** 2 + 5
+    elif (4 <= x <= 8):
+        return 9
+    elif (x > 8):
+        return 2 - x
+
+x = input()
+y = piecewise(x)
+print(y)
+```
+
+## Uh oh!
+
+- I see the following:
+
+```{.email code-line-numbers="false"}
+$ python3 pw.py
+10
+Traceback (most recent call last):
+  File "/home/user/pw.py", line 10, in <module>
+    y = piecewise(x)
+  File "/home/user/pw.py", line 2, in piecewise
+    if (x < 4):
+TypeError: '<' not supported between instances of 'str' and 'int'
+$
+```
+
+## Recall
+
+- We worked with different types last time:
+	- *Think about what is happening here*
+```{python}
+[type(1), type(1 == 2), type([1,2]), type({1,2})]
+```
+- The type of `input()` is a new type - `str`
+  - Short for "string" - as in string of characters
+```{python}
+type("Hello, world!")
+```
+
+## Casting
+
+- Changing data of one type (like `str`) into another (like `int`) is called *casting*
+- In Python, to cast we use the name of the type we want as a function on the value in the type we *don't* want.
+- Easy to try within `python`
+
+## Try it
+
+```{.email code-line-numbers="false"}
+>>> x = input()
+10
+>>> x
+'10'
+>>> type(x)
+<class 'str'>
+>>> y = int(x)
+>>> y
+10
+>>> type(y)
+<class 'int'>
+>>> y < 11
+True
+```
+
+- Python shows something is a string by enclosing it within quote marks `''`
+
+## Fix `pw.py`
+
+```{.py filename="pw.py"}
+def piecewise(x):
+    if (x < 4):
+        return 9 * x ** 2 + 5
+    elif (4 <= x <= 8):
+        return 9
+    elif (x > 8):
+        return 2 - x
+
+x = input()
+y = int(x)
+z = piecewise(y)
+print(z)
+```
+
+## Use it
+
+```{.email code-line-numbers="false"}
+$ nvim pw.py
+$ python3 pw.py
+10
+-8
+$ python3 pw.py
+-1
+14
+$
+```
+
+# Exercise
+
+## Income Tax
+
+- We'll return to the income tax example, and
+- Add a wrinkle.
+- Here's an income tax solution:
+
+```{python}
+#| code-fold: true
+def single_tax(pay):
+    tax_policy = [
+        [415050, .396], 
+        [413350, .35],
+        [190150, .33],
+        [91150, .28],
+        [37650, .25],
+        [9275, .15]
+    ]
+    tax = 0
+    for bracket in tax_policy:
+        if pay > bracket[0]:
+            tax += (pay - bracket[0]) * bracket[1]
+            pay = bracket[0]
+    return tax + pay * .1
+```
+
+## Arguments
+
+- There is one other way to specify what you want a script to do.
+- *Command line arguments*
+- This is my favorite way (simpliest to use)
+	- (Bit harder to write)
+- It is based on the Python `sys` module
+
+## `sys`
+
+- Create and try out the following file:
+```{.py filename="args.py"}
+import sys
+
+print(sys.argv)
+```
+- What does it do?
+
+## 'argv'
+
+- 'argv' stands for "argument vector"
+- You may have noticed it is a list
+  - Other programming languages sometimes call lists vectors
+  - *Computer systems* often call lists vectors
+  - Python follows this convention
+
+## Add an arg
+
+- What happens if you do this?
+
+```{.email code-line-numbers="false"}
+$ python3 args.py hello world
+```
+
+## Remember!
+
+::: {.callout-note appearance="simple"}
+
+## Lists begin with zero! 
+
+- When using `argv`, recall it is a Python list!
+- The initial element - what we would often call first - is at position *zero*
+- Would would print *only this element* as follows:
+
+```{.py filename="args.py"}
+import sys
+
+print(sys.argv[0])
+```
+
+:::
+
+
+## Exercise
+
+- Create a file `tax.py`
+- Have it accept an income as a *command line argument*
+- Have it print a tax cost at command line.
+- Here's an example how it should work!
+```{.email code-line-numbers="false"}
+$ python3 tax.py 40000
+115529.25
+```
+
+## Challenge Problem
+
+- Accept two command line arguments
+  - Income, and
+  - One of `['single', 'married', 'separate', 'head']`
+- Print the tax regardless of "single-ness"
+
+## Solution
+
+<details>
+<summary>Code</summary>
+```{.python}
+import sys
+
+print(single_tax(int(sys.argv[1])))
+```
+</details>
