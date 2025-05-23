@@ -1,0 +1,129 @@
+---
+Title: Appendix - Git Bash
+---
+
+# Appendix - Git Bash
+
+## Scientific Computing on Windows
+
+- Bash is a nearly universally standard for command line usage.
+- Windows built-in `cmd.bat` and `PowerShell` are necessary for Windows to run properly, but rarely used in a computing context.
+- Git, an extremely popular command line utility used in bash, provides "Git Bash" for Windows users to have access to bash scripting.
+
+## Why Git Bash?
+
+- It's relatively easy to setup and integrates well with Windows.
+
+## Why not Git Bash?
+
+- [Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/install) (WSL) is better in every way except that beginning users often struggle to keep track of where files are.
+- It is also a bit harder to install.
+- If at all possible, use WSL by following that tutorial.
+
+## Requirements
+
+- You may have it already, but download [Window Terminal](https://apps.microsoft.com/detail/9n0dx20hk701?hl=en-US&gl=US) from the Microsoft Store.
+- Download (but do not yet install) [Git for Windows](https://git-scm.com/downloads/win) from Git SCM.
+
+## Installing Git
+
+- We will install `git`, perhaps the most used command line utility, and bash at the same time.
+- We will go step-by-step through the "Git for Windows" installer to do so.
+
+## 1. Accept License
+
+- When you open "Git for Windows" you will be prompted to accept the "GNU General Public License"
+- This license is what ensures "Git for Windows" is free.
+- You may read it, but it is well studied and trustworthy.
+- I click "Next" to move on.
+
+## 2. Select Components
+
+:::{.callout-important}
+## This is critical
+
+You **must** select "Add a Git Bash Profile to Windows Terminal"
+:::
+
+- This box let's us use bash directly on Windows!
+- Probably no other boxes affect you, but I like "Windows Explorer integrat -> Open Git Bash here" which I use often.
+
+## 3. Default Editor
+
+- While not required, I configure Neovim to be my default editor.
+- It is quite likely that you do this by:
+	- Selecting "Select other editor as Git's default editor"
+	- Browsing to "C:\Program Files\Neovim\bin"
+	- Selecting "nvim.exe"
+- I find this much nicer than any alternative.
+  	- Next best is probably Notepad++
+
+## Aside
+
+- I leave *everything* else on defaults.
+
+## 4. Initial Branch
+
+- This is out of scope for now.
+- "Let Git decide" is fine.
+
+::: {.callout-note}
+The language we use to describe computing matters, and GitHub is working to make their language more accurate, precise, and inclusive. [Read more](https://github.com/github/renaming)
+:::
+
+## 5. SSH executable
+
+- We'll cover SSH in more depth latter.
+- I leave as default "Use bundled OpenSSH"
+
+## 6. OpenSSL library
+
+- I leave as default "Use the OpenSSL library"
+- I cover OpenSSL in a bit more detail in cryptography courses.
+
+## 7. Line Endings
+
+- Versus MacOS, Windows notes the end of lines of text in a novel way.
+- I almost always find this annoying!
+- I "Checkout as-is, commit Unix-style line encodings"
+- Why? I don't like that Windows doesn't follow standards.
+- This doesn't really matter.
+
+## 8. Terminal Emulator
+
+- We will use Windows Terminal regardless.
+	- I select "Use Windows' default console window" - which is not Windows Terminal - but is expected to become Windows Terminal someday.
+	- Windows is confusing!
+
+## 9. `git pull`
+
+- I leave the default "Fast-forward or merge"
+- By the time this matters to you, you will know how to not use defaults.
+
+## 10. Credential Helper
+
+- I don't use a credential manager, but you can set one up on your own if you would like.
+
+## 11. Extra Options
+
+- I do use "Enable file system caching" but I don't know that I would recommend it.
+- No options is fine here!
+
+## Finishing up
+
+- At this time, you may need to close any terminal windows you have open.
+- Save you work (`:w`) first!
+
+## Install
+
+- You should get an install progress bar.
+
+## Completion
+
+- I uncheck both boxes and close the installer.
+- I open Windows Terminal and click the downward facing arrow button next to the "plus" symbol button after my last tab.
+- I select "Git Bash"
+- I try `ls`i
+	- You should see multiple filenames per line and no other information (Bash `ls`).
+	- If you see dates and times, it is still Windows PowerShell.
+	  	- Go over these instructions again, or ask for help!

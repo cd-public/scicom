@@ -8,7 +8,7 @@
 
 <meta name="author" content="Prof.&nbsp;Calvin">
 
-<title>On Scientific Computing – Scientific Computing</title>
+<title>a1_keybinds – Scientific Computing</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,6 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./A0_gitbash.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -102,6 +103,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -114,9 +144,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
-      Scientific Computing
-      </li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./A1_keybinds.html">Appendix - Commands</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -167,7 +195,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./A1_keybinds.html" class="sidebar-item-text sidebar-link">
+  <a href="./A1_keybinds.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Appendix - Commands</span></a>
   </div>
 </li>
@@ -181,26 +209,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#this-book" id="toc-this-book" class="nav-link active" data-scroll-target="#this-book">This “Book”</a></li>
-  <li><a href="#credits" id="toc-credits" class="nav-link" data-scroll-target="#credits">Credits</a></li>
-  <li><a href="#for-students" id="toc-for-students" class="nav-link" data-scroll-target="#for-students">For Students</a></li>
-  <li><a href="#for-instructors" id="toc-for-instructors" class="nav-link" data-scroll-target="#for-instructors">For Instructors</a></li>
-  <li><a href="#topics" id="toc-topics" class="nav-link" data-scroll-target="#topics">Topics</a>
+  <li><a href="#appendix---commands" id="toc-appendix---commands" class="nav-link active" data-scroll-target="#appendix---commands">Appendix - Commands</a>
   <ul class="collapse">
-  <li><a href="#scientific-computing-environment" id="toc-scientific-computing-environment" class="nav-link" data-scroll-target="#scientific-computing-environment">Scientific Computing Environment</a></li>
-  <li><a href="#numerical-computation" id="toc-numerical-computation" class="nav-link" data-scroll-target="#numerical-computation">Numerical Computation</a></li>
-  <li><a href="#performance-optimization" id="toc-performance-optimization" class="nav-link" data-scroll-target="#performance-optimization">Performance Optimization</a></li>
-  <li><a href="#scientific-publishing" id="toc-scientific-publishing" class="nav-link" data-scroll-target="#scientific-publishing">Scientific Publishing</a></li>
+  <li><a href="#python" id="toc-python" class="nav-link" data-scroll-target="#python">Python</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1"></a></li>
+  <li><a href="#neovim" id="toc-neovim" class="nav-link" data-scroll-target="#neovim">Neovim</a></li>
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2"></a></li>
+  <li><a href="#bash" id="toc-bash" class="nav-link" data-scroll-target="#bash">Bash</a></li>
+  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3"></a></li>
+  <li><a href="#section-4" id="toc-section-4" class="nav-link" data-scroll-target="#section-4"></a></li>
   </ul></li>
   </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="index.rjs.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="A1_keybinds.rjs.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content" id="quarto-document-content"><div class="quarto-title-block"><div class="quarto-title-tools-only"><h1></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i></button></div></div>
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">On Scientific Computing</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i></button></div></div>
 <p class="subtitle lead">Scientific Computing</p>
 </div>
 
@@ -224,61 +251,254 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="this-book" class="level1">
-<h1>This “Book”</h1>
-<p><a href="https://cd-public.github.io/">I</a> created this book, of sorts, as I came across what I think to be a lack of combined “Scientific Computing” and “Scientific Publishing” (or, perhaps, typesetting) courses available that were:</p>
-<ol type="1">
-<li>Based in Python</li>
-<li>Covered command line tools</li>
-<li>Fully open source.</li>
-</ol>
-</section>
-<section id="credits" class="level1">
-<h1>Credits</h1>
-<p>I would remiss not to credit my two biggest inspirations:</p>
+<section id="appendix---commands" class="level1">
+<h1>Appendix - Commands</h1>
+<section id="python" class="level2">
+<h2 class="anchored" data-anchor-id="python">Python</h2>
 <ul>
-<li><a href="https://sbu-python-class.github.io/python-science/Introduction.html">PHY 546: Python for Scientific Computing</a></li>
-<li><a href="https://numericalmethodssullivan.github.io/">Numerical Methods: An Inquiry-Based Approach With Python</a></li>
-</ul>
-<p>You can view the source and see its history under various forms on <a href="https://github.com/cd-public/scicom">GitHub</a>, including how I incorporated this source material.</p>
-</section>
-<section id="for-students" class="level1">
-<h1>For Students</h1>
-<p>Were I a student, I would work through this book, chapter-wise, ensuring I can amicably complete the exercises at the end of each chapter and understand the solutions if they differ from mine (as they often will, given the variety of ways of solving scientific computing problems).</p>
-</section>
-<section id="for-instructors" class="level1">
-<h1>For Instructors</h1>
-<p>Were I an instructor, as I am, I would either fork this repository and make any changes I wish, recompiling using <a href="https://quarto.org/">Quarto</a> and hosting via <a href="https://pages.github.com/">GitHub Pages</a>, or simply link directly to these pages and slidedecks. I suspect I will keep them up-to-date for some time!</p>
-</section>
-<section id="topics" class="level1">
-<h1>Topics</h1>
-<section id="scientific-computing-environment" class="level2">
-<h2 class="anchored" data-anchor-id="scientific-computing-environment">Scientific Computing Environment</h2>
-<ul>
-<li>Utilize fundamental command-line tools (Bash) and a text editor (Neovim) for efficient scientific programming and workflow management.</li>
-<li>Write and execute Python scripts for scientific computing tasks, demonstrating proficiency in basic Python syntax and structures.</li>
+<li>Python can be used within the Python prompt, prefixed with <code>&gt;&gt;&gt;</code>, or via <code>.py</code> files.</li>
+<li>Python is used to conduct computations.</li>
+<li>Versus a calculator, it supports arithmetic, comparisons, code reuse, and repeated actions.</li>
 </ul>
 </section>
-<section id="numerical-computation" class="level2">
-<h2 class="anchored" data-anchor-id="numerical-computation">Numerical Computation</h2>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><span class="math display">\[
+f(x) =
+\begin{cases}
+  9x^2 + 5 &amp; x &lt; 4 \\
+  9 &amp; 4 \leq x \leq 8 \\
+  2 - x &amp; x &gt; 8
+\end{cases}
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<div id="128ce48f" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">def</span> f(x):</span>
+<span id="cb1-2"><a href="#cb1-2"></a>    <span class="cf">if</span> (x <span class="op">&lt;</span> <span class="dv">4</span>):</span>
+<span id="cb1-3"><a href="#cb1-3"></a>        <span class="cf">return</span> <span class="dv">9</span> <span class="op">*</span> x <span class="op">**</span> <span class="dv">2</span> <span class="op">+</span> <span class="dv">5</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a>    <span class="cf">elif</span> (<span class="dv">4</span> <span class="op">&lt;=</span> x <span class="op">&lt;=</span> <span class="dv">8</span>):</span>
+<span id="cb1-5"><a href="#cb1-5"></a>        <span class="cf">return</span> <span class="dv">9</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a>    <span class="cf">elif</span> (x <span class="op">&gt;</span> <span class="dv">8</span>):</span>
+<span id="cb1-7"><a href="#cb1-7"></a>        <span class="cf">return</span> <span class="dv">2</span> <span class="op">-</span> x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="section-1" class="level2">
+<h2 class="anchored" data-anchor-id="section-1"></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
 <ul>
-<li>Apply advanced numerical methods and understand the properties of floating-point arithmetic for accurate scientific computations.</li>
-<li>Implement and analyze high-performance computing techniques using Python libraries such as NumPy, SciPy, and SymPy for numerical analysis and symbolic mathematics.</li>
-<li>Process, analyze, and visualize scientific datasets effectively using Pandas and Matplotlib.</li>
+<li>Find <span class="math inline">\(f(x)\)</span> for each of the following <span class="math inline">\(x\)</span> values: <span class="math display">\[
+\{-1, 4, 5, 8, 11\}
+\]</span></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div id="60a77bcd" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>result <span class="op">=</span> []</span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="cf">for</span> x <span class="kw">in</span> [<span class="op">-</span><span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">11</span>]:</span>
+<span id="cb2-3"><a href="#cb2-3"></a>    result <span class="op">=</span> result <span class="op">+</span> [f(x)]</span>
+<span id="cb2-4"><a href="#cb2-4"></a>result</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>[14, 9, 9, 9, -9]</code></pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="neovim" class="level2">
+<h2 class="anchored" data-anchor-id="neovim">Neovim</h2>
+<ul>
+<li>Use <code>nvim</code> to access a <em>modal</em> text editor.</li>
+<li>In <code>i</code> or insert mode, is like other editors.</li>
+<li>Outside <code>i</code> there’s “motions”, “operators”, “commands”
+<ul>
+<li>“Motions” move the cursor - where you would type in <code>i</code> mode</li>
+<li>“Operators” manipulate text - add, delete, yank (copy), paste</li>
+<li>“Commands” load and save files and exit Neovim.</li>
+</ul></li>
 </ul>
 </section>
-<section id="performance-optimization" class="level2">
-<h2 class="anchored" data-anchor-id="performance-optimization">Performance Optimization</h2>
+<section id="section-2" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="section-2"></h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>ls</code></td>
+<td>list files in folder</td>
+</tr>
+<tr class="even">
+<td><code>rm f.txt</code></td>
+<td>delete file “f.txt”</td>
+</tr>
+<tr class="odd">
+<td><code>mkdir dir</code></td>
+<td>create a new folder named “dir”</td>
+</tr>
+<tr class="even">
+<td><code>mv f.txt dir</code></td>
+<td>move file “f.txt” to folder “dir”</td>
+</tr>
+<tr class="odd">
+<td><code>pwd</code></td>
+<td>print current folder</td>
+</tr>
+<tr class="even">
+<td><code>cd dir</code></td>
+<td>change current folder to “dir”</td>
+</tr>
+<tr class="odd">
+<td><code>cd ..</code></td>
+<td>go to “parent” folder</td>
+</tr>
+<tr class="even">
+<td><code>echo hi</code></td>
+<td>print the text “hi”</td>
+</tr>
+<tr class="odd">
+<td><code>echo hi &gt;f.txt</code></td>
+<td>write “hi” to file “f.txt”</td>
+</tr>
+<tr class="even">
+<td><code>cat f.txt</code></td>
+<td>see the text in f.txt</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="bash" class="level2">
+<h2 class="anchored" data-anchor-id="bash">Bash</h2>
 <ul>
-<li>Optimize the performance of scientific code using techniques like Just-In-Time (JIT) compilation with Numba, static compilation with Cython, and integration with Fortran.</li>
-<li>Compare and contrast the strengths and weaknesses of different programming languages and tools for high-performance scientific computing.</li>
+<li>Bash commands are used folder-relative.</li>
+<li>Bash is used within a terminal and is the default terminal environment.</li>
+<li>To get bash running:
+<ul>
+<li>Windows: Check <a href="./A0_gitbash.html">Appendix - Git Bash</a></li>
+<li>MacOS: Spotlight menu -&gt; “Terminal” (zsh, but close enough)</li>
+</ul></li>
+<li>Mostly used to navigate the file system, organize files, launch programs like Python and Neovim</li>
 </ul>
 </section>
-<section id="scientific-publishing" class="level2">
-<h2 class="anchored" data-anchor-id="scientific-publishing">Scientific Publishing</h2>
-<ul>
-<li>Create professional scientific documents and presentations using markup languages and tools such as Markdown, HTML/CSS, LaTeX, Quarto, Typst, and Sphinx.</li>
-</ul>
+<section id="section-3" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="section-3"></h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Motion</th>
+<th>Movement</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>h</code></td>
+<td>left one character</td>
+</tr>
+<tr class="even">
+<td><code>j</code></td>
+<td>down one line</td>
+</tr>
+<tr class="odd">
+<td><code>k</code></td>
+<td>up one line</td>
+</tr>
+<tr class="even">
+<td><code>l</code></td>
+<td>right one character</td>
+</tr>
+<tr class="odd">
+<td><code>0</code></td>
+<td>beginning of line</td>
+</tr>
+<tr class="even">
+<td><code>$</code></td>
+<td>end of line</td>
+</tr>
+<tr class="odd">
+<td><code>/search_term</code></td>
+<td>go to next occurance of “search_term”</td>
+</tr>
+<tr class="even">
+<td><code>e</code></td>
+<td>end of word</td>
+</tr>
+<tr class="odd">
+<td><code>b</code></td>
+<td>beginning of word</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="section-4" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="section-4"></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Operator</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>i</code></td>
+<td>insert text</td>
+</tr>
+<tr class="even">
+<td><code>r</code></td>
+<td>replace character</td>
+</tr>
+<tr class="odd">
+<td><code>d</code></td>
+<td>delete text, combined with a motion</td>
+</tr>
+<tr class="even">
+<td><code>y</code></td>
+<td>yank text, combined with a motion</td>
+</tr>
+<tr class="odd">
+<td><code>p</code></td>
+<td>paste yanked text</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:50%;">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>:saveas file.txt</code></td>
+<td>save text as “file.txt”</td>
+</tr>
+<tr class="even">
+<td><code>:w</code></td>
+<td>save file</td>
+</tr>
+<tr class="odd">
+<td><code>:x</code></td>
+<td>save and exit</td>
+</tr>
+<tr class="even">
+<td><code>:q!</code></td>
+<td>exit without saving</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 
 
 <!-- -->
@@ -757,57 +977,164 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="an">title:</span><span class="co"> On Scientific Computing</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="co">---</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a></span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="fu"># This "Book"</span></span>
-<span id="cb1-6"><a href="#cb1-6"></a></span>
-<span id="cb1-7"><a href="#cb1-7"></a><span class="co">[</span><span class="ot">I</span><span class="co">](https://cd-public.github.io/)</span> created this book, of sorts, as I came across what I think to be a lack of combined "Scientific Computing" and "Scientific Publishing" (or, perhaps, typesetting) courses available that were:</span>
-<span id="cb1-8"><a href="#cb1-8"></a></span>
-<span id="cb1-9"><a href="#cb1-9"></a><span class="ss">1. </span>Based in Python</span>
-<span id="cb1-10"><a href="#cb1-10"></a><span class="ss">2. </span>Covered command line tools</span>
-<span id="cb1-11"><a href="#cb1-11"></a><span class="ss">3. </span>Fully open source.</span>
-<span id="cb1-12"><a href="#cb1-12"></a></span>
-<span id="cb1-13"><a href="#cb1-13"></a><span class="fu"># Credits</span></span>
-<span id="cb1-14"><a href="#cb1-14"></a></span>
-<span id="cb1-15"><a href="#cb1-15"></a>I would remiss not to credit my two biggest inspirations:</span>
-<span id="cb1-16"><a href="#cb1-16"></a></span>
-<span id="cb1-17"><a href="#cb1-17"></a><span class="ss">- </span><span class="co">[</span><span class="ot">PHY 546: Python for Scientific Computing</span><span class="co">](https://sbu-python-class.github.io/python-science/Introduction.html)</span></span>
-<span id="cb1-18"><a href="#cb1-18"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Numerical Methods: An Inquiry-Based Approach With Python</span><span class="co">](https://numericalmethodssullivan.github.io/)</span></span>
-<span id="cb1-19"><a href="#cb1-19"></a></span>
-<span id="cb1-20"><a href="#cb1-20"></a>You can view the source and see its history under various forms on <span class="co">[</span><span class="ot">GitHub</span><span class="co">](https://github.com/cd-public/scicom)</span>, including how I incorporated this source material.</span>
-<span id="cb1-21"><a href="#cb1-21"></a></span>
-<span id="cb1-22"><a href="#cb1-22"></a><span class="fu"># For Students</span></span>
-<span id="cb1-23"><a href="#cb1-23"></a></span>
-<span id="cb1-24"><a href="#cb1-24"></a>Were I a student, I would work through this book, chapter-wise, ensuring I can amicably complete the exercises at the end of each chapter and understand the solutions if they differ from mine (as they often will, given the variety of ways of solving scientific computing problems).</span>
-<span id="cb1-25"><a href="#cb1-25"></a></span>
-<span id="cb1-26"><a href="#cb1-26"></a><span class="fu"># For Instructors</span></span>
-<span id="cb1-27"><a href="#cb1-27"></a></span>
-<span id="cb1-28"><a href="#cb1-28"></a>Were I an instructor, as I am, I would either fork this repository and make any changes I wish, recompiling using <span class="co">[</span><span class="ot">Quarto</span><span class="co">](https://quarto.org/)</span> and hosting via <span class="co">[</span><span class="ot">GitHub Pages</span><span class="co">](https://pages.github.com/)</span>, or simply link directly to these pages and slidedecks. I suspect I will keep them up-to-date for some time!</span>
-<span id="cb1-29"><a href="#cb1-29"></a></span>
-<span id="cb1-30"><a href="#cb1-30"></a><span class="fu"># Topics</span></span>
-<span id="cb1-31"><a href="#cb1-31"></a></span>
-<span id="cb1-32"><a href="#cb1-32"></a><span class="fu">## Scientific Computing Environment</span></span>
-<span id="cb1-33"><a href="#cb1-33"></a></span>
-<span id="cb1-34"><a href="#cb1-34"></a><span class="ss">* </span>Utilize fundamental command-line tools (Bash) and a text editor (Neovim) for efficient scientific programming and workflow management.</span>
-<span id="cb1-35"><a href="#cb1-35"></a><span class="ss">* </span>Write and execute Python scripts for scientific computing tasks, demonstrating proficiency in basic Python syntax and structures.</span>
-<span id="cb1-36"><a href="#cb1-36"></a></span>
-<span id="cb1-37"><a href="#cb1-37"></a><span class="fu">## Numerical Computation</span></span>
-<span id="cb1-38"><a href="#cb1-38"></a></span>
-<span id="cb1-39"><a href="#cb1-39"></a><span class="ss">* </span>Apply advanced numerical methods and understand the properties of floating-point arithmetic for accurate scientific computations.</span>
-<span id="cb1-40"><a href="#cb1-40"></a><span class="ss">* </span>Implement and analyze high-performance computing techniques using Python libraries such as NumPy, SciPy, and SymPy for numerical analysis and symbolic mathematics.</span>
-<span id="cb1-41"><a href="#cb1-41"></a><span class="ss">* </span>Process, analyze, and visualize scientific datasets effectively using Pandas and Matplotlib.</span>
-<span id="cb1-42"><a href="#cb1-42"></a></span>
-<span id="cb1-43"><a href="#cb1-43"></a><span class="fu">## Performance Optimization</span></span>
-<span id="cb1-44"><a href="#cb1-44"></a></span>
-<span id="cb1-45"><a href="#cb1-45"></a><span class="ss">* </span>Optimize the performance of scientific code using techniques like Just-In-Time (JIT) compilation with Numba, static compilation with Cython, and integration with Fortran.</span>
-<span id="cb1-46"><a href="#cb1-46"></a><span class="ss">* </span>Compare and contrast the strengths and weaknesses of different programming languages and tools for high-performance scientific computing.</span>
-<span id="cb1-47"><a href="#cb1-47"></a></span>
-<span id="cb1-48"><a href="#cb1-48"></a><span class="fu">## Scientific Publishing</span></span>
-<span id="cb1-49"><a href="#cb1-49"></a></span>
-<span id="cb1-50"><a href="#cb1-50"></a><span class="ss">* </span>Create professional scientific documents and presentations using markup languages and tools such as Markdown, HTML/CSS, LaTeX, Quarto, Typst, and Sphinx.</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./A0_gitbash.html" class="pagination-link" aria-label="Appendix - Git Bash">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Appendix - Git Bash</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb4" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1"></a><span class="co">---</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="an">Title:</span><span class="co"> Appendix - Commands</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="co">---</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a></span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="fu"># Appendix - Commands</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a></span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="fu">## Python</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a></span>
+<span id="cb4-9"><a href="#cb4-9"></a></span>
+<span id="cb4-10"><a href="#cb4-10"></a><span class="ss">- </span>Python can be used within the Python prompt, prefixed with <span class="in">`&gt;&gt;&gt;`</span>, or via <span class="in">`.py`</span> files.</span>
+<span id="cb4-11"><a href="#cb4-11"></a><span class="ss">- </span>Python is used to conduct computations.</span>
+<span id="cb4-12"><a href="#cb4-12"></a><span class="ss">- </span>Versus a calculator, it supports arithmetic, comparisons, code reuse, and repeated actions.</span>
+<span id="cb4-13"><a href="#cb4-13"></a></span>
+<span id="cb4-14"><a href="#cb4-14"></a><span class="fu">## </span></span>
+<span id="cb4-15"><a href="#cb4-15"></a></span>
+<span id="cb4-16"><a href="#cb4-16"></a>:::: {.columns}</span>
+<span id="cb4-17"><a href="#cb4-17"></a></span>
+<span id="cb4-18"><a href="#cb4-18"></a>::: {.column width="50%"}</span>
+<span id="cb4-19"><a href="#cb4-19"></a></span>
+<span id="cb4-20"><a href="#cb4-20"></a>$$</span>
+<span id="cb4-21"><a href="#cb4-21"></a>f(x) =</span>
+<span id="cb4-22"><a href="#cb4-22"></a>\begin{cases}</span>
+<span id="cb4-23"><a href="#cb4-23"></a>  9x^2 + 5 &amp; x &lt; 4 <span class="sc">\\</span></span>
+<span id="cb4-24"><a href="#cb4-24"></a>  9 &amp; 4 \leq x \leq 8 <span class="sc">\\</span></span>
+<span id="cb4-25"><a href="#cb4-25"></a>  2 - x &amp; x &gt; 8</span>
+<span id="cb4-26"><a href="#cb4-26"></a>\end{cases}</span>
+<span id="cb4-27"><a href="#cb4-27"></a>$$</span>
+<span id="cb4-28"><a href="#cb4-28"></a></span>
+<span id="cb4-29"><a href="#cb4-29"></a>:::</span>
+<span id="cb4-30"><a href="#cb4-30"></a></span>
+<span id="cb4-31"><a href="#cb4-31"></a>::: {.column width="50%"}</span>
+<span id="cb4-32"><a href="#cb4-32"></a></span>
+<span id="cb4-35"><a href="#cb4-35"></a><span class="in">```{python}</span></span>
+<span id="cb4-36"><a href="#cb4-36"></a><span class="kw">def</span> f(x):</span>
+<span id="cb4-37"><a href="#cb4-37"></a>    <span class="cf">if</span> (x <span class="op">&lt;</span> <span class="dv">4</span>):</span>
+<span id="cb4-38"><a href="#cb4-38"></a>        <span class="cf">return</span> <span class="dv">9</span> <span class="op">*</span> x <span class="op">**</span> <span class="dv">2</span> <span class="op">+</span> <span class="dv">5</span></span>
+<span id="cb4-39"><a href="#cb4-39"></a>    <span class="cf">elif</span> (<span class="dv">4</span> <span class="op">&lt;=</span> x <span class="op">&lt;=</span> <span class="dv">8</span>):</span>
+<span id="cb4-40"><a href="#cb4-40"></a>        <span class="cf">return</span> <span class="dv">9</span></span>
+<span id="cb4-41"><a href="#cb4-41"></a>    <span class="cf">elif</span> (x <span class="op">&gt;</span> <span class="dv">8</span>):</span>
+<span id="cb4-42"><a href="#cb4-42"></a>        <span class="cf">return</span> <span class="dv">2</span> <span class="op">-</span> x</span>
+<span id="cb4-43"><a href="#cb4-43"></a><span class="in">```</span></span>
+<span id="cb4-44"><a href="#cb4-44"></a>:::</span>
+<span id="cb4-45"><a href="#cb4-45"></a></span>
+<span id="cb4-46"><a href="#cb4-46"></a>::::</span>
+<span id="cb4-47"><a href="#cb4-47"></a></span>
+<span id="cb4-48"><a href="#cb4-48"></a><span class="fu">## </span></span>
+<span id="cb4-49"><a href="#cb4-49"></a></span>
+<span id="cb4-50"><a href="#cb4-50"></a>:::: {.columns}</span>
+<span id="cb4-51"><a href="#cb4-51"></a></span>
+<span id="cb4-52"><a href="#cb4-52"></a>::: {.column width="50%"}</span>
+<span id="cb4-53"><a href="#cb4-53"></a></span>
+<span id="cb4-54"><a href="#cb4-54"></a><span class="ss">- </span>Find $f(x)$ for each of the following $x$ values:</span>
+<span id="cb4-55"><a href="#cb4-55"></a>$$</span>
+<span id="cb4-56"><a href="#cb4-56"></a><span class="sc">\{</span>-1, 4, 5, 8, 11<span class="sc">\}</span></span>
+<span id="cb4-57"><a href="#cb4-57"></a>$$</span>
+<span id="cb4-58"><a href="#cb4-58"></a></span>
+<span id="cb4-59"><a href="#cb4-59"></a>:::</span>
+<span id="cb4-60"><a href="#cb4-60"></a></span>
+<span id="cb4-61"><a href="#cb4-61"></a>::: {.column width="50%"}</span>
+<span id="cb4-62"><a href="#cb4-62"></a></span>
+<span id="cb4-65"><a href="#cb4-65"></a><span class="in">```{python}</span></span>
+<span id="cb4-66"><a href="#cb4-66"></a>result <span class="op">=</span> []</span>
+<span id="cb4-67"><a href="#cb4-67"></a><span class="cf">for</span> x <span class="kw">in</span> [<span class="op">-</span><span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">11</span>]:</span>
+<span id="cb4-68"><a href="#cb4-68"></a>    result <span class="op">=</span> result <span class="op">+</span> [f(x)]</span>
+<span id="cb4-69"><a href="#cb4-69"></a>result</span>
+<span id="cb4-70"><a href="#cb4-70"></a><span class="in">```</span></span>
+<span id="cb4-71"><a href="#cb4-71"></a>:::</span>
+<span id="cb4-72"><a href="#cb4-72"></a></span>
+<span id="cb4-73"><a href="#cb4-73"></a>::::</span>
+<span id="cb4-74"><a href="#cb4-74"></a></span>
+<span id="cb4-75"><a href="#cb4-75"></a><span class="fu">## Neovim</span></span>
+<span id="cb4-76"><a href="#cb4-76"></a></span>
+<span id="cb4-77"><a href="#cb4-77"></a><span class="ss">- </span>Use  <span class="in">`nvim`</span> to access a *modal* text editor.</span>
+<span id="cb4-78"><a href="#cb4-78"></a><span class="ss">- </span>In <span class="in">`i`</span> or insert mode, is like other editors.</span>
+<span id="cb4-79"><a href="#cb4-79"></a><span class="ss">- </span>Outside <span class="in">`i`</span> there's "motions", "operators", "commands"</span>
+<span id="cb4-80"><a href="#cb4-80"></a><span class="ss">    - </span>"Motions" move the cursor - where you would type in <span class="in">`i`</span> mode</span>
+<span id="cb4-81"><a href="#cb4-81"></a><span class="ss">    - </span>"Operators" manipulate text - add, delete, yank (copy), paste</span>
+<span id="cb4-82"><a href="#cb4-82"></a><span class="ss">    - </span>"Commands" load and save files and exit Neovim.</span>
+<span id="cb4-83"><a href="#cb4-83"></a></span>
+<span id="cb4-84"><a href="#cb4-84"></a><span class="fu">## {.smaller}</span></span>
+<span id="cb4-85"><a href="#cb4-85"></a></span>
+<span id="cb4-86"><a href="#cb4-86"></a>|Command|Action|</span>
+<span id="cb4-87"><a href="#cb4-87"></a>|-------|------|</span>
+<span id="cb4-88"><a href="#cb4-88"></a>|<span class="in">`ls`</span>| list files in folder |</span>
+<span id="cb4-89"><a href="#cb4-89"></a>|<span class="in">`rm f.txt`</span>| delete file "f.txt"|</span>
+<span id="cb4-90"><a href="#cb4-90"></a>|<span class="in">`mkdir dir`</span>| create a new folder named "dir"|</span>
+<span id="cb4-91"><a href="#cb4-91"></a>|<span class="in">`mv f.txt dir`</span>| move file "f.txt" to folder "dir"|</span>
+<span id="cb4-92"><a href="#cb4-92"></a>|<span class="in">`pwd`</span>| print current folder |</span>
+<span id="cb4-93"><a href="#cb4-93"></a>|<span class="in">`cd dir`</span>| change current folder to "dir"|</span>
+<span id="cb4-94"><a href="#cb4-94"></a>|<span class="in">`cd ..`</span> | go to "parent" folder |</span>
+<span id="cb4-95"><a href="#cb4-95"></a>|<span class="in">`echo hi`</span>| print the text "hi"|</span>
+<span id="cb4-96"><a href="#cb4-96"></a>|<span class="in">`echo hi &gt;f.txt`</span>| write "hi" to file "f.txt"|</span>
+<span id="cb4-97"><a href="#cb4-97"></a>|<span class="in">`cat f.txt`</span>| see the text in f.txt|</span>
+<span id="cb4-98"><a href="#cb4-98"></a></span>
+<span id="cb4-99"><a href="#cb4-99"></a><span class="fu">## Bash</span></span>
+<span id="cb4-100"><a href="#cb4-100"></a></span>
+<span id="cb4-101"><a href="#cb4-101"></a><span class="ss">- </span>Bash commands are used folder-relative.</span>
+<span id="cb4-102"><a href="#cb4-102"></a><span class="ss">- </span>Bash is used within a terminal and is the default terminal environment.</span>
+<span id="cb4-103"><a href="#cb4-103"></a><span class="ss">- </span>To get bash running:</span>
+<span id="cb4-104"><a href="#cb4-104"></a><span class="ss">    - </span>Windows: Check <span class="co">[</span><span class="ot">Appendix - Git Bash</span><span class="co">](A0_gitbash.qmd)</span></span>
+<span id="cb4-105"><a href="#cb4-105"></a><span class="ss">    - </span>MacOS: Spotlight menu -&gt; "Terminal" (zsh, but close enough)</span>
+<span id="cb4-106"><a href="#cb4-106"></a><span class="ss">- </span>Mostly used to navigate the file system, organize files, launch programs like Python and Neovim</span>
+<span id="cb4-107"><a href="#cb4-107"></a></span>
+<span id="cb4-108"><a href="#cb4-108"></a><span class="fu">## {.smaller}</span></span>
+<span id="cb4-109"><a href="#cb4-109"></a></span>
+<span id="cb4-110"><a href="#cb4-110"></a>|Motion|Movement|</span>
+<span id="cb4-111"><a href="#cb4-111"></a>|-------|------|</span>
+<span id="cb4-112"><a href="#cb4-112"></a>|<span class="in">`h`</span>| left one character |</span>
+<span id="cb4-113"><a href="#cb4-113"></a>|<span class="in">`j`</span>| down one line|</span>
+<span id="cb4-114"><a href="#cb4-114"></a>|<span class="in">`k`</span>| up one line|</span>
+<span id="cb4-115"><a href="#cb4-115"></a>|<span class="in">`l`</span>| right one character|</span>
+<span id="cb4-116"><a href="#cb4-116"></a>|<span class="in">`0`</span>| beginning of line |</span>
+<span id="cb4-117"><a href="#cb4-117"></a>|<span class="in">`$`</span>| end of line |</span>
+<span id="cb4-118"><a href="#cb4-118"></a>|<span class="in">`/search_term`</span> | go to next occurance of "search_term" |</span>
+<span id="cb4-119"><a href="#cb4-119"></a>|<span class="in">`e`</span>| end of word |</span>
+<span id="cb4-120"><a href="#cb4-120"></a>|<span class="in">`b`</span>| beginning of word |</span>
+<span id="cb4-121"><a href="#cb4-121"></a></span>
+<span id="cb4-122"><a href="#cb4-122"></a></span>
+<span id="cb4-123"><a href="#cb4-123"></a><span class="fu">## {.smaller}</span></span>
+<span id="cb4-124"><a href="#cb4-124"></a></span>
+<span id="cb4-125"><a href="#cb4-125"></a>:::: {.columns}</span>
+<span id="cb4-126"><a href="#cb4-126"></a></span>
+<span id="cb4-127"><a href="#cb4-127"></a>::: {.column width="50%"}</span>
+<span id="cb4-128"><a href="#cb4-128"></a></span>
+<span id="cb4-129"><a href="#cb4-129"></a></span>
+<span id="cb4-130"><a href="#cb4-130"></a>|Operator|Action|</span>
+<span id="cb4-131"><a href="#cb4-131"></a>|-------|------|</span>
+<span id="cb4-132"><a href="#cb4-132"></a>|<span class="in">`i`</span>| insert text |</span>
+<span id="cb4-133"><a href="#cb4-133"></a>|<span class="in">`r`</span>| replace character |</span>
+<span id="cb4-134"><a href="#cb4-134"></a>|<span class="in">`d`</span>| delete text, combined with a motion |</span>
+<span id="cb4-135"><a href="#cb4-135"></a>|<span class="in">`y`</span>| yank text, combined with a motion |</span>
+<span id="cb4-136"><a href="#cb4-136"></a>|<span class="in">`p`</span>| paste yanked text |</span>
+<span id="cb4-137"><a href="#cb4-137"></a></span>
+<span id="cb4-138"><a href="#cb4-138"></a></span>
+<span id="cb4-139"><a href="#cb4-139"></a>:::</span>
+<span id="cb4-140"><a href="#cb4-140"></a></span>
+<span id="cb4-141"><a href="#cb4-141"></a>::: {.column width="50%"}</span>
+<span id="cb4-142"><a href="#cb4-142"></a></span>
+<span id="cb4-143"><a href="#cb4-143"></a>|Command|Action|</span>
+<span id="cb4-144"><a href="#cb4-144"></a>|-------|------|</span>
+<span id="cb4-145"><a href="#cb4-145"></a>|<span class="in">`:saveas file.txt`</span>| save text as "file.txt"|</span>
+<span id="cb4-146"><a href="#cb4-146"></a>|<span class="in">`:w`</span>| save file |</span>
+<span id="cb4-147"><a href="#cb4-147"></a>|<span class="in">`:x`</span>| save and exit |</span>
+<span id="cb4-148"><a href="#cb4-148"></a>|<span class="in">`:q!`</span> | exit without saving |:::: {.columns}</span>
+<span id="cb4-149"><a href="#cb4-149"></a>:::</span>
+<span id="cb4-150"><a href="#cb4-150"></a></span>
+<span id="cb4-151"><a href="#cb4-151"></a>::::</span>
+</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

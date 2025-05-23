@@ -1,0 +1,907 @@
+---
+title: Shell 
+---
+
+# Why Shell?
+
+## What is the "shell"?
+
+- For lack of a better word, the command line shell.
+- We've called it the terminal.
+- Thus far, we've used the shell to run `python` and `nvim`
+- We've also briefly used a single shell command - `ls`
+  - Recall we used it to see we'd written a file with `nvim`
+
+## Conceptualizing
+
+- So far we've used the shell as follows:
+
+```{dot}
+//| echo: false
+//| fig-width: 400px
+digraph shell {
+  rankdir=TB; bgcolor="transparent";
+  node [shape=circle, fontcolor = "#ffffff", color = "#ffffff"]
+  edge [color = "#ffffff",fontcolor = "#ffffff"]
+
+  Terminal -> Python [label="python3"]
+  Python -> Terminal [label="exit()"]
+  Terminal -> Neovim [label="nvim"]
+  Neovim -> Terminal [label=":x"]
+  Terminal -> Terminal [label="ls"]
+}
+```
+
+## On the Shell 
+
+* Shell scripting is used to control compute *clusters*
+  - These clusters do complex computations like climate modelling, protein folding.
+  - Sometimes called "HPC" - high performance computing.
+* We can practice using the same techniques on our own computers!
+
+## More on the Shell
+
+* Shell scripting is *durable*
+  - Unlike Google Drive or Dropbox, shell scripts from the 70s and 80s (more or less) work today
+  - Similar arguments for Neovim vs. Microsoft Office Word or Google Docs
+* Shell scripting is *portable*
+  - People all around the world use the exact same commands.
+
+## Automation
+
+* Shell scripting can be automated
+  - Sometimes we just want a computer to do something without us thinking about it.
+  - Say you want to collate data every Sunday at 2 PM PT.
+  	- Write a `.py` script that collates
+	- Schedule it to run automatically with the shell `cron` command
+
+
+## Why not the shell?
+
+- **Non-graphical** - When first learning, students are used to see pictures and clicking them
+- **OS-based** - Windows and MacOS have different shell scripts
+- **Steep-learning curve** - Like Neovim, students generally find it difficult to get started, though it is widely preferred by experienced users
+
+# Git Bash
+
+## Setup
+
+- We need to do a bit more setup to:
+  - Make the course run smoothly
+  - Learn the general, transferrable skills we want.
+
+## Bash
+
+- The standard for shell scripting is "bash"
+
+> [In computing, Bash (short for "Bourne Again SHell,") is an interactive command interpreter and command programming language developed for UNIX-like operating systems.](https://en.wikipedia.org/wiki/Bash_(Unix_shell))
+
+- (It's free)
+
+## Windows
+
+- By default, Windows has two shells:
+	- `cmd.bat` - From the 90s
+	- PowerShell - Newer standard
+- Neither used in scientific computing.
+- Instead use:
+	- [Git Bash](https://git-scm.com/downloads/win)
+	  	- Like Python, there is a very important box to check!
+	  	- I provide an [Appendix](A0_gitbash.qmd)
+
+## MacOS
+
+- MacOS uses `zsh`
+- It is close enough to bash to use in this course.
+- You will still need to install `git`, however, a critical shell command.
+  	- Install [Git for macOS](https://git-scm.com/downloads/mac)
+	- It installs through command line!
+
+## Why standardize?
+
+- It is bad enough to have to say "type `python` or `python3`"
+- But even just using `ls` we see perhaps frustrating differences.
+	- `ls` on bash lists only file names
+	- `ls` on PowerShell lists file names, dates, and more
+	- `ls` on `cmd.bat` is an error.
+
+## Diving In
+
+- Today we will use shell scripting in the terminal to...
+	- Delete old files
+	- Organize files within folders
+	- Save the output of scripts as files
+
+## Starting Point
+
+- Let's see what `.py` files you have.
+- We'll issue an `ls` command.
+- We'll provide an *argument* to the command.
+- We'll use the `.py` *file extension* in the command
+- And importantly, we'll use the "wildcard" `*`
+```{.bash}
+ls *.py
+```
+
+## Wildcard
+
+- The `*` will "match" any name.
+- So `.py` will "match" and Python file!
+- I don't know what you've saved, I see this!
+```{.bash code-line-numbers="false"}
+$ ls *.py
+args.py  hi.py  pw.py  reply.py  tax.py
+```
+- What about `ls *`? `ls *w.py`?
+
+# The File System
+
+## File Management
+
+- I tend to like to:
+	- Delete old files
+	- Organize files within folders
+	- Save the output of scripts as files
+- Let's do that.
+
+## `rm`
+
+::: {.callout-warning}
+This command is *dangerous*.
+:::
+
+- The `rm` command removes files by name.
+- For example, I don't use `reply.py` anymore.
+- I can remove it like so:
+```{.bash code-line-numbers="false"}
+$ ls *.py
+args.py  hi.py  pw.py  reply.py  tax.py
+$ rm reply.py
+$ ls *.py
+args.py  hi.py  pw.py  tax.py
+```
+
+## Remove/Recycle
+
+- You may be used to being able to restore deleted files from a recycling bin on your device.
+- Restoring from `rm` is sometimes possible, but never easy.
+- Be conscientious!
+	- Learning to think about file deletion is an important part of the scientific computing process!
+
+## Alternative
+
+- Sometimes I don't want to look at a file, but I don't want to delete it either.
+- I often keep a folder around called "old"
+- It's stuff that's old!
+- I can make a folder with `mkdir` and the folder name, so
+```{.bash code-line-numbers="false"}
+$ ls
+args.py  hi.py  pw.py  tax.py
+$ mkdir old
+$ ls
+args.py  hi.py  old  pw.py  tax.py
+```
+
+# Movement
+
+## Moving Files
+
+- You may be used to "drag and drop" movement of files between folders.
+- In bash, we can do this using the `mv` command.
+- It takes *two* arguments.
+	- The file to move, and
+	- A folder to move it to.
+
+```{.bash code-line-numbers="false"}
+$ ls
+args.py  hi.py  old  pw.py  tax.py
+$ mv hi.py old
+args.py  old  pw.py  tax.py
+```
+
+- Where is `hi.py`?
+
+## Moving in Terminal
+
+- When we are using the terminal, we have a notion of some *location*
+- It is the same kind of location a file can have, that is, within some folder.
+- These locations are called "paths" and are defined by how we get to them.
+
+## Locating ourselves
+
+- You can see where you are at in the terminal at any time with `pwd`
+- Stands for "print working directory"
+- If you just opened Terminal on Windows you would see:
+```{.bash code-line-numbers="false"}
+$ pwd
+/c/Users/cd-desk
+```
+- On MacOS, I believe
+```{.bash code-line-numbers="false"}
+$ pwd
+/home/user
+```
+
+## Moving ourselves
+
+- To change which folder (or directory) the terminal is currently working within
+	- The "working directory"
+- We use the "change directory" command `cd`
+```{.bash code-line-numbers="false"}
+$ ls
+args.py  old  pw.py  tax.py  
+$ pwd
+/home/user
+$ cd old
+$ ls
+hi.py
+$ pwd
+/home/user/old
+```
+
+
+## Movement
+
+- We can move a file, like `hi.py`, to a folder, like `old`
+```{.bash code-line-numbers="false"}
+$ mv hi.py old
+```
+- We can move the terminal's current location to folder, like `old`
+```{.bash code-line-numbers="false"}
+$ cd old
+```
+
+## Exiting a Folder
+
+- To leave a folder after `cd`ing into it, we use a special destination
+
+```{.bash code-line-numbers="false"}
+$ cd ..
+user@DESKTOP-THMS2PJ:~$ pwd
+/home/user
+```
+
+- `..` is the name of the folder that *contains* the folder you are currently in.
+- So you can use `cd` to change to the containing folder, often called the "parent"
+
+## Graphically
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{dot}
+//| echo: false
+//| fig-width: 200px
+digraph shell {
+  rankdir=TB; bgcolor="transparent";  overlap = false;
+  node [shape=circle, fontcolor = "#ffffff", color = "#ffffff"]
+  edge [color = "#ffffff",fontcolor = "#ffffff"]
+
+
+  home -> old[label="cd old"]
+  
+}
+```
+
+:::
+
+::: {.column width="50%"}
+
+```{dot}
+//| echo: false
+//| fig-width: 200px
+digraph shell {
+  rankdir=TB; bgcolor="transparent";  overlap = false;
+  node [shape=circle, fontcolor = "#ffffff", color = "#ffffff"]
+  edge [color = "#ffffff",fontcolor = "#ffffff"]
+
+
+  home -> old[color="transparent"]
+
+
+  old -> home[label="cd .."]
+  
+}
+```
+
+:::
+
+::::
+
+## Removing Directories
+
+- Like files, which we can remove with `rm`, we can also remove folders (or directories).
+- We do so with `rmdir`
+- Let's try on `old`
+```{.bash code-line-numbers="false"}
+$ rmdir old
+rmdir: failed to remove 'old': Directory not empty
+```
+- You can only remove folders this way if they are empty.
+- This helps you not delete things by accident!
+
+# Files
+
+## Reading
+
+- The names of files are helpful, but not always all we want to know.
+- When files only contain text - like `.py` files, we can use `cat` to see what text they contain.
+```{.bash code-line-numbers="false"}
+$ cat args.py
+import sys
+
+print(sys.argv[0])i
+```
+
+## Writing
+
+- Really, the best way to write a file from the command line is with Neovim.
+- But there are other ways, and sometimes you just want to make a file to test something.
+- You can make an empty file (with noting in it) via `touch`
+```{.bash code-line-numbers="false"}
+$ touch somefile.txt
+$ ls *.txt
+somefile.txt
+```
+
+## Echoing
+
+- To put anything in a file, we often use an `echo` command.
+- `echo` is also used for shell "Hello, world!"
+```{.bash code-line-numbers="false"}
+$ echo "Hello, shell!"
+Hello, shell!
+```
+
+## Redirecting
+
+- For any shell command - including `echo` - we can "redirect" what is printed to some file.
+- We do so using the special shell `>` operator
+  	- It's just a special thing, like `*`
+
+```{.bash code-line-numbers="false"}
+$ echo "Hello, redirect!" > hi.txt
+$ cat hi.txt
+Hello, redirect!
+```
+
+- This is *very* helpful to save the results of Python computations.
+
+## Example
+
+- Here's an example how it should work!
+```{.email code-line-numbers="false"}
+$ python3 tax.py 40000 > tax_burden.txt
+$ cat tax_burden.txt
+115529.25
+```
+
+## References
+
+- You can see the commands used here in a table reference in an [Appendix](A1_keybinds.qmd)
+- I'll include them here as well!
+
+## {.smaller}
+
+|Command|Action|
+|-------|------|
+|`ls`| list files in folder |
+|`rm f.txt`| delete file "f.txt"|
+|`mkdir dir`| create a new folder named "dir"|
+|`mv f.txt dir`| move file "f.txt" to folder "dir"|
+|`pwd`| print current folder |
+|`cd dir`| change current folder to "dir"|
+|`cd ..` | go to "parent" folder |
+|`echo hi`| print the text "hi"|
+|`echo hi >f.txt`| write "hi" to file "f.txt"|
+|`cat f.txt`| see the text in f.txt|
+
+
+# Comments
+
+## Taking notes
+
+- I claim it is *hard* to tell what this code is for.
+
+```{python filename="pw.py"}
+def piecewise(x):
+    if (x < 4):
+        return 9 * x ** 2 + 5
+    elif (4 <= x <= 8):
+        return 9
+    elif (x > 8):
+        return 2 - x
+```
+
+- We may know, from taking this class, but in a few weeks, if I find and `cat` it, I am unlikely to know
+
+## Documentation
+
+- Good code tends to come with good *documentation* - written descriptions of what the code does.
+- In Python, we can include "comments" - text that is not evaluated as code - by starting lines with `#`
+```{python}
+# This is a comment.
+print("This is code.")
+# This is another comment.
+```
+
+## Update `pw.py`
+
+- Here is how I documented `pw.py`:
+```{python filename="pw.py"}
+# Example of a piecewise function, from a student.
+# f(x) = 9x^2 + 5 | x < 4
+#        9        | 4 <= x <= 8
+#        2 - x    | x > 8
+def piecewise(x):
+    if (x < 4):
+        return 9 * x ** 2 + 5
+    elif (4 <= x <= 8):
+        return 9
+    elif (x > 8):
+        return 2 - x
+```
+
+- This is functionally indentical, but easier on me!
+
+## Updating `tax.py`
+
+- With the benefit of comments, I'd like to look at income tax again.
+- Comments can make it much nicer to work with.
+- How?
+```{python filename="tax.py"}
+tax_policy = [
+    [415050, .396], 
+    [413350, .35],
+    [190150, .33],
+    [91150, .28],
+    [37650, .25],
+    [9275, .15]    
+]
+```
+- Uh... what does that mean?
+
+# Vim Motions
+
+## Command Mode
+
+- The beauty of Neovim is how powerful command mode, vim motions, and vim operators can be.
+- We'll just introduce a few.
+- The goal is to give a sense of what is possible, and give you things to start practicing.
+- If you ever want to do something in Neovim, chances are you can!
+
+## Solution
+
+<details>
+<summary>Code</summary>
+```{python}
+tax_policy = [
+    [415050, .396], 
+    [413350, .35],
+    [190150, .33],
+    [91150, .28],
+    [37650, .25],
+    [9275, .15]    
+]
+def single_tax(pay):
+    tax = 0
+    for bracket in tax_policy:
+        if pay > bracket[0]:
+            tax += (pay - bracket[0]) * bracket[1]
+            pay = bracket[0]
+    return tax + pay * .1
+```
+</details>
+
+## Insert is easy
+
+- After opening the file, just press `i` and start typing...
+
+```{python filename="tax.py"}
+# Gives the tax rate *above* a certain income level
+tax_policy = [
+    [415050, .396], 
+    [413350, .35],
+    [190150, .33],
+    [91150, .28],
+    [37650, .25],
+    [9275, .15]    
+]
+```
+
+## `$` is end-of-line
+
+- ESC to exit `i` mode
+- "hjkl" are left-up-down-right
+  - So `j` down to the 415050 line
+- `$` jumps to the end of the line
+
+```{python filename="tax.py"}
+# Gives the tax rate *above* a certain income level
+tax_policy = [
+    [415050, .396], # e.g. .396 of every 1 dollar over 415050 is taxed
+    [413350, .35],
+    [190150, .33],
+    [91150, .28],
+    [37650, .25],
+    [9275, .15]    
+]
+```
+
+## `0` is start-of-line
+
+- We'll now copy that comment rather than re-typing the whole thing
+- ESC into command mode
+- `0` brings to beginning of line.
+- `/` let's us search, so `/#` searches for the start of the comment
+  	- Windows I had to "ENTER" after.
+
+Practice this a few times!
+
+## Aside: Mouse
+::: {.callout-tip}
+
+I know you can do this with the mouse.
+:::
+- I type a lot. 
+- I promise this is faster once you practice.
+  - Took me around 2 weeks.
+  - Like 15% of a semester.
+- It is *way* faster than laptop trackpads.
+
+## Yank & Paste
+
+- Vim predates copy paste!
+- Type `y` to yank and then `$` to yank until the end of the line.
+  	- We can combine *motions* (`$`) and operators (`y`)
+- Use `j` to go down to the next line.
+- Use `p` to paste the comment.
+
+```{python filename="tax.py"}
+# Gives the tax rate *above* a certain income level
+tax_policy = [
+    [415050, .396], # e.g. .396 of every 1 dollar over 415050 is taxed
+    [413350, .35],# e.g. .396 of every 1 dollar over 415050 is taxed
+    [190150, .33],
+    [91150, .28],
+    [37650, .25],
+    [9275, .15]    
+]
+```
+
+## Update it
+
+- I used
+	- `/9` - first character to change
+	- `r` - replace mode
+	- Type "5".
+	- `l` to move right (onto "6") then `dl` to delete the next character.
+
+```{python filename="tax.py"}
+# Gives the tax rate *above* a certain income level
+tax_policy = [
+    [415050, .396], # e.g. .396 of every 1 dollar over 415050 is taxed
+    [413350, .35],# e.g. .35 of every 1 dollar over 415050 is taxed
+    [190150, .33],
+    [91150, .28],
+    [37650, .25],
+    [9275, .15]    
+]
+```
+
+## Add the range
+
+- I used
+	- `/over` - first character to change
+	- `de` - We introduce the new `e` motion for "end of word" and combine with delete.
+	- Type "between 413350 and "
+	- I escaped (ESC) and saved (`:w`)
+
+```{python filename="tax.py"}
+# Gives the tax rate *above* a certain income level
+tax_policy = [
+    [415050, .396], # e.g. .396 of every 1 dollar over 415050 is taxed
+    [413350, .35],# e.g. .35 of every 1 dollar between 413350 and 415050 is taxed
+    [190150, .33],
+    [91150, .28],
+    [37650, .25],
+    [9275, .15]    
+]
+```
+
+# Scientific Writing
+
+## Writing as Thinking
+
+- I consider writing *part of the scientific process*.
+- You may realize while working through this that...
+- Each tax braket is a simple linear relation!
+  	- The rate is the slope
+	- The intercept is how much they don't have to pay due to marginal rates.
+- *By writing and explain our computations, we can uncover insights*
+
+## Naive notes
+
+- Here's some naive notes I took.
+- They can be made better!
+
+```{python}
+# Tax on first bracket, up to 9725 at .1
+first = 9725 * .1
+# Second - to 37650 at .25
+second = first + (37650 - 9725) * .15
+```
+
+## Compute Intercept
+
+- We know e.g. the tax cost at 500000
+```{python}
+x = single_tax(500000)
+x
+```
+- Compare to a non-marginal 39.6%
+```{python}
+y = 500000 * .396
+y
+```
+- We can find the difference.
+```{python}
+b = x - y 
+b
+```
+
+## A Linear Equation 
+
+- Try 450000
+```{python}
+income = 450000
+[single_tax(income), income * .396 + b]
+```
+- Try 650000
+```{python}
+income = 650000
+[single_tax(income), income * .396 + b]
+```
+
+- *We can precompute these and make **much simpler** functions*
+
+## Aside: Slope-Intercept
+
+- I think of this as
+$$
+y = mx + b
+$$
+- The slope-intercept form of a line, or linear equation.
+- We calculated it from the point-slope form of a line.
+
+## Aside: Scientific Application
+
+- Thinking in slopes and intercepts is a powerful scientific skill!
+```{python}
+def in_degrees_f(degrees_c):
+	return (9/5) * degrees_c + 32
+```
+- Recognize this?
+```{python}
+[in_degrees_f(0), in_degrees_f(100)]
+```
+
+# Exercise
+
+## Intercept Computation
+
+- One of my favorite ways to use Python, Neovim, and the shell is to:
+  - Compute some numerical values
+    	- Intercept values for linear equations of tax.
+  - Run the script and output the results to the shell.
+  - Use `>` to direct the output to file.
+  - Use `nvim` to edit that file into a *new* Python script that uses the numerical values I found.
+
+## First
+
+- Write a python script, `points.py`, that computes the tax cost at the end of each bracket.
+- Here it is for "Married Filing Jointly"
+- You can do this with a loop using the `tax_policy` list-of-lists!
+
+
+```{python filename="points.py"}
+b = 18550 * .1
+print(b)
+b += (75300 - 18550) * .15
+print(b)
+b += (151900 - 75300) * .25
+print(b)
+b += (231450 - 151900) * .28
+print(b)
+```
+
+## Aside: Loop Version
+
+<details>
+<summary>Code</summary>
+```{python filename="points.py"}
+#| output-location: column
+taxes = [
+    [18550, .10],
+    [75300, .15],
+    [151900, .25],
+    [231450, .28],
+    [413350, .33],
+    [466951, .35]
+]
+
+cost = 0
+start = 0
+for tax in taxes:
+    cost += (tax[0] - start) * tax[1]
+    print(cost)
+    start = tax[0]
+```
+</details>
+
+## Second
+
+- Run the Python script and direct the output to some file, like `tax.py`
+```{.bash code-line-numbers="false"}
+$ python points.py > tax.py
+$ nvim tax.py
+```
+- From here, you can convert to a Python list of your choosing with a variety of means.
+
+## Aside: Visual Block
+
+::: {.callout-warning}
+This is an advanced topic.
+:::
+
+- We introduce *visual block mode*
+- A way to modifying multiple lines all at once.
+	- There is also a regular "visual mode" `v` which I use less often.
+
+## Example
+
+::::{.columns}
+
+:::{.column width="70%"}
+
+- `nvim tax.py`
+- ctrl+q or ctrl+v to enter "visual block"
+- `5j` to move down 5 lines
+- `I` (shift + "i") to enter "insert block"
+- Type "[" to begin a list
+- ESC to exit "insert block"
+- "[" will appear at the start of every line.
+
+:::
+
+:::{.column width="30%"}
+
+- Before:
+
+```{.python filename="tax.py"}
+855.0
+10367.5
+29517.5
+51791.5
+111818.5
+130578.85
+```
+
+- After:
+
+```{.python filename="tax.py"}
+[855.0
+[10367.5
+[29517.5
+[51791.5
+[111818.5
+[130578.85
+```
+
+- Press `u` to undo to practice.
+
+:::
+
+::::
+
+## Aside: Printing Python
+
+- Alternatively, you can use `print()` to directly print things usable as Python.
+
+<details>
+<summary>Code</summary>
+
+```{python filename="intercept.py"}
+cost = 0
+start = 0
+for tax in taxes:
+    cost += (tax[0] - start) * tax[1]
+    print([cost, start, tax[1]])
+    start = tax[0]
+```
+
+</details>
+
+
+## Third
+
+- Use points to determine intercepts
+- Consider:
+```{python}
+# For taxpayers making more than 151900
+# They pay 51791.50, plus
+# .28 for every dollar over 151900
+bracket = [51791.5, 151900, 0.28]
+# What is the linear equation?
+```
+- We can calculate it as follows:
+```{python}
+b = 51791.5 - (151900 * .28)
+b
+```
+
+## Fourth
+
+- Given the calculated slopes and intercepts, construct a piecewise function capturing income tax.
+- Something like this:
+```{python}
+def married_tax(income):
+	if (151900 <= income < 231450):
+		return income * .28 - 9259.5
+	# There will be more brackets of course!
+```
+
+## Exercise
+
+- Create two Python files:
+  - One which calculates intercepts
+    	- Perhaps `intercepts.py`
+  - One which uses intercepts to compute tax cost linearly.
+    	- Perhaps `tax_line.py`
+
+## Solution pt. 1
+
+```{python filename="intercepts.py"}
+#| code-fold: true
+#| output: false
+taxes = [
+    [9275, .10],
+    [37650, .15],
+    [91150, .25],
+    [190150, .28],
+    [413350, .33],
+    [415051, .35]
+]
+
+cost = 0
+start = 0
+for tax in taxes:
+    cost += (tax[0] - start) * tax[1]
+    tax += [cost - tax[0] * tax[1]]
+    start = tax[0]
+    print(tax)
+```
+
+## Solution pt. 2
+
+```{python filename="intercepts.py"}
+#| code-fold: true
+# Generate with `intercepts` then modify with visual block mode
+taxes = [
+    [9275, 0.1, 0.0],
+    [37650, 0.15, -463.75],
+    [91150, 0.25, -4228.75],
+    [190150, 0.28, -6963.25],
+    [413350, 0.33, -16470.75],
+    [415051, 0.35, -24737.75],
+]
+
+def single_tax(income):
+    # Check all brackets
+    for tax in taxes:
+        if income < tax[0]:
+            return income * tax[1] + tax[2]
+    # We calculated the top bracket earlier
+    return income * .396 + -43830.05
+```

@@ -32,7 +32,7 @@ format:
         show-slide-number: all
         width: 1050
         height: 700
-        footer: "[Home](../index.html)"
+        footer: "[Home](index.html)"
         output-ext: rjs.html
 
 execute:

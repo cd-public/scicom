@@ -19,7 +19,7 @@ title: Neovim
 
 - **Modal** - it is not a "What you see is what you get" (WYSIWYG) editor like MS Word, Google Docs, Notepad, or VS Code
 - **Terminal-based** - it is used within the terminal and not often as a stand-alone program.
-- **Steep-learning curve** - students generally find it difficult to get started, though it is widely briefed by experienced users
+- **Steep-learning curve** - students generally find it difficult to get started, though it is widely preferred by experienced users
 
 # Running Example
 

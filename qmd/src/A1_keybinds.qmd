@@ -1,0 +1,147 @@
+---
+Title: Appendix - Commands
+---
+
+# Appendix - Commands
+
+## Python
+
+
+- Python can be used within the Python prompt, prefixed with `>>>`, or via `.py` files.
+- Python is used to conduct computations.
+- Versus a calculator, it supports arithmetic, comparisons, code reuse, and repeated actions.
+
+## 
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+$$
+f(x) =
+\begin{cases}
+  9x^2 + 5 & x < 4 \\
+  9 & 4 \leq x \leq 8 \\
+  2 - x & x > 8
+\end{cases}
+$$
+
+:::
+
+::: {.column width="50%"}
+
+```{python}
+def f(x):
+    if (x < 4):
+        return 9 * x ** 2 + 5
+    elif (4 <= x <= 8):
+        return 9
+    elif (x > 8):
+        return 2 - x
+```
+:::
+
+::::
+
+## 
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+- Find $f(x)$ for each of the following $x$ values:
+$$
+\{-1, 4, 5, 8, 11\}
+$$
+
+:::
+
+::: {.column width="50%"}
+
+```{python}
+result = []
+for x in [-1, 4, 5, 8, 11]:
+    result = result + [f(x)]
+result
+```
+:::
+
+::::
+
+## Neovim
+
+- Use  `nvim` to access a *modal* text editor.
+- In `i` or insert mode, is like other editors.
+- Outside `i` there's "motions", "operators", "commands"
+	- "Motions" move the cursor - where you would type in `i` mode
+	- "Operators" manipulate text - add, delete, yank (copy), paste
+	- "Commands" load and save files and exit Neovim.
+
+## {.smaller}
+
+|Command|Action|
+|-------|------|
+|`ls`| list files in folder |
+|`rm f.txt`| delete file "f.txt"|
+|`mkdir dir`| create a new folder named "dir"|
+|`mv f.txt dir`| move file "f.txt" to folder "dir"|
+|`pwd`| print current folder |
+|`cd dir`| change current folder to "dir"|
+|`cd ..` | go to "parent" folder |
+|`echo hi`| print the text "hi"|
+|`echo hi >f.txt`| write "hi" to file "f.txt"|
+|`cat f.txt`| see the text in f.txt|
+
+## Bash
+
+- Bash commands are used folder-relative.
+- Bash is used within a terminal and is the default terminal environment.
+- To get bash running:
+	- Windows: Check [Appendix - Git Bash](A0_gitbash.qmd)
+	- MacOS: Spotlight menu -> "Terminal" (zsh, but close enough)
+- Mostly used to navigate the file system, organize files, launch programs like Python and Neovim
+
+## {.smaller}
+
+|Motion|Movement|
+|-------|------|
+|`h`| left one character |
+|`j`| down one line|
+|`k`| up one line|
+|`l`| right one character|
+|`0`| beginning of line |
+|`$`| end of line |
+|`/search_term` | go to next occurance of "search_term" |
+|`e`| end of word |
+|`b`| beginning of word |
+
+
+## {.smaller}
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+
+|Operator|Action|
+|-------|------|
+|`i`| insert text |
+|`r`| replace character |
+|`d`| delete text, combined with a motion |
+|`y`| yank text, combined with a motion |
+|`p`| paste yanked text |
+
+
+:::
+
+::: {.column width="50%"}
+
+|Command|Action|
+|-------|------|
+|`:saveas file.txt`| save text as "file.txt"|
+|`:w`| save file |
+|`:x`| save and exit |
+|`:q!` | exit without saving |:::: {.columns}
+:::
+
+::::

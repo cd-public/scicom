@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.6.30">
 
   <meta name="author" content="Prof.&nbsp;Calvin">
-  <title>Scientific Computing – On Scientific Computing</title>
+  <title>Scientific Computing – a0_gitbash</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -324,80 +324,200 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">On Scientific Computing</h1>
-  <p class="subtitle">Scientific Computing</p>
-
-<div class="quarto-title-authors">
-<div class="quarto-title-author">
-<div class="quarto-title-author-name">
-Prof.&nbsp;Calvin 
-</div>
-</div>
-</div>
-
-</section>
-<section id="this-book" class="title-slide slide level1 center">
-<h1>This “Book”</h1>
-<p><a href="https://cd-public.github.io/">I</a> created this book, of sorts, as I came across what I think to be a lack of combined “Scientific Computing” and “Scientific Publishing” (or, perhaps, typesetting) courses available that were:</p>
-<ol type="1">
-<li>Based in Python</li>
-<li>Covered command line tools</li>
-<li>Fully open source.</li>
-</ol>
-</section>
-
-<section id="credits" class="title-slide slide level1 center">
-<h1>Credits</h1>
-<p>I would remiss not to credit my two biggest inspirations:</p>
-<ul>
-<li><a href="https://sbu-python-class.github.io/python-science/Introduction.html">PHY 546: Python for Scientific Computing</a></li>
-<li><a href="https://numericalmethodssullivan.github.io/">Numerical Methods: An Inquiry-Based Approach With Python</a></li>
-</ul>
-<p>You can view the source and see its history under various forms on <a href="https://github.com/cd-public/scicom">GitHub</a>, including how I incorporated this source material.</p>
-</section>
-
-<section id="for-students" class="title-slide slide level1 center">
-<h1>For Students</h1>
-<p>Were I a student, I would work through this book, chapter-wise, ensuring I can amicably complete the exercises at the end of each chapter and understand the solutions if they differ from mine (as they often will, given the variety of ways of solving scientific computing problems).</p>
-</section>
-
-<section id="for-instructors" class="title-slide slide level1 center">
-<h1>For Instructors</h1>
-<p>Were I an instructor, as I am, I would either fork this repository and make any changes I wish, recompiling using <a href="https://quarto.org/">Quarto</a> and hosting via <a href="https://pages.github.com/">GitHub Pages</a>, or simply link directly to these pages and slidedecks. I suspect I will keep them up-to-date for some time!</p>
-</section>
 
 <section>
-<section id="topics" class="title-slide slide level1 center">
-<h1>Topics</h1>
+<section id="appendix---git-bash" class="title-slide slide level1 center">
+<h1>Appendix - Git Bash</h1>
 
 </section>
-<section id="scientific-computing-environment" class="slide level2">
-<h2>Scientific Computing Environment</h2>
+<section id="scientific-computing-on-windows" class="slide level2">
+<h2>Scientific Computing on Windows</h2>
 <ul>
-<li>Utilize fundamental command-line tools (Bash) and a text editor (Neovim) for efficient scientific programming and workflow management.</li>
-<li>Write and execute Python scripts for scientific computing tasks, demonstrating proficiency in basic Python syntax and structures.</li>
+<li>Bash is a nearly universally standard for command line usage.</li>
+<li>Windows built-in <code>cmd.bat</code> and <code>PowerShell</code> are necessary for Windows to run properly, but rarely used in a computing context.</li>
+<li>Git, an extremely popular command line utility used in bash, provides “Git Bash” for Windows users to have access to bash scripting.</li>
 </ul>
 </section>
-<section id="numerical-computation" class="slide level2">
-<h2>Numerical Computation</h2>
+<section id="why-git-bash" class="slide level2">
+<h2>Why Git Bash?</h2>
 <ul>
-<li>Apply advanced numerical methods and understand the properties of floating-point arithmetic for accurate scientific computations.</li>
-<li>Implement and analyze high-performance computing techniques using Python libraries such as NumPy, SciPy, and SymPy for numerical analysis and symbolic mathematics.</li>
-<li>Process, analyze, and visualize scientific datasets effectively using Pandas and Matplotlib.</li>
+<li>It’s relatively easy to setup and integrates well with Windows.</li>
 </ul>
 </section>
-<section id="performance-optimization" class="slide level2">
-<h2>Performance Optimization</h2>
+<section id="why-not-git-bash" class="slide level2">
+<h2>Why not Git Bash?</h2>
 <ul>
-<li>Optimize the performance of scientific code using techniques like Just-In-Time (JIT) compilation with Numba, static compilation with Cython, and integration with Fortran.</li>
-<li>Compare and contrast the strengths and weaknesses of different programming languages and tools for high-performance scientific computing.</li>
+<li><a href="https://learn.microsoft.com/en-us/windows/wsl/install">Windows Subsystem for Linux</a> (WSL) is better in every way except that beginning users often struggle to keep track of where files are.</li>
+<li>It is also a bit harder to install.</li>
+<li>If at all possible, use WSL by following that tutorial.</li>
 </ul>
 </section>
-<section id="scientific-publishing" class="slide level2">
-<h2>Scientific Publishing</h2>
+<section id="requirements" class="slide level2">
+<h2>Requirements</h2>
 <ul>
-<li>Create professional scientific documents and presentations using markup languages and tools such as Markdown, HTML/CSS, LaTeX, Quarto, Typst, and Sphinx.</li>
+<li>You may have it already, but download <a href="https://apps.microsoft.com/detail/9n0dx20hk701?hl=en-US&amp;gl=US">Window Terminal</a> from the Microsoft Store.</li>
+<li>Download (but do not yet install) <a href="https://git-scm.com/downloads/win">Git for Windows</a> from Git SCM.</li>
+</ul>
+</section>
+<section id="installing-git" class="slide level2">
+<h2>Installing Git</h2>
+<ul>
+<li>We will install <code>git</code>, perhaps the most used command line utility, and bash at the same time.</li>
+<li>We will go step-by-step through the “Git for Windows” installer to do so.</li>
+</ul>
+</section>
+<section id="accept-license" class="slide level2">
+<h2>1. Accept License</h2>
+<ul>
+<li>When you open “Git for Windows” you will be prompted to accept the “GNU General Public License”</li>
+<li>This license is what ensures “Git for Windows” is free.</li>
+<li>You may read it, but it is well studied and trustworthy.</li>
+<li>I click “Next” to move on.</li>
+</ul>
+</section>
+<section id="select-components" class="slide level2">
+<h2>2. Select Components</h2>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>This is critical</strong></p>
+</div>
+<div class="callout-content">
+<p>You <strong>must</strong> select “Add a Git Bash Profile to Windows Terminal”</p>
+</div>
+</div>
+</div>
+<ul>
+<li>This box let’s us use bash directly on Windows!</li>
+<li>Probably no other boxes affect you, but I like “Windows Explorer integrat -&gt; Open Git Bash here” which I use often.</li>
+</ul>
+</section>
+<section id="default-editor" class="slide level2">
+<h2>3. Default Editor</h2>
+<ul>
+<li>While not required, I configure Neovim to be my default editor.</li>
+<li>It is quite likely that you do this by:
+<ul>
+<li>Selecting “Select other editor as Git’s default editor”</li>
+<li>Browsing to “C:Files”</li>
+<li>Selecting “nvim.exe”</li>
+</ul></li>
+<li>I find this much nicer than any alternative.
+<ul>
+<li>Next best is probably Notepad++</li>
+</ul></li>
+</ul>
+</section>
+<section id="aside" class="slide level2">
+<h2>Aside</h2>
+<ul>
+<li>I leave <em>everything</em> else on defaults.</li>
+</ul>
+</section>
+<section id="initial-branch" class="slide level2">
+<h2>4. Initial Branch</h2>
+<ul>
+<li>This is out of scope for now.</li>
+<li>“Let Git decide” is fine.</li>
+</ul>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>The language we use to describe computing matters, and GitHub is working to make their language more accurate, precise, and inclusive. <a href="https://github.com/github/renaming">Read more</a></p>
+</div>
+</div>
+</div>
+</section>
+<section id="ssh-executable" class="slide level2">
+<h2>5. SSH executable</h2>
+<ul>
+<li>We’ll cover SSH in more depth latter.</li>
+<li>I leave as default “Use bundled OpenSSH”</li>
+</ul>
+</section>
+<section id="openssl-library" class="slide level2">
+<h2>6. OpenSSL library</h2>
+<ul>
+<li>I leave as default “Use the OpenSSL library”</li>
+<li>I cover OpenSSL in a bit more detail in cryptography courses.</li>
+</ul>
+</section>
+<section id="line-endings" class="slide level2">
+<h2>7. Line Endings</h2>
+<ul>
+<li>Versus MacOS, Windows notes the end of lines of text in a novel way.</li>
+<li>I almost always find this annoying!</li>
+<li>I “Checkout as-is, commit Unix-style line encodings”</li>
+<li>Why? I don’t like that Windows doesn’t follow standards.</li>
+<li>This doesn’t really matter.</li>
+</ul>
+</section>
+<section id="terminal-emulator" class="slide level2">
+<h2>8. Terminal Emulator</h2>
+<ul>
+<li>We will use Windows Terminal regardless.
+<ul>
+<li>I select “Use Windows’ default console window” - which is not Windows Terminal - but is expected to become Windows Terminal someday.</li>
+<li>Windows is confusing!</li>
+</ul></li>
+</ul>
+</section>
+<section id="git-pull" class="slide level2">
+<h2>9. <code>git pull</code></h2>
+<ul>
+<li>I leave the default “Fast-forward or merge”</li>
+<li>By the time this matters to you, you will know how to not use defaults.</li>
+</ul>
+</section>
+<section id="credential-helper" class="slide level2">
+<h2>10. Credential Helper</h2>
+<ul>
+<li>I don’t use a credential manager, but you can set one up on your own if you would like.</li>
+</ul>
+</section>
+<section id="extra-options" class="slide level2">
+<h2>11. Extra Options</h2>
+<ul>
+<li>I do use “Enable file system caching” but I don’t know that I would recommend it.</li>
+<li>No options is fine here!</li>
+</ul>
+</section>
+<section id="finishing-up" class="slide level2">
+<h2>Finishing up</h2>
+<ul>
+<li>At this time, you may need to close any terminal windows you have open.</li>
+<li>Save you work (<code>:w</code>) first!</li>
+</ul>
+</section>
+<section id="install" class="slide level2">
+<h2>Install</h2>
+<ul>
+<li>You should get an install progress bar.</li>
+</ul>
+</section>
+<section id="completion" class="slide level2">
+<h2>Completion</h2>
+<ul>
+<li>I uncheck both boxes and close the installer.</li>
+<li>I open Windows Terminal and click the downward facing arrow button next to the “plus” symbol button after my last tab.</li>
+<li>I select “Git Bash”</li>
+<li>I try <code>ls</code>i
+<ul>
+<li>You should see multiple filenames per line and no other information (Bash <code>ls</code>).</li>
+<li>If you see dates and times, it is still Windows PowerShell.
+<ul>
+<li>Go over these instructions again, or ask for help!</li>
+</ul></li>
+</ul></li>
 </ul>
 
 

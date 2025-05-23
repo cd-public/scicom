@@ -902,6 +902,7 @@ xs
 result = []
 for e in [-1, 4, 5, 8, 11]:
     result = result + [piecewise(e)]
+result
 ```
 - This pattern also works with numbers!
 ```{python}

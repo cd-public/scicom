@@ -15,9 +15,9 @@ title: On Scientific Computing
 I would remiss not to credit my two biggest inspirations:
 
 - [PHY 546: Python for Scientific Computing](https://sbu-python-class.github.io/python-science/Introduction.html)
-- [Numerical Methods: An Inquiry-Based Approach With Python](https://numericalmethodssullivan.github.io/))
+- [Numerical Methods: An Inquiry-Based Approach With Python](https://numericalmethodssullivan.github.io/)
 
-You can view the source and see its history under various forms on [GitHub](https://github.com/cd-public/scicom).
+You can view the source and see its history under various forms on [GitHub](https://github.com/cd-public/scicom), including how I incorporated this source material.
 
 # For Students
 
@@ -31,20 +31,20 @@ Were I an instructor, as I am, I would either fork this repository and make any 
 
 ## Scientific Computing Environment
 
-* **Topic 1:** Utilize fundamental command-line tools (Bash) and a text editor (Neovim) for efficient scientific programming and workflow management.
-* **Topic 2:** Write and execute Python scripts for scientific computing tasks, demonstrating proficiency in basic Python syntax and structures.
+* Utilize fundamental command-line tools (Bash) and a text editor (Neovim) for efficient scientific programming and workflow management.
+* Write and execute Python scripts for scientific computing tasks, demonstrating proficiency in basic Python syntax and structures.
 
 ## Numerical Computation
 
-* **Topic 3:** Apply advanced numerical methods and understand the properties of floating-point arithmetic for accurate scientific computations.
-* **Topic 4:** Implement and analyze high-performance computing techniques using Python libraries such as NumPy, SciPy, and SymPy for numerical analysis and symbolic mathematics.
-* **Topic 5:** Process, analyze, and visualize scientific datasets effectively using Pandas and Matplotlib.
+* Apply advanced numerical methods and understand the properties of floating-point arithmetic for accurate scientific computations.
+* Implement and analyze high-performance computing techniques using Python libraries such as NumPy, SciPy, and SymPy for numerical analysis and symbolic mathematics.
+* Process, analyze, and visualize scientific datasets effectively using Pandas and Matplotlib.
 
 ## Performance Optimization
 
-* **Topic 6:** Optimize the performance of scientific code using techniques like Just-In-Time (JIT) compilation with Numba, static compilation with Cython, and integration with Fortran.
-* **Topic 7:** Compare and contrast the strengths and weaknesses of different programming languages and tools for high-performance scientific computing.
+* Optimize the performance of scientific code using techniques like Just-In-Time (JIT) compilation with Numba, static compilation with Cython, and integration with Fortran.
+* Compare and contrast the strengths and weaknesses of different programming languages and tools for high-performance scientific computing.
 
 ## Scientific Publishing
 
-* **Topic 8:** Create professional scientific documents and presentations using markup languages and tools such as Markdown, HTML/CSS, LaTeX, Quarto, Typst, and Sphinx.
+* Create professional scientific documents and presentations using markup languages and tools such as Markdown, HTML/CSS, LaTeX, Quarto, Typst, and Sphinx.

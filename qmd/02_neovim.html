@@ -65,6 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./03_shell.html" rel="next">
 <link href="./01_python.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -150,6 +151,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="./02_neovim.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Neovim</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03_shell.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Shell</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A0_gitbash.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Appendix - Git Bash</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A1_keybinds.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Appendix - Commands</span></a>
   </div>
 </li>
     </ul>
@@ -379,7 +398,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="solutions">Solutions</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div id="4ba47d29" class="cell" data-execution_count="2">
+<div id="aef9c226" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">def</span> single_tax(pay):</span>
 <span id="cb1-2"><a href="#cb1-2"></a>    tax <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb1-3"><a href="#cb1-3"></a>    <span class="cf">if</span> pay <span class="op">&gt;</span> <span class="dv">415050</span>:</span>
@@ -403,7 +422,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-21"><a href="#cb1-21"></a>    <span class="cf">return</span> tax <span class="op">+</span> pay <span class="op">*</span> <span class="fl">.1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:50%;">
-<div id="adb34ed7" class="cell" data-execution_count="3">
+<div id="59dbbcd3" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">def</span> single_tax(pay):</span>
 <span id="cb2-2"><a href="#cb2-2"></a>    tax_policy <span class="op">=</span> [</span>
 <span id="cb2-3"><a href="#cb2-3"></a>        [<span class="dv">415050</span>, <span class="fl">.396</span>], </span>
@@ -1154,9 +1173,9 @@ Print, Not Return
 <li><em>Think about what is happening here</em></li>
 </ul></li>
 </ul>
-<div id="7d648ac0" class="cell" data-execution_count="4">
+<div id="f811bf4c" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a>[<span class="bu">type</span>(<span class="dv">1</span>), <span class="bu">type</span>(<span class="dv">1</span> <span class="op">==</span> <span class="dv">2</span>), <span class="bu">type</span>([<span class="dv">1</span>,<span class="dv">2</span>]), <span class="bu">type</span>({<span class="dv">1</span>,<span class="dv">2</span>})]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
+<div class="cell-output cell-output-display" data-execution_count="8">
 <pre><code>[int, bool, list, set]</code></pre>
 </div>
 </div>
@@ -1166,9 +1185,9 @@ Print, Not Return
 <li>Short for “string” - as in string of characters</li>
 </ul></li>
 </ul>
-<div id="7730e8c9" class="cell" data-execution_count="5">
+<div id="c426ae16" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a><span class="bu">type</span>(<span class="st">"Hello, world!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
+<div class="cell-output cell-output-display" data-execution_count="9">
 <pre><code>str</code></pre>
 </div>
 </div>
@@ -1241,7 +1260,7 @@ Print, Not Return
 <li>Add a wrinkle.</li>
 <li>Here’s an income tax solution:</li>
 </ul>
-<div id="58746c0b" class="cell" data-execution_count="6">
+<div id="ccea0c81" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a><span class="kw">def</span> single_tax(pay):</span>
@@ -1856,6 +1875,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./03_shell.html" class="pagination-link" aria-label="Shell">
+        <span class="nav-page-text">Shell</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb47" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb47-1"><a href="#cb47-1"></a><span class="co">---</span></span>
@@ -1879,7 +1901,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb47-19"><a href="#cb47-19"></a></span>
 <span id="cb47-20"><a href="#cb47-20"></a><span class="ss">- </span>**Modal** - it is not a "What you see is what you get" (WYSIWYG) editor like MS Word, Google Docs, Notepad, or VS Code</span>
 <span id="cb47-21"><a href="#cb47-21"></a><span class="ss">- </span>**Terminal-based** - it is used within the terminal and not often as a stand-alone program.</span>
-<span id="cb47-22"><a href="#cb47-22"></a><span class="ss">- </span>**Steep-learning curve** - students generally find it difficult to get started, though it is widely briefed by experienced users</span>
+<span id="cb47-22"><a href="#cb47-22"></a><span class="ss">- </span>**Steep-learning curve** - students generally find it difficult to get started, though it is widely preferred by experienced users</span>
 <span id="cb47-23"><a href="#cb47-23"></a></span>
 <span id="cb47-24"><a href="#cb47-24"></a><span class="fu"># Running Example</span></span>
 <span id="cb47-25"><a href="#cb47-25"></a></span>
