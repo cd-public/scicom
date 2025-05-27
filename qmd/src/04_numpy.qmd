@@ -683,6 +683,12 @@ total_cost
 - [Contants](https://numpy.org/devdocs/reference/constants.html) like `np.inf` support mathematics
 - [Accumulation functions](https://numpy.org/doc/2.1/reference/routines.math.html#sums-products-differences) we don't have to write ourselves (which we'd have to do via loops)
 
+## On Names{.smaller}
+
+> You might hear of a 0-D (zero-dimensional) array referred to as a “scalar”, a 1-D (one-dimensional) array as a “vector”, a 2-D (two-dimensional) array as a “matrix”, or an N-D (N-dimensional, where “N” is typically an integer greater than 2) array as a “tensor”. 
+
+> For clarity, it is best to avoid the mathematical terms when referring to an array because the mathematical objects with these names behave differently than arrays (e.g. “matrix” multiplication is fundamentally different from “array” multiplication), and there are other objects in the scientific Python ecosystem that have these names (e.g. the fundamental data structure of PyTorch is the “tensor”).
+
 
 # Exercise
 

@@ -284,6 +284,7 @@ window.Quarto = {
   <li><a href="#takeaways-1" id="toc-takeaways-1" class="nav-link" data-scroll-target="#takeaways-1">Takeaways</a>
   <ul class="collapse">
   <li><a href="#numpy-does-a-lot" id="toc-numpy-does-a-lot" class="nav-link" data-scroll-target="#numpy-does-a-lot">NumPy does a lot!</a></li>
+  <li><a href="#on-names" id="toc-on-names" class="nav-link" data-scroll-target="#on-names">On Names</a></li>
   </ul></li>
   <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise">Exercise</a>
   <ul class="collapse">
@@ -1328,6 +1329,15 @@ window.Quarto = {
 <li><a href="https://numpy.org/devdocs/reference/constants.html">Contants</a> like <code>np.inf</code> support mathematics</li>
 <li><a href="https://numpy.org/doc/2.1/reference/routines.math.html#sums-products-differences">Accumulation functions</a> we don’t have to write ourselves (which we’d have to do via loops)</li>
 </ul>
+</section>
+<section id="on-names" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="on-names">On Names</h2>
+<blockquote class="blockquote">
+<p>You might hear of a 0-D (zero-dimensional) array referred to as a “scalar”, a 1-D (one-dimensional) array as a “vector”, a 2-D (two-dimensional) array as a “matrix”, or an N-D (N-dimensional, where “N” is typically an integer greater than 2) array as a “tensor”.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>For clarity, it is best to avoid the mathematical terms when referring to an array because the mathematical objects with these names behave differently than arrays (e.g.&nbsp;“matrix” multiplication is fundamentally different from “array” multiplication), and there are other objects in the scientific Python ecosystem that have these names (e.g.&nbsp;the fundamental data structure of PyTorch is the “tensor”).</p>
+</blockquote>
 </section>
 </section>
 <section id="exercise" class="level1">
@@ -2674,139 +2684,145 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb112-783"><a href="#cb112-783"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Contants</span><span class="co">](https://numpy.org/devdocs/reference/constants.html)</span> like <span class="in">`np.inf`</span> support mathematics</span>
 <span id="cb112-784"><a href="#cb112-784"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Accumulation functions</span><span class="co">](https://numpy.org/doc/2.1/reference/routines.math.html#sums-products-differences)</span> we don't have to write ourselves (which we'd have to do via loops)</span>
 <span id="cb112-785"><a href="#cb112-785"></a></span>
-<span id="cb112-786"><a href="#cb112-786"></a></span>
-<span id="cb112-787"><a href="#cb112-787"></a><span class="fu"># Exercise</span></span>
-<span id="cb112-788"><a href="#cb112-788"></a></span>
-<span id="cb112-789"><a href="#cb112-789"></a><span class="fu">## Using NumPy</span></span>
-<span id="cb112-790"><a href="#cb112-790"></a></span>
-<span id="cb112-791"><a href="#cb112-791"></a><span class="ss">- </span>Today we successfully recomputed the points of the point-intercept form of the income tax problem.</span>
-<span id="cb112-792"><a href="#cb112-792"></a><span class="ss">- </span>Using NumPy, starting with <span class="in">`taxes`</span>, create the array on the right:</span>
-<span id="cb112-793"><a href="#cb112-793"></a></span>
-<span id="cb112-794"><a href="#cb112-794"></a>:::: {.columns}</span>
-<span id="cb112-795"><a href="#cb112-795"></a></span>
-<span id="cb112-796"><a href="#cb112-796"></a>::: {.column width="28%"}</span>
-<span id="cb112-797"><a href="#cb112-797"></a></span>
-<span id="cb112-800"><a href="#cb112-800"></a><span class="in">```{python}</span></span>
-<span id="cb112-801"><a href="#cb112-801"></a>taxes <span class="op">=</span> np.array([</span>
-<span id="cb112-802"><a href="#cb112-802"></a>    [<span class="dv">9275</span>, <span class="fl">.1</span>],</span>
-<span id="cb112-803"><a href="#cb112-803"></a>    [<span class="dv">37650</span>, <span class="fl">.15</span>],</span>
-<span id="cb112-804"><a href="#cb112-804"></a>    [<span class="dv">91150</span>, <span class="fl">.25</span>],</span>
-<span id="cb112-805"><a href="#cb112-805"></a>    [<span class="dv">190150</span>, <span class="fl">.28</span>],</span>
-<span id="cb112-806"><a href="#cb112-806"></a>    [<span class="dv">413350</span>, <span class="fl">.33</span>],</span>
-<span id="cb112-807"><a href="#cb112-807"></a>    [<span class="dv">415051</span>, <span class="fl">.35</span>]</span>
-<span id="cb112-808"><a href="#cb112-808"></a>])</span>
-<span id="cb112-809"><a href="#cb112-809"></a><span class="in">```</span></span>
-<span id="cb112-810"><a href="#cb112-810"></a></span>
-<span id="cb112-811"><a href="#cb112-811"></a>:::</span>
-<span id="cb112-812"><a href="#cb112-812"></a></span>
-<span id="cb112-813"><a href="#cb112-813"></a>::: {.column width="72%"}</span>
-<span id="cb112-814"><a href="#cb112-814"></a></span>
-<span id="cb112-817"><a href="#cb112-817"></a><span class="in">```{python}</span></span>
-<span id="cb112-818"><a href="#cb112-818"></a><span class="co">#| eval: false</span></span>
-<span id="cb112-819"><a href="#cb112-819"></a>np.array([[ <span class="fl">9.275000e+03</span>,  <span class="fl">1.000000e-01</span>,  <span class="fl">0.000000e+00</span>],</span>
-<span id="cb112-820"><a href="#cb112-820"></a>          [ <span class="fl">3.765000e+04</span>,  <span class="fl">1.500000e-01</span>, <span class="op">-</span><span class="fl">4.637500e+02</span>],</span>
-<span id="cb112-821"><a href="#cb112-821"></a>          [ <span class="fl">9.115000e+04</span>,  <span class="fl">2.500000e-01</span>, <span class="op">-</span><span class="fl">4.228750e+03</span>],</span>
-<span id="cb112-822"><a href="#cb112-822"></a>          [ <span class="fl">1.901500e+05</span>,  <span class="fl">2.800000e-01</span>, <span class="op">-</span><span class="fl">6.963250e+03</span>],</span>
-<span id="cb112-823"><a href="#cb112-823"></a>          [ <span class="fl">4.133500e+05</span>,  <span class="fl">3.300000e-01</span>, <span class="op">-</span><span class="fl">1.647075e+04</span>],</span>
-<span id="cb112-824"><a href="#cb112-824"></a>          [ <span class="fl">4.150510e+05</span>,  <span class="fl">3.500000e-01</span>, <span class="op">-</span><span class="fl">2.473775e+04</span>]])</span>
-<span id="cb112-825"><a href="#cb112-825"></a><span class="in">```</span></span>
-<span id="cb112-826"><a href="#cb112-826"></a></span>
-<span id="cb112-827"><a href="#cb112-827"></a>:::</span>
-<span id="cb112-828"><a href="#cb112-828"></a></span>
-<span id="cb112-829"><a href="#cb112-829"></a>::::</span>
-<span id="cb112-830"><a href="#cb112-830"></a></span>
-<span id="cb112-831"><a href="#cb112-831"></a><span class="fu">## Transpose</span></span>
+<span id="cb112-786"><a href="#cb112-786"></a><span class="fu">## On Names{.smaller}</span></span>
+<span id="cb112-787"><a href="#cb112-787"></a></span>
+<span id="cb112-788"><a href="#cb112-788"></a><span class="at">&gt; You might hear of a 0-D (zero-dimensional) array referred to as a “scalar”, a 1-D (one-dimensional) array as a “vector”, a 2-D (two-dimensional) array as a “matrix”, or an N-D (N-dimensional, where “N” is typically an integer greater than 2) array as a “tensor”. </span></span>
+<span id="cb112-789"><a href="#cb112-789"></a></span>
+<span id="cb112-790"><a href="#cb112-790"></a><span class="at">&gt; For clarity, it is best to avoid the mathematical terms when referring to an array because the mathematical objects with these names behave differently than arrays (e.g. “matrix” multiplication is fundamentally different from “array” multiplication), and there are other objects in the scientific Python ecosystem that have these names (e.g. the fundamental data structure of PyTorch is the “tensor”).</span></span>
+<span id="cb112-791"><a href="#cb112-791"></a></span>
+<span id="cb112-792"><a href="#cb112-792"></a></span>
+<span id="cb112-793"><a href="#cb112-793"></a><span class="fu"># Exercise</span></span>
+<span id="cb112-794"><a href="#cb112-794"></a></span>
+<span id="cb112-795"><a href="#cb112-795"></a><span class="fu">## Using NumPy</span></span>
+<span id="cb112-796"><a href="#cb112-796"></a></span>
+<span id="cb112-797"><a href="#cb112-797"></a><span class="ss">- </span>Today we successfully recomputed the points of the point-intercept form of the income tax problem.</span>
+<span id="cb112-798"><a href="#cb112-798"></a><span class="ss">- </span>Using NumPy, starting with <span class="in">`taxes`</span>, create the array on the right:</span>
+<span id="cb112-799"><a href="#cb112-799"></a></span>
+<span id="cb112-800"><a href="#cb112-800"></a>:::: {.columns}</span>
+<span id="cb112-801"><a href="#cb112-801"></a></span>
+<span id="cb112-802"><a href="#cb112-802"></a>::: {.column width="28%"}</span>
+<span id="cb112-803"><a href="#cb112-803"></a></span>
+<span id="cb112-806"><a href="#cb112-806"></a><span class="in">```{python}</span></span>
+<span id="cb112-807"><a href="#cb112-807"></a>taxes <span class="op">=</span> np.array([</span>
+<span id="cb112-808"><a href="#cb112-808"></a>    [<span class="dv">9275</span>, <span class="fl">.1</span>],</span>
+<span id="cb112-809"><a href="#cb112-809"></a>    [<span class="dv">37650</span>, <span class="fl">.15</span>],</span>
+<span id="cb112-810"><a href="#cb112-810"></a>    [<span class="dv">91150</span>, <span class="fl">.25</span>],</span>
+<span id="cb112-811"><a href="#cb112-811"></a>    [<span class="dv">190150</span>, <span class="fl">.28</span>],</span>
+<span id="cb112-812"><a href="#cb112-812"></a>    [<span class="dv">413350</span>, <span class="fl">.33</span>],</span>
+<span id="cb112-813"><a href="#cb112-813"></a>    [<span class="dv">415051</span>, <span class="fl">.35</span>]</span>
+<span id="cb112-814"><a href="#cb112-814"></a>])</span>
+<span id="cb112-815"><a href="#cb112-815"></a><span class="in">```</span></span>
+<span id="cb112-816"><a href="#cb112-816"></a></span>
+<span id="cb112-817"><a href="#cb112-817"></a>:::</span>
+<span id="cb112-818"><a href="#cb112-818"></a></span>
+<span id="cb112-819"><a href="#cb112-819"></a>::: {.column width="72%"}</span>
+<span id="cb112-820"><a href="#cb112-820"></a></span>
+<span id="cb112-823"><a href="#cb112-823"></a><span class="in">```{python}</span></span>
+<span id="cb112-824"><a href="#cb112-824"></a><span class="co">#| eval: false</span></span>
+<span id="cb112-825"><a href="#cb112-825"></a>np.array([[ <span class="fl">9.275000e+03</span>,  <span class="fl">1.000000e-01</span>,  <span class="fl">0.000000e+00</span>],</span>
+<span id="cb112-826"><a href="#cb112-826"></a>          [ <span class="fl">3.765000e+04</span>,  <span class="fl">1.500000e-01</span>, <span class="op">-</span><span class="fl">4.637500e+02</span>],</span>
+<span id="cb112-827"><a href="#cb112-827"></a>          [ <span class="fl">9.115000e+04</span>,  <span class="fl">2.500000e-01</span>, <span class="op">-</span><span class="fl">4.228750e+03</span>],</span>
+<span id="cb112-828"><a href="#cb112-828"></a>          [ <span class="fl">1.901500e+05</span>,  <span class="fl">2.800000e-01</span>, <span class="op">-</span><span class="fl">6.963250e+03</span>],</span>
+<span id="cb112-829"><a href="#cb112-829"></a>          [ <span class="fl">4.133500e+05</span>,  <span class="fl">3.300000e-01</span>, <span class="op">-</span><span class="fl">1.647075e+04</span>],</span>
+<span id="cb112-830"><a href="#cb112-830"></a>          [ <span class="fl">4.150510e+05</span>,  <span class="fl">3.500000e-01</span>, <span class="op">-</span><span class="fl">2.473775e+04</span>]])</span>
+<span id="cb112-831"><a href="#cb112-831"></a><span class="in">```</span></span>
 <span id="cb112-832"><a href="#cb112-832"></a></span>
-<span id="cb112-833"><a href="#cb112-833"></a><span class="ss">- </span>There are many ways to solve this problem!</span>
-<span id="cb112-834"><a href="#cb112-834"></a><span class="ss">- </span>Things will be easier with the following:</span>
-<span id="cb112-837"><a href="#cb112-837"></a><span class="in">```{python}</span></span>
-<span id="cb112-838"><a href="#cb112-838"></a>taxes.shape</span>
-<span id="cb112-839"><a href="#cb112-839"></a><span class="in">```</span></span>
-<span id="cb112-842"><a href="#cb112-842"></a><span class="in">```{python}</span></span>
-<span id="cb112-843"><a href="#cb112-843"></a>taxes.reshape(<span class="dv">2</span>,<span class="dv">6</span>)</span>
-<span id="cb112-844"><a href="#cb112-844"></a><span class="in">```</span></span>
-<span id="cb112-845"><a href="#cb112-845"></a></span>
+<span id="cb112-833"><a href="#cb112-833"></a>:::</span>
+<span id="cb112-834"><a href="#cb112-834"></a></span>
+<span id="cb112-835"><a href="#cb112-835"></a>::::</span>
+<span id="cb112-836"><a href="#cb112-836"></a></span>
+<span id="cb112-837"><a href="#cb112-837"></a><span class="fu">## Transpose</span></span>
+<span id="cb112-838"><a href="#cb112-838"></a></span>
+<span id="cb112-839"><a href="#cb112-839"></a><span class="ss">- </span>There are many ways to solve this problem!</span>
+<span id="cb112-840"><a href="#cb112-840"></a><span class="ss">- </span>Things will be easier with the following:</span>
+<span id="cb112-843"><a href="#cb112-843"></a><span class="in">```{python}</span></span>
+<span id="cb112-844"><a href="#cb112-844"></a>taxes.shape</span>
+<span id="cb112-845"><a href="#cb112-845"></a><span class="in">```</span></span>
 <span id="cb112-848"><a href="#cb112-848"></a><span class="in">```{python}</span></span>
-<span id="cb112-849"><a href="#cb112-849"></a>taxes.transpose()</span>
+<span id="cb112-849"><a href="#cb112-849"></a>taxes.reshape(<span class="dv">2</span>,<span class="dv">6</span>)</span>
 <span id="cb112-850"><a href="#cb112-850"></a><span class="in">```</span></span>
 <span id="cb112-851"><a href="#cb112-851"></a></span>
-<span id="cb112-852"><a href="#cb112-852"></a><span class="fu">## Bonus Problem</span></span>
-<span id="cb112-853"><a href="#cb112-853"></a></span>
-<span id="cb112-854"><a href="#cb112-854"></a><span class="ss">- </span>NumPy allows random number generation.</span>
-<span id="cb112-855"><a href="#cb112-855"></a><span class="ss">- </span>Generate one million random numbers between, say, <span class="in">`0`</span> and <span class="in">`500000`</span>.</span>
-<span id="cb112-856"><a href="#cb112-856"></a><span class="ss">  - </span>There will be repeats, which is okay.</span>
-<span id="cb112-857"><a href="#cb112-857"></a><span class="ss">- </span>Use Python with and without NumPy to compute every tax cost.</span>
-<span id="cb112-858"><a href="#cb112-858"></a><span class="ss">- </span>See which one is faster! You can use the shell command <span class="in">`time`</span></span>
+<span id="cb112-854"><a href="#cb112-854"></a><span class="in">```{python}</span></span>
+<span id="cb112-855"><a href="#cb112-855"></a>taxes.transpose()</span>
+<span id="cb112-856"><a href="#cb112-856"></a><span class="in">```</span></span>
+<span id="cb112-857"><a href="#cb112-857"></a></span>
+<span id="cb112-858"><a href="#cb112-858"></a><span class="fu">## Bonus Problem</span></span>
 <span id="cb112-859"><a href="#cb112-859"></a></span>
-<span id="cb112-860"><a href="#cb112-860"></a><span class="fu">## Aside: Random</span></span>
-<span id="cb112-861"><a href="#cb112-861"></a></span>
-<span id="cb112-862"><a href="#cb112-862"></a><span class="ss">- </span>The following:</span>
-<span id="cb112-863"><a href="#cb112-863"></a><span class="ss">  - </span>Generates 1 million random integers from <span class="in">`0`</span> to <span class="in">`50000`</span></span>
-<span id="cb112-864"><a href="#cb112-864"></a><span class="ss">  - </span>Prints every 10 thousandth integer.</span>
-<span id="cb112-865"><a href="#cb112-865"></a><span class="in">```{python filename="onemil.py"}</span></span>
-<span id="cb112-866"><a href="#cb112-866"></a><span class="in">import numpy as np</span></span>
-<span id="cb112-867"><a href="#cb112-867"></a><span class="in">rng = np.random.default_rng()</span></span>
-<span id="cb112-868"><a href="#cb112-868"></a><span class="in">incomes = rng.integers(0, 500000, 1000000)</span></span>
-<span id="cb112-869"><a href="#cb112-869"></a><span class="in">print(incomes[::10000])</span></span>
-<span id="cb112-870"><a href="#cb112-870"></a><span class="in">```</span></span>
-<span id="cb112-871"><a href="#cb112-871"></a><span class="ss">- </span>Read more: <span class="co">[</span><span class="ot">Random sample</span><span class="co">](https://numpy.org/doc/stable/reference/random/index.html)</span></span>
-<span id="cb112-872"><a href="#cb112-872"></a></span>
-<span id="cb112-873"><a href="#cb112-873"></a><span class="fu">## Aside: `time`</span></span>
-<span id="cb112-874"><a href="#cb112-874"></a></span>
-<span id="cb112-875"><a href="#cb112-875"></a><span class="ss">- </span>Use <span class="in">`time`</span> before a command.</span>
-<span id="cb112-876"><a href="#cb112-876"></a><span class="ss">  - </span><span class="in">`real`</span> time is how much passes in real life</span>
-<span id="cb112-877"><a href="#cb112-877"></a></span>
-<span id="cb112-878"><a href="#cb112-878"></a><span class="in">```{.bash code-line-numbers="false}</span></span>
-<span id="cb112-879"><a href="#cb112-879"></a><span class="in">$ time python3 onemil.py</span></span>
-<span id="cb112-880"><a href="#cb112-880"></a><span class="in">[123177 422613 471310 380518  95385 143328 426503 453832 427403 106416</span></span>
-<span id="cb112-881"><a href="#cb112-881"></a><span class="in"> 327306 476263  65814 281381 422404  59938  14231 232824 342190 329545</span></span>
-<span id="cb112-882"><a href="#cb112-882"></a><span class="in"> 412684 112339 202498   5071  59114 394601 451216  92268 381107 487447</span></span>
-<span id="cb112-883"><a href="#cb112-883"></a><span class="in">  55089 339493 344836 261917 148326 452850 409130 484951 427839 307217</span></span>
-<span id="cb112-884"><a href="#cb112-884"></a><span class="in"> 259268 485208 331277 183015 132480 345930 439366   6814  39743 268276</span></span>
-<span id="cb112-885"><a href="#cb112-885"></a><span class="in">  80739 293355 170394   4220  48082  15668 453927  58059 320294 101182</span></span>
-<span id="cb112-886"><a href="#cb112-886"></a><span class="in">   1864 492297 130465   9920  76321 345944 268312 255875  46614 195236</span></span>
-<span id="cb112-887"><a href="#cb112-887"></a><span class="in"> 233737 443948 343483 116870 165561 326265 103567 327780 475672 392212</span></span>
-<span id="cb112-888"><a href="#cb112-888"></a><span class="in"> 396479 328248  43273  32596 246212   4258  60202  66783 135035 155327</span></span>
-<span id="cb112-889"><a href="#cb112-889"></a><span class="in"> 469638 378485 175496 428130 493185 154716 193012 424037 197666 103758]</span></span>
-<span id="cb112-890"><a href="#cb112-890"></a></span>
-<span id="cb112-891"><a href="#cb112-891"></a><span class="in">real    0m0.155s</span></span>
-<span id="cb112-892"><a href="#cb112-892"></a><span class="in">user    0m1.883s</span></span>
-<span id="cb112-893"><a href="#cb112-893"></a><span class="in">sys     0m0.033s</span></span>
-<span id="cb112-894"><a href="#cb112-894"></a><span class="in">```</span></span>
-<span id="cb112-895"><a href="#cb112-895"></a></span>
-<span id="cb112-896"><a href="#cb112-896"></a><span class="fu">## Solution</span></span>
-<span id="cb112-897"><a href="#cb112-897"></a></span>
-<span id="cb112-900"><a href="#cb112-900"></a><span class="in">```{python}</span></span>
-<span id="cb112-901"><a href="#cb112-901"></a><span class="co">#| code-fold: true</span></span>
-<span id="cb112-902"><a href="#cb112-902"></a>cutoffs <span class="op">=</span> taxes[:,<span class="dv">0</span>]</span>
-<span id="cb112-903"><a href="#cb112-903"></a>rates <span class="op">=</span> taxes[:,<span class="dv">1</span>]</span>
-<span id="cb112-904"><a href="#cb112-904"></a></span>
-<span id="cb112-905"><a href="#cb112-905"></a><span class="co"># If you are confused, print(arr) after every line</span></span>
-<span id="cb112-906"><a href="#cb112-906"></a>arr <span class="op">=</span> np.append([<span class="dv">0</span>], cutoffs)</span>
-<span id="cb112-907"><a href="#cb112-907"></a>arr <span class="op">=</span> arr[<span class="dv">1</span>:] <span class="op">-</span> arr[:<span class="op">-</span><span class="dv">1</span>]</span>
-<span id="cb112-908"><a href="#cb112-908"></a>arr <span class="op">*=</span> rates</span>
-<span id="cb112-909"><a href="#cb112-909"></a>arr <span class="op">=</span> np.cumsum(arr)</span>
-<span id="cb112-910"><a href="#cb112-910"></a>arr <span class="op">=</span> arr <span class="op">-</span> cutoffs <span class="op">*</span> rates</span>
-<span id="cb112-911"><a href="#cb112-911"></a></span>
-<span id="cb112-912"><a href="#cb112-912"></a>taxes <span class="op">=</span> np.array([cutoffs,rates,arr])</span>
-<span id="cb112-913"><a href="#cb112-913"></a></span>
-<span id="cb112-914"><a href="#cb112-914"></a>taxes <span class="op">=</span> taxes.transpose()</span>
-<span id="cb112-915"><a href="#cb112-915"></a><span class="in">```</span></span>
-<span id="cb112-916"><a href="#cb112-916"></a></span>
-<span id="cb112-917"><a href="#cb112-917"></a><span class="fu">## Using it</span></span>
-<span id="cb112-918"><a href="#cb112-918"></a></span>
-<span id="cb112-919"><a href="#cb112-919"></a><span class="ss">- </span>I used the exact same <span class="in">`single_tax`</span> function as in the "Shell" exercise.</span>
-<span id="cb112-920"><a href="#cb112-920"></a></span>
-<span id="cb112-923"><a href="#cb112-923"></a><span class="in">```{python}</span></span>
-<span id="cb112-924"><a href="#cb112-924"></a><span class="co">#| code-fold: true</span></span>
-<span id="cb112-925"><a href="#cb112-925"></a><span class="kw">def</span> single_tax(income):</span>
-<span id="cb112-926"><a href="#cb112-926"></a>    <span class="co"># Check all brackets</span></span>
-<span id="cb112-927"><a href="#cb112-927"></a>    <span class="cf">for</span> tax <span class="kw">in</span> taxes:</span>
-<span id="cb112-928"><a href="#cb112-928"></a>        <span class="cf">if</span> income <span class="op">&lt;</span> tax[<span class="dv">0</span>]:</span>
-<span id="cb112-929"><a href="#cb112-929"></a>            <span class="cf">return</span> income <span class="op">*</span> tax[<span class="dv">1</span>] <span class="op">+</span> tax[<span class="dv">2</span>]</span>
-<span id="cb112-930"><a href="#cb112-930"></a>    <span class="co"># We calculated the top bracket earlier</span></span>
-<span id="cb112-931"><a href="#cb112-931"></a>    <span class="cf">return</span> income <span class="op">*</span> <span class="fl">.396</span> <span class="op">+</span> <span class="op">-</span><span class="fl">43830.05</span></span>
-<span id="cb112-932"><a href="#cb112-932"></a><span class="in">```</span></span>
+<span id="cb112-860"><a href="#cb112-860"></a><span class="ss">- </span>NumPy allows random number generation.</span>
+<span id="cb112-861"><a href="#cb112-861"></a><span class="ss">- </span>Generate one million random numbers between, say, <span class="in">`0`</span> and <span class="in">`500000`</span>.</span>
+<span id="cb112-862"><a href="#cb112-862"></a><span class="ss">  - </span>There will be repeats, which is okay.</span>
+<span id="cb112-863"><a href="#cb112-863"></a><span class="ss">- </span>Use Python with and without NumPy to compute every tax cost.</span>
+<span id="cb112-864"><a href="#cb112-864"></a><span class="ss">- </span>See which one is faster! You can use the shell command <span class="in">`time`</span></span>
+<span id="cb112-865"><a href="#cb112-865"></a></span>
+<span id="cb112-866"><a href="#cb112-866"></a><span class="fu">## Aside: Random</span></span>
+<span id="cb112-867"><a href="#cb112-867"></a></span>
+<span id="cb112-868"><a href="#cb112-868"></a><span class="ss">- </span>The following:</span>
+<span id="cb112-869"><a href="#cb112-869"></a><span class="ss">  - </span>Generates 1 million random integers from <span class="in">`0`</span> to <span class="in">`50000`</span></span>
+<span id="cb112-870"><a href="#cb112-870"></a><span class="ss">  - </span>Prints every 10 thousandth integer.</span>
+<span id="cb112-871"><a href="#cb112-871"></a><span class="in">```{python filename="onemil.py"}</span></span>
+<span id="cb112-872"><a href="#cb112-872"></a><span class="in">import numpy as np</span></span>
+<span id="cb112-873"><a href="#cb112-873"></a><span class="in">rng = np.random.default_rng()</span></span>
+<span id="cb112-874"><a href="#cb112-874"></a><span class="in">incomes = rng.integers(0, 500000, 1000000)</span></span>
+<span id="cb112-875"><a href="#cb112-875"></a><span class="in">print(incomes[::10000])</span></span>
+<span id="cb112-876"><a href="#cb112-876"></a><span class="in">```</span></span>
+<span id="cb112-877"><a href="#cb112-877"></a><span class="ss">- </span>Read more: <span class="co">[</span><span class="ot">Random sample</span><span class="co">](https://numpy.org/doc/stable/reference/random/index.html)</span></span>
+<span id="cb112-878"><a href="#cb112-878"></a></span>
+<span id="cb112-879"><a href="#cb112-879"></a><span class="fu">## Aside: `time`</span></span>
+<span id="cb112-880"><a href="#cb112-880"></a></span>
+<span id="cb112-881"><a href="#cb112-881"></a><span class="ss">- </span>Use <span class="in">`time`</span> before a command.</span>
+<span id="cb112-882"><a href="#cb112-882"></a><span class="ss">  - </span><span class="in">`real`</span> time is how much passes in real life</span>
+<span id="cb112-883"><a href="#cb112-883"></a></span>
+<span id="cb112-884"><a href="#cb112-884"></a><span class="in">```{.bash code-line-numbers="false}</span></span>
+<span id="cb112-885"><a href="#cb112-885"></a><span class="in">$ time python3 onemil.py</span></span>
+<span id="cb112-886"><a href="#cb112-886"></a><span class="in">[123177 422613 471310 380518  95385 143328 426503 453832 427403 106416</span></span>
+<span id="cb112-887"><a href="#cb112-887"></a><span class="in"> 327306 476263  65814 281381 422404  59938  14231 232824 342190 329545</span></span>
+<span id="cb112-888"><a href="#cb112-888"></a><span class="in"> 412684 112339 202498   5071  59114 394601 451216  92268 381107 487447</span></span>
+<span id="cb112-889"><a href="#cb112-889"></a><span class="in">  55089 339493 344836 261917 148326 452850 409130 484951 427839 307217</span></span>
+<span id="cb112-890"><a href="#cb112-890"></a><span class="in"> 259268 485208 331277 183015 132480 345930 439366   6814  39743 268276</span></span>
+<span id="cb112-891"><a href="#cb112-891"></a><span class="in">  80739 293355 170394   4220  48082  15668 453927  58059 320294 101182</span></span>
+<span id="cb112-892"><a href="#cb112-892"></a><span class="in">   1864 492297 130465   9920  76321 345944 268312 255875  46614 195236</span></span>
+<span id="cb112-893"><a href="#cb112-893"></a><span class="in"> 233737 443948 343483 116870 165561 326265 103567 327780 475672 392212</span></span>
+<span id="cb112-894"><a href="#cb112-894"></a><span class="in"> 396479 328248  43273  32596 246212   4258  60202  66783 135035 155327</span></span>
+<span id="cb112-895"><a href="#cb112-895"></a><span class="in"> 469638 378485 175496 428130 493185 154716 193012 424037 197666 103758]</span></span>
+<span id="cb112-896"><a href="#cb112-896"></a></span>
+<span id="cb112-897"><a href="#cb112-897"></a><span class="in">real    0m0.155s</span></span>
+<span id="cb112-898"><a href="#cb112-898"></a><span class="in">user    0m1.883s</span></span>
+<span id="cb112-899"><a href="#cb112-899"></a><span class="in">sys     0m0.033s</span></span>
+<span id="cb112-900"><a href="#cb112-900"></a><span class="in">```</span></span>
+<span id="cb112-901"><a href="#cb112-901"></a></span>
+<span id="cb112-902"><a href="#cb112-902"></a><span class="fu">## Solution</span></span>
+<span id="cb112-903"><a href="#cb112-903"></a></span>
+<span id="cb112-906"><a href="#cb112-906"></a><span class="in">```{python}</span></span>
+<span id="cb112-907"><a href="#cb112-907"></a><span class="co">#| code-fold: true</span></span>
+<span id="cb112-908"><a href="#cb112-908"></a>cutoffs <span class="op">=</span> taxes[:,<span class="dv">0</span>]</span>
+<span id="cb112-909"><a href="#cb112-909"></a>rates <span class="op">=</span> taxes[:,<span class="dv">1</span>]</span>
+<span id="cb112-910"><a href="#cb112-910"></a></span>
+<span id="cb112-911"><a href="#cb112-911"></a><span class="co"># If you are confused, print(arr) after every line</span></span>
+<span id="cb112-912"><a href="#cb112-912"></a>arr <span class="op">=</span> np.append([<span class="dv">0</span>], cutoffs)</span>
+<span id="cb112-913"><a href="#cb112-913"></a>arr <span class="op">=</span> arr[<span class="dv">1</span>:] <span class="op">-</span> arr[:<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb112-914"><a href="#cb112-914"></a>arr <span class="op">*=</span> rates</span>
+<span id="cb112-915"><a href="#cb112-915"></a>arr <span class="op">=</span> np.cumsum(arr)</span>
+<span id="cb112-916"><a href="#cb112-916"></a>arr <span class="op">=</span> arr <span class="op">-</span> cutoffs <span class="op">*</span> rates</span>
+<span id="cb112-917"><a href="#cb112-917"></a></span>
+<span id="cb112-918"><a href="#cb112-918"></a>taxes <span class="op">=</span> np.array([cutoffs,rates,arr])</span>
+<span id="cb112-919"><a href="#cb112-919"></a></span>
+<span id="cb112-920"><a href="#cb112-920"></a>taxes <span class="op">=</span> taxes.transpose()</span>
+<span id="cb112-921"><a href="#cb112-921"></a><span class="in">```</span></span>
+<span id="cb112-922"><a href="#cb112-922"></a></span>
+<span id="cb112-923"><a href="#cb112-923"></a><span class="fu">## Using it</span></span>
+<span id="cb112-924"><a href="#cb112-924"></a></span>
+<span id="cb112-925"><a href="#cb112-925"></a><span class="ss">- </span>I used the exact same <span class="in">`single_tax`</span> function as in the "Shell" exercise.</span>
+<span id="cb112-926"><a href="#cb112-926"></a></span>
+<span id="cb112-929"><a href="#cb112-929"></a><span class="in">```{python}</span></span>
+<span id="cb112-930"><a href="#cb112-930"></a><span class="co">#| code-fold: true</span></span>
+<span id="cb112-931"><a href="#cb112-931"></a><span class="kw">def</span> single_tax(income):</span>
+<span id="cb112-932"><a href="#cb112-932"></a>    <span class="co"># Check all brackets</span></span>
+<span id="cb112-933"><a href="#cb112-933"></a>    <span class="cf">for</span> tax <span class="kw">in</span> taxes:</span>
+<span id="cb112-934"><a href="#cb112-934"></a>        <span class="cf">if</span> income <span class="op">&lt;</span> tax[<span class="dv">0</span>]:</span>
+<span id="cb112-935"><a href="#cb112-935"></a>            <span class="cf">return</span> income <span class="op">*</span> tax[<span class="dv">1</span>] <span class="op">+</span> tax[<span class="dv">2</span>]</span>
+<span id="cb112-936"><a href="#cb112-936"></a>    <span class="co"># We calculated the top bracket earlier</span></span>
+<span id="cb112-937"><a href="#cb112-937"></a>    <span class="cf">return</span> income <span class="op">*</span> <span class="fl">.396</span> <span class="op">+</span> <span class="op">-</span><span class="fl">43830.05</span></span>
+<span id="cb112-938"><a href="#cb112-938"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

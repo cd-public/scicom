@@ -5561,5 +5561,39 @@
     "title": "NumPy",
     "section": "Using it",
     "text": "Using it\n\nI used the exact same single_tax function as in the “Shell” exercise.\n\n\n\nCode\ndef single_tax(income):\n    # Check all brackets\n    for tax in taxes:\n        if income &lt; tax[0]:\n            return income * tax[1] + tax[2]\n    # We calculated the top bracket earlier\n    return income * .396 + -43830.05"
+  },
+  {
+    "objectID": "04_numpy.html#on-names",
+    "href": "04_numpy.html#on-names",
+    "title": "NumPy",
+    "section": "On Names",
+    "text": "On Names\n\nYou might hear of a 0-D (zero-dimensional) array referred to as a “scalar”, a 1-D (one-dimensional) array as a “vector”, a 2-D (two-dimensional) array as a “matrix”, or an N-D (N-dimensional, where “N” is typically an integer greater than 2) array as a “tensor”.\n\n\nFor clarity, it is best to avoid the mathematical terms when referring to an array because the mathematical objects with these names behave differently than arrays (e.g. “matrix” multiplication is fundamentally different from “array” multiplication), and there are other objects in the scientific Python ecosystem that have these names (e.g. the fundamental data structure of PyTorch is the “tensor”).",
+    "crumbs": [
+      "NumPy"
+    ]
+  },
+  {
+    "objectID": "04_numpy.rjs.html#on-names",
+    "href": "04_numpy.rjs.html#on-names",
+    "title": "NumPy",
+    "section": "On Names",
+    "text": "On Names\n\nYou might hear of a 0-D (zero-dimensional) array referred to as a “scalar”, a 1-D (one-dimensional) array as a “vector”, a 2-D (two-dimensional) array as a “matrix”, or an N-D (N-dimensional, where “N” is typically an integer greater than 2) array as a “tensor”.\n\n\nFor clarity, it is best to avoid the mathematical terms when referring to an array because the mathematical objects with these names behave differently than arrays (e.g. “matrix” multiplication is fundamentally different from “array” multiplication), and there are other objects in the scientific Python ecosystem that have these names (e.g. the fundamental data structure of PyTorch is the “tensor”)."
+  },
+  {
+    "objectID": "04_numpy.html#on-namessmaller",
+    "href": "04_numpy.html#on-namessmaller",
+    "title": "NumPy",
+    "section": "On Names{:smaller}",
+    "text": "On Names{:smaller}\n\nYou might hear of a 0-D (zero-dimensional) array referred to as a “scalar”, a 1-D (one-dimensional) array as a “vector”, a 2-D (two-dimensional) array as a “matrix”, or an N-D (N-dimensional, where “N” is typically an integer greater than 2) array as a “tensor”. For clarity, it is best to avoid the mathematical terms when referring to an array because the mathematical objects with these names behave differently than arrays (e.g. “matrix” multiplication is fundamentally different from “array” multiplication), and there are other objects in the scientific Python ecosystem that have these names (e.g. the fundamental data structure of PyTorch is the “tensor”).",
+    "crumbs": [
+      "NumPy"
+    ]
+  },
+  {
+    "objectID": "04_numpy.rjs.html#on-namessmaller",
+    "href": "04_numpy.rjs.html#on-namessmaller",
+    "title": "NumPy",
+    "section": "On Names{:smaller}",
+    "text": "On Names{:smaller}\n\nYou might hear of a 0-D (zero-dimensional) array referred to as a “scalar”, a 1-D (one-dimensional) array as a “vector”, a 2-D (two-dimensional) array as a “matrix”, or an N-D (N-dimensional, where “N” is typically an integer greater than 2) array as a “tensor”. For clarity, it is best to avoid the mathematical terms when referring to an array because the mathematical objects with these names behave differently than arrays (e.g. “matrix” multiplication is fundamentally different from “array” multiplication), and there are other objects in the scientific Python ecosystem that have these names (e.g. the fundamental data structure of PyTorch is the “tensor”)."
   }
 ]
