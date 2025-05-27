@@ -46,7 +46,7 @@ You **must** select "Add a Git Bash Profile to Windows Terminal"
 :::
 
 - This box let's us use bash directly on Windows!
-- Probably no other boxes affect you, but I like "Windows Explorer integrat -> Open Git Bash here" which I use often.
+- Probably no other boxes affect you, but I like "Windows Explorer integration -> Open Git Bash here" which I use often.
 
 ## 3. Default Editor
 
@@ -102,7 +102,13 @@ The language we use to describe computing matters, and GitHub is working to make
 
 ## 10. Credential Helper
 
-- I don't use a credential manager, but you can set one up on your own if you would like.
+:::{.callout-important}
+## This is critical
+
+You **must** select "Git Credential Manager"
+:::
+
+- It is otherwise quite difficult to manage passwords when we get there.
 
 ## 11. Extra Options
 
@@ -123,7 +129,7 @@ The language we use to describe computing matters, and GitHub is working to make
 - I uncheck both boxes and close the installer.
 - I open Windows Terminal and click the downward facing arrow button next to the "plus" symbol button after my last tab.
 - I select "Git Bash"
-- I try `ls`i
+- I try `ls`
 	- You should see multiple filenames per line and no other information (Bash `ls`).
 	- If you see dates and times, it is still Windows PowerShell.
 	  	- Go over these instructions again, or ask for help!

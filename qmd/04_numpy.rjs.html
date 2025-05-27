@@ -1,0 +1,1994 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-html/tabby.min.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-a4a11d514c7d463668e07712114998e6.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.6.30">
+
+  <meta name="author" content="Prof.&nbsp;Calvin">
+  <title>Scientific Computing – NumPy</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #f8f8f2;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #f8f8f2; } /* Normal */
+    code span.al { color: #f07178; background-color: #2a0f15; font-weight: bold; } /* Alert */
+    code span.an { color: #d4d0ab; } /* Annotation */
+    code span.at { color: #00e0e0; } /* Attribute */
+    code span.bn { color: #d4d0ab; } /* BaseN */
+    code span.bu { color: #abe338; } /* BuiltIn */
+    code span.cf { color: #ffa07a; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #abe338; } /* Char */
+    code span.cn { color: #ffd700; } /* Constant */
+    code span.co { color: #f8f8f2; font-style: italic; } /* Comment */
+    code span.cv { color: #ffd700; } /* CommentVar */
+    code span.do { color: #f8f8f2; } /* Documentation */
+    code span.dt { color: #ffa07a; } /* DataType */
+    code span.dv { color: #d4d0ab; } /* DecVal */
+    code span.er { color: #f07178; text-decoration: underline; } /* Error */
+    code span.ex { color: #00e0e0; font-weight: bold; } /* Extension */
+    code span.fl { color: #d4d0ab; } /* Float */
+    code span.fu { color: #ffa07a; } /* Function */
+    code span.im { color: #abe338; } /* Import */
+    code span.in { color: #d4d0ab; } /* Information */
+    code span.kw { color: #ffa07a; font-weight: bold; } /* Keyword */
+    code span.op { color: #ffa07a; } /* Operator */
+    code span.ot { color: #00e0e0; } /* Other */
+    code span.pp { color: #dcc6e0; } /* Preprocessor */
+    code span.re { color: #00e0e0; background-color: #f8f8f2; } /* RegionMarker */
+    code span.sc { color: #abe338; } /* SpecialChar */
+    code span.ss { color: #abe338; } /* SpecialString */
+    code span.st { color: #abe338; } /* String */
+    code span.va { color: #00e0e0; } /* Variable */
+    code span.vs { color: #abe338; } /* VerbatimString */
+    code span.wa { color: #dcc6e0; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-0f071606cd187ea9c4f27a73aca9ddf7.css">
+  <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+
+  .callout {
+    margin-top: 1em;
+    margin-bottom: 1em;  
+    border-radius: .25rem;
+  }
+
+  .callout.callout-style-simple { 
+    padding: 0em 0.5em;
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+    display: flex;
+  }
+
+  .callout.callout-style-default {
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+  }
+
+  .callout .callout-body-container {
+    flex-grow: 1;
+  }
+
+  .callout.callout-style-simple .callout-body {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-style-default .callout-body {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-titled.callout-style-simple .callout-body {
+    margin-top: 0.2em;
+  }
+
+  .callout:not(.callout-titled) .callout-body {
+      display: flex;
+  }
+
+  .callout:not(.no-icon).callout-titled.callout-style-simple .callout-content {
+    padding-left: 1.6em;
+  }
+
+  .callout.callout-titled .callout-header {
+    padding-top: 0.2em;
+    margin-bottom: -0.2em;
+  }
+
+  .callout.callout-titled .callout-title  p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+    
+  .callout.callout-titled.callout-style-simple .callout-content  p {
+    margin-top: 0;
+  }
+
+  .callout.callout-titled.callout-style-default .callout-content  p {
+    margin-top: 0.7em;
+  }
+
+  .callout.callout-style-simple div.callout-title {
+    border-bottom: none;
+    font-size: .9rem;
+    font-weight: 600;
+    opacity: 75%;
+  }
+
+  .callout.callout-style-default  div.callout-title {
+    border-bottom: none;
+    font-weight: 600;
+    opacity: 85%;
+    font-size: 0.9rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-default div.callout-content {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-simple .callout-icon::before {
+    height: 1rem;
+    width: 1rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+  }
+
+  .callout.callout-style-default .callout-icon::before {
+    height: 0.9rem;
+    width: 0.9rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 0.9rem 0.9rem;
+  }
+
+  .callout-title {
+    display: flex
+  }
+    
+  .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  .callout.no-icon::before {
+    display: none !important;
+  }
+
+  .callout.callout-titled .callout-body > .callout-content > :last-child {
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
+  }
+
+  .callout.callout-titled .callout-icon::before {
+    margin-top: .5rem;
+    padding-right: .5rem;
+  }
+
+  .callout:not(.callout-titled) .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  /* Callout Types */
+
+  div.callout-note {
+    border-left-color: #4582ec !important;
+  }
+
+  div.callout-note .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
+  }
+
+  div.callout-note.callout-style-default .callout-title {
+    background-color: #dae6fb
+  }
+
+  div.callout-important {
+    border-left-color: #d9534f !important;
+  }
+
+  div.callout-important .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-important.callout-style-default .callout-title {
+    background-color: #f7dddc
+  }
+
+  div.callout-warning {
+    border-left-color: #f0ad4e !important;
+  }
+
+  div.callout-warning .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-warning.callout-style-default .callout-title {
+    background-color: #fcefdc
+  }
+
+  div.callout-tip {
+    border-left-color: #02b875 !important;
+  }
+
+  div.callout-tip .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-tip.callout-style-default .callout-title {
+    background-color: #ccf1e3
+  }
+
+  div.callout-caution {
+    border-left-color: #fd7e14 !important;
+  }
+
+  div.callout-caution .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
+  }
+
+  div.callout-caution.callout-style-default .callout-title {
+    background-color: #ffe5d0
+  }
+
+  </style>
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-dark">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">NumPy</h1>
+  <p class="subtitle">Scientific Computing</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Prof.&nbsp;Calvin 
+</div>
+</div>
+</div>
+
+</section>
+<section>
+<section id="what-is-numpy" class="title-slide slide level1 center">
+<h1>What is “NumPy”?</h1>
+<blockquote>
+<p><a href="https://github.com/numpy/numpy">The fundamental package for scientific computing with Python.</a></p>
+</blockquote>
+<ul>
+<li><strong>Num</strong>erical <strong>Py</strong>thon</li>
+<li>It is a package - addition features we can optional add to the Python language.</li>
+</ul>
+</section>
+<section id="on-numpy" class="slide level2">
+<h2>On NumPy</h2>
+<p>Basically, to do scientific computing it would be nice to have:</p>
+<ul>
+<li>a powerful N-dimensional array object</li>
+<li>sophisticated (broadcasting) functions</li>
+<li>tools for integrating C/C++ and Fortran code</li>
+<li>useful linear algebra, Fourier transform, and random number capabilities</li>
+</ul>
+<p>(These are the stated features of NumPy.)</p>
+</section>
+<section id="relevance" class="slide level2">
+<h2>Relevance</h2>
+<ul>
+<li>We have essentially been using 1- and 2-dimensional arrays already!</li>
+<li>Here is the examples <code>intercepts.py</code> solution from last time:</li>
+</ul>
+<p>Code</p>
+<div id="b0fa39f0" class="cell" data-execution_count="2">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a>taxes <span class="op">=</span> [</span>
+<span id="cb1-2"><a></a>    [<span class="dv">9275</span>, <span class="fl">.10</span>],</span>
+<span id="cb1-3"><a></a>    [<span class="dv">37650</span>, <span class="fl">.15</span>],</span>
+<span id="cb1-4"><a></a>    [<span class="dv">91150</span>, <span class="fl">.25</span>],</span>
+<span id="cb1-5"><a></a>    [<span class="dv">190150</span>, <span class="fl">.28</span>],</span>
+<span id="cb1-6"><a></a>    [<span class="dv">413350</span>, <span class="fl">.33</span>],</span>
+<span id="cb1-7"><a></a>    [<span class="dv">415051</span>, <span class="fl">.35</span>]</span>
+<span id="cb1-8"><a></a>]</span>
+<span id="cb1-9"><a></a></span>
+<span id="cb1-10"><a></a>cost <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1-11"><a></a>start <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1-12"><a></a><span class="cf">for</span> tax <span class="kw">in</span> taxes:</span>
+<span id="cb1-13"><a></a>    cost <span class="op">+=</span> (tax[<span class="dv">0</span>] <span class="op">-</span> start) <span class="op">*</span> tax[<span class="dv">1</span>]</span>
+<span id="cb1-14"><a></a>    tax <span class="op">+=</span> [cost <span class="op">-</span> tax[<span class="dv">0</span>] <span class="op">*</span> tax[<span class="dv">1</span>]]</span>
+<span id="cb1-15"><a></a>    start <span class="op">=</span> tax[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="we-will" class="slide level2">
+<h2>We will</h2>
+<ul>
+<li>Change our existing <em>lists</em>, which we understand as “N-dimensional arrays” into NumPy arrays.</li>
+<li>Show the benefits of this arrangement.</li>
+<li>Show other NumPy features.</li>
+</ul>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="package-management" class="title-slide slide level1 center">
+<h1>Package Management</h1>
+
+</section>
+<section id="pypi" class="slide level2">
+<h2>PyPI</h2>
+<blockquote>
+<p>The Python Package Index (PyPI) is a repository of software for the Python programming language.</p>
+</blockquote>
+<ul>
+<li>NumPy is a Python package.
+<ul>
+<li>It is installed separately from Python, but</li>
+<li>May be installed using Python-based tools.</li>
+</ul></li>
+</ul>
+</section>
+<section id="pip" class="slide level2">
+<h2>pip</h2>
+<blockquote>
+<p>The most popular tool for installing Python packages, and the one included with modern versions of Python.</p>
+</blockquote>
+<ul>
+<li><code>pip</code> is a command line utility</li>
+<li>For years <code>pip</code> was the only real options for installing Python programs, but has experienced limitations as the package ecosystem has grown quite large.</li>
+</ul>
+</section>
+<section id="using-pip" class="slide level2">
+<h2>Using <code>pip</code></h2>
+<ul>
+<li>Use as an argument to <code>python</code> or <code>python3</code></li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> <span class="at">-m</span> pip install numpy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>It may take a moment to install.</li>
+</ul>
+</section>
+<section id="verify-install" class="slide level2">
+<h2>Verify Install</h2>
+<ul>
+<li>The following verifies the the NumPy install was successful</li>
+<li>We see the return of <code>import</code>
+<ul>
+<li>Introduce <code>as</code>, used to shorten names</li>
+<li>We could have done <code>import piecewise as pw</code></li>
+</ul></li>
+</ul>
+<div id="0dc89008" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb3-2"><a></a></span>
+<span id="cb3-3"><a></a><span class="bu">print</span>(np.__version__)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>2.0.1</code></pre>
+</div>
+</div>
+</section>
+<section id="recall" class="slide level2">
+<h2>Recall</h2>
+<ul>
+<li>You may wish to review <code>import</code></li>
+<li>Consult <a href="file:///C:/Users/cd-desk/Documents/repos/scicom/qmd/02_neovim.html#import">Neovim -&gt; `import’</a></li>
+</ul>
+</section></section>
+<section>
+<section id="arrays" class="title-slide slide level1 center">
+<h1>Arrays</h1>
+
+</section>
+<section id="numpy-arrays" class="slide level2">
+<h2>NumPy Arrays</h2>
+<ul>
+<li>The first thing to do in NumPy is make an <em>array</em>.</li>
+<li>In general we use NumPy arrays when:
+<ul>
+<li>We are dealing with lists of numbers</li>
+<li>We care about performance, or</li>
+<li>We want to use advanced mathematical operations</li>
+</ul></li>
+</ul>
+</section>
+<section id="list-to-array" class="slide level2">
+<h2>List to Array</h2>
+<ul>
+<li>We define a list of lists:</li>
+</ul>
+<div id="4a89c29d" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a>taxes <span class="op">=</span> [</span>
+<span id="cb5-2"><a></a>    [<span class="dv">9275</span>, <span class="fl">.10</span>],</span>
+<span id="cb5-3"><a></a>    [<span class="dv">37650</span>, <span class="fl">.15</span>],</span>
+<span id="cb5-4"><a></a>    [<span class="dv">91150</span>, <span class="fl">.25</span>],</span>
+<span id="cb5-5"><a></a>    [<span class="dv">190150</span>, <span class="fl">.28</span>],</span>
+<span id="cb5-6"><a></a>    [<span class="dv">413350</span>, <span class="fl">.33</span>],</span>
+<span id="cb5-7"><a></a>    [<span class="dv">415051</span>, <span class="fl">.35</span>]</span>
+<span id="cb5-8"><a></a>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="lists-of-lists" class="slide level2">
+<h2>Lists of lists</h2>
+<ul>
+<li>It is worth while to examine <code>taxes</code> a bit</li>
+</ul>
+<div id="177cec62" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a>taxes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1660">
+<pre><code>[[9275, 0.1],
+ [37650, 0.15],
+ [91150, 0.25],
+ [190150, 0.28],
+ [413350, 0.33],
+ [415051, 0.35]]</code></pre>
+</div>
+</div>
+</section>
+<section id="check-types" class="slide level2">
+<h2>Check Types</h2>
+<ul>
+<li>We can verify it is a list.</li>
+</ul>
+<p><code>{python{ type(taxes)</code></p>
+<ul>
+<li>We can verify it’s initial element is also a list.</li>
+</ul>
+<div id="4631c14e" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a><span class="bu">type</span>(taxes[<span class="dv">0</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1661">
+<pre><code>list</code></pre>
+</div>
+</div>
+<ul>
+<li>Since <code>taxes[0]</code> is a list, we can look at <em>that</em> list’s initial element.</li>
+</ul>
+<div id="013ce617" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a><span class="bu">type</span>(taxes[<span class="dv">0</span>][<span class="dv">0</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1662">
+<pre><code>int</code></pre>
+</div>
+</div>
+</section>
+<section id="versus-arrays" class="slide level2">
+<h2>Versus arrays</h2>
+<ul>
+<li>We have a list of lists of ints (like integers, round numbers).</li>
+<li>Or do we?</li>
+</ul>
+<div id="7519b231" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a><span class="bu">type</span>(taxes[<span class="dv">0</span>][<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1663">
+<pre><code>float</code></pre>
+</div>
+</div>
+<ul>
+<li>In fact, the tax <em>rates</em> are not round numbers, so they are “floats”.</li>
+<li>NumPy will help us manage when we use “floating point numbers” (have a decimal point) and integers (don’t).</li>
+</ul>
+</section>
+<section id="niceties" class="slide level2">
+<h2>Niceties</h2>
+<ul>
+<li>Each of the internal lists of numbers is of the same length.</li>
+<li>That lets us do this:</li>
+</ul>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;">Cutoff</th>
+<th>Rate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">9275</td>
+<td>.10</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">37650</td>
+<td>.15</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">91150</td>
+<td>.25</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">190150</td>
+<td>.28</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">413350</td>
+<td>.33</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">415051</td>
+<td>.35</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="contingencies" class="slide level2">
+<h2>Contingencies</h2>
+<ul>
+<li>This… isn’t always true.</li>
+<li>In our case, for example, we have a .396 rate with <em>no</em> cutoff.</li>
+<li>We just can’t express this as an array:</li>
+</ul>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;">Cutoff</th>
+<th>Rate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">413350</td>
+<td>.33</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">415051</td>
+<td>.35</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"></td>
+<td>.396</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="takeaways" class="slide level2">
+<h2>Takeaways:</h2>
+<ul>
+<li>Be ready to deal with things being <em>almost</em> arrays, but ultimately only being lists-of-lists.</li>
+<li>There’s ways to deal with this (we’ve seen a few, sneakily)</li>
+</ul>
+</section>
+<section id="arrays-1" class="slide level2">
+<h2>Arrays</h2>
+<blockquote>
+<p>In computer programming, an array is a structure for storing and retrieving data. We often talk about an array as if it were a grid in space, with each cell storing one element of the data. For instance, if each element of the data were a number, we might visualize a “one-dimensional” array like a list:</p>
+</blockquote>
+<p><span class="math display">\[
+    \begin{array}{|c||c|c|c|}
+    \hline
+    9275 &amp; 37650 &amp; 91150 &amp; 190150 \\
+    \hline
+    \end{array}
+\]</span></p>
+</section>
+<section id="tables" class="slide level2">
+<h2>Tables</h2>
+<blockquote>
+<p>A two-dimensional array would be like a table:</p>
+</blockquote>
+<p><span class="math display">\[
+    \begin{array}{|c||c|c|c|}
+    \hline
+    9275 &amp; 37650 &amp; 91150 &amp; 190150 \\
+    \hline
+    .10 &amp; .15 &amp; .25 &amp; .28 \\
+    \hline
+    0 &amp; -463.75 &amp; -6963.25 &amp; -16470.75 \\
+    \hline
+    \end{array}
+\]</span></p>
+</section>
+<section id="ndarray" class="slide level2">
+<h2>ndarray</h2>
+<blockquote>
+<p>A three-dimensional array would be like a set of tables, perhaps stacked as though they were printed on separate pages. In NumPy, this idea is generalized to an arbitrary number of dimensions, and so the fundamental array class is called <code>ndarray</code>: it represents an “N-dimensional array”.</p>
+</blockquote>
+<ul>
+<li>The most obvious 3d example would be that <code>taxes</code> part of an <em>array</em> of tax policies</li>
+</ul>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a></a>[<span class="st">"Single"</span>, <span class="st">"Married, joint"</span>, <span class="st">"Married, separate"</span>, <span class="st">"Head of Household"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="making-arrays" class="slide level2">
+<h2>Making Arrays</h2>
+<ul>
+<li>Make an array with <code>np.array()</code>
+<ul>
+<li>Or <code>numpy.array</code> if you used <code>import numpy</code></li>
+</ul></li>
+<li>They look like this:</li>
+</ul>
+<div id="75621a6f" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a></a>arr <span class="op">=</span> np.array(taxes)</span>
+<span id="cb15-2"><a></a>arr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1664">
+<pre><code>array([[9.27500e+03, 1.00000e-01],
+       [3.76500e+04, 1.50000e-01],
+       [9.11500e+04, 2.50000e-01],
+       [1.90150e+05, 2.80000e-01],
+       [4.13350e+05, 3.30000e-01],
+       [4.15051e+05, 3.50000e-01]])</code></pre>
+</div>
+</div>
+<ul>
+<li>Our integers are gone - everything in scientific notation</li>
+</ul>
+</section>
+<section id="aside-scientific-notation" class="slide level2">
+<h2>Aside: Scientific Notation</h2>
+<blockquote>
+<p><a href="https://en.wikipedia.org/wiki/Scientific_notation">Scientific notation is a way of expressing numbers that are too large or too small to be conveniently written in decimal form, since to do so would require writing out an inconveniently long string of digits.</a></p>
+</blockquote>
+<ul>
+<li>In scientific notation, nonzero numbers are written in the form</li>
+</ul>
+<p><span class="math display">\[a \times 10^b\]</span></p>
+</section>
+<section id="aside-explanation" class="slide level2">
+<h2>Aside: Explanation</h2>
+<ul>
+<li>In scientific notation, nonzero numbers are written in the form</li>
+</ul>
+<p><span class="math display">\[a \times 10^b\]</span></p>
+<ul>
+<li><span class="math inline">\(a\)</span> (the coefficient or mantissa) is a number greater than or equal to 1 and less than 10 (<span class="math inline">\(1 \le |a| &lt; 10\)</span>).</li>
+<li><span class="math inline">\(10\)</span> is the base.</li>
+<li><span class="math inline">\(b\)</span> (the exponent) is an integer.</li>
+</ul>
+</section>
+<section id="aside-physical-examples" class="slide level2">
+<h2>Aside: Physical Examples</h2>
+<ol type="1">
+<li><p><strong>Speed of light:</strong> The speed of light in a vacuum is approximately <span class="math inline">\(300,000,000 \text{ m/s}\)</span> <span class="math display">\[
+3 \times 10^8 \text{ m/s}
+\]</span></p></li>
+<li><p><strong>Mass of an electron:</strong> The mass of an electron is approximately <span class="math inline">\(0.00000000000000000000000000091093837 \text{ g}\)</span>. <span class="math display">\[
+9.1093837 \times 10^{-28} \text{ g}
+\]</span></p></li>
+</ol>
+</section>
+<section id="aside-economic-examples" class="slide level2">
+<h2>Aside: Economic Examples</h2>
+<ul>
+<li>We can use social science numbers.</li>
+<li><a href="https://www.newyorkfed.org/research/college-labor-market#--:explore:outcomes-by-major">Labor Market Outcomes of College Graduates by Major</a></li>
+<li>Computer scientists have a $80,000 median wage early career
+<ul>
+<li><span class="math inline">\(8.0000 \times 10^4\)</span></li>
+</ul></li>
+<li>And 6.1% unemployment
+<ul>
+<li><span class="math inline">\(6.1 \times 10^{-2}\)</span></li>
+</ul></li>
+</ul>
+</section></section>
+<section>
+<section id="using-arrays" class="title-slide slide level1 center">
+<h1>Using Arrays</h1>
+
+</section>
+<section id="inspecting-arrays" class="slide level2">
+<h2>Inspecting Arrays</h2>
+<ul>
+<li>Given some array, we can look up elements in an array as we did with lists.</li>
+<li>We refer to zero as the “index” of the initial element of an array (or list).</li>
+</ul>
+<div class="{.carr[0]olumns}">
+<div class="column" style="width:50%;">
+<div id="7171392e" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a></a>taxes[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1665">
+<pre><code>[9275, 0.1]</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div id="d8cb24a7" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a></a>arr[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1666">
+<pre><code>array([9.275e+03, 1.000e-01])</code></pre>
+</div>
+</div>
+</div></div>
+<ul>
+<li>We look up the same element by the same index in both Python lists and NumPy arrays.</li>
+</ul>
+</section>
+<section id="slices" class="slide level2">
+<h2>Slices</h2>
+<ul>
+<li>Python and NumPy support <em>slicing</em></li>
+<li>This takes multiple elements of an array by specifying a <em>range</em> of indices</li>
+<li>Let’s make a one-dimensional array to make matters simpler.</li>
+</ul>
+<div id="7b21db7b" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a></a>colors <span class="op">=</span> [<span class="st">"red"</span>, <span class="st">"orange"</span>, <span class="st">"yellow"</span>, <span class="st">"green"</span>, <span class="st">"blue"</span>, <span class="st">"indigo"</span>, <span class="st">"violet"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div id="b0be8866" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a></a>color_lst <span class="op">=</span> colors</span>
+<span id="cb22-2"><a></a>color_lst[<span class="dv">1</span>:<span class="dv">4</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1668">
+<pre><code>['orange', 'yellow', 'green']</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div id="e5a67a9c" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a></a>color_arr <span class="op">=</span> np.array(colors)</span>
+<span id="cb24-2"><a></a>color_arr[<span class="dv">1</span>:<span class="dv">4</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1669">
+<pre><code>array(['orange', 'yellow', 'green'], dtype='&lt;U6')</code></pre>
+</div>
+</div>
+</div></div>
+<ul>
+<li><code>dtype</code> is data type - We’ll cover it soon.</li>
+</ul>
+</section>
+<section id="understanding-slices" class="slide level2">
+<h2>Understanding slices</h2>
+<ul>
+<li>The slice <code>1:4</code> takes all elements at index beginning at <code>1</code> and stopping before getting to index <code>4</code>.</li>
+</ul>
+<p><span class="math display">\[
+\small
+\begin{array}{|l|c|c|c|c|c|c|}
+\hline
+\textbf{Index} &amp; 0 &amp; 1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 &amp; 6   \\
+\hline
+\textbf{Element} &amp; red &amp; orange&amp; yellow&amp; green&amp; blue&amp; indigo&amp; violet\\
+\hline
+\end{array}
+\]</span></p>
+<p><span class="math display">\[
+\small
+\begin{array}{|l|c|c|c|}
+\hline
+\textbf{Index} &amp; 1 &amp; 2 &amp; 3   \\
+\hline
+\textbf{Element} &amp; orange&amp; yellow&amp; green\\
+\hline
+\end{array}
+\]</span></p>
+</section>
+<section id="omiting-values" class="slide level2">
+<h2>Omiting Values</h2>
+<ul>
+<li>If we omit the value before the <code>:</code> from the slice, it is treated as if a zero was provided.</li>
+</ul>
+<div id="d20c54fb" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a></a>color_arr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1670">
+<pre><code>array(['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'],
+      dtype='&lt;U6')</code></pre>
+</div>
+</div>
+<div id="d62afdd1" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a></a>color_arr[<span class="dv">0</span>:<span class="dv">4</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1671">
+<pre><code>array(['red', 'orange', 'yellow', 'green'], dtype='&lt;U6')</code></pre>
+</div>
+</div>
+<div id="e5657e45" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a></a>color_arr[:<span class="dv">4</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1672">
+<pre><code>array(['red', 'orange', 'yellow', 'green'], dtype='&lt;U6')</code></pre>
+</div>
+</div>
+</section>
+<section id="omiting-end" class="slide level2">
+<h2>Omiting End</h2>
+<ul>
+<li>If we omit the value after the <code>:</code> from the slice, it is as if the length was provided.</li>
+</ul>
+<div id="4e844a6a" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a></a>color_arr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1673">
+<pre><code>array(['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'],
+      dtype='&lt;U6')</code></pre>
+</div>
+</div>
+<ul>
+<li><code>len</code> gives the length of a list or array</li>
+</ul>
+<div id="d69ec0d9" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a></a><span class="bu">len</span>(color_arr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1674">
+<pre><code>7</code></pre>
+</div>
+</div>
+<div id="7d662893" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a></a>color_arr[<span class="dv">4</span>:<span class="dv">7</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1675">
+<pre><code>array(['blue', 'indigo', 'violet'], dtype='&lt;U6')</code></pre>
+</div>
+</div>
+<div id="e96a0127" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a></a>color_arr[<span class="dv">4</span>:]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1676">
+<pre><code>array(['blue', 'indigo', 'violet'], dtype='&lt;U6')</code></pre>
+</div>
+</div>
+</section>
+<section id="steps" class="slide level2">
+<h2>Steps</h2>
+<ul>
+<li>Python and NumPy slices have an additional feature I find quite nice called “steps”</li>
+<li>We specify a slice:</li>
+</ul>
+<div id="c524f25e" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a></a>color_arr[<span class="dv">1</span>:<span class="dv">4</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1677">
+<pre><code>array(['orange', 'yellow', 'green'], dtype='&lt;U6')</code></pre>
+</div>
+</div>
+<ul>
+<li>We add a <em>third</em> value</li>
+</ul>
+<div id="4a7a71ab" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a></a>color_arr[<span class="dv">1</span>:<span class="dv">4</span>:<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1678">
+<pre><code>array(['orange', 'yellow', 'green'], dtype='&lt;U6')</code></pre>
+</div>
+</div>
+</section>
+<section id="step-size" class="slide level2">
+<h2>Step Size</h2>
+<p>– We add a <em>third</em> value</p>
+<div id="36063527" class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a></a>color_arr[<span class="dv">1</span>:<span class="dv">4</span>:<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1679">
+<pre><code>array(['orange', 'yellow', 'green'], dtype='&lt;U6')</code></pre>
+</div>
+</div>
+<ul>
+<li>This value determines how far to move over the original array between each element shown.
+<ul>
+<li>Let’s look at <code>2</code> - every other element.</li>
+</ul></li>
+</ul>
+<div id="f942c5be" class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a></a>color_arr[<span class="dv">1</span>:<span class="dv">4</span>:<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1680">
+<pre><code>array(['orange', 'green'], dtype='&lt;U6')</code></pre>
+</div>
+</div>
+</section>
+<section id="example" class="slide level2">
+<h2>Example</h2>
+<ul>
+<li>In kindergarten, I learned that red, yellow, and blue were primary colors.
+<ul>
+<li>I’m relatively unconvinced by that at this time, but it’s a good example.</li>
+</ul></li>
+</ul>
+<div id="b6de4d69" class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a></a>color_arr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1681">
+<pre><code>array(['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'],
+      dtype='&lt;U6')</code></pre>
+</div>
+</div>
+<ul>
+<li>And the primaries:</li>
+</ul>
+<div id="9b488665" class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a></a>color_arr[<span class="dv">0</span>:<span class="dv">5</span>:<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1682">
+<pre><code>array(['red', 'yellow', 'blue'], dtype='&lt;U6')</code></pre>
+</div>
+</div>
+</section>
+<section id="step-ommissions" class="slide level2">
+<h2>Step Ommissions</h2>
+<ul>
+<li>We can omit start, stop, or both and still take steps.</li>
+</ul>
+<div id="4d4f6a18" class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a></a>color_arr[::<span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1683">
+<pre><code>array(['red', 'green', 'violet'], dtype='&lt;U6')</code></pre>
+</div>
+</div>
+<ul>
+<li>We can use a <em>negative</em> step to reverse.</li>
+</ul>
+<div id="90f8c2cc" class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a></a>color_arr[::<span class="op">-</span><span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1684">
+<pre><code>array(['violet', 'indigo', 'blue', 'green', 'yellow', 'orange', 'red'],
+      dtype='&lt;U6')</code></pre>
+</div>
+</div>
+</section>
+<section id="aside-negatives" class="slide level2">
+<h2>Aside: Negatives</h2>
+<ul>
+<li>Negative starts and stops can also be used</li>
+</ul>
+<div id="22b4a4b0" class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a></a>color_arr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1685">
+<pre><code>array(['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'],
+      dtype='&lt;U6')</code></pre>
+</div>
+</div>
+<ul>
+<li>They simply measure distance from the end.</li>
+</ul>
+<div id="4447aaeb" class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a></a>color_arr[:<span class="op">-</span><span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1686">
+<pre><code>array(['red', 'orange', 'yellow', 'green', 'blue'], dtype='&lt;U6')</code></pre>
+</div>
+</div>
+</section>
+<section id="coordinates" class="slide level2">
+<h2>Coordinates</h2>
+<ul>
+<li>Versus Python lists-of-lists.</li>
+</ul>
+<div id="c077f08b" class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a></a>taxes[<span class="dv">1</span>][<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1687">
+<pre><code>0.15</code></pre>
+</div>
+</div>
+<ul>
+<li>NumPy arrays can specify coordinates - indices of multiple dimensions - in a single set of brackets.</li>
+</ul>
+<div id="69d5e265" class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a></a>arr[<span class="dv">1</span>][<span class="dv">1</span>], arr[<span class="dv">1</span>, <span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1688">
+<pre><code>(np.float64(0.15), np.float64(0.15))</code></pre>
+</div>
+</div>
+</section>
+<section id="coordinate-slices" class="slide level2">
+<h2>Coordinate slices</h2>
+<ul>
+<li>I recommend using the comma notation.</li>
+<li>Otherwise I get unexpected behavior.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div id="4efe2435" class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a></a><span class="co"># reverse in both dimensions</span></span>
+<span id="cb64-2"><a></a>arr[::<span class="op">-</span><span class="dv">1</span>][::<span class="op">-</span><span class="dv">1</span>] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1689">
+<pre><code>array([[9.27500e+03, 1.00000e-01],
+       [3.76500e+04, 1.50000e-01],
+       [9.11500e+04, 2.50000e-01],
+       [1.90150e+05, 2.80000e-01],
+       [4.13350e+05, 3.30000e-01],
+       [4.15051e+05, 3.50000e-01]])</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div id="ac206445" class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a></a><span class="co"># reverse in both dimensions</span></span>
+<span id="cb66-2"><a></a>arr[::<span class="op">-</span><span class="dv">1</span>,::<span class="op">-</span><span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1690">
+<pre><code>array([[3.50000e-01, 4.15051e+05],
+       [3.30000e-01, 4.13350e+05],
+       [2.80000e-01, 1.90150e+05],
+       [2.50000e-01, 9.11500e+04],
+       [1.50000e-01, 3.76500e+04],
+       [1.00000e-01, 9.27500e+03]])</code></pre>
+</div>
+</div>
+</div></div>
+<ul>
+<li>Takeaway: Always use <code>[x,y]</code> instead of <code>[x][y]</code></li>
+<li>Things like this are we use NumPy!</li>
+</ul>
+</section>
+<section id="updates" class="slide level2">
+<h2>Updates</h2>
+<ul>
+<li>We can also update entries via <code>=</code></li>
+</ul>
+<div id="31e50aea" class="cell" data-execution_count="36">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a></a>color_arr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1691">
+<pre><code>array(['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'],
+      dtype='&lt;U6')</code></pre>
+</div>
+</div>
+<ul>
+<li>Use (1) name of array, (2) index of element, (3) <code>=</code>, (4) new element</li>
+</ul>
+<div id="cca6f208" class="cell" data-execution_count="37">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a></a>color_arr[<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> <span class="st">'purple'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>The array now has that element/index.</li>
+</ul>
+<div id="ae28ed7f" class="cell" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a></a>color_arr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1693">
+<pre><code>array(['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'purple'],
+      dtype='&lt;U6')</code></pre>
+</div>
+</div>
+</section></section>
+<section>
+<section id="vectorization" class="title-slide slide level1 center">
+<h1>Vectorization</h1>
+
+</section>
+<section id="why-numpy" class="slide level2">
+<h2>Why NumPy?</h2>
+<ul>
+<li>NumPy vectors can do a <em>very</em> cool thing that lists can’t.</li>
+<li>We use it a lot in science.</li>
+<li><em>Vector operations</em>.</li>
+</ul>
+</section>
+<section id="vector-ops" class="slide level2">
+<h2>Vector Ops</h2>
+<ul>
+<li>Let’s compare Python</li>
+</ul>
+<div id="48d1fd7e" class="cell" data-execution_count="39">
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a></a>l1 <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]</span>
+<span id="cb73-2"><a></a>l2 <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>]</span>
+<span id="cb73-3"><a></a>l1 <span class="op">+</span> l2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1694">
+<pre><code>[1, 2, 3, 1, 1, 1]</code></pre>
+</div>
+</div>
+<ul>
+<li>To NumPy</li>
+</ul>
+<div id="62d302b5" class="cell" data-execution_count="40">
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a></a>a1 <span class="op">=</span> np.array(l1)</span>
+<span id="cb75-2"><a></a>a2 <span class="op">=</span> np.array(l2)</span>
+<span id="cb75-3"><a></a>a1 <span class="op">+</span> a2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1695">
+<pre><code>array([2, 3, 4])</code></pre>
+</div>
+</div>
+<ul>
+<li>By the way, vectorization is really fast.</li>
+<li>Our first “high performance computing” idea.</li>
+</ul>
+</section>
+<section id="example-1" class="slide level2">
+<h2>Example</h2>
+<ul>
+<li>Suppose you need to convert some temperatures.</li>
+</ul>
+<div id="140bdee3" class="cell" data-execution_count="41">
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a></a><span class="co"># Portland highs and lows 5/26/25-6/2/25 in degF</span></span>
+<span id="cb77-2"><a></a>temps <span class="op">=</span> np.array([<span class="dv">70</span>, <span class="dv">50</span>, <span class="dv">81</span>, <span class="dv">60</span>, <span class="dv">85</span>, <span class="dv">57</span>, <span class="dv">70</span>, <span class="dv">52</span>, <span class="dv">84</span>, <span class="dv">58</span>, <span class="dv">87</span>, <span class="dv">58</span>, <span class="dv">74</span>, <span class="dv">53</span>, <span class="dv">70</span>, <span class="dv">54</span>])</span>
+<span id="cb77-3"><a></a>temps <span class="op">-=</span> <span class="dv">32</span></span>
+<span id="cb77-4"><a></a>temps <span class="op">*=</span> <span class="dv">5</span></span>
+<span id="cb77-5"><a></a>temps <span class="op">//=</span> <span class="dv">9</span></span>
+<span id="cb77-6"><a></a>temps</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1696">
+<pre><code>array([21, 10, 27, 15, 29, 13, 21, 11, 28, 14, 30, 14, 23, 11, 21, 12])</code></pre>
+</div>
+</div>
+</section>
+<section id="aside" class="slide level2">
+<h2>Aside: <code>//</code></h2>
+<ul>
+<li>NumPy requires arrays to be of a certain kind of number.</li>
+<li><code>30</code> is an integer.</li>
+<li><code>30/9</code> is a decimal value…</li>
+<li>Python furnishes special <code>//</code> integer division.
+<ul>
+<li>It truncates (does not round) the result.</li>
+</ul></li>
+</ul>
+<div id="6f86c9bd" class="cell" data-execution_count="42">
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb79-1"><a></a>np.array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>]) <span class="op">//</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1697">
+<pre><code>array([0, 0, 1, 1, 1, 2, 2, 2, 3, 3])</code></pre>
+</div>
+</div>
+<ul>
+<li>Try using <code>/</code> there. What happens?</li>
+</ul>
+</section>
+<section id="use-case" class="slide level2">
+<h2>Use case</h2>
+<ul>
+<li>Slices and vectorization are <em>very</em> useful in the income tax example.</li>
+<li>We:
+<ul>
+<li>Had income cutoffs, that were</li>
+<li>The <em>beginning</em> of some tax brackets, but</li>
+<li>The <em>end</em> of other tax brackets</li>
+<li>Offset by one (<code>1</code>)</li>
+</ul></li>
+</ul>
+</section>
+<section id="building-brackets" class="slide level2">
+<h2>Building Brackets</h2>
+<ul>
+<li>Let’s refresh on what the tax bracket array looked like.</li>
+</ul>
+<div id="7793e832" class="cell" data-execution_count="43">
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb81-1"><a></a>arr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1698">
+<pre><code>array([[9.27500e+03, 1.00000e-01],
+       [3.76500e+04, 1.50000e-01],
+       [9.11500e+04, 2.50000e-01],
+       [1.90150e+05, 2.80000e-01],
+       [4.13350e+05, 3.30000e-01],
+       [4.15051e+05, 3.50000e-01]])</code></pre>
+</div>
+</div>
+<ul>
+<li>Initial tax bracket goes zero and to <code>9275</code></li>
+<li>The next goes from <code>9275</code> to <code>37650</code>.</li>
+<li>So <code>9275</code> is useful to two brackets.</li>
+</ul>
+</section>
+<section id="begin-and-end" class="slide level2">
+<h2>Begin and end</h2>
+<ul>
+<li>Let’s grab just the cutoffs.</li>
+</ul>
+<div id="f1efcf4e" class="cell" data-execution_count="44">
+<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb83-1"><a></a>cutoffs <span class="op">=</span> arr[:,<span class="dv">0</span>]</span>
+<span id="cb83-2"><a></a>cutoffs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1699">
+<pre><code>array([  9275.,  37650.,  91150., 190150., 413350., 415051.])</code></pre>
+</div>
+</div>
+<ul>
+<li><code>[:, 0]</code> means for every row (slice <code>:</code>) take the initial columns (index <code>0</code>)</li>
+</ul>
+</section>
+<section id="insert" class="slide level2">
+<h2>Insert</h2>
+<ul>
+<li>The initial bracket begins at <code>0</code> and the last bracket ends at infinity.
+<ul>
+<li>NumPy knows about infinity! <code>np.inf</code></li>
+</ul></li>
+<li>We can use NumPy <code>insert</code> to add an element at an index:</li>
+</ul>
+<div id="e4769f7c" class="cell" data-execution_count="45">
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb85-1"><a></a><span class="co"># Insert to (a) an array at (b) some index (c) some value</span></span>
+<span id="cb85-2"><a></a>a <span class="op">=</span> cutoffs</span>
+<span id="cb85-3"><a></a>b <span class="op">=</span> <span class="bu">len</span>(cutoffs)</span>
+<span id="cb85-4"><a></a>c <span class="op">=</span> np.inf</span>
+<span id="cb85-5"><a></a>cutoffs <span class="op">=</span> np.insert(a, b, c)</span>
+<span id="cb85-6"><a></a>cutoffs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1700">
+<pre><code>array([  9275.,  37650.,  91150., 190150., 413350., 415051.,     inf])</code></pre>
+</div>
+</div>
+</section>
+<section id="append" class="slide level2">
+<h2>Append</h2>
+<ul>
+<li>I usually don’t insert, I append.</li>
+<li>This allows adding two arrays together, like how Python <code>+</code> works on lists.</li>
+</ul>
+<div id="56683589" class="cell" data-execution_count="46">
+<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb87-1"><a></a><span class="co"># Smoosh arrays together.</span></span>
+<span id="cb87-2"><a></a>cutoffs <span class="op">=</span> np.append([<span class="dv">0</span>],cutoffs)</span>
+<span id="cb87-3"><a></a>cutoffs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1701">
+<pre><code>array([     0.,   9275.,  37650.,  91150., 190150., 413350., 415051.,
+           inf])</code></pre>
+</div>
+</div>
+</section>
+<section id="slicing" class="slide level2">
+<h2>Slicing</h2>
+<ul>
+<li>Now we can take the beginning of every bracket, by index:</li>
+</ul>
+<div id="7703d567" class="cell" data-execution_count="47">
+<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb89-1"><a></a>begin <span class="op">=</span> cutoffs[:<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb89-2"><a></a>begin</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1702">
+<pre><code>array([     0.,   9275.,  37650.,  91150., 190150., 413350., 415051.])</code></pre>
+</div>
+</div>
+<ul>
+<li>And the end</li>
+</ul>
+<div id="3587c6c6" class="cell" data-execution_count="48">
+<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb91-1"><a></a>end <span class="op">=</span> cutoffs[<span class="dv">1</span>:]</span>
+<span id="cb91-2"><a></a>end</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1703">
+<pre><code>array([  9275.,  37650.,  91150., 190150., 413350., 415051.,     inf])</code></pre>
+</div>
+</div>
+</section>
+<section id="vector-minus" class="slide level2">
+<h2>Vector Minus</h2>
+<ul>
+<li>We can see how big each bracket is.</li>
+</ul>
+<div id="355fd470" class="cell" data-execution_count="49">
+<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb93-1"><a></a>bracket_size <span class="op">=</span> end <span class="op">-</span> begin</span>
+<span id="cb93-2"><a></a>bracket_size</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1704">
+<pre><code>array([  9275.,  28375.,  53500.,  99000., 223200.,   1701.,     inf])</code></pre>
+</div>
+</div>
+</section>
+<section id="vector-times" class="slide level2">
+<h2>Vector Times</h2>
+<ul>
+<li>We can see how much tax is spent in each bracket.
+<ul>
+<li>We will “cut off” the last bracket first</li>
+<li>It doesn’t really have a size?</li>
+</ul></li>
+</ul>
+<div id="9d797e35" class="cell" data-execution_count="50">
+<div class="sourceCode cell-code" id="cb95"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb95-1"><a></a>bracket_cost <span class="op">=</span> bracket_size[:<span class="op">-</span><span class="dv">1</span>] <span class="op">*</span> arr[:, <span class="dv">1</span>]</span>
+<span id="cb95-2"><a></a>bracket_cost</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1705">
+<pre><code>array([  927.5 ,  4256.25, 13375.  , 27720.  , 73656.  ,   595.35])</code></pre>
+</div>
+</div>
+<ul>
+<li>What happens if we don’t cut off the last bracket and try to multiply a vector of length <code>7</code> by a vector of length <code>6</code>?</li>
+</ul>
+</section>
+<section id="accumulation" class="slide level2">
+<h2>Accumulation</h2>
+<ul>
+<li>While <code>bracket_cost</code> does correctly describe the cost within on bracket, someone in the <code>n+1</code>’th bracket pays the cost the previous <code>n</code> brackets.</li>
+<li>Someone how we want to sum those up.</li>
+<li>NumPy has many built-in array functions, including <code>np.cumsum</code>.</li>
+</ul>
+<div id="e832ff91" class="cell" data-execution_count="51">
+<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb97-1"><a></a>total_cost <span class="op">=</span> np.cumsum(bracket_cost)</span>
+<span id="cb97-2"><a></a>total_cost</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1706">
+<pre><code>array([   927.5 ,   5183.75,  18558.75,  46278.75, 119934.75, 120530.1 ])</code></pre>
+</div>
+</div>
+</section></section>
+<section>
+<section id="takeaways-1" class="title-slide slide level1 center">
+<h1>Takeaways</h1>
+
+</section>
+<section id="numpy-does-a-lot" class="slide level2">
+<h2>NumPy does a lot!</h2>
+<ul>
+<li><a href="https://numpy.org/doc/stable/user/basics.creation.html">Arrays</a> mostly, but including:</li>
+<li>Vector operations called <a href="https://numpy.org/doc/stable/user/basics.broadcasting.html">“broadcasting”</a>.</li>
+<li><a href="https://numpy.org/doc/stable/user/basics.indexing.html">Indices and slices</a> matter a lot.</li>
+<li><a href="https://numpy.org/devdocs/reference/constants.html">Contants</a> like <code>np.inf</code> support mathematics</li>
+<li><a href="https://numpy.org/doc/2.1/reference/routines.math.html#sums-products-differences">Accumulation functions</a> we don’t have to write ourselves (which we’d have to do via loops)</li>
+</ul>
+</section></section>
+<section>
+<section id="exercise" class="title-slide slide level1 center">
+<h1>Exercise</h1>
+
+</section>
+<section id="using-numpy" class="slide level2">
+<h2>Using NumPy</h2>
+<ul>
+<li>Today we successfully recomputed the points of the point-intercept form of the income tax problem.</li>
+<li>Using NumPy, starting with <code>taxes</code>, create the array on the right:</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:28%;">
+<div id="512b27d9" class="cell" data-execution_count="52">
+<div class="sourceCode cell-code" id="cb99"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb99-1"><a></a>taxes <span class="op">=</span> np.array([</span>
+<span id="cb99-2"><a></a>    [<span class="dv">9275</span>, <span class="fl">.1</span>],</span>
+<span id="cb99-3"><a></a>    [<span class="dv">37650</span>, <span class="fl">.15</span>],</span>
+<span id="cb99-4"><a></a>    [<span class="dv">91150</span>, <span class="fl">.25</span>],</span>
+<span id="cb99-5"><a></a>    [<span class="dv">190150</span>, <span class="fl">.28</span>],</span>
+<span id="cb99-6"><a></a>    [<span class="dv">413350</span>, <span class="fl">.33</span>],</span>
+<span id="cb99-7"><a></a>    [<span class="dv">415051</span>, <span class="fl">.35</span>]</span>
+<span id="cb99-8"><a></a>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:72%;">
+<div id="0a9ce3e2" class="cell" data-execution_count="53">
+<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb100-1"><a></a>np.array([[ <span class="fl">9.275000e+03</span>,  <span class="fl">1.000000e-01</span>,  <span class="fl">0.000000e+00</span>],</span>
+<span id="cb100-2"><a></a>          [ <span class="fl">3.765000e+04</span>,  <span class="fl">1.500000e-01</span>, <span class="op">-</span><span class="fl">4.637500e+02</span>],</span>
+<span id="cb100-3"><a></a>          [ <span class="fl">9.115000e+04</span>,  <span class="fl">2.500000e-01</span>, <span class="op">-</span><span class="fl">4.228750e+03</span>],</span>
+<span id="cb100-4"><a></a>          [ <span class="fl">1.901500e+05</span>,  <span class="fl">2.800000e-01</span>, <span class="op">-</span><span class="fl">6.963250e+03</span>],</span>
+<span id="cb100-5"><a></a>          [ <span class="fl">4.133500e+05</span>,  <span class="fl">3.300000e-01</span>, <span class="op">-</span><span class="fl">1.647075e+04</span>],</span>
+<span id="cb100-6"><a></a>          [ <span class="fl">4.150510e+05</span>,  <span class="fl">3.500000e-01</span>, <span class="op">-</span><span class="fl">2.473775e+04</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div></div>
+</section>
+<section id="transpose" class="slide level2">
+<h2>Transpose</h2>
+<ul>
+<li>There are many ways to solve this problem!</li>
+<li>Things will be easier with the following:</li>
+</ul>
+<div id="629feadf" class="cell" data-execution_count="54">
+<div class="sourceCode cell-code" id="cb101"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb101-1"><a></a>taxes.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1708">
+<pre><code>(6, 2)</code></pre>
+</div>
+</div>
+<div id="f0158d66" class="cell" data-execution_count="55">
+<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb103-1"><a></a>taxes.reshape(<span class="dv">2</span>,<span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1709">
+<pre><code>array([[9.27500e+03, 1.00000e-01, 3.76500e+04, 1.50000e-01, 9.11500e+04,
+        2.50000e-01],
+       [1.90150e+05, 2.80000e-01, 4.13350e+05, 3.30000e-01, 4.15051e+05,
+        3.50000e-01]])</code></pre>
+</div>
+</div>
+<div id="378e8937" class="cell" data-execution_count="56">
+<div class="sourceCode cell-code" id="cb105"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb105-1"><a></a>taxes.transpose()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1710">
+<pre><code>array([[9.27500e+03, 3.76500e+04, 9.11500e+04, 1.90150e+05, 4.13350e+05,
+        4.15051e+05],
+       [1.00000e-01, 1.50000e-01, 2.50000e-01, 2.80000e-01, 3.30000e-01,
+        3.50000e-01]])</code></pre>
+</div>
+</div>
+</section>
+<section id="bonus-problem" class="slide level2">
+<h2>Bonus Problem</h2>
+<ul>
+<li>NumPy allows random number generation.</li>
+<li>Generate one million random numbers between, say, <code>0</code> and <code>500000</code>.
+<ul>
+<li>There will be repeats, which is okay.</li>
+</ul></li>
+<li>Use Python with and without NumPy to compute every tax cost.</li>
+<li>See which one is faster! You can use the shell command <code>time</code></li>
+</ul>
+</section>
+<section id="aside-random" class="slide level2">
+<h2>Aside: Random</h2>
+<ul>
+<li>The following:
+<ul>
+<li>Generates 1 million random integers from <code>0</code> to <code>50000</code></li>
+<li>Prints every 10 thousandth integer.</li>
+</ul></li>
+</ul>
+<div id="f67d846d" class="cell" data-execution_count="57">
+<div class="sourceCode cell-code" id="cb107"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb107-1"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb107-2"><a></a>rng <span class="op">=</span> np.random.default_rng()</span>
+<span id="cb107-3"><a></a>incomes <span class="op">=</span> rng.integers(<span class="dv">0</span>, <span class="dv">500000</span>, <span class="dv">1000000</span>)</span>
+<span id="cb107-4"><a></a><span class="bu">print</span>(incomes[::<span class="dv">10000</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[171424 241375 285964 125360  52999 285668 236114   8631 296777 275086
+  69544   7141  48955 314649 341799 485625 122729  49679  20994 357012
+ 392434 221344 336558 226452 375483 345741 385265 225583 475804 410648
+ 179235  74593 421393 220555  17821 334199  64615 445686 146656  42952
+ 357075 298365 479620 277589 479153 335044 278464 125162 251349 138905
+ 226676 340150 251472 499521 449527 320234  45636 459600 335005 108248
+ 441943 167299 465765 111651  74190 412319 481245  92164 417263 115113
+  96599 213059 228416 435661 201962 112303 390120 286936  93713 322928
+ 240178 402489 478492 414020 274382 203143  73600 107794 298139 370520
+  52703 480587 187134  78043 266978 416769 192305 368233 467771 381381]</code></pre>
+</div>
+</div>
+<ul>
+<li>Read more: <a href="https://numpy.org/doc/stable/reference/random/index.html">Random sample</a></li>
+</ul>
+</section>
+<section id="aside-time" class="slide level2">
+<h2>Aside: <code>time</code></h2>
+<ul>
+<li>Use <code>time</code> before a command.
+<ul>
+<li><code>real</code> time is how much passes in real life</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb109" data-code-line-numbers="&quot;false"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb109-1"><a></a><span class="ex">$</span> time python3 onemil.py</span>
+<span id="cb109-2"><a></a><span class="ex">[123177</span> 422613 471310 380518  95385 143328 426503 453832 427403 106416</span>
+<span id="cb109-3"><a></a> <span class="ex">327306</span> 476263  65814 281381 422404  59938  14231 232824 342190 329545</span>
+<span id="cb109-4"><a></a> <span class="ex">412684</span> 112339 202498   5071  59114 394601 451216  92268 381107 487447</span>
+<span id="cb109-5"><a></a>  <span class="ex">55089</span> 339493 344836 261917 148326 452850 409130 484951 427839 307217</span>
+<span id="cb109-6"><a></a> <span class="ex">259268</span> 485208 331277 183015 132480 345930 439366   6814  39743 268276</span>
+<span id="cb109-7"><a></a>  <span class="ex">80739</span> 293355 170394   4220  48082  15668 453927  58059 320294 101182</span>
+<span id="cb109-8"><a></a>   <span class="ex">1864</span> 492297 130465   9920  76321 345944 268312 255875  46614 195236</span>
+<span id="cb109-9"><a></a> <span class="ex">233737</span> 443948 343483 116870 165561 326265 103567 327780 475672 392212</span>
+<span id="cb109-10"><a></a> <span class="ex">396479</span> 328248  43273  32596 246212   4258  60202  66783 135035 155327</span>
+<span id="cb109-11"><a></a> <span class="ex">469638</span> 378485 175496 428130 493185 154716 193012 424037 197666 103758]</span>
+<span id="cb109-12"><a></a></span>
+<span id="cb109-13"><a></a><span class="ex">real</span>    0m0.155s</span>
+<span id="cb109-14"><a></a><span class="ex">user</span>    0m1.883s</span>
+<span id="cb109-15"><a></a><span class="ex">sys</span>     0m0.033s</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="solution" class="slide level2">
+<h2>Solution</h2>
+<div id="b71520e6" class="cell" data-execution_count="58">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb110"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb110-1"><a></a>cutoffs <span class="op">=</span> taxes[:,<span class="dv">0</span>]</span>
+<span id="cb110-2"><a></a>rates <span class="op">=</span> taxes[:,<span class="dv">1</span>]</span>
+<span id="cb110-3"><a></a></span>
+<span id="cb110-4"><a></a><span class="co"># If you are confused, print(arr) after every line</span></span>
+<span id="cb110-5"><a></a>arr <span class="op">=</span> np.append([<span class="dv">0</span>], cutoffs)</span>
+<span id="cb110-6"><a></a>arr <span class="op">=</span> arr[<span class="dv">1</span>:] <span class="op">-</span> arr[:<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb110-7"><a></a>arr <span class="op">*=</span> rates</span>
+<span id="cb110-8"><a></a>arr <span class="op">=</span> np.cumsum(arr)</span>
+<span id="cb110-9"><a></a>arr <span class="op">=</span> arr <span class="op">-</span> cutoffs <span class="op">*</span> rates</span>
+<span id="cb110-10"><a></a></span>
+<span id="cb110-11"><a></a>taxes <span class="op">=</span> np.array([cutoffs,rates,arr])</span>
+<span id="cb110-12"><a></a></span>
+<span id="cb110-13"><a></a>taxes <span class="op">=</span> taxes.transpose()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="using-it" class="slide level2">
+<h2>Using it</h2>
+<ul>
+<li>I used the exact same <code>single_tax</code> function as in the “Shell” exercise.</li>
+</ul>
+<div id="302be7da" class="cell" data-execution_count="59">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb111"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb111-1"><a></a><span class="kw">def</span> single_tax(income):</span>
+<span id="cb111-2"><a></a>    <span class="co"># Check all brackets</span></span>
+<span id="cb111-3"><a></a>    <span class="cf">for</span> tax <span class="kw">in</span> taxes:</span>
+<span id="cb111-4"><a></a>        <span class="cf">if</span> income <span class="op">&lt;</span> tax[<span class="dv">0</span>]:</span>
+<span id="cb111-5"><a></a>            <span class="cf">return</span> income <span class="op">*</span> tax[<span class="dv">1</span>] <span class="op">+</span> tax[<span class="dv">2</span>]</span>
+<span id="cb111-6"><a></a>    <span class="co"># We calculated the top bracket earlier</span></span>
+<span id="cb111-7"><a></a>    <span class="cf">return</span> income <span class="op">*</span> <span class="fl">.396</span> <span class="op">+</span> <span class="op">-</span><span class="fl">43830.05</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+<p><a href="index.html">Home</a></p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const onCopySuccess = function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
+      });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>

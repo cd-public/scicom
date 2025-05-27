@@ -1,0 +1,2817 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.30">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Prof.&nbsp;Calvin">
+
+<title>NumPy – Scientific Computing</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./A0_gitbash.html" rel="next">
+<link href="./03_shell.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-a4a11d514c7d463668e07712114998e6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-70c9a4798e5f6abb0636bcdc3eed0e90.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04_numpy.html">NumPy</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Scientific Computing</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01_python.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02_neovim.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Neovim</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03_shell.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Shell</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04_numpy.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">NumPy</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A0_gitbash.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Appendix - Git Bash</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A1_keybinds.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Appendix - Commands</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#what-is-numpy" id="toc-what-is-numpy" class="nav-link active" data-scroll-target="#what-is-numpy">What is “NumPy”?</a>
+  <ul class="collapse">
+  <li><a href="#on-numpy" id="toc-on-numpy" class="nav-link" data-scroll-target="#on-numpy">On NumPy</a></li>
+  <li><a href="#relevance" id="toc-relevance" class="nav-link" data-scroll-target="#relevance">Relevance</a></li>
+  <li><a href="#we-will" id="toc-we-will" class="nav-link" data-scroll-target="#we-will">We will</a></li>
+  </ul></li>
+  <li><a href="#package-management" id="toc-package-management" class="nav-link" data-scroll-target="#package-management">Package Management</a>
+  <ul class="collapse">
+  <li><a href="#pypi" id="toc-pypi" class="nav-link" data-scroll-target="#pypi">PyPI</a></li>
+  <li><a href="#pip" id="toc-pip" class="nav-link" data-scroll-target="#pip">pip</a></li>
+  <li><a href="#using-pip" id="toc-using-pip" class="nav-link" data-scroll-target="#using-pip">Using <code>pip</code></a></li>
+  <li><a href="#verify-install" id="toc-verify-install" class="nav-link" data-scroll-target="#verify-install">Verify Install</a></li>
+  <li><a href="#recall" id="toc-recall" class="nav-link" data-scroll-target="#recall">Recall</a></li>
+  </ul></li>
+  <li><a href="#arrays" id="toc-arrays" class="nav-link" data-scroll-target="#arrays">Arrays</a>
+  <ul class="collapse">
+  <li><a href="#numpy-arrays" id="toc-numpy-arrays" class="nav-link" data-scroll-target="#numpy-arrays">NumPy Arrays</a></li>
+  <li><a href="#list-to-array" id="toc-list-to-array" class="nav-link" data-scroll-target="#list-to-array">List to Array</a></li>
+  <li><a href="#lists-of-lists" id="toc-lists-of-lists" class="nav-link" data-scroll-target="#lists-of-lists">Lists of lists</a></li>
+  <li><a href="#check-types" id="toc-check-types" class="nav-link" data-scroll-target="#check-types">Check Types</a></li>
+  <li><a href="#versus-arrays" id="toc-versus-arrays" class="nav-link" data-scroll-target="#versus-arrays">Versus arrays</a></li>
+  <li><a href="#niceties" id="toc-niceties" class="nav-link" data-scroll-target="#niceties">Niceties</a></li>
+  <li><a href="#contingencies" id="toc-contingencies" class="nav-link" data-scroll-target="#contingencies">Contingencies</a></li>
+  <li><a href="#takeaways" id="toc-takeaways" class="nav-link" data-scroll-target="#takeaways">Takeaways:</a></li>
+  <li><a href="#arrays-1" id="toc-arrays-1" class="nav-link" data-scroll-target="#arrays-1">Arrays</a></li>
+  <li><a href="#tables" id="toc-tables" class="nav-link" data-scroll-target="#tables">Tables</a></li>
+  <li><a href="#ndarray" id="toc-ndarray" class="nav-link" data-scroll-target="#ndarray">ndarray</a></li>
+  <li><a href="#making-arrays" id="toc-making-arrays" class="nav-link" data-scroll-target="#making-arrays">Making Arrays</a></li>
+  <li><a href="#aside-scientific-notation" id="toc-aside-scientific-notation" class="nav-link" data-scroll-target="#aside-scientific-notation">Aside: Scientific Notation</a></li>
+  <li><a href="#aside-explanation" id="toc-aside-explanation" class="nav-link" data-scroll-target="#aside-explanation">Aside: Explanation</a></li>
+  <li><a href="#aside-physical-examples" id="toc-aside-physical-examples" class="nav-link" data-scroll-target="#aside-physical-examples">Aside: Physical Examples</a></li>
+  <li><a href="#aside-economic-examples" id="toc-aside-economic-examples" class="nav-link" data-scroll-target="#aside-economic-examples">Aside: Economic Examples</a></li>
+  </ul></li>
+  <li><a href="#using-arrays" id="toc-using-arrays" class="nav-link" data-scroll-target="#using-arrays">Using Arrays</a>
+  <ul class="collapse">
+  <li><a href="#inspecting-arrays" id="toc-inspecting-arrays" class="nav-link" data-scroll-target="#inspecting-arrays">Inspecting Arrays</a></li>
+  <li><a href="#slices" id="toc-slices" class="nav-link" data-scroll-target="#slices">Slices</a></li>
+  <li><a href="#understanding-slices" id="toc-understanding-slices" class="nav-link" data-scroll-target="#understanding-slices">Understanding slices</a></li>
+  <li><a href="#omiting-values" id="toc-omiting-values" class="nav-link" data-scroll-target="#omiting-values">Omiting Values</a></li>
+  <li><a href="#omiting-end" id="toc-omiting-end" class="nav-link" data-scroll-target="#omiting-end">Omiting End</a></li>
+  <li><a href="#steps" id="toc-steps" class="nav-link" data-scroll-target="#steps">Steps</a></li>
+  <li><a href="#step-size" id="toc-step-size" class="nav-link" data-scroll-target="#step-size">Step Size</a></li>
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
+  <li><a href="#step-ommissions" id="toc-step-ommissions" class="nav-link" data-scroll-target="#step-ommissions">Step Ommissions</a></li>
+  <li><a href="#aside-negatives" id="toc-aside-negatives" class="nav-link" data-scroll-target="#aside-negatives">Aside: Negatives</a></li>
+  <li><a href="#coordinates" id="toc-coordinates" class="nav-link" data-scroll-target="#coordinates">Coordinates</a></li>
+  <li><a href="#coordinate-slices" id="toc-coordinate-slices" class="nav-link" data-scroll-target="#coordinate-slices">Coordinate slices</a></li>
+  <li><a href="#updates" id="toc-updates" class="nav-link" data-scroll-target="#updates">Updates</a></li>
+  </ul></li>
+  <li><a href="#vectorization" id="toc-vectorization" class="nav-link" data-scroll-target="#vectorization">Vectorization</a>
+  <ul class="collapse">
+  <li><a href="#why-numpy" id="toc-why-numpy" class="nav-link" data-scroll-target="#why-numpy">Why NumPy?</a></li>
+  <li><a href="#vector-ops" id="toc-vector-ops" class="nav-link" data-scroll-target="#vector-ops">Vector Ops</a></li>
+  <li><a href="#example-1" id="toc-example-1" class="nav-link" data-scroll-target="#example-1">Example</a></li>
+  <li><a href="#aside" id="toc-aside" class="nav-link" data-scroll-target="#aside">Aside: <code>//</code></a></li>
+  <li><a href="#use-case" id="toc-use-case" class="nav-link" data-scroll-target="#use-case">Use case</a></li>
+  <li><a href="#building-brackets" id="toc-building-brackets" class="nav-link" data-scroll-target="#building-brackets">Building Brackets</a></li>
+  <li><a href="#begin-and-end" id="toc-begin-and-end" class="nav-link" data-scroll-target="#begin-and-end">Begin and end</a></li>
+  <li><a href="#insert" id="toc-insert" class="nav-link" data-scroll-target="#insert">Insert</a></li>
+  <li><a href="#append" id="toc-append" class="nav-link" data-scroll-target="#append">Append</a></li>
+  <li><a href="#slicing" id="toc-slicing" class="nav-link" data-scroll-target="#slicing">Slicing</a></li>
+  <li><a href="#vector-minus" id="toc-vector-minus" class="nav-link" data-scroll-target="#vector-minus">Vector Minus</a></li>
+  <li><a href="#vector-times" id="toc-vector-times" class="nav-link" data-scroll-target="#vector-times">Vector Times</a></li>
+  <li><a href="#accumulation" id="toc-accumulation" class="nav-link" data-scroll-target="#accumulation">Accumulation</a></li>
+  </ul></li>
+  <li><a href="#takeaways-1" id="toc-takeaways-1" class="nav-link" data-scroll-target="#takeaways-1">Takeaways</a>
+  <ul class="collapse">
+  <li><a href="#numpy-does-a-lot" id="toc-numpy-does-a-lot" class="nav-link" data-scroll-target="#numpy-does-a-lot">NumPy does a lot!</a></li>
+  </ul></li>
+  <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise">Exercise</a>
+  <ul class="collapse">
+  <li><a href="#using-numpy" id="toc-using-numpy" class="nav-link" data-scroll-target="#using-numpy">Using NumPy</a></li>
+  <li><a href="#transpose" id="toc-transpose" class="nav-link" data-scroll-target="#transpose">Transpose</a></li>
+  <li><a href="#bonus-problem" id="toc-bonus-problem" class="nav-link" data-scroll-target="#bonus-problem">Bonus Problem</a></li>
+  <li><a href="#aside-random" id="toc-aside-random" class="nav-link" data-scroll-target="#aside-random">Aside: Random</a></li>
+  <li><a href="#aside-time" id="toc-aside-time" class="nav-link" data-scroll-target="#aside-time">Aside: <code>time</code></a></li>
+  <li><a href="#solution" id="toc-solution" class="nav-link" data-scroll-target="#solution">Solution</a></li>
+  <li><a href="#using-it" id="toc-using-it" class="nav-link" data-scroll-target="#using-it">Using it</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="04_numpy.rjs.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">NumPy</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i></button></div></div>
+<p class="subtitle lead">Scientific Computing</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Prof.&nbsp;Calvin </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="what-is-numpy" class="level1">
+<h1>What is “NumPy”?</h1>
+<blockquote class="blockquote">
+<p><a href="https://github.com/numpy/numpy">The fundamental package for scientific computing with Python.</a></p>
+</blockquote>
+<ul>
+<li><strong>Num</strong>erical <strong>Py</strong>thon</li>
+<li>It is a package - addition features we can optional add to the Python language.</li>
+</ul>
+<section id="on-numpy" class="level2">
+<h2 class="anchored" data-anchor-id="on-numpy">On NumPy</h2>
+<p>Basically, to do scientific computing it would be nice to have:</p>
+<ul>
+<li>a powerful N-dimensional array object</li>
+<li>sophisticated (broadcasting) functions</li>
+<li>tools for integrating C/C++ and Fortran code</li>
+<li>useful linear algebra, Fourier transform, and random number capabilities</li>
+</ul>
+<p>(These are the stated features of NumPy.)</p>
+</section>
+<section id="relevance" class="level2">
+<h2 class="anchored" data-anchor-id="relevance">Relevance</h2>
+<ul>
+<li>We have essentially been using 1- and 2-dimensional arrays already!</li>
+<li>Here is the examples <code>intercepts.py</code> solution from last time:</li>
+</ul>
+<p>Code</p>
+<div id="5f25f312" class="cell" data-execution_count="2">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>taxes <span class="op">=</span> [</span>
+<span id="cb1-2"><a href="#cb1-2"></a>    [<span class="dv">9275</span>, <span class="fl">.10</span>],</span>
+<span id="cb1-3"><a href="#cb1-3"></a>    [<span class="dv">37650</span>, <span class="fl">.15</span>],</span>
+<span id="cb1-4"><a href="#cb1-4"></a>    [<span class="dv">91150</span>, <span class="fl">.25</span>],</span>
+<span id="cb1-5"><a href="#cb1-5"></a>    [<span class="dv">190150</span>, <span class="fl">.28</span>],</span>
+<span id="cb1-6"><a href="#cb1-6"></a>    [<span class="dv">413350</span>, <span class="fl">.33</span>],</span>
+<span id="cb1-7"><a href="#cb1-7"></a>    [<span class="dv">415051</span>, <span class="fl">.35</span>]</span>
+<span id="cb1-8"><a href="#cb1-8"></a>]</span>
+<span id="cb1-9"><a href="#cb1-9"></a></span>
+<span id="cb1-10"><a href="#cb1-10"></a>cost <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a>start <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1-12"><a href="#cb1-12"></a><span class="cf">for</span> tax <span class="kw">in</span> taxes:</span>
+<span id="cb1-13"><a href="#cb1-13"></a>    cost <span class="op">+=</span> (tax[<span class="dv">0</span>] <span class="op">-</span> start) <span class="op">*</span> tax[<span class="dv">1</span>]</span>
+<span id="cb1-14"><a href="#cb1-14"></a>    tax <span class="op">+=</span> [cost <span class="op">-</span> tax[<span class="dv">0</span>] <span class="op">*</span> tax[<span class="dv">1</span>]]</span>
+<span id="cb1-15"><a href="#cb1-15"></a>    start <span class="op">=</span> tax[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="we-will" class="level2">
+<h2 class="anchored" data-anchor-id="we-will">We will</h2>
+<ul>
+<li>Change our existing <em>lists</em>, which we understand as “N-dimensional arrays” into NumPy arrays.</li>
+<li>Show the benefits of this arrangement.</li>
+<li>Show other NumPy features.</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="package-management" class="level1">
+<h1>Package Management</h1>
+<section id="pypi" class="level2">
+<h2 class="anchored" data-anchor-id="pypi">PyPI</h2>
+<blockquote class="blockquote">
+<p>The Python Package Index (PyPI) is a repository of software for the Python programming language.</p>
+</blockquote>
+<ul>
+<li>NumPy is a Python package.
+<ul>
+<li>It is installed separately from Python, but</li>
+<li>May be installed using Python-based tools.</li>
+</ul></li>
+</ul>
+</section>
+<section id="pip" class="level2">
+<h2 class="anchored" data-anchor-id="pip">pip</h2>
+<blockquote class="blockquote">
+<p>The most popular tool for installing Python packages, and the one included with modern versions of Python.</p>
+</blockquote>
+<ul>
+<li><code>pip</code> is a command line utility</li>
+<li>For years <code>pip</code> was the only real options for installing Python programs, but has experienced limitations as the package ecosystem has grown quite large.</li>
+</ul>
+</section>
+<section id="using-pip" class="level2">
+<h2 class="anchored" data-anchor-id="using-pip">Using <code>pip</code></h2>
+<ul>
+<li>Use as an argument to <code>python</code> or <code>python3</code></li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> <span class="at">-m</span> pip install numpy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>It may take a moment to install.</li>
+</ul>
+</section>
+<section id="verify-install" class="level2">
+<h2 class="anchored" data-anchor-id="verify-install">Verify Install</h2>
+<ul>
+<li>The following verifies the the NumPy install was successful</li>
+<li>We see the return of <code>import</code>
+<ul>
+<li>Introduce <code>as</code>, used to shorten names</li>
+<li>We could have done <code>import piecewise as pw</code></li>
+</ul></li>
+</ul>
+<div id="a8cefdf5" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb3-2"><a href="#cb3-2"></a></span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="bu">print</span>(np.__version__)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>2.0.1</code></pre>
+</div>
+</div>
+</section>
+<section id="recall" class="level2">
+<h2 class="anchored" data-anchor-id="recall">Recall</h2>
+<ul>
+<li>You may wish to review <code>import</code></li>
+<li>Consult <a href="file:///C:/Users/cd-desk/Documents/repos/scicom/qmd/02_neovim.html#import">Neovim -&gt; `import’</a></li>
+</ul>
+</section>
+</section>
+<section id="arrays" class="level1">
+<h1>Arrays</h1>
+<section id="numpy-arrays" class="level2">
+<h2 class="anchored" data-anchor-id="numpy-arrays">NumPy Arrays</h2>
+<ul>
+<li>The first thing to do in NumPy is make an <em>array</em>.</li>
+<li>In general we use NumPy arrays when:
+<ul>
+<li>We are dealing with lists of numbers</li>
+<li>We care about performance, or</li>
+<li>We want to use advanced mathematical operations</li>
+</ul></li>
+</ul>
+</section>
+<section id="list-to-array" class="level2">
+<h2 class="anchored" data-anchor-id="list-to-array">List to Array</h2>
+<ul>
+<li>We define a list of lists:</li>
+</ul>
+<div id="0de36908" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>taxes <span class="op">=</span> [</span>
+<span id="cb5-2"><a href="#cb5-2"></a>    [<span class="dv">9275</span>, <span class="fl">.10</span>],</span>
+<span id="cb5-3"><a href="#cb5-3"></a>    [<span class="dv">37650</span>, <span class="fl">.15</span>],</span>
+<span id="cb5-4"><a href="#cb5-4"></a>    [<span class="dv">91150</span>, <span class="fl">.25</span>],</span>
+<span id="cb5-5"><a href="#cb5-5"></a>    [<span class="dv">190150</span>, <span class="fl">.28</span>],</span>
+<span id="cb5-6"><a href="#cb5-6"></a>    [<span class="dv">413350</span>, <span class="fl">.33</span>],</span>
+<span id="cb5-7"><a href="#cb5-7"></a>    [<span class="dv">415051</span>, <span class="fl">.35</span>]</span>
+<span id="cb5-8"><a href="#cb5-8"></a>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="lists-of-lists" class="level2">
+<h2 class="anchored" data-anchor-id="lists-of-lists">Lists of lists</h2>
+<ul>
+<li>It is worth while to examine <code>taxes</code> a bit</li>
+</ul>
+<div id="454eb86f" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>taxes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1603">
+<pre><code>[[9275, 0.1],
+ [37650, 0.15],
+ [91150, 0.25],
+ [190150, 0.28],
+ [413350, 0.33],
+ [415051, 0.35]]</code></pre>
+</div>
+</div>
+</section>
+<section id="check-types" class="level2">
+<h2 class="anchored" data-anchor-id="check-types">Check Types</h2>
+<ul>
+<li>We can verify it is a list.</li>
+</ul>
+<p><code>{python{ type(taxes)</code></p>
+<ul>
+<li>We can verify it’s initial element is also a list.</li>
+</ul>
+<div id="b40e9df2" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="bu">type</span>(taxes[<span class="dv">0</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1604">
+<pre><code>list</code></pre>
+</div>
+</div>
+<ul>
+<li>Since <code>taxes[0]</code> is a list, we can look at <em>that</em> list’s initial element.</li>
+</ul>
+<div id="d1ae2abc" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="bu">type</span>(taxes[<span class="dv">0</span>][<span class="dv">0</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1605">
+<pre><code>int</code></pre>
+</div>
+</div>
+</section>
+<section id="versus-arrays" class="level2">
+<h2 class="anchored" data-anchor-id="versus-arrays">Versus arrays</h2>
+<ul>
+<li>We have a list of lists of ints (like integers, round numbers).</li>
+<li>Or do we?</li>
+</ul>
+<div id="ae5c00d6" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="bu">type</span>(taxes[<span class="dv">0</span>][<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1606">
+<pre><code>float</code></pre>
+</div>
+</div>
+<ul>
+<li>In fact, the tax <em>rates</em> are not round numbers, so they are “floats”.</li>
+<li>NumPy will help us manage when we use “floating point numbers” (have a decimal point) and integers (don’t).</li>
+</ul>
+</section>
+<section id="niceties" class="level2">
+<h2 class="anchored" data-anchor-id="niceties">Niceties</h2>
+<ul>
+<li>Each of the internal lists of numbers is of the same length.</li>
+<li>That lets us do this:</li>
+</ul>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;">Cutoff</th>
+<th>Rate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">9275</td>
+<td>.10</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">37650</td>
+<td>.15</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">91150</td>
+<td>.25</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">190150</td>
+<td>.28</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">413350</td>
+<td>.33</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">415051</td>
+<td>.35</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="contingencies" class="level2">
+<h2 class="anchored" data-anchor-id="contingencies">Contingencies</h2>
+<ul>
+<li>This… isn’t always true.</li>
+<li>In our case, for example, we have a .396 rate with <em>no</em> cutoff.</li>
+<li>We just can’t express this as an array:</li>
+</ul>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;">Cutoff</th>
+<th>Rate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">413350</td>
+<td>.33</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">415051</td>
+<td>.35</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"></td>
+<td>.396</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="takeaways" class="level2">
+<h2 class="anchored" data-anchor-id="takeaways">Takeaways:</h2>
+<ul>
+<li>Be ready to deal with things being <em>almost</em> arrays, but ultimately only being lists-of-lists.</li>
+<li>There’s ways to deal with this (we’ve seen a few, sneakily)</li>
+</ul>
+</section>
+<section id="arrays-1" class="level2">
+<h2 class="anchored" data-anchor-id="arrays-1">Arrays</h2>
+<blockquote class="blockquote">
+<p>In computer programming, an array is a structure for storing and retrieving data. We often talk about an array as if it were a grid in space, with each cell storing one element of the data. For instance, if each element of the data were a number, we might visualize a “one-dimensional” array like a list:</p>
+</blockquote>
+<p><span class="math display">\[
+    \begin{array}{|c||c|c|c|}
+    \hline
+    9275 &amp; 37650 &amp; 91150 &amp; 190150 \\
+    \hline
+    \end{array}
+\]</span></p>
+</section>
+<section id="tables" class="level2">
+<h2 class="anchored" data-anchor-id="tables">Tables</h2>
+<blockquote class="blockquote">
+<p>A two-dimensional array would be like a table:</p>
+</blockquote>
+<p><span class="math display">\[
+    \begin{array}{|c||c|c|c|}
+    \hline
+    9275 &amp; 37650 &amp; 91150 &amp; 190150 \\
+    \hline
+    .10 &amp; .15 &amp; .25 &amp; .28 \\
+    \hline
+    0 &amp; -463.75 &amp; -6963.25 &amp; -16470.75 \\
+    \hline
+    \end{array}
+\]</span></p>
+</section>
+<section id="ndarray" class="level2">
+<h2 class="anchored" data-anchor-id="ndarray">ndarray</h2>
+<blockquote class="blockquote">
+<p>A three-dimensional array would be like a set of tables, perhaps stacked as though they were printed on separate pages. In NumPy, this idea is generalized to an arbitrary number of dimensions, and so the fundamental array class is called <code>ndarray</code>: it represents an “N-dimensional array”.</p>
+</blockquote>
+<ul>
+<li>The most obvious 3d example would be that <code>taxes</code> part of an <em>array</em> of tax policies</li>
+</ul>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>[<span class="st">"Single"</span>, <span class="st">"Married, joint"</span>, <span class="st">"Married, separate"</span>, <span class="st">"Head of Household"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="making-arrays" class="level2">
+<h2 class="anchored" data-anchor-id="making-arrays">Making Arrays</h2>
+<ul>
+<li>Make an array with <code>np.array()</code>
+<ul>
+<li>Or <code>numpy.array</code> if you used <code>import numpy</code></li>
+</ul></li>
+<li>They look like this:</li>
+</ul>
+<div id="d7774cac" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>arr <span class="op">=</span> np.array(taxes)</span>
+<span id="cb15-2"><a href="#cb15-2"></a>arr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1607">
+<pre><code>array([[9.27500e+03, 1.00000e-01],
+       [3.76500e+04, 1.50000e-01],
+       [9.11500e+04, 2.50000e-01],
+       [1.90150e+05, 2.80000e-01],
+       [4.13350e+05, 3.30000e-01],
+       [4.15051e+05, 3.50000e-01]])</code></pre>
+</div>
+</div>
+<ul>
+<li>Our integers are gone - everything in scientific notation</li>
+</ul>
+</section>
+<section id="aside-scientific-notation" class="level2">
+<h2 class="anchored" data-anchor-id="aside-scientific-notation">Aside: Scientific Notation</h2>
+<blockquote class="blockquote">
+<p><a href="https://en.wikipedia.org/wiki/Scientific_notation">Scientific notation is a way of expressing numbers that are too large or too small to be conveniently written in decimal form, since to do so would require writing out an inconveniently long string of digits.</a></p>
+</blockquote>
+<ul>
+<li>In scientific notation, nonzero numbers are written in the form</li>
+</ul>
+<p><span class="math display">\[a \times 10^b\]</span></p>
+</section>
+<section id="aside-explanation" class="level2">
+<h2 class="anchored" data-anchor-id="aside-explanation">Aside: Explanation</h2>
+<ul>
+<li>In scientific notation, nonzero numbers are written in the form</li>
+</ul>
+<p><span class="math display">\[a \times 10^b\]</span></p>
+<ul>
+<li><span class="math inline">\(a\)</span> (the coefficient or mantissa) is a number greater than or equal to 1 and less than 10 (<span class="math inline">\(1 \le |a| &lt; 10\)</span>).</li>
+<li><span class="math inline">\(10\)</span> is the base.</li>
+<li><span class="math inline">\(b\)</span> (the exponent) is an integer.</li>
+</ul>
+</section>
+<section id="aside-physical-examples" class="level2">
+<h2 class="anchored" data-anchor-id="aside-physical-examples">Aside: Physical Examples</h2>
+<ol type="1">
+<li><p><strong>Speed of light:</strong> The speed of light in a vacuum is approximately <span class="math inline">\(300,000,000 \text{ m/s}\)</span> <span class="math display">\[
+3 \times 10^8 \text{ m/s}
+\]</span></p></li>
+<li><p><strong>Mass of an electron:</strong> The mass of an electron is approximately <span class="math inline">\(0.00000000000000000000000000091093837 \text{ g}\)</span>. <span class="math display">\[
+9.1093837 \times 10^{-28} \text{ g}
+\]</span></p></li>
+</ol>
+</section>
+<section id="aside-economic-examples" class="level2">
+<h2 class="anchored" data-anchor-id="aside-economic-examples">Aside: Economic Examples</h2>
+<ul>
+<li>We can use social science numbers.</li>
+<li><a href="https://www.newyorkfed.org/research/college-labor-market#--:explore:outcomes-by-major">Labor Market Outcomes of College Graduates by Major</a></li>
+<li>Computer scientists have a $80,000 median wage early career
+<ul>
+<li><span class="math inline">\(8.0000 \times 10^4\)</span></li>
+</ul></li>
+<li>And 6.1% unemployment
+<ul>
+<li><span class="math inline">\(6.1 \times 10^{-2}\)</span></li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="using-arrays" class="level1">
+<h1>Using Arrays</h1>
+<section id="inspecting-arrays" class="level2">
+<h2 class="anchored" data-anchor-id="inspecting-arrays">Inspecting Arrays</h2>
+<ul>
+<li>Given some array, we can look up elements in an array as we did with lists.</li>
+<li>We refer to zero as the “index” of the initial element of an array (or list).</li>
+</ul>
+<div class="{.carr[0]olumns}">
+<div class="column" style="width:50%;">
+<div id="050aa707" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>taxes[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1608">
+<pre><code>[9275, 0.1]</code></pre>
+</div>
+</div>
+</div>
+<div class="column" style="width:50%;">
+<div id="0970861d" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>arr[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1609">
+<pre><code>array([9.275e+03, 1.000e-01])</code></pre>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li>We look up the same element by the same index in both Python lists and NumPy arrays.</li>
+</ul>
+</section>
+<section id="slices" class="level2">
+<h2 class="anchored" data-anchor-id="slices">Slices</h2>
+<ul>
+<li>Python and NumPy support <em>slicing</em></li>
+<li>This takes multiple elements of an array by specifying a <em>range</em> of indices</li>
+<li>Let’s make a one-dimensional array to make matters simpler.</li>
+</ul>
+<div id="58f706da" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>colors <span class="op">=</span> [<span class="st">"red"</span>, <span class="st">"orange"</span>, <span class="st">"yellow"</span>, <span class="st">"green"</span>, <span class="st">"blue"</span>, <span class="st">"indigo"</span>, <span class="st">"violet"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div id="c7d13ac5" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a>color_lst <span class="op">=</span> colors</span>
+<span id="cb22-2"><a href="#cb22-2"></a>color_lst[<span class="dv">1</span>:<span class="dv">4</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1611">
+<pre><code>['orange', 'yellow', 'green']</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div id="1ac0c5eb" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a>color_arr <span class="op">=</span> np.array(colors)</span>
+<span id="cb24-2"><a href="#cb24-2"></a>color_arr[<span class="dv">1</span>:<span class="dv">4</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1612">
+<pre><code>array(['orange', 'yellow', 'green'], dtype='&lt;U6')</code></pre>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li><code>dtype</code> is data type - We’ll cover it soon.</li>
+</ul>
+</section>
+<section id="understanding-slices" class="level2">
+<h2 class="anchored" data-anchor-id="understanding-slices">Understanding slices</h2>
+<ul>
+<li>The slice <code>1:4</code> takes all elements at index beginning at <code>1</code> and stopping before getting to index <code>4</code>.</li>
+</ul>
+<p><span class="math display">\[
+\small
+\begin{array}{|l|c|c|c|c|c|c|}
+\hline
+\textbf{Index} &amp; 0 &amp; 1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 &amp; 6   \\
+\hline
+\textbf{Element} &amp; red &amp; orange&amp; yellow&amp; green&amp; blue&amp; indigo&amp; violet\\
+\hline
+\end{array}
+\]</span></p>
+<p><span class="math display">\[
+\small
+\begin{array}{|l|c|c|c|}
+\hline
+\textbf{Index} &amp; 1 &amp; 2 &amp; 3   \\
+\hline
+\textbf{Element} &amp; orange&amp; yellow&amp; green\\
+\hline
+\end{array}
+\]</span></p>
+</section>
+<section id="omiting-values" class="level2">
+<h2 class="anchored" data-anchor-id="omiting-values">Omiting Values</h2>
+<ul>
+<li>If we omit the value before the <code>:</code> from the slice, it is treated as if a zero was provided.</li>
+</ul>
+<div id="a67bc217" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a>color_arr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1613">
+<pre><code>array(['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'],
+      dtype='&lt;U6')</code></pre>
+</div>
+</div>
+<div id="f97fcdbd" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a>color_arr[<span class="dv">0</span>:<span class="dv">4</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1614">
+<pre><code>array(['red', 'orange', 'yellow', 'green'], dtype='&lt;U6')</code></pre>
+</div>
+</div>
+<div id="d85cd9c2" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a>color_arr[:<span class="dv">4</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1615">
+<pre><code>array(['red', 'orange', 'yellow', 'green'], dtype='&lt;U6')</code></pre>
+</div>
+</div>
+</section>
+<section id="omiting-end" class="level2">
+<h2 class="anchored" data-anchor-id="omiting-end">Omiting End</h2>
+<ul>
+<li>If we omit the value after the <code>:</code> from the slice, it is as if the length was provided.</li>
+</ul>
+<div id="cb81b068" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a>color_arr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1616">
+<pre><code>array(['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'],
+      dtype='&lt;U6')</code></pre>
+</div>
+</div>
+<ul>
+<li><code>len</code> gives the length of a list or array</li>
+</ul>
+<div id="c8ce2dc0" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a><span class="bu">len</span>(color_arr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1617">
+<pre><code>7</code></pre>
+</div>
+</div>
+<div id="5ba75f03" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a>color_arr[<span class="dv">4</span>:<span class="dv">7</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1618">
+<pre><code>array(['blue', 'indigo', 'violet'], dtype='&lt;U6')</code></pre>
+</div>
+</div>
+<div id="946ceeca" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a>color_arr[<span class="dv">4</span>:]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1619">
+<pre><code>array(['blue', 'indigo', 'violet'], dtype='&lt;U6')</code></pre>
+</div>
+</div>
+</section>
+<section id="steps" class="level2">
+<h2 class="anchored" data-anchor-id="steps">Steps</h2>
+<ul>
+<li>Python and NumPy slices have an additional feature I find quite nice called “steps”</li>
+<li>We specify a slice:</li>
+</ul>
+<div id="0354645a" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a>color_arr[<span class="dv">1</span>:<span class="dv">4</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1620">
+<pre><code>array(['orange', 'yellow', 'green'], dtype='&lt;U6')</code></pre>
+</div>
+</div>
+<ul>
+<li>We add a <em>third</em> value</li>
+</ul>
+<div id="aa48f0f0" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1"></a>color_arr[<span class="dv">1</span>:<span class="dv">4</span>:<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1621">
+<pre><code>array(['orange', 'yellow', 'green'], dtype='&lt;U6')</code></pre>
+</div>
+</div>
+</section>
+<section id="step-size" class="level2">
+<h2 class="anchored" data-anchor-id="step-size">Step Size</h2>
+<p>– We add a <em>third</em> value</p>
+<div id="30cb2d5d" class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a>color_arr[<span class="dv">1</span>:<span class="dv">4</span>:<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1622">
+<pre><code>array(['orange', 'yellow', 'green'], dtype='&lt;U6')</code></pre>
+</div>
+</div>
+<ul>
+<li>This value determines how far to move over the original array between each element shown.
+<ul>
+<li>Let’s look at <code>2</code> - every other element.</li>
+</ul></li>
+</ul>
+<div id="1ee7caf1" class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a>color_arr[<span class="dv">1</span>:<span class="dv">4</span>:<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1623">
+<pre><code>array(['orange', 'green'], dtype='&lt;U6')</code></pre>
+</div>
+</div>
+</section>
+<section id="example" class="level2">
+<h2 class="anchored" data-anchor-id="example">Example</h2>
+<ul>
+<li>In kindergarten, I learned that red, yellow, and blue were primary colors.
+<ul>
+<li>I’m relatively unconvinced by that at this time, but it’s a good example.</li>
+</ul></li>
+</ul>
+<div id="89f1a70f" class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1"></a>color_arr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1624">
+<pre><code>array(['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'],
+      dtype='&lt;U6')</code></pre>
+</div>
+</div>
+<ul>
+<li>And the primaries:</li>
+</ul>
+<div id="62fa1125" class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1"></a>color_arr[<span class="dv">0</span>:<span class="dv">5</span>:<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1625">
+<pre><code>array(['red', 'yellow', 'blue'], dtype='&lt;U6')</code></pre>
+</div>
+</div>
+</section>
+<section id="step-ommissions" class="level2">
+<h2 class="anchored" data-anchor-id="step-ommissions">Step Ommissions</h2>
+<ul>
+<li>We can omit start, stop, or both and still take steps.</li>
+</ul>
+<div id="1c6b5843" class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1"></a>color_arr[::<span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1626">
+<pre><code>array(['red', 'green', 'violet'], dtype='&lt;U6')</code></pre>
+</div>
+</div>
+<ul>
+<li>We can use a <em>negative</em> step to reverse.</li>
+</ul>
+<div id="9be7d7a3" class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1"></a>color_arr[::<span class="op">-</span><span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1627">
+<pre><code>array(['violet', 'indigo', 'blue', 'green', 'yellow', 'orange', 'red'],
+      dtype='&lt;U6')</code></pre>
+</div>
+</div>
+</section>
+<section id="aside-negatives" class="level2">
+<h2 class="anchored" data-anchor-id="aside-negatives">Aside: Negatives</h2>
+<ul>
+<li>Negative starts and stops can also be used</li>
+</ul>
+<div id="97ae52bf" class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1"></a>color_arr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1628">
+<pre><code>array(['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'],
+      dtype='&lt;U6')</code></pre>
+</div>
+</div>
+<ul>
+<li>They simply measure distance from the end.</li>
+</ul>
+<div id="196efebd" class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1"></a>color_arr[:<span class="op">-</span><span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1629">
+<pre><code>array(['red', 'orange', 'yellow', 'green', 'blue'], dtype='&lt;U6')</code></pre>
+</div>
+</div>
+</section>
+<section id="coordinates" class="level2">
+<h2 class="anchored" data-anchor-id="coordinates">Coordinates</h2>
+<ul>
+<li>Versus Python lists-of-lists.</li>
+</ul>
+<div id="cd0486fe" class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1"></a>taxes[<span class="dv">1</span>][<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1630">
+<pre><code>0.15</code></pre>
+</div>
+</div>
+<ul>
+<li>NumPy arrays can specify coordinates - indices of multiple dimensions - in a single set of brackets.</li>
+</ul>
+<div id="bb65bd4a" class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1"></a>arr[<span class="dv">1</span>][<span class="dv">1</span>], arr[<span class="dv">1</span>, <span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1631">
+<pre><code>(np.float64(0.15), np.float64(0.15))</code></pre>
+</div>
+</div>
+</section>
+<section id="coordinate-slices" class="level2">
+<h2 class="anchored" data-anchor-id="coordinate-slices">Coordinate slices</h2>
+<ul>
+<li>I recommend using the comma notation.</li>
+<li>Otherwise I get unexpected behavior.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div id="be15fa5c" class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1"></a><span class="co"># reverse in both dimensions</span></span>
+<span id="cb64-2"><a href="#cb64-2"></a>arr[::<span class="op">-</span><span class="dv">1</span>][::<span class="op">-</span><span class="dv">1</span>] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1632">
+<pre><code>array([[9.27500e+03, 1.00000e-01],
+       [3.76500e+04, 1.50000e-01],
+       [9.11500e+04, 2.50000e-01],
+       [1.90150e+05, 2.80000e-01],
+       [4.13350e+05, 3.30000e-01],
+       [4.15051e+05, 3.50000e-01]])</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div id="16da2557" class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1"></a><span class="co"># reverse in both dimensions</span></span>
+<span id="cb66-2"><a href="#cb66-2"></a>arr[::<span class="op">-</span><span class="dv">1</span>,::<span class="op">-</span><span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1633">
+<pre><code>array([[3.50000e-01, 4.15051e+05],
+       [3.30000e-01, 4.13350e+05],
+       [2.80000e-01, 1.90150e+05],
+       [2.50000e-01, 9.11500e+04],
+       [1.50000e-01, 3.76500e+04],
+       [1.00000e-01, 9.27500e+03]])</code></pre>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li>Takeaway: Always use <code>[x,y]</code> instead of <code>[x][y]</code></li>
+<li>Things like this are we use NumPy!</li>
+</ul>
+</section>
+<section id="updates" class="level2">
+<h2 class="anchored" data-anchor-id="updates">Updates</h2>
+<ul>
+<li>We can also update entries via <code>=</code></li>
+</ul>
+<div id="10c0c5d4" class="cell" data-execution_count="36">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1"></a>color_arr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1634">
+<pre><code>array(['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'],
+      dtype='&lt;U6')</code></pre>
+</div>
+</div>
+<ul>
+<li>Use (1) name of array, (2) index of element, (3) <code>=</code>, (4) new element</li>
+</ul>
+<div id="965313fe" class="cell" data-execution_count="37">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1"></a>color_arr[<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> <span class="st">'purple'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>The array now has that element/index.</li>
+</ul>
+<div id="b03bfaa6" class="cell" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1"></a>color_arr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1636">
+<pre><code>array(['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'purple'],
+      dtype='&lt;U6')</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="vectorization" class="level1">
+<h1>Vectorization</h1>
+<section id="why-numpy" class="level2">
+<h2 class="anchored" data-anchor-id="why-numpy">Why NumPy?</h2>
+<ul>
+<li>NumPy vectors can do a <em>very</em> cool thing that lists can’t.</li>
+<li>We use it a lot in science.</li>
+<li><em>Vector operations</em>.</li>
+</ul>
+</section>
+<section id="vector-ops" class="level2">
+<h2 class="anchored" data-anchor-id="vector-ops">Vector Ops</h2>
+<ul>
+<li>Let’s compare Python</li>
+</ul>
+<div id="c65bc5f3" class="cell" data-execution_count="39">
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1"></a>l1 <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]</span>
+<span id="cb73-2"><a href="#cb73-2"></a>l2 <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>]</span>
+<span id="cb73-3"><a href="#cb73-3"></a>l1 <span class="op">+</span> l2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1637">
+<pre><code>[1, 2, 3, 1, 1, 1]</code></pre>
+</div>
+</div>
+<ul>
+<li>To NumPy</li>
+</ul>
+<div id="40fe3e86" class="cell" data-execution_count="40">
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1"></a>a1 <span class="op">=</span> np.array(l1)</span>
+<span id="cb75-2"><a href="#cb75-2"></a>a2 <span class="op">=</span> np.array(l2)</span>
+<span id="cb75-3"><a href="#cb75-3"></a>a1 <span class="op">+</span> a2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1638">
+<pre><code>array([2, 3, 4])</code></pre>
+</div>
+</div>
+<ul>
+<li>By the way, vectorization is really fast.</li>
+<li>Our first “high performance computing” idea.</li>
+</ul>
+</section>
+<section id="example-1" class="level2">
+<h2 class="anchored" data-anchor-id="example-1">Example</h2>
+<ul>
+<li>Suppose you need to convert some temperatures.</li>
+</ul>
+<div id="ec5c1bff" class="cell" data-execution_count="41">
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href="#cb77-1"></a><span class="co"># Portland highs and lows 5/26/25-6/2/25 in degF</span></span>
+<span id="cb77-2"><a href="#cb77-2"></a>temps <span class="op">=</span> np.array([<span class="dv">70</span>, <span class="dv">50</span>, <span class="dv">81</span>, <span class="dv">60</span>, <span class="dv">85</span>, <span class="dv">57</span>, <span class="dv">70</span>, <span class="dv">52</span>, <span class="dv">84</span>, <span class="dv">58</span>, <span class="dv">87</span>, <span class="dv">58</span>, <span class="dv">74</span>, <span class="dv">53</span>, <span class="dv">70</span>, <span class="dv">54</span>])</span>
+<span id="cb77-3"><a href="#cb77-3"></a>temps <span class="op">-=</span> <span class="dv">32</span></span>
+<span id="cb77-4"><a href="#cb77-4"></a>temps <span class="op">*=</span> <span class="dv">5</span></span>
+<span id="cb77-5"><a href="#cb77-5"></a>temps <span class="op">//=</span> <span class="dv">9</span></span>
+<span id="cb77-6"><a href="#cb77-6"></a>temps</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1639">
+<pre><code>array([21, 10, 27, 15, 29, 13, 21, 11, 28, 14, 30, 14, 23, 11, 21, 12])</code></pre>
+</div>
+</div>
+</section>
+<section id="aside" class="level2">
+<h2 class="anchored" data-anchor-id="aside">Aside: <code>//</code></h2>
+<ul>
+<li>NumPy requires arrays to be of a certain kind of number.</li>
+<li><code>30</code> is an integer.</li>
+<li><code>30/9</code> is a decimal value…</li>
+<li>Python furnishes special <code>//</code> integer division.
+<ul>
+<li>It truncates (does not round) the result.</li>
+</ul></li>
+</ul>
+<div id="352c0b63" class="cell" data-execution_count="42">
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb79-1"><a href="#cb79-1"></a>np.array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>]) <span class="op">//</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1640">
+<pre><code>array([0, 0, 1, 1, 1, 2, 2, 2, 3, 3])</code></pre>
+</div>
+</div>
+<ul>
+<li>Try using <code>/</code> there. What happens?</li>
+</ul>
+</section>
+<section id="use-case" class="level2">
+<h2 class="anchored" data-anchor-id="use-case">Use case</h2>
+<ul>
+<li>Slices and vectorization are <em>very</em> useful in the income tax example.</li>
+<li>We:
+<ul>
+<li>Had income cutoffs, that were</li>
+<li>The <em>beginning</em> of some tax brackets, but</li>
+<li>The <em>end</em> of other tax brackets</li>
+<li>Offset by one (<code>1</code>)</li>
+</ul></li>
+</ul>
+</section>
+<section id="building-brackets" class="level2">
+<h2 class="anchored" data-anchor-id="building-brackets">Building Brackets</h2>
+<ul>
+<li>Let’s refresh on what the tax bracket array looked like.</li>
+</ul>
+<div id="b226e591" class="cell" data-execution_count="43">
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb81-1"><a href="#cb81-1"></a>arr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1641">
+<pre><code>array([[9.27500e+03, 1.00000e-01],
+       [3.76500e+04, 1.50000e-01],
+       [9.11500e+04, 2.50000e-01],
+       [1.90150e+05, 2.80000e-01],
+       [4.13350e+05, 3.30000e-01],
+       [4.15051e+05, 3.50000e-01]])</code></pre>
+</div>
+</div>
+<ul>
+<li>Initial tax bracket goes zero and to <code>9275</code></li>
+<li>The next goes from <code>9275</code> to <code>37650</code>.</li>
+<li>So <code>9275</code> is useful to two brackets.</li>
+</ul>
+</section>
+<section id="begin-and-end" class="level2">
+<h2 class="anchored" data-anchor-id="begin-and-end">Begin and end</h2>
+<ul>
+<li>Let’s grab just the cutoffs.</li>
+</ul>
+<div id="76b25b19" class="cell" data-execution_count="44">
+<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb83-1"><a href="#cb83-1"></a>cutoffs <span class="op">=</span> arr[:,<span class="dv">0</span>]</span>
+<span id="cb83-2"><a href="#cb83-2"></a>cutoffs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1642">
+<pre><code>array([  9275.,  37650.,  91150., 190150., 413350., 415051.])</code></pre>
+</div>
+</div>
+<ul>
+<li><code>[:, 0]</code> means for every row (slice <code>:</code>) take the initial columns (index <code>0</code>)</li>
+</ul>
+</section>
+<section id="insert" class="level2">
+<h2 class="anchored" data-anchor-id="insert">Insert</h2>
+<ul>
+<li>The initial bracket begins at <code>0</code> and the last bracket ends at infinity.
+<ul>
+<li>NumPy knows about infinity! <code>np.inf</code></li>
+</ul></li>
+<li>We can use NumPy <code>insert</code> to add an element at an index:</li>
+</ul>
+<div id="0576b36d" class="cell" data-execution_count="45">
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb85-1"><a href="#cb85-1"></a><span class="co"># Insert to (a) an array at (b) some index (c) some value</span></span>
+<span id="cb85-2"><a href="#cb85-2"></a>a <span class="op">=</span> cutoffs</span>
+<span id="cb85-3"><a href="#cb85-3"></a>b <span class="op">=</span> <span class="bu">len</span>(cutoffs)</span>
+<span id="cb85-4"><a href="#cb85-4"></a>c <span class="op">=</span> np.inf</span>
+<span id="cb85-5"><a href="#cb85-5"></a>cutoffs <span class="op">=</span> np.insert(a, b, c)</span>
+<span id="cb85-6"><a href="#cb85-6"></a>cutoffs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1643">
+<pre><code>array([  9275.,  37650.,  91150., 190150., 413350., 415051.,     inf])</code></pre>
+</div>
+</div>
+</section>
+<section id="append" class="level2">
+<h2 class="anchored" data-anchor-id="append">Append</h2>
+<ul>
+<li>I usually don’t insert, I append.</li>
+<li>This allows adding two arrays together, like how Python <code>+</code> works on lists.</li>
+</ul>
+<div id="afd28fbd" class="cell" data-execution_count="46">
+<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb87-1"><a href="#cb87-1"></a><span class="co"># Smoosh arrays together.</span></span>
+<span id="cb87-2"><a href="#cb87-2"></a>cutoffs <span class="op">=</span> np.append([<span class="dv">0</span>],cutoffs)</span>
+<span id="cb87-3"><a href="#cb87-3"></a>cutoffs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1644">
+<pre><code>array([     0.,   9275.,  37650.,  91150., 190150., 413350., 415051.,
+           inf])</code></pre>
+</div>
+</div>
+</section>
+<section id="slicing" class="level2">
+<h2 class="anchored" data-anchor-id="slicing">Slicing</h2>
+<ul>
+<li>Now we can take the beginning of every bracket, by index:</li>
+</ul>
+<div id="d734051a" class="cell" data-execution_count="47">
+<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb89-1"><a href="#cb89-1"></a>begin <span class="op">=</span> cutoffs[:<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb89-2"><a href="#cb89-2"></a>begin</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1645">
+<pre><code>array([     0.,   9275.,  37650.,  91150., 190150., 413350., 415051.])</code></pre>
+</div>
+</div>
+<ul>
+<li>And the end</li>
+</ul>
+<div id="23f62033" class="cell" data-execution_count="48">
+<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb91-1"><a href="#cb91-1"></a>end <span class="op">=</span> cutoffs[<span class="dv">1</span>:]</span>
+<span id="cb91-2"><a href="#cb91-2"></a>end</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1646">
+<pre><code>array([  9275.,  37650.,  91150., 190150., 413350., 415051.,     inf])</code></pre>
+</div>
+</div>
+</section>
+<section id="vector-minus" class="level2">
+<h2 class="anchored" data-anchor-id="vector-minus">Vector Minus</h2>
+<ul>
+<li>We can see how big each bracket is.</li>
+</ul>
+<div id="1fa79aef" class="cell" data-execution_count="49">
+<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb93-1"><a href="#cb93-1"></a>bracket_size <span class="op">=</span> end <span class="op">-</span> begin</span>
+<span id="cb93-2"><a href="#cb93-2"></a>bracket_size</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1647">
+<pre><code>array([  9275.,  28375.,  53500.,  99000., 223200.,   1701.,     inf])</code></pre>
+</div>
+</div>
+</section>
+<section id="vector-times" class="level2">
+<h2 class="anchored" data-anchor-id="vector-times">Vector Times</h2>
+<ul>
+<li>We can see how much tax is spent in each bracket.
+<ul>
+<li>We will “cut off” the last bracket first</li>
+<li>It doesn’t really have a size?</li>
+</ul></li>
+</ul>
+<div id="2c0e73b5" class="cell" data-execution_count="50">
+<div class="sourceCode cell-code" id="cb95"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb95-1"><a href="#cb95-1"></a>bracket_cost <span class="op">=</span> bracket_size[:<span class="op">-</span><span class="dv">1</span>] <span class="op">*</span> arr[:, <span class="dv">1</span>]</span>
+<span id="cb95-2"><a href="#cb95-2"></a>bracket_cost</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1648">
+<pre><code>array([  927.5 ,  4256.25, 13375.  , 27720.  , 73656.  ,   595.35])</code></pre>
+</div>
+</div>
+<ul>
+<li>What happens if we don’t cut off the last bracket and try to multiply a vector of length <code>7</code> by a vector of length <code>6</code>?</li>
+</ul>
+</section>
+<section id="accumulation" class="level2">
+<h2 class="anchored" data-anchor-id="accumulation">Accumulation</h2>
+<ul>
+<li>While <code>bracket_cost</code> does correctly describe the cost within on bracket, someone in the <code>n+1</code>’th bracket pays the cost the previous <code>n</code> brackets.</li>
+<li>Someone how we want to sum those up.</li>
+<li>NumPy has many built-in array functions, including <code>np.cumsum</code>.</li>
+</ul>
+<div id="11ebdf08" class="cell" data-execution_count="51">
+<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb97-1"><a href="#cb97-1"></a>total_cost <span class="op">=</span> np.cumsum(bracket_cost)</span>
+<span id="cb97-2"><a href="#cb97-2"></a>total_cost</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1649">
+<pre><code>array([   927.5 ,   5183.75,  18558.75,  46278.75, 119934.75, 120530.1 ])</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="takeaways-1" class="level1">
+<h1>Takeaways</h1>
+<section id="numpy-does-a-lot" class="level2">
+<h2 class="anchored" data-anchor-id="numpy-does-a-lot">NumPy does a lot!</h2>
+<ul>
+<li><a href="https://numpy.org/doc/stable/user/basics.creation.html">Arrays</a> mostly, but including:</li>
+<li>Vector operations called <a href="https://numpy.org/doc/stable/user/basics.broadcasting.html">“broadcasting”</a>.</li>
+<li><a href="https://numpy.org/doc/stable/user/basics.indexing.html">Indices and slices</a> matter a lot.</li>
+<li><a href="https://numpy.org/devdocs/reference/constants.html">Contants</a> like <code>np.inf</code> support mathematics</li>
+<li><a href="https://numpy.org/doc/2.1/reference/routines.math.html#sums-products-differences">Accumulation functions</a> we don’t have to write ourselves (which we’d have to do via loops)</li>
+</ul>
+</section>
+</section>
+<section id="exercise" class="level1">
+<h1>Exercise</h1>
+<section id="using-numpy" class="level2">
+<h2 class="anchored" data-anchor-id="using-numpy">Using NumPy</h2>
+<ul>
+<li>Today we successfully recomputed the points of the point-intercept form of the income tax problem.</li>
+<li>Using NumPy, starting with <code>taxes</code>, create the array on the right:</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:28%;">
+<div id="0a4c0927" class="cell" data-execution_count="52">
+<div class="sourceCode cell-code" id="cb99"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb99-1"><a href="#cb99-1"></a>taxes <span class="op">=</span> np.array([</span>
+<span id="cb99-2"><a href="#cb99-2"></a>    [<span class="dv">9275</span>, <span class="fl">.1</span>],</span>
+<span id="cb99-3"><a href="#cb99-3"></a>    [<span class="dv">37650</span>, <span class="fl">.15</span>],</span>
+<span id="cb99-4"><a href="#cb99-4"></a>    [<span class="dv">91150</span>, <span class="fl">.25</span>],</span>
+<span id="cb99-5"><a href="#cb99-5"></a>    [<span class="dv">190150</span>, <span class="fl">.28</span>],</span>
+<span id="cb99-6"><a href="#cb99-6"></a>    [<span class="dv">413350</span>, <span class="fl">.33</span>],</span>
+<span id="cb99-7"><a href="#cb99-7"></a>    [<span class="dv">415051</span>, <span class="fl">.35</span>]</span>
+<span id="cb99-8"><a href="#cb99-8"></a>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:72%;">
+<div id="5eb1eab1" class="cell" data-execution_count="53">
+<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb100-1"><a href="#cb100-1"></a>np.array([[ <span class="fl">9.275000e+03</span>,  <span class="fl">1.000000e-01</span>,  <span class="fl">0.000000e+00</span>],</span>
+<span id="cb100-2"><a href="#cb100-2"></a>          [ <span class="fl">3.765000e+04</span>,  <span class="fl">1.500000e-01</span>, <span class="op">-</span><span class="fl">4.637500e+02</span>],</span>
+<span id="cb100-3"><a href="#cb100-3"></a>          [ <span class="fl">9.115000e+04</span>,  <span class="fl">2.500000e-01</span>, <span class="op">-</span><span class="fl">4.228750e+03</span>],</span>
+<span id="cb100-4"><a href="#cb100-4"></a>          [ <span class="fl">1.901500e+05</span>,  <span class="fl">2.800000e-01</span>, <span class="op">-</span><span class="fl">6.963250e+03</span>],</span>
+<span id="cb100-5"><a href="#cb100-5"></a>          [ <span class="fl">4.133500e+05</span>,  <span class="fl">3.300000e-01</span>, <span class="op">-</span><span class="fl">1.647075e+04</span>],</span>
+<span id="cb100-6"><a href="#cb100-6"></a>          [ <span class="fl">4.150510e+05</span>,  <span class="fl">3.500000e-01</span>, <span class="op">-</span><span class="fl">2.473775e+04</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="transpose" class="level2">
+<h2 class="anchored" data-anchor-id="transpose">Transpose</h2>
+<ul>
+<li>There are many ways to solve this problem!</li>
+<li>Things will be easier with the following:</li>
+</ul>
+<div id="d3e021f1" class="cell" data-execution_count="54">
+<div class="sourceCode cell-code" id="cb101"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb101-1"><a href="#cb101-1"></a>taxes.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1651">
+<pre><code>(6, 2)</code></pre>
+</div>
+</div>
+<div id="0d35396f" class="cell" data-execution_count="55">
+<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb103-1"><a href="#cb103-1"></a>taxes.reshape(<span class="dv">2</span>,<span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1652">
+<pre><code>array([[9.27500e+03, 1.00000e-01, 3.76500e+04, 1.50000e-01, 9.11500e+04,
+        2.50000e-01],
+       [1.90150e+05, 2.80000e-01, 4.13350e+05, 3.30000e-01, 4.15051e+05,
+        3.50000e-01]])</code></pre>
+</div>
+</div>
+<div id="b1c247c5" class="cell" data-execution_count="56">
+<div class="sourceCode cell-code" id="cb105"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb105-1"><a href="#cb105-1"></a>taxes.transpose()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1653">
+<pre><code>array([[9.27500e+03, 3.76500e+04, 9.11500e+04, 1.90150e+05, 4.13350e+05,
+        4.15051e+05],
+       [1.00000e-01, 1.50000e-01, 2.50000e-01, 2.80000e-01, 3.30000e-01,
+        3.50000e-01]])</code></pre>
+</div>
+</div>
+</section>
+<section id="bonus-problem" class="level2">
+<h2 class="anchored" data-anchor-id="bonus-problem">Bonus Problem</h2>
+<ul>
+<li>NumPy allows random number generation.</li>
+<li>Generate one million random numbers between, say, <code>0</code> and <code>500000</code>.
+<ul>
+<li>There will be repeats, which is okay.</li>
+</ul></li>
+<li>Use Python with and without NumPy to compute every tax cost.</li>
+<li>See which one is faster! You can use the shell command <code>time</code></li>
+</ul>
+</section>
+<section id="aside-random" class="level2">
+<h2 class="anchored" data-anchor-id="aside-random">Aside: Random</h2>
+<ul>
+<li>The following:
+<ul>
+<li>Generates 1 million random integers from <code>0</code> to <code>50000</code></li>
+<li>Prints every 10 thousandth integer.</li>
+</ul></li>
+</ul>
+<div id="b37f9ef0" class="cell" data-execution_count="57">
+<div class="sourceCode cell-code" id="cb107"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb107-1"><a href="#cb107-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb107-2"><a href="#cb107-2"></a>rng <span class="op">=</span> np.random.default_rng()</span>
+<span id="cb107-3"><a href="#cb107-3"></a>incomes <span class="op">=</span> rng.integers(<span class="dv">0</span>, <span class="dv">500000</span>, <span class="dv">1000000</span>)</span>
+<span id="cb107-4"><a href="#cb107-4"></a><span class="bu">print</span>(incomes[::<span class="dv">10000</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[134177 247338 356804 284200 296132 309589 125691 456794 242119 208098
+ 490204 485001 494560 203916 412095 451945 364793  27139 190371 469327
+ 235666  24381 321660 180127 149843 400145 435292  97649 438476 419083
+ 222221 363941 202131  42813 219603 336974 168861 156157 142261 458905
+ 461552 150809  19429 253487 463191 485122  18981 468503  16772 390956
+  48597  33871 328452 439231  77042 402387  88634 345123 134169 152063
+ 154232 124049 412271 446608 418359 333021 375331 255378   3276 168827
+ 387703 365311 133648  57440 156633 434448 281945  55988 390007  50920
+ 494476  51178 151134  76795 207114 489011 172524 365527 340165 195850
+ 332154 292071  94248 393010 430483  83759 415278  93501 496269 111854]</code></pre>
+</div>
+</div>
+<ul>
+<li>Read more: <a href="https://numpy.org/doc/stable/reference/random/index.html">Random sample</a></li>
+</ul>
+</section>
+<section id="aside-time" class="level2">
+<h2 class="anchored" data-anchor-id="aside-time">Aside: <code>time</code></h2>
+<ul>
+<li>Use <code>time</code> before a command.
+<ul>
+<li><code>real</code> time is how much passes in real life</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb109"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb109-1"><a href="#cb109-1"></a><span class="ex">$</span> time python3 onemil.py</span>
+<span id="cb109-2"><a href="#cb109-2"></a><span class="ex">[123177</span> 422613 471310 380518  95385 143328 426503 453832 427403 106416</span>
+<span id="cb109-3"><a href="#cb109-3"></a> <span class="ex">327306</span> 476263  65814 281381 422404  59938  14231 232824 342190 329545</span>
+<span id="cb109-4"><a href="#cb109-4"></a> <span class="ex">412684</span> 112339 202498   5071  59114 394601 451216  92268 381107 487447</span>
+<span id="cb109-5"><a href="#cb109-5"></a>  <span class="ex">55089</span> 339493 344836 261917 148326 452850 409130 484951 427839 307217</span>
+<span id="cb109-6"><a href="#cb109-6"></a> <span class="ex">259268</span> 485208 331277 183015 132480 345930 439366   6814  39743 268276</span>
+<span id="cb109-7"><a href="#cb109-7"></a>  <span class="ex">80739</span> 293355 170394   4220  48082  15668 453927  58059 320294 101182</span>
+<span id="cb109-8"><a href="#cb109-8"></a>   <span class="ex">1864</span> 492297 130465   9920  76321 345944 268312 255875  46614 195236</span>
+<span id="cb109-9"><a href="#cb109-9"></a> <span class="ex">233737</span> 443948 343483 116870 165561 326265 103567 327780 475672 392212</span>
+<span id="cb109-10"><a href="#cb109-10"></a> <span class="ex">396479</span> 328248  43273  32596 246212   4258  60202  66783 135035 155327</span>
+<span id="cb109-11"><a href="#cb109-11"></a> <span class="ex">469638</span> 378485 175496 428130 493185 154716 193012 424037 197666 103758]</span>
+<span id="cb109-12"><a href="#cb109-12"></a></span>
+<span id="cb109-13"><a href="#cb109-13"></a><span class="ex">real</span>    0m0.155s</span>
+<span id="cb109-14"><a href="#cb109-14"></a><span class="ex">user</span>    0m1.883s</span>
+<span id="cb109-15"><a href="#cb109-15"></a><span class="ex">sys</span>     0m0.033s</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="solution" class="level2">
+<h2 class="anchored" data-anchor-id="solution">Solution</h2>
+<div id="7da1446b" class="cell" data-execution_count="58">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb110"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb110-1"><a href="#cb110-1"></a>cutoffs <span class="op">=</span> taxes[:,<span class="dv">0</span>]</span>
+<span id="cb110-2"><a href="#cb110-2"></a>rates <span class="op">=</span> taxes[:,<span class="dv">1</span>]</span>
+<span id="cb110-3"><a href="#cb110-3"></a></span>
+<span id="cb110-4"><a href="#cb110-4"></a><span class="co"># If you are confused, print(arr) after every line</span></span>
+<span id="cb110-5"><a href="#cb110-5"></a>arr <span class="op">=</span> np.append([<span class="dv">0</span>], cutoffs)</span>
+<span id="cb110-6"><a href="#cb110-6"></a>arr <span class="op">=</span> arr[<span class="dv">1</span>:] <span class="op">-</span> arr[:<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb110-7"><a href="#cb110-7"></a>arr <span class="op">*=</span> rates</span>
+<span id="cb110-8"><a href="#cb110-8"></a>arr <span class="op">=</span> np.cumsum(arr)</span>
+<span id="cb110-9"><a href="#cb110-9"></a>arr <span class="op">=</span> arr <span class="op">-</span> cutoffs <span class="op">*</span> rates</span>
+<span id="cb110-10"><a href="#cb110-10"></a></span>
+<span id="cb110-11"><a href="#cb110-11"></a>taxes <span class="op">=</span> np.array([cutoffs,rates,arr])</span>
+<span id="cb110-12"><a href="#cb110-12"></a></span>
+<span id="cb110-13"><a href="#cb110-13"></a>taxes <span class="op">=</span> taxes.transpose()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="using-it" class="level2">
+<h2 class="anchored" data-anchor-id="using-it">Using it</h2>
+<ul>
+<li>I used the exact same <code>single_tax</code> function as in the “Shell” exercise.</li>
+</ul>
+<div id="5c60f4ab" class="cell" data-execution_count="59">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb111"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb111-1"><a href="#cb111-1"></a><span class="kw">def</span> single_tax(income):</span>
+<span id="cb111-2"><a href="#cb111-2"></a>    <span class="co"># Check all brackets</span></span>
+<span id="cb111-3"><a href="#cb111-3"></a>    <span class="cf">for</span> tax <span class="kw">in</span> taxes:</span>
+<span id="cb111-4"><a href="#cb111-4"></a>        <span class="cf">if</span> income <span class="op">&lt;</span> tax[<span class="dv">0</span>]:</span>
+<span id="cb111-5"><a href="#cb111-5"></a>            <span class="cf">return</span> income <span class="op">*</span> tax[<span class="dv">1</span>] <span class="op">+</span> tax[<span class="dv">2</span>]</span>
+<span id="cb111-6"><a href="#cb111-6"></a>    <span class="co"># We calculated the top bracket earlier</span></span>
+<span id="cb111-7"><a href="#cb111-7"></a>    <span class="cf">return</span> income <span class="op">*</span> <span class="fl">.396</span> <span class="op">+</span> <span class="op">-</span><span class="fl">43830.05</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+
+
+<!-- -->
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./03_shell.html" class="pagination-link" aria-label="Shell">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Shell</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./A0_gitbash.html" class="pagination-link" aria-label="Appendix - Git Bash">
+        <span class="nav-page-text">Appendix - Git Bash</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb112" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb112-1"><a href="#cb112-1"></a><span class="co">---</span></span>
+<span id="cb112-2"><a href="#cb112-2"></a><span class="an">title:</span><span class="co"> NumPy</span></span>
+<span id="cb112-3"><a href="#cb112-3"></a><span class="co">---</span></span>
+<span id="cb112-4"><a href="#cb112-4"></a></span>
+<span id="cb112-5"><a href="#cb112-5"></a><span class="fu"># What is “NumPy”?</span></span>
+<span id="cb112-6"><a href="#cb112-6"></a></span>
+<span id="cb112-7"><a href="#cb112-7"></a><span class="at">&gt; </span><span class="co">[</span><span class="ot">The fundamental package for scientific computing with Python.</span><span class="co">](https://github.com/numpy/numpy)</span></span>
+<span id="cb112-8"><a href="#cb112-8"></a></span>
+<span id="cb112-9"><a href="#cb112-9"></a><span class="ss">* </span>**Num**erical **Py**thon</span>
+<span id="cb112-10"><a href="#cb112-10"></a><span class="ss">* </span>It is a package - addition features we can optional add to the Python language.</span>
+<span id="cb112-11"><a href="#cb112-11"></a></span>
+<span id="cb112-12"><a href="#cb112-12"></a><span class="fu">## On NumPy</span></span>
+<span id="cb112-13"><a href="#cb112-13"></a></span>
+<span id="cb112-14"><a href="#cb112-14"></a>Basically, to do scientific computing it would be nice to have:</span>
+<span id="cb112-15"><a href="#cb112-15"></a></span>
+<span id="cb112-16"><a href="#cb112-16"></a><span class="ss">* </span>a powerful N-dimensional array object</span>
+<span id="cb112-17"><a href="#cb112-17"></a><span class="ss">* </span>sophisticated (broadcasting) functions</span>
+<span id="cb112-18"><a href="#cb112-18"></a><span class="ss">* </span>tools for integrating C/C++ and Fortran code</span>
+<span id="cb112-19"><a href="#cb112-19"></a><span class="ss">* </span>useful linear algebra, Fourier transform, and random number capabilities</span>
+<span id="cb112-20"><a href="#cb112-20"></a></span>
+<span id="cb112-21"><a href="#cb112-21"></a>(These are the stated features of NumPy.)</span>
+<span id="cb112-22"><a href="#cb112-22"></a></span>
+<span id="cb112-23"><a href="#cb112-23"></a><span class="fu">## Relevance</span></span>
+<span id="cb112-24"><a href="#cb112-24"></a></span>
+<span id="cb112-25"><a href="#cb112-25"></a><span class="ss">* </span>We have essentially been using 1- and 2-dimensional arrays already!</span>
+<span id="cb112-26"><a href="#cb112-26"></a><span class="ss">* </span>Here is the examples <span class="in">`intercepts.py`</span> solution from last time:</span>
+<span id="cb112-27"><a href="#cb112-27"></a></span>
+<span id="cb112-28"><a href="#cb112-28"></a>Code</span>
+<span id="cb112-29"><a href="#cb112-29"></a></span>
+<span id="cb112-32"><a href="#cb112-32"></a><span class="in">```{python}</span></span>
+<span id="cb112-33"><a href="#cb112-33"></a><span class="co">#| code-fold: true</span></span>
+<span id="cb112-34"><a href="#cb112-34"></a>taxes <span class="op">=</span> [</span>
+<span id="cb112-35"><a href="#cb112-35"></a>    [<span class="dv">9275</span>, <span class="fl">.10</span>],</span>
+<span id="cb112-36"><a href="#cb112-36"></a>    [<span class="dv">37650</span>, <span class="fl">.15</span>],</span>
+<span id="cb112-37"><a href="#cb112-37"></a>    [<span class="dv">91150</span>, <span class="fl">.25</span>],</span>
+<span id="cb112-38"><a href="#cb112-38"></a>    [<span class="dv">190150</span>, <span class="fl">.28</span>],</span>
+<span id="cb112-39"><a href="#cb112-39"></a>    [<span class="dv">413350</span>, <span class="fl">.33</span>],</span>
+<span id="cb112-40"><a href="#cb112-40"></a>    [<span class="dv">415051</span>, <span class="fl">.35</span>]</span>
+<span id="cb112-41"><a href="#cb112-41"></a>]</span>
+<span id="cb112-42"><a href="#cb112-42"></a></span>
+<span id="cb112-43"><a href="#cb112-43"></a>cost <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb112-44"><a href="#cb112-44"></a>start <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb112-45"><a href="#cb112-45"></a><span class="cf">for</span> tax <span class="kw">in</span> taxes:</span>
+<span id="cb112-46"><a href="#cb112-46"></a>    cost <span class="op">+=</span> (tax[<span class="dv">0</span>] <span class="op">-</span> start) <span class="op">*</span> tax[<span class="dv">1</span>]</span>
+<span id="cb112-47"><a href="#cb112-47"></a>    tax <span class="op">+=</span> [cost <span class="op">-</span> tax[<span class="dv">0</span>] <span class="op">*</span> tax[<span class="dv">1</span>]]</span>
+<span id="cb112-48"><a href="#cb112-48"></a>    start <span class="op">=</span> tax[<span class="dv">0</span>]</span>
+<span id="cb112-49"><a href="#cb112-49"></a><span class="in">```</span></span>
+<span id="cb112-50"><a href="#cb112-50"></a></span>
+<span id="cb112-51"><a href="#cb112-51"></a><span class="fu">## We will</span></span>
+<span id="cb112-52"><a href="#cb112-52"></a></span>
+<span id="cb112-53"><a href="#cb112-53"></a><span class="ss">* </span>Change our existing _lists_, which we understand as “N-dimensional arrays” into NumPy arrays.</span>
+<span id="cb112-54"><a href="#cb112-54"></a><span class="ss">* </span>Show the benefits of this arrangement.</span>
+<span id="cb112-55"><a href="#cb112-55"></a><span class="ss">* </span>Show other NumPy features.</span>
+<span id="cb112-56"><a href="#cb112-56"></a></span>
+<span id="cb112-57"><a href="#cb112-57"></a>---</span>
+<span id="cb112-58"><a href="#cb112-58"></a></span>
+<span id="cb112-59"><a href="#cb112-59"></a><span class="fu"># Package Management</span></span>
+<span id="cb112-60"><a href="#cb112-60"></a></span>
+<span id="cb112-61"><a href="#cb112-61"></a><span class="fu">## PyPI</span></span>
+<span id="cb112-62"><a href="#cb112-62"></a></span>
+<span id="cb112-63"><a href="#cb112-63"></a><span class="at">&gt; The Python Package Index (PyPI) is a repository of software for the Python programming language.</span></span>
+<span id="cb112-64"><a href="#cb112-64"></a></span>
+<span id="cb112-65"><a href="#cb112-65"></a><span class="ss">* </span>NumPy is a Python package.</span>
+<span id="cb112-66"><a href="#cb112-66"></a><span class="ss">    * </span>It is installed separately from Python, but</span>
+<span id="cb112-67"><a href="#cb112-67"></a><span class="ss">    * </span>May be installed using Python-based tools.</span>
+<span id="cb112-68"><a href="#cb112-68"></a></span>
+<span id="cb112-69"><a href="#cb112-69"></a><span class="fu">## pip</span></span>
+<span id="cb112-70"><a href="#cb112-70"></a></span>
+<span id="cb112-71"><a href="#cb112-71"></a><span class="at">&gt; The most popular tool for installing Python packages, and the one included with modern versions of Python.</span></span>
+<span id="cb112-72"><a href="#cb112-72"></a></span>
+<span id="cb112-73"><a href="#cb112-73"></a><span class="ss">* </span><span class="in">`pip`</span> is a command line utility</span>
+<span id="cb112-74"><a href="#cb112-74"></a><span class="ss">* </span>For years <span class="in">`pip`</span> was the only real options for installing Python programs, but has experienced limitations as the package ecosystem has grown quite large.</span>
+<span id="cb112-75"><a href="#cb112-75"></a></span>
+<span id="cb112-76"><a href="#cb112-76"></a><span class="fu">## Using `pip`</span></span>
+<span id="cb112-77"><a href="#cb112-77"></a></span>
+<span id="cb112-78"><a href="#cb112-78"></a><span class="ss">* </span>Use as an argument to <span class="in">`python`</span> or <span class="in">`python3`</span></span>
+<span id="cb112-79"><a href="#cb112-79"></a></span>
+<span id="cb112-80"><a href="#cb112-80"></a><span class="in">```{.bash code-line-numbers="false"}</span></span>
+<span id="cb112-81"><a href="#cb112-81"></a><span class="in">python3 -m pip install numpy</span></span>
+<span id="cb112-82"><a href="#cb112-82"></a><span class="in">```</span></span>
+<span id="cb112-83"><a href="#cb112-83"></a></span>
+<span id="cb112-84"><a href="#cb112-84"></a><span class="ss">* </span>It may take a moment to install.</span>
+<span id="cb112-85"><a href="#cb112-85"></a></span>
+<span id="cb112-86"><a href="#cb112-86"></a><span class="fu">## Verify Install</span></span>
+<span id="cb112-87"><a href="#cb112-87"></a></span>
+<span id="cb112-88"><a href="#cb112-88"></a><span class="ss">* </span>The following verifies the the NumPy install was successful</span>
+<span id="cb112-89"><a href="#cb112-89"></a><span class="ss">* </span>We see the return of <span class="in">`import`</span></span>
+<span id="cb112-90"><a href="#cb112-90"></a><span class="ss">    * </span>Introduce <span class="in">`as`</span>, used to shorten names</span>
+<span id="cb112-91"><a href="#cb112-91"></a><span class="ss">    * </span>We could have done <span class="in">`import piecewise as pw`</span></span>
+<span id="cb112-92"><a href="#cb112-92"></a></span>
+<span id="cb112-95"><a href="#cb112-95"></a><span class="in">```{python}</span></span>
+<span id="cb112-96"><a href="#cb112-96"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb112-97"><a href="#cb112-97"></a></span>
+<span id="cb112-98"><a href="#cb112-98"></a><span class="bu">print</span>(np.__version__)</span>
+<span id="cb112-99"><a href="#cb112-99"></a><span class="in">```</span></span>
+<span id="cb112-100"><a href="#cb112-100"></a></span>
+<span id="cb112-101"><a href="#cb112-101"></a><span class="fu">## Recall</span></span>
+<span id="cb112-102"><a href="#cb112-102"></a></span>
+<span id="cb112-103"><a href="#cb112-103"></a><span class="ss">* </span>You may wish to review <span class="in">`import`</span></span>
+<span id="cb112-104"><a href="#cb112-104"></a><span class="ss">* </span>Consult <span class="co">[</span><span class="ot">Neovim -&gt; \`import’</span><span class="co">](file:///C:/Users/cd-desk/Documents/repos/scicom/qmd/02_neovim.html#import)</span></span>
+<span id="cb112-105"><a href="#cb112-105"></a></span>
+<span id="cb112-106"><a href="#cb112-106"></a><span class="fu"># Arrays</span></span>
+<span id="cb112-107"><a href="#cb112-107"></a></span>
+<span id="cb112-108"><a href="#cb112-108"></a><span class="fu">## NumPy Arrays</span></span>
+<span id="cb112-109"><a href="#cb112-109"></a></span>
+<span id="cb112-110"><a href="#cb112-110"></a><span class="ss">* </span>The first thing to do in NumPy is make an _array_.</span>
+<span id="cb112-111"><a href="#cb112-111"></a><span class="ss">* </span>In general we use NumPy arrays when:</span>
+<span id="cb112-112"><a href="#cb112-112"></a><span class="ss">    * </span>We are dealing with lists of numbers</span>
+<span id="cb112-113"><a href="#cb112-113"></a><span class="ss">    * </span>We care about performance, or</span>
+<span id="cb112-114"><a href="#cb112-114"></a><span class="ss">    * </span>We want to use advanced mathematical operations</span>
+<span id="cb112-115"><a href="#cb112-115"></a></span>
+<span id="cb112-116"><a href="#cb112-116"></a><span class="fu">## List to Array</span></span>
+<span id="cb112-117"><a href="#cb112-117"></a></span>
+<span id="cb112-118"><a href="#cb112-118"></a><span class="ss">* </span>We define a list of lists:</span>
+<span id="cb112-119"><a href="#cb112-119"></a></span>
+<span id="cb112-122"><a href="#cb112-122"></a><span class="in">```{python}</span></span>
+<span id="cb112-123"><a href="#cb112-123"></a>taxes <span class="op">=</span> [</span>
+<span id="cb112-124"><a href="#cb112-124"></a>    [<span class="dv">9275</span>, <span class="fl">.10</span>],</span>
+<span id="cb112-125"><a href="#cb112-125"></a>    [<span class="dv">37650</span>, <span class="fl">.15</span>],</span>
+<span id="cb112-126"><a href="#cb112-126"></a>    [<span class="dv">91150</span>, <span class="fl">.25</span>],</span>
+<span id="cb112-127"><a href="#cb112-127"></a>    [<span class="dv">190150</span>, <span class="fl">.28</span>],</span>
+<span id="cb112-128"><a href="#cb112-128"></a>    [<span class="dv">413350</span>, <span class="fl">.33</span>],</span>
+<span id="cb112-129"><a href="#cb112-129"></a>    [<span class="dv">415051</span>, <span class="fl">.35</span>]</span>
+<span id="cb112-130"><a href="#cb112-130"></a>]</span>
+<span id="cb112-131"><a href="#cb112-131"></a><span class="in">```</span></span>
+<span id="cb112-132"><a href="#cb112-132"></a></span>
+<span id="cb112-133"><a href="#cb112-133"></a><span class="fu">## Lists of lists</span></span>
+<span id="cb112-134"><a href="#cb112-134"></a></span>
+<span id="cb112-135"><a href="#cb112-135"></a><span class="ss">* </span>It is worth while to examine <span class="in">`taxes`</span> a bit</span>
+<span id="cb112-136"><a href="#cb112-136"></a></span>
+<span id="cb112-139"><a href="#cb112-139"></a><span class="in">```{python}</span></span>
+<span id="cb112-140"><a href="#cb112-140"></a>taxes</span>
+<span id="cb112-141"><a href="#cb112-141"></a><span class="in">```</span></span>
+<span id="cb112-142"><a href="#cb112-142"></a></span>
+<span id="cb112-143"><a href="#cb112-143"></a><span class="fu">## Check Types</span></span>
+<span id="cb112-144"><a href="#cb112-144"></a></span>
+<span id="cb112-145"><a href="#cb112-145"></a><span class="ss">* </span>We can verify it is a list.</span>
+<span id="cb112-146"><a href="#cb112-146"></a></span>
+<span id="cb112-147"><a href="#cb112-147"></a><span class="in">```{python{</span></span>
+<span id="cb112-148"><a href="#cb112-148"></a><span class="in">type(taxes)</span></span>
+<span id="cb112-149"><a href="#cb112-149"></a><span class="in">```</span></span>
+<span id="cb112-150"><a href="#cb112-150"></a></span>
+<span id="cb112-151"><a href="#cb112-151"></a><span class="ss">* </span>We can verify it’s initial element is also a list.</span>
+<span id="cb112-152"><a href="#cb112-152"></a></span>
+<span id="cb112-155"><a href="#cb112-155"></a><span class="in">```{python}</span></span>
+<span id="cb112-156"><a href="#cb112-156"></a><span class="bu">type</span>(taxes[<span class="dv">0</span>])</span>
+<span id="cb112-157"><a href="#cb112-157"></a><span class="in">```</span></span>
+<span id="cb112-158"><a href="#cb112-158"></a></span>
+<span id="cb112-159"><a href="#cb112-159"></a><span class="ss">* </span>Since <span class="in">`taxes[0]`</span> is a list, we can look at _that_ list’s initial element.</span>
+<span id="cb112-160"><a href="#cb112-160"></a></span>
+<span id="cb112-163"><a href="#cb112-163"></a><span class="in">```{python}</span></span>
+<span id="cb112-164"><a href="#cb112-164"></a><span class="bu">type</span>(taxes[<span class="dv">0</span>][<span class="dv">0</span>])</span>
+<span id="cb112-165"><a href="#cb112-165"></a><span class="in">```</span></span>
+<span id="cb112-166"><a href="#cb112-166"></a></span>
+<span id="cb112-167"><a href="#cb112-167"></a><span class="fu">## Versus arrays</span></span>
+<span id="cb112-168"><a href="#cb112-168"></a></span>
+<span id="cb112-169"><a href="#cb112-169"></a><span class="ss">* </span>We have a list of lists of ints (like integers, round numbers).</span>
+<span id="cb112-170"><a href="#cb112-170"></a><span class="ss">* </span>Or do we?</span>
+<span id="cb112-171"><a href="#cb112-171"></a></span>
+<span id="cb112-174"><a href="#cb112-174"></a><span class="in">```{python}</span></span>
+<span id="cb112-175"><a href="#cb112-175"></a><span class="bu">type</span>(taxes[<span class="dv">0</span>][<span class="dv">1</span>])</span>
+<span id="cb112-176"><a href="#cb112-176"></a><span class="in">```</span></span>
+<span id="cb112-177"><a href="#cb112-177"></a></span>
+<span id="cb112-178"><a href="#cb112-178"></a><span class="ss">* </span>In fact, the tax _rates_ are not round numbers, so they are “floats”.</span>
+<span id="cb112-179"><a href="#cb112-179"></a><span class="ss">* </span>NumPy will help us manage when we use “floating point numbers” (have a decimal point) and integers (don’t).</span>
+<span id="cb112-180"><a href="#cb112-180"></a></span>
+<span id="cb112-181"><a href="#cb112-181"></a><span class="fu">## Niceties</span></span>
+<span id="cb112-182"><a href="#cb112-182"></a></span>
+<span id="cb112-183"><a href="#cb112-183"></a><span class="ss">* </span>Each of the internal lists of numbers is of the same length.</span>
+<span id="cb112-184"><a href="#cb112-184"></a><span class="ss">* </span>That lets us do this:</span>
+<span id="cb112-185"><a href="#cb112-185"></a></span>
+<span id="cb112-186"><a href="#cb112-186"></a>| Cutoff | Rate |</span>
+<span id="cb112-187"><a href="#cb112-187"></a>| -----: | ---- |</span>
+<span id="cb112-188"><a href="#cb112-188"></a>| 9275   | .10  |</span>
+<span id="cb112-189"><a href="#cb112-189"></a>| 37650  | .15  |</span>
+<span id="cb112-190"><a href="#cb112-190"></a>| 91150  | .25  |</span>
+<span id="cb112-191"><a href="#cb112-191"></a>| 190150 | .28  |</span>
+<span id="cb112-192"><a href="#cb112-192"></a>| 413350 | .33  |</span>
+<span id="cb112-193"><a href="#cb112-193"></a>| 415051 | .35  |</span>
+<span id="cb112-194"><a href="#cb112-194"></a></span>
+<span id="cb112-195"><a href="#cb112-195"></a><span class="fu">## Contingencies</span></span>
+<span id="cb112-196"><a href="#cb112-196"></a></span>
+<span id="cb112-197"><a href="#cb112-197"></a><span class="ss">* </span>This… isn’t always true.</span>
+<span id="cb112-198"><a href="#cb112-198"></a><span class="ss">* </span>In our case, for example, we have a .396 rate with _no_ cutoff.</span>
+<span id="cb112-199"><a href="#cb112-199"></a><span class="ss">* </span>We just can’t express this as an array:</span>
+<span id="cb112-200"><a href="#cb112-200"></a></span>
+<span id="cb112-201"><a href="#cb112-201"></a>| Cutoff | Rate |</span>
+<span id="cb112-202"><a href="#cb112-202"></a>| -----: | --- |</span>
+<span id="cb112-203"><a href="#cb112-203"></a>| 413350 | .33  |</span>
+<span id="cb112-204"><a href="#cb112-204"></a>| 415051 | .35  |</span>
+<span id="cb112-205"><a href="#cb112-205"></a>|        | .396 |</span>
+<span id="cb112-206"><a href="#cb112-206"></a></span>
+<span id="cb112-207"><a href="#cb112-207"></a><span class="fu">## Takeaways:</span></span>
+<span id="cb112-208"><a href="#cb112-208"></a></span>
+<span id="cb112-209"><a href="#cb112-209"></a><span class="ss">* </span>Be ready to deal with things being _almost_ arrays, but ultimately only being lists-of-lists.</span>
+<span id="cb112-210"><a href="#cb112-210"></a><span class="ss">* </span>There’s ways to deal with this (we’ve seen a few, sneakily)</span>
+<span id="cb112-211"><a href="#cb112-211"></a></span>
+<span id="cb112-212"><a href="#cb112-212"></a><span class="fu">## Arrays</span></span>
+<span id="cb112-213"><a href="#cb112-213"></a></span>
+<span id="cb112-214"><a href="#cb112-214"></a><span class="at">&gt; In computer programming, an array is a structure for storing and retrieving data. We often talk about an array as if it were a grid in space, with each cell storing one element of the data. For instance, if each element of the data were a number, we might visualize a “one-dimensional” array like a list:</span></span>
+<span id="cb112-215"><a href="#cb112-215"></a></span>
+<span id="cb112-216"><a href="#cb112-216"></a></span>
+<span id="cb112-217"><a href="#cb112-217"></a>$$</span>
+<span id="cb112-218"><a href="#cb112-218"></a>    \begin{array}{|c||c|c|c|}</span>
+<span id="cb112-219"><a href="#cb112-219"></a>    \hline</span>
+<span id="cb112-220"><a href="#cb112-220"></a>    9275 &amp; 37650 &amp; 91150 &amp; 190150 <span class="sc">\\</span></span>
+<span id="cb112-221"><a href="#cb112-221"></a>    \hline</span>
+<span id="cb112-222"><a href="#cb112-222"></a>    \end{array}</span>
+<span id="cb112-223"><a href="#cb112-223"></a>$$</span>
+<span id="cb112-224"><a href="#cb112-224"></a></span>
+<span id="cb112-225"><a href="#cb112-225"></a><span class="fu">## Tables</span></span>
+<span id="cb112-226"><a href="#cb112-226"></a></span>
+<span id="cb112-227"><a href="#cb112-227"></a><span class="at">&gt; A two-dimensional array would be like a table:</span></span>
+<span id="cb112-228"><a href="#cb112-228"></a></span>
+<span id="cb112-229"><a href="#cb112-229"></a>$$</span>
+<span id="cb112-230"><a href="#cb112-230"></a>    \begin{array}{|c||c|c|c|}</span>
+<span id="cb112-231"><a href="#cb112-231"></a>    \hline</span>
+<span id="cb112-232"><a href="#cb112-232"></a>    9275 &amp; 37650 &amp; 91150 &amp; 190150 <span class="sc">\\</span></span>
+<span id="cb112-233"><a href="#cb112-233"></a>    \hline</span>
+<span id="cb112-234"><a href="#cb112-234"></a>    .10 &amp; .15 &amp; .25 &amp; .28 <span class="sc">\\</span></span>
+<span id="cb112-235"><a href="#cb112-235"></a>    \hline</span>
+<span id="cb112-236"><a href="#cb112-236"></a>    0 &amp; -463.75 &amp; -6963.25 &amp; -16470.75 <span class="sc">\\</span></span>
+<span id="cb112-237"><a href="#cb112-237"></a>    \hline</span>
+<span id="cb112-238"><a href="#cb112-238"></a>    \end{array}</span>
+<span id="cb112-239"><a href="#cb112-239"></a>$$</span>
+<span id="cb112-240"><a href="#cb112-240"></a></span>
+<span id="cb112-241"><a href="#cb112-241"></a><span class="fu">## ndarray</span></span>
+<span id="cb112-242"><a href="#cb112-242"></a></span>
+<span id="cb112-243"><a href="#cb112-243"></a><span class="at">&gt; A three-dimensional array would be like a set of tables, perhaps stacked as though they were printed on separate pages. In NumPy, this idea is generalized to an arbitrary number of dimensions, and so the fundamental array class is called </span><span class="in">`ndarray`</span><span class="at">: it represents an “N-dimensional array”.</span></span>
+<span id="cb112-244"><a href="#cb112-244"></a></span>
+<span id="cb112-245"><a href="#cb112-245"></a><span class="ss">- </span>The most obvious 3d example would be that <span class="in">`taxes`</span> part of an *array* of tax policies</span>
+<span id="cb112-246"><a href="#cb112-246"></a><span class="in">```{.python}</span></span>
+<span id="cb112-247"><a href="#cb112-247"></a><span class="in">["Single", "Married, joint", "Married, separate", "Head of Household"]</span></span>
+<span id="cb112-248"><a href="#cb112-248"></a><span class="in">```</span></span>
+<span id="cb112-249"><a href="#cb112-249"></a></span>
+<span id="cb112-250"><a href="#cb112-250"></a><span class="fu">## Making Arrays</span></span>
+<span id="cb112-251"><a href="#cb112-251"></a></span>
+<span id="cb112-252"><a href="#cb112-252"></a><span class="ss">- </span>Make an array with <span class="in">`np.array()`</span></span>
+<span id="cb112-253"><a href="#cb112-253"></a><span class="ss">    - </span>Or <span class="in">`numpy.array`</span> if you used <span class="in">`import numpy`</span></span>
+<span id="cb112-254"><a href="#cb112-254"></a><span class="ss">- </span>They look like this:</span>
+<span id="cb112-257"><a href="#cb112-257"></a><span class="in">```{python}</span></span>
+<span id="cb112-258"><a href="#cb112-258"></a>arr <span class="op">=</span> np.array(taxes)</span>
+<span id="cb112-259"><a href="#cb112-259"></a>arr</span>
+<span id="cb112-260"><a href="#cb112-260"></a><span class="in">```</span></span>
+<span id="cb112-261"><a href="#cb112-261"></a><span class="ss">- </span>Our integers are gone - everything in scientific notation</span>
+<span id="cb112-262"><a href="#cb112-262"></a></span>
+<span id="cb112-263"><a href="#cb112-263"></a><span class="fu">## Aside: Scientific Notation</span></span>
+<span id="cb112-264"><a href="#cb112-264"></a></span>
+<span id="cb112-265"><a href="#cb112-265"></a><span class="at">&gt; </span><span class="co">[</span><span class="ot">Scientific notation is a way of expressing numbers that are too large or too small to be conveniently written in decimal form, since to do so would require writing out an inconveniently long string of digits.</span><span class="co">](https://en.wikipedia.org/wiki/Scientific_notation)</span></span>
+<span id="cb112-266"><a href="#cb112-266"></a></span>
+<span id="cb112-267"><a href="#cb112-267"></a><span class="ss">- </span>In scientific notation, nonzero numbers are written in the form </span>
+<span id="cb112-268"><a href="#cb112-268"></a></span>
+<span id="cb112-269"><a href="#cb112-269"></a>$$a \times 10^b$$</span>
+<span id="cb112-270"><a href="#cb112-270"></a></span>
+<span id="cb112-271"><a href="#cb112-271"></a><span class="fu">## Aside: Explanation</span></span>
+<span id="cb112-272"><a href="#cb112-272"></a></span>
+<span id="cb112-273"><a href="#cb112-273"></a></span>
+<span id="cb112-274"><a href="#cb112-274"></a><span class="ss">- </span>In scientific notation, nonzero numbers are written in the form </span>
+<span id="cb112-275"><a href="#cb112-275"></a></span>
+<span id="cb112-276"><a href="#cb112-276"></a>$$a \times 10^b$$</span>
+<span id="cb112-277"><a href="#cb112-277"></a></span>
+<span id="cb112-278"><a href="#cb112-278"></a></span>
+<span id="cb112-279"><a href="#cb112-279"></a><span class="ss">* </span>$a$ (the coefficient or mantissa) is a number greater than or equal to 1 and less than 10 ($1 \le |a| &lt; 10$).</span>
+<span id="cb112-280"><a href="#cb112-280"></a><span class="ss">* </span>$10$ is the base.</span>
+<span id="cb112-281"><a href="#cb112-281"></a><span class="ss">* </span>$b$ (the exponent) is an integer.</span>
+<span id="cb112-282"><a href="#cb112-282"></a></span>
+<span id="cb112-283"><a href="#cb112-283"></a></span>
+<span id="cb112-284"><a href="#cb112-284"></a><span class="fu">## Aside: Physical Examples</span></span>
+<span id="cb112-285"><a href="#cb112-285"></a></span>
+<span id="cb112-286"><a href="#cb112-286"></a><span class="ss">1.  </span>**Speed of light:** The speed of light in a vacuum is approximately $300,000,000 \text{ m/s}$</span>
+<span id="cb112-287"><a href="#cb112-287"></a>$$</span>
+<span id="cb112-288"><a href="#cb112-288"></a>3 \times 10^8 \text{ m/s}</span>
+<span id="cb112-289"><a href="#cb112-289"></a>$$</span>
+<span id="cb112-290"><a href="#cb112-290"></a></span>
+<span id="cb112-291"><a href="#cb112-291"></a><span class="ss">2.  </span>**Mass of an electron:** The mass of an electron is approximately $0.00000000000000000000000000091093837 \text{ g}$.</span>
+<span id="cb112-292"><a href="#cb112-292"></a>$$</span>
+<span id="cb112-293"><a href="#cb112-293"></a>9.1093837 \times 10^{-28} \text{ g}</span>
+<span id="cb112-294"><a href="#cb112-294"></a>$$</span>
+<span id="cb112-295"><a href="#cb112-295"></a></span>
+<span id="cb112-296"><a href="#cb112-296"></a><span class="fu">## Aside: Economic Examples</span></span>
+<span id="cb112-297"><a href="#cb112-297"></a></span>
+<span id="cb112-298"><a href="#cb112-298"></a><span class="ss">- </span>We can use social science numbers.</span>
+<span id="cb112-299"><a href="#cb112-299"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Labor Market Outcomes of College Graduates by Major</span><span class="co">](https://www.newyorkfed.org/research/college-labor-market#--:explore:outcomes-by-major)</span></span>
+<span id="cb112-300"><a href="#cb112-300"></a><span class="ss">- </span>Computer scientists have a \$80,000 median wage early career</span>
+<span id="cb112-301"><a href="#cb112-301"></a><span class="ss">    - </span>$8.0000 \times 10^4$</span>
+<span id="cb112-302"><a href="#cb112-302"></a><span class="ss">- </span>And 6.1% unemployment</span>
+<span id="cb112-303"><a href="#cb112-303"></a><span class="ss">    - </span>$6.1 \times 10^{-2}$</span>
+<span id="cb112-304"><a href="#cb112-304"></a></span>
+<span id="cb112-305"><a href="#cb112-305"></a><span class="fu"># Using Arrays</span></span>
+<span id="cb112-306"><a href="#cb112-306"></a></span>
+<span id="cb112-307"><a href="#cb112-307"></a><span class="fu">## Inspecting Arrays</span></span>
+<span id="cb112-308"><a href="#cb112-308"></a></span>
+<span id="cb112-309"><a href="#cb112-309"></a><span class="ss">- </span>Given some array, we can look up elements in an array as we did with lists.</span>
+<span id="cb112-310"><a href="#cb112-310"></a><span class="ss">- </span>We refer to zero as the "index" of the initial element of an array (or list).</span>
+<span id="cb112-311"><a href="#cb112-311"></a></span>
+<span id="cb112-312"><a href="#cb112-312"></a>:::: {.carr<span class="co">[</span><span class="ot">0</span><span class="co">]</span>olumns}</span>
+<span id="cb112-313"><a href="#cb112-313"></a></span>
+<span id="cb112-314"><a href="#cb112-314"></a>::: {.column width="50%"}</span>
+<span id="cb112-315"><a href="#cb112-315"></a></span>
+<span id="cb112-318"><a href="#cb112-318"></a><span class="in">```{python}</span></span>
+<span id="cb112-319"><a href="#cb112-319"></a>taxes[<span class="dv">0</span>]</span>
+<span id="cb112-320"><a href="#cb112-320"></a><span class="in">```</span></span>
+<span id="cb112-321"><a href="#cb112-321"></a></span>
+<span id="cb112-322"><a href="#cb112-322"></a>:::</span>
+<span id="cb112-323"><a href="#cb112-323"></a></span>
+<span id="cb112-324"><a href="#cb112-324"></a>::: {.column width="50%"}</span>
+<span id="cb112-325"><a href="#cb112-325"></a></span>
+<span id="cb112-328"><a href="#cb112-328"></a><span class="in">```{python}</span></span>
+<span id="cb112-329"><a href="#cb112-329"></a>arr[<span class="dv">0</span>]</span>
+<span id="cb112-330"><a href="#cb112-330"></a><span class="in">```</span></span>
+<span id="cb112-331"><a href="#cb112-331"></a></span>
+<span id="cb112-332"><a href="#cb112-332"></a>:::</span>
+<span id="cb112-333"><a href="#cb112-333"></a></span>
+<span id="cb112-334"><a href="#cb112-334"></a>::::</span>
+<span id="cb112-335"><a href="#cb112-335"></a></span>
+<span id="cb112-336"><a href="#cb112-336"></a><span class="ss">- </span>We look up the same element by the same index in both Python lists and NumPy arrays.</span>
+<span id="cb112-337"><a href="#cb112-337"></a></span>
+<span id="cb112-338"><a href="#cb112-338"></a><span class="fu">## Slices</span></span>
+<span id="cb112-339"><a href="#cb112-339"></a></span>
+<span id="cb112-340"><a href="#cb112-340"></a><span class="ss">- </span>Python and NumPy support *slicing*</span>
+<span id="cb112-341"><a href="#cb112-341"></a><span class="ss">- </span>This takes multiple elements of an array by specifying a *range* of indices</span>
+<span id="cb112-342"><a href="#cb112-342"></a><span class="ss">- </span>Let's make a one-dimensional array to make matters simpler.</span>
+<span id="cb112-345"><a href="#cb112-345"></a><span class="in">```{python}</span></span>
+<span id="cb112-346"><a href="#cb112-346"></a>colors <span class="op">=</span> [<span class="st">"red"</span>, <span class="st">"orange"</span>, <span class="st">"yellow"</span>, <span class="st">"green"</span>, <span class="st">"blue"</span>, <span class="st">"indigo"</span>, <span class="st">"violet"</span>]</span>
+<span id="cb112-347"><a href="#cb112-347"></a><span class="in">```</span></span>
+<span id="cb112-348"><a href="#cb112-348"></a></span>
+<span id="cb112-349"><a href="#cb112-349"></a>:::: {.columns}</span>
+<span id="cb112-350"><a href="#cb112-350"></a></span>
+<span id="cb112-351"><a href="#cb112-351"></a>::: {.column width="50%"}</span>
+<span id="cb112-352"><a href="#cb112-352"></a></span>
+<span id="cb112-355"><a href="#cb112-355"></a><span class="in">```{python}</span></span>
+<span id="cb112-356"><a href="#cb112-356"></a>color_lst <span class="op">=</span> colors</span>
+<span id="cb112-357"><a href="#cb112-357"></a>color_lst[<span class="dv">1</span>:<span class="dv">4</span>]</span>
+<span id="cb112-358"><a href="#cb112-358"></a><span class="in">```</span></span>
+<span id="cb112-359"><a href="#cb112-359"></a></span>
+<span id="cb112-360"><a href="#cb112-360"></a>:::</span>
+<span id="cb112-361"><a href="#cb112-361"></a></span>
+<span id="cb112-362"><a href="#cb112-362"></a>::: {.column width="50%"}</span>
+<span id="cb112-363"><a href="#cb112-363"></a></span>
+<span id="cb112-366"><a href="#cb112-366"></a><span class="in">```{python}</span></span>
+<span id="cb112-367"><a href="#cb112-367"></a>color_arr <span class="op">=</span> np.array(colors)</span>
+<span id="cb112-368"><a href="#cb112-368"></a>color_arr[<span class="dv">1</span>:<span class="dv">4</span>]</span>
+<span id="cb112-369"><a href="#cb112-369"></a><span class="in">```</span></span>
+<span id="cb112-370"><a href="#cb112-370"></a></span>
+<span id="cb112-371"><a href="#cb112-371"></a>:::</span>
+<span id="cb112-372"><a href="#cb112-372"></a></span>
+<span id="cb112-373"><a href="#cb112-373"></a>::::</span>
+<span id="cb112-374"><a href="#cb112-374"></a></span>
+<span id="cb112-375"><a href="#cb112-375"></a><span class="ss">- </span><span class="in">`dtype`</span> is data type - We'll cover it soon.</span>
+<span id="cb112-376"><a href="#cb112-376"></a></span>
+<span id="cb112-377"><a href="#cb112-377"></a><span class="fu">## Understanding slices</span></span>
+<span id="cb112-378"><a href="#cb112-378"></a></span>
+<span id="cb112-379"><a href="#cb112-379"></a><span class="ss">- </span>The slice <span class="in">`1:4`</span> takes all elements at index beginning at <span class="in">`1`</span> and stopping before getting to index <span class="in">`4`</span>.</span>
+<span id="cb112-380"><a href="#cb112-380"></a></span>
+<span id="cb112-381"><a href="#cb112-381"></a>$$</span>
+<span id="cb112-382"><a href="#cb112-382"></a>\small</span>
+<span id="cb112-383"><a href="#cb112-383"></a>\begin{array}{|l|c|c|c|c|c|c|}</span>
+<span id="cb112-384"><a href="#cb112-384"></a>\hline</span>
+<span id="cb112-385"><a href="#cb112-385"></a>\textbf{Index} &amp; 0 &amp; 1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 &amp; 6   <span class="sc">\\</span></span>
+<span id="cb112-386"><a href="#cb112-386"></a>\hline</span>
+<span id="cb112-387"><a href="#cb112-387"></a>\textbf{Element} &amp; red &amp; orange&amp; yellow&amp; green&amp; blue&amp; indigo&amp; violet<span class="sc">\\</span></span>
+<span id="cb112-388"><a href="#cb112-388"></a>\hline</span>
+<span id="cb112-389"><a href="#cb112-389"></a>\end{array}</span>
+<span id="cb112-390"><a href="#cb112-390"></a>$$</span>
+<span id="cb112-391"><a href="#cb112-391"></a></span>
+<span id="cb112-392"><a href="#cb112-392"></a>$$</span>
+<span id="cb112-393"><a href="#cb112-393"></a>\small</span>
+<span id="cb112-394"><a href="#cb112-394"></a>\begin{array}{|l|c|c|c|}</span>
+<span id="cb112-395"><a href="#cb112-395"></a>\hline</span>
+<span id="cb112-396"><a href="#cb112-396"></a>\textbf{Index} &amp; 1 &amp; 2 &amp; 3   <span class="sc">\\</span></span>
+<span id="cb112-397"><a href="#cb112-397"></a>\hline</span>
+<span id="cb112-398"><a href="#cb112-398"></a>\textbf{Element} &amp; orange&amp; yellow&amp; green<span class="sc">\\</span></span>
+<span id="cb112-399"><a href="#cb112-399"></a>\hline</span>
+<span id="cb112-400"><a href="#cb112-400"></a>\end{array}</span>
+<span id="cb112-401"><a href="#cb112-401"></a>$$</span>
+<span id="cb112-402"><a href="#cb112-402"></a></span>
+<span id="cb112-403"><a href="#cb112-403"></a><span class="fu">## Omiting Values</span></span>
+<span id="cb112-404"><a href="#cb112-404"></a></span>
+<span id="cb112-405"><a href="#cb112-405"></a><span class="ss">- </span>If we omit the value before the <span class="in">`:`</span> from the slice, it is treated as if a zero was provided.</span>
+<span id="cb112-406"><a href="#cb112-406"></a></span>
+<span id="cb112-409"><a href="#cb112-409"></a><span class="in">```{python}</span></span>
+<span id="cb112-410"><a href="#cb112-410"></a>color_arr</span>
+<span id="cb112-411"><a href="#cb112-411"></a><span class="in">```</span></span>
+<span id="cb112-412"><a href="#cb112-412"></a></span>
+<span id="cb112-413"><a href="#cb112-413"></a></span>
+<span id="cb112-416"><a href="#cb112-416"></a><span class="in">```{python}</span></span>
+<span id="cb112-417"><a href="#cb112-417"></a>color_arr[<span class="dv">0</span>:<span class="dv">4</span>]</span>
+<span id="cb112-418"><a href="#cb112-418"></a><span class="in">```</span></span>
+<span id="cb112-419"><a href="#cb112-419"></a></span>
+<span id="cb112-422"><a href="#cb112-422"></a><span class="in">```{python}</span></span>
+<span id="cb112-423"><a href="#cb112-423"></a>color_arr[:<span class="dv">4</span>]</span>
+<span id="cb112-424"><a href="#cb112-424"></a><span class="in">```</span></span>
+<span id="cb112-425"><a href="#cb112-425"></a></span>
+<span id="cb112-426"><a href="#cb112-426"></a><span class="fu">## Omiting End</span></span>
+<span id="cb112-427"><a href="#cb112-427"></a></span>
+<span id="cb112-428"><a href="#cb112-428"></a><span class="ss">- </span>If we omit the value after the <span class="in">`:`</span> from the slice, it is as if the length was provided.</span>
+<span id="cb112-429"><a href="#cb112-429"></a></span>
+<span id="cb112-432"><a href="#cb112-432"></a><span class="in">```{python}</span></span>
+<span id="cb112-433"><a href="#cb112-433"></a>color_arr</span>
+<span id="cb112-434"><a href="#cb112-434"></a><span class="in">```</span></span>
+<span id="cb112-435"><a href="#cb112-435"></a></span>
+<span id="cb112-436"><a href="#cb112-436"></a><span class="ss">- </span><span class="in">`len`</span> gives the length of a list or array</span>
+<span id="cb112-437"><a href="#cb112-437"></a></span>
+<span id="cb112-440"><a href="#cb112-440"></a><span class="in">```{python}</span></span>
+<span id="cb112-441"><a href="#cb112-441"></a><span class="bu">len</span>(color_arr)</span>
+<span id="cb112-442"><a href="#cb112-442"></a><span class="in">```</span></span>
+<span id="cb112-443"><a href="#cb112-443"></a></span>
+<span id="cb112-444"><a href="#cb112-444"></a></span>
+<span id="cb112-447"><a href="#cb112-447"></a><span class="in">```{python}</span></span>
+<span id="cb112-448"><a href="#cb112-448"></a>color_arr[<span class="dv">4</span>:<span class="dv">7</span>]</span>
+<span id="cb112-449"><a href="#cb112-449"></a><span class="in">```</span></span>
+<span id="cb112-450"><a href="#cb112-450"></a></span>
+<span id="cb112-453"><a href="#cb112-453"></a><span class="in">```{python}</span></span>
+<span id="cb112-454"><a href="#cb112-454"></a>color_arr[<span class="dv">4</span>:]</span>
+<span id="cb112-455"><a href="#cb112-455"></a><span class="in">```</span></span>
+<span id="cb112-456"><a href="#cb112-456"></a></span>
+<span id="cb112-457"><a href="#cb112-457"></a><span class="fu">## Steps</span></span>
+<span id="cb112-458"><a href="#cb112-458"></a> </span>
+<span id="cb112-459"><a href="#cb112-459"></a><span class="ss">- </span>Python and NumPy slices have an additional feature I find quite nice called "steps"</span>
+<span id="cb112-460"><a href="#cb112-460"></a><span class="ss">- </span>We specify a slice:</span>
+<span id="cb112-463"><a href="#cb112-463"></a><span class="in">```{python}</span></span>
+<span id="cb112-464"><a href="#cb112-464"></a>color_arr[<span class="dv">1</span>:<span class="dv">4</span>]</span>
+<span id="cb112-465"><a href="#cb112-465"></a><span class="in">```</span></span>
+<span id="cb112-466"><a href="#cb112-466"></a><span class="ss">- </span>We add a *third* value</span>
+<span id="cb112-469"><a href="#cb112-469"></a><span class="in">```{python}</span></span>
+<span id="cb112-470"><a href="#cb112-470"></a>color_arr[<span class="dv">1</span>:<span class="dv">4</span>:<span class="dv">1</span>]</span>
+<span id="cb112-471"><a href="#cb112-471"></a><span class="in">```</span></span>
+<span id="cb112-472"><a href="#cb112-472"></a></span>
+<span id="cb112-473"><a href="#cb112-473"></a><span class="fu">## Step Size</span></span>
+<span id="cb112-474"><a href="#cb112-474"></a></span>
+<span id="cb112-475"><a href="#cb112-475"></a>-- We add a *third* value</span>
+<span id="cb112-478"><a href="#cb112-478"></a><span class="in">```{python}</span></span>
+<span id="cb112-479"><a href="#cb112-479"></a>color_arr[<span class="dv">1</span>:<span class="dv">4</span>:<span class="dv">1</span>]</span>
+<span id="cb112-480"><a href="#cb112-480"></a><span class="in">```</span></span>
+<span id="cb112-481"><a href="#cb112-481"></a><span class="ss">- </span>This value determines how far to move over the original array between each element shown.</span>
+<span id="cb112-482"><a href="#cb112-482"></a><span class="ss">  - </span>Let's look at <span class="in">`2`</span> - every other element.</span>
+<span id="cb112-485"><a href="#cb112-485"></a><span class="in">```{python}</span></span>
+<span id="cb112-486"><a href="#cb112-486"></a>color_arr[<span class="dv">1</span>:<span class="dv">4</span>:<span class="dv">2</span>]</span>
+<span id="cb112-487"><a href="#cb112-487"></a><span class="in">```</span></span>
+<span id="cb112-488"><a href="#cb112-488"></a></span>
+<span id="cb112-489"><a href="#cb112-489"></a><span class="fu">## Example</span></span>
+<span id="cb112-490"><a href="#cb112-490"></a></span>
+<span id="cb112-491"><a href="#cb112-491"></a><span class="ss">- </span>In kindergarten, I learned that red, yellow, and blue were primary colors.</span>
+<span id="cb112-492"><a href="#cb112-492"></a><span class="ss">    - </span>I'm relatively unconvinced by that at this time, but it's a good example.</span>
+<span id="cb112-495"><a href="#cb112-495"></a><span class="in">```{python}</span></span>
+<span id="cb112-496"><a href="#cb112-496"></a>color_arr</span>
+<span id="cb112-497"><a href="#cb112-497"></a><span class="in">```</span></span>
+<span id="cb112-498"><a href="#cb112-498"></a><span class="ss">- </span>And the primaries:</span>
+<span id="cb112-501"><a href="#cb112-501"></a><span class="in">```{python}</span></span>
+<span id="cb112-502"><a href="#cb112-502"></a>color_arr[<span class="dv">0</span>:<span class="dv">5</span>:<span class="dv">2</span>]</span>
+<span id="cb112-503"><a href="#cb112-503"></a><span class="in">```</span></span>
+<span id="cb112-504"><a href="#cb112-504"></a></span>
+<span id="cb112-505"><a href="#cb112-505"></a><span class="fu">## Step Ommissions</span></span>
+<span id="cb112-506"><a href="#cb112-506"></a></span>
+<span id="cb112-507"><a href="#cb112-507"></a><span class="ss">- </span>We can omit start, stop, or both and still take steps.</span>
+<span id="cb112-510"><a href="#cb112-510"></a><span class="in">```{python}</span></span>
+<span id="cb112-511"><a href="#cb112-511"></a>color_arr[::<span class="dv">3</span>]</span>
+<span id="cb112-512"><a href="#cb112-512"></a><span class="in">```</span></span>
+<span id="cb112-513"><a href="#cb112-513"></a><span class="ss">- </span>We can use a *negative* step to reverse.</span>
+<span id="cb112-516"><a href="#cb112-516"></a><span class="in">```{python}</span></span>
+<span id="cb112-517"><a href="#cb112-517"></a>color_arr[::<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb112-518"><a href="#cb112-518"></a><span class="in">```</span></span>
+<span id="cb112-519"><a href="#cb112-519"></a></span>
+<span id="cb112-520"><a href="#cb112-520"></a><span class="fu">## Aside: Negatives</span></span>
+<span id="cb112-521"><a href="#cb112-521"></a></span>
+<span id="cb112-522"><a href="#cb112-522"></a><span class="ss">- </span>Negative starts and stops can also be used</span>
+<span id="cb112-525"><a href="#cb112-525"></a><span class="in">```{python}</span></span>
+<span id="cb112-526"><a href="#cb112-526"></a>color_arr</span>
+<span id="cb112-527"><a href="#cb112-527"></a><span class="in">```</span></span>
+<span id="cb112-528"><a href="#cb112-528"></a><span class="ss">- </span>They simply measure distance from the end.</span>
+<span id="cb112-531"><a href="#cb112-531"></a><span class="in">```{python}</span></span>
+<span id="cb112-532"><a href="#cb112-532"></a>color_arr[:<span class="op">-</span><span class="dv">2</span>]</span>
+<span id="cb112-533"><a href="#cb112-533"></a><span class="in">```</span></span>
+<span id="cb112-534"><a href="#cb112-534"></a></span>
+<span id="cb112-535"><a href="#cb112-535"></a><span class="fu">## Coordinates</span></span>
+<span id="cb112-536"><a href="#cb112-536"></a></span>
+<span id="cb112-537"><a href="#cb112-537"></a><span class="ss">- </span>Versus Python lists-of-lists.</span>
+<span id="cb112-540"><a href="#cb112-540"></a><span class="in">```{python}</span></span>
+<span id="cb112-541"><a href="#cb112-541"></a>taxes[<span class="dv">1</span>][<span class="dv">1</span>]</span>
+<span id="cb112-542"><a href="#cb112-542"></a><span class="in">```</span></span>
+<span id="cb112-543"><a href="#cb112-543"></a><span class="ss">- </span>NumPy arrays can specify coordinates - indices of multiple dimensions - in a single set of brackets.</span>
+<span id="cb112-546"><a href="#cb112-546"></a><span class="in">```{python}</span></span>
+<span id="cb112-547"><a href="#cb112-547"></a>arr[<span class="dv">1</span>][<span class="dv">1</span>], arr[<span class="dv">1</span>, <span class="dv">1</span>]</span>
+<span id="cb112-548"><a href="#cb112-548"></a><span class="in">```</span></span>
+<span id="cb112-549"><a href="#cb112-549"></a></span>
+<span id="cb112-550"><a href="#cb112-550"></a><span class="fu">## Coordinate slices</span></span>
+<span id="cb112-551"><a href="#cb112-551"></a></span>
+<span id="cb112-552"><a href="#cb112-552"></a><span class="ss">- </span>I recommend using the comma notation.</span>
+<span id="cb112-553"><a href="#cb112-553"></a><span class="ss">- </span>Otherwise I get unexpected behavior.</span>
+<span id="cb112-554"><a href="#cb112-554"></a></span>
+<span id="cb112-555"><a href="#cb112-555"></a>:::: {.columns}</span>
+<span id="cb112-556"><a href="#cb112-556"></a></span>
+<span id="cb112-557"><a href="#cb112-557"></a>::: {.column width="50%"}</span>
+<span id="cb112-558"><a href="#cb112-558"></a></span>
+<span id="cb112-561"><a href="#cb112-561"></a><span class="in">```{python}</span></span>
+<span id="cb112-562"><a href="#cb112-562"></a><span class="co"># reverse in both dimensions</span></span>
+<span id="cb112-563"><a href="#cb112-563"></a>arr[::<span class="op">-</span><span class="dv">1</span>][::<span class="op">-</span><span class="dv">1</span>] </span>
+<span id="cb112-564"><a href="#cb112-564"></a><span class="in">```</span></span>
+<span id="cb112-565"><a href="#cb112-565"></a></span>
+<span id="cb112-566"><a href="#cb112-566"></a></span>
+<span id="cb112-567"><a href="#cb112-567"></a>:::</span>
+<span id="cb112-568"><a href="#cb112-568"></a></span>
+<span id="cb112-569"><a href="#cb112-569"></a>::: {.column width="50%"}</span>
+<span id="cb112-570"><a href="#cb112-570"></a></span>
+<span id="cb112-573"><a href="#cb112-573"></a><span class="in">```{python}</span></span>
+<span id="cb112-574"><a href="#cb112-574"></a><span class="co"># reverse in both dimensions</span></span>
+<span id="cb112-575"><a href="#cb112-575"></a>arr[::<span class="op">-</span><span class="dv">1</span>,::<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb112-576"><a href="#cb112-576"></a><span class="in">```</span></span>
+<span id="cb112-577"><a href="#cb112-577"></a></span>
+<span id="cb112-578"><a href="#cb112-578"></a>:::</span>
+<span id="cb112-579"><a href="#cb112-579"></a></span>
+<span id="cb112-580"><a href="#cb112-580"></a>::::</span>
+<span id="cb112-581"><a href="#cb112-581"></a></span>
+<span id="cb112-582"><a href="#cb112-582"></a><span class="ss">- </span>Takeaway:  Always use <span class="in">`[x,y]`</span> instead of <span class="in">`[x][y]`</span></span>
+<span id="cb112-583"><a href="#cb112-583"></a><span class="ss">- </span>Things like this are we use NumPy!</span>
+<span id="cb112-584"><a href="#cb112-584"></a></span>
+<span id="cb112-585"><a href="#cb112-585"></a><span class="fu">## Updates</span></span>
+<span id="cb112-586"><a href="#cb112-586"></a></span>
+<span id="cb112-587"><a href="#cb112-587"></a><span class="ss">- </span>We can also update entries via <span class="in">`=`</span></span>
+<span id="cb112-590"><a href="#cb112-590"></a><span class="in">```{python}</span></span>
+<span id="cb112-591"><a href="#cb112-591"></a>color_arr</span>
+<span id="cb112-592"><a href="#cb112-592"></a><span class="in">```</span></span>
+<span id="cb112-593"><a href="#cb112-593"></a><span class="ss">-  </span>Use (1) name of array, (2) index of element, (3) <span class="in">`=`</span>, (4) new element</span>
+<span id="cb112-596"><a href="#cb112-596"></a><span class="in">```{python}</span></span>
+<span id="cb112-597"><a href="#cb112-597"></a>color_arr[<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> <span class="st">'purple'</span></span>
+<span id="cb112-598"><a href="#cb112-598"></a><span class="in">```</span></span>
+<span id="cb112-599"><a href="#cb112-599"></a><span class="ss">- </span>The array now has that element/index.</span>
+<span id="cb112-602"><a href="#cb112-602"></a><span class="in">```{python}</span></span>
+<span id="cb112-603"><a href="#cb112-603"></a>color_arr</span>
+<span id="cb112-604"><a href="#cb112-604"></a><span class="in">```</span></span>
+<span id="cb112-605"><a href="#cb112-605"></a></span>
+<span id="cb112-606"><a href="#cb112-606"></a><span class="fu"># Vectorization</span></span>
+<span id="cb112-607"><a href="#cb112-607"></a></span>
+<span id="cb112-608"><a href="#cb112-608"></a><span class="fu">## Why NumPy?</span></span>
+<span id="cb112-609"><a href="#cb112-609"></a></span>
+<span id="cb112-610"><a href="#cb112-610"></a><span class="ss">- </span>NumPy vectors can do a *very* cool thing that lists can't.</span>
+<span id="cb112-611"><a href="#cb112-611"></a><span class="ss">- </span>We use it a lot in science.</span>
+<span id="cb112-612"><a href="#cb112-612"></a><span class="ss">- </span>*Vector operations*.</span>
+<span id="cb112-613"><a href="#cb112-613"></a></span>
+<span id="cb112-614"><a href="#cb112-614"></a><span class="fu">## Vector Ops</span></span>
+<span id="cb112-615"><a href="#cb112-615"></a></span>
+<span id="cb112-616"><a href="#cb112-616"></a><span class="ss">- </span>Let's compare Python</span>
+<span id="cb112-617"><a href="#cb112-617"></a></span>
+<span id="cb112-620"><a href="#cb112-620"></a><span class="in">```{python}</span></span>
+<span id="cb112-621"><a href="#cb112-621"></a>l1 <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]</span>
+<span id="cb112-622"><a href="#cb112-622"></a>l2 <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>]</span>
+<span id="cb112-623"><a href="#cb112-623"></a>l1 <span class="op">+</span> l2</span>
+<span id="cb112-624"><a href="#cb112-624"></a><span class="in">```</span></span>
+<span id="cb112-625"><a href="#cb112-625"></a><span class="ss">- </span>To NumPy</span>
+<span id="cb112-628"><a href="#cb112-628"></a><span class="in">```{python}</span></span>
+<span id="cb112-629"><a href="#cb112-629"></a>a1 <span class="op">=</span> np.array(l1)</span>
+<span id="cb112-630"><a href="#cb112-630"></a>a2 <span class="op">=</span> np.array(l2)</span>
+<span id="cb112-631"><a href="#cb112-631"></a>a1 <span class="op">+</span> a2</span>
+<span id="cb112-632"><a href="#cb112-632"></a><span class="in">```</span></span>
+<span id="cb112-633"><a href="#cb112-633"></a><span class="ss">- </span>By the way, vectorization is really fast.</span>
+<span id="cb112-634"><a href="#cb112-634"></a><span class="ss">- </span>Our first "high performance computing" idea.</span>
+<span id="cb112-635"><a href="#cb112-635"></a></span>
+<span id="cb112-636"><a href="#cb112-636"></a><span class="fu">## Example</span></span>
+<span id="cb112-637"><a href="#cb112-637"></a></span>
+<span id="cb112-638"><a href="#cb112-638"></a><span class="ss">- </span>Suppose you need to convert some temperatures.</span>
+<span id="cb112-639"><a href="#cb112-639"></a></span>
+<span id="cb112-642"><a href="#cb112-642"></a><span class="in">```{python}</span></span>
+<span id="cb112-643"><a href="#cb112-643"></a><span class="co"># Portland highs and lows 5/26/25-6/2/25 in degF</span></span>
+<span id="cb112-644"><a href="#cb112-644"></a>temps <span class="op">=</span> np.array([<span class="dv">70</span>, <span class="dv">50</span>, <span class="dv">81</span>, <span class="dv">60</span>, <span class="dv">85</span>, <span class="dv">57</span>, <span class="dv">70</span>, <span class="dv">52</span>, <span class="dv">84</span>, <span class="dv">58</span>, <span class="dv">87</span>, <span class="dv">58</span>, <span class="dv">74</span>, <span class="dv">53</span>, <span class="dv">70</span>, <span class="dv">54</span>])</span>
+<span id="cb112-645"><a href="#cb112-645"></a>temps <span class="op">-=</span> <span class="dv">32</span></span>
+<span id="cb112-646"><a href="#cb112-646"></a>temps <span class="op">*=</span> <span class="dv">5</span></span>
+<span id="cb112-647"><a href="#cb112-647"></a>temps <span class="op">//=</span> <span class="dv">9</span></span>
+<span id="cb112-648"><a href="#cb112-648"></a>temps</span>
+<span id="cb112-649"><a href="#cb112-649"></a><span class="in">```</span></span>
+<span id="cb112-650"><a href="#cb112-650"></a></span>
+<span id="cb112-651"><a href="#cb112-651"></a><span class="fu">## Aside: `//`</span></span>
+<span id="cb112-652"><a href="#cb112-652"></a></span>
+<span id="cb112-653"><a href="#cb112-653"></a><span class="ss">- </span>NumPy requires arrays to be of a certain kind of number.</span>
+<span id="cb112-654"><a href="#cb112-654"></a><span class="ss">- </span><span class="in">`30`</span> is an integer.</span>
+<span id="cb112-655"><a href="#cb112-655"></a><span class="ss">- </span><span class="in">`30/9`</span> is a decimal value...</span>
+<span id="cb112-656"><a href="#cb112-656"></a><span class="ss">- </span>Python furnishes special <span class="in">`//`</span> integer division.</span>
+<span id="cb112-657"><a href="#cb112-657"></a><span class="ss">    - </span>It truncates (does not round) the result.</span>
+<span id="cb112-660"><a href="#cb112-660"></a><span class="in">```{python}</span></span>
+<span id="cb112-661"><a href="#cb112-661"></a>np.array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>]) <span class="op">//</span> <span class="dv">3</span></span>
+<span id="cb112-662"><a href="#cb112-662"></a><span class="in">```</span></span>
+<span id="cb112-663"><a href="#cb112-663"></a><span class="ss">- </span>Try using <span class="in">`/`</span> there. What happens?</span>
+<span id="cb112-664"><a href="#cb112-664"></a></span>
+<span id="cb112-665"><a href="#cb112-665"></a><span class="fu">## Use case </span></span>
+<span id="cb112-666"><a href="#cb112-666"></a></span>
+<span id="cb112-667"><a href="#cb112-667"></a><span class="ss">- </span>Slices and vectorization are *very* useful in the income tax example.</span>
+<span id="cb112-668"><a href="#cb112-668"></a><span class="ss">- </span>We:</span>
+<span id="cb112-669"><a href="#cb112-669"></a><span class="ss">    - </span>Had income cutoffs, that were</span>
+<span id="cb112-670"><a href="#cb112-670"></a><span class="ss">    - </span>The *beginning* of some tax brackets, but</span>
+<span id="cb112-671"><a href="#cb112-671"></a><span class="ss">    - </span>The *end* of other tax brackets</span>
+<span id="cb112-672"><a href="#cb112-672"></a><span class="ss">    - </span>Offset by one (<span class="in">`1`</span>)</span>
+<span id="cb112-673"><a href="#cb112-673"></a></span>
+<span id="cb112-674"><a href="#cb112-674"></a><span class="fu">## Building Brackets</span></span>
+<span id="cb112-675"><a href="#cb112-675"></a></span>
+<span id="cb112-676"><a href="#cb112-676"></a><span class="ss">- </span>Let's refresh on what the tax bracket array looked like.</span>
+<span id="cb112-679"><a href="#cb112-679"></a><span class="in">```{python}</span></span>
+<span id="cb112-680"><a href="#cb112-680"></a>arr</span>
+<span id="cb112-681"><a href="#cb112-681"></a><span class="in">```</span></span>
+<span id="cb112-682"><a href="#cb112-682"></a><span class="ss">- </span>Initial tax bracket goes zero and to <span class="in">`9275`</span></span>
+<span id="cb112-683"><a href="#cb112-683"></a><span class="ss">- </span>The next goes from <span class="in">`9275`</span> to <span class="in">`37650`</span>.</span>
+<span id="cb112-684"><a href="#cb112-684"></a><span class="ss">- </span>So <span class="in">`9275`</span> is useful to two brackets.</span>
+<span id="cb112-685"><a href="#cb112-685"></a></span>
+<span id="cb112-686"><a href="#cb112-686"></a><span class="fu">## Begin and end</span></span>
+<span id="cb112-687"><a href="#cb112-687"></a></span>
+<span id="cb112-688"><a href="#cb112-688"></a><span class="ss">- </span>Let's grab just the cutoffs.</span>
+<span id="cb112-691"><a href="#cb112-691"></a><span class="in">```{python}</span></span>
+<span id="cb112-692"><a href="#cb112-692"></a>cutoffs <span class="op">=</span> arr[:,<span class="dv">0</span>]</span>
+<span id="cb112-693"><a href="#cb112-693"></a>cutoffs</span>
+<span id="cb112-694"><a href="#cb112-694"></a><span class="in">```</span></span>
+<span id="cb112-695"><a href="#cb112-695"></a><span class="ss">- </span><span class="in">`[:, 0]`</span> means for every row (slice <span class="in">`:`</span>) take the initial columns (index <span class="in">`0`</span>)</span>
+<span id="cb112-696"><a href="#cb112-696"></a></span>
+<span id="cb112-697"><a href="#cb112-697"></a><span class="fu">## Insert</span></span>
+<span id="cb112-698"><a href="#cb112-698"></a></span>
+<span id="cb112-699"><a href="#cb112-699"></a><span class="ss">- </span>The initial bracket begins at <span class="in">`0`</span> and the last bracket ends at infinity.</span>
+<span id="cb112-700"><a href="#cb112-700"></a><span class="ss">    - </span>NumPy knows about infinity! <span class="in">`np.inf`</span></span>
+<span id="cb112-701"><a href="#cb112-701"></a><span class="ss">- </span>We can use NumPy <span class="in">`insert`</span> to add an element at an index:</span>
+<span id="cb112-704"><a href="#cb112-704"></a><span class="in">```{python}</span></span>
+<span id="cb112-705"><a href="#cb112-705"></a><span class="co"># Insert to (a) an array at (b) some index (c) some value</span></span>
+<span id="cb112-706"><a href="#cb112-706"></a>a <span class="op">=</span> cutoffs</span>
+<span id="cb112-707"><a href="#cb112-707"></a>b <span class="op">=</span> <span class="bu">len</span>(cutoffs)</span>
+<span id="cb112-708"><a href="#cb112-708"></a>c <span class="op">=</span> np.inf</span>
+<span id="cb112-709"><a href="#cb112-709"></a>cutoffs <span class="op">=</span> np.insert(a, b, c)</span>
+<span id="cb112-710"><a href="#cb112-710"></a>cutoffs</span>
+<span id="cb112-711"><a href="#cb112-711"></a><span class="in">```</span></span>
+<span id="cb112-712"><a href="#cb112-712"></a></span>
+<span id="cb112-713"><a href="#cb112-713"></a><span class="fu">## Append</span></span>
+<span id="cb112-714"><a href="#cb112-714"></a></span>
+<span id="cb112-715"><a href="#cb112-715"></a><span class="ss">- </span>I usually don't insert, I append.</span>
+<span id="cb112-716"><a href="#cb112-716"></a><span class="ss">- </span>This allows adding two arrays together, like how Python <span class="in">`+`</span> works on lists.</span>
+<span id="cb112-719"><a href="#cb112-719"></a><span class="in">```{python}</span></span>
+<span id="cb112-720"><a href="#cb112-720"></a><span class="co"># Smoosh arrays together.</span></span>
+<span id="cb112-721"><a href="#cb112-721"></a>cutoffs <span class="op">=</span> np.append([<span class="dv">0</span>],cutoffs)</span>
+<span id="cb112-722"><a href="#cb112-722"></a>cutoffs</span>
+<span id="cb112-723"><a href="#cb112-723"></a><span class="in">```</span></span>
+<span id="cb112-724"><a href="#cb112-724"></a></span>
+<span id="cb112-725"><a href="#cb112-725"></a><span class="fu">## Slicing</span></span>
+<span id="cb112-726"><a href="#cb112-726"></a></span>
+<span id="cb112-727"><a href="#cb112-727"></a><span class="ss">- </span>Now we can take the beginning of every bracket, by index:</span>
+<span id="cb112-730"><a href="#cb112-730"></a><span class="in">```{python}</span></span>
+<span id="cb112-731"><a href="#cb112-731"></a>begin <span class="op">=</span> cutoffs[:<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb112-732"><a href="#cb112-732"></a>begin</span>
+<span id="cb112-733"><a href="#cb112-733"></a><span class="in">```</span></span>
+<span id="cb112-734"><a href="#cb112-734"></a><span class="ss">- </span>And the end</span>
+<span id="cb112-737"><a href="#cb112-737"></a><span class="in">```{python}</span></span>
+<span id="cb112-738"><a href="#cb112-738"></a>end <span class="op">=</span> cutoffs[<span class="dv">1</span>:]</span>
+<span id="cb112-739"><a href="#cb112-739"></a>end</span>
+<span id="cb112-740"><a href="#cb112-740"></a><span class="in">```</span></span>
+<span id="cb112-741"><a href="#cb112-741"></a></span>
+<span id="cb112-742"><a href="#cb112-742"></a><span class="fu">## Vector Minus</span></span>
+<span id="cb112-743"><a href="#cb112-743"></a></span>
+<span id="cb112-744"><a href="#cb112-744"></a><span class="ss">- </span>We can see how big each bracket is.</span>
+<span id="cb112-747"><a href="#cb112-747"></a><span class="in">```{python}</span></span>
+<span id="cb112-748"><a href="#cb112-748"></a>bracket_size <span class="op">=</span> end <span class="op">-</span> begin</span>
+<span id="cb112-749"><a href="#cb112-749"></a>bracket_size</span>
+<span id="cb112-750"><a href="#cb112-750"></a><span class="in">```</span></span>
+<span id="cb112-751"><a href="#cb112-751"></a></span>
+<span id="cb112-752"><a href="#cb112-752"></a><span class="fu">## Vector Times</span></span>
+<span id="cb112-753"><a href="#cb112-753"></a></span>
+<span id="cb112-754"><a href="#cb112-754"></a><span class="ss">- </span>We can see how much tax is spent in each bracket.</span>
+<span id="cb112-755"><a href="#cb112-755"></a><span class="ss">  - </span>We will "cut off" the last bracket first</span>
+<span id="cb112-756"><a href="#cb112-756"></a><span class="ss">  - </span>It doesn't really have a size?</span>
+<span id="cb112-759"><a href="#cb112-759"></a><span class="in">```{python}</span></span>
+<span id="cb112-760"><a href="#cb112-760"></a>bracket_cost <span class="op">=</span> bracket_size[:<span class="op">-</span><span class="dv">1</span>] <span class="op">*</span> arr[:, <span class="dv">1</span>]</span>
+<span id="cb112-761"><a href="#cb112-761"></a>bracket_cost</span>
+<span id="cb112-762"><a href="#cb112-762"></a><span class="in">```</span></span>
+<span id="cb112-763"><a href="#cb112-763"></a><span class="ss">- </span>What happens if we don't cut off the last bracket and try to multiply a vector of length <span class="in">`7`</span> by a vector of length <span class="in">`6`</span>?</span>
+<span id="cb112-764"><a href="#cb112-764"></a></span>
+<span id="cb112-765"><a href="#cb112-765"></a><span class="fu">## Accumulation</span></span>
+<span id="cb112-766"><a href="#cb112-766"></a></span>
+<span id="cb112-767"><a href="#cb112-767"></a><span class="ss">- </span>While <span class="in">`bracket_cost`</span> does correctly describe the cost within on bracket, someone in the <span class="in">`n+1`</span>'th bracket pays the cost the previous <span class="in">`n`</span> brackets.</span>
+<span id="cb112-768"><a href="#cb112-768"></a><span class="ss">- </span>Someone how we want to sum those up.</span>
+<span id="cb112-769"><a href="#cb112-769"></a><span class="ss">- </span>NumPy has many built-in array functions, including <span class="in">`np.cumsum`</span>.</span>
+<span id="cb112-772"><a href="#cb112-772"></a><span class="in">```{python}</span></span>
+<span id="cb112-773"><a href="#cb112-773"></a>total_cost <span class="op">=</span> np.cumsum(bracket_cost)</span>
+<span id="cb112-774"><a href="#cb112-774"></a>total_cost</span>
+<span id="cb112-775"><a href="#cb112-775"></a><span class="in">```</span></span>
+<span id="cb112-776"><a href="#cb112-776"></a></span>
+<span id="cb112-777"><a href="#cb112-777"></a><span class="fu"># Takeaways</span></span>
+<span id="cb112-778"><a href="#cb112-778"></a></span>
+<span id="cb112-779"><a href="#cb112-779"></a><span class="fu">## NumPy does a lot!</span></span>
+<span id="cb112-780"><a href="#cb112-780"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Arrays</span><span class="co">](https://numpy.org/doc/stable/user/basics.creation.html)</span> mostly, but including:</span>
+<span id="cb112-781"><a href="#cb112-781"></a><span class="ss">- </span>Vector operations called <span class="co">[</span><span class="ot">"broadcasting"</span><span class="co">](https://numpy.org/doc/stable/user/basics.broadcasting.html)</span>.</span>
+<span id="cb112-782"><a href="#cb112-782"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Indices and slices</span><span class="co">](https://numpy.org/doc/stable/user/basics.indexing.html)</span> matter a lot.</span>
+<span id="cb112-783"><a href="#cb112-783"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Contants</span><span class="co">](https://numpy.org/devdocs/reference/constants.html)</span> like <span class="in">`np.inf`</span> support mathematics</span>
+<span id="cb112-784"><a href="#cb112-784"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Accumulation functions</span><span class="co">](https://numpy.org/doc/2.1/reference/routines.math.html#sums-products-differences)</span> we don't have to write ourselves (which we'd have to do via loops)</span>
+<span id="cb112-785"><a href="#cb112-785"></a></span>
+<span id="cb112-786"><a href="#cb112-786"></a></span>
+<span id="cb112-787"><a href="#cb112-787"></a><span class="fu"># Exercise</span></span>
+<span id="cb112-788"><a href="#cb112-788"></a></span>
+<span id="cb112-789"><a href="#cb112-789"></a><span class="fu">## Using NumPy</span></span>
+<span id="cb112-790"><a href="#cb112-790"></a></span>
+<span id="cb112-791"><a href="#cb112-791"></a><span class="ss">- </span>Today we successfully recomputed the points of the point-intercept form of the income tax problem.</span>
+<span id="cb112-792"><a href="#cb112-792"></a><span class="ss">- </span>Using NumPy, starting with <span class="in">`taxes`</span>, create the array on the right:</span>
+<span id="cb112-793"><a href="#cb112-793"></a></span>
+<span id="cb112-794"><a href="#cb112-794"></a>:::: {.columns}</span>
+<span id="cb112-795"><a href="#cb112-795"></a></span>
+<span id="cb112-796"><a href="#cb112-796"></a>::: {.column width="28%"}</span>
+<span id="cb112-797"><a href="#cb112-797"></a></span>
+<span id="cb112-800"><a href="#cb112-800"></a><span class="in">```{python}</span></span>
+<span id="cb112-801"><a href="#cb112-801"></a>taxes <span class="op">=</span> np.array([</span>
+<span id="cb112-802"><a href="#cb112-802"></a>    [<span class="dv">9275</span>, <span class="fl">.1</span>],</span>
+<span id="cb112-803"><a href="#cb112-803"></a>    [<span class="dv">37650</span>, <span class="fl">.15</span>],</span>
+<span id="cb112-804"><a href="#cb112-804"></a>    [<span class="dv">91150</span>, <span class="fl">.25</span>],</span>
+<span id="cb112-805"><a href="#cb112-805"></a>    [<span class="dv">190150</span>, <span class="fl">.28</span>],</span>
+<span id="cb112-806"><a href="#cb112-806"></a>    [<span class="dv">413350</span>, <span class="fl">.33</span>],</span>
+<span id="cb112-807"><a href="#cb112-807"></a>    [<span class="dv">415051</span>, <span class="fl">.35</span>]</span>
+<span id="cb112-808"><a href="#cb112-808"></a>])</span>
+<span id="cb112-809"><a href="#cb112-809"></a><span class="in">```</span></span>
+<span id="cb112-810"><a href="#cb112-810"></a></span>
+<span id="cb112-811"><a href="#cb112-811"></a>:::</span>
+<span id="cb112-812"><a href="#cb112-812"></a></span>
+<span id="cb112-813"><a href="#cb112-813"></a>::: {.column width="72%"}</span>
+<span id="cb112-814"><a href="#cb112-814"></a></span>
+<span id="cb112-817"><a href="#cb112-817"></a><span class="in">```{python}</span></span>
+<span id="cb112-818"><a href="#cb112-818"></a><span class="co">#| eval: false</span></span>
+<span id="cb112-819"><a href="#cb112-819"></a>np.array([[ <span class="fl">9.275000e+03</span>,  <span class="fl">1.000000e-01</span>,  <span class="fl">0.000000e+00</span>],</span>
+<span id="cb112-820"><a href="#cb112-820"></a>          [ <span class="fl">3.765000e+04</span>,  <span class="fl">1.500000e-01</span>, <span class="op">-</span><span class="fl">4.637500e+02</span>],</span>
+<span id="cb112-821"><a href="#cb112-821"></a>          [ <span class="fl">9.115000e+04</span>,  <span class="fl">2.500000e-01</span>, <span class="op">-</span><span class="fl">4.228750e+03</span>],</span>
+<span id="cb112-822"><a href="#cb112-822"></a>          [ <span class="fl">1.901500e+05</span>,  <span class="fl">2.800000e-01</span>, <span class="op">-</span><span class="fl">6.963250e+03</span>],</span>
+<span id="cb112-823"><a href="#cb112-823"></a>          [ <span class="fl">4.133500e+05</span>,  <span class="fl">3.300000e-01</span>, <span class="op">-</span><span class="fl">1.647075e+04</span>],</span>
+<span id="cb112-824"><a href="#cb112-824"></a>          [ <span class="fl">4.150510e+05</span>,  <span class="fl">3.500000e-01</span>, <span class="op">-</span><span class="fl">2.473775e+04</span>]])</span>
+<span id="cb112-825"><a href="#cb112-825"></a><span class="in">```</span></span>
+<span id="cb112-826"><a href="#cb112-826"></a></span>
+<span id="cb112-827"><a href="#cb112-827"></a>:::</span>
+<span id="cb112-828"><a href="#cb112-828"></a></span>
+<span id="cb112-829"><a href="#cb112-829"></a>::::</span>
+<span id="cb112-830"><a href="#cb112-830"></a></span>
+<span id="cb112-831"><a href="#cb112-831"></a><span class="fu">## Transpose</span></span>
+<span id="cb112-832"><a href="#cb112-832"></a></span>
+<span id="cb112-833"><a href="#cb112-833"></a><span class="ss">- </span>There are many ways to solve this problem!</span>
+<span id="cb112-834"><a href="#cb112-834"></a><span class="ss">- </span>Things will be easier with the following:</span>
+<span id="cb112-837"><a href="#cb112-837"></a><span class="in">```{python}</span></span>
+<span id="cb112-838"><a href="#cb112-838"></a>taxes.shape</span>
+<span id="cb112-839"><a href="#cb112-839"></a><span class="in">```</span></span>
+<span id="cb112-842"><a href="#cb112-842"></a><span class="in">```{python}</span></span>
+<span id="cb112-843"><a href="#cb112-843"></a>taxes.reshape(<span class="dv">2</span>,<span class="dv">6</span>)</span>
+<span id="cb112-844"><a href="#cb112-844"></a><span class="in">```</span></span>
+<span id="cb112-845"><a href="#cb112-845"></a></span>
+<span id="cb112-848"><a href="#cb112-848"></a><span class="in">```{python}</span></span>
+<span id="cb112-849"><a href="#cb112-849"></a>taxes.transpose()</span>
+<span id="cb112-850"><a href="#cb112-850"></a><span class="in">```</span></span>
+<span id="cb112-851"><a href="#cb112-851"></a></span>
+<span id="cb112-852"><a href="#cb112-852"></a><span class="fu">## Bonus Problem</span></span>
+<span id="cb112-853"><a href="#cb112-853"></a></span>
+<span id="cb112-854"><a href="#cb112-854"></a><span class="ss">- </span>NumPy allows random number generation.</span>
+<span id="cb112-855"><a href="#cb112-855"></a><span class="ss">- </span>Generate one million random numbers between, say, <span class="in">`0`</span> and <span class="in">`500000`</span>.</span>
+<span id="cb112-856"><a href="#cb112-856"></a><span class="ss">  - </span>There will be repeats, which is okay.</span>
+<span id="cb112-857"><a href="#cb112-857"></a><span class="ss">- </span>Use Python with and without NumPy to compute every tax cost.</span>
+<span id="cb112-858"><a href="#cb112-858"></a><span class="ss">- </span>See which one is faster! You can use the shell command <span class="in">`time`</span></span>
+<span id="cb112-859"><a href="#cb112-859"></a></span>
+<span id="cb112-860"><a href="#cb112-860"></a><span class="fu">## Aside: Random</span></span>
+<span id="cb112-861"><a href="#cb112-861"></a></span>
+<span id="cb112-862"><a href="#cb112-862"></a><span class="ss">- </span>The following:</span>
+<span id="cb112-863"><a href="#cb112-863"></a><span class="ss">  - </span>Generates 1 million random integers from <span class="in">`0`</span> to <span class="in">`50000`</span></span>
+<span id="cb112-864"><a href="#cb112-864"></a><span class="ss">  - </span>Prints every 10 thousandth integer.</span>
+<span id="cb112-865"><a href="#cb112-865"></a><span class="in">```{python filename="onemil.py"}</span></span>
+<span id="cb112-866"><a href="#cb112-866"></a><span class="in">import numpy as np</span></span>
+<span id="cb112-867"><a href="#cb112-867"></a><span class="in">rng = np.random.default_rng()</span></span>
+<span id="cb112-868"><a href="#cb112-868"></a><span class="in">incomes = rng.integers(0, 500000, 1000000)</span></span>
+<span id="cb112-869"><a href="#cb112-869"></a><span class="in">print(incomes[::10000])</span></span>
+<span id="cb112-870"><a href="#cb112-870"></a><span class="in">```</span></span>
+<span id="cb112-871"><a href="#cb112-871"></a><span class="ss">- </span>Read more: <span class="co">[</span><span class="ot">Random sample</span><span class="co">](https://numpy.org/doc/stable/reference/random/index.html)</span></span>
+<span id="cb112-872"><a href="#cb112-872"></a></span>
+<span id="cb112-873"><a href="#cb112-873"></a><span class="fu">## Aside: `time`</span></span>
+<span id="cb112-874"><a href="#cb112-874"></a></span>
+<span id="cb112-875"><a href="#cb112-875"></a><span class="ss">- </span>Use <span class="in">`time`</span> before a command.</span>
+<span id="cb112-876"><a href="#cb112-876"></a><span class="ss">  - </span><span class="in">`real`</span> time is how much passes in real life</span>
+<span id="cb112-877"><a href="#cb112-877"></a></span>
+<span id="cb112-878"><a href="#cb112-878"></a><span class="in">```{.bash code-line-numbers="false}</span></span>
+<span id="cb112-879"><a href="#cb112-879"></a><span class="in">$ time python3 onemil.py</span></span>
+<span id="cb112-880"><a href="#cb112-880"></a><span class="in">[123177 422613 471310 380518  95385 143328 426503 453832 427403 106416</span></span>
+<span id="cb112-881"><a href="#cb112-881"></a><span class="in"> 327306 476263  65814 281381 422404  59938  14231 232824 342190 329545</span></span>
+<span id="cb112-882"><a href="#cb112-882"></a><span class="in"> 412684 112339 202498   5071  59114 394601 451216  92268 381107 487447</span></span>
+<span id="cb112-883"><a href="#cb112-883"></a><span class="in">  55089 339493 344836 261917 148326 452850 409130 484951 427839 307217</span></span>
+<span id="cb112-884"><a href="#cb112-884"></a><span class="in"> 259268 485208 331277 183015 132480 345930 439366   6814  39743 268276</span></span>
+<span id="cb112-885"><a href="#cb112-885"></a><span class="in">  80739 293355 170394   4220  48082  15668 453927  58059 320294 101182</span></span>
+<span id="cb112-886"><a href="#cb112-886"></a><span class="in">   1864 492297 130465   9920  76321 345944 268312 255875  46614 195236</span></span>
+<span id="cb112-887"><a href="#cb112-887"></a><span class="in"> 233737 443948 343483 116870 165561 326265 103567 327780 475672 392212</span></span>
+<span id="cb112-888"><a href="#cb112-888"></a><span class="in"> 396479 328248  43273  32596 246212   4258  60202  66783 135035 155327</span></span>
+<span id="cb112-889"><a href="#cb112-889"></a><span class="in"> 469638 378485 175496 428130 493185 154716 193012 424037 197666 103758]</span></span>
+<span id="cb112-890"><a href="#cb112-890"></a></span>
+<span id="cb112-891"><a href="#cb112-891"></a><span class="in">real    0m0.155s</span></span>
+<span id="cb112-892"><a href="#cb112-892"></a><span class="in">user    0m1.883s</span></span>
+<span id="cb112-893"><a href="#cb112-893"></a><span class="in">sys     0m0.033s</span></span>
+<span id="cb112-894"><a href="#cb112-894"></a><span class="in">```</span></span>
+<span id="cb112-895"><a href="#cb112-895"></a></span>
+<span id="cb112-896"><a href="#cb112-896"></a><span class="fu">## Solution</span></span>
+<span id="cb112-897"><a href="#cb112-897"></a></span>
+<span id="cb112-900"><a href="#cb112-900"></a><span class="in">```{python}</span></span>
+<span id="cb112-901"><a href="#cb112-901"></a><span class="co">#| code-fold: true</span></span>
+<span id="cb112-902"><a href="#cb112-902"></a>cutoffs <span class="op">=</span> taxes[:,<span class="dv">0</span>]</span>
+<span id="cb112-903"><a href="#cb112-903"></a>rates <span class="op">=</span> taxes[:,<span class="dv">1</span>]</span>
+<span id="cb112-904"><a href="#cb112-904"></a></span>
+<span id="cb112-905"><a href="#cb112-905"></a><span class="co"># If you are confused, print(arr) after every line</span></span>
+<span id="cb112-906"><a href="#cb112-906"></a>arr <span class="op">=</span> np.append([<span class="dv">0</span>], cutoffs)</span>
+<span id="cb112-907"><a href="#cb112-907"></a>arr <span class="op">=</span> arr[<span class="dv">1</span>:] <span class="op">-</span> arr[:<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb112-908"><a href="#cb112-908"></a>arr <span class="op">*=</span> rates</span>
+<span id="cb112-909"><a href="#cb112-909"></a>arr <span class="op">=</span> np.cumsum(arr)</span>
+<span id="cb112-910"><a href="#cb112-910"></a>arr <span class="op">=</span> arr <span class="op">-</span> cutoffs <span class="op">*</span> rates</span>
+<span id="cb112-911"><a href="#cb112-911"></a></span>
+<span id="cb112-912"><a href="#cb112-912"></a>taxes <span class="op">=</span> np.array([cutoffs,rates,arr])</span>
+<span id="cb112-913"><a href="#cb112-913"></a></span>
+<span id="cb112-914"><a href="#cb112-914"></a>taxes <span class="op">=</span> taxes.transpose()</span>
+<span id="cb112-915"><a href="#cb112-915"></a><span class="in">```</span></span>
+<span id="cb112-916"><a href="#cb112-916"></a></span>
+<span id="cb112-917"><a href="#cb112-917"></a><span class="fu">## Using it</span></span>
+<span id="cb112-918"><a href="#cb112-918"></a></span>
+<span id="cb112-919"><a href="#cb112-919"></a><span class="ss">- </span>I used the exact same <span class="in">`single_tax`</span> function as in the "Shell" exercise.</span>
+<span id="cb112-920"><a href="#cb112-920"></a></span>
+<span id="cb112-923"><a href="#cb112-923"></a><span class="in">```{python}</span></span>
+<span id="cb112-924"><a href="#cb112-924"></a><span class="co">#| code-fold: true</span></span>
+<span id="cb112-925"><a href="#cb112-925"></a><span class="kw">def</span> single_tax(income):</span>
+<span id="cb112-926"><a href="#cb112-926"></a>    <span class="co"># Check all brackets</span></span>
+<span id="cb112-927"><a href="#cb112-927"></a>    <span class="cf">for</span> tax <span class="kw">in</span> taxes:</span>
+<span id="cb112-928"><a href="#cb112-928"></a>        <span class="cf">if</span> income <span class="op">&lt;</span> tax[<span class="dv">0</span>]:</span>
+<span id="cb112-929"><a href="#cb112-929"></a>            <span class="cf">return</span> income <span class="op">*</span> tax[<span class="dv">1</span>] <span class="op">+</span> tax[<span class="dv">2</span>]</span>
+<span id="cb112-930"><a href="#cb112-930"></a>    <span class="co"># We calculated the top bracket earlier</span></span>
+<span id="cb112-931"><a href="#cb112-931"></a>    <span class="cf">return</span> income <span class="op">*</span> <span class="fl">.396</span> <span class="op">+</span> <span class="op">-</span><span class="fl">43830.05</span></span>
+<span id="cb112-932"><a href="#cb112-932"></a><span class="in">```</span></span>
+</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

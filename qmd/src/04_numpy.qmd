@@ -1,0 +1,818 @@
+---
+title: NumPy
+---
+
+# What is “NumPy”?
+
+> [The fundamental package for scientific computing with Python.](https://github.com/numpy/numpy)
+
+* **Num**erical **Py**thon
+* It is a package - addition features we can optional add to the Python language.
+
+## On NumPy
+
+Basically, to do scientific computing it would be nice to have:
+
+* a powerful N-dimensional array object
+* sophisticated (broadcasting) functions
+* tools for integrating C/C++ and Fortran code
+* useful linear algebra, Fourier transform, and random number capabilities
+
+(These are the stated features of NumPy.)
+
+## Relevance
+
+* We have essentially been using 1- and 2-dimensional arrays already!
+* Here is the examples `intercepts.py` solution from last time:
+
+Code
+
+```{python}
+#| code-fold: true
+taxes = [
+    [9275, .10],
+    [37650, .15],
+    [91150, .25],
+    [190150, .28],
+    [413350, .33],
+    [415051, .35]
+]
+
+cost = 0
+start = 0
+for tax in taxes:
+    cost += (tax[0] - start) * tax[1]
+    tax += [cost - tax[0] * tax[1]]
+    start = tax[0]
+```
+
+## We will
+
+* Change our existing _lists_, which we understand as “N-dimensional arrays” into NumPy arrays.
+* Show the benefits of this arrangement.
+* Show other NumPy features.
+
+---
+
+# Package Management
+
+## PyPI
+
+> The Python Package Index (PyPI) is a repository of software for the Python programming language.
+
+* NumPy is a Python package.
+    * It is installed separately from Python, but
+    * May be installed using Python-based tools.
+
+## pip
+
+> The most popular tool for installing Python packages, and the one included with modern versions of Python.
+
+* `pip` is a command line utility
+* For years `pip` was the only real options for installing Python programs, but has experienced limitations as the package ecosystem has grown quite large.
+
+## Using `pip`
+
+* Use as an argument to `python` or `python3`
+
+```{.bash code-line-numbers="false"}
+python3 -m pip install numpy
+```
+
+* It may take a moment to install.
+
+## Verify Install
+
+* The following verifies the the NumPy install was successful
+* We see the return of `import`
+    * Introduce `as`, used to shorten names
+    * We could have done `import piecewise as pw`
+
+```{python}
+import numpy as np
+
+print(np.__version__)
+```
+
+## Recall
+
+* You may wish to review `import`
+* Consult [Neovim -> \`import’](file:///C:/Users/cd-desk/Documents/repos/scicom/qmd/02_neovim.html#import)
+
+# Arrays
+
+## NumPy Arrays
+
+* The first thing to do in NumPy is make an _array_.
+* In general we use NumPy arrays when:
+    * We are dealing with lists of numbers
+    * We care about performance, or
+    * We want to use advanced mathematical operations
+
+## List to Array
+
+* We define a list of lists:
+
+```{python}
+taxes = [
+    [9275, .10],
+    [37650, .15],
+    [91150, .25],
+    [190150, .28],
+    [413350, .33],
+    [415051, .35]
+]
+```
+
+## Lists of lists
+
+* It is worth while to examine `taxes` a bit
+
+```{python}
+taxes
+```
+
+## Check Types
+
+* We can verify it is a list.
+
+```{python{
+type(taxes)
+```
+
+* We can verify it’s initial element is also a list.
+
+```{python}
+type(taxes[0])
+```
+
+* Since `taxes[0]` is a list, we can look at _that_ list’s initial element.
+
+```{python}
+type(taxes[0][0])
+```
+
+## Versus arrays
+
+* We have a list of lists of ints (like integers, round numbers).
+* Or do we?
+
+```{python}
+type(taxes[0][1])
+```
+
+* In fact, the tax _rates_ are not round numbers, so they are “floats”.
+* NumPy will help us manage when we use “floating point numbers” (have a decimal point) and integers (don’t).
+
+## Niceties
+
+* Each of the internal lists of numbers is of the same length.
+* That lets us do this:
+
+| Cutoff | Rate |
+| -----: | ---- |
+| 9275   | .10  |
+| 37650  | .15  |
+| 91150  | .25  |
+| 190150 | .28  |
+| 413350 | .33  |
+| 415051 | .35  |
+
+## Contingencies
+
+* This… isn’t always true.
+* In our case, for example, we have a .396 rate with _no_ cutoff.
+* We just can’t express this as an array:
+
+| Cutoff | Rate |
+| -----: | --- |
+| 413350 | .33  |
+| 415051 | .35  |
+|        | .396 |
+
+## Takeaways:
+
+* Be ready to deal with things being _almost_ arrays, but ultimately only being lists-of-lists.
+* There’s ways to deal with this (we’ve seen a few, sneakily)
+
+## Arrays
+
+> In computer programming, an array is a structure for storing and retrieving data. We often talk about an array as if it were a grid in space, with each cell storing one element of the data. For instance, if each element of the data were a number, we might visualize a “one-dimensional” array like a list:
+
+
+$$
+    \begin{array}{|c||c|c|c|}
+    \hline
+    9275 & 37650 & 91150 & 190150 \\
+    \hline
+    \end{array}
+$$
+
+## Tables
+
+> A two-dimensional array would be like a table:
+
+$$
+    \begin{array}{|c||c|c|c|}
+    \hline
+    9275 & 37650 & 91150 & 190150 \\
+    \hline
+    .10 & .15 & .25 & .28 \\
+    \hline
+    0 & -463.75 & -6963.25 & -16470.75 \\
+    \hline
+    \end{array}
+$$
+
+## ndarray
+
+> A three-dimensional array would be like a set of tables, perhaps stacked as though they were printed on separate pages. In NumPy, this idea is generalized to an arbitrary number of dimensions, and so the fundamental array class is called `ndarray`: it represents an “N-dimensional array”.
+
+- The most obvious 3d example would be that `taxes` part of an *array* of tax policies
+```{.python}
+["Single", "Married, joint", "Married, separate", "Head of Household"]
+```
+
+## Making Arrays
+
+- Make an array with `np.array()`
+  	- Or `numpy.array` if you used `import numpy`
+- They look like this:
+```{python}
+arr = np.array(taxes)
+arr
+```
+- Our integers are gone - everything in scientific notation
+
+## Aside: Scientific Notation
+
+> [Scientific notation is a way of expressing numbers that are too large or too small to be conveniently written in decimal form, since to do so would require writing out an inconveniently long string of digits.](https://en.wikipedia.org/wiki/Scientific_notation)
+
+- In scientific notation, nonzero numbers are written in the form 
+
+$$a \times 10^b$$
+
+## Aside: Explanation
+
+
+- In scientific notation, nonzero numbers are written in the form 
+
+$$a \times 10^b$$
+
+
+* $a$ (the coefficient or mantissa) is a number greater than or equal to 1 and less than 10 ($1 \le |a| < 10$).
+* $10$ is the base.
+* $b$ (the exponent) is an integer.
+
+
+## Aside: Physical Examples
+
+1.  **Speed of light:** The speed of light in a vacuum is approximately $300,000,000 \text{ m/s}$
+$$
+3 \times 10^8 \text{ m/s}
+$$
+
+2.  **Mass of an electron:** The mass of an electron is approximately $0.00000000000000000000000000091093837 \text{ g}$.
+$$
+9.1093837 \times 10^{-28} \text{ g}
+$$
+
+## Aside: Economic Examples
+
+- We can use social science numbers.
+- [Labor Market Outcomes of College Graduates by Major](https://www.newyorkfed.org/research/college-labor-market#--:explore:outcomes-by-major)
+- Computer scientists have a \$80,000 median wage early career
+	- $8.0000 \times 10^4$
+- And 6.1% unemployment
+  	- $6.1 \times 10^{-2}$
+
+# Using Arrays
+
+## Inspecting Arrays
+
+- Given some array, we can look up elements in an array as we did with lists.
+- We refer to zero as the "index" of the initial element of an array (or list).
+
+:::: {.carr[0]olumns}
+
+::: {.column width="50%"}
+
+```{python}
+taxes[0]
+```
+
+:::
+
+::: {.column width="50%"}
+
+```{python}
+arr[0]
+```
+
+:::
+
+::::
+
+- We look up the same element by the same index in both Python lists and NumPy arrays.
+
+## Slices
+
+- Python and NumPy support *slicing*
+- This takes multiple elements of an array by specifying a *range* of indices
+- Let's make a one-dimensional array to make matters simpler.
+```{python}
+colors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"]
+```
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{python}
+color_lst = colors
+color_lst[1:4]
+```
+
+:::
+
+::: {.column width="50%"}
+
+```{python}
+color_arr = np.array(colors)
+color_arr[1:4]
+```
+
+:::
+
+::::
+
+- `dtype` is data type - We'll cover it soon.
+
+## Understanding slices
+
+- The slice `1:4` takes all elements at index beginning at `1` and stopping before getting to index `4`.
+
+$$
+\small
+\begin{array}{|l|c|c|c|c|c|c|}
+\hline
+\textbf{Index} & 0 & 1 & 2 & 3 & 4 & 5 & 6   \\
+\hline
+\textbf{Element} & red & orange& yellow& green& blue& indigo& violet\\
+\hline
+\end{array}
+$$
+
+$$
+\small
+\begin{array}{|l|c|c|c|}
+\hline
+\textbf{Index} & 1 & 2 & 3   \\
+\hline
+\textbf{Element} & orange& yellow& green\\
+\hline
+\end{array}
+$$
+
+## Omiting Values
+
+- If we omit the value before the `:` from the slice, it is treated as if a zero was provided.
+
+```{python}
+color_arr
+```
+
+
+```{python}
+color_arr[0:4]
+```
+
+```{python}
+color_arr[:4]
+```
+
+## Omiting End
+
+- If we omit the value after the `:` from the slice, it is as if the length was provided.
+
+```{python}
+color_arr
+```
+
+- `len` gives the length of a list or array
+
+```{python}
+len(color_arr)
+```
+
+
+```{python}
+color_arr[4:7]
+```
+
+```{python}
+color_arr[4:]
+```
+
+## Steps
+ 
+- Python and NumPy slices have an additional feature I find quite nice called "steps"
+- We specify a slice:
+```{python}
+color_arr[1:4]
+```
+- We add a *third* value
+```{python}
+color_arr[1:4:1]
+```
+
+## Step Size
+
+-- We add a *third* value
+```{python}
+color_arr[1:4:1]
+```
+- This value determines how far to move over the original array between each element shown.
+  - Let's look at `2` - every other element.
+```{python}
+color_arr[1:4:2]
+```
+
+## Example
+
+- In kindergarten, I learned that red, yellow, and blue were primary colors.
+	- I'm relatively unconvinced by that at this time, but it's a good example.
+```{python}
+color_arr
+```
+- And the primaries:
+```{python}
+color_arr[0:5:2]
+```
+
+## Step Ommissions
+
+- We can omit start, stop, or both and still take steps.
+```{python}
+color_arr[::3]
+```
+- We can use a *negative* step to reverse.
+```{python}
+color_arr[::-1]
+```
+
+## Aside: Negatives
+
+- Negative starts and stops can also be used
+```{python}
+color_arr
+```
+- They simply measure distance from the end.
+```{python}
+color_arr[:-2]
+```
+
+## Coordinates
+
+- Versus Python lists-of-lists.
+```{python}
+taxes[1][1]
+```
+- NumPy arrays can specify coordinates - indices of multiple dimensions - in a single set of brackets.
+```{python}
+arr[1][1], arr[1, 1]
+```
+
+## Coordinate slices
+
+- I recommend using the comma notation.
+- Otherwise I get unexpected behavior.
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{python}
+# reverse in both dimensions
+arr[::-1][::-1] 
+```
+
+
+:::
+
+::: {.column width="50%"}
+
+```{python}
+# reverse in both dimensions
+arr[::-1,::-1]
+```
+
+:::
+
+::::
+
+- Takeaway:  Always use `[x,y]` instead of `[x][y]`
+- Things like this are we use NumPy!
+
+## Updates
+
+- We can also update entries via `=`
+```{python}
+color_arr
+```
+-  Use (1) name of array, (2) index of element, (3) `=`, (4) new element
+```{python}
+color_arr[-1] = 'purple'
+```
+- The array now has that element/index.
+```{python}
+color_arr
+```
+
+# Vectorization
+
+## Why NumPy?
+
+- NumPy vectors can do a *very* cool thing that lists can't.
+- We use it a lot in science.
+- *Vector operations*.
+
+## Vector Ops
+
+- Let's compare Python
+
+```{python}
+l1 = [1,2,3]
+l2 = [1,1,1]
+l1 + l2
+```
+- To NumPy
+```{python}
+a1 = np.array(l1)
+a2 = np.array(l2)
+a1 + a2
+```
+- By the way, vectorization is really fast.
+- Our first "high performance computing" idea.
+
+## Example
+
+- Suppose you need to convert some temperatures.
+
+```{python}
+# Portland highs and lows 5/26/25-6/2/25 in degF
+temps = np.array([70, 50, 81, 60, 85, 57, 70, 52, 84, 58, 87, 58, 74, 53, 70, 54])
+temps -= 32
+temps *= 5
+temps //= 9
+temps
+```
+
+## Aside: `//`
+
+- NumPy requires arrays to be of a certain kind of number.
+- `30` is an integer.
+- `30/9` is a decimal value...
+- Python furnishes special `//` integer division.
+	- It truncates (does not round) the result.
+```{python}
+np.array([1,2,3,4,5,6,7,8,9,10]) // 3
+```
+- Try using `/` there. What happens?
+
+## Use case 
+
+- Slices and vectorization are *very* useful in the income tax example.
+- We:
+  	- Had income cutoffs, that were
+	- The *beginning* of some tax brackets, but
+	- The *end* of other tax brackets
+	- Offset by one (`1`)
+
+## Building Brackets
+
+- Let's refresh on what the tax bracket array looked like.
+```{python}
+arr
+```
+- Initial tax bracket goes zero and to `9275`
+- The next goes from `9275` to `37650`.
+- So `9275` is useful to two brackets.
+
+## Begin and end
+
+- Let's grab just the cutoffs.
+```{python}
+cutoffs = arr[:,0]
+cutoffs
+```
+- `[:, 0]` means for every row (slice `:`) take the initial columns (index `0`)
+
+## Insert
+
+- The initial bracket begins at `0` and the last bracket ends at infinity.
+	- NumPy knows about infinity! `np.inf`
+- We can use NumPy `insert` to add an element at an index:
+```{python}
+# Insert to (a) an array at (b) some index (c) some value
+a = cutoffs
+b = len(cutoffs)
+c = np.inf
+cutoffs = np.insert(a, b, c)
+cutoffs
+```
+
+## Append
+
+- I usually don't insert, I append.
+- This allows adding two arrays together, like how Python `+` works on lists.
+```{python}
+# Smoosh arrays together.
+cutoffs = np.append([0],cutoffs)
+cutoffs
+```
+
+## Slicing
+
+- Now we can take the beginning of every bracket, by index:
+```{python}
+begin = cutoffs[:-1]
+begin
+```
+- And the end
+```{python}
+end = cutoffs[1:]
+end
+```
+
+## Vector Minus
+
+- We can see how big each bracket is.
+```{python}
+bracket_size = end - begin
+bracket_size
+```
+
+## Vector Times
+
+- We can see how much tax is spent in each bracket.
+  - We will "cut off" the last bracket first
+  - It doesn't really have a size?
+```{python}
+bracket_cost = bracket_size[:-1] * arr[:, 1]
+bracket_cost
+```
+- What happens if we don't cut off the last bracket and try to multiply a vector of length `7` by a vector of length `6`?
+
+## Accumulation
+
+- While `bracket_cost` does correctly describe the cost within on bracket, someone in the `n+1`'th bracket pays the cost the previous `n` brackets.
+- Someone how we want to sum those up.
+- NumPy has many built-in array functions, including `np.cumsum`.
+```{python}
+total_cost = np.cumsum(bracket_cost)
+total_cost
+```
+
+# Takeaways
+
+## NumPy does a lot!
+- [Arrays](https://numpy.org/doc/stable/user/basics.creation.html) mostly, but including:
+- Vector operations called ["broadcasting"](https://numpy.org/doc/stable/user/basics.broadcasting.html).
+- [Indices and slices](https://numpy.org/doc/stable/user/basics.indexing.html) matter a lot.
+- [Contants](https://numpy.org/devdocs/reference/constants.html) like `np.inf` support mathematics
+- [Accumulation functions](https://numpy.org/doc/2.1/reference/routines.math.html#sums-products-differences) we don't have to write ourselves (which we'd have to do via loops)
+
+
+# Exercise
+
+## Using NumPy
+
+- Today we successfully recomputed the points of the point-intercept form of the income tax problem.
+- Using NumPy, starting with `taxes`, create the array on the right:
+
+:::: {.columns}
+
+::: {.column width="28%"}
+
+```{python}
+taxes = np.array([
+    [9275, .1],
+    [37650, .15],
+    [91150, .25],
+    [190150, .28],
+    [413350, .33],
+    [415051, .35]
+])
+```
+
+:::
+
+::: {.column width="72%"}
+
+```{python}
+#| eval: false
+np.array([[ 9.275000e+03,  1.000000e-01,  0.000000e+00],
+          [ 3.765000e+04,  1.500000e-01, -4.637500e+02],
+          [ 9.115000e+04,  2.500000e-01, -4.228750e+03],
+          [ 1.901500e+05,  2.800000e-01, -6.963250e+03],
+          [ 4.133500e+05,  3.300000e-01, -1.647075e+04],
+          [ 4.150510e+05,  3.500000e-01, -2.473775e+04]])
+```
+
+:::
+
+::::
+
+## Transpose
+
+- There are many ways to solve this problem!
+- Things will be easier with the following:
+```{python}
+taxes.shape
+```
+```{python}
+taxes.reshape(2,6)
+```
+
+```{python}
+taxes.transpose()
+```
+
+## Bonus Problem
+
+- NumPy allows random number generation.
+- Generate one million random numbers between, say, `0` and `500000`.
+  - There will be repeats, which is okay.
+- Use Python with and without NumPy to compute every tax cost.
+- See which one is faster! You can use the shell command `time`
+
+## Aside: Random
+
+- The following:
+  - Generates 1 million random integers from `0` to `50000`
+  - Prints every 10 thousandth integer.
+```{python filename="onemil.py"}
+import numpy as np
+rng = np.random.default_rng()
+incomes = rng.integers(0, 500000, 1000000)
+print(incomes[::10000])
+```
+- Read more: [Random sample](https://numpy.org/doc/stable/reference/random/index.html)
+
+## Aside: `time`
+
+- Use `time` before a command.
+  - `real` time is how much passes in real life
+
+```{.bash code-line-numbers="false}
+$ time python3 onemil.py
+[123177 422613 471310 380518  95385 143328 426503 453832 427403 106416
+ 327306 476263  65814 281381 422404  59938  14231 232824 342190 329545
+ 412684 112339 202498   5071  59114 394601 451216  92268 381107 487447
+  55089 339493 344836 261917 148326 452850 409130 484951 427839 307217
+ 259268 485208 331277 183015 132480 345930 439366   6814  39743 268276
+  80739 293355 170394   4220  48082  15668 453927  58059 320294 101182
+   1864 492297 130465   9920  76321 345944 268312 255875  46614 195236
+ 233737 443948 343483 116870 165561 326265 103567 327780 475672 392212
+ 396479 328248  43273  32596 246212   4258  60202  66783 135035 155327
+ 469638 378485 175496 428130 493185 154716 193012 424037 197666 103758]
+
+real    0m0.155s
+user    0m1.883s
+sys     0m0.033s
+```
+
+## Solution
+
+```{python}
+#| code-fold: true
+cutoffs = taxes[:,0]
+rates = taxes[:,1]
+
+# If you are confused, print(arr) after every line
+arr = np.append([0], cutoffs)
+arr = arr[1:] - arr[:-1]
+arr *= rates
+arr = np.cumsum(arr)
+arr = arr - cutoffs * rates
+
+taxes = np.array([cutoffs,rates,arr])
+
+taxes = taxes.transpose()
+```
+
+## Using it
+
+- I used the exact same `single_tax` function as in the "Shell" exercise.
+
+```{python}
+#| code-fold: true
+def single_tax(income):
+    # Check all brackets
+    for tax in taxes:
+        if income < tax[0]:
+            return income * tax[1] + tax[2]
+    # We calculated the top bracket earlier
+    return income * .396 + -43830.05
+```

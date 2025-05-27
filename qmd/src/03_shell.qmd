@@ -780,7 +780,7 @@ This is an advanced topic.
 - Before:
 
 ```{.python filename="tax.py"}
-855.0
+1855.0
 10367.5
 29517.5
 51791.5
@@ -791,7 +791,7 @@ This is an advanced topic.
 - After:
 
 ```{.python filename="tax.py"}
-[855.0
+[1855.0
 [10367.5
 [29517.5
 [51791.5
