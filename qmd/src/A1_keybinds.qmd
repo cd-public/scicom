@@ -79,30 +79,6 @@ result
 
 ## {.smaller}
 
-|Command|Action|
-|-------|------|
-|`ls`| list files in folder |
-|`rm f.txt`| delete file "f.txt"|
-|`mkdir dir`| create a new folder named "dir"|
-|`mv f.txt dir`| move file "f.txt" to folder "dir"|
-|`pwd`| print current folder |
-|`cd dir`| change current folder to "dir"|
-|`cd ..` | go to "parent" folder |
-|`echo hi`| print the text "hi"|
-|`echo hi >f.txt`| write "hi" to file "f.txt"|
-|`cat f.txt`| see the text in f.txt|
-
-## Bash
-
-- Bash commands are used folder-relative.
-- Bash is used within a terminal and is the default terminal environment.
-- To get bash running:
-	- Windows: Check [Appendix - Git Bash](A0_gitbash.qmd)
-	- MacOS: Spotlight menu -> "Terminal" (zsh, but close enough)
-- Mostly used to navigate the file system, organize files, launch programs like Python and Neovim
-
-## {.smaller}
-
 |Motion|Movement|
 |-------|------|
 |`h`| left one character |
@@ -115,13 +91,11 @@ result
 |`e`| end of word |
 |`b`| beginning of word |
 
-
 ## {.smaller}
 
 :::: {.columns}
 
-::: {.column width="50%"}
-
+::: {.column width="49%"}
 
 |Operator|Action|
 |-------|------|
@@ -131,10 +105,13 @@ result
 |`y`| yank text, combined with a motion |
 |`p`| paste yanked text |
 
+:::
+
+::: {.column width="2%"}
 
 :::
 
-::: {.column width="50%"}
+::: {.column width="49%"}
 
 |Command|Action|
 |-------|------|
@@ -142,6 +119,31 @@ result
 |`:w`| save file |
 |`:x`| save and exit |
 |`:q!` | exit without saving |:::: {.columns}
+
 :::
+
+## Bash
+
+- Bash commands are used folder-relative.
+- Bash is used within a terminal and is the default terminal environment.
+- To get bash running:
+	- Windows: Check [Appendix - Git Bash](A0_gitbash.qmd)
+	- MacOS: Spotlight menu -> "Terminal" (zsh, but close enough)
+- Mostly used to navigate the file system, organize files, launch programs like Python and Neovim
+
+## {.smaller}
+
+|Command|Action|
+|-------|------|
+|`ls`| list files in folder |
+|`rm f.txt`| delete file "f.txt"|
+|`mkdir dir`| create a new folder named "dir"|
+|`mv f.txt dir`| move file "f.txt" to folder "dir"|
+|`pwd`| print current folder |
+|`cd dir`| change current folder to "dir"|
+|`cd ..` | go to "parent" folder |
+|`echo hi`| print the text "hi"|
+|`echo hi >f.txt`| write "hi" to file "f.txt"|
+|`cat f.txt`| see the text in f.txt|
 
 ::::
