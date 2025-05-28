@@ -195,6 +195,12 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./05_matplotlib.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Matplotlib</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./A0_gitbash.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Appendix - Git Bash</span></a>
   </div>
@@ -222,9 +228,7 @@ window.Quarto = {
   <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1"></a></li>
   <li><a href="#neovim" id="toc-neovim" class="nav-link" data-scroll-target="#neovim">Neovim</a></li>
   <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2"></a></li>
-  <li><a href="#bash" id="toc-bash" class="nav-link" data-scroll-target="#bash">Bash</a></li>
   <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3"></a></li>
-  <li><a href="#section-4" id="toc-section-4" class="nav-link" data-scroll-target="#section-4"></a></li>
   </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="A1_keybinds.rjs.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
@@ -280,7 +284,7 @@ f(x) =
 \end{cases}
 \]</span></p>
 </div><div class="column" style="width:50%;">
-<div id="0c25b735" class="cell" data-execution_count="2">
+<div id="128ce48f" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">def</span> f(x):</span>
 <span id="cb1-2"><a href="#cb1-2"></a>    <span class="cf">if</span> (x <span class="op">&lt;</span> <span class="dv">4</span>):</span>
 <span id="cb1-3"><a href="#cb1-3"></a>        <span class="cf">return</span> <span class="dv">9</span> <span class="op">*</span> x <span class="op">**</span> <span class="dv">2</span> <span class="op">+</span> <span class="dv">5</span></span>
@@ -302,7 +306,7 @@ f(x) =
 \]</span></li>
 </ul>
 </div><div class="column" style="width:50%;">
-<div id="0cd4de59" class="cell" data-execution_count="3">
+<div id="60a77bcd" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>result <span class="op">=</span> []</span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="cf">for</span> x <span class="kw">in</span> [<span class="op">-</span><span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">11</span>]:</span>
 <span id="cb2-3"><a href="#cb2-3"></a>    result <span class="op">=</span> result <span class="op">+</span> [f(x)]</span>
@@ -329,6 +333,130 @@ f(x) =
 </section>
 <section id="section-2" class="level2 smaller">
 <h2 class="smaller anchored" data-anchor-id="section-2"></h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Motion</th>
+<th>Movement</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>h</code></td>
+<td>left one character</td>
+</tr>
+<tr class="even">
+<td><code>j</code></td>
+<td>down one line</td>
+</tr>
+<tr class="odd">
+<td><code>k</code></td>
+<td>up one line</td>
+</tr>
+<tr class="even">
+<td><code>l</code></td>
+<td>right one character</td>
+</tr>
+<tr class="odd">
+<td><code>0</code></td>
+<td>beginning of line</td>
+</tr>
+<tr class="even">
+<td><code>$</code></td>
+<td>end of line</td>
+</tr>
+<tr class="odd">
+<td><code>/search_term</code></td>
+<td>go to next occurance of “search_term”</td>
+</tr>
+<tr class="even">
+<td><code>e</code></td>
+<td>end of word</td>
+</tr>
+<tr class="odd">
+<td><code>b</code></td>
+<td>beginning of word</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="section-3" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="section-3"></h2>
+<div class="columns">
+<div class="column" style="width:49%;">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Operator</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>i</code></td>
+<td>insert text</td>
+</tr>
+<tr class="even">
+<td><code>r</code></td>
+<td>replace character</td>
+</tr>
+<tr class="odd">
+<td><code>d</code></td>
+<td>delete text, combined with a motion</td>
+</tr>
+<tr class="even">
+<td><code>y</code></td>
+<td>yank text, combined with a motion</td>
+</tr>
+<tr class="odd">
+<td><code>p</code></td>
+<td>paste yanked text</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:2%;">
+
+</div><div class="column" style="width:49%;">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>:saveas file.txt</code></td>
+<td>save text as “file.txt”</td>
+</tr>
+<tr class="even">
+<td><code>:w</code></td>
+<td>save file</td>
+</tr>
+<tr class="odd">
+<td><code>:x</code></td>
+<td>save and exit</td>
+</tr>
+<tr class="even">
+<td><code>:q!</code></td>
+<td>exit without saving</td>
+</tr>
+</tbody>
+</table>
+</div><section id="bash" class="level2">
+<h2 class="anchored" data-anchor-id="bash">Bash</h2>
+<ul>
+<li>Bash commands are used folder-relative.</li>
+<li>Bash is used within a terminal and is the default terminal environment.</li>
+<li>To get bash running:
+<ul>
+<li>Windows: Check <a href="./A0_gitbash.html">Appendix - Git Bash</a></li>
+<li>MacOS: Spotlight menu -&gt; “Terminal” (zsh, but close enough)</li>
+</ul></li>
+<li>Mostly used to navigate the file system, organize files, launch programs like Python and Neovim</li>
+</ul>
+</section><section id="section-4" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="section-4"></h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -380,130 +508,6 @@ f(x) =
 </tbody>
 </table>
 </section>
-<section id="bash" class="level2">
-<h2 class="anchored" data-anchor-id="bash">Bash</h2>
-<ul>
-<li>Bash commands are used folder-relative.</li>
-<li>Bash is used within a terminal and is the default terminal environment.</li>
-<li>To get bash running:
-<ul>
-<li>Windows: Check <a href="./A0_gitbash.html">Appendix - Git Bash</a></li>
-<li>MacOS: Spotlight menu -&gt; “Terminal” (zsh, but close enough)</li>
-</ul></li>
-<li>Mostly used to navigate the file system, organize files, launch programs like Python and Neovim</li>
-</ul>
-</section>
-<section id="section-3" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="section-3"></h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Motion</th>
-<th>Movement</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>h</code></td>
-<td>left one character</td>
-</tr>
-<tr class="even">
-<td><code>j</code></td>
-<td>down one line</td>
-</tr>
-<tr class="odd">
-<td><code>k</code></td>
-<td>up one line</td>
-</tr>
-<tr class="even">
-<td><code>l</code></td>
-<td>right one character</td>
-</tr>
-<tr class="odd">
-<td><code>0</code></td>
-<td>beginning of line</td>
-</tr>
-<tr class="even">
-<td><code>$</code></td>
-<td>end of line</td>
-</tr>
-<tr class="odd">
-<td><code>/search_term</code></td>
-<td>go to next occurance of “search_term”</td>
-</tr>
-<tr class="even">
-<td><code>e</code></td>
-<td>end of word</td>
-</tr>
-<tr class="odd">
-<td><code>b</code></td>
-<td>beginning of word</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="section-4" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="section-4"></h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Operator</th>
-<th>Action</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>i</code></td>
-<td>insert text</td>
-</tr>
-<tr class="even">
-<td><code>r</code></td>
-<td>replace character</td>
-</tr>
-<tr class="odd">
-<td><code>d</code></td>
-<td>delete text, combined with a motion</td>
-</tr>
-<tr class="even">
-<td><code>y</code></td>
-<td>yank text, combined with a motion</td>
-</tr>
-<tr class="odd">
-<td><code>p</code></td>
-<td>paste yanked text</td>
-</tr>
-</tbody>
-</table>
-</div><div class="column" style="width:50%;">
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Command</th>
-<th>Action</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>:saveas file.txt</code></td>
-<td>save text as “file.txt”</td>
-</tr>
-<tr class="even">
-<td><code>:w</code></td>
-<td>save file</td>
-</tr>
-<tr class="odd">
-<td><code>:x</code></td>
-<td>save and exit</td>
-</tr>
-<tr class="even">
-<td><code>:q!</code></td>
-<td>exit without saving</td>
-</tr>
-</tbody>
-</table>
-</div>
 </div>
 
 
@@ -1074,72 +1078,74 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb4-83"><a href="#cb4-83"></a></span>
 <span id="cb4-84"><a href="#cb4-84"></a><span class="fu">## {.smaller}</span></span>
 <span id="cb4-85"><a href="#cb4-85"></a></span>
-<span id="cb4-86"><a href="#cb4-86"></a>|Command|Action|</span>
+<span id="cb4-86"><a href="#cb4-86"></a>|Motion|Movement|</span>
 <span id="cb4-87"><a href="#cb4-87"></a>|-------|------|</span>
-<span id="cb4-88"><a href="#cb4-88"></a>|<span class="in">`ls`</span>| list files in folder |</span>
-<span id="cb4-89"><a href="#cb4-89"></a>|<span class="in">`rm f.txt`</span>| delete file "f.txt"|</span>
-<span id="cb4-90"><a href="#cb4-90"></a>|<span class="in">`mkdir dir`</span>| create a new folder named "dir"|</span>
-<span id="cb4-91"><a href="#cb4-91"></a>|<span class="in">`mv f.txt dir`</span>| move file "f.txt" to folder "dir"|</span>
-<span id="cb4-92"><a href="#cb4-92"></a>|<span class="in">`pwd`</span>| print current folder |</span>
-<span id="cb4-93"><a href="#cb4-93"></a>|<span class="in">`cd dir`</span>| change current folder to "dir"|</span>
-<span id="cb4-94"><a href="#cb4-94"></a>|<span class="in">`cd ..`</span> | go to "parent" folder |</span>
-<span id="cb4-95"><a href="#cb4-95"></a>|<span class="in">`echo hi`</span>| print the text "hi"|</span>
-<span id="cb4-96"><a href="#cb4-96"></a>|<span class="in">`echo hi &gt;f.txt`</span>| write "hi" to file "f.txt"|</span>
-<span id="cb4-97"><a href="#cb4-97"></a>|<span class="in">`cat f.txt`</span>| see the text in f.txt|</span>
-<span id="cb4-98"><a href="#cb4-98"></a></span>
-<span id="cb4-99"><a href="#cb4-99"></a><span class="fu">## Bash</span></span>
-<span id="cb4-100"><a href="#cb4-100"></a></span>
-<span id="cb4-101"><a href="#cb4-101"></a><span class="ss">- </span>Bash commands are used folder-relative.</span>
-<span id="cb4-102"><a href="#cb4-102"></a><span class="ss">- </span>Bash is used within a terminal and is the default terminal environment.</span>
-<span id="cb4-103"><a href="#cb4-103"></a><span class="ss">- </span>To get bash running:</span>
-<span id="cb4-104"><a href="#cb4-104"></a><span class="ss">    - </span>Windows: Check <span class="co">[</span><span class="ot">Appendix - Git Bash</span><span class="co">](A0_gitbash.qmd)</span></span>
-<span id="cb4-105"><a href="#cb4-105"></a><span class="ss">    - </span>MacOS: Spotlight menu -&gt; "Terminal" (zsh, but close enough)</span>
-<span id="cb4-106"><a href="#cb4-106"></a><span class="ss">- </span>Mostly used to navigate the file system, organize files, launch programs like Python and Neovim</span>
-<span id="cb4-107"><a href="#cb4-107"></a></span>
-<span id="cb4-108"><a href="#cb4-108"></a><span class="fu">## {.smaller}</span></span>
-<span id="cb4-109"><a href="#cb4-109"></a></span>
-<span id="cb4-110"><a href="#cb4-110"></a>|Motion|Movement|</span>
-<span id="cb4-111"><a href="#cb4-111"></a>|-------|------|</span>
-<span id="cb4-112"><a href="#cb4-112"></a>|<span class="in">`h`</span>| left one character |</span>
-<span id="cb4-113"><a href="#cb4-113"></a>|<span class="in">`j`</span>| down one line|</span>
-<span id="cb4-114"><a href="#cb4-114"></a>|<span class="in">`k`</span>| up one line|</span>
-<span id="cb4-115"><a href="#cb4-115"></a>|<span class="in">`l`</span>| right one character|</span>
-<span id="cb4-116"><a href="#cb4-116"></a>|<span class="in">`0`</span>| beginning of line |</span>
-<span id="cb4-117"><a href="#cb4-117"></a>|<span class="in">`$`</span>| end of line |</span>
-<span id="cb4-118"><a href="#cb4-118"></a>|<span class="in">`/search_term`</span> | go to next occurance of "search_term" |</span>
-<span id="cb4-119"><a href="#cb4-119"></a>|<span class="in">`e`</span>| end of word |</span>
-<span id="cb4-120"><a href="#cb4-120"></a>|<span class="in">`b`</span>| beginning of word |</span>
-<span id="cb4-121"><a href="#cb4-121"></a></span>
-<span id="cb4-122"><a href="#cb4-122"></a></span>
-<span id="cb4-123"><a href="#cb4-123"></a><span class="fu">## {.smaller}</span></span>
-<span id="cb4-124"><a href="#cb4-124"></a></span>
-<span id="cb4-125"><a href="#cb4-125"></a>:::: {.columns}</span>
+<span id="cb4-88"><a href="#cb4-88"></a>|<span class="in">`h`</span>| left one character |</span>
+<span id="cb4-89"><a href="#cb4-89"></a>|<span class="in">`j`</span>| down one line|</span>
+<span id="cb4-90"><a href="#cb4-90"></a>|<span class="in">`k`</span>| up one line|</span>
+<span id="cb4-91"><a href="#cb4-91"></a>|<span class="in">`l`</span>| right one character|</span>
+<span id="cb4-92"><a href="#cb4-92"></a>|<span class="in">`0`</span>| beginning of line |</span>
+<span id="cb4-93"><a href="#cb4-93"></a>|<span class="in">`$`</span>| end of line |</span>
+<span id="cb4-94"><a href="#cb4-94"></a>|<span class="in">`/search_term`</span> | go to next occurance of "search_term" |</span>
+<span id="cb4-95"><a href="#cb4-95"></a>|<span class="in">`e`</span>| end of word |</span>
+<span id="cb4-96"><a href="#cb4-96"></a>|<span class="in">`b`</span>| beginning of word |</span>
+<span id="cb4-97"><a href="#cb4-97"></a></span>
+<span id="cb4-98"><a href="#cb4-98"></a><span class="fu">## {.smaller}</span></span>
+<span id="cb4-99"><a href="#cb4-99"></a></span>
+<span id="cb4-100"><a href="#cb4-100"></a>:::: {.columns}</span>
+<span id="cb4-101"><a href="#cb4-101"></a></span>
+<span id="cb4-102"><a href="#cb4-102"></a>::: {.column width="49%"}</span>
+<span id="cb4-103"><a href="#cb4-103"></a></span>
+<span id="cb4-104"><a href="#cb4-104"></a>|Operator|Action|</span>
+<span id="cb4-105"><a href="#cb4-105"></a>|-------|------|</span>
+<span id="cb4-106"><a href="#cb4-106"></a>|<span class="in">`i`</span>| insert text |</span>
+<span id="cb4-107"><a href="#cb4-107"></a>|<span class="in">`r`</span>| replace character |</span>
+<span id="cb4-108"><a href="#cb4-108"></a>|<span class="in">`d`</span>| delete text, combined with a motion |</span>
+<span id="cb4-109"><a href="#cb4-109"></a>|<span class="in">`y`</span>| yank text, combined with a motion |</span>
+<span id="cb4-110"><a href="#cb4-110"></a>|<span class="in">`p`</span>| paste yanked text |</span>
+<span id="cb4-111"><a href="#cb4-111"></a></span>
+<span id="cb4-112"><a href="#cb4-112"></a>:::</span>
+<span id="cb4-113"><a href="#cb4-113"></a></span>
+<span id="cb4-114"><a href="#cb4-114"></a>::: {.column width="2%"}</span>
+<span id="cb4-115"><a href="#cb4-115"></a></span>
+<span id="cb4-116"><a href="#cb4-116"></a>:::</span>
+<span id="cb4-117"><a href="#cb4-117"></a></span>
+<span id="cb4-118"><a href="#cb4-118"></a>::: {.column width="49%"}</span>
+<span id="cb4-119"><a href="#cb4-119"></a></span>
+<span id="cb4-120"><a href="#cb4-120"></a>|Command|Action|</span>
+<span id="cb4-121"><a href="#cb4-121"></a>|-------|------|</span>
+<span id="cb4-122"><a href="#cb4-122"></a>|<span class="in">`:saveas file.txt`</span>| save text as "file.txt"|</span>
+<span id="cb4-123"><a href="#cb4-123"></a>|<span class="in">`:w`</span>| save file |</span>
+<span id="cb4-124"><a href="#cb4-124"></a>|<span class="in">`:x`</span>| save and exit |</span>
+<span id="cb4-125"><a href="#cb4-125"></a>|<span class="in">`:q!`</span> | exit without saving |:::: {.columns}</span>
 <span id="cb4-126"><a href="#cb4-126"></a></span>
-<span id="cb4-127"><a href="#cb4-127"></a>::: {.column width="50%"}</span>
+<span id="cb4-127"><a href="#cb4-127"></a>:::</span>
 <span id="cb4-128"><a href="#cb4-128"></a></span>
-<span id="cb4-129"><a href="#cb4-129"></a></span>
-<span id="cb4-130"><a href="#cb4-130"></a>|Operator|Action|</span>
-<span id="cb4-131"><a href="#cb4-131"></a>|-------|------|</span>
-<span id="cb4-132"><a href="#cb4-132"></a>|<span class="in">`i`</span>| insert text |</span>
-<span id="cb4-133"><a href="#cb4-133"></a>|<span class="in">`r`</span>| replace character |</span>
-<span id="cb4-134"><a href="#cb4-134"></a>|<span class="in">`d`</span>| delete text, combined with a motion |</span>
-<span id="cb4-135"><a href="#cb4-135"></a>|<span class="in">`y`</span>| yank text, combined with a motion |</span>
-<span id="cb4-136"><a href="#cb4-136"></a>|<span class="in">`p`</span>| paste yanked text |</span>
+<span id="cb4-129"><a href="#cb4-129"></a><span class="fu">## Bash</span></span>
+<span id="cb4-130"><a href="#cb4-130"></a></span>
+<span id="cb4-131"><a href="#cb4-131"></a><span class="ss">- </span>Bash commands are used folder-relative.</span>
+<span id="cb4-132"><a href="#cb4-132"></a><span class="ss">- </span>Bash is used within a terminal and is the default terminal environment.</span>
+<span id="cb4-133"><a href="#cb4-133"></a><span class="ss">- </span>To get bash running:</span>
+<span id="cb4-134"><a href="#cb4-134"></a><span class="ss">    - </span>Windows: Check <span class="co">[</span><span class="ot">Appendix - Git Bash</span><span class="co">](A0_gitbash.qmd)</span></span>
+<span id="cb4-135"><a href="#cb4-135"></a><span class="ss">    - </span>MacOS: Spotlight menu -&gt; "Terminal" (zsh, but close enough)</span>
+<span id="cb4-136"><a href="#cb4-136"></a><span class="ss">- </span>Mostly used to navigate the file system, organize files, launch programs like Python and Neovim</span>
 <span id="cb4-137"><a href="#cb4-137"></a></span>
-<span id="cb4-138"><a href="#cb4-138"></a></span>
-<span id="cb4-139"><a href="#cb4-139"></a>:::</span>
-<span id="cb4-140"><a href="#cb4-140"></a></span>
-<span id="cb4-141"><a href="#cb4-141"></a>::: {.column width="50%"}</span>
-<span id="cb4-142"><a href="#cb4-142"></a></span>
-<span id="cb4-143"><a href="#cb4-143"></a>|Command|Action|</span>
-<span id="cb4-144"><a href="#cb4-144"></a>|-------|------|</span>
-<span id="cb4-145"><a href="#cb4-145"></a>|<span class="in">`:saveas file.txt`</span>| save text as "file.txt"|</span>
-<span id="cb4-146"><a href="#cb4-146"></a>|<span class="in">`:w`</span>| save file |</span>
-<span id="cb4-147"><a href="#cb4-147"></a>|<span class="in">`:x`</span>| save and exit |</span>
-<span id="cb4-148"><a href="#cb4-148"></a>|<span class="in">`:q!`</span> | exit without saving |:::: {.columns}</span>
-<span id="cb4-149"><a href="#cb4-149"></a>:::</span>
-<span id="cb4-150"><a href="#cb4-150"></a></span>
-<span id="cb4-151"><a href="#cb4-151"></a>::::</span>
+<span id="cb4-138"><a href="#cb4-138"></a><span class="fu">## {.smaller}</span></span>
+<span id="cb4-139"><a href="#cb4-139"></a></span>
+<span id="cb4-140"><a href="#cb4-140"></a>|Command|Action|</span>
+<span id="cb4-141"><a href="#cb4-141"></a>|-------|------|</span>
+<span id="cb4-142"><a href="#cb4-142"></a>|<span class="in">`ls`</span>| list files in folder |</span>
+<span id="cb4-143"><a href="#cb4-143"></a>|<span class="in">`rm f.txt`</span>| delete file "f.txt"|</span>
+<span id="cb4-144"><a href="#cb4-144"></a>|<span class="in">`mkdir dir`</span>| create a new folder named "dir"|</span>
+<span id="cb4-145"><a href="#cb4-145"></a>|<span class="in">`mv f.txt dir`</span>| move file "f.txt" to folder "dir"|</span>
+<span id="cb4-146"><a href="#cb4-146"></a>|<span class="in">`pwd`</span>| print current folder |</span>
+<span id="cb4-147"><a href="#cb4-147"></a>|<span class="in">`cd dir`</span>| change current folder to "dir"|</span>
+<span id="cb4-148"><a href="#cb4-148"></a>|<span class="in">`cd ..`</span> | go to "parent" folder |</span>
+<span id="cb4-149"><a href="#cb4-149"></a>|<span class="in">`echo hi`</span>| print the text "hi"|</span>
+<span id="cb4-150"><a href="#cb4-150"></a>|<span class="in">`echo hi &gt;f.txt`</span>| write "hi" to file "f.txt"|</span>
+<span id="cb4-151"><a href="#cb4-151"></a>|<span class="in">`cat f.txt`</span>| see the text in f.txt|</span>
+<span id="cb4-152"><a href="#cb4-152"></a></span>
+<span id="cb4-153"><a href="#cb4-153"></a>::::</span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

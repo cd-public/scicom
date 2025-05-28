@@ -416,7 +416,7 @@ f(x) =
 \end{cases}
 \]</span></p>
 </div><div class="column" style="width:50%;">
-<div id="0c25b735" class="cell" data-execution_count="2">
+<div id="128ce48f" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="kw">def</span> f(x):</span>
 <span id="cb1-2"><a></a>    <span class="cf">if</span> (x <span class="op">&lt;</span> <span class="dv">4</span>):</span>
 <span id="cb1-3"><a></a>        <span class="cf">return</span> <span class="dv">9</span> <span class="op">*</span> x <span class="op">**</span> <span class="dv">2</span> <span class="op">+</span> <span class="dv">5</span></span>
@@ -437,7 +437,7 @@ f(x) =
 \]</span></li>
 </ul>
 </div><div class="column" style="width:50%;">
-<div id="0cd4de59" class="cell" data-execution_count="3">
+<div id="60a77bcd" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a>result <span class="op">=</span> []</span>
 <span id="cb2-2"><a></a><span class="cf">for</span> x <span class="kw">in</span> [<span class="op">-</span><span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">11</span>]:</span>
 <span id="cb2-3"><a></a>    result <span class="op">=</span> result <span class="op">+</span> [f(x)]</span>
@@ -462,6 +462,130 @@ f(x) =
 </ul>
 </section>
 <section id="section-2" class="slide level2 smaller">
+<h2></h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Motion</th>
+<th>Movement</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>h</code></td>
+<td>left one character</td>
+</tr>
+<tr class="even">
+<td><code>j</code></td>
+<td>down one line</td>
+</tr>
+<tr class="odd">
+<td><code>k</code></td>
+<td>up one line</td>
+</tr>
+<tr class="even">
+<td><code>l</code></td>
+<td>right one character</td>
+</tr>
+<tr class="odd">
+<td><code>0</code></td>
+<td>beginning of line</td>
+</tr>
+<tr class="even">
+<td><code>$</code></td>
+<td>end of line</td>
+</tr>
+<tr class="odd">
+<td><code>/search_term</code></td>
+<td>go to next occurance of “search_term”</td>
+</tr>
+<tr class="even">
+<td><code>e</code></td>
+<td>end of word</td>
+</tr>
+<tr class="odd">
+<td><code>b</code></td>
+<td>beginning of word</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="section-3" class="slide level2 smaller">
+<h2></h2>
+<div class="columns">
+<div class="column" style="width:49%;">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Operator</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>i</code></td>
+<td>insert text</td>
+</tr>
+<tr class="even">
+<td><code>r</code></td>
+<td>replace character</td>
+</tr>
+<tr class="odd">
+<td><code>d</code></td>
+<td>delete text, combined with a motion</td>
+</tr>
+<tr class="even">
+<td><code>y</code></td>
+<td>yank text, combined with a motion</td>
+</tr>
+<tr class="odd">
+<td><code>p</code></td>
+<td>paste yanked text</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:2%;">
+
+</div><div class="column" style="width:49%;">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>:saveas file.txt</code></td>
+<td>save text as “file.txt”</td>
+</tr>
+<tr class="even">
+<td><code>:w</code></td>
+<td>save file</td>
+</tr>
+<tr class="odd">
+<td><code>:x</code></td>
+<td>save and exit</td>
+</tr>
+<tr class="even">
+<td><code>:q!</code></td>
+<td>exit without saving</td>
+</tr>
+</tbody>
+</table>
+</div><section id="bash" class="slide level2">
+<h2>Bash</h2>
+<ul>
+<li>Bash commands are used folder-relative.</li>
+<li>Bash is used within a terminal and is the default terminal environment.</li>
+<li>To get bash running:
+<ul>
+<li>Windows: Check <a href="./A0_gitbash.html">Appendix - Git Bash</a></li>
+<li>MacOS: Spotlight menu -&gt; “Terminal” (zsh, but close enough)</li>
+</ul></li>
+<li>Mostly used to navigate the file system, organize files, launch programs like Python and Neovim</li>
+</ul>
+</section><section id="section-4" class="slide level2 smaller">
 <h2></h2>
 <table class="caption-top">
 <thead>
@@ -514,130 +638,7 @@ f(x) =
 </tbody>
 </table>
 </section>
-<section id="bash" class="slide level2">
-<h2>Bash</h2>
-<ul>
-<li>Bash commands are used folder-relative.</li>
-<li>Bash is used within a terminal and is the default terminal environment.</li>
-<li>To get bash running:
-<ul>
-<li>Windows: Check <a href="./A0_gitbash.html">Appendix - Git Bash</a></li>
-<li>MacOS: Spotlight menu -&gt; “Terminal” (zsh, but close enough)</li>
-</ul></li>
-<li>Mostly used to navigate the file system, organize files, launch programs like Python and Neovim</li>
-</ul>
-</section>
-<section id="section-3" class="slide level2 smaller">
-<h2></h2>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th>Motion</th>
-<th>Movement</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>h</code></td>
-<td>left one character</td>
-</tr>
-<tr class="even">
-<td><code>j</code></td>
-<td>down one line</td>
-</tr>
-<tr class="odd">
-<td><code>k</code></td>
-<td>up one line</td>
-</tr>
-<tr class="even">
-<td><code>l</code></td>
-<td>right one character</td>
-</tr>
-<tr class="odd">
-<td><code>0</code></td>
-<td>beginning of line</td>
-</tr>
-<tr class="even">
-<td><code>$</code></td>
-<td>end of line</td>
-</tr>
-<tr class="odd">
-<td><code>/search_term</code></td>
-<td>go to next occurance of “search_term”</td>
-</tr>
-<tr class="even">
-<td><code>e</code></td>
-<td>end of word</td>
-</tr>
-<tr class="odd">
-<td><code>b</code></td>
-<td>beginning of word</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="section-4" class="slide level2 smaller">
-<h2></h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th>Operator</th>
-<th>Action</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>i</code></td>
-<td>insert text</td>
-</tr>
-<tr class="even">
-<td><code>r</code></td>
-<td>replace character</td>
-</tr>
-<tr class="odd">
-<td><code>d</code></td>
-<td>delete text, combined with a motion</td>
-</tr>
-<tr class="even">
-<td><code>y</code></td>
-<td>yank text, combined with a motion</td>
-</tr>
-<tr class="odd">
-<td><code>p</code></td>
-<td>paste yanked text</td>
-</tr>
-</tbody>
-</table>
-</div><div class="column" style="width:50%;">
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th>Command</th>
-<th>Action</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>:saveas file.txt</code></td>
-<td>save text as “file.txt”</td>
-</tr>
-<tr class="even">
-<td><code>:w</code></td>
-<td>save file</td>
-</tr>
-<tr class="odd">
-<td><code>:x</code></td>
-<td>save and exit</td>
-</tr>
-<tr class="even">
-<td><code>:q!</code></td>
-<td>exit without saving</td>
-</tr>
-</tbody>
-</table>
-</div></div>
+</div>
 
 
 </section></section>

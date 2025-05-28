@@ -23,9 +23,7 @@ Basically, to do scientific computing it would be nice to have:
 ## Relevance
 
 * We have essentially been using 1- and 2-dimensional arrays already!
-* Here is the examples `intercepts.py` solution from last time:
-
-Code
+* Here is the examples `intercepts.py` solution from last time
 
 ```{python}
 #| code-fold: true
@@ -136,7 +134,7 @@ taxes
 
 * We can verify it is a list.
 
-```{python{
+```{python}
 type(taxes)
 ```
 

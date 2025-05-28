@@ -1029,7 +1029,7 @@ Prof.&nbsp;Calvin
 <ul>
 <li>I claim it is <em>hard</em> to tell what this code is for.</li>
 </ul>
-<div id="88b87a84" class="cell" data-execution_count="2">
+<div id="437a85e3" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a></a><span class="kw">def</span> piecewise(x):</span>
 <span id="cb18-2"><a></a>    <span class="cf">if</span> (x <span class="op">&lt;</span> <span class="dv">4</span>):</span>
 <span id="cb18-3"><a></a>        <span class="cf">return</span> <span class="dv">9</span> <span class="op">*</span> x <span class="op">**</span> <span class="dv">2</span> <span class="op">+</span> <span class="dv">5</span></span>
@@ -1048,7 +1048,7 @@ Prof.&nbsp;Calvin
 <li>Good code tends to come with good <em>documentation</em> - written descriptions of what the code does.</li>
 <li>In Python, we can include “comments” - text that is not evaluated as code - by starting lines with <code>#</code></li>
 </ul>
-<div id="e1d79bae" class="cell" data-execution_count="3">
+<div id="a267e17a" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a></a><span class="co"># This is a comment.</span></span>
 <span id="cb19-2"><a></a><span class="bu">print</span>(<span class="st">"This is code."</span>)</span>
 <span id="cb19-3"><a></a><span class="co"># This is another comment.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1062,7 +1062,7 @@ Prof.&nbsp;Calvin
 <ul>
 <li>Here is how I documented <code>pw.py</code>:</li>
 </ul>
-<div id="5db2b024" class="cell" data-execution_count="4">
+<div id="84c99d35" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a></a><span class="co"># Example of a piecewise function, from a student.</span></span>
 <span id="cb21-2"><a></a><span class="co"># f(x) = 9x^2 + 5 | x &lt; 4</span></span>
 <span id="cb21-3"><a></a><span class="co">#        9        | 4 &lt;= x &lt;= 8</span></span>
@@ -1086,7 +1086,7 @@ Prof.&nbsp;Calvin
 <li>Comments can make it much nicer to work with.</li>
 <li>How?</li>
 </ul>
-<div id="e5dd160d" class="cell" data-execution_count="5">
+<div id="dca01b34" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a></a>tax_policy <span class="op">=</span> [</span>
 <span id="cb22-2"><a></a>    [<span class="dv">415050</span>, <span class="fl">.396</span>], </span>
 <span id="cb22-3"><a></a>    [<span class="dv">413350</span>, <span class="fl">.35</span>],</span>
@@ -1120,7 +1120,7 @@ Prof.&nbsp;Calvin
 <summary>
 Code
 </summary>
-<div id="77664438" class="cell" data-execution_count="6">
+<div id="60810ecb" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a></a>tax_policy <span class="op">=</span> [</span>
 <span id="cb23-2"><a></a>    [<span class="dv">415050</span>, <span class="fl">.396</span>], </span>
 <span id="cb23-3"><a></a>    [<span class="dv">413350</span>, <span class="fl">.35</span>],</span>
@@ -1144,7 +1144,7 @@ Code
 <ul>
 <li>After opening the file, just press <code>i</code> and start typing…</li>
 </ul>
-<div id="aaaf79d5" class="cell" data-execution_count="7">
+<div id="759b984b" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a></a><span class="co"># Gives the tax rate *above* a certain income level</span></span>
 <span id="cb24-2"><a></a>tax_policy <span class="op">=</span> [</span>
 <span id="cb24-3"><a></a>    [<span class="dv">415050</span>, <span class="fl">.396</span>], </span>
@@ -1166,7 +1166,7 @@ Code
 </ul></li>
 <li><code>$</code> jumps to the end of the line</li>
 </ul>
-<div id="37f00986" class="cell" data-execution_count="8">
+<div id="f24f0869" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a></a><span class="co"># Gives the tax rate *above* a certain income level</span></span>
 <span id="cb25-2"><a></a>tax_policy <span class="op">=</span> [</span>
 <span id="cb25-3"><a></a>    [<span class="dv">415050</span>, <span class="fl">.396</span>], <span class="co"># e.g. .396 of every 1 dollar over 415050 is taxed</span></span>
@@ -1227,7 +1227,7 @@ Code
 <li>Use <code>j</code> to go down to the next line.</li>
 <li>Use <code>p</code> to paste the comment.</li>
 </ul>
-<div id="24f8099c" class="cell" data-execution_count="9">
+<div id="ed547fa2" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a></a><span class="co"># Gives the tax rate *above* a certain income level</span></span>
 <span id="cb26-2"><a></a>tax_policy <span class="op">=</span> [</span>
 <span id="cb26-3"><a></a>    [<span class="dv">415050</span>, <span class="fl">.396</span>], <span class="co"># e.g. .396 of every 1 dollar over 415050 is taxed</span></span>
@@ -1250,7 +1250,7 @@ Code
 <li><code>l</code> to move right (onto “6”) then <code>dl</code> to delete the next character.</li>
 </ul></li>
 </ul>
-<div id="cee9b009" class="cell" data-execution_count="10">
+<div id="a96c9c0e" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a></a><span class="co"># Gives the tax rate *above* a certain income level</span></span>
 <span id="cb27-2"><a></a>tax_policy <span class="op">=</span> [</span>
 <span id="cb27-3"><a></a>    [<span class="dv">415050</span>, <span class="fl">.396</span>], <span class="co"># e.g. .396 of every 1 dollar over 415050 is taxed</span></span>
@@ -1273,7 +1273,7 @@ Code
 <li>I escaped (ESC) and saved (<code>:w</code>)</li>
 </ul></li>
 </ul>
-<div id="f1d453d2" class="cell" data-execution_count="11">
+<div id="0cef3569" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a></a><span class="co"># Gives the tax rate *above* a certain income level</span></span>
 <span id="cb28-2"><a></a>tax_policy <span class="op">=</span> [</span>
 <span id="cb28-3"><a></a>    [<span class="dv">415050</span>, <span class="fl">.396</span>], <span class="co"># e.g. .396 of every 1 dollar over 415050 is taxed</span></span>
@@ -1309,7 +1309,7 @@ Code
 <li>Here’s some naive notes I took.</li>
 <li>They can be made better!</li>
 </ul>
-<div id="d6a70789" class="cell" data-execution_count="12">
+<div id="d780c389" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a></a><span class="co"># Tax on first bracket, up to 9725 at .1</span></span>
 <span id="cb29-2"><a></a>first <span class="op">=</span> <span class="dv">9725</span> <span class="op">*</span> <span class="fl">.1</span></span>
 <span id="cb29-3"><a></a><span class="co"># Second - to 37650 at .25</span></span>
@@ -1321,30 +1321,30 @@ Code
 <ul>
 <li>We know e.g.&nbsp;the tax cost at 500000</li>
 </ul>
-<div id="7f3cee57" class="cell" data-execution_count="13">
+<div id="db4e0b71" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a></a>x <span class="op">=</span> single_tax(<span class="dv">500000</span>)</span>
 <span id="cb30-2"><a></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="454">
+<div class="cell-output cell-output-display" data-execution_count="428">
 <pre><code>154169.95</code></pre>
 </div>
 </div>
 <ul>
 <li>Compare to a non-marginal 39.6%</li>
 </ul>
-<div id="3b765ea7" class="cell" data-execution_count="14">
+<div id="ee046ddf" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a></a>y <span class="op">=</span> <span class="dv">500000</span> <span class="op">*</span> <span class="fl">.396</span></span>
 <span id="cb32-2"><a></a>y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="455">
+<div class="cell-output cell-output-display" data-execution_count="429">
 <pre><code>198000.0</code></pre>
 </div>
 </div>
 <ul>
 <li>We can find the difference.</li>
 </ul>
-<div id="08f03b4b" class="cell" data-execution_count="15">
+<div id="484558de" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a></a>b <span class="op">=</span> x <span class="op">-</span> y </span>
 <span id="cb34-2"><a></a>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="456">
+<div class="cell-output cell-output-display" data-execution_count="430">
 <pre><code>-43830.04999999999</code></pre>
 </div>
 </div>
@@ -1354,20 +1354,20 @@ Code
 <ul>
 <li>Try 450000</li>
 </ul>
-<div id="ed389a69" class="cell" data-execution_count="16">
+<div id="c03eafc7" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a></a>income <span class="op">=</span> <span class="dv">450000</span></span>
 <span id="cb36-2"><a></a>[single_tax(income), income <span class="op">*</span> <span class="fl">.396</span> <span class="op">+</span> b]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="457">
+<div class="cell-output cell-output-display" data-execution_count="431">
 <pre><code>[134369.95, 134369.95]</code></pre>
 </div>
 </div>
 <ul>
 <li>Try 650000</li>
 </ul>
-<div id="83e2a167" class="cell" data-execution_count="17">
+<div id="5cb107ca" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a></a>income <span class="op">=</span> <span class="dv">650000</span></span>
 <span id="cb38-2"><a></a>[single_tax(income), income <span class="op">*</span> <span class="fl">.396</span> <span class="op">+</span> b]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="458">
+<div class="cell-output cell-output-display" data-execution_count="432">
 <pre><code>[213569.95, 213569.95]</code></pre>
 </div>
 </div>
@@ -1390,16 +1390,16 @@ y = mx + b
 <ul>
 <li>Thinking in slopes and intercepts is a powerful scientific skill!</li>
 </ul>
-<div id="18dab454" class="cell" data-execution_count="18">
+<div id="6f48e9f1" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a></a><span class="kw">def</span> in_degrees_f(degrees_c):</span>
 <span id="cb40-2"><a></a>    <span class="cf">return</span> (<span class="dv">9</span><span class="op">/</span><span class="dv">5</span>) <span class="op">*</span> degrees_c <span class="op">+</span> <span class="dv">32</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>Recognize this?</li>
 </ul>
-<div id="5446735c" class="cell" data-execution_count="19">
+<div id="36e85ff0" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a></a>[in_degrees_f(<span class="dv">0</span>), in_degrees_f(<span class="dv">100</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="460">
+<div class="cell-output cell-output-display" data-execution_count="434">
 <pre><code>[32.0, 212.0]</code></pre>
 </div>
 </div>
@@ -1428,7 +1428,7 @@ y = mx + b
 <li>Here it is for “Married Filing Jointly”</li>
 <li>You can do this with a loop using the <code>tax_policy</code> list-of-lists!</li>
 </ul>
-<div id="8ff8c040" class="cell" data-execution_count="20">
+<div id="d00504ed" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a></a>b <span class="op">=</span> <span class="dv">18550</span> <span class="op">*</span> <span class="fl">.1</span></span>
 <span id="cb43-2"><a></a><span class="bu">print</span>(b)</span>
 <span id="cb43-3"><a></a>b <span class="op">+=</span> (<span class="dv">75300</span> <span class="op">-</span> <span class="dv">18550</span>) <span class="op">*</span> <span class="fl">.15</span></span>
@@ -1451,7 +1451,7 @@ y = mx + b
 <summary>
 Code
 </summary>
-<div id="a4e24819" class="cell columns column-output-location" data-execution_count="21">
+<div id="9f0673ca" class="cell columns column-output-location" data-execution_count="21">
 <div class="column">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a></a>taxes <span class="op">=</span> [</span>
 <span id="cb45-2"><a></a>    [<span class="dv">18550</span>, <span class="fl">.10</span>],</span>
@@ -1535,7 +1535,7 @@ Code
 <div class="code-with-filename-file">
 <pre><strong>tax.py</strong></pre>
 </div>
-<div class="sourceCode" id="cb48" data-filename="tax.py"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a></a><span class="fl">855.0</span></span>
+<div class="sourceCode" id="cb48" data-filename="tax.py"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a></a><span class="fl">1855.0</span></span>
 <span id="cb48-2"><a></a><span class="fl">10367.5</span></span>
 <span id="cb48-3"><a></a><span class="fl">29517.5</span></span>
 <span id="cb48-4"><a></a><span class="fl">51791.5</span></span>
@@ -1549,7 +1549,7 @@ Code
 <div class="code-with-filename-file">
 <pre><strong>tax.py</strong></pre>
 </div>
-<div class="sourceCode" id="cb49" data-filename="tax.py"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a></a>[<span class="fl">855.0</span></span>
+<div class="sourceCode" id="cb49" data-filename="tax.py"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a></a>[<span class="fl">1855.0</span></span>
 <span id="cb49-2"><a></a>[<span class="fl">10367.5</span></span>
 <span id="cb49-3"><a></a>[<span class="fl">29517.5</span></span>
 <span id="cb49-4"><a></a>[<span class="fl">51791.5</span></span>
@@ -1570,7 +1570,7 @@ Code
 <summary>
 Code
 </summary>
-<div id="ac5d4d34" class="cell" data-execution_count="22">
+<div id="cd2c54d5" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a></a>cost <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb50-2"><a></a>start <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb50-3"><a></a><span class="cf">for</span> tax <span class="kw">in</span> taxes:</span>
@@ -1594,7 +1594,7 @@ Code
 <li>Use points to determine intercepts</li>
 <li>Consider:</li>
 </ul>
-<div id="6c16e2be" class="cell" data-execution_count="23">
+<div id="3c1dc60c" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a></a><span class="co"># For taxpayers making more than 151900</span></span>
 <span id="cb52-2"><a></a><span class="co"># They pay 51791.50, plus</span></span>
 <span id="cb52-3"><a></a><span class="co"># .28 for every dollar over 151900</span></span>
@@ -1604,10 +1604,10 @@ Code
 <ul>
 <li>We can calculate it as follows:</li>
 </ul>
-<div id="1ff5db5d" class="cell" data-execution_count="24">
+<div id="801f1a6c" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a></a>b <span class="op">=</span> <span class="fl">51791.5</span> <span class="op">-</span> (<span class="dv">151900</span> <span class="op">*</span> <span class="fl">.28</span>)</span>
 <span id="cb53-2"><a></a>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="465">
+<div class="cell-output cell-output-display" data-execution_count="439">
 <pre><code>9259.499999999993</code></pre>
 </div>
 </div>
@@ -1618,7 +1618,7 @@ Code
 <li>Given the calculated slopes and intercepts, construct a piecewise function capturing income tax.</li>
 <li>Something like this:</li>
 </ul>
-<div id="0c915844" class="cell" data-execution_count="25">
+<div id="ffc71bef" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a></a><span class="kw">def</span> married_tax(income):</span>
 <span id="cb55-2"><a></a>    <span class="cf">if</span> (<span class="dv">151900</span> <span class="op">&lt;=</span> income <span class="op">&lt;</span> <span class="dv">231450</span>):</span>
 <span id="cb55-3"><a></a>        <span class="cf">return</span> income <span class="op">*</span> <span class="fl">.28</span> <span class="op">-</span> <span class="fl">9259.5</span></span>
@@ -1637,7 +1637,7 @@ Code
 </section>
 <section id="solution-pt.-1" class="slide level2">
 <h2>Solution pt.&nbsp;1</h2>
-<div id="b63c1e40" class="cell" data-execution_count="26">
+<div id="1263d19f" class="cell" data-execution_count="26">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a></a>taxes <span class="op">=</span> [</span>
@@ -1661,7 +1661,7 @@ Code
 </section>
 <section id="solution-pt.-2" class="slide level2">
 <h2>Solution pt.&nbsp;2</h2>
-<div id="0ecefb76" class="cell" data-execution_count="27">
+<div id="a6334a5a" class="cell" data-execution_count="27">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a></a><span class="co"># Generate with `intercepts` then modify with visual block mode</span></span>
