@@ -1,0 +1,402 @@
+---
+title: <strong>pandas</strong>
+---
+
+# What is **pandas**?
+
+- In its own words:
+
+> a fast, powerful, flexible and easy to use open source data analysis and manipulation tool
+
+- In my words:
+
+"The basis of the modern 'boom' in data and data analysis"
+
+## **pandas**
+
+- Stands for "panel data"
+- Original built on NumPy, now on supercomputing technologies.
+- Core innovation: The DataFrame
+
+> [A DataFrame is a data structure that organizes data into a 2-dimensional table of rows and columns, much like a spreadsheet.](https://www.databricks.com/glossary/what-are-dataframes)
+
+## "like a spreadsheet"
+
+- With **pandas**, we can do all the things we can do in a spreadsheet, but:
+  	- Automatically
+	- Repeatedly
+	- Consistently
+- Basically, we never have to find a button again, but instead we have to learn functions from code documentation.
+
+## Spreadsheet Usage
+
+- I mostly (used to) use spreadsheets to make charts.
+- **pandas** works *very* well with Matplotlib (better than NumPy does, I think)
+- In the NumPy tutorial, **pandas** and Matplotlib are the two other Python packages mentioned, to read spreadsheets and plot them, respectively.
+
+## Why not **pandas**?
+
+- After years undisputed prominence as the best data library, **pandas** has recently received a challenger called "Polars" which is situationally faster and rapidly gaining popularity.
+- I expect Polars to take over in cloud computing but not in scientific computing.
+- Polars uses neither NumPy not Matplotlib, but plots with Altair, which I found insuitable for scientific applications.
+
+## Relevance
+
+- We have only calculated and plotted data we have typed in ourselves!
+- Yuck!
+
+# Install
+
+## pip again
+
+- Just like NumPy and Matplotlib, **pandas** is a Python package which we install via `pip`
+```{.bash code-line-numbers="false"}
+python3 -m pip install pandas
+```
+- That might take a moment, when it does we can check it worked!
+
+## Two First Steps
+
+- There are two *great* ways to get a **pandas** DataFrame.
+- We quickly show both.
+```{python}
+import numpy as np
+import pandas as pd
+```
+
+
+## From NumPy
+
+```{python}
+taxes = np.array([
+    [9275, .1],
+    [37650, .15],
+    [91150, .25],
+    [190150, .28],
+    [413350, .33],
+    [415051, .35]
+])
+df = pd.DataFrame(taxes) # use "df" for dataframes by convention
+df # You'll notice this may look a lot nicer
+```
+
+## Get a File
+
+- I will use some nuclear data.
+- Usually data will come from your research group or experiments.
+- Often stored as a CSV.
+  	- A ".csv" file, for "comma separated value"
+- We'll use "Periodic Table of Elements.csv"
+  	- Spaces in maes are annoying; we'll manage.
+- It's from [here](https://gist.github.com/GoodmanSciences/c2dd862cd38f21b0ad36b8f96b4bf1ee)
+
+## From a URL
+
+- You can use files on your computer, or...
+- From a url.
+- But the url must be the address *of the file*
+  - Not a page that talks about the file.
+  - Not a page with the same data but presented in a pretty table.
+
+## "Raw" Files
+
+- On GitHub (common place to keep files) these are called "raw" files.
+  - [https://gist.githubusercontent.com/GoodmanSciences/c2dd862cd38f21b0ad36b8f96b4bf1ee/raw/1d92663004489a5b6926e944c1b3d9ec5c40900e/Periodic%2520Table%2520of%2520Elements.csv](https://gist.githubusercontent.com/GoodmanSciences/c2dd862cd38f21b0ad36b8f96b4bf1ee/raw/1d92663004489a5b6926e944c1b3d9ec5c40900e/Periodic%2520Table%2520of%2520Elements.csv)
+- Note - that ends in `.csv`
+
+## From File
+
+```{python}
+df = pd.read_csv("https://gist.githubusercontent.com/GoodmanSciences/c2dd862cd38f21b0ad36b8f96b4bf1ee/raw/1d92663004489a5b6926e944c1b3d9ec5c40900e/Periodic%2520Table%2520of%2520Elements.csv")
+df
+```
+
+# DataFrames
+
+## DataFrames and Arrays
+
+- DataFrames:
+  	- Have row and column labels
+	- Can store multiple types of data (strings/words, integers, and floating point numbers)
+- Arrays:
+  	- Don't
+	- Can't
+
+## Subsetting
+
+- One of the most common uses for **pandas** is to *subset*, to look at part of DataFrame but not all.
+- Usually by looking at a specific column or columns - by name.
+  	- Vs. arrays and lists, DataFrames still have indices, but they are now usually strings.
+```{python}
+df["Element"]
+```
+
+## Multiple Indices
+
+- We can also subset multiple indices using a *list* of *indices* (column names).
+
+```{python}
+df[["Element","Symbol"]]
+```
+
+## Filtering
+
+- We can subset rows by *filtering*
+- Basically we write what would be an `if` statement, but use it as an index.
+- The "transuranic" elements are elements higher than number 92.
+```{python}
+df[df["AtomicNumber"] > 92]
+```
+
+## Double `df`
+
+- We use `df` twice in that expression:
+  - Once to check the `df` if some value is greater than 92
+  - Once to look up all elements *for which* the value is greater.
+```{python}
+df["AtomicNumber"] > 92
+```
+
+## .columns
+
+- By the way, what all do we know?
+```{python}
+df.columns
+```
+- Oh that's a lot of information!
+
+## How big?
+
+- How big is `df`?
+```{python}
+df.shape
+```
+- And by the way, `np.array`'s have `shape` too.
+```{python}
+taxes.shape
+```
+- Aside: Multiple values within a `()` are asically lists but called tuples.
+```{python}
+type(taxes.shape)
+```
+
+## Locating Entries
+
+- Sometimes you want to use an integer index. 
+```{python}
+df.iloc[10] # "Integer Location"
+```
+
+## Zero/One index
+
+- DataFrames are 0-indexed
+```{python}
+df["AtomicNumber"].iloc[0]
+```
+- Elements are 1-indexed[^1] with good reason.
+```{python}
+df[["AtomicNumber","NumberofProtons"]].head(1)
+```
+[^1]: Neutronium is a proposed as an element with atomic number of `0`.
+
+
+
+## Data Manipulation
+
+- Check out these columns
+```{python}
+df.iloc[::20][["NumberofNeutrons", "NumberofProtons"]]
+```
+
+## Pattern
+
+- It *looks* like atoms with fewer protons have the same number of protons and neutrons, and atoms with many protons have many more neutrons.
+- Let's calculate the difference.
+```{python}
+df["NumberofProtons"] - df["NumberofNeutrons"]
+```
+
+# Plots
+
+## Visualize
+
+- Easier to visualize.
+```{python}
+# import Matplotlib if you don't have it yet!
+import matplotlib.pyplot as plt
+```
+
+## Scatterplot
+
+```{python}
+plt.scatter(df["NumberofProtons"], df["NumberofNeutrons"])
+```
+
+## Insights
+
+- A lot of science, as far as I can tell is finding novel insights.
+- I noticed that boiling/melting point seemed to go up and down at some intervals.
+- I recall that the number of outermost electrons did that too...
+- Let's make `num_es` again, from last time.
+
+## `num_es`
+
+```{python}
+es = np.array([2, 8, 8, 18, 18, 32, 32])
+num_es = np.array([]) # The first zero elements
+for e in es:
+    num_es = np.append(num_es, np.arange(e))
+num_es += 1
+num_es
+```
+
+## Expanding DataFrames
+
+- We can create a new column and new data to it from a `np.array`
+- At least if the dimensions work out...
+```{python}
+df.shape, num_es.shape
+```
+- We have 118 elements, so it is good we have 118 possible outermost electron counts!
+
+## Update list
+
+- Like updating the element of a list by index...
+```{python}
+colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet']
+colors[-1] = "purple"
+colors
+```
+
+## Update DataFrame
+
+- We can update *or add* a column to a DataFrame by index:
+```{python}
+df["OutermostElectrons"] = num_es
+df.iloc[::20][["Element","OutermostElectrons"]]
+```
+
+## Patterns
+
+- For a scatter, that is two (`2`) DataFrames (or subsets), **not** one DataFrame with two columns
+
+```{python}
+plt.scatter(df["OutermostElectrons"], df["MeltingPoint"])
+```
+
+## 3D
+
+- Third dimension via `s=` for size 
+
+
+```{python}
+plt.scatter(df["OutermostElectrons"], df["MeltingPoint"], s=df["AtomicNumber"])
+```
+
+## Columns to Columns
+
+- Using vector operations, we can make novel columns from existing columns.
+```{python}
+df["NeutronsLessProtons"] = df["NumberofNeutrons"] - df["NumberofProtons"]
+plt.plot(df["NeutronsLessProtons"])
+```
+
+## 4D
+
+```{python}
+plt.scatter(x=df["OutermostElectrons"], # we can optional specify x and y 
+            y=df["MeltingPoint"], 
+            s=df["AtomicNumber"], 
+            c=df["NeutronsLessProtons"]) # color
+plt.colorbar() # Like a legend for colors.
+```
+
+## "kwargs"
+
+- When we call a function and use something like `x=` in the arguments, `x` is a keyword so we call these "kwargs" for "keyword arguments".
+- You may see this when looking up functions.
+- Just follow examples.
+```{python}
+def triple(x):
+	return 3 * x
+
+[triple(x=7), triple(7)]
+```
+
+## Dropping
+
+- Some columns may be useless or redundant.
+```{python}
+df.iloc[::20][["AtomicNumber","NumberofProtons","NumberofElectrons"]]
+```
+
+## Drop it
+
+- We can remove such columns.
+```{python}
+df.shape
+```
+```{python}
+# Have to specify columns (we can also drop rows)
+df = df.drop(columns=["NumberofProtons","NumberofElectrons"])
+df.shape
+```
+
+# Summaries
+
+## Summary Statistics
+
+- There's a variety of ways to describe a DataFrame other than just seeing all of it's data.
+
+```{python}
+df.describe()
+```
+
+## Info
+
+- Info is often helpful
+
+```{python}
+df.info()
+```
+
+## Columns
+
+- And remember we can see all the column names!
+- No `()`!
+
+```{python}
+df.columns
+```
+
+## Shape
+
+- And of course shape!
+
+```{python}
+df.shape
+```
+
+## Column-wise
+
+- We can do all kinds of operations over a single column.
+```{python}
+mp = df["MeltingPoint"] # Copy column to save some typing.
+[mp.min(), mp.max(), mp.mean(), mp.median(), mp.mode(), mp.std()]
+```
+
+# Groups
+
+## Metal or not
+
+- We helpfully can already see what metals are.
+```{python}
+df.iloc[15:25:2][["Element","Metal"]]
+```
+
+## Todo
+
+- Do some wranglin'
+- Do some groupin'
+- Do some joinin'
+- Write a .csv
