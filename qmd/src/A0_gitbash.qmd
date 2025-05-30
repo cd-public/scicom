@@ -118,7 +118,7 @@ You **must** select "Git Credential Manager"
 ## Finishing up
 
 - At this time, you may need to close any terminal windows you have open.
-- Save you work (`:w`) first!
+- Save your work (`:w`) first!
 
 ## Install
 

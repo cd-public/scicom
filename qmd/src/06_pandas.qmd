@@ -197,7 +197,7 @@ df["AtomicNumber"].iloc[0]
 ```{python}
 df[["AtomicNumber","NumberofProtons"]].head(1)
 ```
-[^1]: Neutronium is a proposed as an element with atomic number of `0`.
+[^1]: Neutronium is a proposed but not academically interesting element with atomic number `0`.
 
 
 
@@ -252,7 +252,7 @@ num_es
 
 ## Expanding DataFrames
 
-- We can create a new column and new data to it from a `np.array`
+- We can create a new column and add new data to it from a `np.array`
 - At least if the dimensions work out...
 ```{python}
 df.shape, num_es.shape
@@ -385,7 +385,7 @@ mp = df["MeltingPoint"] # Copy column to save some typing.
 [mp.min(), mp.max(), mp.mean(), mp.median(), mp.mode(), mp.std()]
 ```
 
-# Groups
+# Using `loc`
 
 ## Metal or not
 
@@ -394,9 +394,552 @@ mp = df["MeltingPoint"] # Copy column to save some typing.
 df.iloc[15:25:2][["Element","Metal"]]
 ```
 
-## Todo
+## NaN
 
-- Do some wranglin'
-- Do some groupin'
-- Do some joinin'
-- Write a .csv
+- `NaN` means "not a number" and is used by **pandas** (not generally by Python) to fill in missing data.
+```{python}
+np.sqrt(-1)
+```
+- I find this idea a bit odd (and e.g. Polars does not do this) but we can work with it.
+
+
+
+## (Non)metal(loid)
+
+- Elements are "metal", "nonmetal", or "metalloid".
+- I regard this as how *metallic* an element is.
+```{python}
+df.iloc[12:16][["Element","Metal","Nonmetal","Metalloid"]]
+```
+
+## Metallic 
+
+- We introduce and use `np.where`, which takes
+  - A condition
+  - A value if condition
+  - A value else
+```{python}
+df["Metallic"] = np.where(df["Metal"] == "yes", "Metal", "Nonmetal")
+df.iloc[12:16][["Metal","Nonmetal","Metalloid","Metallic"]]
+```
+
+## Metalloids
+
+- Additionally deal with metalloids.
+```{python}
+df[df["Metalloid"] == "yes"]["Metallic"] = "Metalloid"
+df.iloc[12:16][["Metal","Nonmetal","Metalloid","Metallic"]]
+```
+- Whoops!
+
+## `loc`
+
+- `df[df["Metalloid"] == "yes"]` is not the same dataframe as `df`
+- Changes to it will not change `df`.
+- We use `.loc`, the cousin of `.iloc` to update `df`.
+- We must also very carefully put all indices, comma separated, in single brackets.
+
+## Recall: [NumPy](04_numpy.qmd#coordinate-slices)
+
+:::{.hidden}
+
+```{python}
+arr = np.array([
+    [9275, .10],
+    [37650, .15],
+    [91150, .25],
+    [190150, .28],
+    [413350, .33],
+    [415051, .35]
+])
+```
+
+:::
+
+- I recommend using the comma notation.
+- Otherwise I get unexpected behavior.
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{python}
+# reverse in both dimensions
+arr[::-1][::-1] 
+```
+
+
+:::
+
+::: {.column width="50%"}
+
+```{python}
+# reverse in both dimensions
+arr[::-1,::-1]
+```
+
+:::
+
+::::
+
+- Takeaway:  Always use `[x,y]` instead of `[x][y]`
+- This is why we use <s>NumPy</s>**pandas**!
+
+
+## Update
+
+```{python}
+df.loc[df["Metalloid"] == "yes", "Metallic"] = "Metalloid"
+df.iloc[12:16][["Metal","Nonmetal","Metalloid","Metallic"]]
+```
+
+- Much nicer.
+
+## Another drop
+
+- Let's just keep "Metallic" now that we have it.
+```{python}
+# Have to specify columns (we can also drop rows)
+df = df.drop(columns=["Metal","Nonmetal","Metalloid"])
+df.columns 
+```
+
+# Groups
+
+## On groups
+
+- In chemistry:
+
+> a group (also known as a family) is a column of elements in the periodic table of the chemical elements.
+
+- In computing
+
+> a set together with a binary operation satisfying certain algebraic conditions.
+
+## On groupby
+
+- In **pandas**
+
+> A groupby operation involves some combination of splitting the object, applying a function, and combining the results. This can be used to group large amounts of data and compute operations on these groups.
+
+## Element Groups
+
+```{python}
+df.iloc[:60:10][["Element","Group"]]
+```
+
+## Counting
+
+- Let's see how many elements are in each group!
+```{python}
+df.groupby("Group").count()
+```
+
+## Goofy
+
+- Oh it took the count of all columns.
+- But... that isn't useless?
+- Let's perhaps look a melting point by group.
+```{python}
+df.groupby("Group")["MeltingPoint"].mean()
+```
+
+## Plot it
+
+- That was too hard to see.
+```{python}
+df.groupby("Group")["MeltingPoint"].mean().plot()
+```
+
+
+## `groupby`
+
+- Groupby is a cool and powerful tool.
+- I tend to use it with summary statistics, and you can usually work around it with filters, but with a bit of practice it's a real joy to work with.
+
+# Merge 
+
+## Names
+
+- An astute learning will note a few oddities with names and symbols in the table.
+- Some symbols and elements start with different letters.
+
+## Strings
+
+- Like lists, arrays, and DataFrames, we can use indices on strings of characters.
+```{python}
+symbol = "He"
+element = "Helium"
+symbol[0] == element[0]
+```
+
+## Differing
+
+- Sometimes the first letter differs - but not often.
+```{python}
+symbol = "Au"
+element = "Gold"
+symbol[0] == element[0] # != means "does not equal"
+```
+
+## Write a function
+
+- We make a function that checks if two things start with the same letter.
+```{python}
+def differ(x,y):
+	return x[0] != y[0]
+```
+
+## Vectorize
+
+- To apply to DataFrames, we must vectorize it.
+  	- `x[0]` of a DataFrame is a row
+	- `x[0]` of a string is a letter
+	- We wanted letters!
+```{python}
+diff_vector = np.vectorize(differ)
+```
+
+## The Elements
+
+```{python}
+df[diff_vector(df["Symbol"], df["Element"])]["Element"]
+```
+
+- Basically, these elements have archaic Latin names that were in use when symbols were set before developing their modern names, or something. [Read more](https://www.compoundchem.com/2016/02/02/confusing-elements/)
+
+##
+
+![](https://i0.wp.com/www.compoundchem.com/wp-content/uploads/2016/02/11-Confusing-Chemical-Element-Symbols-Explained.png)
+
+## Adding Names
+
+- Let's make another DataFrame
+  	- We'll call if `ad` for "artus datus", which might (I have no idea) be Latin for data frame.
+```{python}
+names = [
+    ["Sodium", "Natrium"],
+    ["Potassium", "Kalium"],
+    ["Iron", "Ferrum"],
+    ["Silver", "Argentum"],
+    ["Tin", "Stannum"],
+    ["Antimony", "Stibium"],
+    ["Tungsten", "Wolfram"],
+    ["Gold", "Aurum"],
+    ["Mercury", "Hydrargyrum"],
+    ["Lead", "Plumbum"]
+]
+```
+
+## To DataFrame
+
+- `ad` for "artus datus", which may be Latin for data frame.
+```{python}
+ad = pd.DataFrame(names)
+ad
+```
+
+## Column Names
+
+- Remember `.columns`?
+```{python}
+df.columns
+```
+- We can actually use `=` with `.columns`
+```{python}
+ad.columns = ["Element", "Latin"] 
+ad.iloc[0]
+```
+
+## Merge
+
+```{python}
+df.merge(ad) 
+```
+
+## Oh no!
+
+- So we successfully added Latin names, but...
+- We lost all elements *without* a Latin name.
+- The merge only kept elements in both `df` and `ad`
+
+# Join
+
+## Don't merge
+
+- In my experience, merges never work, but...
+- They explain *how* joins, the good thing, work.
+
+## Background
+
+- To make learning joins easier, we'll work with two DataFrames.
+```{python}
+metalloids = df[df["Metallic"] == "Metalloid"]
+latin_name = df.merge(ad)
+```
+
+## Index
+
+- Versus `merge`, which just figures it out, `join` likes to look at indices.
+- So we have to make sure we have the same index on both data frames.
+- We'll use `"Symbol"`
+```{python}
+metalloids.index = metalloids["Symbol"]
+latin_name.index = latin_name["Symbol"]
+```
+
+## Simplify
+
+- To make things easier on us, let's just only look at a few columns.
+- We will avoid having two columns of the same name.
+  	- This is manageable, but let's learn joins first.
+```{python}
+metalloids = metalloids[["AtomicNumber","Metallic"]]
+latin_name = latin_name[["Element","Latin"]]
+```
+
+## The df's
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{python}
+metalloids
+```
+
+
+:::
+
+::: {.column width="50%"}
+
+```{python}
+latin_name
+```
+
+:::
+
+::::
+
+## Visuals
+
+- I will also visualize this using venn diagrams.
+- To my knowledge, there is no graceful way to visualize venn diagrams, but `matplotlib-venn` is okay.
+- I'm spoiler-marking code that shows how I make the venn diagrams.
+
+##
+
+```{python max-height="4em"}
+#| code-fold: true
+from matplotlib_venn import venn2, venn2_circles
+
+def show_join(how, left, right, mid):
+    v = venn2((2, 2, 1), ('metalloids', 'latin_name'))
+    v.get_patch_by_id('100').set_color('darkblue' if left else 'white')
+    v.get_patch_by_id('010').set_color('darkblue' if right else 'white')
+    v.get_patch_by_id('110').set_color('darkblue' if mid else 'white')
+    v.get_patch_by_id('100').set_alpha(1.0)
+    v.get_patch_by_id('010').set_alpha(1.0)
+    v.get_patch_by_id('110').set_alpha(1.0)
+    venn2_circles((2, 2, 1))
+    for idx, subset in enumerate(v.subset_labels):
+        v.subset_labels[idx].set_visible(False)
+        plt.title("metalloids.join(latin_name, how=\"" + how + "\")")
+    plt.show()
+```
+
+## Quoth [**pandas**](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.join.html){.smaller}
+
+how: `{‘left’,‘right’,‘outer’,‘inner’,‘cross’}`
+
+- How to handle operation of the two objects.
+
+  - `'left'`: use calling frame’s index  
+  - `'right'`: use other’s index.
+  - `'outer'`: form union of calling frame’s index with other’s index.
+  - `'inner'`: form intersection of calling frame’s index with other’s index.
+  - `'cross'`: creates the cartesian product from both frames.
+
+
+## Join
+
+- Join uses all columns, filling with "NaN".
+
+```{python}
+metalloids.join(latin_name)
+```
+
+
+## Left
+
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{python}
+metalloids.join(latin_name, how='left')["Element"]
+```
+
+
+:::
+
+::: {.column width="50%"}
+
+```{python}
+show_join('left',1,0,1)
+```
+
+:::
+
+::::
+
+## Right
+
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{python}
+metalloids.join(latin_name, how='right')["Element"]
+```
+
+
+:::
+
+::: {.column width="50%"}
+
+```{python}
+show_join('right',0,1,1)
+```
+
+:::
+
+::::
+
+
+## Outer 
+
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{python}
+metalloids.join(latin_name, how='outer')["Element"]
+```
+
+
+:::
+
+::: {.column width="50%"}
+
+```{python}
+show_join('outer',1,1,1)
+```
+
+:::
+
+::::
+
+
+## Inner 
+
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{python}
+metalloids.join(latin_name, how='inner')["Element"]
+```
+
+
+:::
+
+::: {.column width="50%"}
+
+```{python}
+show_join('inner',0,0,1)
+```
+
+:::
+
+::::
+
+
+## Cross
+
+- Cross makes pairs.
+- I don't see it used often.
+
+```{python}
+metalloids.join(latin_name, how='cross')
+```
+
+# Exercise
+
+## The Table
+
+- The periodic table was developed by laying out elements by "Groups" and "Periods"
+- Basically, number of outer electrons (that can bond) and number of layers of inner "shells" of electrons that can't bond.
+  	- Or something. I'm not a real scientist.
+- We can plot these against each other.
+
+## Electronegativity
+
+> [Electronegativity is a measure of the tendency of an atom to attract a bonding pair of electrons. The Pauling scale is the most commonly used. Fluorine (the most electronegative element) is assigned a value of 4.0, and values range down to cesium and francium which are the least electronegative at 0.7.](https://chem.libretexts.org/Bookshelves/Physical_and_Theoretical_Chemistry_Textbook_Maps/Supplemental_Modules_(Physical_and_Theoretical_Chemistry)/Physical_Properties_of_Matter/Atomic_and_Molecular_Properties/Electronegativity)
+
+## Exercise
+
+- Plot the table, by plotting "Groups" vs "Periods"
+- Plot electronegativity using color.
+- Confirm the claims from the chemistry text about electronegativity trends.
+- Annotate the location of fluorine (F).
+
+## Aside: Inversion
+
+- There's a few ways to invert an axis that you may want to use.
+```{python}
+taxes = pd.DataFrame(taxes)
+plt.scatter(taxes[0],taxes[1])
+```
+
+## Supply a `-`
+
+- You can negate, but it impacts labels.
+
+```{python}
+# Not there's a negative on taxes[1]
+plt.scatter(taxes[0],-taxes[1])
+```
+
+## Get axes
+
+- You can use `.gca()` (get current axes) and set one negative.
+
+```{python}
+plt.scatter(taxes[0],taxes[1])
+plt.gca().invert_yaxis()
+```
+
+## Solution 
+
+```{python}
+#| code-fold: true
+# Plot
+plt.scatter(
+	x=df["Group"],
+	y=df["Period"],
+	c=df["Electronegativity"]
+)
+plt.gca().invert_yaxis()
+# Label
+plt.title("Electronegativity")
+plt.xlabel("Group")
+plt.ylabel("Period")
+plt.colorbar()
+# Annotate
+_ = plt.annotate("F",(17,2)) 
+```

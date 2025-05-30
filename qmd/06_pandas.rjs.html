@@ -489,14 +489,14 @@ Prof.&nbsp;Calvin
 <li>There are two <em>great</em> ways to get a <strong>pandas</strong> DataFrame.</li>
 <li>We quickly show both.</li>
 </ul>
-<div id="e22060e7" class="cell" data-execution_count="2">
+<div id="cc614713" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb2-2"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="from-numpy" class="slide level2">
 <h2>From NumPy</h2>
-<div id="000c64ab" class="cell" data-execution_count="3">
+<div id="1575da78" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a>taxes <span class="op">=</span> np.array([</span>
 <span id="cb3-2"><a></a>    [<span class="dv">9275</span>, <span class="fl">.1</span>],</span>
 <span id="cb3-3"><a></a>    [<span class="dv">37650</span>, <span class="fl">.15</span>],</span>
@@ -507,7 +507,7 @@ Prof.&nbsp;Calvin
 <span id="cb3-8"><a></a>])</span>
 <span id="cb3-9"><a></a>df <span class="op">=</span> pd.DataFrame(taxes) <span class="co"># use "df" for dataframes by convention</span></span>
 <span id="cb3-10"><a></a>df <span class="co"># You'll notice this may look a lot nicer</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="218">
+<div class="cell-output cell-output-display" data-execution_count="1480">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -609,10 +609,10 @@ Prof.&nbsp;Calvin
 </section>
 <section id="from-file" class="slide level2">
 <h2>From File</h2>
-<div id="d0d8c077" class="cell" data-execution_count="4">
+<div id="7d829eb0" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a>df <span class="op">=</span> pd.read_csv(<span class="st">"https://gist.githubusercontent.com/GoodmanSciences/c2dd862cd38f21b0ad36b8f96b4bf1ee/raw/1d92663004489a5b6926e944c1b3d9ec5c40900e/Periodic%2520Table</span><span class="sc">%2520o</span><span class="st">f</span><span class="sc">%2520E</span><span class="st">lements.csv"</span>)</span>
 <span id="cb4-2"><a></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="219">
+<div class="cell-output cell-output-display" data-execution_count="1481">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -957,9 +957,9 @@ Prof.&nbsp;Calvin
 <li>Vs. arrays and lists, DataFrames still have indices, but they are now usually strings.</li>
 </ul></li>
 </ul>
-<div id="d8e098fb" class="cell" data-execution_count="5">
+<div id="e42f97b5" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a>df[<span class="st">"Element"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="220">
+<div class="cell-output cell-output-display" data-execution_count="1482">
 <pre><code>0         Hydrogen
 1           Helium
 2          Lithium
@@ -980,9 +980,9 @@ Name: Element, Length: 118, dtype: object</code></pre>
 <ul>
 <li>We can also subset multiple indices using a <em>list</em> of <em>indices</em> (column names).</li>
 </ul>
-<div id="79ebf0de" class="cell" data-execution_count="6">
+<div id="1a63e84e" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a>df[[<span class="st">"Element"</span>,<span class="st">"Symbol"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="221">
+<div class="cell-output cell-output-display" data-execution_count="1483">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -1077,9 +1077,9 @@ Name: Element, Length: 118, dtype: object</code></pre>
 <li>Basically we write what would be an <code>if</code> statement, but use it as an index.</li>
 <li>The “transuranic” elements are elements higher than number 92.</li>
 </ul>
-<div id="231e9873" class="cell" data-execution_count="7">
+<div id="740962a4" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a>df[df[<span class="st">"AtomicNumber"</span>] <span class="op">&gt;</span> <span class="dv">92</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="222">
+<div class="cell-output cell-output-display" data-execution_count="1484">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -1764,9 +1764,9 @@ Name: Element, Length: 118, dtype: object</code></pre>
 <li>Once to look up all elements <em>for which</em> the value is greater.</li>
 </ul></li>
 </ul>
-<div id="290db9c5" class="cell" data-execution_count="8">
+<div id="4b401f27" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a>df[<span class="st">"AtomicNumber"</span>] <span class="op">&gt;</span> <span class="dv">92</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="223">
+<div class="cell-output cell-output-display" data-execution_count="1485">
 <pre><code>0      False
 1      False
 2      False
@@ -1787,9 +1787,9 @@ Name: AtomicNumber, Length: 118, dtype: bool</code></pre>
 <ul>
 <li>By the way, what all do we know?</li>
 </ul>
-<div id="5fb4f8bb" class="cell" data-execution_count="9">
+<div id="411bba66" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a>df.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="224">
+<div class="cell-output cell-output-display" data-execution_count="1486">
 <pre><code>Index(['AtomicNumber', 'Element', 'Symbol', 'AtomicMass', 'NumberofNeutrons',
        'NumberofProtons', 'NumberofElectrons', 'Period', 'Group', 'Phase',
        'Radioactive', 'Natural', 'Metal', 'Nonmetal', 'Metalloid', 'Type',
@@ -1808,27 +1808,27 @@ Name: AtomicNumber, Length: 118, dtype: bool</code></pre>
 <ul>
 <li>How big is <code>df</code>?</li>
 </ul>
-<div id="483a3263" class="cell" data-execution_count="10">
+<div id="f41e5110" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a></a>df.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="225">
+<div class="cell-output cell-output-display" data-execution_count="1487">
 <pre><code>(118, 28)</code></pre>
 </div>
 </div>
 <ul>
 <li>And by the way, <code>np.array</code>’s have <code>shape</code> too.</li>
 </ul>
-<div id="9815e232" class="cell" data-execution_count="11">
+<div id="9439c291" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a></a>taxes.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="226">
+<div class="cell-output cell-output-display" data-execution_count="1488">
 <pre><code>(6, 2)</code></pre>
 </div>
 </div>
 <ul>
 <li>Aside: Multiple values within a <code>()</code> are asically lists but called tuples.</li>
 </ul>
-<div id="d5f2860f" class="cell" data-execution_count="12">
+<div id="398b36c0" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a></a><span class="bu">type</span>(taxes.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="227">
+<div class="cell-output cell-output-display" data-execution_count="1489">
 <pre><code>tuple</code></pre>
 </div>
 </div>
@@ -1838,9 +1838,9 @@ Name: AtomicNumber, Length: 118, dtype: bool</code></pre>
 <ul>
 <li>Sometimes you want to use an integer index.</li>
 </ul>
-<div id="57ee79eb" class="cell" data-execution_count="13">
+<div id="0fb05b58" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a></a>df.iloc[<span class="dv">10</span>] <span class="co"># "Integer Location"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="228">
+<div class="cell-output cell-output-display" data-execution_count="1490">
 <pre><code>AtomicNumber                   11
 Element                    Sodium
 Symbol                         Na
@@ -1878,18 +1878,18 @@ Name: 10, dtype: object</code></pre>
 <ul>
 <li>DataFrames are 0-indexed</li>
 </ul>
-<div id="9ba9643b" class="cell" data-execution_count="14">
+<div id="98660af3" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a></a>df[<span class="st">"AtomicNumber"</span>].iloc[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="229">
+<div class="cell-output cell-output-display" data-execution_count="1491">
 <pre><code>np.int64(1)</code></pre>
 </div>
 </div>
 <ul>
 <li>Elements are 1-indexed<sup>1</sup> with good reason.</li>
 </ul>
-<div id="81f18ec4" class="cell" data-execution_count="15">
+<div id="14724efd" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a></a>df[[<span class="st">"AtomicNumber"</span>,<span class="st">"NumberofProtons"</span>]].head(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="230">
+<div class="cell-output cell-output-display" data-execution_count="1492">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -1925,15 +1925,15 @@ Name: 10, dtype: object</code></pre>
 </div>
 </div>
 </div>
-<aside><ol class="aside-footnotes"><li id="fn1"><p>Neutronium is a proposed as an element with atomic number of <code>0</code>.</p></li></ol></aside></section>
+<aside><ol class="aside-footnotes"><li id="fn1"><p>Neutronium is a proposed but not academically interesting element with atomic number <code>0</code>.</p></li></ol></aside></section>
 <section id="data-manipulation" class="slide level2">
 <h2>Data Manipulation</h2>
 <ul>
 <li>Check out these columns</li>
 </ul>
-<div id="9ab9c40e" class="cell" data-execution_count="16">
+<div id="8ee5c0dd" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a></a>df.iloc[::<span class="dv">20</span>][[<span class="st">"NumberofNeutrons"</span>, <span class="st">"NumberofProtons"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="231">
+<div class="cell-output cell-output-display" data-execution_count="1493">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -2001,9 +2001,9 @@ Name: 10, dtype: object</code></pre>
 <li>It <em>looks</em> like atoms with fewer protons have the same number of protons and neutrons, and atoms with many protons have many more neutrons.</li>
 <li>Let’s calculate the difference.</li>
 </ul>
-<div id="c79e66f1" class="cell" data-execution_count="17">
+<div id="22919ee1" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a></a>df[<span class="st">"NumberofProtons"</span>] <span class="op">-</span> df[<span class="st">"NumberofNeutrons"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="232">
+<div class="cell-output cell-output-display" data-execution_count="1494">
 <pre><code>0       1
 1       0
 2      -1
@@ -2029,19 +2029,19 @@ Length: 118, dtype: int64</code></pre>
 <ul>
 <li>Easier to visualize.</li>
 </ul>
-<div id="be1b4556" class="cell" data-execution_count="18">
+<div id="2843c68d" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a></a><span class="co"># import Matplotlib if you don't have it yet!</span></span>
 <span id="cb27-2"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="scatterplot" class="slide level2">
 <h2>Scatterplot</h2>
-<div id="6445f64d" class="cell" data-execution_count="19">
+<div id="1a869907" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a></a>plt.scatter(df[<span class="st">"NumberofProtons"</span>], df[<span class="st">"NumberofNeutrons"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="06_pandas_files/figure-html/cell-19-output-1.png" width="575" height="411"></p>
+<p><img data-src="06_pandas_files/figure-revealjs/cell-19-output-1.png" width="798" height="411"></p>
 </figure>
 </div>
 </div>
@@ -2058,14 +2058,14 @@ Length: 118, dtype: int64</code></pre>
 </section>
 <section id="num_es" class="slide level2">
 <h2><code>num_es</code></h2>
-<div id="7a73d5da" class="cell" data-execution_count="20">
+<div id="10746fae" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a></a>es <span class="op">=</span> np.array([<span class="dv">2</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">18</span>, <span class="dv">18</span>, <span class="dv">32</span>, <span class="dv">32</span>])</span>
 <span id="cb29-2"><a></a>num_es <span class="op">=</span> np.array([]) <span class="co"># The first zero elements</span></span>
 <span id="cb29-3"><a></a><span class="cf">for</span> e <span class="kw">in</span> es:</span>
 <span id="cb29-4"><a></a>    num_es <span class="op">=</span> np.append(num_es, np.arange(e))</span>
 <span id="cb29-5"><a></a>num_es <span class="op">+=</span> <span class="dv">1</span></span>
 <span id="cb29-6"><a></a>num_es</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="235">
+<div class="cell-output cell-output-display" data-execution_count="1497">
 <pre><code>array([ 1.,  2.,  1.,  2.,  3.,  4.,  5.,  6.,  7.,  8.,  1.,  2.,  3.,
         4.,  5.,  6.,  7.,  8.,  1.,  2.,  3.,  4.,  5.,  6.,  7.,  8.,
         9., 10., 11., 12., 13., 14., 15., 16., 17., 18.,  1.,  2.,  3.,
@@ -2082,12 +2082,12 @@ Length: 118, dtype: int64</code></pre>
 <section id="expanding-dataframes" class="slide level2">
 <h2>Expanding DataFrames</h2>
 <ul>
-<li>We can create a new column and new data to it from a <code>np.array</code></li>
+<li>We can create a new column and add new data to it from a <code>np.array</code></li>
 <li>At least if the dimensions work out…</li>
 </ul>
-<div id="bdb71aef" class="cell" data-execution_count="21">
+<div id="e3e518f2" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a></a>df.shape, num_es.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="236">
+<div class="cell-output cell-output-display" data-execution_count="1498">
 <pre><code>((118, 28), (118,))</code></pre>
 </div>
 </div>
@@ -2100,11 +2100,11 @@ Length: 118, dtype: int64</code></pre>
 <ul>
 <li>Like updating the element of a list by index…</li>
 </ul>
-<div id="eed4a373" class="cell" data-execution_count="22">
+<div id="d1faa215" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a></a>colors <span class="op">=</span> [<span class="st">'red'</span>, <span class="st">'orange'</span>, <span class="st">'yellow'</span>, <span class="st">'green'</span>, <span class="st">'blue'</span>, <span class="st">'indigo'</span>, <span class="st">'violet'</span>]</span>
 <span id="cb33-2"><a></a>colors[<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> <span class="st">"purple"</span></span>
 <span id="cb33-3"><a></a>colors</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="237">
+<div class="cell-output cell-output-display" data-execution_count="1499">
 <pre><code>['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'purple']</code></pre>
 </div>
 </div>
@@ -2114,10 +2114,10 @@ Length: 118, dtype: int64</code></pre>
 <ul>
 <li>We can update <em>or add</em> a column to a DataFrame by index:</li>
 </ul>
-<div id="29fa6509" class="cell" data-execution_count="23">
+<div id="3cee52fa" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a></a>df[<span class="st">"OutermostElectrons"</span>] <span class="op">=</span> num_es</span>
 <span id="cb35-2"><a></a>df.iloc[::<span class="dv">20</span>][[<span class="st">"Element"</span>,<span class="st">"OutermostElectrons"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="238">
+<div class="cell-output cell-output-display" data-execution_count="1500">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -2184,12 +2184,12 @@ Length: 118, dtype: int64</code></pre>
 <ul>
 <li>For a scatter, that is two (<code>2</code>) DataFrames (or subsets), <strong>not</strong> one DataFrame with two columns</li>
 </ul>
-<div id="35245f59" class="cell" data-execution_count="24">
+<div id="70724e20" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a></a>plt.scatter(df[<span class="st">"OutermostElectrons"</span>], df[<span class="st">"MeltingPoint"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="06_pandas_files/figure-html/cell-24-output-1.png" width="583" height="411"></p>
+<p><img data-src="06_pandas_files/figure-revealjs/cell-24-output-1.png" width="806" height="411"></p>
 </figure>
 </div>
 </div>
@@ -2200,12 +2200,12 @@ Length: 118, dtype: int64</code></pre>
 <ul>
 <li>Third dimension via <code>s=</code> for size</li>
 </ul>
-<div id="4a681552" class="cell" data-execution_count="25">
+<div id="4b66cd5f" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a></a>plt.scatter(df[<span class="st">"OutermostElectrons"</span>], df[<span class="st">"MeltingPoint"</span>], s<span class="op">=</span>df[<span class="st">"AtomicNumber"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="06_pandas_files/figure-html/cell-25-output-1.png" width="583" height="411"></p>
+<p><img data-src="06_pandas_files/figure-revealjs/cell-25-output-1.png" width="806" height="411"></p>
 </figure>
 </div>
 </div>
@@ -2216,13 +2216,13 @@ Length: 118, dtype: int64</code></pre>
 <ul>
 <li>Using vector operations, we can make novel columns from existing columns.</li>
 </ul>
-<div id="ef395815" class="cell" data-execution_count="26">
+<div id="b1bc6cbb" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a></a>df[<span class="st">"NeutronsLessProtons"</span>] <span class="op">=</span> df[<span class="st">"NumberofNeutrons"</span>] <span class="op">-</span> df[<span class="st">"NumberofProtons"</span>]</span>
 <span id="cb38-2"><a></a>plt.plot(df[<span class="st">"NeutronsLessProtons"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="06_pandas_files/figure-html/cell-26-output-1.png" width="567" height="411"></p>
+<p><img data-src="06_pandas_files/figure-revealjs/cell-26-output-1.png" width="789" height="411"></p>
 </figure>
 </div>
 </div>
@@ -2230,7 +2230,7 @@ Length: 118, dtype: int64</code></pre>
 </section>
 <section id="d-1" class="slide level2">
 <h2>4D</h2>
-<div id="ae1a026b" class="cell" data-execution_count="27">
+<div id="6ee24643" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a></a>plt.scatter(x<span class="op">=</span>df[<span class="st">"OutermostElectrons"</span>], <span class="co"># we can optional specify x and y </span></span>
 <span id="cb39-2"><a></a>            y<span class="op">=</span>df[<span class="st">"MeltingPoint"</span>], </span>
 <span id="cb39-3"><a></a>            s<span class="op">=</span>df[<span class="st">"AtomicNumber"</span>], </span>
@@ -2239,7 +2239,7 @@ Length: 118, dtype: int64</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="06_pandas_files/figure-html/cell-27-output-1.png" width="550" height="411"></p>
+<p><img data-src="06_pandas_files/figure-revealjs/cell-27-output-1.png" width="740" height="411"></p>
 </figure>
 </div>
 </div>
@@ -2252,12 +2252,12 @@ Length: 118, dtype: int64</code></pre>
 <li>You may see this when looking up functions.</li>
 <li>Just follow examples.</li>
 </ul>
-<div id="c2dc09f2" class="cell" data-execution_count="28">
+<div id="ba682d7c" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a></a><span class="kw">def</span> triple(x):</span>
 <span id="cb40-2"><a></a>    <span class="cf">return</span> <span class="dv">3</span> <span class="op">*</span> x</span>
 <span id="cb40-3"><a></a></span>
 <span id="cb40-4"><a></a>[triple(x<span class="op">=</span><span class="dv">7</span>), triple(<span class="dv">7</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="243">
+<div class="cell-output cell-output-display" data-execution_count="1505">
 <pre><code>[21, 21]</code></pre>
 </div>
 </div>
@@ -2267,9 +2267,9 @@ Length: 118, dtype: int64</code></pre>
 <ul>
 <li>Some columns may be useless or redundant.</li>
 </ul>
-<div id="2f077e6a" class="cell" data-execution_count="29">
+<div id="d5718b1a" class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a></a>df.iloc[::<span class="dv">20</span>][[<span class="st">"AtomicNumber"</span>,<span class="st">"NumberofProtons"</span>,<span class="st">"NumberofElectrons"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="244">
+<div class="cell-output cell-output-display" data-execution_count="1506">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -2343,17 +2343,17 @@ Length: 118, dtype: int64</code></pre>
 <ul>
 <li>We can remove such columns.</li>
 </ul>
-<div id="3be9df3e" class="cell" data-execution_count="30">
+<div id="7b38926a" class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a></a>df.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="245">
+<div class="cell-output cell-output-display" data-execution_count="1507">
 <pre><code>(118, 30)</code></pre>
 </div>
 </div>
-<div id="4647d48f" class="cell" data-execution_count="31">
+<div id="326550f2" class="cell" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a></a><span class="co"># Have to specify columns (we can also drop rows)</span></span>
 <span id="cb45-2"><a></a>df <span class="op">=</span> df.drop(columns<span class="op">=</span>[<span class="st">"NumberofProtons"</span>,<span class="st">"NumberofElectrons"</span>])</span>
 <span id="cb45-3"><a></a>df.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="246">
+<div class="cell-output cell-output-display" data-execution_count="1508">
 <pre><code>(118, 28)</code></pre>
 </div>
 </div>
@@ -2368,9 +2368,9 @@ Length: 118, dtype: int64</code></pre>
 <ul>
 <li>There’s a variety of ways to describe a DataFrame other than just seeing all of it’s data.</li>
 </ul>
-<div id="0dcf058a" class="cell" data-execution_count="32">
+<div id="906e2cbb" class="cell" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a></a>df.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="247">
+<div class="cell-output cell-output-display" data-execution_count="1509">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -2591,7 +2591,7 @@ Length: 118, dtype: int64</code></pre>
 <ul>
 <li>Info is often helpful</li>
 </ul>
-<div id="779b3e72" class="cell" data-execution_count="33">
+<div id="5e23ea27" class="cell" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a></a>df.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
@@ -2638,9 +2638,9 @@ memory usage: 25.9+ KB</code></pre>
 <li>And remember we can see all the column names!</li>
 <li>No <code>()</code>!</li>
 </ul>
-<div id="a8b1c224" class="cell" data-execution_count="34">
+<div id="c4477106" class="cell" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a></a>df.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="249">
+<div class="cell-output cell-output-display" data-execution_count="1511">
 <pre><code>Index(['AtomicNumber', 'Element', 'Symbol', 'AtomicMass', 'NumberofNeutrons',
        'Period', 'Group', 'Phase', 'Radioactive', 'Natural', 'Metal',
        'Nonmetal', 'Metalloid', 'Type', 'AtomicRadius', 'Electronegativity',
@@ -2657,9 +2657,9 @@ memory usage: 25.9+ KB</code></pre>
 <ul>
 <li>And of course shape!</li>
 </ul>
-<div id="621447b9" class="cell" data-execution_count="35">
+<div id="b65d73f4" class="cell" data-execution_count="35">
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a></a>df.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="250">
+<div class="cell-output cell-output-display" data-execution_count="1512">
 <pre><code>(118, 28)</code></pre>
 </div>
 </div>
@@ -2669,10 +2669,10 @@ memory usage: 25.9+ KB</code></pre>
 <ul>
 <li>We can do all kinds of operations over a single column.</li>
 </ul>
-<div id="fcb25841" class="cell" data-execution_count="36">
+<div id="cc292d19" class="cell" data-execution_count="36">
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a></a>mp <span class="op">=</span> df[<span class="st">"MeltingPoint"</span>] <span class="co"># Copy column to save some typing.</span></span>
 <span id="cb54-2"><a></a>[mp.<span class="bu">min</span>(), mp.<span class="bu">max</span>(), mp.mean(), mp.median(), mp.mode(), mp.std()]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="251">
+<div class="cell-output cell-output-display" data-execution_count="1513">
 <pre><code>[np.float64(14.175),
  np.float64(3948.15),
  np.float64(1281.4751836734692),
@@ -2685,8 +2685,8 @@ memory usage: 25.9+ KB</code></pre>
 </div>
 </section></section>
 <section>
-<section id="groups" class="title-slide slide level1 center">
-<h1>Groups</h1>
+<section id="using-loc" class="title-slide slide level1 center">
+<h1>Using <code>loc</code></h1>
 
 </section>
 <section id="metal-or-not" class="slide level2">
@@ -2694,9 +2694,9 @@ memory usage: 25.9+ KB</code></pre>
 <ul>
 <li>We helpfully can already see what metals are.</li>
 </ul>
-<div id="89bc50a1" class="cell" data-execution_count="37">
+<div id="4ee8f7c7" class="cell" data-execution_count="37">
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a></a>df.iloc[<span class="dv">15</span>:<span class="dv">25</span>:<span class="dv">2</span>][[<span class="st">"Element"</span>,<span class="st">"Metal"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="252">
+<div class="cell-output cell-output-display" data-execution_count="1514">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -2753,14 +2753,2279 @@ memory usage: 25.9+ KB</code></pre>
 </div>
 </div>
 </section>
-<section id="todo" class="slide level2">
-<h2>Todo</h2>
+<section id="nan" class="slide level2">
+<h2>NaN</h2>
 <ul>
-<li>Do some wranglin’</li>
-<li>Do some groupin’</li>
-<li>Do some joinin’</li>
-<li>Write a .csv</li>
+<li><code>NaN</code> means “not a number” and is used by <strong>pandas</strong> (not generally by Python) to fill in missing data.</li>
 </ul>
+<div id="7fc0ba97" class="cell" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a></a>np.sqrt(<span class="op">-</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1515">
+<pre><code>np.float64(nan)</code></pre>
+</div>
+</div>
+<ul>
+<li>I find this idea a bit odd (and e.g.&nbsp;Polars does not do this) but we can work with it.</li>
+</ul>
+</section>
+<section id="nonmetalloid" class="slide level2">
+<h2>(Non)metal(loid)</h2>
+<ul>
+<li>Elements are “metal”, “nonmetal”, or “metalloid”.</li>
+<li>I regard this as how <em>metallic</em> an element is.</li>
+</ul>
+<div id="88602e3b" class="cell" data-execution_count="39">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a></a>df.iloc[<span class="dv">12</span>:<span class="dv">16</span>][[<span class="st">"Element"</span>,<span class="st">"Metal"</span>,<span class="st">"Nonmetal"</span>,<span class="st">"Metalloid"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1516">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Element</th>
+<th data-quarto-table-cell-role="th">Metal</th>
+<th data-quarto-table-cell-role="th">Nonmetal</th>
+<th data-quarto-table-cell-role="th">Metalloid</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">12</td>
+<td>Aluminum</td>
+<td>yes</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">13</td>
+<td>Silicon</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>yes</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">14</td>
+<td>Phosphorus</td>
+<td>NaN</td>
+<td>yes</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">15</td>
+<td>Sulfur</td>
+<td>NaN</td>
+<td>yes</td>
+<td>NaN</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="metallic" class="slide level2">
+<h2>Metallic</h2>
+<ul>
+<li>We introduce and use <code>np.where</code>, which takes
+<ul>
+<li>A condition</li>
+<li>A value if condition</li>
+<li>A value else</li>
+</ul></li>
+</ul>
+<div id="70e19691" class="cell" data-execution_count="40">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a></a>df[<span class="st">"Metallic"</span>] <span class="op">=</span> np.where(df[<span class="st">"Metal"</span>] <span class="op">==</span> <span class="st">"yes"</span>, <span class="st">"Metal"</span>, <span class="st">"Nonmetal"</span>)</span>
+<span id="cb60-2"><a></a>df.iloc[<span class="dv">12</span>:<span class="dv">16</span>][[<span class="st">"Metal"</span>,<span class="st">"Nonmetal"</span>,<span class="st">"Metalloid"</span>,<span class="st">"Metallic"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1517">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Metal</th>
+<th data-quarto-table-cell-role="th">Nonmetal</th>
+<th data-quarto-table-cell-role="th">Metalloid</th>
+<th data-quarto-table-cell-role="th">Metallic</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">12</td>
+<td>yes</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>Metal</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">13</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>yes</td>
+<td>Nonmetal</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">14</td>
+<td>NaN</td>
+<td>yes</td>
+<td>NaN</td>
+<td>Nonmetal</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">15</td>
+<td>NaN</td>
+<td>yes</td>
+<td>NaN</td>
+<td>Nonmetal</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="metalloids" class="slide level2">
+<h2>Metalloids</h2>
+<ul>
+<li>Additionally deal with metalloids.</li>
+</ul>
+<div id="b595e0c3" class="cell" data-execution_count="41">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a></a>df[df[<span class="st">"Metalloid"</span>] <span class="op">==</span> <span class="st">"yes"</span>][<span class="st">"Metallic"</span>] <span class="op">=</span> <span class="st">"Metalloid"</span></span>
+<span id="cb61-2"><a></a>df.iloc[<span class="dv">12</span>:<span class="dv">16</span>][[<span class="st">"Metal"</span>,<span class="st">"Nonmetal"</span>,<span class="st">"Metalloid"</span>,<span class="st">"Metallic"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1518">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Metal</th>
+<th data-quarto-table-cell-role="th">Nonmetal</th>
+<th data-quarto-table-cell-role="th">Metalloid</th>
+<th data-quarto-table-cell-role="th">Metallic</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">12</td>
+<td>yes</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>Metal</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">13</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>yes</td>
+<td>Nonmetal</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">14</td>
+<td>NaN</td>
+<td>yes</td>
+<td>NaN</td>
+<td>Nonmetal</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">15</td>
+<td>NaN</td>
+<td>yes</td>
+<td>NaN</td>
+<td>Nonmetal</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<ul>
+<li>Whoops!</li>
+</ul>
+</section>
+<section id="loc" class="slide level2">
+<h2><code>loc</code></h2>
+<ul>
+<li><code>df[df["Metalloid"] == "yes"]</code> is not the same dataframe as <code>df</code></li>
+<li>Changes to it will not change <code>df</code>.</li>
+<li>We use <code>.loc</code>, the cousin of <code>.iloc</code> to update <code>df</code>.</li>
+<li>We must also very carefully put all indices, comma separated, in single brackets.</li>
+</ul>
+</section>
+<section id="recall-numpy" class="slide level2">
+<h2>Recall: <a href="./04_numpy.html#coordinate-slices">NumPy</a></h2>
+<div class="hidden">
+<div id="fa57cf89" class="cell" data-execution_count="42">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a></a>arr <span class="op">=</span> np.array([</span>
+<span id="cb62-2"><a></a>    [<span class="dv">9275</span>, <span class="fl">.10</span>],</span>
+<span id="cb62-3"><a></a>    [<span class="dv">37650</span>, <span class="fl">.15</span>],</span>
+<span id="cb62-4"><a></a>    [<span class="dv">91150</span>, <span class="fl">.25</span>],</span>
+<span id="cb62-5"><a></a>    [<span class="dv">190150</span>, <span class="fl">.28</span>],</span>
+<span id="cb62-6"><a></a>    [<span class="dv">413350</span>, <span class="fl">.33</span>],</span>
+<span id="cb62-7"><a></a>    [<span class="dv">415051</span>, <span class="fl">.35</span>]</span>
+<span id="cb62-8"><a></a>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<ul>
+<li>I recommend using the comma notation.</li>
+<li>Otherwise I get unexpected behavior.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div id="303b87b5" class="cell" data-execution_count="43">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a></a><span class="co"># reverse in both dimensions</span></span>
+<span id="cb63-2"><a></a>arr[::<span class="op">-</span><span class="dv">1</span>][::<span class="op">-</span><span class="dv">1</span>] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1520">
+<pre><code>array([[9.27500e+03, 1.00000e-01],
+       [3.76500e+04, 1.50000e-01],
+       [9.11500e+04, 2.50000e-01],
+       [1.90150e+05, 2.80000e-01],
+       [4.13350e+05, 3.30000e-01],
+       [4.15051e+05, 3.50000e-01]])</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div id="466e891b" class="cell" data-execution_count="44">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a></a><span class="co"># reverse in both dimensions</span></span>
+<span id="cb65-2"><a></a>arr[::<span class="op">-</span><span class="dv">1</span>,::<span class="op">-</span><span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1521">
+<pre><code>array([[3.50000e-01, 4.15051e+05],
+       [3.30000e-01, 4.13350e+05],
+       [2.80000e-01, 1.90150e+05],
+       [2.50000e-01, 9.11500e+04],
+       [1.50000e-01, 3.76500e+04],
+       [1.00000e-01, 9.27500e+03]])</code></pre>
+</div>
+</div>
+</div></div>
+<ul>
+<li>Takeaway: Always use <code>[x,y]</code> instead of <code>[x][y]</code></li>
+<li>This is why we use <s>NumPy</s><strong>pandas</strong>!</li>
+</ul>
+</section>
+<section id="update" class="slide level2">
+<h2>Update</h2>
+<div id="114263ed" class="cell" data-execution_count="45">
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a></a>df.loc[df[<span class="st">"Metalloid"</span>] <span class="op">==</span> <span class="st">"yes"</span>, <span class="st">"Metallic"</span>] <span class="op">=</span> <span class="st">"Metalloid"</span></span>
+<span id="cb67-2"><a></a>df.iloc[<span class="dv">12</span>:<span class="dv">16</span>][[<span class="st">"Metal"</span>,<span class="st">"Nonmetal"</span>,<span class="st">"Metalloid"</span>,<span class="st">"Metallic"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1522">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Metal</th>
+<th data-quarto-table-cell-role="th">Nonmetal</th>
+<th data-quarto-table-cell-role="th">Metalloid</th>
+<th data-quarto-table-cell-role="th">Metallic</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">12</td>
+<td>yes</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>Metal</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">13</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>yes</td>
+<td>Metalloid</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">14</td>
+<td>NaN</td>
+<td>yes</td>
+<td>NaN</td>
+<td>Nonmetal</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">15</td>
+<td>NaN</td>
+<td>yes</td>
+<td>NaN</td>
+<td>Nonmetal</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<ul>
+<li>Much nicer.</li>
+</ul>
+</section>
+<section id="another-drop" class="slide level2">
+<h2>Another drop</h2>
+<ul>
+<li>Let’s just keep “Metallic” now that we have it.</li>
+</ul>
+<div id="9a8d6fda" class="cell" data-execution_count="46">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a></a><span class="co"># Have to specify columns (we can also drop rows)</span></span>
+<span id="cb68-2"><a></a>df <span class="op">=</span> df.drop(columns<span class="op">=</span>[<span class="st">"Metal"</span>,<span class="st">"Nonmetal"</span>,<span class="st">"Metalloid"</span>])</span>
+<span id="cb68-3"><a></a>df.columns </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1523">
+<pre><code>Index(['AtomicNumber', 'Element', 'Symbol', 'AtomicMass', 'NumberofNeutrons',
+       'Period', 'Group', 'Phase', 'Radioactive', 'Natural', 'Type',
+       'AtomicRadius', 'Electronegativity', 'FirstIonization', 'Density',
+       'MeltingPoint', 'BoilingPoint', 'NumberOfIsotopes', 'Discoverer',
+       'Year', 'SpecificHeat', 'NumberofShells', 'NumberofValence',
+       'OutermostElectrons', 'NeutronsLessProtons', 'Metallic'],
+      dtype='object')</code></pre>
+</div>
+</div>
+</section></section>
+<section>
+<section id="groups" class="title-slide slide level1 center">
+<h1>Groups</h1>
+
+</section>
+<section id="on-groups" class="slide level2">
+<h2>On groups</h2>
+<ul>
+<li>In chemistry:</li>
+</ul>
+<blockquote>
+<p>a group (also known as a family) is a column of elements in the periodic table of the chemical elements.</p>
+</blockquote>
+<ul>
+<li>In computing</li>
+</ul>
+<blockquote>
+<p>a set together with a binary operation satisfying certain algebraic conditions.</p>
+</blockquote>
+</section>
+<section id="on-groupby" class="slide level2">
+<h2>On groupby</h2>
+<ul>
+<li>In <strong>pandas</strong></li>
+</ul>
+<blockquote>
+<p>A groupby operation involves some combination of splitting the object, applying a function, and combining the results. This can be used to group large amounts of data and compute operations on these groups.</p>
+</blockquote>
+</section>
+<section id="element-groups" class="slide level2">
+<h2>Element Groups</h2>
+<div id="3b9cb80a" class="cell" data-execution_count="47">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a></a>df.iloc[:<span class="dv">60</span>:<span class="dv">10</span>][[<span class="st">"Element"</span>,<span class="st">"Group"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1524">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Element</th>
+<th data-quarto-table-cell-role="th">Group</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Hydrogen</td>
+<td>1.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">10</td>
+<td>Sodium</td>
+<td>1.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">20</td>
+<td>Scandium</td>
+<td>3.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">30</td>
+<td>Gallium</td>
+<td>13.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">40</td>
+<td>Niobium</td>
+<td>5.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">50</td>
+<td>Antimony</td>
+<td>15.0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="counting" class="slide level2">
+<h2>Counting</h2>
+<ul>
+<li>Let’s see how many elements are in each group!</li>
+</ul>
+<div id="6478f60a" class="cell" data-execution_count="48">
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a></a>df.groupby(<span class="st">"Group"</span>).count()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1525">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">AtomicNumber</th>
+<th data-quarto-table-cell-role="th">Element</th>
+<th data-quarto-table-cell-role="th">Symbol</th>
+<th data-quarto-table-cell-role="th">AtomicMass</th>
+<th data-quarto-table-cell-role="th">NumberofNeutrons</th>
+<th data-quarto-table-cell-role="th">Period</th>
+<th data-quarto-table-cell-role="th">Phase</th>
+<th data-quarto-table-cell-role="th">Radioactive</th>
+<th data-quarto-table-cell-role="th">Natural</th>
+<th data-quarto-table-cell-role="th">Type</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">BoilingPoint</th>
+<th data-quarto-table-cell-role="th">NumberOfIsotopes</th>
+<th data-quarto-table-cell-role="th">Discoverer</th>
+<th data-quarto-table-cell-role="th">Year</th>
+<th data-quarto-table-cell-role="th">SpecificHeat</th>
+<th data-quarto-table-cell-role="th">NumberofShells</th>
+<th data-quarto-table-cell-role="th">NumberofValence</th>
+<th data-quarto-table-cell-role="th">OutermostElectrons</th>
+<th data-quarto-table-cell-role="th">NeutronsLessProtons</th>
+<th data-quarto-table-cell-role="th">Metallic</th>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">Group</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1.0</td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
+<td>1</td>
+<td>7</td>
+<td>7</td>
+<td>...</td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
+<td>6</td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2.0</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>1</td>
+<td>6</td>
+<td>6</td>
+<td>...</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>5</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">3.0</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>1</td>
+<td>4</td>
+<td>4</td>
+<td>...</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>0</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">4.0</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>1</td>
+<td>3</td>
+<td>4</td>
+<td>...</td>
+<td>3</td>
+<td>3</td>
+<td>4</td>
+<td>4</td>
+<td>3</td>
+<td>4</td>
+<td>0</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">5.0</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>1</td>
+<td>3</td>
+<td>4</td>
+<td>...</td>
+<td>3</td>
+<td>3</td>
+<td>4</td>
+<td>4</td>
+<td>3</td>
+<td>4</td>
+<td>0</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">6.0</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>1</td>
+<td>3</td>
+<td>4</td>
+<td>...</td>
+<td>3</td>
+<td>3</td>
+<td>4</td>
+<td>4</td>
+<td>3</td>
+<td>4</td>
+<td>0</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">7.0</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>2</td>
+<td>2</td>
+<td>4</td>
+<td>...</td>
+<td>3</td>
+<td>3</td>
+<td>4</td>
+<td>4</td>
+<td>2</td>
+<td>4</td>
+<td>0</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">8.0</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>1</td>
+<td>3</td>
+<td>4</td>
+<td>...</td>
+<td>3</td>
+<td>3</td>
+<td>4</td>
+<td>3</td>
+<td>3</td>
+<td>4</td>
+<td>0</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">9.0</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>1</td>
+<td>3</td>
+<td>4</td>
+<td>...</td>
+<td>3</td>
+<td>3</td>
+<td>4</td>
+<td>4</td>
+<td>3</td>
+<td>4</td>
+<td>0</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">10.0</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>1</td>
+<td>3</td>
+<td>4</td>
+<td>...</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>4</td>
+<td>3</td>
+<td>4</td>
+<td>0</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">11.0</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>1</td>
+<td>3</td>
+<td>4</td>
+<td>...</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>1</td>
+<td>3</td>
+<td>4</td>
+<td>0</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">12.0</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>1</td>
+<td>3</td>
+<td>4</td>
+<td>...</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>0</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">13.0</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>1</td>
+<td>5</td>
+<td>5</td>
+<td>...</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>6</td>
+<td>5</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">14.0</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>1</td>
+<td>5</td>
+<td>6</td>
+<td>...</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>3</td>
+<td>5</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">15.0</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>1</td>
+<td>5</td>
+<td>5</td>
+<td>...</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">16.0</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>2</td>
+<td>5</td>
+<td>6</td>
+<td>...</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>4</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">17.0</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>2</td>
+<td>5</td>
+<td>5</td>
+<td>...</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>6</td>
+<td>4</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">18.0</td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
+<td>2</td>
+<td>6</td>
+<td>7</td>
+<td>...</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>7</td>
+<td>6</td>
+<td>7</td>
+<td>6</td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
+</tr>
+</tbody>
+</table>
+
+<p>18 rows × 25 columns</p>
+</div>
+</div>
+</div>
+</section>
+<section id="goofy" class="slide level2">
+<h2>Goofy</h2>
+<ul>
+<li>Oh it took the count of all columns.</li>
+<li>But… that isn’t useless?</li>
+<li>Let’s perhaps look a melting point by group.</li>
+</ul>
+<div id="9456123c" class="cell" data-execution_count="49">
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a></a>df.groupby(<span class="st">"Group"</span>)[<span class="st">"MeltingPoint"</span>].mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1526">
+<pre><code>Group
+1.0      298.616429
+2.0     1102.150000
+3.0     1531.900000
+4.0     2186.150000
+5.0     2728.483333
+6.0     2900.150000
+7.0     2481.816667
+8.0     2543.816667
+9.0     2241.150000
+10.0    1865.483333
+11.0    1309.876667
+12.0     507.213333
+13.0     963.304000
+14.0    1589.742000
+15.0     583.882000
+16.0     436.622000
+17.0     290.758000
+18.0     117.638600
+Name: MeltingPoint, dtype: float64</code></pre>
+</div>
+</div>
+</section>
+<section id="plot-it" class="slide level2">
+<h2>Plot it</h2>
+<ul>
+<li>That was too hard to see.</li>
+</ul>
+<div id="35886e0b" class="cell" data-execution_count="50">
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a></a>df.groupby(<span class="st">"Group"</span>)[<span class="st">"MeltingPoint"</span>].mean().plot()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="06_pandas_files/figure-revealjs/cell-50-output-1.png" width="806" height="430"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="groupby" class="slide level2">
+<h2><code>groupby</code></h2>
+<ul>
+<li>Groupby is a cool and powerful tool.</li>
+<li>I tend to use it with summary statistics, and you can usually work around it with filters, but with a bit of practice it’s a real joy to work with.</li>
+</ul>
+</section></section>
+<section>
+<section id="merge" class="title-slide slide level1 center">
+<h1>Merge</h1>
+
+</section>
+<section id="names" class="slide level2">
+<h2>Names</h2>
+<ul>
+<li>An astute learning will note a few oddities with names and symbols in the table.</li>
+<li>Some symbols and elements start with different letters.</li>
+</ul>
+</section>
+<section id="strings" class="slide level2">
+<h2>Strings</h2>
+<ul>
+<li>Like lists, arrays, and DataFrames, we can use indices on strings of characters.</li>
+</ul>
+<div id="3b136fea" class="cell" data-execution_count="51">
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a></a>symbol <span class="op">=</span> <span class="st">"He"</span></span>
+<span id="cb75-2"><a></a>element <span class="op">=</span> <span class="st">"Helium"</span></span>
+<span id="cb75-3"><a></a>symbol[<span class="dv">0</span>] <span class="op">==</span> element[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1528">
+<pre><code>True</code></pre>
+</div>
+</div>
+</section>
+<section id="differing" class="slide level2">
+<h2>Differing</h2>
+<ul>
+<li>Sometimes the first letter differs - but not often.</li>
+</ul>
+<div id="906788b4" class="cell" data-execution_count="52">
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a></a>symbol <span class="op">=</span> <span class="st">"Au"</span></span>
+<span id="cb77-2"><a></a>element <span class="op">=</span> <span class="st">"Gold"</span></span>
+<span id="cb77-3"><a></a>symbol[<span class="dv">0</span>] <span class="op">==</span> element[<span class="dv">0</span>] <span class="co"># != means "does not equal"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1529">
+<pre><code>False</code></pre>
+</div>
+</div>
+</section>
+<section id="write-a-function" class="slide level2">
+<h2>Write a function</h2>
+<ul>
+<li>We make a function that checks if two things start with the same letter.</li>
+</ul>
+<div id="ce39bf3a" class="cell" data-execution_count="53">
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb79-1"><a></a><span class="kw">def</span> differ(x,y):</span>
+<span id="cb79-2"><a></a>    <span class="cf">return</span> x[<span class="dv">0</span>] <span class="op">!=</span> y[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="vectorize" class="slide level2">
+<h2>Vectorize</h2>
+<ul>
+<li>To apply to DataFrames, we must vectorize it.
+<ul>
+<li><code>x[0]</code> of a DataFrame is a row</li>
+<li><code>x[0]</code> of a string is a letter</li>
+<li>We wanted letters!</li>
+</ul></li>
+</ul>
+<div id="1caef9d9" class="cell" data-execution_count="54">
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a></a>diff_vector <span class="op">=</span> np.vectorize(differ)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="the-elements" class="slide level2">
+<h2>The Elements</h2>
+<div id="0206f73b" class="cell" data-execution_count="55">
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb81-1"><a></a>df[diff_vector(df[<span class="st">"Symbol"</span>], df[<span class="st">"Element"</span>])][<span class="st">"Element"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1532">
+<pre><code>10       Sodium
+18    Potassium
+25         Iron
+46       Silver
+49          Tin
+50     Antimony
+78         Gold
+79      Mercury
+81         Lead
+Name: Element, dtype: object</code></pre>
+</div>
+</div>
+<ul>
+<li>Basically, these elements have archaic Latin names that were in use when symbols were set before developing their modern names, or something. <a href="https://www.compoundchem.com/2016/02/02/confusing-elements/">Read more</a></li>
+</ul>
+</section>
+<section id="section" class="slide level2">
+<h2></h2>
+
+<img data-src="https://i0.wp.com/www.compoundchem.com/wp-content/uploads/2016/02/11-Confusing-Chemical-Element-Symbols-Explained.png" class="r-stretch"></section>
+<section id="adding-names" class="slide level2">
+<h2>Adding Names</h2>
+<ul>
+<li>Let’s make another DataFrame
+<ul>
+<li>We’ll call if <code>ad</code> for “artus datus”, which might (I have no idea) be Latin for data frame.</li>
+</ul></li>
+</ul>
+<div id="7fce2e8f" class="cell" data-execution_count="56">
+<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb83-1"><a></a>names <span class="op">=</span> [</span>
+<span id="cb83-2"><a></a>    [<span class="st">"Sodium"</span>, <span class="st">"Natrium"</span>],</span>
+<span id="cb83-3"><a></a>    [<span class="st">"Potassium"</span>, <span class="st">"Kalium"</span>],</span>
+<span id="cb83-4"><a></a>    [<span class="st">"Iron"</span>, <span class="st">"Ferrum"</span>],</span>
+<span id="cb83-5"><a></a>    [<span class="st">"Silver"</span>, <span class="st">"Argentum"</span>],</span>
+<span id="cb83-6"><a></a>    [<span class="st">"Tin"</span>, <span class="st">"Stannum"</span>],</span>
+<span id="cb83-7"><a></a>    [<span class="st">"Antimony"</span>, <span class="st">"Stibium"</span>],</span>
+<span id="cb83-8"><a></a>    [<span class="st">"Tungsten"</span>, <span class="st">"Wolfram"</span>],</span>
+<span id="cb83-9"><a></a>    [<span class="st">"Gold"</span>, <span class="st">"Aurum"</span>],</span>
+<span id="cb83-10"><a></a>    [<span class="st">"Mercury"</span>, <span class="st">"Hydrargyrum"</span>],</span>
+<span id="cb83-11"><a></a>    [<span class="st">"Lead"</span>, <span class="st">"Plumbum"</span>]</span>
+<span id="cb83-12"><a></a>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="to-dataframe" class="slide level2">
+<h2>To DataFrame</h2>
+<ul>
+<li><code>ad</code> for “artus datus”, which may be Latin for data frame.</li>
+</ul>
+<div id="52389a23" class="cell" data-execution_count="57">
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb84-1"><a></a>ad <span class="op">=</span> pd.DataFrame(names)</span>
+<span id="cb84-2"><a></a>ad</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1534">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">0</th>
+<th data-quarto-table-cell-role="th">1</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Sodium</td>
+<td>Natrium</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Potassium</td>
+<td>Kalium</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Iron</td>
+<td>Ferrum</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Silver</td>
+<td>Argentum</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Tin</td>
+<td>Stannum</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>Antimony</td>
+<td>Stibium</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>Tungsten</td>
+<td>Wolfram</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>Gold</td>
+<td>Aurum</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>Mercury</td>
+<td>Hydrargyrum</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>Lead</td>
+<td>Plumbum</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="column-names" class="slide level2">
+<h2>Column Names</h2>
+<ul>
+<li>Remember <code>.columns</code>?</li>
+</ul>
+<div id="8ce5912a" class="cell" data-execution_count="58">
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb85-1"><a></a>df.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1535">
+<pre><code>Index(['AtomicNumber', 'Element', 'Symbol', 'AtomicMass', 'NumberofNeutrons',
+       'Period', 'Group', 'Phase', 'Radioactive', 'Natural', 'Type',
+       'AtomicRadius', 'Electronegativity', 'FirstIonization', 'Density',
+       'MeltingPoint', 'BoilingPoint', 'NumberOfIsotopes', 'Discoverer',
+       'Year', 'SpecificHeat', 'NumberofShells', 'NumberofValence',
+       'OutermostElectrons', 'NeutronsLessProtons', 'Metallic'],
+      dtype='object')</code></pre>
+</div>
+</div>
+<ul>
+<li>We can actually use <code>=</code> with <code>.columns</code></li>
+</ul>
+<div id="cd4a3ce9" class="cell" data-execution_count="59">
+<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb87-1"><a></a>ad.columns <span class="op">=</span> [<span class="st">"Element"</span>, <span class="st">"Latin"</span>] </span>
+<span id="cb87-2"><a></a>ad.iloc[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1536">
+<pre><code>Element     Sodium
+Latin      Natrium
+Name: 0, dtype: object</code></pre>
+</div>
+</div>
+</section>
+<section id="merge-1" class="slide level2">
+<h2>Merge</h2>
+<div id="5dbe50dc" class="cell" data-execution_count="60">
+<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb89-1"><a></a>df.merge(ad) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1537">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">AtomicNumber</th>
+<th data-quarto-table-cell-role="th">Element</th>
+<th data-quarto-table-cell-role="th">Symbol</th>
+<th data-quarto-table-cell-role="th">AtomicMass</th>
+<th data-quarto-table-cell-role="th">NumberofNeutrons</th>
+<th data-quarto-table-cell-role="th">Period</th>
+<th data-quarto-table-cell-role="th">Group</th>
+<th data-quarto-table-cell-role="th">Phase</th>
+<th data-quarto-table-cell-role="th">Radioactive</th>
+<th data-quarto-table-cell-role="th">Natural</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">NumberOfIsotopes</th>
+<th data-quarto-table-cell-role="th">Discoverer</th>
+<th data-quarto-table-cell-role="th">Year</th>
+<th data-quarto-table-cell-role="th">SpecificHeat</th>
+<th data-quarto-table-cell-role="th">NumberofShells</th>
+<th data-quarto-table-cell-role="th">NumberofValence</th>
+<th data-quarto-table-cell-role="th">OutermostElectrons</th>
+<th data-quarto-table-cell-role="th">NeutronsLessProtons</th>
+<th data-quarto-table-cell-role="th">Metallic</th>
+<th data-quarto-table-cell-role="th">Latin</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>11</td>
+<td>Sodium</td>
+<td>Na</td>
+<td>22.990</td>
+<td>12</td>
+<td>3</td>
+<td>1.0</td>
+<td>solid</td>
+<td>NaN</td>
+<td>yes</td>
+<td>...</td>
+<td>7.0</td>
+<td>Davy</td>
+<td>1807.0</td>
+<td>1.228</td>
+<td>3</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>1</td>
+<td>Metal</td>
+<td>Natrium</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>19</td>
+<td>Potassium</td>
+<td>K</td>
+<td>39.098</td>
+<td>20</td>
+<td>4</td>
+<td>1.0</td>
+<td>solid</td>
+<td>NaN</td>
+<td>yes</td>
+<td>...</td>
+<td>10.0</td>
+<td>Davy</td>
+<td>1807.0</td>
+<td>0.757</td>
+<td>4</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>1</td>
+<td>Metal</td>
+<td>Kalium</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>26</td>
+<td>Iron</td>
+<td>Fe</td>
+<td>55.845</td>
+<td>30</td>
+<td>4</td>
+<td>8.0</td>
+<td>solid</td>
+<td>NaN</td>
+<td>yes</td>
+<td>...</td>
+<td>10.0</td>
+<td>Prehistoric</td>
+<td>NaN</td>
+<td>0.449</td>
+<td>4</td>
+<td>NaN</td>
+<td>8.0</td>
+<td>4</td>
+<td>Metal</td>
+<td>Ferrum</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>47</td>
+<td>Silver</td>
+<td>Ag</td>
+<td>107.868</td>
+<td>61</td>
+<td>5</td>
+<td>11.0</td>
+<td>solid</td>
+<td>NaN</td>
+<td>yes</td>
+<td>...</td>
+<td>27.0</td>
+<td>Prehistoric</td>
+<td>NaN</td>
+<td>0.235</td>
+<td>5</td>
+<td>NaN</td>
+<td>11.0</td>
+<td>14</td>
+<td>Metal</td>
+<td>Argentum</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>50</td>
+<td>Tin</td>
+<td>Sn</td>
+<td>118.710</td>
+<td>69</td>
+<td>5</td>
+<td>14.0</td>
+<td>solid</td>
+<td>NaN</td>
+<td>yes</td>
+<td>...</td>
+<td>28.0</td>
+<td>Prehistoric</td>
+<td>NaN</td>
+<td>0.228</td>
+<td>5</td>
+<td>4.0</td>
+<td>14.0</td>
+<td>19</td>
+<td>Metal</td>
+<td>Stannum</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>51</td>
+<td>Antimony</td>
+<td>Sb</td>
+<td>121.760</td>
+<td>71</td>
+<td>5</td>
+<td>15.0</td>
+<td>solid</td>
+<td>NaN</td>
+<td>yes</td>
+<td>...</td>
+<td>29.0</td>
+<td>Early historic times</td>
+<td>NaN</td>
+<td>0.207</td>
+<td>5</td>
+<td>5.0</td>
+<td>15.0</td>
+<td>20</td>
+<td>Metalloid</td>
+<td>Stibium</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>79</td>
+<td>Gold</td>
+<td>Au</td>
+<td>196.967</td>
+<td>118</td>
+<td>6</td>
+<td>11.0</td>
+<td>solid</td>
+<td>NaN</td>
+<td>yes</td>
+<td>...</td>
+<td>21.0</td>
+<td>Prehistoric</td>
+<td>NaN</td>
+<td>0.129</td>
+<td>6</td>
+<td>NaN</td>
+<td>25.0</td>
+<td>39</td>
+<td>Metal</td>
+<td>Aurum</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>80</td>
+<td>Mercury</td>
+<td>Hg</td>
+<td>200.590</td>
+<td>121</td>
+<td>6</td>
+<td>12.0</td>
+<td>liq</td>
+<td>NaN</td>
+<td>yes</td>
+<td>...</td>
+<td>26.0</td>
+<td>Prehistoric</td>
+<td>NaN</td>
+<td>0.140</td>
+<td>6</td>
+<td>NaN</td>
+<td>26.0</td>
+<td>41</td>
+<td>Metal</td>
+<td>Hydrargyrum</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>82</td>
+<td>Lead</td>
+<td>Pb</td>
+<td>207.200</td>
+<td>125</td>
+<td>6</td>
+<td>14.0</td>
+<td>solid</td>
+<td>NaN</td>
+<td>yes</td>
+<td>...</td>
+<td>29.0</td>
+<td>Prehistoric</td>
+<td>NaN</td>
+<td>0.129</td>
+<td>6</td>
+<td>4.0</td>
+<td>28.0</td>
+<td>43</td>
+<td>Metal</td>
+<td>Plumbum</td>
+</tr>
+</tbody>
+</table>
+
+<p>9 rows × 27 columns</p>
+</div>
+</div>
+</div>
+</section>
+<section id="oh-no" class="slide level2">
+<h2>Oh no!</h2>
+<ul>
+<li>So we successfully added Latin names, but…</li>
+<li>We lost all elements <em>without</em> a Latin name.</li>
+<li>The merge only kept elements in both <code>df</code> and <code>ad</code></li>
+</ul>
+</section></section>
+<section>
+<section id="join" class="title-slide slide level1 center">
+<h1>Join</h1>
+
+</section>
+<section id="dont-merge" class="slide level2">
+<h2>Don’t merge</h2>
+<ul>
+<li>In my experience, merges never work, but…</li>
+<li>They explain <em>how</em> joins, the good thing, work.</li>
+</ul>
+</section>
+<section id="background" class="slide level2">
+<h2>Background</h2>
+<ul>
+<li>To make learning joins easier, we’ll work with two DataFrames.</li>
+</ul>
+<div id="b940241f" class="cell" data-execution_count="61">
+<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb90-1"><a></a>metalloids <span class="op">=</span> df[df[<span class="st">"Metallic"</span>] <span class="op">==</span> <span class="st">"Metalloid"</span>]</span>
+<span id="cb90-2"><a></a>latin_name <span class="op">=</span> df.merge(ad)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="index" class="slide level2">
+<h2>Index</h2>
+<ul>
+<li>Versus <code>merge</code>, which just figures it out, <code>join</code> likes to look at indices.</li>
+<li>So we have to make sure we have the same index on both data frames.</li>
+<li>We’ll use <code>"Symbol"</code></li>
+</ul>
+<div id="e78e7539" class="cell" data-execution_count="62">
+<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb91-1"><a></a>metalloids.index <span class="op">=</span> metalloids[<span class="st">"Symbol"</span>]</span>
+<span id="cb91-2"><a></a>latin_name.index <span class="op">=</span> latin_name[<span class="st">"Symbol"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="simplify" class="slide level2">
+<h2>Simplify</h2>
+<ul>
+<li>To make things easier on us, let’s just only look at a few columns.</li>
+<li>We will avoid having two columns of the same name.
+<ul>
+<li>This is manageable, but let’s learn joins first.</li>
+</ul></li>
+</ul>
+<div id="3b2c76e3" class="cell" data-execution_count="63">
+<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb92-1"><a></a>metalloids <span class="op">=</span> metalloids[[<span class="st">"AtomicNumber"</span>,<span class="st">"Metallic"</span>]]</span>
+<span id="cb92-2"><a></a>latin_name <span class="op">=</span> latin_name[[<span class="st">"Element"</span>,<span class="st">"Latin"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="the-dfs" class="slide level2">
+<h2>The df’s</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div id="dae6e943" class="cell" data-execution_count="64">
+<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb93-1"><a></a>metalloids</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1541">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">AtomicNumber</th>
+<th data-quarto-table-cell-role="th">Metallic</th>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">Symbol</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">B</td>
+<td>5</td>
+<td>Metalloid</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Si</td>
+<td>14</td>
+<td>Metalloid</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Ge</td>
+<td>32</td>
+<td>Metalloid</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">As</td>
+<td>33</td>
+<td>Metalloid</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Sb</td>
+<td>51</td>
+<td>Metalloid</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Te</td>
+<td>52</td>
+<td>Metalloid</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Po</td>
+<td>84</td>
+<td>Metalloid</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div id="2d6076aa" class="cell" data-execution_count="65">
+<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb94-1"><a></a>latin_name</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1542">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Element</th>
+<th data-quarto-table-cell-role="th">Latin</th>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">Symbol</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Na</td>
+<td>Sodium</td>
+<td>Natrium</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">K</td>
+<td>Potassium</td>
+<td>Kalium</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Fe</td>
+<td>Iron</td>
+<td>Ferrum</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Ag</td>
+<td>Silver</td>
+<td>Argentum</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Sn</td>
+<td>Tin</td>
+<td>Stannum</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Sb</td>
+<td>Antimony</td>
+<td>Stibium</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Au</td>
+<td>Gold</td>
+<td>Aurum</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Hg</td>
+<td>Mercury</td>
+<td>Hydrargyrum</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Pb</td>
+<td>Lead</td>
+<td>Plumbum</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="visuals" class="slide level2">
+<h2>Visuals</h2>
+<ul>
+<li>I will also visualize this using venn diagrams.</li>
+<li>To my knowledge, there is no graceful way to visualize venn diagrams, but <code>matplotlib-venn</code> is okay.</li>
+<li>I’m spoiler-marking code that shows how I make the venn diagrams.</li>
+</ul>
+</section>
+<section id="section-1" class="slide level2">
+<h2></h2>
+<div id="b1158594" class="cell" data-execution_count="66">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb95"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb95-1"><a></a><span class="im">from</span> matplotlib_venn <span class="im">import</span> venn2, venn2_circles</span>
+<span id="cb95-2"><a></a></span>
+<span id="cb95-3"><a></a><span class="kw">def</span> show_join(how, left, right, mid):</span>
+<span id="cb95-4"><a></a>    v <span class="op">=</span> venn2((<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">1</span>), (<span class="st">'metalloids'</span>, <span class="st">'latin_name'</span>))</span>
+<span id="cb95-5"><a></a>    v.get_patch_by_id(<span class="st">'100'</span>).set_color(<span class="st">'darkblue'</span> <span class="cf">if</span> left <span class="cf">else</span> <span class="st">'white'</span>)</span>
+<span id="cb95-6"><a></a>    v.get_patch_by_id(<span class="st">'010'</span>).set_color(<span class="st">'darkblue'</span> <span class="cf">if</span> right <span class="cf">else</span> <span class="st">'white'</span>)</span>
+<span id="cb95-7"><a></a>    v.get_patch_by_id(<span class="st">'110'</span>).set_color(<span class="st">'darkblue'</span> <span class="cf">if</span> mid <span class="cf">else</span> <span class="st">'white'</span>)</span>
+<span id="cb95-8"><a></a>    v.get_patch_by_id(<span class="st">'100'</span>).set_alpha(<span class="fl">1.0</span>)</span>
+<span id="cb95-9"><a></a>    v.get_patch_by_id(<span class="st">'010'</span>).set_alpha(<span class="fl">1.0</span>)</span>
+<span id="cb95-10"><a></a>    v.get_patch_by_id(<span class="st">'110'</span>).set_alpha(<span class="fl">1.0</span>)</span>
+<span id="cb95-11"><a></a>    venn2_circles((<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">1</span>))</span>
+<span id="cb95-12"><a></a>    <span class="cf">for</span> idx, subset <span class="kw">in</span> <span class="bu">enumerate</span>(v.subset_labels):</span>
+<span id="cb95-13"><a></a>        v.subset_labels[idx].set_visible(<span class="va">False</span>)</span>
+<span id="cb95-14"><a></a>        plt.title(<span class="st">"metalloids.join(latin_name, how=</span><span class="ch">\"</span><span class="st">"</span> <span class="op">+</span> how <span class="op">+</span> <span class="st">"</span><span class="ch">\"</span><span class="st">)"</span>)</span>
+<span id="cb95-15"><a></a>    plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="quoth-pandas" class="slide level2">
+<h2>Quoth <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.join.html" class="smaller"><strong>pandas</strong></a></h2>
+<p>how: <code>{‘left’,‘right’,‘outer’,‘inner’,‘cross’}</code></p>
+<ul>
+<li><p>How to handle operation of the two objects.</p>
+<ul>
+<li><code>'left'</code>: use calling frame’s index<br>
+</li>
+<li><code>'right'</code>: use other’s index.</li>
+<li><code>'outer'</code>: form union of calling frame’s index with other’s index.</li>
+<li><code>'inner'</code>: form intersection of calling frame’s index with other’s index.</li>
+<li><code>'cross'</code>: creates the cartesian product from both frames.</li>
+</ul></li>
+</ul>
+</section>
+<section id="join-1" class="slide level2">
+<h2>Join</h2>
+<ul>
+<li>Join uses all columns, filling with “NaN”.</li>
+</ul>
+<div id="8b50740d" class="cell" data-execution_count="67">
+<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb96-1"><a></a>metalloids.join(latin_name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1544">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">AtomicNumber</th>
+<th data-quarto-table-cell-role="th">Metallic</th>
+<th data-quarto-table-cell-role="th">Element</th>
+<th data-quarto-table-cell-role="th">Latin</th>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">Symbol</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">B</td>
+<td>5</td>
+<td>Metalloid</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Si</td>
+<td>14</td>
+<td>Metalloid</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Ge</td>
+<td>32</td>
+<td>Metalloid</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">As</td>
+<td>33</td>
+<td>Metalloid</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Sb</td>
+<td>51</td>
+<td>Metalloid</td>
+<td>Antimony</td>
+<td>Stibium</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Te</td>
+<td>52</td>
+<td>Metalloid</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Po</td>
+<td>84</td>
+<td>Metalloid</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="left" class="slide level2">
+<h2>Left</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div id="35c611a7" class="cell" data-execution_count="68">
+<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb97-1"><a></a>metalloids.join(latin_name, how<span class="op">=</span><span class="st">'left'</span>)[<span class="st">"Element"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1545">
+<pre><code>Symbol
+B          NaN
+Si         NaN
+Ge         NaN
+As         NaN
+Sb    Antimony
+Te         NaN
+Po         NaN
+Name: Element, dtype: object</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div id="b66290d6" class="cell" data-execution_count="69">
+<div class="sourceCode cell-code" id="cb99"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb99-1"><a></a>show_join(<span class="st">'left'</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="06_pandas_files/figure-revealjs/cell-69-output-1.png" width="555" height="409"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="right" class="slide level2">
+<h2>Right</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div id="ddff27b2" class="cell" data-execution_count="70">
+<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb100-1"><a></a>metalloids.join(latin_name, how<span class="op">=</span><span class="st">'right'</span>)[<span class="st">"Element"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1547">
+<pre><code>Symbol
+Na       Sodium
+K     Potassium
+Fe         Iron
+Ag       Silver
+Sn          Tin
+Sb     Antimony
+Au         Gold
+Hg      Mercury
+Pb         Lead
+Name: Element, dtype: object</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div id="bcf91a52" class="cell" data-execution_count="71">
+<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb102-1"><a></a>show_join(<span class="st">'right'</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="06_pandas_files/figure-revealjs/cell-71-output-1.png" width="555" height="409"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="outer" class="slide level2">
+<h2>Outer</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div id="0288f306" class="cell" data-execution_count="72">
+<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb103-1"><a></a>metalloids.join(latin_name, how<span class="op">=</span><span class="st">'outer'</span>)[<span class="st">"Element"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1549">
+<pre><code>Symbol
+Ag       Silver
+As          NaN
+Au         Gold
+B           NaN
+Fe         Iron
+Ge          NaN
+Hg      Mercury
+K     Potassium
+Na       Sodium
+Pb         Lead
+Po          NaN
+Sb     Antimony
+Si          NaN
+Sn          Tin
+Te          NaN
+Name: Element, dtype: object</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div id="4e4ea6d4" class="cell" data-execution_count="73">
+<div class="sourceCode cell-code" id="cb105"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb105-1"><a></a>show_join(<span class="st">'outer'</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="06_pandas_files/figure-revealjs/cell-73-output-1.png" width="555" height="409"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="inner" class="slide level2">
+<h2>Inner</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div id="4e14c3f1" class="cell" data-execution_count="74">
+<div class="sourceCode cell-code" id="cb106"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb106-1"><a></a>metalloids.join(latin_name, how<span class="op">=</span><span class="st">'inner'</span>)[<span class="st">"Element"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1551">
+<pre><code>Symbol
+Sb    Antimony
+Name: Element, dtype: object</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div id="098f68c8" class="cell" data-execution_count="75">
+<div class="sourceCode cell-code" id="cb108"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb108-1"><a></a>show_join(<span class="st">'inner'</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="06_pandas_files/figure-revealjs/cell-75-output-1.png" width="555" height="409"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="cross" class="slide level2">
+<h2>Cross</h2>
+<ul>
+<li>Cross makes pairs.</li>
+<li>I don’t see it used often.</li>
+</ul>
+<div id="63e1cadd" class="cell" data-execution_count="76">
+<div class="sourceCode cell-code" id="cb109"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb109-1"><a></a>metalloids.join(latin_name, how<span class="op">=</span><span class="st">'cross'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1553">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">AtomicNumber</th>
+<th data-quarto-table-cell-role="th">Metallic</th>
+<th data-quarto-table-cell-role="th">Element</th>
+<th data-quarto-table-cell-role="th">Latin</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>5</td>
+<td>Metalloid</td>
+<td>Sodium</td>
+<td>Natrium</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>5</td>
+<td>Metalloid</td>
+<td>Potassium</td>
+<td>Kalium</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>5</td>
+<td>Metalloid</td>
+<td>Iron</td>
+<td>Ferrum</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>5</td>
+<td>Metalloid</td>
+<td>Silver</td>
+<td>Argentum</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>5</td>
+<td>Metalloid</td>
+<td>Tin</td>
+<td>Stannum</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">58</td>
+<td>84</td>
+<td>Metalloid</td>
+<td>Tin</td>
+<td>Stannum</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">59</td>
+<td>84</td>
+<td>Metalloid</td>
+<td>Antimony</td>
+<td>Stibium</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">60</td>
+<td>84</td>
+<td>Metalloid</td>
+<td>Gold</td>
+<td>Aurum</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">61</td>
+<td>84</td>
+<td>Metalloid</td>
+<td>Mercury</td>
+<td>Hydrargyrum</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">62</td>
+<td>84</td>
+<td>Metalloid</td>
+<td>Lead</td>
+<td>Plumbum</td>
+</tr>
+</tbody>
+</table>
+
+<p>63 rows × 4 columns</p>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="exercise" class="title-slide slide level1 center">
+<h1>Exercise</h1>
+
+</section>
+<section id="the-table" class="slide level2">
+<h2>The Table</h2>
+<ul>
+<li>The periodic table was developed by laying out elements by “Groups” and “Periods”</li>
+<li>Basically, number of outer electrons (that can bond) and number of layers of inner “shells” of electrons that can’t bond.
+<ul>
+<li>Or something. I’m not a real scientist.</li>
+</ul></li>
+<li>We can plot these against each other.</li>
+</ul>
+</section>
+<section id="electronegativity" class="slide level2">
+<h2>Electronegativity</h2>
+<blockquote>
+<p><a href="https://chem.libretexts.org/Bookshelves/Physical_and_Theoretical_Chemistry_Textbook_Maps/Supplemental_Modules_(Physical_and_Theoretical_Chemistry)/Physical_Properties_of_Matter/Atomic_and_Molecular_Properties/Electronegativity">Electronegativity is a measure of the tendency of an atom to attract a bonding pair of electrons. The Pauling scale is the most commonly used. Fluorine (the most electronegative element) is assigned a value of 4.0, and values range down to cesium and francium which are the least electronegative at 0.7.</a></p>
+</blockquote>
+</section>
+<section id="exercise-1" class="slide level2">
+<h2>Exercise</h2>
+<ul>
+<li>Plot the table, by plotting “Groups” vs “Periods”</li>
+<li>Plot electronegativity using color.</li>
+<li>Confirm the claims from the chemistry text about electronegativity trends.</li>
+<li>Annotate the location of fluorine (F).</li>
+</ul>
+</section>
+<section id="aside-inversion" class="slide level2">
+<h2>Aside: Inversion</h2>
+<ul>
+<li>There’s a few ways to invert an axis that you may want to use.</li>
+</ul>
+<div id="d23701e1" class="cell" data-execution_count="77">
+<div class="sourceCode cell-code" id="cb110"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb110-1"><a></a>taxes <span class="op">=</span> pd.DataFrame(taxes)</span>
+<span id="cb110-2"><a></a>plt.scatter(taxes[<span class="dv">0</span>],taxes[<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="06_pandas_files/figure-revealjs/cell-77-output-1.png" width="802" height="411"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="supply-a--" class="slide level2">
+<h2>Supply a <code>-</code></h2>
+<ul>
+<li>You can negate, but it impacts labels.</li>
+</ul>
+<div id="1cf1eaaf" class="cell" data-execution_count="78">
+<div class="sourceCode cell-code" id="cb111"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb111-1"><a></a><span class="co"># Not there's a negative on taxes[1]</span></span>
+<span id="cb111-2"><a></a>plt.scatter(taxes[<span class="dv">0</span>],<span class="op">-</span>taxes[<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="06_pandas_files/figure-revealjs/cell-78-output-1.png" width="813" height="411"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="get-axes" class="slide level2">
+<h2>Get axes</h2>
+<ul>
+<li>You can use <code>.gca()</code> (get current axes) and set one negative.</li>
+</ul>
+<div id="e757d083" class="cell" data-execution_count="79">
+<div class="sourceCode cell-code" id="cb112"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb112-1"><a></a>plt.scatter(taxes[<span class="dv">0</span>],taxes[<span class="dv">1</span>])</span>
+<span id="cb112-2"><a></a>plt.gca().invert_yaxis()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="06_pandas_files/figure-revealjs/cell-79-output-1.png" width="802" height="411"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="solution" class="slide level2">
+<h2>Solution</h2>
+<div id="57b9b75f" class="cell" data-execution_count="80">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb113"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb113-1"><a></a><span class="co"># Plot</span></span>
+<span id="cb113-2"><a></a>plt.scatter(</span>
+<span id="cb113-3"><a></a>    x<span class="op">=</span>df[<span class="st">"Group"</span>],</span>
+<span id="cb113-4"><a></a>    y<span class="op">=</span>df[<span class="st">"Period"</span>],</span>
+<span id="cb113-5"><a></a>    c<span class="op">=</span>df[<span class="st">"Electronegativity"</span>]</span>
+<span id="cb113-6"><a></a>)</span>
+<span id="cb113-7"><a></a>plt.gca().invert_yaxis()</span>
+<span id="cb113-8"><a></a><span class="co"># Label</span></span>
+<span id="cb113-9"><a></a>plt.title(<span class="st">"Electronegativity"</span>)</span>
+<span id="cb113-10"><a></a>plt.xlabel(<span class="st">"Group"</span>)</span>
+<span id="cb113-11"><a></a>plt.ylabel(<span class="st">"Period"</span>)</span>
+<span id="cb113-12"><a></a>plt.colorbar()</span>
+<span id="cb113-13"><a></a><span class="co"># Annotate</span></span>
+<span id="cb113-14"><a></a>_ <span class="op">=</span> plt.annotate(<span class="st">"F"</span>,(<span class="dv">17</span>,<span class="dv">2</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="06_pandas_files/figure-revealjs/cell-80-output-1.png" width="737" height="449"></p>
+</figure>
+</div>
+</div>
+</div>
 
 
 </section></section>

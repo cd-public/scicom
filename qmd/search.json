@@ -237,7 +237,7 @@
     "href": "A0_gitbash.html#finishing-up",
     "title": "",
     "section": "Finishing up",
-    "text": "Finishing up\n\nAt this time, you may need to close any terminal windows you have open.\nSave you work (:w) first!",
+    "text": "Finishing up\n\nAt this time, you may need to close any terminal windows you have open.\nSave your work (:w) first!",
     "crumbs": [
       "Appendix - Git Bash"
     ]
@@ -386,7 +386,7 @@
     "href": "A0_gitbash.rjs.html#finishing-up",
     "title": "Scientific Computing",
     "section": "Finishing up",
-    "text": "Finishing up\n\nAt this time, you may need to close any terminal windows you have open.\nSave you work (:w) first!"
+    "text": "Finishing up\n\nAt this time, you may need to close any terminal windows you have open.\nSave your work (:w) first!"
   },
   {
     "objectID": "A0_gitbash.rjs.html#install",
@@ -6088,7 +6088,7 @@
     "href": "06_pandas.rjs.html#zeroone-index",
     "title": "pandas",
     "section": "Zero/One index",
-    "text": "Zero/One index\n\nDataFrames are 0-indexed\n\n\ndf[\"AtomicNumber\"].iloc[0]\n\nnp.int64(1)\n\n\n\nElements are 1-indexed1 with good reason.\n\n\ndf[[\"AtomicNumber\",\"NumberofProtons\"]].head(1)\n\n\n\n\n\n\n\n\nAtomicNumber\nNumberofProtons\n\n\n\n\n0\n1\n1\n\n\n\n\n\n\n\nNeutronium is a proposed as an element with atomic number of 0."
+    "text": "Zero/One index\n\nDataFrames are 0-indexed\n\n\ndf[\"AtomicNumber\"].iloc[0]\n\nnp.int64(1)\n\n\n\nElements are 1-indexed1 with good reason.\n\n\ndf[[\"AtomicNumber\",\"NumberofProtons\"]].head(1)\n\n\n\n\n\n\n\n\nAtomicNumber\nNumberofProtons\n\n\n\n\n0\n1\n1\n\n\n\n\n\n\n\nNeutronium is a proposed but not academically interesting element with atomic number 0."
   },
   {
     "objectID": "06_pandas.rjs.html#data-manipulation",
@@ -6137,7 +6137,7 @@
     "href": "06_pandas.rjs.html#expanding-dataframes",
     "title": "pandas",
     "section": "Expanding DataFrames",
-    "text": "Expanding DataFrames\n\nWe can create a new column and new data to it from a np.array\nAt least if the dimensions work out…\n\n\ndf.shape, num_es.shape\n\n((118, 28), (118,))\n\n\n\nWe have 118 elements, so it is good we have 118 possible outermost electron counts!"
+    "text": "Expanding DataFrames\n\nWe can create a new column and add new data to it from a np.array\nAt least if the dimensions work out…\n\n\ndf.shape, num_es.shape\n\n((118, 28), (118,))\n\n\n\nWe have 118 elements, so it is good we have 118 possible outermost electron counts!"
   },
   {
     "objectID": "06_pandas.rjs.html#update-list",
@@ -6245,11 +6245,333 @@
     "text": "Metal or not\n\nWe helpfully can already see what metals are.\n\n\ndf.iloc[15:25:2][[\"Element\",\"Metal\"]]\n\n\n\n\n\n\n\n\nElement\nMetal\n\n\n\n\n15\nSulfur\nNaN\n\n\n17\nArgon\nNaN\n\n\n19\nCalcium\nyes\n\n\n21\nTitanium\nyes\n\n\n23\nChromium\nyes"
   },
   {
-    "objectID": "06_pandas.rjs.html#todo",
-    "href": "06_pandas.rjs.html#todo",
+    "objectID": "06_pandas.rjs.html#nan",
+    "href": "06_pandas.rjs.html#nan",
     "title": "pandas",
-    "section": "Todo",
-    "text": "Todo\n\nDo some wranglin’\nDo some groupin’\nDo some joinin’\nWrite a .csv"
+    "section": "NaN",
+    "text": "NaN\n\nNaN means “not a number” and is used by pandas (not generally by Python) to fill in missing data.\n\n\nnp.sqrt(-1)\n\nnp.float64(nan)\n\n\n\nI find this idea a bit odd (and e.g. Polars does not do this) but we can work with it."
+  },
+  {
+    "objectID": "06_pandas.rjs.html#nonmetalloid",
+    "href": "06_pandas.rjs.html#nonmetalloid",
+    "title": "pandas",
+    "section": "(Non)metal(loid)",
+    "text": "(Non)metal(loid)\n\nElements are “metal”, “nonmetal”, or “metalloid”.\nI regard this as how metallic an element is.\n\n\ndf.iloc[12:16][[\"Element\",\"Metal\",\"Nonmetal\",\"Metalloid\"]]\n\n\n\n\n\n\n\n\nElement\nMetal\nNonmetal\nMetalloid\n\n\n\n\n12\nAluminum\nyes\nNaN\nNaN\n\n\n13\nSilicon\nNaN\nNaN\nyes\n\n\n14\nPhosphorus\nNaN\nyes\nNaN\n\n\n15\nSulfur\nNaN\nyes\nNaN"
+  },
+  {
+    "objectID": "06_pandas.rjs.html#metallic",
+    "href": "06_pandas.rjs.html#metallic",
+    "title": "pandas",
+    "section": "Metallic",
+    "text": "Metallic\n\nWe introduce and use np.where, which takes\n\nA condition\nA value if condition\nA value else\n\n\n\ndf[\"Metallic\"] = np.where(df[\"Metal\"] == \"yes\", \"Metal\", \"Nonmetal\")\ndf.iloc[12:16][[\"Metal\",\"Nonmetal\",\"Metalloid\",\"Metallic\"]]\n\n\n\n\n\n\n\n\nMetal\nNonmetal\nMetalloid\nMetallic\n\n\n\n\n12\nyes\nNaN\nNaN\nMetal\n\n\n13\nNaN\nNaN\nyes\nNonmetal\n\n\n14\nNaN\nyes\nNaN\nNonmetal\n\n\n15\nNaN\nyes\nNaN\nNonmetal"
+  },
+  {
+    "objectID": "06_pandas.rjs.html#metalloids",
+    "href": "06_pandas.rjs.html#metalloids",
+    "title": "pandas",
+    "section": "Metalloids",
+    "text": "Metalloids\n\nAdditionally deal with metalloids.\n\n\ndf[df[\"Metalloid\"] == \"yes\"][\"Metallic\"] = \"Metalloid\"\ndf.iloc[12:16][[\"Metal\",\"Nonmetal\",\"Metalloid\",\"Metallic\"]]\n\n\n\n\n\n\n\n\nMetal\nNonmetal\nMetalloid\nMetallic\n\n\n\n\n12\nyes\nNaN\nNaN\nMetal\n\n\n13\nNaN\nNaN\nyes\nNonmetal\n\n\n14\nNaN\nyes\nNaN\nNonmetal\n\n\n15\nNaN\nyes\nNaN\nNonmetal\n\n\n\n\n\n\n\n\nWhoops!"
+  },
+  {
+    "objectID": "06_pandas.rjs.html#loc",
+    "href": "06_pandas.rjs.html#loc",
+    "title": "pandas",
+    "section": "loc",
+    "text": "loc\n\ndf[df[\"Metalloid\"] == \"yes\"] is not the same dataframe as df\nChanges to it will not change df.\nWe use .loc, the cousin of .iloc to update df.\nWe must also very carefully put all indices, comma separated, in single brackets."
+  },
+  {
+    "objectID": "06_pandas.rjs.html#recall-numpy",
+    "href": "06_pandas.rjs.html#recall-numpy",
+    "title": "pandas",
+    "section": "Recall: NumPy",
+    "text": "Recall: NumPy\n\n\narr = np.array([\n    [9275, .10],\n    [37650, .15],\n    [91150, .25],\n    [190150, .28],\n    [413350, .33],\n    [415051, .35]\n])\n\n\n\nI recommend using the comma notation.\nOtherwise I get unexpected behavior.\n\n\n\n\n# reverse in both dimensions\narr[::-1][::-1] \n\narray([[9.27500e+03, 1.00000e-01],\n       [3.76500e+04, 1.50000e-01],\n       [9.11500e+04, 2.50000e-01],\n       [1.90150e+05, 2.80000e-01],\n       [4.13350e+05, 3.30000e-01],\n       [4.15051e+05, 3.50000e-01]])\n\n\n\n\n# reverse in both dimensions\narr[::-1,::-1]\n\narray([[3.50000e-01, 4.15051e+05],\n       [3.30000e-01, 4.13350e+05],\n       [2.80000e-01, 1.90150e+05],\n       [2.50000e-01, 9.11500e+04],\n       [1.50000e-01, 3.76500e+04],\n       [1.00000e-01, 9.27500e+03]])\n\n\n\n\nTakeaway: Always use [x,y] instead of [x][y]\nThis is why we use NumPypandas!"
+  },
+  {
+    "objectID": "06_pandas.rjs.html#update",
+    "href": "06_pandas.rjs.html#update",
+    "title": "pandas",
+    "section": "Update",
+    "text": "Update\n\ndf.loc[df[\"Metalloid\"] == \"yes\", \"Metallic\"] = \"Metalloid\"\ndf.iloc[12:16][[\"Metal\",\"Nonmetal\",\"Metalloid\",\"Metallic\"]]\n\n\n\n\n\n\n\n\nMetal\nNonmetal\nMetalloid\nMetallic\n\n\n\n\n12\nyes\nNaN\nNaN\nMetal\n\n\n13\nNaN\nNaN\nyes\nMetalloid\n\n\n14\nNaN\nyes\nNaN\nNonmetal\n\n\n15\nNaN\nyes\nNaN\nNonmetal\n\n\n\n\n\n\n\n\nMuch nicer."
+  },
+  {
+    "objectID": "06_pandas.rjs.html#another-drop",
+    "href": "06_pandas.rjs.html#another-drop",
+    "title": "pandas",
+    "section": "Another drop",
+    "text": "Another drop\n\nLet’s just keep “Metallic” now that we have it.\n\n\n# Have to specify columns (we can also drop rows)\ndf = df.drop(columns=[\"Metal\",\"Nonmetal\",\"Metalloid\"])\ndf.columns \n\nIndex(['AtomicNumber', 'Element', 'Symbol', 'AtomicMass', 'NumberofNeutrons',\n       'Period', 'Group', 'Phase', 'Radioactive', 'Natural', 'Type',\n       'AtomicRadius', 'Electronegativity', 'FirstIonization', 'Density',\n       'MeltingPoint', 'BoilingPoint', 'NumberOfIsotopes', 'Discoverer',\n       'Year', 'SpecificHeat', 'NumberofShells', 'NumberofValence',\n       'OutermostElectrons', 'NeutronsLessProtons', 'Metallic'],\n      dtype='object')"
+  },
+  {
+    "objectID": "06_pandas.rjs.html#on-groups",
+    "href": "06_pandas.rjs.html#on-groups",
+    "title": "pandas",
+    "section": "On groups",
+    "text": "On groups\n\nIn chemistry:\n\n\na group (also known as a family) is a column of elements in the periodic table of the chemical elements.\n\n\nIn computing\n\n\na set together with a binary operation satisfying certain algebraic conditions."
+  },
+  {
+    "objectID": "06_pandas.rjs.html#on-groupby",
+    "href": "06_pandas.rjs.html#on-groupby",
+    "title": "pandas",
+    "section": "On groupby",
+    "text": "On groupby\n\nIn pandas\n\n\nA groupby operation involves some combination of splitting the object, applying a function, and combining the results. This can be used to group large amounts of data and compute operations on these groups."
+  },
+  {
+    "objectID": "06_pandas.rjs.html#element-groups",
+    "href": "06_pandas.rjs.html#element-groups",
+    "title": "pandas",
+    "section": "Element Groups",
+    "text": "Element Groups\n\ndf.iloc[:60:10][[\"Element\",\"Group\"]]\n\n\n\n\n\n\n\n\nElement\nGroup\n\n\n\n\n0\nHydrogen\n1.0\n\n\n10\nSodium\n1.0\n\n\n20\nScandium\n3.0\n\n\n30\nGallium\n13.0\n\n\n40\nNiobium\n5.0\n\n\n50\nAntimony\n15.0"
+  },
+  {
+    "objectID": "06_pandas.rjs.html#counting",
+    "href": "06_pandas.rjs.html#counting",
+    "title": "pandas",
+    "section": "Counting",
+    "text": "Counting\n\nLet’s see how many elements are in each group!\n\n\ndf.groupby(\"Group\").count()\n\n\n\n\n\n\n\n\nAtomicNumber\nElement\nSymbol\nAtomicMass\nNumberofNeutrons\nPeriod\nPhase\nRadioactive\nNatural\nType\n...\nBoilingPoint\nNumberOfIsotopes\nDiscoverer\nYear\nSpecificHeat\nNumberofShells\nNumberofValence\nOutermostElectrons\nNeutronsLessProtons\nMetallic\n\n\nGroup\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n1.0\n7\n7\n7\n7\n7\n7\n7\n1\n7\n7\n...\n7\n7\n7\n7\n6\n7\n7\n7\n7\n7\n\n\n2.0\n6\n6\n6\n6\n6\n6\n6\n1\n6\n6\n...\n6\n6\n6\n6\n5\n6\n6\n6\n6\n6\n\n\n3.0\n4\n4\n4\n4\n4\n4\n4\n1\n4\n4\n...\n4\n4\n4\n4\n4\n4\n0\n4\n4\n4\n\n\n4.0\n4\n4\n4\n4\n4\n4\n4\n1\n3\n4\n...\n3\n3\n4\n4\n3\n4\n0\n4\n4\n4\n\n\n5.0\n4\n4\n4\n4\n4\n4\n4\n1\n3\n4\n...\n3\n3\n4\n4\n3\n4\n0\n4\n4\n4\n\n\n6.0\n4\n4\n4\n4\n4\n4\n4\n1\n3\n4\n...\n3\n3\n4\n4\n3\n4\n0\n4\n4\n4\n\n\n7.0\n4\n4\n4\n4\n4\n4\n4\n2\n2\n4\n...\n3\n3\n4\n4\n2\n4\n0\n4\n4\n4\n\n\n8.0\n4\n4\n4\n4\n4\n4\n4\n1\n3\n4\n...\n3\n3\n4\n3\n3\n4\n0\n4\n4\n4\n\n\n9.0\n4\n4\n4\n4\n4\n4\n4\n1\n3\n4\n...\n3\n3\n4\n4\n3\n4\n0\n4\n4\n4\n\n\n10.0\n4\n4\n4\n4\n4\n4\n4\n1\n3\n4\n...\n3\n3\n3\n4\n3\n4\n0\n4\n4\n4\n\n\n11.0\n4\n4\n4\n4\n4\n4\n4\n1\n3\n4\n...\n3\n3\n3\n1\n3\n4\n0\n4\n4\n4\n\n\n12.0\n4\n4\n4\n4\n4\n4\n4\n1\n3\n4\n...\n3\n3\n3\n2\n3\n4\n0\n4\n4\n4\n\n\n13.0\n6\n6\n6\n6\n6\n6\n6\n1\n5\n5\n...\n5\n5\n5\n6\n5\n6\n6\n6\n6\n6\n\n\n14.0\n6\n6\n6\n6\n6\n6\n6\n1\n5\n6\n...\n5\n5\n5\n3\n5\n6\n6\n6\n6\n6\n\n\n15.0\n6\n6\n6\n6\n6\n6\n6\n1\n5\n5\n...\n5\n5\n5\n5\n5\n6\n6\n6\n6\n6\n\n\n16.0\n6\n6\n6\n6\n6\n6\n6\n2\n5\n6\n...\n5\n5\n5\n5\n4\n6\n6\n6\n6\n6\n\n\n17.0\n6\n6\n6\n6\n6\n6\n6\n2\n5\n5\n...\n5\n5\n5\n6\n4\n6\n6\n6\n6\n6\n\n\n18.0\n7\n7\n7\n7\n7\n7\n7\n2\n6\n7\n...\n6\n6\n6\n7\n6\n7\n6\n7\n7\n7\n\n\n\n\n18 rows × 25 columns"
+  },
+  {
+    "objectID": "06_pandas.rjs.html#goofy",
+    "href": "06_pandas.rjs.html#goofy",
+    "title": "pandas",
+    "section": "Goofy",
+    "text": "Goofy\n\nOh it took the count of all columns.\nBut… that isn’t useless?\nLet’s perhaps look a melting point by group.\n\n\ndf.groupby(\"Group\")[\"MeltingPoint\"].mean()\n\nGroup\n1.0      298.616429\n2.0     1102.150000\n3.0     1531.900000\n4.0     2186.150000\n5.0     2728.483333\n6.0     2900.150000\n7.0     2481.816667\n8.0     2543.816667\n9.0     2241.150000\n10.0    1865.483333\n11.0    1309.876667\n12.0     507.213333\n13.0     963.304000\n14.0    1589.742000\n15.0     583.882000\n16.0     436.622000\n17.0     290.758000\n18.0     117.638600\nName: MeltingPoint, dtype: float64"
+  },
+  {
+    "objectID": "06_pandas.rjs.html#plot-it",
+    "href": "06_pandas.rjs.html#plot-it",
+    "title": "pandas",
+    "section": "Plot it",
+    "text": "Plot it\n\nThat was too hard to see.\n\n\ndf.groupby(\"Group\")[\"MeltingPoint\"].mean().plot()"
+  },
+  {
+    "objectID": "06_pandas.rjs.html#groupby",
+    "href": "06_pandas.rjs.html#groupby",
+    "title": "pandas",
+    "section": "groupby",
+    "text": "groupby\n\nGroupby is a cool and powerful tool.\nI tend to use it with summary statistics, and you can usually work around it with filters, but with a bit of practice it’s a real joy to work with."
+  },
+  {
+    "objectID": "06_pandas.rjs.html#names",
+    "href": "06_pandas.rjs.html#names",
+    "title": "pandas",
+    "section": "Names",
+    "text": "Names\n\nAn astute learning will note a few oddities with names and symbols in the table.\nSome symbols and elements start with different letters."
+  },
+  {
+    "objectID": "06_pandas.rjs.html#strings",
+    "href": "06_pandas.rjs.html#strings",
+    "title": "pandas",
+    "section": "Strings",
+    "text": "Strings\n\nLike lists, arrays, and DataFrames, we can use indices on strings of characters.\n\n\nsymbol = \"He\"\nelement = \"Helium\"\nsymbol[0] == element[0]\n\nTrue"
+  },
+  {
+    "objectID": "06_pandas.rjs.html#differing",
+    "href": "06_pandas.rjs.html#differing",
+    "title": "pandas",
+    "section": "Differing",
+    "text": "Differing\n\nSometimes the first letter differs - but not often.\n\n\nsymbol = \"Au\"\nelement = \"Gold\"\nsymbol[0] == element[0] # != means \"does not equal\"\n\nFalse"
+  },
+  {
+    "objectID": "06_pandas.rjs.html#write-a-function",
+    "href": "06_pandas.rjs.html#write-a-function",
+    "title": "pandas",
+    "section": "Write a function",
+    "text": "Write a function\n\nWe make a function that checks if two things start with the same letter.\n\n\ndef differ(x,y):\n    return x[0] != y[0]"
+  },
+  {
+    "objectID": "06_pandas.rjs.html#vectorize",
+    "href": "06_pandas.rjs.html#vectorize",
+    "title": "pandas",
+    "section": "Vectorize",
+    "text": "Vectorize\n\nTo apply to DataFrames, we must vectorize it.\n\nx[0] of a DataFrame is a row\nx[0] of a string is a letter\nWe wanted letters!\n\n\n\ndiff_vector = np.vectorize(differ)"
+  },
+  {
+    "objectID": "06_pandas.rjs.html#the-elements",
+    "href": "06_pandas.rjs.html#the-elements",
+    "title": "pandas",
+    "section": "The Elements",
+    "text": "The Elements\n\ndf[diff_vector(df[\"Symbol\"], df[\"Element\"])][\"Element\"]\n\n10       Sodium\n18    Potassium\n25         Iron\n46       Silver\n49          Tin\n50     Antimony\n78         Gold\n79      Mercury\n81         Lead\nName: Element, dtype: object\n\n\n\nBasically, these elements have archaic Latin names that were in use when symbols were set before developing their modern names, or something. Read more"
+  },
+  {
+    "objectID": "06_pandas.rjs.html#adding-names",
+    "href": "06_pandas.rjs.html#adding-names",
+    "title": "pandas",
+    "section": "Adding Names",
+    "text": "Adding Names\n\nLet’s make another DataFrame\n\nWe’ll call if ad for “artus datus”, which might (I have no idea) be Latin for data frame.\n\n\n\nnames = [\n    [\"Sodium\", \"Natrium\"],\n    [\"Potassium\", \"Kalium\"],\n    [\"Iron\", \"Ferrum\"],\n    [\"Silver\", \"Argentum\"],\n    [\"Tin\", \"Stannum\"],\n    [\"Antimony\", \"Stibium\"],\n    [\"Tungsten\", \"Wolfram\"],\n    [\"Gold\", \"Aurum\"],\n    [\"Mercury\", \"Hydrargyrum\"],\n    [\"Lead\", \"Plumbum\"]\n]"
+  },
+  {
+    "objectID": "06_pandas.rjs.html#to-dataframe",
+    "href": "06_pandas.rjs.html#to-dataframe",
+    "title": "pandas",
+    "section": "To DataFrame",
+    "text": "To DataFrame\n\nad for “artus datus”, which may be Latin for data frame.\n\n\nad = pd.DataFrame(names)\nad\n\n\n\n\n\n\n\n\n0\n1\n\n\n\n\n0\nSodium\nNatrium\n\n\n1\nPotassium\nKalium\n\n\n2\nIron\nFerrum\n\n\n3\nSilver\nArgentum\n\n\n4\nTin\nStannum\n\n\n5\nAntimony\nStibium\n\n\n6\nTungsten\nWolfram\n\n\n7\nGold\nAurum\n\n\n8\nMercury\nHydrargyrum\n\n\n9\nLead\nPlumbum"
+  },
+  {
+    "objectID": "06_pandas.rjs.html#column-names",
+    "href": "06_pandas.rjs.html#column-names",
+    "title": "pandas",
+    "section": "Column Names",
+    "text": "Column Names\n\nRemember .columns?\n\n\ndf.columns\n\nIndex(['AtomicNumber', 'Element', 'Symbol', 'AtomicMass', 'NumberofNeutrons',\n       'Period', 'Group', 'Phase', 'Radioactive', 'Natural', 'Type',\n       'AtomicRadius', 'Electronegativity', 'FirstIonization', 'Density',\n       'MeltingPoint', 'BoilingPoint', 'NumberOfIsotopes', 'Discoverer',\n       'Year', 'SpecificHeat', 'NumberofShells', 'NumberofValence',\n       'OutermostElectrons', 'NeutronsLessProtons', 'Metallic'],\n      dtype='object')\n\n\n\nWe can actually use = with .columns\n\n\nad.columns = [\"Element\", \"Latin\"] \nad.iloc[0]\n\nElement     Sodium\nLatin      Natrium\nName: 0, dtype: object"
+  },
+  {
+    "objectID": "06_pandas.rjs.html#merge-1",
+    "href": "06_pandas.rjs.html#merge-1",
+    "title": "pandas",
+    "section": "Merge",
+    "text": "Merge\n\ndf.merge(ad) \n\n\n\n\n\n\n\n\nAtomicNumber\nElement\nSymbol\nAtomicMass\nNumberofNeutrons\nPeriod\nGroup\nPhase\nRadioactive\nNatural\n...\nNumberOfIsotopes\nDiscoverer\nYear\nSpecificHeat\nNumberofShells\nNumberofValence\nOutermostElectrons\nNeutronsLessProtons\nMetallic\nLatin\n\n\n\n\n0\n11\nSodium\nNa\n22.990\n12\n3\n1.0\nsolid\nNaN\nyes\n...\n7.0\nDavy\n1807.0\n1.228\n3\n1.0\n1.0\n1\nMetal\nNatrium\n\n\n1\n19\nPotassium\nK\n39.098\n20\n4\n1.0\nsolid\nNaN\nyes\n...\n10.0\nDavy\n1807.0\n0.757\n4\n1.0\n1.0\n1\nMetal\nKalium\n\n\n2\n26\nIron\nFe\n55.845\n30\n4\n8.0\nsolid\nNaN\nyes\n...\n10.0\nPrehistoric\nNaN\n0.449\n4\nNaN\n8.0\n4\nMetal\nFerrum\n\n\n3\n47\nSilver\nAg\n107.868\n61\n5\n11.0\nsolid\nNaN\nyes\n...\n27.0\nPrehistoric\nNaN\n0.235\n5\nNaN\n11.0\n14\nMetal\nArgentum\n\n\n4\n50\nTin\nSn\n118.710\n69\n5\n14.0\nsolid\nNaN\nyes\n...\n28.0\nPrehistoric\nNaN\n0.228\n5\n4.0\n14.0\n19\nMetal\nStannum\n\n\n5\n51\nAntimony\nSb\n121.760\n71\n5\n15.0\nsolid\nNaN\nyes\n...\n29.0\nEarly historic times\nNaN\n0.207\n5\n5.0\n15.0\n20\nMetalloid\nStibium\n\n\n6\n79\nGold\nAu\n196.967\n118\n6\n11.0\nsolid\nNaN\nyes\n...\n21.0\nPrehistoric\nNaN\n0.129\n6\nNaN\n25.0\n39\nMetal\nAurum\n\n\n7\n80\nMercury\nHg\n200.590\n121\n6\n12.0\nliq\nNaN\nyes\n...\n26.0\nPrehistoric\nNaN\n0.140\n6\nNaN\n26.0\n41\nMetal\nHydrargyrum\n\n\n8\n82\nLead\nPb\n207.200\n125\n6\n14.0\nsolid\nNaN\nyes\n...\n29.0\nPrehistoric\nNaN\n0.129\n6\n4.0\n28.0\n43\nMetal\nPlumbum\n\n\n\n\n9 rows × 27 columns"
+  },
+  {
+    "objectID": "06_pandas.rjs.html#oh-no",
+    "href": "06_pandas.rjs.html#oh-no",
+    "title": "pandas",
+    "section": "Oh no!",
+    "text": "Oh no!\n\nSo we successfully added Latin names, but…\nWe lost all elements without a Latin name.\nThe merge only kept elements in both df and ad"
+  },
+  {
+    "objectID": "06_pandas.rjs.html#dont-merge",
+    "href": "06_pandas.rjs.html#dont-merge",
+    "title": "pandas",
+    "section": "Don’t merge",
+    "text": "Don’t merge\n\nIn my experience, merges never work, but…\nThey explain how joins, the good thing, work."
+  },
+  {
+    "objectID": "06_pandas.rjs.html#background",
+    "href": "06_pandas.rjs.html#background",
+    "title": "pandas",
+    "section": "Background",
+    "text": "Background\n\nTo make learning joins easier, we’ll work with two DataFrames.\n\n\nmetalloids = df[df[\"Metallic\"] == \"Metalloid\"]\nlatin_name = df.merge(ad)"
+  },
+  {
+    "objectID": "06_pandas.rjs.html#index",
+    "href": "06_pandas.rjs.html#index",
+    "title": "pandas",
+    "section": "Index",
+    "text": "Index\n\nVersus merge, which just figures it out, join likes to look at indices.\nSo we have to make sure we have the same index on both data frames.\nWe’ll use \"Symbol\"\n\n\nmetalloids.index = metalloids[\"Symbol\"]\nlatin_name.index = latin_name[\"Symbol\"]"
+  },
+  {
+    "objectID": "06_pandas.rjs.html#simplify",
+    "href": "06_pandas.rjs.html#simplify",
+    "title": "pandas",
+    "section": "Simplify",
+    "text": "Simplify\n\nTo make things easier on us, let’s just only look at a few columns.\nWe will avoid having two columns of the same name.\n\nThis is manageable, but let’s learn joins first.\n\n\n\nmetalloids = metalloids[[\"AtomicNumber\",\"Metallic\"]]\nlatin_name = latin_name[[\"Element\",\"Latin\"]]"
+  },
+  {
+    "objectID": "06_pandas.rjs.html#the-dfs",
+    "href": "06_pandas.rjs.html#the-dfs",
+    "title": "pandas",
+    "section": "The df’s",
+    "text": "The df’s\n\n\n\nmetalloids\n\n\n\n\n\n\n\n\nAtomicNumber\nMetallic\n\n\nSymbol\n\n\n\n\n\n\nB\n5\nMetalloid\n\n\nSi\n14\nMetalloid\n\n\nGe\n32\nMetalloid\n\n\nAs\n33\nMetalloid\n\n\nSb\n51\nMetalloid\n\n\nTe\n52\nMetalloid\n\n\nPo\n84\nMetalloid\n\n\n\n\n\n\n\n\n\nlatin_name\n\n\n\n\n\n\n\n\nElement\nLatin\n\n\nSymbol\n\n\n\n\n\n\nNa\nSodium\nNatrium\n\n\nK\nPotassium\nKalium\n\n\nFe\nIron\nFerrum\n\n\nAg\nSilver\nArgentum\n\n\nSn\nTin\nStannum\n\n\nSb\nAntimony\nStibium\n\n\nAu\nGold\nAurum\n\n\nHg\nMercury\nHydrargyrum\n\n\nPb\nLead\nPlumbum"
+  },
+  {
+    "objectID": "06_pandas.rjs.html#visuals",
+    "href": "06_pandas.rjs.html#visuals",
+    "title": "pandas",
+    "section": "Visuals",
+    "text": "Visuals\n\nI will also visualize this using venn diagrams.\nTo my knowledge, there is no graceful way to visualize venn diagrams, but matplotlib-venn is okay.\nI’m spoiler-marking code that shows how I make the venn diagrams."
+  },
+  {
+    "objectID": "06_pandas.rjs.html#section-1",
+    "href": "06_pandas.rjs.html#section-1",
+    "title": "pandas",
+    "section": "",
+    "text": "Code\nfrom matplotlib_venn import venn2, venn2_circles\n\ndef show_join(how, left, right, mid):\n    v = venn2((2, 2, 1), ('metalloids', 'latin_name'))\n    v.get_patch_by_id('100').set_color('darkblue' if left else 'white')\n    v.get_patch_by_id('010').set_color('darkblue' if right else 'white')\n    v.get_patch_by_id('110').set_color('darkblue' if mid else 'white')\n    v.get_patch_by_id('100').set_alpha(1.0)\n    v.get_patch_by_id('010').set_alpha(1.0)\n    v.get_patch_by_id('110').set_alpha(1.0)\n    venn2_circles((2, 2, 1))\n    for idx, subset in enumerate(v.subset_labels):\n        v.subset_labels[idx].set_visible(False)\n        plt.title(\"metalloids.join(latin_name, how=\\\"\" + how + \"\\\")\")\n    plt.show()"
+  },
+  {
+    "objectID": "06_pandas.rjs.html#quoth-pandas",
+    "href": "06_pandas.rjs.html#quoth-pandas",
+    "title": "pandas",
+    "section": "Quoth pandas",
+    "text": "Quoth pandas\nhow: {‘left’,‘right’,‘outer’,‘inner’,‘cross’}\n\nHow to handle operation of the two objects.\n\n'left': use calling frame’s index\n\n'right': use other’s index.\n'outer': form union of calling frame’s index with other’s index.\n'inner': form intersection of calling frame’s index with other’s index.\n'cross': creates the cartesian product from both frames."
+  },
+  {
+    "objectID": "06_pandas.rjs.html#join-1",
+    "href": "06_pandas.rjs.html#join-1",
+    "title": "pandas",
+    "section": "Join",
+    "text": "Join\n\nJoin uses all columns, filling with “NaN”.\n\n\nmetalloids.join(latin_name)\n\n\n\n\n\n\n\n\nAtomicNumber\nMetallic\nElement\nLatin\n\n\nSymbol\n\n\n\n\n\n\n\n\nB\n5\nMetalloid\nNaN\nNaN\n\n\nSi\n14\nMetalloid\nNaN\nNaN\n\n\nGe\n32\nMetalloid\nNaN\nNaN\n\n\nAs\n33\nMetalloid\nNaN\nNaN\n\n\nSb\n51\nMetalloid\nAntimony\nStibium\n\n\nTe\n52\nMetalloid\nNaN\nNaN\n\n\nPo\n84\nMetalloid\nNaN\nNaN"
+  },
+  {
+    "objectID": "06_pandas.rjs.html#left",
+    "href": "06_pandas.rjs.html#left",
+    "title": "pandas",
+    "section": "Left",
+    "text": "Left\n\n\n\nmetalloids.join(latin_name, how='left')[\"Element\"]\n\nSymbol\nB          NaN\nSi         NaN\nGe         NaN\nAs         NaN\nSb    Antimony\nTe         NaN\nPo         NaN\nName: Element, dtype: object\n\n\n\n\nshow_join('left',1,0,1)"
+  },
+  {
+    "objectID": "06_pandas.rjs.html#right",
+    "href": "06_pandas.rjs.html#right",
+    "title": "pandas",
+    "section": "Right",
+    "text": "Right\n\n\n\nmetalloids.join(latin_name, how='right')[\"Element\"]\n\nSymbol\nNa       Sodium\nK     Potassium\nFe         Iron\nAg       Silver\nSn          Tin\nSb     Antimony\nAu         Gold\nHg      Mercury\nPb         Lead\nName: Element, dtype: object\n\n\n\n\nshow_join('right',0,1,1)"
+  },
+  {
+    "objectID": "06_pandas.rjs.html#outer",
+    "href": "06_pandas.rjs.html#outer",
+    "title": "pandas",
+    "section": "Outer",
+    "text": "Outer\n\n\n\nmetalloids.join(latin_name, how='outer')[\"Element\"]\n\nSymbol\nAg       Silver\nAs          NaN\nAu         Gold\nB           NaN\nFe         Iron\nGe          NaN\nHg      Mercury\nK     Potassium\nNa       Sodium\nPb         Lead\nPo          NaN\nSb     Antimony\nSi          NaN\nSn          Tin\nTe          NaN\nName: Element, dtype: object\n\n\n\n\nshow_join('outer',1,1,1)"
+  },
+  {
+    "objectID": "06_pandas.rjs.html#inner",
+    "href": "06_pandas.rjs.html#inner",
+    "title": "pandas",
+    "section": "Inner",
+    "text": "Inner\n\n\n\nmetalloids.join(latin_name, how='inner')[\"Element\"]\n\nSymbol\nSb    Antimony\nName: Element, dtype: object\n\n\n\n\nshow_join('inner',0,0,1)"
+  },
+  {
+    "objectID": "06_pandas.rjs.html#cross",
+    "href": "06_pandas.rjs.html#cross",
+    "title": "pandas",
+    "section": "Cross",
+    "text": "Cross\n\nCross makes pairs.\nI don’t see it used often.\n\n\nmetalloids.join(latin_name, how='cross')\n\n\n\n\n\n\n\n\nAtomicNumber\nMetallic\nElement\nLatin\n\n\n\n\n0\n5\nMetalloid\nSodium\nNatrium\n\n\n1\n5\nMetalloid\nPotassium\nKalium\n\n\n2\n5\nMetalloid\nIron\nFerrum\n\n\n3\n5\nMetalloid\nSilver\nArgentum\n\n\n4\n5\nMetalloid\nTin\nStannum\n\n\n...\n...\n...\n...\n...\n\n\n58\n84\nMetalloid\nTin\nStannum\n\n\n59\n84\nMetalloid\nAntimony\nStibium\n\n\n60\n84\nMetalloid\nGold\nAurum\n\n\n61\n84\nMetalloid\nMercury\nHydrargyrum\n\n\n62\n84\nMetalloid\nLead\nPlumbum\n\n\n\n\n63 rows × 4 columns"
+  },
+  {
+    "objectID": "06_pandas.rjs.html#the-table",
+    "href": "06_pandas.rjs.html#the-table",
+    "title": "pandas",
+    "section": "The Table",
+    "text": "The Table\n\nThe periodic table was developed by laying out elements by “Groups” and “Periods”\nBasically, number of outer electrons (that can bond) and number of layers of inner “shells” of electrons that can’t bond.\n\nOr something. I’m not a real scientist.\n\nWe can plot these against each other."
+  },
+  {
+    "objectID": "06_pandas.rjs.html#electronegativity",
+    "href": "06_pandas.rjs.html#electronegativity",
+    "title": "pandas",
+    "section": "Electronegativity",
+    "text": "Electronegativity\n\nElectronegativity is a measure of the tendency of an atom to attract a bonding pair of electrons. The Pauling scale is the most commonly used. Fluorine (the most electronegative element) is assigned a value of 4.0, and values range down to cesium and francium which are the least electronegative at 0.7."
+  },
+  {
+    "objectID": "06_pandas.rjs.html#exercise-1",
+    "href": "06_pandas.rjs.html#exercise-1",
+    "title": "pandas",
+    "section": "Exercise",
+    "text": "Exercise\n\nPlot the table, by plotting “Groups” vs “Periods”\nPlot electronegativity using color.\nConfirm the claims from the chemistry text about electronegativity trends.\nAnnotate the location of fluorine (F)."
+  },
+  {
+    "objectID": "06_pandas.rjs.html#aside-inversion",
+    "href": "06_pandas.rjs.html#aside-inversion",
+    "title": "pandas",
+    "section": "Aside: Inversion",
+    "text": "Aside: Inversion\n\nThere’s a few ways to invert an axis that you may want to use.\n\n\ntaxes = pd.DataFrame(taxes)\nplt.scatter(taxes[0],taxes[1])"
+  },
+  {
+    "objectID": "06_pandas.rjs.html#supply-a--",
+    "href": "06_pandas.rjs.html#supply-a--",
+    "title": "pandas",
+    "section": "Supply a -",
+    "text": "Supply a -\n\nYou can negate, but it impacts labels.\n\n\n# Not there's a negative on taxes[1]\nplt.scatter(taxes[0],-taxes[1])"
+  },
+  {
+    "objectID": "06_pandas.rjs.html#get-axes",
+    "href": "06_pandas.rjs.html#get-axes",
+    "title": "pandas",
+    "section": "Get axes",
+    "text": "Get axes\n\nYou can use .gca() (get current axes) and set one negative.\n\n\nplt.scatter(taxes[0],taxes[1])\nplt.gca().invert_yaxis()"
+  },
+  {
+    "objectID": "06_pandas.rjs.html#solution",
+    "href": "06_pandas.rjs.html#solution",
+    "title": "pandas",
+    "section": "Solution",
+    "text": "Solution\n\n\nCode\n# Plot\nplt.scatter(\n    x=df[\"Group\"],\n    y=df[\"Period\"],\n    c=df[\"Electronegativity\"]\n)\nplt.gca().invert_yaxis()\n# Label\nplt.title(\"Electronegativity\")\nplt.xlabel(\"Group\")\nplt.ylabel(\"Period\")\nplt.colorbar()\n# Annotate\n_ = plt.annotate(\"F\",(17,2))"
   },
   {
     "objectID": "06_pandas.html",
@@ -6536,7 +6858,7 @@
     "href": "06_pandas.html#expanding-dataframes",
     "title": "pandas",
     "section": "Expanding DataFrames",
-    "text": "Expanding DataFrames\n\nWe can create a new column and new data to it from a np.array\nAt least if the dimensions work out…\n\n\ndf.shape, num_es.shape\n\n((118, 28), (118,))\n\n\n\nWe have 118 elements, so it is good we have 118 possible outermost electron counts!",
+    "text": "Expanding DataFrames\n\nWe can create a new column and add new data to it from a np.array\nAt least if the dimensions work out…\n\n\ndf.shape, num_es.shape\n\n((118, 28), (118,))\n\n\n\nWe have 118 elements, so it is good we have 118 possible outermost electron counts!",
     "crumbs": [
       "<strong>pandas</strong>"
     ]
@@ -6692,11 +7014,471 @@
     ]
   },
   {
-    "objectID": "06_pandas.html#todo",
-    "href": "06_pandas.html#todo",
+    "objectID": "06_pandas.html#nan",
+    "href": "06_pandas.html#nan",
     "title": "pandas",
-    "section": "Todo",
-    "text": "Todo\n\nDo some wranglin’\nDo some groupin’\nDo some joinin’\nWrite a .csv",
+    "section": "NaN",
+    "text": "NaN\n\nNaN means “not a number” and is used by pandas (not generally by Python) to fill in missing data.\n\n\nnp.sqrt(-1)\n\nnp.float64(nan)\n\n\n\nI find this idea a bit odd (and e.g. Polars does not do this) but we can work with it.",
+    "crumbs": [
+      "<strong>pandas</strong>"
+    ]
+  },
+  {
+    "objectID": "06_pandas.html#nonmetalloid",
+    "href": "06_pandas.html#nonmetalloid",
+    "title": "pandas",
+    "section": "(Non)metal(loid)",
+    "text": "(Non)metal(loid)\n\nElements are “metal”, “nonmetal”, or “metalloid”.\nI regard this as how metallic an element is.\n\n\ndf.iloc[12:16][[\"Element\",\"Metal\",\"Nonmetal\",\"Metalloid\"]]\n\n\n\n\n\n\n\n\nElement\nMetal\nNonmetal\nMetalloid\n\n\n\n\n12\nAluminum\nyes\nNaN\nNaN\n\n\n13\nSilicon\nNaN\nNaN\nyes\n\n\n14\nPhosphorus\nNaN\nyes\nNaN\n\n\n15\nSulfur\nNaN\nyes\nNaN",
+    "crumbs": [
+      "<strong>pandas</strong>"
+    ]
+  },
+  {
+    "objectID": "06_pandas.html#metallic",
+    "href": "06_pandas.html#metallic",
+    "title": "pandas",
+    "section": "Metallic",
+    "text": "Metallic\n\nWe introduce and use np.where, which takes\n\nA condition\nA value if condition\nA value else\n\n\n\ndf[\"Metallic\"] = np.where(df[\"Metal\"] == \"yes\", \"Metal\", \"Nonmetal\")\ndf.iloc[12:16][[\"Metal\",\"Nonmetal\",\"Metalloid\",\"Metallic\"]]\n\n\n\n\n\n\n\n\nMetal\nNonmetal\nMetalloid\nMetallic\n\n\n\n\n12\nyes\nNaN\nNaN\nMetal\n\n\n13\nNaN\nNaN\nyes\nNonmetal\n\n\n14\nNaN\nyes\nNaN\nNonmetal\n\n\n15\nNaN\nyes\nNaN\nNonmetal",
+    "crumbs": [
+      "<strong>pandas</strong>"
+    ]
+  },
+  {
+    "objectID": "06_pandas.html#metalloids",
+    "href": "06_pandas.html#metalloids",
+    "title": "pandas",
+    "section": "Metalloids",
+    "text": "Metalloids\n\nAdditionally deal with metalloids.\n\n\ndf[df[\"Metalloid\"] == \"yes\"][\"Metallic\"] = \"Metalloid\"\ndf.iloc[12:16][[\"Metal\",\"Nonmetal\",\"Metalloid\",\"Metallic\"]]\n\n\n\n\n\n\n\n\nMetal\nNonmetal\nMetalloid\nMetallic\n\n\n\n\n12\nyes\nNaN\nNaN\nMetal\n\n\n13\nNaN\nNaN\nyes\nNonmetal\n\n\n14\nNaN\nyes\nNaN\nNonmetal\n\n\n15\nNaN\nyes\nNaN\nNonmetal\n\n\n\n\n\n\n\n\nWhoops!",
+    "crumbs": [
+      "<strong>pandas</strong>"
+    ]
+  },
+  {
+    "objectID": "06_pandas.html#loc",
+    "href": "06_pandas.html#loc",
+    "title": "pandas",
+    "section": "loc",
+    "text": "loc\n\ndf[df[\"Metalloid\"] == \"yes\"] is not the same dataframe as df\nChanges to it will not change df.\nWe use .loc, the cousin of .iloc to update df.\nWe must also very carefully put all indices, comma separated, in single brackets.",
+    "crumbs": [
+      "<strong>pandas</strong>"
+    ]
+  },
+  {
+    "objectID": "06_pandas.html#recall-numpy",
+    "href": "06_pandas.html#recall-numpy",
+    "title": "pandas",
+    "section": "Recall: NumPy",
+    "text": "Recall: NumPy\n\n\narr = np.array([\n    [9275, .10],\n    [37650, .15],\n    [91150, .25],\n    [190150, .28],\n    [413350, .33],\n    [415051, .35]\n])\n\n\n\nI recommend using the comma notation.\nOtherwise I get unexpected behavior.\n\n\n\n\n# reverse in both dimensions\narr[::-1][::-1] \n\narray([[9.27500e+03, 1.00000e-01],\n       [3.76500e+04, 1.50000e-01],\n       [9.11500e+04, 2.50000e-01],\n       [1.90150e+05, 2.80000e-01],\n       [4.13350e+05, 3.30000e-01],\n       [4.15051e+05, 3.50000e-01]])\n\n\n\n\n# reverse in both dimensions\narr[::-1,::-1]\n\narray([[3.50000e-01, 4.15051e+05],\n       [3.30000e-01, 4.13350e+05],\n       [2.80000e-01, 1.90150e+05],\n       [2.50000e-01, 9.11500e+04],\n       [1.50000e-01, 3.76500e+04],\n       [1.00000e-01, 9.27500e+03]])\n\n\n\n\n\nTakeaway: Always use [x,y] instead of [x][y]\nThis is why we use NumPypandas!",
+    "crumbs": [
+      "<strong>pandas</strong>"
+    ]
+  },
+  {
+    "objectID": "06_pandas.html#update",
+    "href": "06_pandas.html#update",
+    "title": "pandas",
+    "section": "Update",
+    "text": "Update\n\ndf.loc[df[\"Metalloid\"] == \"yes\", \"Metallic\"] = \"Metalloid\"\ndf.iloc[12:16][[\"Metal\",\"Nonmetal\",\"Metalloid\",\"Metallic\"]]\n\n\n\n\n\n\n\n\nMetal\nNonmetal\nMetalloid\nMetallic\n\n\n\n\n12\nyes\nNaN\nNaN\nMetal\n\n\n13\nNaN\nNaN\nyes\nMetalloid\n\n\n14\nNaN\nyes\nNaN\nNonmetal\n\n\n15\nNaN\nyes\nNaN\nNonmetal\n\n\n\n\n\n\n\n\nMuch nicer.",
+    "crumbs": [
+      "<strong>pandas</strong>"
+    ]
+  },
+  {
+    "objectID": "06_pandas.html#another-drop",
+    "href": "06_pandas.html#another-drop",
+    "title": "pandas",
+    "section": "Another drop",
+    "text": "Another drop\n\nLet’s just keep “Metallic” now that we have it.\n\n\n# Have to specify columns (we can also drop rows)\ndf = df.drop(columns=[\"Metal\",\"Nonmetal\",\"Metalloid\"])\ndf.columns \n\nIndex(['AtomicNumber', 'Element', 'Symbol', 'AtomicMass', 'NumberofNeutrons',\n       'Period', 'Group', 'Phase', 'Radioactive', 'Natural', 'Type',\n       'AtomicRadius', 'Electronegativity', 'FirstIonization', 'Density',\n       'MeltingPoint', 'BoilingPoint', 'NumberOfIsotopes', 'Discoverer',\n       'Year', 'SpecificHeat', 'NumberofShells', 'NumberofValence',\n       'OutermostElectrons', 'NeutronsLessProtons', 'Metallic'],\n      dtype='object')",
+    "crumbs": [
+      "<strong>pandas</strong>"
+    ]
+  },
+  {
+    "objectID": "06_pandas.html#on-groups",
+    "href": "06_pandas.html#on-groups",
+    "title": "pandas",
+    "section": "On groups",
+    "text": "On groups\n\nIn chemistry:\n\n\na group (also known as a family) is a column of elements in the periodic table of the chemical elements.\n\n\nIn computing\n\n\na set together with a binary operation satisfying certain algebraic conditions.",
+    "crumbs": [
+      "<strong>pandas</strong>"
+    ]
+  },
+  {
+    "objectID": "06_pandas.html#on-groupby",
+    "href": "06_pandas.html#on-groupby",
+    "title": "pandas",
+    "section": "On groupby",
+    "text": "On groupby\n\nIn pandas\n\n\nA groupby operation involves some combination of splitting the object, applying a function, and combining the results. This can be used to group large amounts of data and compute operations on these groups.",
+    "crumbs": [
+      "<strong>pandas</strong>"
+    ]
+  },
+  {
+    "objectID": "06_pandas.html#element-groups",
+    "href": "06_pandas.html#element-groups",
+    "title": "pandas",
+    "section": "Element Groups",
+    "text": "Element Groups\n\ndf.iloc[:60:10][[\"Element\",\"Group\"]]\n\n\n\n\n\n\n\n\nElement\nGroup\n\n\n\n\n0\nHydrogen\n1.0\n\n\n10\nSodium\n1.0\n\n\n20\nScandium\n3.0\n\n\n30\nGallium\n13.0\n\n\n40\nNiobium\n5.0\n\n\n50\nAntimony\n15.0",
+    "crumbs": [
+      "<strong>pandas</strong>"
+    ]
+  },
+  {
+    "objectID": "06_pandas.html#counting",
+    "href": "06_pandas.html#counting",
+    "title": "pandas",
+    "section": "Counting",
+    "text": "Counting\n\nLet’s see how many elements are in each group!\n\n\ndf.groupby(\"Group\").count()\n\n\n\n\n\n\n\n\nAtomicNumber\nElement\nSymbol\nAtomicMass\nNumberofNeutrons\nPeriod\nPhase\nRadioactive\nNatural\nType\n...\nBoilingPoint\nNumberOfIsotopes\nDiscoverer\nYear\nSpecificHeat\nNumberofShells\nNumberofValence\nOutermostElectrons\nNeutronsLessProtons\nMetallic\n\n\nGroup\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n1.0\n7\n7\n7\n7\n7\n7\n7\n1\n7\n7\n...\n7\n7\n7\n7\n6\n7\n7\n7\n7\n7\n\n\n2.0\n6\n6\n6\n6\n6\n6\n6\n1\n6\n6\n...\n6\n6\n6\n6\n5\n6\n6\n6\n6\n6\n\n\n3.0\n4\n4\n4\n4\n4\n4\n4\n1\n4\n4\n...\n4\n4\n4\n4\n4\n4\n0\n4\n4\n4\n\n\n4.0\n4\n4\n4\n4\n4\n4\n4\n1\n3\n4\n...\n3\n3\n4\n4\n3\n4\n0\n4\n4\n4\n\n\n5.0\n4\n4\n4\n4\n4\n4\n4\n1\n3\n4\n...\n3\n3\n4\n4\n3\n4\n0\n4\n4\n4\n\n\n6.0\n4\n4\n4\n4\n4\n4\n4\n1\n3\n4\n...\n3\n3\n4\n4\n3\n4\n0\n4\n4\n4\n\n\n7.0\n4\n4\n4\n4\n4\n4\n4\n2\n2\n4\n...\n3\n3\n4\n4\n2\n4\n0\n4\n4\n4\n\n\n8.0\n4\n4\n4\n4\n4\n4\n4\n1\n3\n4\n...\n3\n3\n4\n3\n3\n4\n0\n4\n4\n4\n\n\n9.0\n4\n4\n4\n4\n4\n4\n4\n1\n3\n4\n...\n3\n3\n4\n4\n3\n4\n0\n4\n4\n4\n\n\n10.0\n4\n4\n4\n4\n4\n4\n4\n1\n3\n4\n...\n3\n3\n3\n4\n3\n4\n0\n4\n4\n4\n\n\n11.0\n4\n4\n4\n4\n4\n4\n4\n1\n3\n4\n...\n3\n3\n3\n1\n3\n4\n0\n4\n4\n4\n\n\n12.0\n4\n4\n4\n4\n4\n4\n4\n1\n3\n4\n...\n3\n3\n3\n2\n3\n4\n0\n4\n4\n4\n\n\n13.0\n6\n6\n6\n6\n6\n6\n6\n1\n5\n5\n...\n5\n5\n5\n6\n5\n6\n6\n6\n6\n6\n\n\n14.0\n6\n6\n6\n6\n6\n6\n6\n1\n5\n6\n...\n5\n5\n5\n3\n5\n6\n6\n6\n6\n6\n\n\n15.0\n6\n6\n6\n6\n6\n6\n6\n1\n5\n5\n...\n5\n5\n5\n5\n5\n6\n6\n6\n6\n6\n\n\n16.0\n6\n6\n6\n6\n6\n6\n6\n2\n5\n6\n...\n5\n5\n5\n5\n4\n6\n6\n6\n6\n6\n\n\n17.0\n6\n6\n6\n6\n6\n6\n6\n2\n5\n5\n...\n5\n5\n5\n6\n4\n6\n6\n6\n6\n6\n\n\n18.0\n7\n7\n7\n7\n7\n7\n7\n2\n6\n7\n...\n6\n6\n6\n7\n6\n7\n6\n7\n7\n7\n\n\n\n\n18 rows × 25 columns",
+    "crumbs": [
+      "<strong>pandas</strong>"
+    ]
+  },
+  {
+    "objectID": "06_pandas.html#goofy",
+    "href": "06_pandas.html#goofy",
+    "title": "pandas",
+    "section": "Goofy",
+    "text": "Goofy\n\nOh it took the count of all columns.\nBut… that isn’t useless?\nLet’s perhaps look a melting point by group.\n\n\ndf.groupby(\"Group\")[\"MeltingPoint\"].mean()\n\nGroup\n1.0      298.616429\n2.0     1102.150000\n3.0     1531.900000\n4.0     2186.150000\n5.0     2728.483333\n6.0     2900.150000\n7.0     2481.816667\n8.0     2543.816667\n9.0     2241.150000\n10.0    1865.483333\n11.0    1309.876667\n12.0     507.213333\n13.0     963.304000\n14.0    1589.742000\n15.0     583.882000\n16.0     436.622000\n17.0     290.758000\n18.0     117.638600\nName: MeltingPoint, dtype: float64",
+    "crumbs": [
+      "<strong>pandas</strong>"
+    ]
+  },
+  {
+    "objectID": "06_pandas.html#plot-it",
+    "href": "06_pandas.html#plot-it",
+    "title": "pandas",
+    "section": "Plot it",
+    "text": "Plot it\n\nThat was too hard to see.\n\n\ndf.groupby(\"Group\")[\"MeltingPoint\"].mean().plot()",
+    "crumbs": [
+      "<strong>pandas</strong>"
+    ]
+  },
+  {
+    "objectID": "06_pandas.html#groupby",
+    "href": "06_pandas.html#groupby",
+    "title": "pandas",
+    "section": "groupby",
+    "text": "groupby\n\nGroupby is a cool and powerful tool.\nI tend to use it with summary statistics, and you can usually work around it with filters, but with a bit of practice it’s a real joy to work with.",
+    "crumbs": [
+      "<strong>pandas</strong>"
+    ]
+  },
+  {
+    "objectID": "06_pandas.html#names",
+    "href": "06_pandas.html#names",
+    "title": "pandas",
+    "section": "Names",
+    "text": "Names\n\nAn astute learning will note a few oddities with names and symbols in the table.\nSome symbols and elements start with different letters.",
+    "crumbs": [
+      "<strong>pandas</strong>"
+    ]
+  },
+  {
+    "objectID": "06_pandas.html#strings",
+    "href": "06_pandas.html#strings",
+    "title": "pandas",
+    "section": "Strings",
+    "text": "Strings\n\nLike lists, arrays, and DataFrames, we can use indices on strings of characters.\n\n\nsymbol = \"He\"\nelement = \"Helium\"\nsymbol[0] == element[0]\n\nTrue",
+    "crumbs": [
+      "<strong>pandas</strong>"
+    ]
+  },
+  {
+    "objectID": "06_pandas.html#differing",
+    "href": "06_pandas.html#differing",
+    "title": "pandas",
+    "section": "Differing",
+    "text": "Differing\n\nSometimes the first letter differs - but not often.\n\n\nsymbol = \"Au\"\nelement = \"Gold\"\nsymbol[0] == element[0] # != means \"does not equal\"\n\nFalse",
+    "crumbs": [
+      "<strong>pandas</strong>"
+    ]
+  },
+  {
+    "objectID": "06_pandas.html#write-a-function",
+    "href": "06_pandas.html#write-a-function",
+    "title": "pandas",
+    "section": "Write a function",
+    "text": "Write a function\n\nWe make a function that checks if two things start with the same letter.\n\n\ndef differ(x,y):\n    return x[0] != y[0]",
+    "crumbs": [
+      "<strong>pandas</strong>"
+    ]
+  },
+  {
+    "objectID": "06_pandas.html#vectorize",
+    "href": "06_pandas.html#vectorize",
+    "title": "pandas",
+    "section": "Vectorize",
+    "text": "Vectorize\n\nTo apply to DataFrames, we must vectorize it.\n\nx[0] of a DataFrame is a row\nx[0] of a string is a letter\nWe wanted letters!\n\n\n\ndiff_vector = np.vectorize(differ)",
+    "crumbs": [
+      "<strong>pandas</strong>"
+    ]
+  },
+  {
+    "objectID": "06_pandas.html#the-elements",
+    "href": "06_pandas.html#the-elements",
+    "title": "pandas",
+    "section": "The Elements",
+    "text": "The Elements\n\ndf[diff_vector(df[\"Symbol\"], df[\"Element\"])][\"Element\"]\n\n10       Sodium\n18    Potassium\n25         Iron\n46       Silver\n49          Tin\n50     Antimony\n78         Gold\n79      Mercury\n81         Lead\nName: Element, dtype: object\n\n\n\nBasically, these elements have archaic Latin names that were in use when symbols were set before developing their modern names, or something. Read more",
+    "crumbs": [
+      "<strong>pandas</strong>"
+    ]
+  },
+  {
+    "objectID": "06_pandas.html#adding-names",
+    "href": "06_pandas.html#adding-names",
+    "title": "pandas",
+    "section": "Adding Names",
+    "text": "Adding Names\n\nLet’s make another DataFrame\n\nWe’ll call if ad for “artus datus”, which might (I have no idea) be Latin for data frame.\n\n\n\nnames = [\n    [\"Sodium\", \"Natrium\"],\n    [\"Potassium\", \"Kalium\"],\n    [\"Iron\", \"Ferrum\"],\n    [\"Silver\", \"Argentum\"],\n    [\"Tin\", \"Stannum\"],\n    [\"Antimony\", \"Stibium\"],\n    [\"Tungsten\", \"Wolfram\"],\n    [\"Gold\", \"Aurum\"],\n    [\"Mercury\", \"Hydrargyrum\"],\n    [\"Lead\", \"Plumbum\"]\n]",
+    "crumbs": [
+      "<strong>pandas</strong>"
+    ]
+  },
+  {
+    "objectID": "06_pandas.html#to-dataframe",
+    "href": "06_pandas.html#to-dataframe",
+    "title": "pandas",
+    "section": "To DataFrame",
+    "text": "To DataFrame\n\nad for “artus datus”, which may be Latin for data frame.\n\n\nad = pd.DataFrame(names)\nad\n\n\n\n\n\n\n\n\n0\n1\n\n\n\n\n0\nSodium\nNatrium\n\n\n1\nPotassium\nKalium\n\n\n2\nIron\nFerrum\n\n\n3\nSilver\nArgentum\n\n\n4\nTin\nStannum\n\n\n5\nAntimony\nStibium\n\n\n6\nTungsten\nWolfram\n\n\n7\nGold\nAurum\n\n\n8\nMercury\nHydrargyrum\n\n\n9\nLead\nPlumbum",
+    "crumbs": [
+      "<strong>pandas</strong>"
+    ]
+  },
+  {
+    "objectID": "06_pandas.html#column-names",
+    "href": "06_pandas.html#column-names",
+    "title": "pandas",
+    "section": "Column Names",
+    "text": "Column Names\n\nRemember .columns?\n\n\ndf.columns\n\nIndex(['AtomicNumber', 'Element', 'Symbol', 'AtomicMass', 'NumberofNeutrons',\n       'Period', 'Group', 'Phase', 'Radioactive', 'Natural', 'Type',\n       'AtomicRadius', 'Electronegativity', 'FirstIonization', 'Density',\n       'MeltingPoint', 'BoilingPoint', 'NumberOfIsotopes', 'Discoverer',\n       'Year', 'SpecificHeat', 'NumberofShells', 'NumberofValence',\n       'OutermostElectrons', 'NeutronsLessProtons', 'Metallic'],\n      dtype='object')\n\n\n\nWe can actually use = with .columns\n\n\nad.columns = [\"Element\", \"Latin\"] \nad.iloc[0]\n\nElement     Sodium\nLatin      Natrium\nName: 0, dtype: object",
+    "crumbs": [
+      "<strong>pandas</strong>"
+    ]
+  },
+  {
+    "objectID": "06_pandas.html#merge-1",
+    "href": "06_pandas.html#merge-1",
+    "title": "pandas",
+    "section": "Merge",
+    "text": "Merge\n\ndf.merge(ad) \n\n\n\n\n\n\n\n\nAtomicNumber\nElement\nSymbol\nAtomicMass\nNumberofNeutrons\nPeriod\nGroup\nPhase\nRadioactive\nNatural\n...\nNumberOfIsotopes\nDiscoverer\nYear\nSpecificHeat\nNumberofShells\nNumberofValence\nOutermostElectrons\nNeutronsLessProtons\nMetallic\nLatin\n\n\n\n\n0\n11\nSodium\nNa\n22.990\n12\n3\n1.0\nsolid\nNaN\nyes\n...\n7.0\nDavy\n1807.0\n1.228\n3\n1.0\n1.0\n1\nMetal\nNatrium\n\n\n1\n19\nPotassium\nK\n39.098\n20\n4\n1.0\nsolid\nNaN\nyes\n...\n10.0\nDavy\n1807.0\n0.757\n4\n1.0\n1.0\n1\nMetal\nKalium\n\n\n2\n26\nIron\nFe\n55.845\n30\n4\n8.0\nsolid\nNaN\nyes\n...\n10.0\nPrehistoric\nNaN\n0.449\n4\nNaN\n8.0\n4\nMetal\nFerrum\n\n\n3\n47\nSilver\nAg\n107.868\n61\n5\n11.0\nsolid\nNaN\nyes\n...\n27.0\nPrehistoric\nNaN\n0.235\n5\nNaN\n11.0\n14\nMetal\nArgentum\n\n\n4\n50\nTin\nSn\n118.710\n69\n5\n14.0\nsolid\nNaN\nyes\n...\n28.0\nPrehistoric\nNaN\n0.228\n5\n4.0\n14.0\n19\nMetal\nStannum\n\n\n5\n51\nAntimony\nSb\n121.760\n71\n5\n15.0\nsolid\nNaN\nyes\n...\n29.0\nEarly historic times\nNaN\n0.207\n5\n5.0\n15.0\n20\nMetalloid\nStibium\n\n\n6\n79\nGold\nAu\n196.967\n118\n6\n11.0\nsolid\nNaN\nyes\n...\n21.0\nPrehistoric\nNaN\n0.129\n6\nNaN\n25.0\n39\nMetal\nAurum\n\n\n7\n80\nMercury\nHg\n200.590\n121\n6\n12.0\nliq\nNaN\nyes\n...\n26.0\nPrehistoric\nNaN\n0.140\n6\nNaN\n26.0\n41\nMetal\nHydrargyrum\n\n\n8\n82\nLead\nPb\n207.200\n125\n6\n14.0\nsolid\nNaN\nyes\n...\n29.0\nPrehistoric\nNaN\n0.129\n6\n4.0\n28.0\n43\nMetal\nPlumbum\n\n\n\n\n9 rows × 27 columns",
+    "crumbs": [
+      "<strong>pandas</strong>"
+    ]
+  },
+  {
+    "objectID": "06_pandas.html#oh-no",
+    "href": "06_pandas.html#oh-no",
+    "title": "pandas",
+    "section": "Oh no!",
+    "text": "Oh no!\n\nSo we successfully added Latin names, but…\nWe lost all elements without a Latin name.\nThe merge only kept elements in both df and ad",
+    "crumbs": [
+      "<strong>pandas</strong>"
+    ]
+  },
+  {
+    "objectID": "06_pandas.html#dont-merge",
+    "href": "06_pandas.html#dont-merge",
+    "title": "pandas",
+    "section": "Don’t merge",
+    "text": "Don’t merge\n\nIn my experience, merges never work, but…\nThey explain how joins, the good thing, work.",
+    "crumbs": [
+      "<strong>pandas</strong>"
+    ]
+  },
+  {
+    "objectID": "06_pandas.html#background",
+    "href": "06_pandas.html#background",
+    "title": "pandas",
+    "section": "Background",
+    "text": "Background\n\nTo make learning joins easier, we’ll work with two DataFrames.\n\n\nmetalloids = df[df[\"Metallic\"] == \"Metalloid\"]\nlatin_name = df.merge(ad)",
+    "crumbs": [
+      "<strong>pandas</strong>"
+    ]
+  },
+  {
+    "objectID": "06_pandas.html#index",
+    "href": "06_pandas.html#index",
+    "title": "pandas",
+    "section": "Index",
+    "text": "Index\n\nVersus merge, which just figures it out, join likes to look at indices.\nSo we have to make sure we have the same index on both data frames.\nWe’ll use \"Symbol\"\n\n\nmetalloids.index = metalloids[\"Symbol\"]\nlatin_name.index = latin_name[\"Symbol\"]",
+    "crumbs": [
+      "<strong>pandas</strong>"
+    ]
+  },
+  {
+    "objectID": "06_pandas.html#simplify",
+    "href": "06_pandas.html#simplify",
+    "title": "pandas",
+    "section": "Simplify",
+    "text": "Simplify\n\nTo make things easier on us, let’s just only look at a few columns.\nWe will avoid having two columns of the same name.\n\nThis is manageable, but let’s learn joins first.\n\n\n\nmetalloids = metalloids[[\"AtomicNumber\",\"Metallic\"]]\nlatin_name = latin_name[[\"Element\",\"Latin\"]]",
+    "crumbs": [
+      "<strong>pandas</strong>"
+    ]
+  },
+  {
+    "objectID": "06_pandas.html#the-dfs",
+    "href": "06_pandas.html#the-dfs",
+    "title": "pandas",
+    "section": "The df’s",
+    "text": "The df’s\n\n\n\nmetalloids\n\n\n\n\n\n\n\n\nAtomicNumber\nMetallic\n\n\nSymbol\n\n\n\n\n\n\nB\n5\nMetalloid\n\n\nSi\n14\nMetalloid\n\n\nGe\n32\nMetalloid\n\n\nAs\n33\nMetalloid\n\n\nSb\n51\nMetalloid\n\n\nTe\n52\nMetalloid\n\n\nPo\n84\nMetalloid\n\n\n\n\n\n\n\n\n\nlatin_name\n\n\n\n\n\n\n\n\nElement\nLatin\n\n\nSymbol\n\n\n\n\n\n\nNa\nSodium\nNatrium\n\n\nK\nPotassium\nKalium\n\n\nFe\nIron\nFerrum\n\n\nAg\nSilver\nArgentum\n\n\nSn\nTin\nStannum\n\n\nSb\nAntimony\nStibium\n\n\nAu\nGold\nAurum\n\n\nHg\nMercury\nHydrargyrum\n\n\nPb\nLead\nPlumbum",
+    "crumbs": [
+      "<strong>pandas</strong>"
+    ]
+  },
+  {
+    "objectID": "06_pandas.html#visuals",
+    "href": "06_pandas.html#visuals",
+    "title": "pandas",
+    "section": "Visuals",
+    "text": "Visuals\n\nI will also visualize this using venn diagrams.\nTo my knowledge, there is no graceful way to visualize venn diagrams, but matplotlib-venn is okay.\nI’m spoiler-marking code that shows how I make the venn diagrams.",
+    "crumbs": [
+      "<strong>pandas</strong>"
+    ]
+  },
+  {
+    "objectID": "06_pandas.html#section-1",
+    "href": "06_pandas.html#section-1",
+    "title": "pandas",
+    "section": "",
+    "text": "Code\nfrom matplotlib_venn import venn2, venn2_circles\n\ndef show_join(how, left, right, mid):\n    v = venn2((2, 2, 1), ('metalloids', 'latin_name'))\n    v.get_patch_by_id('100').set_color('darkblue' if left else 'white')\n    v.get_patch_by_id('010').set_color('darkblue' if right else 'white')\n    v.get_patch_by_id('110').set_color('darkblue' if mid else 'white')\n    v.get_patch_by_id('100').set_alpha(1.0)\n    v.get_patch_by_id('010').set_alpha(1.0)\n    v.get_patch_by_id('110').set_alpha(1.0)\n    venn2_circles((2, 2, 1))\n    for idx, subset in enumerate(v.subset_labels):\n        v.subset_labels[idx].set_visible(False)\n        plt.title(\"metalloids.join(latin_name, how=\\\"\" + how + \"\\\")\")\n    plt.show()",
+    "crumbs": [
+      "<strong>pandas</strong>"
+    ]
+  },
+  {
+    "objectID": "06_pandas.html#quoth-pandas",
+    "href": "06_pandas.html#quoth-pandas",
+    "title": "pandas",
+    "section": "Quoth pandas",
+    "text": "Quoth pandas\nhow: {‘left’,‘right’,‘outer’,‘inner’,‘cross’}\n\nHow to handle operation of the two objects.\n\n'left': use calling frame’s index\n\n'right': use other’s index.\n'outer': form union of calling frame’s index with other’s index.\n'inner': form intersection of calling frame’s index with other’s index.\n'cross': creates the cartesian product from both frames.",
+    "crumbs": [
+      "<strong>pandas</strong>"
+    ]
+  },
+  {
+    "objectID": "06_pandas.html#join-1",
+    "href": "06_pandas.html#join-1",
+    "title": "pandas",
+    "section": "Join",
+    "text": "Join\n\nJoin uses all columns, filling with “NaN”.\n\n\nmetalloids.join(latin_name)\n\n\n\n\n\n\n\n\nAtomicNumber\nMetallic\nElement\nLatin\n\n\nSymbol\n\n\n\n\n\n\n\n\nB\n5\nMetalloid\nNaN\nNaN\n\n\nSi\n14\nMetalloid\nNaN\nNaN\n\n\nGe\n32\nMetalloid\nNaN\nNaN\n\n\nAs\n33\nMetalloid\nNaN\nNaN\n\n\nSb\n51\nMetalloid\nAntimony\nStibium\n\n\nTe\n52\nMetalloid\nNaN\nNaN\n\n\nPo\n84\nMetalloid\nNaN\nNaN",
+    "crumbs": [
+      "<strong>pandas</strong>"
+    ]
+  },
+  {
+    "objectID": "06_pandas.html#left",
+    "href": "06_pandas.html#left",
+    "title": "pandas",
+    "section": "Left",
+    "text": "Left\n\n\n\nmetalloids.join(latin_name, how='left')[\"Element\"]\n\nSymbol\nB          NaN\nSi         NaN\nGe         NaN\nAs         NaN\nSb    Antimony\nTe         NaN\nPo         NaN\nName: Element, dtype: object\n\n\n\n\nshow_join('left',1,0,1)",
+    "crumbs": [
+      "<strong>pandas</strong>"
+    ]
+  },
+  {
+    "objectID": "06_pandas.html#right",
+    "href": "06_pandas.html#right",
+    "title": "pandas",
+    "section": "Right",
+    "text": "Right\n\n\n\nmetalloids.join(latin_name, how='right')[\"Element\"]\n\nSymbol\nNa       Sodium\nK     Potassium\nFe         Iron\nAg       Silver\nSn          Tin\nSb     Antimony\nAu         Gold\nHg      Mercury\nPb         Lead\nName: Element, dtype: object\n\n\n\n\nshow_join('right',0,1,1)",
+    "crumbs": [
+      "<strong>pandas</strong>"
+    ]
+  },
+  {
+    "objectID": "06_pandas.html#outer",
+    "href": "06_pandas.html#outer",
+    "title": "pandas",
+    "section": "Outer",
+    "text": "Outer\n\n\n\nmetalloids.join(latin_name, how='outer')[\"Element\"]\n\nSymbol\nAg       Silver\nAs          NaN\nAu         Gold\nB           NaN\nFe         Iron\nGe          NaN\nHg      Mercury\nK     Potassium\nNa       Sodium\nPb         Lead\nPo          NaN\nSb     Antimony\nSi          NaN\nSn          Tin\nTe          NaN\nName: Element, dtype: object\n\n\n\n\nshow_join('outer',1,1,1)",
+    "crumbs": [
+      "<strong>pandas</strong>"
+    ]
+  },
+  {
+    "objectID": "06_pandas.html#inner",
+    "href": "06_pandas.html#inner",
+    "title": "pandas",
+    "section": "Inner",
+    "text": "Inner\n\n\n\nmetalloids.join(latin_name, how='inner')[\"Element\"]\n\nSymbol\nSb    Antimony\nName: Element, dtype: object\n\n\n\n\nshow_join('inner',0,0,1)",
+    "crumbs": [
+      "<strong>pandas</strong>"
+    ]
+  },
+  {
+    "objectID": "06_pandas.html#cross",
+    "href": "06_pandas.html#cross",
+    "title": "pandas",
+    "section": "Cross",
+    "text": "Cross\n\nCross makes pairs.\nI don’t see it used often.\n\n\nmetalloids.join(latin_name, how='cross')\n\n\n\n\n\n\n\n\nAtomicNumber\nMetallic\nElement\nLatin\n\n\n\n\n0\n5\nMetalloid\nSodium\nNatrium\n\n\n1\n5\nMetalloid\nPotassium\nKalium\n\n\n2\n5\nMetalloid\nIron\nFerrum\n\n\n3\n5\nMetalloid\nSilver\nArgentum\n\n\n4\n5\nMetalloid\nTin\nStannum\n\n\n...\n...\n...\n...\n...\n\n\n58\n84\nMetalloid\nTin\nStannum\n\n\n59\n84\nMetalloid\nAntimony\nStibium\n\n\n60\n84\nMetalloid\nGold\nAurum\n\n\n61\n84\nMetalloid\nMercury\nHydrargyrum\n\n\n62\n84\nMetalloid\nLead\nPlumbum\n\n\n\n\n63 rows × 4 columns",
+    "crumbs": [
+      "<strong>pandas</strong>"
+    ]
+  },
+  {
+    "objectID": "06_pandas.html#the-table",
+    "href": "06_pandas.html#the-table",
+    "title": "pandas",
+    "section": "The Table",
+    "text": "The Table\n\nThe periodic table was developed by laying out elements by “Groups” and “Periods”\nBasically, number of outer electrons (that can bond) and number of layers of inner “shells” of electrons that can’t bond.\n\nOr something. I’m not a real scientist.\n\nWe can plot these against each other.",
+    "crumbs": [
+      "<strong>pandas</strong>"
+    ]
+  },
+  {
+    "objectID": "06_pandas.html#electronegativity",
+    "href": "06_pandas.html#electronegativity",
+    "title": "pandas",
+    "section": "Electronegativity",
+    "text": "Electronegativity\n\nElectronegativity is a measure of the tendency of an atom to attract a bonding pair of electrons. The Pauling scale is the most commonly used. Fluorine (the most electronegative element) is assigned a value of 4.0, and values range down to cesium and francium which are the least electronegative at 0.7.",
+    "crumbs": [
+      "<strong>pandas</strong>"
+    ]
+  },
+  {
+    "objectID": "06_pandas.html#exercise-1",
+    "href": "06_pandas.html#exercise-1",
+    "title": "pandas",
+    "section": "Exercise",
+    "text": "Exercise\n\nPlot the table, by plotting “Groups” vs “Periods”\nPlot electronegativity using color.\nConfirm the claims from the chemistry text about electronegativity trends.\nAnnotate the location of fluorine (F).",
+    "crumbs": [
+      "<strong>pandas</strong>"
+    ]
+  },
+  {
+    "objectID": "06_pandas.html#aside-inversion",
+    "href": "06_pandas.html#aside-inversion",
+    "title": "pandas",
+    "section": "Aside: Inversion",
+    "text": "Aside: Inversion\n\nThere’s a few ways to invert an axis that you may want to use.\n\n\ntaxes = pd.DataFrame(taxes)\nplt.scatter(taxes[0],taxes[1])",
+    "crumbs": [
+      "<strong>pandas</strong>"
+    ]
+  },
+  {
+    "objectID": "06_pandas.html#supply-a--",
+    "href": "06_pandas.html#supply-a--",
+    "title": "pandas",
+    "section": "Supply a -",
+    "text": "Supply a -\n\nYou can negate, but it impacts labels.\n\n\n# Not there's a negative on taxes[1]\nplt.scatter(taxes[0],-taxes[1])",
+    "crumbs": [
+      "<strong>pandas</strong>"
+    ]
+  },
+  {
+    "objectID": "06_pandas.html#get-axes",
+    "href": "06_pandas.html#get-axes",
+    "title": "pandas",
+    "section": "Get axes",
+    "text": "Get axes\n\nYou can use .gca() (get current axes) and set one negative.\n\n\nplt.scatter(taxes[0],taxes[1])\nplt.gca().invert_yaxis()",
+    "crumbs": [
+      "<strong>pandas</strong>"
+    ]
+  },
+  {
+    "objectID": "06_pandas.html#solution",
+    "href": "06_pandas.html#solution",
+    "title": "pandas",
+    "section": "Solution",
+    "text": "Solution\n\n\nCode\n# Plot\nplt.scatter(\n    x=df[\"Group\"],\n    y=df[\"Period\"],\n    c=df[\"Electronegativity\"]\n)\nplt.gca().invert_yaxis()\n# Label\nplt.title(\"Electronegativity\")\nplt.xlabel(\"Group\")\nplt.ylabel(\"Period\")\nplt.colorbar()\n# Annotate\n_ = plt.annotate(\"F\",(17,2))",
     "crumbs": [
       "<strong>pandas</strong>"
     ]
@@ -6706,7 +7488,7 @@
     "href": "06_pandas.html#footnotes",
     "title": "pandas",
     "section": "Footnotes",
-    "text": "Footnotes\n\n\nNeutronium is a proposed as an element with atomic number of 0.↩︎",
+    "text": "Footnotes\n\n\nNeutronium is a proposed but not academically interesting element with atomic number 0.↩︎",
     "crumbs": [
       "<strong>pandas</strong>"
     ]
