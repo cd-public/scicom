@@ -7628,5 +7628,219 @@
     "crumbs": [
       "Appendix - Commands"
     ]
+  },
+  {
+    "objectID": "07_scipy.html",
+    "href": "07_scipy.html",
+    "title": "SciPy",
+    "section": "",
+    "text": "SciPy (pronounced “Sigh Pie”) is an open-source software for mathematics, science, and engineering.\n\n\nScientific Python\nBasically a NumPy extension.\n\n\n\n\nMost popular scientific computing platform in the world.\nBasis of scikit-learn, the most popular machine learning platform in the world.\nExtremely rigorous - most functions and documentation come with academic citations.\n\n\n\n\n\nSciPy for statistics has basically one challenger (statsmodels, which is great).\nSometimes SciPy is too “heavyweight” and NumPy would be sufficient.\nAs a rule, I tend to use NumPy for easy things and scikit-learn for hard things, and don’t use SciPy for much.\n\n\n\n\n\nThis is a scientific computing course!\nWe’ll do a bit of signal processing and interpolation.",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#why-scipy",
+    "href": "07_scipy.html#why-scipy",
+    "title": "SciPy",
+    "section": "",
+    "text": "Most popular scientific computing platform in the world.\nBasis of scikit-learn, the most popular machine learning platform in the world.\nExtremely rigorous - most functions and documentation come with academic citations.",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#why-not-scipy",
+    "href": "07_scipy.html#why-not-scipy",
+    "title": "SciPy",
+    "section": "",
+    "text": "SciPy for statistics has basically one challenger (statsmodels, which is great).\nSometimes SciPy is too “heavyweight” and NumPy would be sufficient.\nAs a rule, I tend to use NumPy for easy things and scikit-learn for hard things, and don’t use SciPy for much.",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#relevance",
+    "href": "07_scipy.html#relevance",
+    "title": "SciPy",
+    "section": "",
+    "text": "This is a scientific computing course!\nWe’ll do a bit of signal processing and interpolation.",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#pip-again",
+    "href": "07_scipy.html#pip-again",
+    "title": "SciPy",
+    "section": "pip again",
+    "text": "pip again\n\nJust like NumPy, Matplotlib is a Python package which we install via pip\n\npython3 -m pip install scipy\n\nThat might take a moment, when it does we can check it worked!",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#verify",
+    "href": "07_scipy.html#verify",
+    "title": "SciPy",
+    "section": "Verify",
+    "text": "Verify\n\nWe can quickly verify installation and introduce some conventions.\nOpen up Python and import the libraries:\n\n\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport scipy\n\nprint(scipy.__version__)\n\n1.14.1",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#motivation",
+    "href": "07_scipy.html#motivation",
+    "title": "SciPy",
+    "section": "Motivation",
+    "text": "Motivation\n\nI thought it would be fun to do some signal processing on a recognizable data set:\nPSY - GANGNAM STYLE(강남스타일) M/V",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#problem-statement",
+    "href": "07_scipy.html#problem-statement",
+    "title": "SciPy",
+    "section": "Problem Statement",
+    "text": "Problem Statement\n\nSciPy has the ability to read some filetypes but not others.\n\nCan read: “.wav” Waveform Audio File Format.\nCan’t read: YouTube urls\n\nWe use Python package yt-dlp to download from YouTube.\nWe use non-Python package ffmpeg to translate .mp4 files to .wav\nWe use VideoLAN VLC Media Player to play the .wav files.",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#note",
+    "href": "07_scipy.html#note",
+    "title": "SciPy",
+    "section": "Note",
+    "text": "Note\n\nYou do not need to download any of these.\nHere is the .wav:   \nHere is a link: psy.wav",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#ffmpeg",
+    "href": "07_scipy.html#ffmpeg",
+    "title": "SciPy",
+    "section": "ffmpeg",
+    "text": "ffmpeg\n\nI believe this is the best place to download ffmpeg for Windows and MacOS.\nhttps://www.ffmpeg.org/download.html\nI used it on Ubuntu Linux and did not attempt and Windows or MacOS install.",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.rjs.html#why-scipy",
+    "href": "07_scipy.rjs.html#why-scipy",
+    "title": "SciPy",
+    "section": "Why SciPy",
+    "text": "Why SciPy\n\nMost popular scientific computing platform in the world.\nBasis of scikit-learn, the most popular machine learning platform in the world.\nExtremely rigorous - most functions and documentation come with academic citations."
+  },
+  {
+    "objectID": "07_scipy.rjs.html#why-not-scipy",
+    "href": "07_scipy.rjs.html#why-not-scipy",
+    "title": "SciPy",
+    "section": "Why not SciPy",
+    "text": "Why not SciPy\n\nSciPy for statistics has basically one challenger (statsmodels, which is great).\nSometimes SciPy is too “heavyweight” and NumPy would be sufficient.\nAs a rule, I tend to use NumPy for easy things and scikit-learn for hard things, and don’t use SciPy for much."
+  },
+  {
+    "objectID": "07_scipy.rjs.html#relevance",
+    "href": "07_scipy.rjs.html#relevance",
+    "title": "SciPy",
+    "section": "Relevance",
+    "text": "Relevance\n\nThis is a scientific computing course!\nWe’ll do a bit of signal processing and interpolation."
+  },
+  {
+    "objectID": "07_scipy.rjs.html#pip-again",
+    "href": "07_scipy.rjs.html#pip-again",
+    "title": "SciPy",
+    "section": "pip again",
+    "text": "pip again\n\nJust like NumPy, Matplotlib is a Python package which we install via pip\n\npython3 -m pip install scipy\n\nThat might take a moment, when it does we can check it worked!"
+  },
+  {
+    "objectID": "07_scipy.rjs.html#verify",
+    "href": "07_scipy.rjs.html#verify",
+    "title": "SciPy",
+    "section": "Verify",
+    "text": "Verify\n\nWe can quickly verify installation and introduce some conventions.\nOpen up Python and import the libraries:\n\n\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport scipy\n\nprint(scipy.__version__)\n\n1.14.1"
+  },
+  {
+    "objectID": "07_scipy.rjs.html#motivation",
+    "href": "07_scipy.rjs.html#motivation",
+    "title": "SciPy",
+    "section": "Motivation",
+    "text": "Motivation\n\nI thought it would be fun to do some signal processing on a recognizable data set:\nPSY - GANGNAM STYLE(강남스타일) M/V"
+  },
+  {
+    "objectID": "07_scipy.rjs.html#problem-statement",
+    "href": "07_scipy.rjs.html#problem-statement",
+    "title": "SciPy",
+    "section": "Problem Statement",
+    "text": "Problem Statement\n\nSciPy has the ability to read some filetypes but not others.\n\nCan read: “.wav” Waveform Audio File Format.\nCan’t read: YouTube urls\n\nWe use Python package yt-dlp to download from YouTube.\nWe use non-Python package ffmpeg to translate .mp4 files to .wav\nWe use VideoLAN VLC Media Player to play the .wav files."
+  },
+  {
+    "objectID": "07_scipy.rjs.html#note",
+    "href": "07_scipy.rjs.html#note",
+    "title": "SciPy",
+    "section": "Note",
+    "text": "Note\n\nYou do not need to download any of these.\nHere is the .wav:   \nHere is a link: psy.wav"
+  },
+  {
+    "objectID": "07_scipy.rjs.html#ffmpeg",
+    "href": "07_scipy.rjs.html#ffmpeg",
+    "title": "SciPy",
+    "section": "ffmpeg",
+    "text": "ffmpeg\n\nI believe this is the best place to download ffmpeg for Windows and MacOS.\nhttps://www.ffmpeg.org/download.html\nI used it on Ubuntu Linux and did not attempt and Windows or MacOS install."
+  },
+  {
+    "objectID": "07_scipy.html#section",
+    "href": "07_scipy.html#section",
+    "title": "SciPy",
+    "section": "",
+    "text": "STOP\n\n\n\nInstructor’s note: Do not click this link while streaming.",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#yt-dlp",
+    "href": "07_scipy.html#yt-dlp",
+    "title": "SciPy",
+    "section": "yt-dlp",
+    "text": "yt-dlp\n\nWhile I don’t think you need it for anything, I installed yt-dlp as follows, from the shell:\n\npython -m pip install yt-dlp",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.rjs.html#section",
+    "href": "07_scipy.rjs.html#section",
+    "title": "SciPy",
+    "section": "",
+    "text": "STOP\n\n\nInstructor’s note: Do not click this link while streaming."
+  },
+  {
+    "objectID": "07_scipy.rjs.html#yt-dlp",
+    "href": "07_scipy.rjs.html#yt-dlp",
+    "title": "SciPy",
+    "section": "yt-dlp",
+    "text": "yt-dlp\n\nWhile I don’t think you need it for anything, I installed yt-dlp as follows, from the shell:\n\npython -m pip install yt-dlp"
+  },
+  {
+    "objectID": "07_scipy.html#download",
+    "href": "07_scipy.html#download",
+    "title": "SciPy",
+    "section": "Download",
+    "text": "Download\n\nBoth yt-dlp and ffmpeg are command line utilites (like Python, Neovim, or ls).\nI didn’t actually ever use ffmpeg directly, it is just used by yt-dlp.\nGiven the url, I used the following shell command:\n\nyt-dlp -x --audio-format wav https://www.youtube.com/watch?v=9bZkp7q19f0 -o psy.wav\n\nThis tells yt-dlp to go to the url, download to video, convert it to a .wav, and save it as psy.wav",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.rjs.html#download",
+    "href": "07_scipy.rjs.html#download",
+    "title": "SciPy",
+    "section": "Download",
+    "text": "Download\n\nBoth yt-dlp and ffmpeg are command line utilites (like Python, Neovim, or ls).\nI didn’t actually ever use ffmpeg directly, it is just used by yt-dlp.\nGiven the url, I used the following shell command:\n\nyt-dlp -x --audio-format wav https://www.youtube.com/watch?v=9bZkp7q19f0 -o psy.wav\n\nThis tells yt-dlp to go to the url, download to video, convert it to a .wav, and save it as psy.wav"
   }
 ]

@@ -1,0 +1,109 @@
+---
+title: SciPy
+---
+
+# What is SciPy?
+
+> [SciPy (pronounced “Sigh Pie”) is an open-source software for mathematics, science, and engineering.](https://docs.scipy.org/doc/scipy/index.html)
+
+* **Sci**entific **Py**thon
+* Basically a NumPy extension.
+
+## Why SciPy 
+
+* Most popular scientific computing platform in the world.
+* Basis of scikit-learn, the most popular machine learning platform in the world.
+* Extremely rigorous - most functions and documentation come with academic citations.
+
+## Why not SciPy
+
+- SciPy for statistics has basically one challenger (statsmodels, which is great).
+- Sometimes SciPy is too "heavyweight" and NumPy would be sufficient.
+- As a rule, I tend to use NumPy for easy things and scikit-learn for hard things, and don't use SciPy for much.
+
+## Relevance
+
+- This is a scientific computing course!
+- We'll do a bit of signal processing and interpolation.
+
+# Install
+
+## pip again
+
+- Just like NumPy, Matplotlib is a Python package which we install via `pip`
+```{.bash code-line-numbers="false"}
+python3 -m pip install scipy
+```
+- That might take a moment, when it does we can check it worked!
+
+## Verify
+
+- We can quickly verify installation and introduce some conventions.
+- Open up Python and import the libraries:
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+import scipy
+
+print(scipy.__version__)
+```
+
+# Other Installs
+
+## Motivation
+
+- I thought it would be fun to do some signal processing on a recognizable data set:
+- [PSY - GANGNAM STYLE(강남스타일) M/V](https://www.youtube.com/watch?v=9bZkp7q19f0)
+
+## 
+
+::: {.callout-tip}
+## STOP
+
+Instructor's note:  Do not click this link while streaming.
+:::
+
+{{< video https://www.youtube.com/watch?v=9bZkp7q19f0 >}}
+
+## Problem Statement
+
+- SciPy has the ability to read some filetypes but not others.
+  	- Can read: ".wav" Waveform Audio File Format.
+	- Can't read: YouTube urls
+- We use Python package `yt-dlp` to download from YouTube.
+- We use non-Python package `ffmpeg` to translate .mp4 files to .wav
+- We use VideoLAN VLC Media Player to play the .wav files.
+
+## Note
+
+- You do not need to download any of these.
+- Here is the .wav:
+<audio controls>
+  <source src="psy.wav" type="audio/wav">
+</audio> 
+- Here is a link: [psy.wav](psy.wav)
+
+## yt-dlp
+
+- While I don't think you need it for anything, I installed `yt-dlp` as follows, from the shell:
+```{.bash code-line-numbers="false"}
+python -m pip install yt-dlp
+```
+
+## ffmpeg
+
+- I believe this is the best place to download `ffmpeg` for Windows and MacOS.
+- [https://www.ffmpeg.org/download.html](https://www.ffmpeg.org/download.html)
+- I used it on Ubuntu Linux and did not attempt and Windows or MacOS install.
+
+## Download
+
+- Both `yt-dlp` and `ffmpeg` are command line utilites (like Python, Neovim, or `ls`).
+- I didn't actually ever use `ffmpeg` directly, it is just used by `yt-dlp`.
+- Given the url, I used the following shell command:
+```{.bash code-line-numbers="false"}
+yt-dlp -x --audio-format wav https://www.youtube.com/watch?v=9bZkp7q19f0 -o psy.wav
+```
+- This tells `yt-dlp` to go to the url, download to video, convert it to a .wav, and save it as `psy.wav`
+
