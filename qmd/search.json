@@ -8630,7 +8630,7 @@
     "href": "07_scipy.html#linear-regression",
     "title": "SciPy",
     "section": "Linear Regression",
-    "text": "Linear Regression\n\nOne of the most used computation techniques is linear regression.\nIt is used throughout the sciences, but most commonly in econometrics.\nIn my my undergraduate economics class, I had a homework assignment to “prove” that raising minimum wage increases unemployment.\n\nIt doesn’t, but that isn’t relevant here.",
+    "text": "Linear Regression\n\nThe standard measure of statistical significance.\nWe are assuming linearity, but it is already a comparison between rates.\nFor more, study statistics!\n\n\nfrom scipy import stats",
     "crumbs": [
       "SciPy"
     ]
@@ -8640,7 +8640,7 @@
     "href": "07_scipy.rjs.html#linear-regression",
     "title": "SciPy",
     "section": "Linear Regression",
-    "text": "Linear Regression\n\nOne of the most used computation techniques is linear regression.\nIt is used throughout the sciences, but most commonly in econometrics.\nIn my my undergraduate economics class, I had a homework assignment to “prove” that raising minimum wage increases unemployment.\n\nIt doesn’t, but that isn’t relevant here."
+    "text": "Linear Regression\n\nThe standard measure of statistical significance.\nWe are assuming linearity, but it is already a comparison between rates.\nFor more, study statistics!\n\n\nfrom scipy import stats"
   },
   {
     "objectID": "07_scipy.html#the-data",
@@ -8663,8 +8663,8 @@
     "objectID": "07_scipy.html#curl-1",
     "href": "07_scipy.html#curl-1",
     "title": "SciPy",
-    "section": "Curl",
-    "text": "Curl\n\nIt is actually possible to curl these but you probably have to navigate the websites to find the urls regardless.\n\ncurl https://fred.stlouisfed.org/graph/fredgraph.csv?bgcolor=%23ebf3fb&chart_type=line&drp=0&fo=open%20sans&graph_bgcolor=%23ffffff&height=450&mode=fred&recession_bars=on&txtcolor=%23444444&ts=12&tts=12&width=1140&nt=0&thu=0&trc=0&show_legend=yes&show_axis_titles=yes&show_tooltip=yes&id=FEDMINNFRWG&scale=left&cosd=1938-10-01&coed=2025-05-01&line_color=%230073e6&link_values=false&line_style=solid&mark_type=none&mw=3&lw=3&ost=-99999&oet=99999&mma=0&fml=a&fq=Monthly&fam=avg&fgst=lin&fgsnd=2020-02-01&line_index=1&transformation=lin&vintage_date=2025-05-31&revision_date=2025-05-31&nd=1938-10-01 -o FEDMINNFRWG.csv\ncurl https://fred.stlouisfed.org/graph/fredgraph.csv?bgcolor=%23ebf3fb&chart_type=line&drp=0&fo=open%20sans&graph_bgcolor=%23ffffff&height=450&mode=fred&recession_bars=on&txtcolor=%23444444&ts=12&tts=12&width=1140&nt=0&thu=0&trc=0&show_legend=yes&show_axis_titles=yes&show_tooltip=yes&id=UNRATE&scale=left&cosd=1948-01-01&coed=2025-04-01&line_color=%230073e6&link_values=false&line_style=solid&mark_type=none&mw=3&lw=3&ost=-99999&oet=99999&mma=0&fml=a&fq=Monthly&fam=avg&fgst=lin&fgsnd=2020-02-01&line_index=1&transformation=lin&vintage_date=2025-05-31&revision_date=2025-05-31&nd=1948-01-01 -o UNRATE.csv\ncurl https://fred.stlouisfed.org/graph/fredgraph.csv?bgcolor=%23ebf3fb&chart_type=line&drp=0&fo=open%20sans&graph_bgcolor=%23ffffff&height=450&mode=fred&recession_bars=on&txtcolor=%23444444&ts=12&tts=12&width=1140&nt=0&thu=0&trc=0&show_legend=yes&show_axis_titles=yes&show_tooltip=yes&id=CPIAUCSL&scale=left&cosd=1947-01-01&coed=2025-04-01&line_color=%230073e6&link_values=false&line_style=solid&mark_type=none&mw=3&lw=3&ost=-99999&oet=99999&mma=0&fml=a&fq=Monthly&fam=avg&fgst=lin&fgsnd=2020-02-01&line_index=1&transformation=lin&vintage_date=2025-05-31&revision_date=2025-05-31&nd=1947-01-01 -o CPIAUCSL.csv",
+    "section": "curl",
+    "text": "curl\n\nIt is actually possible to curl these but you probably have to navigate the websites to find the urls regardless.\nI retrieved these manually on MS Windows on 31 May 2025 at 7:33 PM PT.\n\ncurl https://github.com/cd-public/scicom/raw/refs/heads/main/qmd/src/FEMINNFRWG.csv -o FEDMINNFRWG.csv\ncurl https://github.com/cd-public/scicom/raw/refs/heads/main/qmd/src/UNRATE.csv-o UNRATE.csv\ncurl https://github.com/cd-public/scicom/raw/refs/heads/main/qmd/src/CPIAUCSL.csv -o CPIAUCSL.csv",
     "crumbs": [
       "SciPy"
     ]
@@ -8864,7 +8864,7 @@
     "href": "07_scipy.html#data-1",
     "title": "SciPy",
     "section": "Data",
-    "text": "Data\n\nBack to our .wav file.\nLet’s look at that data! quarto-executable-code-5450563D\n\ndata[:10]",
+    "text": "Data\n\nWe recall electronegativity.\n\n\n\nCode\n# Plot\nplt.scatter(\n    x=df[\"Group\"],\n    y=df[\"Period\"],\n    c=df[\"Electronegativity\"]\n)\nplt.gca().invert_yaxis()\n# Label\nplt.title(\"Electronegativity\")\nplt.xlabel(\"Group\")\nplt.ylabel(\"Period\")\n_ = plt.colorbar()",
     "crumbs": [
       "SciPy"
     ]
@@ -9123,8 +9123,8 @@
     "objectID": "07_scipy.rjs.html#curl-1",
     "href": "07_scipy.rjs.html#curl-1",
     "title": "SciPy",
-    "section": "Curl",
-    "text": "Curl\n\nIt is actually possible to curl these but you probably have to navigate the websites to find the urls regardless.\n\ncurl https://fred.stlouisfed.org/graph/fredgraph.csv?bgcolor=%23ebf3fb&chart_type=line&drp=0&fo=open%20sans&graph_bgcolor=%23ffffff&height=450&mode=fred&recession_bars=on&txtcolor=%23444444&ts=12&tts=12&width=1140&nt=0&thu=0&trc=0&show_legend=yes&show_axis_titles=yes&show_tooltip=yes&id=FEDMINNFRWG&scale=left&cosd=1938-10-01&coed=2025-05-01&line_color=%230073e6&link_values=false&line_style=solid&mark_type=none&mw=3&lw=3&ost=-99999&oet=99999&mma=0&fml=a&fq=Monthly&fam=avg&fgst=lin&fgsnd=2020-02-01&line_index=1&transformation=lin&vintage_date=2025-05-31&revision_date=2025-05-31&nd=1938-10-01 -o FEDMINNFRWG.csv\ncurl https://fred.stlouisfed.org/graph/fredgraph.csv?bgcolor=%23ebf3fb&chart_type=line&drp=0&fo=open%20sans&graph_bgcolor=%23ffffff&height=450&mode=fred&recession_bars=on&txtcolor=%23444444&ts=12&tts=12&width=1140&nt=0&thu=0&trc=0&show_legend=yes&show_axis_titles=yes&show_tooltip=yes&id=UNRATE&scale=left&cosd=1948-01-01&coed=2025-04-01&line_color=%230073e6&link_values=false&line_style=solid&mark_type=none&mw=3&lw=3&ost=-99999&oet=99999&mma=0&fml=a&fq=Monthly&fam=avg&fgst=lin&fgsnd=2020-02-01&line_index=1&transformation=lin&vintage_date=2025-05-31&revision_date=2025-05-31&nd=1948-01-01 -o UNRATE.csv\ncurl https://fred.stlouisfed.org/graph/fredgraph.csv?bgcolor=%23ebf3fb&chart_type=line&drp=0&fo=open%20sans&graph_bgcolor=%23ffffff&height=450&mode=fred&recession_bars=on&txtcolor=%23444444&ts=12&tts=12&width=1140&nt=0&thu=0&trc=0&show_legend=yes&show_axis_titles=yes&show_tooltip=yes&id=CPIAUCSL&scale=left&cosd=1947-01-01&coed=2025-04-01&line_color=%230073e6&link_values=false&line_style=solid&mark_type=none&mw=3&lw=3&ost=-99999&oet=99999&mma=0&fml=a&fq=Monthly&fam=avg&fgst=lin&fgsnd=2020-02-01&line_index=1&transformation=lin&vintage_date=2025-05-31&revision_date=2025-05-31&nd=1947-01-01 -o CPIAUCSL.csv"
+    "section": "curl",
+    "text": "curl\n\nIt is actually possible to curl these but you probably have to navigate the websites to find the urls regardless.\nI retrieved these manually on MS Windows on 31 May 2025 at 7:33 PM PT.\n\ncurl https://github.com/cd-public/scicom/raw/refs/heads/main/qmd/src/FEMINNFRWG.csv -o FEDMINNFRWG.csv\ncurl https://github.com/cd-public/scicom/raw/refs/heads/main/qmd/src/UNRATE.csv-o UNRATE.csv\ncurl https://github.com/cd-public/scicom/raw/refs/heads/main/qmd/src/CPIAUCSL.csv -o CPIAUCSL.csv"
   },
   {
     "objectID": "07_scipy.html#from-url",
@@ -9142,5 +9142,352 @@
     "title": "SciPy",
     "section": "From url",
     "text": "From url\n\nGiven some url with Python\n\nurl = \"https://...\"\n\nYou can of course also:\n\npandas pd.read_csv(url)\n“os” `os.system(“curl” + url + ” -o name.csv”)"
+  },
+  {
+    "objectID": "07_scipy.html#regression",
+    "href": "07_scipy.html#regression",
+    "title": "SciPy",
+    "section": "Regression",
+    "text": "Regression\n\nOne of the most used computation techniques is regression.\nIt is used throughout the sciences, but most commonly in econometrics.\nIn my my undergraduate economics class, I had a homework assignment to “prove” that raising minimum wage increases unemployment.\n\nIt doesn’t, but that isn’t relevant here.",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#within-python",
+    "href": "07_scipy.html#within-python",
+    "title": "SciPy",
+    "section": "Within Python",
+    "text": "Within Python\n\nYou can of course also get these with out leaving Python.\nGiven some url with Python\n\nurl = \"https://...\"\n\nYou can of course also:\n\npandas pd.read_csv(url)\n“os” os.system(\"curl \" + url + \" -o name.csv\")",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#how-i-did-it",
+    "href": "07_scipy.html#how-i-did-it",
+    "title": "SciPy",
+    "section": "How I did it",
+    "text": "How I did it\n\nimport pandas as pd\n\nminwage = pd.read_csv(\"https://github.com/cd-public/scicom/raw/refs/heads/main/qmd/src/FEDMINNFRWG.csv\")\nunemploy = pd.read_csv(\"https://github.com/cd-public/scicom/raw/refs/heads/main/qmd/src/UNRATE.csv\")\ninflate = pd.read_csv(\"https://github.com/cd-public/scicom/raw/refs/heads/main/qmd/src/CPIAUCSL.csv\")\ninflate\n\n\n\n\n\n\n\n\nobservation_date\nCPIAUCSL\n\n\n\n\n0\n1947-01-01\n21.480\n\n\n1\n1947-02-01\n21.620\n\n\n2\n1947-03-01\n22.000\n\n\n3\n1947-04-01\n22.000\n\n\n4\n1947-05-01\n21.950\n\n\n...\n...\n...\n\n\n935\n2024-12-01\n317.603\n\n\n936\n2025-01-01\n319.086\n\n\n937\n2025-02-01\n319.775\n\n\n938\n2025-03-01\n319.615\n\n\n939\n2025-04-01\n320.321\n\n\n\n\n940 rows × 2 columns",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.rjs.html#regression",
+    "href": "07_scipy.rjs.html#regression",
+    "title": "SciPy",
+    "section": "Regression",
+    "text": "Regression\n\nOne of the most used computation techniques is regression.\nIt is used throughout the sciences, but most commonly in econometrics.\nIn my my undergraduate economics class, I had a homework assignment to “prove” that raising minimum wage increases unemployment.\n\nIt doesn’t, but that isn’t relevant here."
+  },
+  {
+    "objectID": "07_scipy.rjs.html#within-python",
+    "href": "07_scipy.rjs.html#within-python",
+    "title": "SciPy",
+    "section": "Within Python",
+    "text": "Within Python\n\nYou can of course also get these with out leaving Python.\nGiven some url with Python\n\nurl = \"https://...\"\n\nYou can of course also:\n\npandas pd.read_csv(url)\n“os” os.system(\"curl \" + url + \" -o name.csv\")"
+  },
+  {
+    "objectID": "07_scipy.rjs.html#how-i-did-it",
+    "href": "07_scipy.rjs.html#how-i-did-it",
+    "title": "SciPy",
+    "section": "How I did it",
+    "text": "How I did it\n\nimport pandas as pd\n\nminwage = pd.read_csv(\"https://github.com/cd-public/scicom/raw/refs/heads/main/qmd/src/FEDMINNFRWG.csv\")\nunemploy = pd.read_csv(\"https://github.com/cd-public/scicom/raw/refs/heads/main/qmd/src/UNRATE.csv\")\ninflate = pd.read_csv(\"https://github.com/cd-public/scicom/raw/refs/heads/main/qmd/src/CPIAUCSL.csv\")\ninflate\n\n\n\n\n\n\n\n\nobservation_date\nCPIAUCSL\n\n\n\n\n0\n1947-01-01\n21.480\n\n\n1\n1947-02-01\n21.620\n\n\n2\n1947-03-01\n22.000\n\n\n3\n1947-04-01\n22.000\n\n\n4\n1947-05-01\n21.950\n\n\n...\n...\n...\n\n\n935\n2024-12-01\n317.603\n\n\n936\n2025-01-01\n319.086\n\n\n937\n2025-02-01\n319.775\n\n\n938\n2025-03-01\n319.615\n\n\n939\n2025-04-01\n320.321\n\n\n\n\n940 rows × 2 columns"
+  },
+  {
+    "objectID": "07_scipy.html#check-columns",
+    "href": "07_scipy.html#check-columns",
+    "title": "SciPy",
+    "section": "Check Columns",
+    "text": "Check Columns\n\nminwage.columns\n\nIndex(['observation_date', 'FEDMINNFRWG'], dtype='object')\n\n\n\nunemploy.columns\n\nIndex(['observation_date', 'UNRATE'], dtype='object')\n\n\n\ninflate.columns\n\nIndex(['observation_date', 'CPIAUCSL'], dtype='object')",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.rjs.html#check-columns",
+    "href": "07_scipy.rjs.html#check-columns",
+    "title": "SciPy",
+    "section": "Check Columns",
+    "text": "Check Columns\n\nminwage.columns\n\nIndex(['observation_date', 'FEDMINNFRWG'], dtype='object')\n\n\n\nunemploy.columns\n\nIndex(['observation_date', 'UNRATE'], dtype='object')\n\n\n\ninflate.columns\n\nIndex(['observation_date', 'CPIAUCSL'], dtype='object')"
+  },
+  {
+    "objectID": "07_scipy.html#merge",
+    "href": "07_scipy.html#merge",
+    "title": "SciPy",
+    "section": "Merge",
+    "text": "Merge\n\nThis is suitable for a merge.\nAlternatively, set date as index then join.\n\n\ndf = minwage.merge(unemploy).merge(inflate)\ndf = df.drop(columns=[\"observation_date\"])\ndf[:3]\n\n\n\n\n\n\n\n\nFEDMINNFRWG\nUNRATE\nCPIAUCSL\n\n\n\n\n0\n0.4\n3.4\n23.68\n\n\n1\n0.4\n3.8\n23.67\n\n\n2\n0.4\n4.0\n23.50",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.rjs.html#merge",
+    "href": "07_scipy.rjs.html#merge",
+    "title": "SciPy",
+    "section": "Merge",
+    "text": "Merge\n\nThis is suitable for a merge.\nAlternatively, set date as index then join.\n\n\ndf = minwage.merge(unemploy).merge(inflate)\ndf = df.drop(columns=[\"observation_date\"])\ndf[:3]\n\n\n\n\n\n\n\n\nFEDMINNFRWG\nUNRATE\nCPIAUCSL\n\n\n\n\n0\n0.4\n3.4\n23.68\n\n\n1\n0.4\n3.8\n23.67\n\n\n2\n0.4\n4.0\n23.50"
+  },
+  {
+    "objectID": "07_scipy.html#adjustments",
+    "href": "07_scipy.html#adjustments",
+    "title": "SciPy",
+    "section": "Adjustments",
+    "text": "Adjustments\n\nUnemployment rate is rate.\nMinimum wage is a nominal value (e.g. it’s units are ill-defined).\nInflation is an index of wage units.\nWe can divide wage by inflation to get a “real wage”.\n\n\n# I made so many types here.\n# In a pinch use df[df.columns[0]]\ndf[\"REAL\"] = df[\"FEDMINNFRWG\"] / df[\"CPIAUCSL\"]",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#percent-change",
+    "href": "07_scipy.html#percent-change",
+    "title": "SciPy",
+    "section": "Percent Change",
+    "text": "Percent Change\n\nWe measure percent change in real wages.\n\nWe use pandas .pct_change()\n\nIt’s recommend by SciPy\n\nWe drop the row 0 which has no percent change.\n\nDrop rows by index, vs column=&lt;name&gt;\n\nWe drop an undefined (“NaN”) values\n\n\n\ndf[\"REALPCT\"] = df[\"REAL\"].pct_change()\ndf.drop(0)\ndf.dropna()\n\n\n\n\n\n\n\n\nFEDMINNFRWG\nUNRATE\nCPIAUCSL\nREAL\nREALPCT\n\n\n\n\n1\n0.40\n3.8\n23.670\n0.016899\n0.000422\n\n\n2\n0.40\n4.0\n23.500\n0.017021\n0.007234\n\n\n3\n0.40\n3.9\n23.820\n0.016793\n-0.013434\n\n\n4\n0.40\n3.5\n24.010\n0.016660\n-0.007913\n\n\n5\n0.40\n3.6\n24.150\n0.016563\n-0.005797\n\n\n...\n...\n...\n...\n...\n...\n\n\n923\n7.25\n4.1\n317.603\n0.022827\n-0.003633\n\n\n924\n7.25\n4.0\n319.086\n0.022721\n-0.004648\n\n\n925\n7.25\n4.1\n319.775\n0.022672\n-0.002155\n\n\n926\n7.25\n4.2\n319.615\n0.022684\n0.000501\n\n\n927\n7.25\n4.2\n320.321\n0.022634\n-0.002204\n\n\n\n\n927 rows × 5 columns",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#look-at-it",
+    "href": "07_scipy.html#look-at-it",
+    "title": "SciPy",
+    "section": "Look at it",
+    "text": "Look at it\n\nplt.xlabel(\"REALPCT\")\nplt.ylabel(\"UNRATE\")\n_ = plt.scatter(df[\"REALPCT\"],df[\"UNRATE\"])",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.rjs.html#adjustments",
+    "href": "07_scipy.rjs.html#adjustments",
+    "title": "SciPy",
+    "section": "Adjustments",
+    "text": "Adjustments\n\nUnemployment rate is rate.\nMinimum wage is a nominal value (e.g. it’s units are ill-defined).\nInflation is an index of wage units.\nWe can divide wage by inflation to get a “real wage”.\n\n\n# I made so many types here.\n# In a pinch use df[df.columns[0]]\ndf[\"REAL\"] = df[\"FEDMINNFRWG\"] / df[\"CPIAUCSL\"]"
+  },
+  {
+    "objectID": "07_scipy.rjs.html#percent-change",
+    "href": "07_scipy.rjs.html#percent-change",
+    "title": "SciPy",
+    "section": "Percent Change",
+    "text": "Percent Change\n\nWe measure percent change in real wages.\n\nWe use pandas .pct_change()\n\nIt’s recommend by SciPy\n\nWe drop the row 0 which has no percent change.\n\nDrop rows by index, vs column=&lt;name&gt;\n\nWe drop an undefined (“NaN”) values\n\n\n\ndf[\"REALPCT\"] = df[\"REAL\"].pct_change()\ndf.drop(0)\ndf.dropna()\n\n\n\n\n\n\n\n\nFEDMINNFRWG\nUNRATE\nCPIAUCSL\nREAL\nREALPCT\n\n\n\n\n1\n0.40\n3.8\n23.670\n0.016899\n0.000422\n\n\n2\n0.40\n4.0\n23.500\n0.017021\n0.007234\n\n\n3\n0.40\n3.9\n23.820\n0.016793\n-0.013434\n\n\n4\n0.40\n3.5\n24.010\n0.016660\n-0.007913\n\n\n5\n0.40\n3.6\n24.150\n0.016563\n-0.005797\n\n\n...\n...\n...\n...\n...\n...\n\n\n923\n7.25\n4.1\n317.603\n0.022827\n-0.003633\n\n\n924\n7.25\n4.0\n319.086\n0.022721\n-0.004648\n\n\n925\n7.25\n4.1\n319.775\n0.022672\n-0.002155\n\n\n926\n7.25\n4.2\n319.615\n0.022684\n0.000501\n\n\n927\n7.25\n4.2\n320.321\n0.022634\n-0.002204\n\n\n\n\n927 rows × 5 columns"
+  },
+  {
+    "objectID": "07_scipy.rjs.html#look-at-it",
+    "href": "07_scipy.rjs.html#look-at-it",
+    "title": "SciPy",
+    "section": "Look at it",
+    "text": "Look at it\n\nplt.xlabel(\"REALPCT\")\nplt.ylabel(\"UNRATE\")\n_ = plt.scatter(df[\"REALPCT\"],df[\"UNRATE\"])"
+  },
+  {
+    "objectID": "07_scipy.html#unemployment",
+    "href": "07_scipy.html#unemployment",
+    "title": "SciPy",
+    "section": "Unemployment",
+    "text": "Unemployment\n\nOh we should probably take a percentage change in unemployment as well.\n\n\ndf[\"UNRATE\"] = df[\"UNRATE\"].pct_change()",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#linregress",
+    "href": "07_scipy.html#linregress",
+    "title": "SciPy",
+    "section": "linregress",
+    "text": "linregress\n\nres = stats.linregress(df[\"REALPCT\"],df[\"UNRATE\"])\nprint(res)\n\nLinregressResult(slope=np.float64(nan), intercept=np.float64(nan), rvalue=np.float64(nan), pvalue=np.float64(nan), stderr=np.float64(nan), intercept_stderr=np.float64(nan))",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#credit",
+    "href": "07_scipy.html#credit",
+    "title": "SciPy",
+    "section": "Credit",
+    "text": "Credit\n\nThe remainder is adapted from the scipy.stats.linregress example.",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#view",
+    "href": "07_scipy.html#view",
+    "title": "SciPy",
+    "section": "View",
+    "text": "View\n\nplt.scatter(df[\"REALPCT\"],df[\"UNRATE\"])\nx = np.linspace(df[\"REALPCT\"].min(), df[\"REALPCT\"].max())\n_ = plt.plot(x, res.intercept + res.slope*x)",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.rjs.html#unemployment",
+    "href": "07_scipy.rjs.html#unemployment",
+    "title": "SciPy",
+    "section": "Unemployment",
+    "text": "Unemployment\n\nOh we should probably take a percentage change in unemployment as well.\n\n\ndf[\"UNRATE\"] = df[\"UNRATE\"].pct_change()"
+  },
+  {
+    "objectID": "07_scipy.rjs.html#linregress",
+    "href": "07_scipy.rjs.html#linregress",
+    "title": "SciPy",
+    "section": "linregress",
+    "text": "linregress\n\nres = stats.linregress(df[\"REALPCT\"],df[\"UNRATE\"])\nprint(res)\n\nLinregressResult(slope=np.float64(nan), intercept=np.float64(nan), rvalue=np.float64(nan), pvalue=np.float64(nan), stderr=np.float64(nan), intercept_stderr=np.float64(nan))"
+  },
+  {
+    "objectID": "07_scipy.rjs.html#credit",
+    "href": "07_scipy.rjs.html#credit",
+    "title": "SciPy",
+    "section": "Credit",
+    "text": "Credit\n\nThe remainder is adapted from the scipy.stats.linregress example."
+  },
+  {
+    "objectID": "07_scipy.rjs.html#view",
+    "href": "07_scipy.rjs.html#view",
+    "title": "SciPy",
+    "section": "View",
+    "text": "View\n\nplt.scatter(df[\"REALPCT\"],df[\"UNRATE\"])\nx = np.linspace(df[\"REALPCT\"].min(), df[\"REALPCT\"].max())\n_ = plt.plot(x, res.intercept + res.slope*x)"
+  },
+  {
+    "objectID": "07_scipy.html#confidence-interval",
+    "href": "07_scipy.html#confidence-interval",
+    "title": "SciPy",
+    "section": "Confidence Interval",
+    "text": "Confidence Interval\n\n“Two-sided inverse Students t-distribution”\n\n\n# p - probability, df - degrees of freedom\ndef tinv(p, df): \n    return abs(stats.t.ppf(p/2, df))",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.rjs.html#confidence-interval",
+    "href": "07_scipy.rjs.html#confidence-interval",
+    "title": "SciPy",
+    "section": "Confidence Interval",
+    "text": "Confidence Interval\n\n“Two-sided inverse Students t-distribution”\n\n\n# p - probability, df - degrees of freedom\ndef tinv(p, df): \n    return abs(stats.t.ppf(p/2, df))"
+  },
+  {
+    "objectID": "07_scipy.html#results",
+    "href": "07_scipy.html#results",
+    "title": "SciPy",
+    "section": "Results",
+    "text": "Results\n\nts = tinv(0.05, len(x)-2)\nprint(f\"slope (95%): {res.slope:.6f} +/- {ts*res.stderr:.6f}\")\nprint(f\"intercept (95%): {res.intercept:.6f}\"\n      f\" +/- {ts*res.intercept_stderr:.6f}\")\n\nslope (95%): nan +/- nan\nintercept (95%): nan +/- nan",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.rjs.html#results",
+    "href": "07_scipy.rjs.html#results",
+    "title": "SciPy",
+    "section": "Results",
+    "text": "Results\n\nts = tinv(0.05, len(x)-2)\nprint(f\"slope (95%): {res.slope:.6f} +/- {ts*res.stderr:.6f}\")\nprint(f\"intercept (95%): {res.intercept:.6f}\"\n      f\" +/- {ts*res.intercept_stderr:.6f}\")\n\nslope (95%): nan +/- nan\nintercept (95%): nan +/- nan"
+  },
+  {
+    "objectID": "07_scipy.html#tada",
+    "href": "07_scipy.html#tada",
+    "title": "SciPy",
+    "section": "Tada!",
+    "text": "Tada!\n\nRaising minimum wage doesn’t predictable impact unemployment.",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#technetium",
+    "href": "07_scipy.html#technetium",
+    "title": "SciPy",
+    "section": "Technetium",
+    "text": "Technetium\n\nWe recall the periodic table data\n\n\ndf = pd.read_csv(\"https://gist.githubusercontent.com/GoodmanSciences/c2dd862cd38f21b0ad36b8f96b4bf1ee/raw/1d92663004489a5b6926e944c1b3d9ec5c40900e/Periodic%2520Table%2520of%2520Elements.csv\")\ndf[::30]\n\n\n\n\n\n\n\n\nAtomicNumber\nElement\nSymbol\nAtomicMass\nNumberofNeutrons\nNumberofProtons\nNumberofElectrons\nPeriod\nGroup\nPhase\n...\nFirstIonization\nDensity\nMeltingPoint\nBoilingPoint\nNumberOfIsotopes\nDiscoverer\nYear\nSpecificHeat\nNumberofShells\nNumberofValence\n\n\n\n\n0\n1\nHydrogen\nH\n1.007\n0\n1\n1\n1\n1.0\ngas\n...\n13.5984\n0.00009\n14.175\n20.28\n3.0\nCavendish\n1766.0\n14.304\n1\n1.0\n\n\n30\n31\nGallium\nGa\n69.723\n39\n31\n31\n4\n13.0\nsolid\n...\n5.9993\n5.91000\n302.910\n2477.00\n14.0\nde Boisbaudran\n1875.0\n0.371\n4\n3.0\n\n\n60\n61\nPromethium\nPm\n145.000\n84\n61\n61\n6\nNaN\nartificial\n...\n5.5820\n7.26000\n1204.150\n3273.00\n14.0\nMarinsky et al.\n1945.0\nNaN\n6\nNaN\n\n\n90\n91\nProtactinium\nPa\n231.036\n140\n91\n91\n7\nNaN\nsolid\n...\n5.8900\n15.40000\n1873.150\n4300.00\n14.0\nHahn and Meitner\n1917.0\nNaN\n7\nNaN\n\n\n\n\n4 rows × 28 columns",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.rjs.html#tada",
+    "href": "07_scipy.rjs.html#tada",
+    "title": "SciPy",
+    "section": "Tada!",
+    "text": "Tada!\n\nRaising minimum wage doesn’t predictable impact unemployment."
+  },
+  {
+    "objectID": "07_scipy.rjs.html#technetium",
+    "href": "07_scipy.rjs.html#technetium",
+    "title": "SciPy",
+    "section": "Technetium",
+    "text": "Technetium\n\nWe recall the periodic table data\n\n\ndf = pd.read_csv(\"https://gist.githubusercontent.com/GoodmanSciences/c2dd862cd38f21b0ad36b8f96b4bf1ee/raw/1d92663004489a5b6926e944c1b3d9ec5c40900e/Periodic%2520Table%2520of%2520Elements.csv\")\ndf[::30]\n\n\n\n\n\n\n\n\nAtomicNumber\nElement\nSymbol\nAtomicMass\nNumberofNeutrons\nNumberofProtons\nNumberofElectrons\nPeriod\nGroup\nPhase\n...\nFirstIonization\nDensity\nMeltingPoint\nBoilingPoint\nNumberOfIsotopes\nDiscoverer\nYear\nSpecificHeat\nNumberofShells\nNumberofValence\n\n\n\n\n0\n1\nHydrogen\nH\n1.007\n0\n1\n1\n1\n1.0\ngas\n...\n13.5984\n0.00009\n14.175\n20.28\n3.0\nCavendish\n1766.0\n14.304\n1\n1.0\n\n\n30\n31\nGallium\nGa\n69.723\n39\n31\n31\n4\n13.0\nsolid\n...\n5.9993\n5.91000\n302.910\n2477.00\n14.0\nde Boisbaudran\n1875.0\n0.371\n4\n3.0\n\n\n60\n61\nPromethium\nPm\n145.000\n84\n61\n61\n6\nNaN\nartificial\n...\n5.5820\n7.26000\n1204.150\n3273.00\n14.0\nMarinsky et al.\n1945.0\nNaN\n6\nNaN\n\n\n90\n91\nProtactinium\nPa\n231.036\n140\n91\n91\n7\nNaN\nsolid\n...\n5.8900\n15.40000\n1873.150\n4300.00\n14.0\nHahn and Meitner\n1917.0\nNaN\n7\nNaN\n\n\n\n\n4 rows × 28 columns"
+  },
+  {
+    "objectID": "07_scipy.html#interpolation",
+    "href": "07_scipy.html#interpolation",
+    "title": "SciPy",
+    "section": "Interpolation",
+    "text": "Interpolation\n\nWhen first setting out the table, a number of elements had not yet been “observed”\n\nThat is, no one determined their chemical properties while away they were an element.\n\nSome certainly were never observed, namely technetium (Tc, 43) which does not exist in nature.\nHowever, the layout of the table allowed scientists to predict properties of technetium",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.rjs.html#interpolation",
+    "href": "07_scipy.rjs.html#interpolation",
+    "title": "SciPy",
+    "section": "Interpolation",
+    "text": "Interpolation\n\nWhen first setting out the table, a number of elements had not yet been “observed”\n\nThat is, no one determined their chemical properties while away they were an element.\n\nSome certainly were never observed, namely technetium (Tc, 43) which does not exist in nature.\nHowever, the layout of the table allowed scientists to predict properties of technetium"
+  },
+  {
+    "objectID": "07_scipy.html#credit-1",
+    "href": "07_scipy.html#credit-1",
+    "title": "SciPy",
+    "section": "Credit",
+    "text": "Credit\n\nThe following is adapted from the tutorial released with the launch of scipy.interpolate.RegularGridInterpolator\n\n\nSuppose you have N-dimensional data on a regular grid, and you want to interpolate it. In such a case, RegularGridInterpolator can be useful.",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#import",
+    "href": "07_scipy.html#import",
+    "title": "SciPy",
+    "section": "Import",
+    "text": "Import\n\nTo save some typing, we’ll import it directly.\n\n\nfrom scipy.interpolate import LinearNDInterpolator",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.rjs.html#credit-1",
+    "href": "07_scipy.rjs.html#credit-1",
+    "title": "SciPy",
+    "section": "Credit",
+    "text": "Credit\n\nThe following is adapted from the tutorial released with the launch of scipy.interpolate.RegularGridInterpolator\n\n\nSuppose you have N-dimensional data on a regular grid, and you want to interpolate it. In such a case, RegularGridInterpolator can be useful."
+  },
+  {
+    "objectID": "07_scipy.rjs.html#import",
+    "href": "07_scipy.rjs.html#import",
+    "title": "SciPy",
+    "section": "Import",
+    "text": "Import\n\nTo save some typing, we’ll import it directly.\n\n\nfrom scipy.interpolate import LinearNDInterpolator"
+  },
+  {
+    "objectID": "07_scipy.html#extract",
+    "href": "07_scipy.html#extract",
+    "title": "SciPy",
+    "section": "Extract",
+    "text": "Extract\n\nWe will:\n\nSet aside technetium in a variable to check our predictions against.\nRemove the “transuranic” elements which were also not yet observed.\n\n\n\ndf = df.iloc[:91]\nTc = df.iloc[42]\ndf = df.drop(42)\nTc\n\nAtomicNumber                        43\nElement                     Technetium\nSymbol                              Tc\nAtomicMass                        98.0\nNumberofNeutrons                    55\nNumberofProtons                     43\nNumberofElectrons                   43\nPeriod                               5\nGroup                              7.0\nPhase                       artificial\nRadioactive                        yes\nNatural                            NaN\nMetal                              yes\nNonmetal                           NaN\nMetalloid                          NaN\nType                  Transition Metal\nAtomicRadius                       2.0\nElectronegativity                  1.9\nFirstIonization                   7.28\nDensity                           11.5\nMeltingPoint                   2473.15\nBoilingPoint                    5150.0\nNumberOfIsotopes                  23.0\nDiscoverer           Perrier and Segr�\nYear                            1937.0\nSpecificHeat                       NaN\nNumberofShells                       5\nNumberofValence                    NaN\nName: 42, dtype: object",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.rjs.html#extract",
+    "href": "07_scipy.rjs.html#extract",
+    "title": "SciPy",
+    "section": "Extract",
+    "text": "Extract\n\nWe will:\n\nSet aside technetium in a variable to check our predictions against.\nRemove the “transuranic” elements which were also not yet observed.\n\n\n\ndf = df.iloc[:91]\nTc = df.iloc[42]\ndf = df.drop(42)\nTc\n\nAtomicNumber                        43\nElement                     Technetium\nSymbol                              Tc\nAtomicMass                        98.0\nNumberofNeutrons                    55\nNumberofProtons                     43\nNumberofElectrons                   43\nPeriod                               5\nGroup                              7.0\nPhase                       artificial\nRadioactive                        yes\nNatural                            NaN\nMetal                              yes\nNonmetal                           NaN\nMetalloid                          NaN\nType                  Transition Metal\nAtomicRadius                       2.0\nElectronegativity                  1.9\nFirstIonization                   7.28\nDensity                           11.5\nMeltingPoint                   2473.15\nBoilingPoint                    5150.0\nNumberOfIsotopes                  23.0\nDiscoverer           Perrier and Segr�\nYear                            1937.0\nSpecificHeat                       NaN\nNumberofShells                       5\nNumberofValence                    NaN\nName: 42, dtype: object"
+  },
+  {
+    "objectID": "07_scipy.rjs.html#data-1",
+    "href": "07_scipy.rjs.html#data-1",
+    "title": "SciPy",
+    "section": "Data",
+    "text": "Data\n\nWe recall electronegativity.\n\n\n\nCode\n# Plot\nplt.scatter(\n    x=df[\"Group\"],\n    y=df[\"Period\"],\n    c=df[\"Electronegativity\"]\n)\nplt.gca().invert_yaxis()\n# Label\nplt.title(\"Electronegativity\")\nplt.xlabel(\"Group\")\nplt.ylabel(\"Period\")\n_ = plt.colorbar()"
   }
 ]

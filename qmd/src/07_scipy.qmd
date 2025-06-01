@@ -507,9 +507,9 @@ scipy.io.wavfile.write("others.wav", rate, np.concat([other,other,other]))
 
 # Stats
 
-## Linear Regression
+## Regression
 
-- One of the most used computation techniques is linear regression.
+- One of the most used computation techniques is regression.
 - It is used throughout the sciences, but most commonly in econometrics.
 - In my my undergraduate economics class, I had a homework assignment to "prove" that raising minimum wage increases unemployment.
   	- It doesn't, but that isn't relevant here.
@@ -521,20 +521,205 @@ scipy.io.wavfile.write("others.wav", rate, np.concat([other,other,other]))
   - Unemployment rage [UNRATE](https://fred.stlouisfed.org/series/UNRATE)
   - Inflation [CPIAUCSL](https://fred.stlouisfed.org/series/CPIAUCSL)
 
-## Curl
+## curl
 
 - It is actually possible to `curl` these but you probably have to navigate the websites to find the urls regardless.
+- I retrieved these manually on MS Windows on 31 May 2025 at 7:33 PM PT.
 ```{.bash code-line-numbers="false"}
-curl https://fred.stlouisfed.org/graph/fredgraph.csv?bgcolor=%23ebf3fb&chart_type=line&drp=0&fo=open%20sans&graph_bgcolor=%23ffffff&height=450&mode=fred&recession_bars=on&txtcolor=%23444444&ts=12&tts=12&width=1140&nt=0&thu=0&trc=0&show_legend=yes&show_axis_titles=yes&show_tooltip=yes&id=FEDMINNFRWG&scale=left&cosd=1938-10-01&coed=2025-05-01&line_color=%230073e6&link_values=false&line_style=solid&mark_type=none&mw=3&lw=3&ost=-99999&oet=99999&mma=0&fml=a&fq=Monthly&fam=avg&fgst=lin&fgsnd=2020-02-01&line_index=1&transformation=lin&vintage_date=2025-05-31&revision_date=2025-05-31&nd=1938-10-01 -o FEDMINNFRWG.csv
-curl https://fred.stlouisfed.org/graph/fredgraph.csv?bgcolor=%23ebf3fb&chart_type=line&drp=0&fo=open%20sans&graph_bgcolor=%23ffffff&height=450&mode=fred&recession_bars=on&txtcolor=%23444444&ts=12&tts=12&width=1140&nt=0&thu=0&trc=0&show_legend=yes&show_axis_titles=yes&show_tooltip=yes&id=UNRATE&scale=left&cosd=1948-01-01&coed=2025-04-01&line_color=%230073e6&link_values=false&line_style=solid&mark_type=none&mw=3&lw=3&ost=-99999&oet=99999&mma=0&fml=a&fq=Monthly&fam=avg&fgst=lin&fgsnd=2020-02-01&line_index=1&transformation=lin&vintage_date=2025-05-31&revision_date=2025-05-31&nd=1948-01-01 -o UNRATE.csv
-curl https://fred.stlouisfed.org/graph/fredgraph.csv?bgcolor=%23ebf3fb&chart_type=line&drp=0&fo=open%20sans&graph_bgcolor=%23ffffff&height=450&mode=fred&recession_bars=on&txtcolor=%23444444&ts=12&tts=12&width=1140&nt=0&thu=0&trc=0&show_legend=yes&show_axis_titles=yes&show_tooltip=yes&id=CPIAUCSL&scale=left&cosd=1947-01-01&coed=2025-04-01&line_color=%230073e6&link_values=false&line_style=solid&mark_type=none&mw=3&lw=3&ost=-99999&oet=99999&mma=0&fml=a&fq=Monthly&fam=avg&fgst=lin&fgsnd=2020-02-01&line_index=1&transformation=lin&vintage_date=2025-05-31&revision_date=2025-05-31&nd=1947-01-01 -o CPIAUCSL.csv
+curl https://github.com/cd-public/scicom/raw/refs/heads/main/qmd/src/FEMINNFRWG.csv -o FEDMINNFRWG.csv
+curl https://github.com/cd-public/scicom/raw/refs/heads/main/qmd/src/UNRATE.csv-o UNRATE.csv
+curl https://github.com/cd-public/scicom/raw/refs/heads/main/qmd/src/CPIAUCSL.csv -o CPIAUCSL.csv
 ```
 
-## From url
+## Within Python
 
+- You can of course also get these with out leaving Python.
 - Given some url with Python 
   - `url = "https://..."`
 - You can of course also:
   - **pandas** `pd.read_csv(url)`
-  - "os" `os.system("curl " + url + " -o name.csv")
+  - "os" `os.system("curl " + url + " -o name.csv")`
 
+## How I did it
+
+```{python}
+import pandas as pd
+
+minwage = pd.read_csv("https://github.com/cd-public/scicom/raw/refs/heads/main/qmd/src/FEDMINNFRWG.csv")
+unemploy = pd.read_csv("https://github.com/cd-public/scicom/raw/refs/heads/main/qmd/src/UNRATE.csv")
+inflate = pd.read_csv("https://github.com/cd-public/scicom/raw/refs/heads/main/qmd/src/CPIAUCSL.csv")
+inflate
+```
+
+## Check Columns
+
+```{python}
+minwage.columns
+```
+```{python}
+unemploy.columns
+```
+```{python}
+inflate.columns
+```
+
+## Merge
+
+- This is suitable for a merge.
+- Alternatively, set date as index then join.
+```{python}
+df = minwage.merge(unemploy).merge(inflate)
+df = df.drop(columns=["observation_date"])
+df[:3]
+```
+
+## Adjustments
+
+- Unemployment rate is rate.
+- Minimum wage is a nominal value (e.g. it's units are ill-defined).
+- Inflation is an index of wage units.
+- We can divide wage by inflation to get a "real wage".
+```{python}
+# I made so many types here.
+# In a pinch use df[df.columns[0]]
+df["REAL"] = df["FEDMINNFRWG"] / df["CPIAUCSL"]
+```
+
+## Percent Change
+
+- We measure percent change in real wages.
+  	- We use **pandas** `.pct_change()`
+	  	- It's recommend by SciPy
+	- We drop the *row* `0` which has no percent change.
+		- Drop rows by index, vs `column=<name>`
+	- We drop an undefined ("NaN") values
+```{python}
+df["REALPCT"] = df["REAL"].pct_change()
+df.drop(0)
+df.dropna()
+```
+
+## Unemployment
+
+- Oh we should probably take a percentage change in unemployment as well.
+```{python}
+df["UNRATE"] = df["UNRATE"].pct_change()
+```
+
+## Look at it
+
+```{python}
+plt.xlabel("REALPCT")
+plt.ylabel("UNRATE")
+_ = plt.scatter(df["REALPCT"],df["UNRATE"])
+```
+
+## Linear Regression
+
+- The standard measure of statistical significance.
+- We are assuming linearity, but it is already a comparison between rates.
+- For more, study statistics!
+```{python}
+from scipy import stats
+```
+
+## `linregress`
+
+```{python}
+res = stats.linregress(df["REALPCT"],df["UNRATE"])
+print(res)
+```
+
+:::{.hidden}
+## Credit
+
+- The remainder is adapted from the [`scipy.stats.linregress` example](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.linregress.html#scipy.stats.linregress).
+
+## View
+
+```{python}
+plt.scatter(df["REALPCT"],df["UNRATE"])
+x = np.linspace(df["REALPCT"].min(), df["REALPCT"].max())
+_ = plt.plot(x, res.intercept + res.slope*x)
+```
+
+## Confidence Interval
+
+- "Two-sided inverse Students t-distribution"
+
+```{python}
+# p - probability, df - degrees of freedom
+def tinv(p, df): 
+	return abs(stats.t.ppf(p/2, df))
+```
+
+## Results
+
+```{python}
+ts = tinv(0.05, len(x)-2)
+print(f"slope (95%): {res.slope:.6f} +/- {ts*res.stderr:.6f}")
+print(f"intercept (95%): {res.intercept:.6f}"
+      f" +/- {ts*res.intercept_stderr:.6f}")
+```
+
+:::
+
+## Tada!
+
+- Raising minimum wage doesn't predictable impact unemployment.
+
+# Exercise
+
+## Technetium
+
+- We recall the periodic table data
+```{python}
+df = pd.read_csv("https://gist.githubusercontent.com/GoodmanSciences/c2dd862cd38f21b0ad36b8f96b4bf1ee/raw/1d92663004489a5b6926e944c1b3d9ec5c40900e/Periodic%2520Table%2520of%2520Elements.csv")
+df[::30]
+```
+
+## Interpolation
+
+- When first setting out the table, a number of elements had not yet been "observed"
+  	- That is, no one determined their chemical properties while away they were an element.
+- Some *certainly* were never observed, namely technetium (Tc, 43) which does not exist in nature.
+- However, the layout of the table allowed scientists to predict properties of technetium 
+
+## Extract
+
+- We will:
+  	- Set aside technetium in a variable to check our predictions against.
+	- Remove the "transuranic" elements which were also not yet observed.
+```{python}
+df = df.iloc[:91]
+Tc = df.iloc[42]
+df = df.drop(42)
+Tc
+```
+
+## Import
+
+- To save some typing, we'll import it directly.
+```{python}
+from scipy.interpolate import LinearNDInterpolator
+```
+
+## Data
+
+- We recall electronegativity.
+
+```{python}
+#| code-fold: true
+# Plot
+plt.scatter(
+	x=df["Group"],
+	y=df["Period"],
+	c=df["Electronegativity"]
+)
+plt.gca().invert_yaxis()
+# Label
+plt.title("Electronegativity")
+plt.xlabel("Group")
+plt.ylabel("Period")
+_ = plt.colorbar()
+```
