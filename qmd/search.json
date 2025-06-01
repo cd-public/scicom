@@ -7634,7 +7634,7 @@
     "href": "07_scipy.html",
     "title": "SciPy",
     "section": "",
-    "text": "SciPy (pronounced “Sigh Pie”) is an open-source software for mathematics, science, and engineering.\n\n\nScientific Python\nBasically a NumPy extension.\n\n\n\n\nMost popular scientific computing platform in the world.\nBasis of scikit-learn, the most popular machine learning platform in the world.\nExtremely rigorous - most functions and documentation come with academic citations.\n\n\n\n\n\nSciPy for statistics has basically one challenger (statsmodels, which is great).\nSometimes SciPy is too “heavyweight” and NumPy would be sufficient.\nAs a rule, I tend to use NumPy for easy things and scikit-learn for hard things, and don’t use SciPy for much.\n\n\n\n\n\nThis is a scientific computing course!\nWe’ll do a bit of signal processing and interpolation.",
+    "text": "SciPy (pronounced “Sigh Pie”) is an open-source software for mathematics, science, and engineering.\n\n\nScientific Python\nBasically a NumPy extension.\n\n\n\n\nMost popular scientific computing platform in the world.\nBasis of scikit-learn, the most popular machine learning platform in the world.\nExtremely rigorous - most functions and documentation come with academic citations.\n\n\n\n\n\nSciPy for statistics has basically one challenger (statsmodels, which is great).\nSometimes SciPy is too “heavyweight” and NumPy would be sufficient.\nAs a rule, I tend to use NumPy for easy things and scikit-learn for hard things, and don’t use SciPy for much.\n\n\n\n\n\nThis is a scientific computing course!\nWe’ll do a bit of signal processing and interpolation.\n\n\n\n\n\nSciPy is a big, complex library with many components.\nI used each of:\n\nThe User Guide\nThe API reference\n\nAPI is “application program interface” - a description of the functions in SciPy by their arguments and return values.\n\nThe Cookbook which may be unofficial.",
     "crumbs": [
       "SciPy"
     ]
@@ -7714,7 +7714,7 @@
     "href": "07_scipy.html#note",
     "title": "SciPy",
     "section": "Note",
-    "text": "Note\n\nYou do not need to download any of these.\nHere is the .wav:   \nHere is a link: psy.wav",
+    "text": "Note\n\nYou do not need to download any of these.\nHere is the .wav:\n\n\n\n\nHere is a link:\n\npsy.wav",
     "crumbs": [
       "SciPy"
     ]
@@ -7783,7 +7783,7 @@
     "href": "07_scipy.rjs.html#note",
     "title": "SciPy",
     "section": "Note",
-    "text": "Note\n\nYou do not need to download any of these.\nHere is the .wav:   \nHere is a link: psy.wav"
+    "text": "Note\n\nYou do not need to download any of these.\nHere is the .wav:\n\n\n\n\nHere is a link:\n\npsy.wav"
   },
   {
     "objectID": "07_scipy.rjs.html#ffmpeg",
@@ -7831,7 +7831,7 @@
     "href": "07_scipy.html#download",
     "title": "SciPy",
     "section": "Download",
-    "text": "Download\n\nBoth yt-dlp and ffmpeg are command line utilites (like Python, Neovim, or ls).\nI didn’t actually ever use ffmpeg directly, it is just used by yt-dlp.\nGiven the url, I used the following shell command:\n\nyt-dlp -x --audio-format wav https://www.youtube.com/watch?v=9bZkp7q19f0 -o psy.wav\n\nThis tells yt-dlp to go to the url, download to video, convert it to a .wav, and save it as psy.wav",
+    "text": "Download\n\nBoth yt-dlp and ffmpeg are command line utilites (like Python, Neovim, or ls).\nI didn’t actually ever use ffmpeg directly, it is just used by yt-dlp.\nGiven the url, I used the following shell command:\n\nyt-dlp -x --audio-format wav https://www.youtube.com/watch?v=9bZkp7q19f0 -o psy.wav\n\nThis tells yt-dlp to go to the url, download to video, convert it to a .wav, and save it as “psy.wav”",
     "crumbs": [
       "SciPy"
     ]
@@ -7841,6 +7841,1306 @@
     "href": "07_scipy.rjs.html#download",
     "title": "SciPy",
     "section": "Download",
-    "text": "Download\n\nBoth yt-dlp and ffmpeg are command line utilites (like Python, Neovim, or ls).\nI didn’t actually ever use ffmpeg directly, it is just used by yt-dlp.\nGiven the url, I used the following shell command:\n\nyt-dlp -x --audio-format wav https://www.youtube.com/watch?v=9bZkp7q19f0 -o psy.wav\n\nThis tells yt-dlp to go to the url, download to video, convert it to a .wav, and save it as psy.wav"
+    "text": "Download\n\nBoth yt-dlp and ffmpeg are command line utilites (like Python, Neovim, or ls).\nI didn’t actually ever use ffmpeg directly, it is just used by yt-dlp.\nGiven the url, I used the following shell command:\n\nyt-dlp -x --audio-format wav https://www.youtube.com/watch?v=9bZkp7q19f0 -o psy.wav\n\nThis tells yt-dlp to go to the url, download to video, convert it to a .wav, and save it as “psy.wav”"
+  },
+  {
+    "objectID": "07_scipy.html#youtube",
+    "href": "07_scipy.html#youtube",
+    "title": "SciPy",
+    "section": "YouTube",
+    "text": "YouTube\n\n\n\n\n\n\nSTOP\n\n\n\nInstructor’s note: Do not click this link while streaming.",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#vlc",
+    "href": "07_scipy.html#vlc",
+    "title": "SciPy",
+    "section": "VLC",
+    "text": "VLC\n\nI highly recommend having VLC installed.\nhttps://www.videolan.org/vlc/#download",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#curl",
+    "href": "07_scipy.html#curl",
+    "title": "SciPy",
+    "section": "curl",
+    "text": "curl\n\nAs an alternative, you can curl the file from the course webpage.\ncurl is a shell command that downloads a file from a url.\n\nCan also be used to get e.g. the “.csv” file we used with pandas!\n\ncurl https://github.com/cd-public/scicom/raw/refs/heads/main/qmd/src/psy.wav -o psy.wav\nThis directs the command line to download the file from the url and save it locally as “psy.wav”",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#wavfile",
+    "href": "07_scipy.html#wavfile",
+    "title": "SciPy",
+    "section": "wavfile",
+    "text": "wavfile\n\nTo load a wavfile into SciPy, it is a simple matter.\nBut first, we note one difference:\n\nWith NumPy, we imported as np\nWith pandas, we import as pd\n\nWith Matplotlib, we imported Matplotlib “dot” something - pyplot\n\nThe “Python interface”",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#scipy-modules",
+    "href": "07_scipy.html#scipy-modules",
+    "title": "SciPy",
+    "section": "SciPy Modules",
+    "text": "SciPy Modules\n\nSciPy is composed of many modules\nmatplotlib.pyplot is a previous example of a module.\nFor example:\n\nscipy.io includes ways to read files.\nscipy.fft does Fast Fourier Transforms.\nscipy.stats does statistics.",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#load-psy.wav",
+    "href": "07_scipy.html#load-psy.wav",
+    "title": "SciPy",
+    "section": "Load “psy.wav”",
+    "text": "Load “psy.wav”\n\nWe will load a sound file as an np.array.\n\n\nrate, data = scipy.io.wavfile.read(\"psy.wav\")\n\n\nThis may look odd!",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.rjs.html#youtube",
+    "href": "07_scipy.rjs.html#youtube",
+    "title": "SciPy",
+    "section": "YouTube",
+    "text": "YouTube\n\n\n\n\n\n\nSTOP\n\n\nInstructor’s note: Do not click this link while streaming."
+  },
+  {
+    "objectID": "07_scipy.rjs.html#vlc",
+    "href": "07_scipy.rjs.html#vlc",
+    "title": "SciPy",
+    "section": "VLC",
+    "text": "VLC\n\nI highly recommend having VLC installed.\nhttps://www.videolan.org/vlc/#download"
+  },
+  {
+    "objectID": "07_scipy.rjs.html#curl",
+    "href": "07_scipy.rjs.html#curl",
+    "title": "SciPy",
+    "section": "curl",
+    "text": "curl\n\nAs an alternative, you can curl the file from the course webpage.\ncurl is a shell command that downloads a file from a url.\n\nCan also be used to get e.g. the “.csv” file we used with pandas!\n\ncurl https://github.com/cd-public/scicom/raw/refs/heads/main/qmd/src/psy.wav -o psy.wav\nThis directs the command line to download the file from the url and save it locally as “psy.wav”"
+  },
+  {
+    "objectID": "07_scipy.rjs.html#wavfile",
+    "href": "07_scipy.rjs.html#wavfile",
+    "title": "SciPy",
+    "section": "wavfile",
+    "text": "wavfile\n\nTo load a wavfile into SciPy, it is a simple matter.\nBut first, we note one difference:\n\nWith NumPy, we imported as np\nWith pandas, we import as pd\n\nWith Matplotlib, we imported Matplotlib “dot” something - pyplot\n\nThe “Python interface”"
+  },
+  {
+    "objectID": "07_scipy.rjs.html#scipy-modules",
+    "href": "07_scipy.rjs.html#scipy-modules",
+    "title": "SciPy",
+    "section": "SciPy Modules",
+    "text": "SciPy Modules\n\nSciPy is composed of many modules\nmatplotlib.pyplot is a previous example of a module.\nFor example:\n\nscipy.io includes ways to read files.\nscipy.fft does Fast Fourier Transforms.\nscipy.stats does statistics."
+  },
+  {
+    "objectID": "07_scipy.rjs.html#load-psy.wav",
+    "href": "07_scipy.rjs.html#load-psy.wav",
+    "title": "SciPy",
+    "section": "Load “psy.wav”",
+    "text": "Load “psy.wav”\n\nWe will load a sound file as an np.array.\n\n\nrate, data = scipy.io.wavfile.read(\"psy.wav\")\n\n\nThis may look odd!"
+  },
+  {
+    "objectID": "07_scipy.html#multiple-return",
+    "href": "07_scipy.html#multiple-return",
+    "title": "SciPy",
+    "section": "Multiple return",
+    "text": "Multiple return\n\nThis uses a slightly advanced Python topic of “multiple return”.\n\n\ndef roots(x):\n    root = np.sqrt(x)\n    return -root, root\n\n\nPython can return multiple comma-separated values from a function.\n\n\nneg, pos = roots(25)\n[neg, pos]\n\n[np.float64(-5.0), np.float64(5.0)]\n\n\n\nWe can “unpack” the multiple values by providing comma separated variable names.",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#tuples",
+    "href": "07_scipy.html#tuples",
+    "title": "SciPy",
+    "section": "Tuples",
+    "text": "Tuples\n\nThese multiple returns are just tuples.\n\nThe things that are like lists, but not exactly.\n\n\n\nboth = roots(64)\ntype(both)\n\ntuple\n\n\n\nWe can also use indexing to see individual elements of a tuple.\n\n\nboth[0]\n\nnp.float64(-8.0)",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.rjs.html#multiple-return",
+    "href": "07_scipy.rjs.html#multiple-return",
+    "title": "SciPy",
+    "section": "Multiple return",
+    "text": "Multiple return\n\nThis uses a slightly advanced Python topic of “multiple return”.\n\n\ndef roots(x):\n    root = np.sqrt(x)\n    return -root, root\n\n\nPython can return multiple comma-separated values from a function.\n\n\nneg, pos = roots(25)\n[neg, pos]\n\n[np.float64(-5.0), np.float64(5.0)]\n\n\n\nWe can “unpack” the multiple values by providing comma separated variable names."
+  },
+  {
+    "objectID": "07_scipy.rjs.html#tuples",
+    "href": "07_scipy.rjs.html#tuples",
+    "title": "SciPy",
+    "section": "Tuples",
+    "text": "Tuples\n\nThese multiple returns are just tuples.\n\nThe things that are like lists, but not exactly.\n\n\n\nboth = roots(64)\ntype(both)\n\ntuple\n\n\n\nWe can also use indexing to see individual elements of a tuple.\n\n\nboth[0]\n\nnp.float64(-8.0)"
+  },
+  {
+    "objectID": "07_scipy.html#vs.-lists",
+    "href": "07_scipy.html#vs.-lists",
+    "title": "SciPy",
+    "section": "vs. Lists",
+    "text": "vs. Lists\n\nThe only difference compared to lists is updates.\nIn a list, we can change an element with its index:\n\n\ncolor_lst = [\"red\", \"orange\", \"yellow\", \"green\", \"blue\", \"indigo\", \"violet\"]\ncolor_lst[-1] = \"purple\"\ncolor_lst\n\n['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'purple']",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#aside-errors",
+    "href": "07_scipy.html#aside-errors",
+    "title": "SciPy",
+    "section": "Aside: Errors",
+    "text": "Aside: Errors\n\nDoing this to a list would create an error.\nThus far we have avoided showing example code that won’t work.\nWe can use try and except (like if and else) on erroneous code.\n\n\ncolor_tup = tuple(color_lst)\ntry:\n    color_tup[-1] = \"violet\"\nexcept:\n    print(\"Tuples can't do that.\")\n\nTuples can't do that.",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.rjs.html#vs.-lists",
+    "href": "07_scipy.rjs.html#vs.-lists",
+    "title": "SciPy",
+    "section": "vs. Lists",
+    "text": "vs. Lists\n\nThe only difference compared to lists is updates.\nIn a list, we can change an element with its index:\n\n\ncolor_lst = [\"red\", \"orange\", \"yellow\", \"green\", \"blue\", \"indigo\", \"violet\"]\ncolor_lst[-1] = \"purple\"\ncolor_lst\n\n['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'purple']"
+  },
+  {
+    "objectID": "07_scipy.rjs.html#aside-errors",
+    "href": "07_scipy.rjs.html#aside-errors",
+    "title": "SciPy",
+    "section": "Aside: Errors",
+    "text": "Aside: Errors\n\nDoing this to a list would create an error.\nThus far we have avoided showing example code that won’t work.\nWe can use try and except (like if and else) on erroneous code.\n\n\ncolor_tup = tuple(color_lst)\ntry:\n    color_tup[-1] = \"violet\"\nexcept:\n    print(\"Tuples can't do that.\")\n\nTuples can't do that."
+  },
+  {
+    "objectID": "07_scipy.html#aside-tuples",
+    "href": "07_scipy.html#aside-tuples",
+    "title": "SciPy",
+    "section": "Aside: Tuples",
+    "text": "Aside: Tuples\n\nThese multiple returns are just tuples.\n\nThe things that are like lists, but not exactly.\n\n\n\nboth = roots(64)\ntype(both)\n\ntuple\n\n\n\nWe can also use indexing to see individual elements of a tuple.\n\n\nboth[0]\n\nnp.float64(-8.0)",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#reading-files",
+    "href": "07_scipy.html#reading-files",
+    "title": "SciPy",
+    "section": "Reading files",
+    "text": "Reading files\n\nTry except is very handy when reading files.\nA lot of files I try to read are garbled and can’t be read.\nUsing try and except prevents Python errors.\n\nMore useful in big scripts than single-line things.",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#example",
+    "href": "07_scipy.html#example",
+    "title": "SciPy",
+    "section": "Example",
+    "text": "Example\n\nEarlier today, I tried the curl command to get “psy.wav” while (unbeknownst to me) my internet was spotty.\nI got a file named “psy.wav” that was of size 0\nUnsurprisingly, opening it with SciPy led to an error.\nThis happens all the time!",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#data",
+    "href": "07_scipy.html#data",
+    "title": "SciPy",
+    "section": "Data",
+    "text": "Data\n\nBack to our .wav file.\nLet’s look at that data!\n\n\ndata[:10]\n\narray([[0, 0],\n       [0, 0],\n       [0, 0],\n       [0, 0],\n       [0, 0],\n       [0, 0],\n       [0, 0],\n       [0, 0],\n       [0, 0],\n       [0, 0]], dtype=int16)",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.rjs.html#aside-tuples",
+    "href": "07_scipy.rjs.html#aside-tuples",
+    "title": "SciPy",
+    "section": "Aside: Tuples",
+    "text": "Aside: Tuples\n\nThese multiple returns are just tuples.\n\nThe things that are like lists, but not exactly.\n\n\n\nboth = roots(64)\ntype(both)\n\ntuple\n\n\n\nWe can also use indexing to see individual elements of a tuple.\n\n\nboth[0]\n\nnp.float64(-8.0)"
+  },
+  {
+    "objectID": "07_scipy.rjs.html#reading-files",
+    "href": "07_scipy.rjs.html#reading-files",
+    "title": "SciPy",
+    "section": "Reading files",
+    "text": "Reading files\n\nTry except is very handy when reading files.\nA lot of files I try to read are garbled and can’t be read.\nUsing try and except prevents Python errors.\n\nMore useful in big scripts than single-line things."
+  },
+  {
+    "objectID": "07_scipy.rjs.html#example",
+    "href": "07_scipy.rjs.html#example",
+    "title": "SciPy",
+    "section": "Example",
+    "text": "Example\n\nEarlier today, I tried the curl command to get “psy.wav” while (unbeknownst to me) my internet was spotty.\nI got a file named “psy.wav” that was of size 0\nUnsurprisingly, opening it with SciPy led to an error.\nThis happens all the time!"
+  },
+  {
+    "objectID": "07_scipy.rjs.html#data",
+    "href": "07_scipy.rjs.html#data",
+    "title": "SciPy",
+    "section": "Data",
+    "text": "Data\n\nBack to our .wav file.\nLet’s look at that data!\n\n\ndata[:10]\n\narray([[0, 0],\n       [0, 0],\n       [0, 0],\n       [0, 0],\n       [0, 0],\n       [0, 0],\n       [0, 0],\n       [0, 0],\n       [0, 0],\n       [0, 0]], dtype=int16)"
+  },
+  {
+    "objectID": "07_scipy.html#compare",
+    "href": "07_scipy.html#compare",
+    "title": "SciPy",
+    "section": "Compare",
+    "text": "Compare\n\nYou may have listened to the file (or not).\nAudio doesn’t come in for about 4 seconds.\nThe song ends and there’s a kind of “outro”.\nWe can see these on the plot.",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.rjs.html#compare",
+    "href": "07_scipy.rjs.html#compare",
+    "title": "SciPy",
+    "section": "Compare",
+    "text": "Compare\n\nYou may have listened to the file (or not).\nAudio doesn’t come in for about 4 seconds.\nThe song ends and there’s a kind of “outro”.\nWe can see these on the plot."
+  },
+  {
+    "objectID": "07_scipy.html#legend",
+    "href": "07_scipy.html#legend",
+    "title": "SciPy",
+    "section": "Legend",
+    "text": "Legend\n\nWhat are those two colors?\n\n\nplt.plot(data)\nplt.legend()\n\nC:\\Users\\cd-desk\\AppData\\Local\\Temp\\ipykernel_18444\\1321029188.py:2: UserWarning:\n\nNo artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.rjs.html#legend",
+    "href": "07_scipy.rjs.html#legend",
+    "title": "SciPy",
+    "section": "Legend",
+    "text": "Legend\n\nWhat are those two colors?\n\n\nplt.plot(data)\nplt.legend()"
+  },
+  {
+    "objectID": "07_scipy.html#credits",
+    "href": "07_scipy.html#credits",
+    "title": "SciPy",
+    "section": "",
+    "text": "SciPy is a big, complex library with many components.\nI used each of:\n\nThe User Guide\nThe API reference\n\nAPI is “application program interface” - a description of the functions in SciPy by their arguments and return values.\n\nThe Cookbook which may be unofficial.",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#in-text",
+    "href": "07_scipy.html#in-text",
+    "title": "SciPy",
+    "section": "In text",
+    "text": "In text\n\nLet’s… look at the first 10 entries.\n\n\ndata[:10]\n\narray([[0, 0],\n       [0, 0],\n       [0, 0],\n       [0, 0],\n       [0, 0],\n       [0, 0],\n       [0, 0],\n       [0, 0],\n       [0, 0],\n       [0, 0]], dtype=int16)",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.rjs.html#credits",
+    "href": "07_scipy.rjs.html#credits",
+    "title": "SciPy",
+    "section": "Credits",
+    "text": "Credits\n\nSciPy is a big, complex library with many components.\nI used each of:\n\nThe User Guide\nThe API reference\n\nAPI is “application program interface” - a description of the functions in SciPy by their arguments and return values.\n\nThe Cookbook which may be unofficial."
+  },
+  {
+    "objectID": "07_scipy.rjs.html#in-text",
+    "href": "07_scipy.rjs.html#in-text",
+    "title": "SciPy",
+    "section": "In text",
+    "text": "In text\n\nLet’s… look at the first 10 entries.\n\n\ndata[:10]\n\narray([[0, 0],\n       [0, 0],\n       [0, 0],\n       [0, 0],\n       [0, 0],\n       [0, 0],\n       [0, 0],\n       [0, 0],\n       [0, 0],\n       [0, 0]], dtype=int16)"
+  },
+  {
+    "objectID": "07_scipy.html#rate",
+    "href": "07_scipy.html#rate",
+    "title": "SciPy",
+    "section": "Rate",
+    "text": "Rate\n\nrate\n\n48000\n\n\n\nYou may have listened to the file (or not).\nAudio doesn’t come in for about 4 seconds.\nThe song ends and there’s a kind of “outro”.\nWe can see these on the plot.\nBut that examples the zeros.",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.rjs.html#rate",
+    "href": "07_scipy.rjs.html#rate",
+    "title": "SciPy",
+    "section": "Rate",
+    "text": "Rate\n\nrate\n\n48000\n\n\n\nYou may have listened to the file (or not).\nAudio doesn’t come in for about 4 seconds.\nThe song ends and there’s a kind of “outro”.\nWe can see these on the plot.\nBut that examples the zeros."
+  },
+  {
+    "objectID": "07_scipy.html#plot",
+    "href": "07_scipy.html#plot",
+    "title": "SciPy",
+    "section": "Plot",
+    "text": "Plot\n\nplt.plot(data)",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.rjs.html#plot",
+    "href": "07_scipy.rjs.html#plot",
+    "title": "SciPy",
+    "section": "Plot",
+    "text": "Plot\n\nplt.plot(data)"
+  },
+  {
+    "objectID": "07_scipy.html#back-to-data",
+    "href": "07_scipy.html#back-to-data",
+    "title": "SciPy",
+    "section": "Back to Data",
+    "text": "Back to Data\n\nGiven the rate, we can look at values ever rate amount of time.\nI bet it’s seconds, so we’ll see 3 or 4 zero-only then some non-zero.\n\n\ndata[:rate*10:rate]\n\narray([[     0,      0],\n       [     0,      0],\n       [     0,      0],\n       [     0,      0],\n       [    -2,      3],\n       [-13903, -13896],\n       [ 12440,  12442],\n       [  6053,   6051],\n       [  5888,   5888],\n       [    53,     52]], dtype=int16)",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.rjs.html#back-to-data",
+    "href": "07_scipy.rjs.html#back-to-data",
+    "title": "SciPy",
+    "section": "Back to Data",
+    "text": "Back to Data\n\nGiven the rate, we can look at values ever rate amount of time.\nI bet it’s seconds, so we’ll see 3 or 4 zero-only then some non-zero.\n\n\ndata[:rate*10:rate]\n\narray([[     0,      0],\n       [     0,      0],\n       [     0,      0],\n       [     0,      0],\n       [    -2,      3],\n       [-13903, -13896],\n       [ 12440,  12442],\n       [  6053,   6051],\n       [  5888,   5888],\n       [    53,     52]], dtype=int16)"
+  },
+  {
+    "objectID": "07_scipy.html#why-pairs",
+    "href": "07_scipy.html#why-pairs",
+    "title": "SciPy",
+    "section": "Why pairs?",
+    "text": "Why pairs?\n\nThose two values may look initially suspicious, then I remembered.\nMany mammals, including some assistant professors of computer science, have two ears!\nThis is a stereo file - the pairs are for each of two speakers.",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#test-it",
+    "href": "07_scipy.html#test-it",
+    "title": "SciPy",
+    "section": "Test it",
+    "text": "Test it\n\nDon’t believe me?\nLet’s split into a “left” and “right” file.\nWe needn’t necessarily get the labels right, but these are simply NumPy operations.\nThen listen!",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#split",
+    "href": "07_scipy.html#split",
+    "title": "SciPy",
+    "section": "Split",
+    "text": "Split\n\nI will arbitrarily call one “left” and one “rite” (not “right” because we don’t know if we’re right).\n\n\nleft = tpose[0]\nrite = tpose[1]",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.rjs.html#why-pairs",
+    "href": "07_scipy.rjs.html#why-pairs",
+    "title": "SciPy",
+    "section": "Why pairs?",
+    "text": "Why pairs?\n\nThose two values may look initially suspicious, then I remembered.\nMany mammals, including some assistant professors of computer science, have two ears!\nThis is a stereo file - the pairs are for each of two speakers."
+  },
+  {
+    "objectID": "07_scipy.rjs.html#test-it",
+    "href": "07_scipy.rjs.html#test-it",
+    "title": "SciPy",
+    "section": "Test it",
+    "text": "Test it\n\nDon’t believe me?\nLet’s split into a “left” and “right” file.\nWe needn’t necessarily get the labels right, but these are simply NumPy operations.\nThen listen!"
+  },
+  {
+    "objectID": "07_scipy.rjs.html#split",
+    "href": "07_scipy.rjs.html#split",
+    "title": "SciPy",
+    "section": "Split",
+    "text": "Split\n\nI will arbitrarily call one “left” and one “rite” (not “right” because we don’t know if we’re right).\n\n\nleft = tpose[0]\nrite = tpose[1]"
+  },
+  {
+    "objectID": "07_scipy.html#transpose",
+    "href": "07_scipy.html#transpose",
+    "title": "SciPy",
+    "section": "Transpose",
+    "text": "Transpose\n\nRemember .transpose?\nIt will take an array of pairs and make a pair of arrays.\n\n\ntpose = data.transpose()\ntpose[0][:rate*10:rate]\n\narray([     0,      0,      0,      0,     -2, -13903,  12440,   6053,\n         5888,     53], dtype=int16)",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#zeros",
+    "href": "07_scipy.html#zeros",
+    "title": "SciPy",
+    "section": "Zeros",
+    "text": "Zeros\n\nWe’ll also make a zero-only array of the same length.\n\n\n# We note the \"dtype\" was \"int16\" so we do the same.\n# We do have to be clear it's NumPy int16 though!\nzero = np.zeros(len(left),dtype=np.int16)",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#combine",
+    "href": "07_scipy.html#combine",
+    "title": "SciPy",
+    "section": "Combine",
+    "text": "Combine\n\nWe can make left-only and rite-only arrays via:\n\nCombine\nTranspose\n\n\n\n\n\nleft_only = np.array([left,zero]).transpose()\nleft_only[:rate*10:rate]\n\narray([[     0,      0],\n       [     0,      0],\n       [     0,      0],\n       [     0,      0],\n       [    -2,      0],\n       [-13903,      0],\n       [ 12440,      0],\n       [  6053,      0],\n       [  5888,      0],\n       [    53,      0]], dtype=int16)\n\n\n\n\nrite_only = np.array([zero,rite]).transpose()\nrite_only[:rate*10:rate]\n\narray([[     0,      0],\n       [     0,      0],\n       [     0,      0],\n       [     0,      0],\n       [     0,      3],\n       [     0, -13896],\n       [     0,  12442],\n       [     0,   6051],\n       [     0,   5888],\n       [     0,     52]], dtype=int16)",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#save",
+    "href": "07_scipy.html#save",
+    "title": "SciPy",
+    "section": "Save",
+    "text": "Save\n\nLet’s write/save both then give ’um a listen.\n\n\n\n\nscipy.io.wavfile.write(\"left.wav\", rate, left_only)\n\n\n\nscipy.io.wavfile.write(\"rite.wav\", rate, rite_only)",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.rjs.html#transpose",
+    "href": "07_scipy.rjs.html#transpose",
+    "title": "SciPy",
+    "section": "Transpose",
+    "text": "Transpose\n\nRemember .transpose?\nIt will take an array of pairs and make a pair of arrays.\n\n\ntpose = data.transpose()\ntpose[0][:rate*10:rate]\n\narray([     0,      0,      0,      0,     -2, -13903,  12440,   6053,\n         5888,     53], dtype=int16)"
+  },
+  {
+    "objectID": "07_scipy.rjs.html#zeros",
+    "href": "07_scipy.rjs.html#zeros",
+    "title": "SciPy",
+    "section": "Zeros",
+    "text": "Zeros\n\nWe’ll also make a zero-only array of the same length.\n\n\n# We note the \"dtype\" was \"int16\" so we do the same.\n# We do have to be clear it's NumPy int16 though!\nzero = np.zeros(len(left),dtype=np.int16)"
+  },
+  {
+    "objectID": "07_scipy.rjs.html#combine",
+    "href": "07_scipy.rjs.html#combine",
+    "title": "SciPy",
+    "section": "Combine",
+    "text": "Combine\n\nWe can make left-only and rite-only arrays via:\n\nCombine\nTranspose\n\n\n\n\n\nleft_only = np.array([left,zero]).transpose()\nleft_only[:rate*10:rate]\n\narray([[     0,      0],\n       [     0,      0],\n       [     0,      0],\n       [     0,      0],\n       [    -2,      0],\n       [-13903,      0],\n       [ 12440,      0],\n       [  6053,      0],\n       [  5888,      0],\n       [    53,      0]], dtype=int16)\n\n\n\n\nrite_only = np.array([zero,rite]).transpose()\nrite_only[:rate*10:rate]\n\narray([[     0,      0],\n       [     0,      0],\n       [     0,      0],\n       [     0,      0],\n       [     0,      3],\n       [     0, -13896],\n       [     0,  12442],\n       [     0,   6051],\n       [     0,   5888],\n       [     0,     52]], dtype=int16)"
+  },
+  {
+    "objectID": "07_scipy.rjs.html#save",
+    "href": "07_scipy.rjs.html#save",
+    "title": "SciPy",
+    "section": "Save",
+    "text": "Save\n\nLet’s write/save both then give ’um a listen.\n\n\n\n\nscipy.io.wavfile.write(\"left.wav\", rate, left_only)\n\n\n\nscipy.io.wavfile.write(\"rite.wav\", rate, rite_only)"
+  },
+  {
+    "objectID": "07_scipy.html#listen",
+    "href": "07_scipy.html#listen",
+    "title": "SciPy",
+    "section": "Listen",
+    "text": "Listen\n\nLet’s write/save both then give ’um a listen.",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.rjs.html#listen",
+    "href": "07_scipy.rjs.html#listen",
+    "title": "SciPy",
+    "section": "Listen",
+    "text": "Listen\n\nLet’s write/save both then give ’um a listen."
+  },
+  {
+    "objectID": "07_scipy.html#noise-reduction",
+    "href": "07_scipy.html#noise-reduction",
+    "title": "SciPy",
+    "section": "Noise Reduction",
+    "text": "Noise Reduction\n\nIn a way, all sound is noise.\nLet’s try and isolate the vocals and music, regarding the other variously as noise at various points.\nFirst identify where vocals come in.\nTo me, 0:04 to 0:09 seems instrumental.",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#view-it",
+    "href": "07_scipy.html#view-it",
+    "title": "SciPy",
+    "section": "View it",
+    "text": "View it\n\nLook for patterns\n\n\nsnip = left[4*rate:10*rate]\nplt.plot(snip)",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.rjs.html#noise-reduction",
+    "href": "07_scipy.rjs.html#noise-reduction",
+    "title": "SciPy",
+    "section": "Noise Reduction",
+    "text": "Noise Reduction\n\nIn a way, all sound is noise.\nLet’s try and isolate the vocals and music, regarding the other variously as noise at various points.\nFirst identify where vocals come in.\nTo me, 0:04 to 0:09 seems instrumental."
+  },
+  {
+    "objectID": "07_scipy.rjs.html#view-it",
+    "href": "07_scipy.rjs.html#view-it",
+    "title": "SciPy",
+    "section": "View it",
+    "text": "View it\n\nLook for patterns\n\n\nsnip = left[4*rate:10*rate]\nplt.plot(snip)"
+  },
+  {
+    "objectID": "07_scipy.html#repeats",
+    "href": "07_scipy.html#repeats",
+    "title": "SciPy",
+    "section": "Repeats?",
+    "text": "Repeats?\n\nLooks like volume cuts low on a repeated pattern.\nMaybe we can isolate that pattern.\nLet’s:\n\nPick a range\nFind a minimal value\nFind where that value occurs.\n\n\n\nlow_val = min(snip)\nlow_val\n\nnp.int16(-32071)",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.rjs.html#repeats",
+    "href": "07_scipy.rjs.html#repeats",
+    "title": "SciPy",
+    "section": "Repeats?",
+    "text": "Repeats?\n\nLooks like volume cuts low on a repeated pattern.\nMaybe we can isolate that pattern.\nLet’s:\n\nPick a range\nFind a minimal value\nFind where that value occurs.\n\n\n\nlow_val = min(snip)\nlow_val\n\nnp.int16(-32071)"
+  },
+  {
+    "objectID": "07_scipy.html#where",
+    "href": "07_scipy.html#where",
+    "title": "SciPy",
+    "section": "Where?",
+    "text": "Where?\n\nUse np.where to find where the low values occur.\n\nWe used with pandas\n\n\n\nlows = np.where(snip == 0)\nlows\n\n(array([    13,     14,     18,     20,     31,     39,     44,    126,\n           127,    136,    137,    138,    148,    155,    157,    174,\n           176,    193,    197,    202,    219,    221,    222,    223,\n           231,    232,    262,    268,    317,    383,    405,    430,\n         13580,  25648,  26839,  28676,  29655,  64732, 131187, 131204,\n        153051, 210217, 216983, 271632, 278282]),)",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.rjs.html#where",
+    "href": "07_scipy.rjs.html#where",
+    "title": "SciPy",
+    "section": "Where?",
+    "text": "Where?\n\nUse np.where to find where the low values occur.\n\nWe used with pandas\n\n\n\nlows = np.where(snip == 0)\nlows\n\n(array([    13,     14,     18,     20,     31,     39,     44,    126,\n           127,    136,    137,    138,    148,    155,    157,    174,\n           176,    193,    197,    202,    219,    221,    222,    223,\n           231,    232,    262,    268,    317,    383,    405,    430,\n         13580,  25648,  26839,  28676,  29655,  64732, 131187, 131204,\n        153051, 210217, 216983, 271632, 278282]),)"
+  },
+  {
+    "objectID": "07_scipy.html#whoops",
+    "href": "07_scipy.html#whoops",
+    "title": "SciPy",
+    "section": "Whoops!",
+    "text": "Whoops!\n\nOh we need to use absolute value.\nNo worries!\n\n\nlow_val = min(np.absolute(snip))\nlow_val\n\nnp.int16(0)",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.rjs.html#whoops",
+    "href": "07_scipy.rjs.html#whoops",
+    "title": "SciPy",
+    "section": "Whoops!",
+    "text": "Whoops!\n\nOh we need to use absolute value.\nNo worries!\n\n\nlow_val = min(np.absolute(snip))\nlow_val\n\nnp.int16(0)"
+  },
+  {
+    "objectID": "07_scipy.html#patterns",
+    "href": "07_scipy.html#patterns",
+    "title": "SciPy",
+    "section": "Patterns",
+    "text": "Patterns\n\nMaybe there’s something repeating on a periodicity of like… 65k?\n\n\n# We note that the result was enclosed in () so we get the [0] of it.\nlows = lows[0]\n# Then proceed\nlows = lows[np.where(lows &gt; 500)]\nlows\n\narray([ 13580,  25648,  26839,  28676,  29655,  64732, 131187, 131204,\n       153051, 210217, 216983, 271632, 278282])",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#visualize",
+    "href": "07_scipy.html#visualize",
+    "title": "SciPy",
+    "section": "Visualize",
+    "text": "Visualize\n\nLet’s just plot the place the minimum occurs.\n\n\n_ = plt.hist(lows)",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#window",
+    "href": "07_scipy.html#window",
+    "title": "SciPy",
+    "section": "Window",
+    "text": "Window\n\nWe use numpy.lib.stride_tricks.sliding_window_view\nI had never heard of that before but I found it by looking for “intervals” and “windows”\nRead more\n\n\nfrom numpy.lib.stride_tricks import sliding_window_view as window\nx = np.arange(6)\nw = window(x, 3)\nw\n\narray([[0, 1, 2],\n       [1, 2, 3],\n       [2, 3, 4],\n       [3, 4, 5]])",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#take-windows",
+    "href": "07_scipy.html#take-windows",
+    "title": "SciPy",
+    "section": "Take Windows",
+    "text": "Take Windows\n\n# We use // on rate since we need an integer number of indices\narr2d = window(np.absolute(snip), rate//10)\narr2d[:5, :5]\n\narray([[2, 3, 4, 4, 5],\n       [3, 4, 4, 5, 5],\n       [4, 4, 5, 5, 4],\n       [4, 5, 5, 4, 2],\n       [5, 5, 4, 2, 3]], dtype=int16)",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#apply-min",
+    "href": "07_scipy.html#apply-min",
+    "title": "SciPy",
+    "section": "Apply min",
+    "text": "Apply min\n\nWith w, our practice window, we can see how to apply min to each of the windows.\n\n\nnp.min(w)\n\nnp.int64(0)\n\n\n\nNot very useful! But we can ask for the minimum along an axis by specifying some number.\n\nRead more\n\n\n\nnp.min(w,0)\n\narray([0, 1, 2])",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.rjs.html#patterns",
+    "href": "07_scipy.rjs.html#patterns",
+    "title": "SciPy",
+    "section": "Patterns",
+    "text": "Patterns\n\nMaybe there’s something repeating on a periodicity of like… 65k?\n\n\n# We note that the result was enclosed in () so we get the [0] of it.\nlows = lows[0]\n# Then proceed\nlows = lows[np.where(lows &gt; 500)]\nlows\n\narray([ 13580,  25648,  26839,  28676,  29655,  64732, 131187, 131204,\n       153051, 210217, 216983, 271632, 278282])"
+  },
+  {
+    "objectID": "07_scipy.rjs.html#visualize",
+    "href": "07_scipy.rjs.html#visualize",
+    "title": "SciPy",
+    "section": "Visualize",
+    "text": "Visualize\n\nLet’s just plot the place the minimum occurs.\n\n\n_ = plt.hist(lows)"
+  },
+  {
+    "objectID": "07_scipy.rjs.html#window",
+    "href": "07_scipy.rjs.html#window",
+    "title": "SciPy",
+    "section": "Window",
+    "text": "Window\n\nWe use numpy.lib.stride_tricks.sliding_window_view\nI had never heard of that before but I found it by looking for “intervals” and “windows”\nRead more\n\n\nfrom numpy.lib.stride_tricks import sliding_window_view as window\nx = np.arange(6)\nw = window(x, 3)\nw\n\narray([[0, 1, 2],\n       [1, 2, 3],\n       [2, 3, 4],\n       [3, 4, 5]])"
+  },
+  {
+    "objectID": "07_scipy.rjs.html#take-windows",
+    "href": "07_scipy.rjs.html#take-windows",
+    "title": "SciPy",
+    "section": "Take Windows",
+    "text": "Take Windows\n\n# We use // on rate since we need an integer number of indices\narr2d = window(np.absolute(snip), rate//10)\narr2d[:5, :5]\n\narray([[2, 3, 4, 4, 5],\n       [3, 4, 4, 5, 5],\n       [4, 4, 5, 5, 4],\n       [4, 5, 5, 4, 2],\n       [5, 5, 4, 2, 3]], dtype=int16)"
+  },
+  {
+    "objectID": "07_scipy.rjs.html#apply-min",
+    "href": "07_scipy.rjs.html#apply-min",
+    "title": "SciPy",
+    "section": "Apply min",
+    "text": "Apply min\n\nWith w, our practice window, we can see how to apply min to each of the windows.\n\n\nnp.min(w)\n\nnp.int64(0)\n\n\n\nNot very useful! But we can ask for the minimum along an axis by specifying some number.\n\nRead more\n\n\n\nnp.min(w,0)\n\narray([0, 1, 2])"
+  },
+  {
+    "objectID": "07_scipy.html#starting",
+    "href": "07_scipy.html#starting",
+    "title": "SciPy",
+    "section": "Starting",
+    "text": "Starting\n\nRight - we found many low values early on, we should start past index 430.\n\n\nsnip = snip[431:]\narr2d = window(np.absolute(snip), rate//10)\narr2d[:5, :5]\n\narray([[  1,   8,  12,   1,  28],\n       [  8,  12,   1,  28,  62],\n       [ 12,   1,  28,  62, 102],\n       [  1,  28,  62, 102, 153],\n       [ 28,  62, 102, 153, 210]], dtype=int16)",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#to-the-array",
+    "href": "07_scipy.html#to-the-array",
+    "title": "SciPy",
+    "section": "To the array",
+    "text": "To the array\n\nmin_arr = np.min(arr2d,0)\nmin_arr\n\narray([0, 0, 0, ..., 0, 0, 0], dtype=int16)",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.rjs.html#starting",
+    "href": "07_scipy.rjs.html#starting",
+    "title": "SciPy",
+    "section": "Starting",
+    "text": "Starting\n\nRight - we found many low values early on, we should start past index 430.\n\n\nsnip = snip[431:]\narr2d = window(np.absolute(snip), rate//10)\narr2d[:5, :5]\n\narray([[  1,   8,  12,   1,  28],\n       [  8,  12,   1,  28,  62],\n       [ 12,   1,  28,  62, 102],\n       [  1,  28,  62, 102, 153],\n       [ 28,  62, 102, 153, 210]], dtype=int16)"
+  },
+  {
+    "objectID": "07_scipy.rjs.html#to-the-array",
+    "href": "07_scipy.rjs.html#to-the-array",
+    "title": "SciPy",
+    "section": "To the array",
+    "text": "To the array\n\nmin_arr = np.min(arr2d,0)\nmin_arr\n\narray([0, 0, 0, ..., 0, 0, 0], dtype=int16)"
+  },
+  {
+    "objectID": "07_scipy.html#more-bins",
+    "href": "07_scipy.html#more-bins",
+    "title": "SciPy",
+    "section": "More Bins",
+    "text": "More Bins\n\nHard to see, we increase the “bin” count.\n\n\n_ = plt.hist(lows, 100)",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.rjs.html#more-bins",
+    "href": "07_scipy.rjs.html#more-bins",
+    "title": "SciPy",
+    "section": "More Bins",
+    "text": "More Bins\n\nHard to see, we increase the “bin” count.\n\n\n_ = plt.hist(lows, 100)"
+  },
+  {
+    "objectID": "07_scipy.html#a-pattern",
+    "href": "07_scipy.html#a-pattern",
+    "title": "SciPy",
+    "section": "A Pattern?",
+    "text": "A Pattern?\n\n_ = plt.hist(np.where(left == 0))\n\n\n\n\n\n\n\n\n\nOnly before vocals enter?",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.rjs.html#a-pattern",
+    "href": "07_scipy.rjs.html#a-pattern",
+    "title": "SciPy",
+    "section": "A Pattern?",
+    "text": "A Pattern?\n\n_ = plt.hist(np.where(left == 0))\n\n\n\n\n\n\n\n\n\nOnly before vocals enter?"
+  },
+  {
+    "objectID": "07_scipy.html#isolate",
+    "href": "07_scipy.html#isolate",
+    "title": "SciPy",
+    "section": "Isolate",
+    "text": "Isolate\n\nLet’s see if we can isolate a motif.\nWe’ll take the first zero past.\nI hear about two repeats on this portion, so we’ll take a zero in the middle.\n\n\nnp.where(snip == 0)\n\n(array([    13,     14,     18,     20,     31,     39,     44,    126,\n           127,    136,    137,    138,    148,    155,    157,    174,\n           176,    193,    197,    202,    219,    221,    222,    223,\n           231,    232,    262,    268,    317,    383,    405,    430,\n         13580,  25648,  26839,  28676,  29655,  64732, 131187, 131204,\n        153051, 210217, 216983, 271632, 278282]),)",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.rjs.html#isolate",
+    "href": "07_scipy.rjs.html#isolate",
+    "title": "SciPy",
+    "section": "Isolate",
+    "text": "Isolate\n\nLet’s see if we can isolate a motif.\nWe’ll take the first zero past.\nI hear about two repeats on this portion, so we’ll take a zero in the middle.\n\n\nnp.where(snip == 0)\n\n(array([    13,     14,     18,     20,     31,     39,     44,    126,\n           127,    136,    137,    138,    148,    155,    157,    174,\n           176,    193,    197,    202,    219,    221,    222,    223,\n           231,    232,    262,    268,    317,    383,    405,    430,\n         13580,  25648,  26839,  28676,  29655,  64732, 131187, 131204,\n        153051, 210217, 216983, 271632, 278282]),)"
+  },
+  {
+    "objectID": "07_scipy.html#motif",
+    "href": "07_scipy.html#motif",
+    "title": "SciPy",
+    "section": "Motif",
+    "text": "Motif\n\nstereo = np.array([snip,snip]).transpose()\nmotif = stereo[13580:131204]\nscipy.io.wavfile.write(\"motif.wav\", rate, motif)\n# os.system(\"open motif.wav\") # After import, if you have VLC, on MacOS\n\n\n\n\nother = stereo[13580:271632]\nscipy.io.wavfile.write(\"other.wav\", rate, other)\n\n\n\n\nscipy.io.wavfile.write(\"motifs.wav\", rate, np.concat([motif,motif,motif]))\nscipy.io.wavfile.write(\"others.wav\", rate, np.concat([other,other,other]))\n\n\n\n\n\n\nYou can go become a dj, or…",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.rjs.html#motif",
+    "href": "07_scipy.rjs.html#motif",
+    "title": "SciPy",
+    "section": "Motif",
+    "text": "Motif\n\nstereo = np.array([snip,snip]).transpose()\nmotif = stereo[13580:131204]\nscipy.io.wavfile.write(\"motif.wav\", rate, motif)\n# os.system(\"open motif.wav\") # After import, if you have VLC, on MacOS\n\n\n\n\nother = stereo[13580:271632]\nscipy.io.wavfile.write(\"other.wav\", rate, other)\n\n\n\n\nscipy.io.wavfile.write(\"motifs.wav\", rate, np.concat([motif,motif,motif]))\nscipy.io.wavfile.write(\"others.wav\", rate, np.concat([other,other,other]))\n\n\n\n\n\n\nYou can go become a dj, or…"
+  },
+  {
+    "objectID": "07_scipy.html#fft",
+    "href": "07_scipy.html#fft",
+    "title": "SciPy",
+    "section": "FFT",
+    "text": "FFT\n\nThe actual correct way to do this is with a SciPy FFT:\n\nFast Fourier Transform\n\nAnd with a NumPy stride:\n\nStride Tricks\n\nWhich is probably a bit much for now.",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.rjs.html#fft",
+    "href": "07_scipy.rjs.html#fft",
+    "title": "SciPy",
+    "section": "FFT",
+    "text": "FFT\n\nThe actual correct way to do this is with a SciPy FFT:\n\nFast Fourier Transform\n\nAnd with a NumPy stride:\n\nStride Tricks\n\nWhich is probably a bit much for now."
+  },
+  {
+    "objectID": "07_scipy.html#linear-regression",
+    "href": "07_scipy.html#linear-regression",
+    "title": "SciPy",
+    "section": "Linear Regression",
+    "text": "Linear Regression\n\nOne of the most used computation techniques is linear regression.\nIt is used throughout the sciences, but most commonly in econometrics.\nIn my my undergraduate economics class, I had a homework assignment to “prove” that raising minimum wage increases unemployment.\n\nIt doesn’t, but that isn’t relevant here.",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.rjs.html#linear-regression",
+    "href": "07_scipy.rjs.html#linear-regression",
+    "title": "SciPy",
+    "section": "Linear Regression",
+    "text": "Linear Regression\n\nOne of the most used computation techniques is linear regression.\nIt is used throughout the sciences, but most commonly in econometrics.\nIn my my undergraduate economics class, I had a homework assignment to “prove” that raising minimum wage increases unemployment.\n\nIt doesn’t, but that isn’t relevant here."
+  },
+  {
+    "objectID": "07_scipy.html#the-data",
+    "href": "07_scipy.html#the-data",
+    "title": "SciPy",
+    "section": "The Data",
+    "text": "The Data\n\nI usually get economic data from the “St. Louis Fed” which has a data portal called “FRED”.\n\nMinimum wage FEDMINNFRWG\nUnemployment rage UNRATE\nInflation CPIAUCSL",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.rjs.html#the-data",
+    "href": "07_scipy.rjs.html#the-data",
+    "title": "SciPy",
+    "section": "The Data",
+    "text": "The Data\n\nI usually get economic data from the “St. Louis Fed” which has a data portal called “FRED”.\n\nMinimum wage FEDMINNFRWG\nUnemployment rage UNRATE\nInflation CPIAUCSL"
+  },
+  {
+    "objectID": "07_scipy.html#curl-1",
+    "href": "07_scipy.html#curl-1",
+    "title": "SciPy",
+    "section": "Curl",
+    "text": "Curl\n\nIt is actually possible to curl these but you probably have to navigate the websites to find the urls regardless.\n\ncurl https://fred.stlouisfed.org/graph/fredgraph.csv?bgcolor=%23ebf3fb&chart_type=line&drp=0&fo=open%20sans&graph_bgcolor=%23ffffff&height=450&mode=fred&recession_bars=on&txtcolor=%23444444&ts=12&tts=12&width=1140&nt=0&thu=0&trc=0&show_legend=yes&show_axis_titles=yes&show_tooltip=yes&id=FEDMINNFRWG&scale=left&cosd=1938-10-01&coed=2025-05-01&line_color=%230073e6&link_values=false&line_style=solid&mark_type=none&mw=3&lw=3&ost=-99999&oet=99999&mma=0&fml=a&fq=Monthly&fam=avg&fgst=lin&fgsnd=2020-02-01&line_index=1&transformation=lin&vintage_date=2025-05-31&revision_date=2025-05-31&nd=1938-10-01 -o FEDMINNFRWG.csv\ncurl https://fred.stlouisfed.org/graph/fredgraph.csv?bgcolor=%23ebf3fb&chart_type=line&drp=0&fo=open%20sans&graph_bgcolor=%23ffffff&height=450&mode=fred&recession_bars=on&txtcolor=%23444444&ts=12&tts=12&width=1140&nt=0&thu=0&trc=0&show_legend=yes&show_axis_titles=yes&show_tooltip=yes&id=UNRATE&scale=left&cosd=1948-01-01&coed=2025-04-01&line_color=%230073e6&link_values=false&line_style=solid&mark_type=none&mw=3&lw=3&ost=-99999&oet=99999&mma=0&fml=a&fq=Monthly&fam=avg&fgst=lin&fgsnd=2020-02-01&line_index=1&transformation=lin&vintage_date=2025-05-31&revision_date=2025-05-31&nd=1948-01-01 -o UNRATE.csv\ncurl https://fred.stlouisfed.org/graph/fredgraph.csv?bgcolor=%23ebf3fb&chart_type=line&drp=0&fo=open%20sans&graph_bgcolor=%23ffffff&height=450&mode=fred&recession_bars=on&txtcolor=%23444444&ts=12&tts=12&width=1140&nt=0&thu=0&trc=0&show_legend=yes&show_axis_titles=yes&show_tooltip=yes&id=CPIAUCSL&scale=left&cosd=1947-01-01&coed=2025-04-01&line_color=%230073e6&link_values=false&line_style=solid&mark_type=none&mw=3&lw=3&ost=-99999&oet=99999&mma=0&fml=a&fq=Monthly&fam=avg&fgst=lin&fgsnd=2020-02-01&line_index=1&transformation=lin&vintage_date=2025-05-31&revision_date=2025-05-31&nd=1947-01-01 -o CPIAUCSL.csv",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#verify-1",
+    "href": "07_scipy.html#verify-1",
+    "title": "SciPy",
+    "section": "Verify",
+    "text": "Verify\n\nWe can quickly verify installation and introduce some conventions.\nOpen up Python and import the libraries:\n\nquarto-executable-code-5450563D\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport scipy\n\nprint(scipy.__version__)",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#motivation-1",
+    "href": "07_scipy.html#motivation-1",
+    "title": "SciPy",
+    "section": "Motivation",
+    "text": "Motivation\n\nI thought it would be fun to do some signal processing on a recognizable data set:\nPSY - GANGNAM STYLE(강남스타일) M/V",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#youtube-1",
+    "href": "07_scipy.html#youtube-1",
+    "title": "SciPy",
+    "section": "YouTube",
+    "text": "YouTube\n\n\n\n\n\n\nSTOP\n\n\n\nInstructor’s note: Do not click this link while streaming.",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#problem-statement-1",
+    "href": "07_scipy.html#problem-statement-1",
+    "title": "SciPy",
+    "section": "Problem Statement",
+    "text": "Problem Statement\n\nSciPy has the ability to read some filetypes but not others.\n\nCan read: “.wav” Waveform Audio File Format.\nCan’t read: YouTube urls\n\nWe use Python package yt-dlp to download from YouTube.\nWe use non-Python package ffmpeg to translate .mp4 files to .wav\nWe use VideoLAN VLC Media Player to play the .wav files.",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#note-1",
+    "href": "07_scipy.html#note-1",
+    "title": "SciPy",
+    "section": "Note",
+    "text": "Note\n\nYou do not need to download any of these.\nHere is the .wav:\n\n\n\n\nHere is a link:\n\npsy.wav",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#yt-dlp-1",
+    "href": "07_scipy.html#yt-dlp-1",
+    "title": "SciPy",
+    "section": "yt-dlp",
+    "text": "yt-dlp\n\nWhile I don’t think you need it for anything, I installed yt-dlp as follows, from the shell:\n\npython -m pip install yt-dlp",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#ffmpeg-1",
+    "href": "07_scipy.html#ffmpeg-1",
+    "title": "SciPy",
+    "section": "ffmpeg",
+    "text": "ffmpeg\n\nI believe this is the best place to download ffmpeg for Windows and MacOS.\nhttps://www.ffmpeg.org/download.html\nI used it on Ubuntu Linux and did not attempt and Windows or MacOS install.",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#download-1",
+    "href": "07_scipy.html#download-1",
+    "title": "SciPy",
+    "section": "Download",
+    "text": "Download\n\nBoth yt-dlp and ffmpeg are command line utilites (like Python, Neovim, or ls).\nI didn’t actually ever use ffmpeg directly, it is just used by yt-dlp.\nGiven the url, I used the following shell command:\n\nyt-dlp -x --audio-format wav https://www.youtube.com/watch?v=9bZkp7q19f0 -o psy.wav\n\nThis tells yt-dlp to go to the url, download to video, convert it to a .wav, and save it as “psy.wav”",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#vlc-1",
+    "href": "07_scipy.html#vlc-1",
+    "title": "SciPy",
+    "section": "VLC",
+    "text": "VLC\n\nI highly recommend having VLC installed.\nhttps://www.videolan.org/vlc/#download",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#curl-2",
+    "href": "07_scipy.html#curl-2",
+    "title": "SciPy",
+    "section": "curl",
+    "text": "curl\n\nAs an alternative, you can curl the file from the course webpage.\ncurl is a shell command that downloads a file from a url.\n\nCan also be used to get e.g. the “.csv” file we used with pandas!\n\ncurl https://github.com/cd-public/scicom/raw/refs/heads/main/qmd/src/psy.wav -o psy.wav\nThis directs the command line to download the file from the url and save it locally as “psy.wav”",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#wavfile-1",
+    "href": "07_scipy.html#wavfile-1",
+    "title": "SciPy",
+    "section": "wavfile",
+    "text": "wavfile\n\nTo load a wavfile into SciPy, it is a simple matter.\nBut first, we note one difference:\n\nWith NumPy, we imported as np\nWith pandas, we import as pd\n\nWith Matplotlib, we imported Matplotlib “dot” something - pyplot\n\nThe “Python interface”",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#scipy-modules-1",
+    "href": "07_scipy.html#scipy-modules-1",
+    "title": "SciPy",
+    "section": "SciPy Modules",
+    "text": "SciPy Modules\n\nSciPy is composed of many modules\nmatplotlib.pyplot is a previous example of a module.\nFor example:\n\nscipy.io includes ways to read files.\nscipy.fft does Fast Fourier Transforms.\nscipy.stats does statistics.",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#load-psy.wav-1",
+    "href": "07_scipy.html#load-psy.wav-1",
+    "title": "SciPy",
+    "section": "Load “psy.wav”",
+    "text": "Load “psy.wav”\n\nWe will load a sound file as an np.array. quarto-executable-code-5450563D\n\nrate, data = scipy.io.wavfile.read(\"psy.wav\")\n\nThis may look odd!",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#multiple-return-1",
+    "href": "07_scipy.html#multiple-return-1",
+    "title": "SciPy",
+    "section": "Multiple return",
+    "text": "Multiple return\n\nThis uses a slightly advanced Python topic of “multiple return”. quarto-executable-code-5450563D\n\ndef roots(x):\n    root = np.sqrt(x)\n    return -root, root\n\nPython can return multiple comma-separated values from a function. quarto-executable-code-5450563D\n\nneg, pos = roots(25)\n[neg, pos]\n\nWe can “unpack” the multiple values by providing comma separated variable names.",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#aside-tuples-1",
+    "href": "07_scipy.html#aside-tuples-1",
+    "title": "SciPy",
+    "section": "Aside: Tuples",
+    "text": "Aside: Tuples\n\nThese multiple returns are just tuples.\n\nThe things that are like lists, but not exactly. quarto-executable-code-5450563D\n\n\nboth = roots(64)\ntype(both)\n\nWe can also use indexing to see individual elements of a tuple. quarto-executable-code-5450563D\n\nboth[0]",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#vs.-lists-1",
+    "href": "07_scipy.html#vs.-lists-1",
+    "title": "SciPy",
+    "section": "vs. Lists",
+    "text": "vs. Lists\n\nThe only difference compared to lists is updates.\nIn a list, we can change an element with its index: quarto-executable-code-5450563D\n\ncolor_lst = [\"red\", \"orange\", \"yellow\", \"green\", \"blue\", \"indigo\", \"violet\"]\ncolor_lst[-1] = \"purple\"\ncolor_lst",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#aside-errors-1",
+    "href": "07_scipy.html#aside-errors-1",
+    "title": "SciPy",
+    "section": "Aside: Errors",
+    "text": "Aside: Errors\n\nDoing this to a list would create an error.\nThus far we have avoided showing example code that won’t work.\nWe can use try and except (like if and else) on erroneous code. quarto-executable-code-5450563D\n\ncolor_tup = tuple(color_lst)\ntry:\n    color_tup[-1] = \"violet\"\nexcept:\n    print(\"Tuples can't do that.\")",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#reading-files-1",
+    "href": "07_scipy.html#reading-files-1",
+    "title": "SciPy",
+    "section": "Reading files",
+    "text": "Reading files\n\nTry except is very handy when reading files.\nA lot of files I try to read are garbled and can’t be read.\nUsing try and except prevents Python errors.\n\nMore useful in big scripts than single-line things.",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#example-1",
+    "href": "07_scipy.html#example-1",
+    "title": "SciPy",
+    "section": "Example",
+    "text": "Example\n\nEarlier today, I tried the curl command to get “psy.wav” while (unbeknownst to me) my internet was spotty.\nI got a file named “psy.wav” that was of size 0\nUnsurprisingly, opening it with SciPy led to an error.\nThis happens all the time!",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#data-1",
+    "href": "07_scipy.html#data-1",
+    "title": "SciPy",
+    "section": "Data",
+    "text": "Data\n\nBack to our .wav file.\nLet’s look at that data! quarto-executable-code-5450563D\n\ndata[:10]",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#rate-1",
+    "href": "07_scipy.html#rate-1",
+    "title": "SciPy",
+    "section": "Rate",
+    "text": "Rate\nquarto-executable-code-5450563D\nrate\n\nYou may have listened to the file (or not).\nAudio doesn’t come in for about 4 seconds.\nThe song ends and there’s a kind of “outro”.\nWe can see these on the plot.\nBut that examples the zeros.",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#plot-1",
+    "href": "07_scipy.html#plot-1",
+    "title": "SciPy",
+    "section": "Plot",
+    "text": "Plot\nquarto-executable-code-5450563D\nplt.plot(data)",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#back-to-data-1",
+    "href": "07_scipy.html#back-to-data-1",
+    "title": "SciPy",
+    "section": "Back to Data",
+    "text": "Back to Data\n\nGiven the rate, we can look at values ever rate amount of time.\nI bet it’s seconds, so we’ll see 3 or 4 zero-only then some non-zero. quarto-executable-code-5450563D\n\ndata[:rate*10:rate]",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#why-pairs-1",
+    "href": "07_scipy.html#why-pairs-1",
+    "title": "SciPy",
+    "section": "Why pairs?",
+    "text": "Why pairs?\n\nThose two values may look initially suspicious, then I remembered.\nMany mammals, including some assistant professors of computer science, have two ears!\nThis is a stereo file - the pairs are for each of two speakers.",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#test-it-1",
+    "href": "07_scipy.html#test-it-1",
+    "title": "SciPy",
+    "section": "Test it",
+    "text": "Test it\n\nDon’t believe me?\nLet’s split into a “left” and “right” file.\nWe needn’t necessarily get the labels right, but these are simply NumPy operations.\nThen listen!",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#transpose-1",
+    "href": "07_scipy.html#transpose-1",
+    "title": "SciPy",
+    "section": "Transpose",
+    "text": "Transpose\n\nRemember .transpose?\nIt will take an array of pairs and make a pair of arrays. quarto-executable-code-5450563D\n\ntpose = data.transpose()\ntpose[0][:rate*10:rate]",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#split-1",
+    "href": "07_scipy.html#split-1",
+    "title": "SciPy",
+    "section": "Split",
+    "text": "Split\n\nI will arbitrarily call one “left” and one “rite” (not “right” because we don’t know if we’re right). quarto-executable-code-5450563D\n\nleft = tpose[0]\nrite = tpose[1]",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#zeros-1",
+    "href": "07_scipy.html#zeros-1",
+    "title": "SciPy",
+    "section": "Zeros",
+    "text": "Zeros\n\nWe’ll also make a zero-only array of the same length. quarto-executable-code-5450563D\n\n# We note the \"dtype\" was \"int16\" so we do the same.\n# We do have to be clear it's NumPy int16 though!\nzero = np.zeros(len(left),dtype=np.int16)",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#combine-1",
+    "href": "07_scipy.html#combine-1",
+    "title": "SciPy",
+    "section": "Combine",
+    "text": "Combine\n\nWe can make left-only and rite-only arrays via:\n\nCombine\nTranspose\n\n\n\n\nquarto-executable-code-5450563D\nleft_only = np.array([left,zero]).transpose()\nleft_only[:rate*10:rate]\n\nquarto-executable-code-5450563D\nrite_only = np.array([zero,rite]).transpose()\nrite_only[:rate*10:rate]",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#save-1",
+    "href": "07_scipy.html#save-1",
+    "title": "SciPy",
+    "section": "Save",
+    "text": "Save\n\nLet’s write/save both then give ’um a listen.\n\n\n\nquarto-executable-code-5450563D\nscipy.io.wavfile.write(\"left.wav\", rate, left_only)\n\nquarto-executable-code-5450563D\nscipy.io.wavfile.write(\"rite.wav\", rate, rite_only)",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#listen-1",
+    "href": "07_scipy.html#listen-1",
+    "title": "SciPy",
+    "section": "Listen",
+    "text": "Listen\n\nLet’s write/save both then give ’um a listen.",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#noise-reduction-1",
+    "href": "07_scipy.html#noise-reduction-1",
+    "title": "SciPy",
+    "section": "Noise Reduction",
+    "text": "Noise Reduction\n\nIn a way, all sound is noise.\nLet’s try and isolate the vocals and music, regarding the other variously as noise at various points.\nFirst identify where vocals come in.\nTo me, 0:04 to 0:09 seems instrumental.",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#view-it-1",
+    "href": "07_scipy.html#view-it-1",
+    "title": "SciPy",
+    "section": "View it",
+    "text": "View it\n\nLook for patterns\n\nquarto-executable-code-5450563D\nsnip = left[4*rate:10*rate]\nplt.plot(snip)",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#repeats-1",
+    "href": "07_scipy.html#repeats-1",
+    "title": "SciPy",
+    "section": "Repeats?",
+    "text": "Repeats?\n\nLooks like volume cuts low on a repeated pattern.\nMaybe we can isolate that pattern.\nLet’s:\n\nPick a range\nFind a minimal value\nFind where that value occurs. quarto-executable-code-5450563D\n\n\nlow_val = min(snip)\nlow_val",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#whoops-1",
+    "href": "07_scipy.html#whoops-1",
+    "title": "SciPy",
+    "section": "Whoops!",
+    "text": "Whoops!\n\nOh we need to use absolute value.\nNo worries! quarto-executable-code-5450563D\n\nlow_val = min(np.absolute(snip))\nlow_val",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#patterns-1",
+    "href": "07_scipy.html#patterns-1",
+    "title": "SciPy",
+    "section": "Patterns",
+    "text": "Patterns\n\nMaybe there’s something repeating on a periodicity of like… 65k?\n\nquarto-executable-code-5450563D\n# We note that the result was enclosed in () so we get the [0] of it.\nlows = lows[0]\n# Then proceed\nlows = lows[np.where(lows &gt; 500)]\nlows",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#visualize-1",
+    "href": "07_scipy.html#visualize-1",
+    "title": "SciPy",
+    "section": "Visualize",
+    "text": "Visualize\n\nLet’s just plot the place the minimum occurs. quarto-executable-code-5450563D\n\n_ = plt.hist(lows)",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#more-bins-1",
+    "href": "07_scipy.html#more-bins-1",
+    "title": "SciPy",
+    "section": "More Bins",
+    "text": "More Bins\n\nHard to see, we increase the “bin” count. quarto-executable-code-5450563D\n\n_ = plt.hist(lows, 100)",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#a-pattern-1",
+    "href": "07_scipy.html#a-pattern-1",
+    "title": "SciPy",
+    "section": "A Pattern?",
+    "text": "A Pattern?\nquarto-executable-code-5450563D\n_ = plt.hist(np.where(left == 0))\n\nOnly before vocals enter?",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#isolate-1",
+    "href": "07_scipy.html#isolate-1",
+    "title": "SciPy",
+    "section": "Isolate",
+    "text": "Isolate\n\nLet’s see if we can isolate a motif.\nWe’ll take the first zero past.\nI hear about two repeats on this portion, so we’ll take a zero in the middle. quarto-executable-code-5450563D\n\nnp.where(snip == 0)",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#motif-1",
+    "href": "07_scipy.html#motif-1",
+    "title": "SciPy",
+    "section": "Motif",
+    "text": "Motif\nquarto-executable-code-5450563D\nstereo = np.array([snip,snip]).transpose()\nmotif = stereo[13580:131204]\nscipy.io.wavfile.write(\"motif.wav\", rate, motif)\n# os.system(\"open motif.wav\") # After import, if you have VLC, on MacOS\n\n\nquarto-executable-code-5450563D\nother = stereo[13580:271632]\nscipy.io.wavfile.write(\"other.wav\", rate, other)\n\n\nquarto-executable-code-5450563D\nscipy.io.wavfile.write(\"motifs.wav\", rate, np.concat([motif,motif,motif]))\nscipy.io.wavfile.write(\"others.wav\", rate, np.concat([other,other,other]))\n\n\n\n\n\nYou can go become a dj, or…",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#fft-1",
+    "href": "07_scipy.html#fft-1",
+    "title": "SciPy",
+    "section": "FFT",
+    "text": "FFT\n\nThe actual correct way to do this is with a SciPy FFT:\n\nFast Fourier Transform\n\nAnd with a NumPy stride:\n\nStride Tricks\n\nWhich is probably a bit much for now.",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#linear-regression-1",
+    "href": "07_scipy.html#linear-regression-1",
+    "title": "SciPy",
+    "section": "Linear Regression",
+    "text": "Linear Regression\n\nOne of the most used computation techniques is linear regression.\nIt is used throughout the sciences, but most commonly in econometrics.\nIn my my undergraduate economics class, I had a homework assignment to “prove” that raising minimum wage increases unemployment.\n\nIt doesn’t, but that isn’t relevant here.",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#the-data-1",
+    "href": "07_scipy.html#the-data-1",
+    "title": "SciPy",
+    "section": "The Data",
+    "text": "The Data\n\nI usually get economic data from the “St. Louis Fed” which has a data portal called “FRED”.\n\nMinimum wage FEDMINNFRWG\nUnemployment rage UNRATE\nInflation CPIAUCSL",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.html#curl-3",
+    "href": "07_scipy.html#curl-3",
+    "title": "SciPy",
+    "section": "Curl",
+    "text": "Curl\n\nIt is actually possible to curl these but you probably have to navigate the websites to find the urls regardless.\n\ncurl https://fred.stlouisfed.org/graph/fredgraph.csv?bgcolor=%23ebf3fb&chart_type=line&drp=0&fo=open%20sans&graph_bgcolor=%23ffffff&height=450&mode=fred&recession_bars=on&txtcolor=%23444444&ts=12&tts=12&width=1140&nt=0&thu=0&trc=0&show_legend=yes&show_axis_titles=yes&show_tooltip=yes&id=FEDMINNFRWG&scale=left&cosd=1938-10-01&coed=2025-05-01&line_color=%230073e6&link_values=false&line_style=solid&mark_type=none&mw=3&lw=3&ost=-99999&oet=99999&mma=0&fml=a&fq=Monthly&fam=avg&fgst=lin&fgsnd=2020-02-01&line_index=1&transformation=lin&vintage_date=2025-05-31&revision_date=2025-05-31&nd=1938-10-01 -o FEDMINNFRWG.csv\ncurl https://fred.stlouisfed.org/graph/fredgraph.csv?bgcolor=%23ebf3fb&chart_type=line&drp=0&fo=open%20sans&graph_bgcolor=%23ffffff&height=450&mode=fred&recession_bars=on&txtcolor=%23444444&ts=12&tts=12&width=1140&nt=0&thu=0&trc=0&show_legend=yes&show_axis_titles=yes&show_tooltip=yes&id=UNRATE&scale=left&cosd=1948-01-01&coed=2025-04-01&line_color=%230073e6&link_values=false&line_style=solid&mark_type=none&mw=3&lw=3&ost=-99999&oet=99999&mma=0&fml=a&fq=Monthly&fam=avg&fgst=lin&fgsnd=2020-02-01&line_index=1&transformation=lin&vintage_date=2025-05-31&revision_date=2025-05-31&nd=1948-01-01 -o UNRATE.csv\ncurl https://fred.stlouisfed.org/graph/fredgraph.csv?bgcolor=%23ebf3fb&chart_type=line&drp=0&fo=open%20sans&graph_bgcolor=%23ffffff&height=450&mode=fred&recession_bars=on&txtcolor=%23444444&ts=12&tts=12&width=1140&nt=0&thu=0&trc=0&show_legend=yes&show_axis_titles=yes&show_tooltip=yes&id=CPIAUCSL&scale=left&cosd=1947-01-01&coed=2025-04-01&line_color=%230073e6&link_values=false&line_style=solid&mark_type=none&mw=3&lw=3&ost=-99999&oet=99999&mma=0&fml=a&fq=Monthly&fam=avg&fgst=lin&fgsnd=2020-02-01&line_index=1&transformation=lin&vintage_date=2025-05-31&revision_date=2025-05-31&nd=1947-01-01 -o \n:::",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.rjs.html#curl-1",
+    "href": "07_scipy.rjs.html#curl-1",
+    "title": "SciPy",
+    "section": "Curl",
+    "text": "Curl\n\nIt is actually possible to curl these but you probably have to navigate the websites to find the urls regardless.\n\ncurl https://fred.stlouisfed.org/graph/fredgraph.csv?bgcolor=%23ebf3fb&chart_type=line&drp=0&fo=open%20sans&graph_bgcolor=%23ffffff&height=450&mode=fred&recession_bars=on&txtcolor=%23444444&ts=12&tts=12&width=1140&nt=0&thu=0&trc=0&show_legend=yes&show_axis_titles=yes&show_tooltip=yes&id=FEDMINNFRWG&scale=left&cosd=1938-10-01&coed=2025-05-01&line_color=%230073e6&link_values=false&line_style=solid&mark_type=none&mw=3&lw=3&ost=-99999&oet=99999&mma=0&fml=a&fq=Monthly&fam=avg&fgst=lin&fgsnd=2020-02-01&line_index=1&transformation=lin&vintage_date=2025-05-31&revision_date=2025-05-31&nd=1938-10-01 -o FEDMINNFRWG.csv\ncurl https://fred.stlouisfed.org/graph/fredgraph.csv?bgcolor=%23ebf3fb&chart_type=line&drp=0&fo=open%20sans&graph_bgcolor=%23ffffff&height=450&mode=fred&recession_bars=on&txtcolor=%23444444&ts=12&tts=12&width=1140&nt=0&thu=0&trc=0&show_legend=yes&show_axis_titles=yes&show_tooltip=yes&id=UNRATE&scale=left&cosd=1948-01-01&coed=2025-04-01&line_color=%230073e6&link_values=false&line_style=solid&mark_type=none&mw=3&lw=3&ost=-99999&oet=99999&mma=0&fml=a&fq=Monthly&fam=avg&fgst=lin&fgsnd=2020-02-01&line_index=1&transformation=lin&vintage_date=2025-05-31&revision_date=2025-05-31&nd=1948-01-01 -o UNRATE.csv\ncurl https://fred.stlouisfed.org/graph/fredgraph.csv?bgcolor=%23ebf3fb&chart_type=line&drp=0&fo=open%20sans&graph_bgcolor=%23ffffff&height=450&mode=fred&recession_bars=on&txtcolor=%23444444&ts=12&tts=12&width=1140&nt=0&thu=0&trc=0&show_legend=yes&show_axis_titles=yes&show_tooltip=yes&id=CPIAUCSL&scale=left&cosd=1947-01-01&coed=2025-04-01&line_color=%230073e6&link_values=false&line_style=solid&mark_type=none&mw=3&lw=3&ost=-99999&oet=99999&mma=0&fml=a&fq=Monthly&fam=avg&fgst=lin&fgsnd=2020-02-01&line_index=1&transformation=lin&vintage_date=2025-05-31&revision_date=2025-05-31&nd=1947-01-01 -o CPIAUCSL.csv"
+  },
+  {
+    "objectID": "07_scipy.html#from-url",
+    "href": "07_scipy.html#from-url",
+    "title": "SciPy",
+    "section": "From url",
+    "text": "From url\n\nGiven some url with Python\n\nurl = \"https://...\"\n\nYou can of course also:\n\npandas pd.read_csv(url)\n“os” `os.system(“curl” + url + ” -o name.csv”)",
+    "crumbs": [
+      "SciPy"
+    ]
+  },
+  {
+    "objectID": "07_scipy.rjs.html#from-url",
+    "href": "07_scipy.rjs.html#from-url",
+    "title": "SciPy",
+    "section": "From url",
+    "text": "From url\n\nGiven some url with Python\n\nurl = \"https://...\"\n\nYou can of course also:\n\npandas pd.read_csv(url)\n“os” `os.system(“curl” + url + ” -o name.csv”)"
   }
 ]

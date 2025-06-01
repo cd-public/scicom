@@ -26,6 +26,15 @@ title: SciPy
 - This is a scientific computing course!
 - We'll do a bit of signal processing and interpolation.
 
+## Credits
+
+- SciPy is a big, complex library with many components.
+- I used each of:
+  	- The [User Guide](https://docs.scipy.org/doc/scipy/tutorial/index.html)
+	- The [API reference](https://docs.scipy.org/doc/scipy/reference/index.html)
+	  	- API is "application program interface" - a description of the functions in SciPy by their arguments and return values.
+	- The [Cookbook](https://scipy-cookbook.readthedocs.io/) which may be unofficial.
+
 # Install
 
 ## pip again
@@ -56,7 +65,7 @@ print(scipy.__version__)
 - I thought it would be fun to do some signal processing on a recognizable data set:
 - [PSY - GANGNAM STYLE(강남스타일) M/V](https://www.youtube.com/watch?v=9bZkp7q19f0)
 
-## 
+## YouTube 
 
 ::: {.callout-tip}
 ## STOP
@@ -79,10 +88,9 @@ Instructor's note:  Do not click this link while streaming.
 
 - You do not need to download any of these.
 - Here is the .wav:
-<audio controls>
-  <source src="psy.wav" type="audio/wav">
-</audio> 
-- Here is a link: [psy.wav](psy.wav)
+	- <audio controls src="src/psy.wav" type="audio/wav"></audio> 
+- Here is a link: 
+  	- [psy.wav](psy.wav)
 
 ## yt-dlp
 
@@ -105,5 +113,428 @@ python -m pip install yt-dlp
 ```{.bash code-line-numbers="false"}
 yt-dlp -x --audio-format wav https://www.youtube.com/watch?v=9bZkp7q19f0 -o psy.wav
 ```
-- This tells `yt-dlp` to go to the url, download to video, convert it to a .wav, and save it as `psy.wav`
+- This tells `yt-dlp` to go to the url, download to video, convert it to a .wav, and save it as "psy.wav"
+
+## VLC
+
+- I *highly* recommend having VLC installed.
+- [https://www.videolan.org/vlc/#download](https://www.videolan.org/vlc/#download)
+
+## curl
+
+- As an alternative, you can `curl` the file from the course webpage.
+- `curl` is a shell command that downloads a file from a url.
+  	- Can also be used to get e.g. the ".csv" file we used with **pandas**!
+```{.bash code-line-number="false"}
+curl https://github.com/cd-public/scicom/raw/refs/heads/main/qmd/src/psy.wav -o psy.wav
+```
+- This directs the command line to download the file from the url and save it locally as "psy.wav"
+
+# `scipy.io`
+
+## wavfile
+
+- To load a wavfile into SciPy, it is a simple matter.
+- But first, we note one difference:
+  	- With NumPy, we imported as `np`
+	- With **pandas**, we import as `pd`
+- With Matplotlib, we imported Matplotlib "dot" something - pyplot
+  	- The "Python interface"
+
+## SciPy Modules
+
+- SciPy is composed of many *modules*
+- `matplotlib.pyplot` is a previous example of a module.
+- For example:
+  	- `scipy.io` includes ways to read files.
+	- `scipy.fft` does Fast Fourier Transforms.
+	- `scipy.stats` does statistics.
+
+## Load "psy.wav"
+
+- We will load a sound file as an np.array.
+```{python}
+rate, data = scipy.io.wavfile.read("psy.wav")
+```
+- This may look odd!
+
+## Multiple return
+
+- This uses a slightly advanced Python topic of "multiple return".
+```{python}
+def roots(x):
+	root = np.sqrt(x)
+	return -root, root
+```
+- Python can return multiple comma-separated values from a function.
+```{python}
+neg, pos = roots(25)
+[neg, pos]
+```
+- We can "unpack" the multiple values by providing comma separated variable names.
+
+## Aside: Tuples
+
+- These multiple returns are just tuples.
+	- The things that are like lists, but not exactly.
+```{python}
+both = roots(64)
+type(both)
+```
+- We can also use indexing to see individual elements of a tuple.
+```{python}
+both[0]
+```
+
+## vs. Lists
+
+- The only difference compared to lists is updates.
+- In a list, we can change an element with its index:
+```{python}
+color_lst = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"]
+color_lst[-1] = "purple"
+color_lst
+```
+
+## Aside: Errors
+
+- Doing this to a list would create an error.
+- Thus far we have avoided showing example code that won't work.
+- We can use `try` and `except` (like `if` and `else`) on erroneous code.
+```{python}
+color_tup = tuple(color_lst)
+try:
+	color_tup[-1] = "violet"
+except:
+	print("Tuples can't do that.")
+```
+
+## Reading files
+
+- Try except is *very* handy when reading files.
+- A lot of files I try to read are garbled and can't be read.
+- Using `try` and `except` prevents Python errors.
+  	- More useful in big scripts than single-line things.
+
+## Example
+
+- Earlier today, I tried the `curl` command to get "psy.wav" while (unbeknownst to me) my internet was spotty.
+- I got a file named "psy.wav" that was of size `0`
+- Unsurprisingly, opening it with SciPy led to an error.
+- This happens all the time!
+
+## Data
+
+- Back to our .wav file.
+- Let's look at that data!
+```{python}
+data[:10]
+```
+
+## Rate
+
+```{python}
+rate
+```
+
+- You may have listened to the file (or not).
+- Audio doesn't come in for about 4 seconds.
+- The song ends and there's a kind of "outro".
+- We can see these on the plot.
+- But that examples the zeros.
+
+## Plot
+
+```{python}
+plt.plot(data)
+```
+
+## Back to Data
+
+- Given the rate, we can look at values ever `rate` amount of time.
+- I bet it's seconds, so we'll see 3 or 4 zero-only then some non-zero.
+```{python}
+data[:rate*10:rate]
+```
+
+## Why pairs?
+
+- Those two values may look initially suspicious, then I remembered.
+- Many mammals, including some assistant professors of computer science, have two ears!
+- This is a stereo file - the pairs are for each of two speakers.
+
+## Test it
+
+- Don't believe me?
+- Let's split into a "left" and "right" file.
+- We needn't necessarily get the labels right, but these are simply NumPy operations.
+- Then listen!
+
+## Transpose
+
+- Remember `.transpose`?
+- It will take an array of pairs and make a pair of arrays.
+```{python}
+tpose = data.transpose()
+tpose[0][:rate*10:rate]
+```
+
+## Split
+
+- I will arbitrarily call one "left" and one "rite" (not "right" because we don't know if we're right).
+```{python}
+left = tpose[0]
+rite = tpose[1]
+```
+
+## Zeros
+
+- We'll also make a zero-only array of the same length.
+```{python}
+# We note the "dtype" was "int16" so we do the same.
+# We do have to be clear it's NumPy int16 though!
+zero = np.zeros(len(left),dtype=np.int16)
+```
+
+## Combine
+
+- We can make left-only and rite-only arrays via:
+  - Combine
+  - Transpose
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+
+```{python}
+left_only = np.array([left,zero]).transpose()
+left_only[:rate*10:rate]
+```
+
+
+:::
+
+::: {.column width="50%"}
+
+```{python}
+rite_only = np.array([zero,rite]).transpose()
+rite_only[:rate*10:rate]
+```
+
+:::
+
+::::
+
+
+## Save
+
+- Let's write/save both then give 'um a listen.
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+
+```{python}
+scipy.io.wavfile.write("left.wav", rate, left_only)
+```
+
+
+:::
+
+::: {.column width="50%"}
+
+```{python}
+scipy.io.wavfile.write("rite.wav", rate, rite_only)
+```
+
+:::
+
+::::
+
+## Listen 
+
+- Let's write/save both then give 'um a listen.
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+
+
+<audio controls src="src/left.wav" type="audio/wav"></audio> 
+
+:::
+
+::: {.column width="50%"}
+
+
+<audio controls src="src/rite.wav" type="audio/wav"></audio> 
+
+:::
+
+::::
+
+# Noise
+
+## Noise Reduction
+
+- In a way, all sound is noise.
+- Let's try and isolate the vocals and music, regarding the other variously as noise at various points.
+- First identify where vocals come in.
+- To me, 0:04 to 0:09 seems instrumental.
+
+## View it
+
+- Look for patterns
+
+```{python}
+snip = left[4*rate:10*rate]
+plt.plot(snip)
+```
+
+## Repeats?
+
+- Looks like volume cuts low on a repeated pattern.
+- Maybe we can isolate that pattern.
+- Let's:
+  	- Pick a range
+	- Find a minimal value
+	- Find where that value occurs.
+```{python}
+low_val = min(snip)
+low_val
+```
+
+## Whoops!
+
+- Oh we need to use absolute value.
+- No worries!
+```{python}
+low_val = min(np.absolute(snip))
+low_val
+```
+
+# Where?
+
+- Use `np.where` to find where the low values occur.
+  	- We used with [**pandas**](06_pandas.qmd#metallic)
+```{python}
+lows = np.where(snip == 0)
+lows
+```
+
+## Patterns
+
+- Maybe there's something repeating on a periodicity of like... 65k?
+
+```{python}
+# We note that the result was enclosed in () so we get the [0] of it.
+lows = lows[0]
+# Then proceed
+lows = lows[np.where(lows > 500)]
+lows
+```
+
+## Visualize
+
+- Let's just plot the place the minimum occurs.
+```{python}
+_ = plt.hist(lows)
+```
+
+## More Bins
+
+- Hard to see, we increase the "bin" count.
+```{python}
+_ = plt.hist(lows, 100)
+```
+
+## A Pattern?
+
+```{python}
+_ = plt.hist(np.where(left == 0))
+```
+
+- Only before vocals enter?
+
+## Isolate
+
+- Let's see if we can isolate a motif.
+- We'll take the first zero past.
+- I hear about two repeats on this portion, so we'll take a zero in the middle.
+```{python}
+np.where(snip == 0)
+```
+
+## Motif
+
+```{python}
+stereo = np.array([snip,snip]).transpose()
+motif = stereo[13580:131204]
+scipy.io.wavfile.write("motif.wav", rate, motif)
+# os.system("open motif.wav") # After import, if you have VLC, on MacOS
+```
+
+<audio controls src="src/motif.wav" type="audio/wav"></audio> 
+
+```{python}
+other = stereo[13580:271632]
+scipy.io.wavfile.write("other.wav", rate, other)
+```
+
+<audio controls src="src/motif.wav" type="audio/wav"></audio> 
+
+```{python}
+scipy.io.wavfile.write("motifs.wav", rate, np.concat([motif,motif,motif]))
+scipy.io.wavfile.write("others.wav", rate, np.concat([other,other,other]))
+```
+
+<audio controls src="src/motifs.wav" type="audio/wav"></audio> 
+
+<audio controls src="src/others.wav" type="audio/wav"></audio> 
+
+- You can go become a dj, or...
+
+## FFT
+
+- The actual correct way to do this is with a SciPy FFT:
+  	- [Fast Fourier Transform](https://docs.scipy.org/doc/scipy/tutorial/fft.html)
+- And with a NumPy stride:
+  	- [Stride Tricks](https://numpy.org/devdocs/reference/generated/numpy.lib.stride_tricks.html)
+- Which is probably a bit much for now.
+
+# Stats
+
+## Linear Regression
+
+- One of the most used computation techniques is linear regression.
+- It is used throughout the sciences, but most commonly in econometrics.
+- In my my undergraduate economics class, I had a homework assignment to "prove" that raising minimum wage increases unemployment.
+  	- It doesn't, but that isn't relevant here.
+
+## The Data
+
+- I usually get economic data from the "St. Louis Fed" which has a data portal called "FRED".
+  - Minimum wage [FEDMINNFRWG](https://fred.stlouisfed.org/series/FEDMINNFRWG)
+  - Unemployment rage [UNRATE](https://fred.stlouisfed.org/series/UNRATE)
+  - Inflation [CPIAUCSL](https://fred.stlouisfed.org/series/CPIAUCSL)
+
+## Curl
+
+- It is actually possible to `curl` these but you probably have to navigate the websites to find the urls regardless.
+```{.bash code-line-numbers="false"}
+curl https://fred.stlouisfed.org/graph/fredgraph.csv?bgcolor=%23ebf3fb&chart_type=line&drp=0&fo=open%20sans&graph_bgcolor=%23ffffff&height=450&mode=fred&recession_bars=on&txtcolor=%23444444&ts=12&tts=12&width=1140&nt=0&thu=0&trc=0&show_legend=yes&show_axis_titles=yes&show_tooltip=yes&id=FEDMINNFRWG&scale=left&cosd=1938-10-01&coed=2025-05-01&line_color=%230073e6&link_values=false&line_style=solid&mark_type=none&mw=3&lw=3&ost=-99999&oet=99999&mma=0&fml=a&fq=Monthly&fam=avg&fgst=lin&fgsnd=2020-02-01&line_index=1&transformation=lin&vintage_date=2025-05-31&revision_date=2025-05-31&nd=1938-10-01 -o FEDMINNFRWG.csv
+curl https://fred.stlouisfed.org/graph/fredgraph.csv?bgcolor=%23ebf3fb&chart_type=line&drp=0&fo=open%20sans&graph_bgcolor=%23ffffff&height=450&mode=fred&recession_bars=on&txtcolor=%23444444&ts=12&tts=12&width=1140&nt=0&thu=0&trc=0&show_legend=yes&show_axis_titles=yes&show_tooltip=yes&id=UNRATE&scale=left&cosd=1948-01-01&coed=2025-04-01&line_color=%230073e6&link_values=false&line_style=solid&mark_type=none&mw=3&lw=3&ost=-99999&oet=99999&mma=0&fml=a&fq=Monthly&fam=avg&fgst=lin&fgsnd=2020-02-01&line_index=1&transformation=lin&vintage_date=2025-05-31&revision_date=2025-05-31&nd=1948-01-01 -o UNRATE.csv
+curl https://fred.stlouisfed.org/graph/fredgraph.csv?bgcolor=%23ebf3fb&chart_type=line&drp=0&fo=open%20sans&graph_bgcolor=%23ffffff&height=450&mode=fred&recession_bars=on&txtcolor=%23444444&ts=12&tts=12&width=1140&nt=0&thu=0&trc=0&show_legend=yes&show_axis_titles=yes&show_tooltip=yes&id=CPIAUCSL&scale=left&cosd=1947-01-01&coed=2025-04-01&line_color=%230073e6&link_values=false&line_style=solid&mark_type=none&mw=3&lw=3&ost=-99999&oet=99999&mma=0&fml=a&fq=Monthly&fam=avg&fgst=lin&fgsnd=2020-02-01&line_index=1&transformation=lin&vintage_date=2025-05-31&revision_date=2025-05-31&nd=1947-01-01 -o CPIAUCSL.csv
+```
+
+## From url
+
+- Given some url with Python 
+  - `url = "https://..."`
+- You can of course also:
+  - **pandas** `pd.read_csv(url)`
+  - "os" `os.system("curl " + url + " -o name.csv")
 

@@ -435,6 +435,21 @@ Prof.&nbsp;Calvin
 <li>This is a scientific computing course!</li>
 <li>We’ll do a bit of signal processing and interpolation.</li>
 </ul>
+</section>
+<section id="credits" class="slide level2">
+<h2>Credits</h2>
+<ul>
+<li>SciPy is a big, complex library with many components.</li>
+<li>I used each of:
+<ul>
+<li>The <a href="https://docs.scipy.org/doc/scipy/tutorial/index.html">User Guide</a></li>
+<li>The <a href="https://docs.scipy.org/doc/scipy/reference/index.html">API reference</a>
+<ul>
+<li>API is “application program interface” - a description of the functions in SciPy by their arguments and return values.</li>
+</ul></li>
+<li>The <a href="https://scipy-cookbook.readthedocs.io/">Cookbook</a> which may be unofficial.</li>
+</ul></li>
+</ul>
 </section></section>
 <section>
 <section id="install" class="title-slide slide level1 center">
@@ -457,7 +472,7 @@ Prof.&nbsp;Calvin
 <li>We can quickly verify installation and introduce some conventions.</li>
 <li>Open up Python and import the libraries:</li>
 </ul>
-<div id="d1acddb4" class="cell" data-execution_count="2">
+<div id="7a54b8e6" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb2-2"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb2-3"><a></a><span class="im">import</span> scipy</span>
@@ -480,8 +495,8 @@ Prof.&nbsp;Calvin
 <li><a href="https://www.youtube.com/watch?v=9bZkp7q19f0">PSY - GANGNAM STYLE(강남스타일) M/V</a></li>
 </ul>
 </section>
-<section id="section" class="slide level2">
-<h2></h2>
+<section id="youtube" class="slide level2">
+<h2>YouTube</h2>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -514,8 +529,15 @@ Prof.&nbsp;Calvin
 <h2>Note</h2>
 <ul>
 <li>You do not need to download any of these.</li>
-<li>Here is the .wav: <audio controls=""> <source src="psy.wav" type="audio/wav"> </audio></li>
-<li>Here is a link: <a href="psy.wav">psy.wav</a></li>
+<li>Here is the .wav:
+<ul>
+<li><audio controls="" src="src/psy.wav" type="audio/wav">
+</audio></li>
+</ul></li>
+<li>Here is a link:
+<ul>
+<li><a href="psy.wav">psy.wav</a></li>
+</ul></li>
 </ul>
 </section>
 <section id="yt-dlp" class="slide level2">
@@ -542,7 +564,638 @@ Prof.&nbsp;Calvin
 </ul>
 <div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a aria-hidden="true" tabindex="-1"></a><span class="ex">yt-dlp</span> <span class="at">-x</span> <span class="at">--audio-format</span> wav https://www.youtube.com/watch<span class="pp">?</span>v=9bZkp7q19f0 <span class="at">-o</span> psy.wav</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
-<li>This tells <code>yt-dlp</code> to go to the url, download to video, convert it to a .wav, and save it as <code>psy.wav</code></li>
+<li>This tells <code>yt-dlp</code> to go to the url, download to video, convert it to a .wav, and save it as “psy.wav”</li>
+</ul>
+</section>
+<section id="vlc" class="slide level2">
+<h2>VLC</h2>
+<ul>
+<li>I <em>highly</em> recommend having VLC installed.</li>
+<li><a href="https://www.videolan.org/vlc/#download">https://www.videolan.org/vlc/#download</a></li>
+</ul>
+</section>
+<section id="curl" class="slide level2">
+<h2>curl</h2>
+<ul>
+<li>As an alternative, you can <code>curl</code> the file from the course webpage.</li>
+<li><code>curl</code> is a shell command that downloads a file from a url.
+<ul>
+<li>Can also be used to get e.g.&nbsp;the “.csv” file we used with <strong>pandas</strong>!</li>
+</ul>
+<div class="sourceCode" id="cb6" data-code-line-number="false"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a></a><span class="ex">curl</span> https://github.com/cd-public/scicom/raw/refs/heads/main/qmd/src/psy.wav <span class="at">-o</span> psy.wav</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li>This directs the command line to download the file from the url and save it locally as “psy.wav”</li>
+</ul>
+</section></section>
+<section>
+<section id="scipy.io" class="title-slide slide level1 center">
+<h1><code>scipy.io</code></h1>
+
+</section>
+<section id="wavfile" class="slide level2">
+<h2>wavfile</h2>
+<ul>
+<li>To load a wavfile into SciPy, it is a simple matter.</li>
+<li>But first, we note one difference:
+<ul>
+<li>With NumPy, we imported as <code>np</code></li>
+<li>With <strong>pandas</strong>, we import as <code>pd</code></li>
+</ul></li>
+<li>With Matplotlib, we imported Matplotlib “dot” something - pyplot
+<ul>
+<li>The “Python interface”</li>
+</ul></li>
+</ul>
+</section>
+<section id="scipy-modules" class="slide level2">
+<h2>SciPy Modules</h2>
+<ul>
+<li>SciPy is composed of many <em>modules</em></li>
+<li><code>matplotlib.pyplot</code> is a previous example of a module.</li>
+<li>For example:
+<ul>
+<li><code>scipy.io</code> includes ways to read files.</li>
+<li><code>scipy.fft</code> does Fast Fourier Transforms.</li>
+<li><code>scipy.stats</code> does statistics.</li>
+</ul></li>
+</ul>
+</section>
+<section id="load-psy.wav" class="slide level2">
+<h2>Load “psy.wav”</h2>
+<ul>
+<li>We will load a sound file as an np.array.</li>
+</ul>
+<div id="e3ea8f2d" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a>rate, data <span class="op">=</span> scipy.io.wavfile.read(<span class="st">"psy.wav"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>This may look odd!</li>
+</ul>
+</section>
+<section id="multiple-return" class="slide level2">
+<h2>Multiple return</h2>
+<ul>
+<li>This uses a slightly advanced Python topic of “multiple return”.</li>
+</ul>
+<div id="9147ae52" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a><span class="kw">def</span> roots(x):</span>
+<span id="cb8-2"><a></a>    root <span class="op">=</span> np.sqrt(x)</span>
+<span id="cb8-3"><a></a>    <span class="cf">return</span> <span class="op">-</span>root, root</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Python can return multiple comma-separated values from a function.</li>
+</ul>
+<div id="6de74cc2" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a>neg, pos <span class="op">=</span> roots(<span class="dv">25</span>)</span>
+<span id="cb9-2"><a></a>[neg, pos]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="812">
+<pre><code>[np.float64(-5.0), np.float64(5.0)]</code></pre>
+</div>
+</div>
+<ul>
+<li>We can “unpack” the multiple values by providing comma separated variable names.</li>
+</ul>
+</section>
+<section id="aside-tuples" class="slide level2">
+<h2>Aside: Tuples</h2>
+<ul>
+<li>These multiple returns are just tuples.
+<ul>
+<li>The things that are like lists, but not exactly.</li>
+</ul></li>
+</ul>
+<div id="92d42b10" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a>both <span class="op">=</span> roots(<span class="dv">64</span>)</span>
+<span id="cb11-2"><a></a><span class="bu">type</span>(both)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="813">
+<pre><code>tuple</code></pre>
+</div>
+</div>
+<ul>
+<li>We can also use indexing to see individual elements of a tuple.</li>
+</ul>
+<div id="d7b60bc7" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a></a>both[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="814">
+<pre><code>np.float64(-8.0)</code></pre>
+</div>
+</div>
+</section>
+<section id="vs.-lists" class="slide level2">
+<h2>vs.&nbsp;Lists</h2>
+<ul>
+<li>The only difference compared to lists is updates.</li>
+<li>In a list, we can change an element with its index:</li>
+</ul>
+<div id="f64f3383" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a></a>color_lst <span class="op">=</span> [<span class="st">"red"</span>, <span class="st">"orange"</span>, <span class="st">"yellow"</span>, <span class="st">"green"</span>, <span class="st">"blue"</span>, <span class="st">"indigo"</span>, <span class="st">"violet"</span>]</span>
+<span id="cb15-2"><a></a>color_lst[<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> <span class="st">"purple"</span></span>
+<span id="cb15-3"><a></a>color_lst</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="815">
+<pre><code>['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'purple']</code></pre>
+</div>
+</div>
+</section>
+<section id="aside-errors" class="slide level2">
+<h2>Aside: Errors</h2>
+<ul>
+<li>Doing this to a list would create an error.</li>
+<li>Thus far we have avoided showing example code that won’t work.</li>
+<li>We can use <code>try</code> and <code>except</code> (like <code>if</code> and <code>else</code>) on erroneous code.</li>
+</ul>
+<div id="49c0fbac" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a></a>color_tup <span class="op">=</span> <span class="bu">tuple</span>(color_lst)</span>
+<span id="cb17-2"><a></a><span class="cf">try</span>:</span>
+<span id="cb17-3"><a></a>    color_tup[<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> <span class="st">"violet"</span></span>
+<span id="cb17-4"><a></a><span class="cf">except</span>:</span>
+<span id="cb17-5"><a></a>    <span class="bu">print</span>(<span class="st">"Tuples can't do that."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Tuples can't do that.</code></pre>
+</div>
+</div>
+</section>
+<section id="reading-files" class="slide level2">
+<h2>Reading files</h2>
+<ul>
+<li>Try except is <em>very</em> handy when reading files.</li>
+<li>A lot of files I try to read are garbled and can’t be read.</li>
+<li>Using <code>try</code> and <code>except</code> prevents Python errors.
+<ul>
+<li>More useful in big scripts than single-line things.</li>
+</ul></li>
+</ul>
+</section>
+<section id="example" class="slide level2">
+<h2>Example</h2>
+<ul>
+<li>Earlier today, I tried the <code>curl</code> command to get “psy.wav” while (unbeknownst to me) my internet was spotty.</li>
+<li>I got a file named “psy.wav” that was of size <code>0</code></li>
+<li>Unsurprisingly, opening it with SciPy led to an error.</li>
+<li>This happens all the time!</li>
+</ul>
+</section>
+<section id="data" class="slide level2">
+<h2>Data</h2>
+<ul>
+<li>Back to our .wav file.</li>
+<li>Let’s look at that data!</li>
+</ul>
+<div id="e29c84f0" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a></a>data[:<span class="dv">10</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="817">
+<pre><code>array([[0, 0],
+       [0, 0],
+       [0, 0],
+       [0, 0],
+       [0, 0],
+       [0, 0],
+       [0, 0],
+       [0, 0],
+       [0, 0],
+       [0, 0]], dtype=int16)</code></pre>
+</div>
+</div>
+</section>
+<section id="rate" class="slide level2">
+<h2>Rate</h2>
+<div id="cbf6e0cb" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a></a>rate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="818">
+<pre><code>48000</code></pre>
+</div>
+</div>
+<ul>
+<li>You may have listened to the file (or not).</li>
+<li>Audio doesn’t come in for about 4 seconds.</li>
+<li>The song ends and there’s a kind of “outro”.</li>
+<li>We can see these on the plot.</li>
+<li>But that examples the zeros.</li>
+</ul>
+</section>
+<section id="plot" class="slide level2">
+<h2>Plot</h2>
+<div id="ac66c5b9" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a></a>plt.plot(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="07_scipy_files/figure-revealjs/cell-12-output-1.png" width="826" height="428"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="back-to-data" class="slide level2">
+<h2>Back to Data</h2>
+<ul>
+<li>Given the rate, we can look at values ever <code>rate</code> amount of time.</li>
+<li>I bet it’s seconds, so we’ll see 3 or 4 zero-only then some non-zero.</li>
+</ul>
+<div id="1492afd3" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a></a>data[:rate<span class="op">*</span><span class="dv">10</span>:rate]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="820">
+<pre><code>array([[     0,      0],
+       [     0,      0],
+       [     0,      0],
+       [     0,      0],
+       [    -2,      3],
+       [-13903, -13896],
+       [ 12440,  12442],
+       [  6053,   6051],
+       [  5888,   5888],
+       [    53,     52]], dtype=int16)</code></pre>
+</div>
+</div>
+</section>
+<section id="why-pairs" class="slide level2">
+<h2>Why pairs?</h2>
+<ul>
+<li>Those two values may look initially suspicious, then I remembered.</li>
+<li>Many mammals, including some assistant professors of computer science, have two ears!</li>
+<li>This is a stereo file - the pairs are for each of two speakers.</li>
+</ul>
+</section>
+<section id="test-it" class="slide level2">
+<h2>Test it</h2>
+<ul>
+<li>Don’t believe me?</li>
+<li>Let’s split into a “left” and “right” file.</li>
+<li>We needn’t necessarily get the labels right, but these are simply NumPy operations.</li>
+<li>Then listen!</li>
+</ul>
+</section>
+<section id="transpose" class="slide level2">
+<h2>Transpose</h2>
+<ul>
+<li>Remember <code>.transpose</code>?</li>
+<li>It will take an array of pairs and make a pair of arrays.</li>
+</ul>
+<div id="a69ddf41" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a></a>tpose <span class="op">=</span> data.transpose()</span>
+<span id="cb26-2"><a></a>tpose[<span class="dv">0</span>][:rate<span class="op">*</span><span class="dv">10</span>:rate]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="821">
+<pre><code>array([     0,      0,      0,      0,     -2, -13903,  12440,   6053,
+         5888,     53], dtype=int16)</code></pre>
+</div>
+</div>
+</section>
+<section id="split" class="slide level2">
+<h2>Split</h2>
+<ul>
+<li>I will arbitrarily call one “left” and one “rite” (not “right” because we don’t know if we’re right).</li>
+</ul>
+<div id="35a84c4c" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a></a>left <span class="op">=</span> tpose[<span class="dv">0</span>]</span>
+<span id="cb28-2"><a></a>rite <span class="op">=</span> tpose[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="zeros" class="slide level2">
+<h2>Zeros</h2>
+<ul>
+<li>We’ll also make a zero-only array of the same length.</li>
+</ul>
+<div id="2279ac93" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a></a><span class="co"># We note the "dtype" was "int16" so we do the same.</span></span>
+<span id="cb29-2"><a></a><span class="co"># We do have to be clear it's NumPy int16 though!</span></span>
+<span id="cb29-3"><a></a>zero <span class="op">=</span> np.zeros(<span class="bu">len</span>(left),dtype<span class="op">=</span>np.int16)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="combine" class="slide level2">
+<h2>Combine</h2>
+<ul>
+<li>We can make left-only and rite-only arrays via:
+<ul>
+<li>Combine</li>
+<li>Transpose</li>
+</ul></li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div id="6151f206" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a></a>left_only <span class="op">=</span> np.array([left,zero]).transpose()</span>
+<span id="cb30-2"><a></a>left_only[:rate<span class="op">*</span><span class="dv">10</span>:rate]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="824">
+<pre><code>array([[     0,      0],
+       [     0,      0],
+       [     0,      0],
+       [     0,      0],
+       [    -2,      0],
+       [-13903,      0],
+       [ 12440,      0],
+       [  6053,      0],
+       [  5888,      0],
+       [    53,      0]], dtype=int16)</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div id="0acc033f" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a></a>rite_only <span class="op">=</span> np.array([zero,rite]).transpose()</span>
+<span id="cb32-2"><a></a>rite_only[:rate<span class="op">*</span><span class="dv">10</span>:rate]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="825">
+<pre><code>array([[     0,      0],
+       [     0,      0],
+       [     0,      0],
+       [     0,      0],
+       [     0,      3],
+       [     0, -13896],
+       [     0,  12442],
+       [     0,   6051],
+       [     0,   5888],
+       [     0,     52]], dtype=int16)</code></pre>
+</div>
+</div>
+</div></div>
+</section>
+<section id="save" class="slide level2">
+<h2>Save</h2>
+<ul>
+<li>Let’s write/save both then give ’um a listen.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div id="e254a5d3" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a></a>scipy.io.wavfile.write(<span class="st">"left.wav"</span>, rate, left_only)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div id="e2d33cd8" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a></a>scipy.io.wavfile.write(<span class="st">"rite.wav"</span>, rate, rite_only)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div></div>
+</section>
+<section id="listen" class="slide level2">
+<h2>Listen</h2>
+<ul>
+<li>Let’s write/save both then give ’um a listen.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<audio controls="" src="src/left.wav" type="audio/wav">
+</audio>
+</div><div class="column" style="width:50%;">
+<audio controls="" src="src/rite.wav" type="audio/wav">
+</audio>
+</div></div>
+</section></section>
+<section>
+<section id="noise" class="title-slide slide level1 center">
+<h1>Noise</h1>
+
+</section>
+<section id="noise-reduction" class="slide level2">
+<h2>Noise Reduction</h2>
+<ul>
+<li>In a way, all sound is noise.</li>
+<li>Let’s try and isolate the vocals and music, regarding the other variously as noise at various points.</li>
+<li>First identify where vocals come in.</li>
+<li>To me, 0:04 to 0:09 seems instrumental.</li>
+</ul>
+</section>
+<section id="view-it" class="slide level2">
+<h2>View it</h2>
+<ul>
+<li>Look for patterns</li>
+</ul>
+<div id="eefb2c74" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a></a>snip <span class="op">=</span> left[<span class="dv">4</span><span class="op">*</span>rate:<span class="dv">10</span><span class="op">*</span>rate]</span>
+<span id="cb36-2"><a></a>plt.plot(snip)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="07_scipy_files/figure-revealjs/cell-21-output-1.png" width="846" height="411"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="repeats" class="slide level2">
+<h2>Repeats?</h2>
+<ul>
+<li>Looks like volume cuts low on a repeated pattern.</li>
+<li>Maybe we can isolate that pattern.</li>
+<li>Let’s:
+<ul>
+<li>Pick a range</li>
+<li>Find a minimal value</li>
+<li>Find where that value occurs.</li>
+</ul></li>
+</ul>
+<div id="1d019783" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a></a>low_val <span class="op">=</span> <span class="bu">min</span>(snip)</span>
+<span id="cb37-2"><a></a>low_val</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="829">
+<pre><code>np.int16(-32071)</code></pre>
+</div>
+</div>
+</section>
+<section id="whoops" class="slide level2">
+<h2>Whoops!</h2>
+<ul>
+<li>Oh we need to use absolute value.</li>
+<li>No worries!</li>
+</ul>
+<div id="c0dd0443" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a></a>low_val <span class="op">=</span> <span class="bu">min</span>(np.absolute(snip))</span>
+<span id="cb39-2"><a></a>low_val</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="830">
+<pre><code>np.int16(0)</code></pre>
+</div>
+</div>
+</section></section>
+<section>
+<section id="where" class="title-slide slide level1 center">
+<h1>Where?</h1>
+<ul>
+<li>Use <code>np.where</code> to find where the low values occur.
+<ul>
+<li>We used with <a href="./06_pandas.html#metallic"><strong>pandas</strong></a></li>
+</ul></li>
+</ul>
+<div id="5a77d243" class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a></a>lows <span class="op">=</span> np.where(snip <span class="op">==</span> <span class="dv">0</span>)</span>
+<span id="cb41-2"><a></a>lows</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="831">
+<pre><code>(array([    13,     14,     18,     20,     31,     39,     44,    126,
+           127,    136,    137,    138,    148,    155,    157,    174,
+           176,    193,    197,    202,    219,    221,    222,    223,
+           231,    232,    262,    268,    317,    383,    405,    430,
+         13580,  25648,  26839,  28676,  29655,  64732, 131187, 131204,
+        153051, 210217, 216983, 271632, 278282]),)</code></pre>
+</div>
+</div>
+</section>
+<section id="patterns" class="slide level2">
+<h2>Patterns</h2>
+<ul>
+<li>Maybe there’s something repeating on a periodicity of like… 65k?</li>
+</ul>
+<div id="052370b3" class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a></a><span class="co"># We note that the result was enclosed in () so we get the [0] of it.</span></span>
+<span id="cb43-2"><a></a>lows <span class="op">=</span> lows[<span class="dv">0</span>]</span>
+<span id="cb43-3"><a></a><span class="co"># Then proceed</span></span>
+<span id="cb43-4"><a></a>lows <span class="op">=</span> lows[np.where(lows <span class="op">&gt;</span> <span class="dv">500</span>)]</span>
+<span id="cb43-5"><a></a>lows</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="832">
+<pre><code>array([ 13580,  25648,  26839,  28676,  29655,  64732, 131187, 131204,
+       153051, 210217, 216983, 271632, 278282])</code></pre>
+</div>
+</div>
+</section>
+<section id="visualize" class="slide level2">
+<h2>Visualize</h2>
+<ul>
+<li>Let’s just plot the place the minimum occurs.</li>
+</ul>
+<div id="15821c68" class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a></a>_ <span class="op">=</span> plt.hist(lows)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="07_scipy_files/figure-revealjs/cell-26-output-1.png" width="781" height="411"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="more-bins" class="slide level2">
+<h2>More Bins</h2>
+<ul>
+<li>Hard to see, we increase the “bin” count.</li>
+</ul>
+<div id="02d7b316" class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a></a>_ <span class="op">=</span> plt.hist(lows, <span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="07_scipy_files/figure-revealjs/cell-27-output-1.png" width="802" height="411"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="a-pattern" class="slide level2">
+<h2>A Pattern?</h2>
+<div id="9d7f7755" class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a></a>_ <span class="op">=</span> plt.hist(np.where(left <span class="op">==</span> <span class="dv">0</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="07_scipy_files/figure-revealjs/cell-28-output-1.png" width="823" height="428"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>Only before vocals enter?</li>
+</ul>
+</section>
+<section id="isolate" class="slide level2">
+<h2>Isolate</h2>
+<ul>
+<li>Let’s see if we can isolate a motif.</li>
+<li>We’ll take the first zero past.</li>
+<li>I hear about two repeats on this portion, so we’ll take a zero in the middle.</li>
+</ul>
+<div id="1ef8015e" class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a></a>np.where(snip <span class="op">==</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="836">
+<pre><code>(array([    13,     14,     18,     20,     31,     39,     44,    126,
+           127,    136,    137,    138,    148,    155,    157,    174,
+           176,    193,    197,    202,    219,    221,    222,    223,
+           231,    232,    262,    268,    317,    383,    405,    430,
+         13580,  25648,  26839,  28676,  29655,  64732, 131187, 131204,
+        153051, 210217, 216983, 271632, 278282]),)</code></pre>
+</div>
+</div>
+</section>
+<section id="motif" class="slide level2">
+<h2>Motif</h2>
+<div id="c9815186" class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a></a>stereo <span class="op">=</span> np.array([snip,snip]).transpose()</span>
+<span id="cb50-2"><a></a>motif <span class="op">=</span> stereo[<span class="dv">13580</span>:<span class="dv">131204</span>]</span>
+<span id="cb50-3"><a></a>scipy.io.wavfile.write(<span class="st">"motif.wav"</span>, rate, motif)</span>
+<span id="cb50-4"><a></a><span class="co"># os.system("open motif.wav") # After import, if you have VLC, on MacOS</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<audio controls="" src="src/motif.wav" type="audio/wav">
+</audio>
+<div id="1f09bf07" class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a></a>other <span class="op">=</span> stereo[<span class="dv">13580</span>:<span class="dv">271632</span>]</span>
+<span id="cb51-2"><a></a>scipy.io.wavfile.write(<span class="st">"other.wav"</span>, rate, other)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<audio controls="" src="src/motif.wav" type="audio/wav">
+</audio>
+<div id="7f08287f" class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a></a>scipy.io.wavfile.write(<span class="st">"motifs.wav"</span>, rate, np.concat([motif,motif,motif]))</span>
+<span id="cb52-2"><a></a>scipy.io.wavfile.write(<span class="st">"others.wav"</span>, rate, np.concat([other,other,other]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<audio controls="" src="src/motifs.wav" type="audio/wav">
+</audio>
+<audio controls="" src="src/others.wav" type="audio/wav">
+</audio>
+<ul>
+<li>You can go become a dj, or…</li>
+</ul>
+</section>
+<section id="fft" class="slide level2">
+<h2>FFT</h2>
+<ul>
+<li>The actual correct way to do this is with a SciPy FFT:
+<ul>
+<li><a href="https://docs.scipy.org/doc/scipy/tutorial/fft.html">Fast Fourier Transform</a></li>
+</ul></li>
+<li>And with a NumPy stride:
+<ul>
+<li><a href="https://numpy.org/devdocs/reference/generated/numpy.lib.stride_tricks.html">Stride Tricks</a></li>
+</ul></li>
+<li>Which is probably a bit much for now.</li>
+</ul>
+</section></section>
+<section>
+<section id="stats" class="title-slide slide level1 center">
+<h1>Stats</h1>
+
+</section>
+<section id="linear-regression" class="slide level2">
+<h2>Linear Regression</h2>
+<ul>
+<li>One of the most used computation techniques is linear regression.</li>
+<li>It is used throughout the sciences, but most commonly in econometrics.</li>
+<li>In my my undergraduate economics class, I had a homework assignment to “prove” that raising minimum wage increases unemployment.
+<ul>
+<li>It doesn’t, but that isn’t relevant here.</li>
+</ul></li>
+</ul>
+</section>
+<section id="the-data" class="slide level2">
+<h2>The Data</h2>
+<ul>
+<li>I usually get economic data from the “St.&nbsp;Louis Fed” which has a data portal called “FRED”.
+<ul>
+<li>Minimum wage <a href="https://fred.stlouisfed.org/series/FEDMINNFRWG">FEDMINNFRWG</a></li>
+<li>Unemployment rage <a href="https://fred.stlouisfed.org/series/UNRATE">UNRATE</a></li>
+<li>Inflation <a href="https://fred.stlouisfed.org/series/CPIAUCSL">CPIAUCSL</a></li>
+</ul></li>
+</ul>
+</section>
+<section id="curl-1" class="slide level2">
+<h2>Curl</h2>
+<ul>
+<li>It is actually possible to <code>curl</code> these but you probably have to navigate the websites to find the urls regardless.</li>
+</ul>
+<div class="sourceCode" id="cb53"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb53-1"><a aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> https://fred.stlouisfed.org/graph/fredgraph.csv<span class="pp">?</span>bgcolor=%23ebf3fb<span class="kw">&amp;</span><span class="va">chart_type</span><span class="op">=</span>line<span class="kw">&amp;</span><span class="va">drp</span><span class="op">=</span>0<span class="kw">&amp;</span><span class="va">fo</span><span class="op">=</span>open%20sans<span class="kw">&amp;</span><span class="va">graph_bgcolor</span><span class="op">=</span>%23ffffff<span class="kw">&amp;</span><span class="va">height</span><span class="op">=</span>450<span class="kw">&amp;</span><span class="va">mode</span><span class="op">=</span>fred<span class="kw">&amp;</span><span class="va">recession_bars</span><span class="op">=</span>on<span class="kw">&amp;</span><span class="va">txtcolor</span><span class="op">=</span>%23444444<span class="kw">&amp;</span><span class="va">ts</span><span class="op">=</span>12<span class="kw">&amp;</span><span class="va">tts</span><span class="op">=</span>12<span class="kw">&amp;</span><span class="va">width</span><span class="op">=</span>1140<span class="kw">&amp;</span><span class="va">nt</span><span class="op">=</span>0<span class="kw">&amp;</span><span class="va">thu</span><span class="op">=</span>0<span class="kw">&amp;</span><span class="va">trc</span><span class="op">=</span>0<span class="kw">&amp;</span><span class="va">show_legend</span><span class="op">=</span>yes<span class="kw">&amp;</span><span class="va">show_axis_titles</span><span class="op">=</span>yes<span class="kw">&amp;</span><span class="va">show_tooltip</span><span class="op">=</span>yes<span class="kw">&amp;</span><span class="va">id</span><span class="op">=</span>FEDMINNFRWG<span class="kw">&amp;</span><span class="va">scale</span><span class="op">=</span>left<span class="kw">&amp;</span><span class="va">cosd</span><span class="op">=</span>1938-10-01<span class="kw">&amp;</span><span class="va">coed</span><span class="op">=</span>2025-05-01<span class="kw">&amp;</span><span class="va">line_color</span><span class="op">=</span>%230073e6<span class="kw">&amp;</span><span class="va">link_values</span><span class="op">=</span>false<span class="kw">&amp;</span><span class="va">line_style</span><span class="op">=</span>solid<span class="kw">&amp;</span><span class="va">mark_type</span><span class="op">=</span>none<span class="kw">&amp;</span><span class="va">mw</span><span class="op">=</span>3<span class="kw">&amp;</span><span class="va">lw</span><span class="op">=</span>3<span class="kw">&amp;</span><span class="va">ost</span><span class="op">=</span>-99999<span class="kw">&amp;</span><span class="va">oet</span><span class="op">=</span>99999<span class="kw">&amp;</span><span class="va">mma</span><span class="op">=</span>0<span class="kw">&amp;</span><span class="va">fml</span><span class="op">=</span>a<span class="kw">&amp;</span><span class="va">fq</span><span class="op">=</span>Monthly<span class="kw">&amp;</span><span class="va">fam</span><span class="op">=</span>avg<span class="kw">&amp;</span><span class="va">fgst</span><span class="op">=</span>lin<span class="kw">&amp;</span><span class="va">fgsnd</span><span class="op">=</span>2020-02-01<span class="kw">&amp;</span><span class="va">line_index</span><span class="op">=</span>1<span class="kw">&amp;</span><span class="va">transformation</span><span class="op">=</span>lin<span class="kw">&amp;</span><span class="va">vintage_date</span><span class="op">=</span>2025-05-31<span class="kw">&amp;</span><span class="va">revision_date</span><span class="op">=</span>2025-05-31<span class="kw">&amp;</span><span class="va">nd</span><span class="op">=</span>1938-10-01 <span class="ex">-o</span> FEDMINNFRWG.csv</span>
+<span id="cb53-2"><a aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> https://fred.stlouisfed.org/graph/fredgraph.csv<span class="pp">?</span>bgcolor=%23ebf3fb<span class="kw">&amp;</span><span class="va">chart_type</span><span class="op">=</span>line<span class="kw">&amp;</span><span class="va">drp</span><span class="op">=</span>0<span class="kw">&amp;</span><span class="va">fo</span><span class="op">=</span>open%20sans<span class="kw">&amp;</span><span class="va">graph_bgcolor</span><span class="op">=</span>%23ffffff<span class="kw">&amp;</span><span class="va">height</span><span class="op">=</span>450<span class="kw">&amp;</span><span class="va">mode</span><span class="op">=</span>fred<span class="kw">&amp;</span><span class="va">recession_bars</span><span class="op">=</span>on<span class="kw">&amp;</span><span class="va">txtcolor</span><span class="op">=</span>%23444444<span class="kw">&amp;</span><span class="va">ts</span><span class="op">=</span>12<span class="kw">&amp;</span><span class="va">tts</span><span class="op">=</span>12<span class="kw">&amp;</span><span class="va">width</span><span class="op">=</span>1140<span class="kw">&amp;</span><span class="va">nt</span><span class="op">=</span>0<span class="kw">&amp;</span><span class="va">thu</span><span class="op">=</span>0<span class="kw">&amp;</span><span class="va">trc</span><span class="op">=</span>0<span class="kw">&amp;</span><span class="va">show_legend</span><span class="op">=</span>yes<span class="kw">&amp;</span><span class="va">show_axis_titles</span><span class="op">=</span>yes<span class="kw">&amp;</span><span class="va">show_tooltip</span><span class="op">=</span>yes<span class="kw">&amp;</span><span class="va">id</span><span class="op">=</span>UNRATE<span class="kw">&amp;</span><span class="va">scale</span><span class="op">=</span>left<span class="kw">&amp;</span><span class="va">cosd</span><span class="op">=</span>1948-01-01<span class="kw">&amp;</span><span class="va">coed</span><span class="op">=</span>2025-04-01<span class="kw">&amp;</span><span class="va">line_color</span><span class="op">=</span>%230073e6<span class="kw">&amp;</span><span class="va">link_values</span><span class="op">=</span>false<span class="kw">&amp;</span><span class="va">line_style</span><span class="op">=</span>solid<span class="kw">&amp;</span><span class="va">mark_type</span><span class="op">=</span>none<span class="kw">&amp;</span><span class="va">mw</span><span class="op">=</span>3<span class="kw">&amp;</span><span class="va">lw</span><span class="op">=</span>3<span class="kw">&amp;</span><span class="va">ost</span><span class="op">=</span>-99999<span class="kw">&amp;</span><span class="va">oet</span><span class="op">=</span>99999<span class="kw">&amp;</span><span class="va">mma</span><span class="op">=</span>0<span class="kw">&amp;</span><span class="va">fml</span><span class="op">=</span>a<span class="kw">&amp;</span><span class="va">fq</span><span class="op">=</span>Monthly<span class="kw">&amp;</span><span class="va">fam</span><span class="op">=</span>avg<span class="kw">&amp;</span><span class="va">fgst</span><span class="op">=</span>lin<span class="kw">&amp;</span><span class="va">fgsnd</span><span class="op">=</span>2020-02-01<span class="kw">&amp;</span><span class="va">line_index</span><span class="op">=</span>1<span class="kw">&amp;</span><span class="va">transformation</span><span class="op">=</span>lin<span class="kw">&amp;</span><span class="va">vintage_date</span><span class="op">=</span>2025-05-31<span class="kw">&amp;</span><span class="va">revision_date</span><span class="op">=</span>2025-05-31<span class="kw">&amp;</span><span class="va">nd</span><span class="op">=</span>1948-01-01 <span class="ex">-o</span> UNRATE.csv</span>
+<span id="cb53-3"><a aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> https://fred.stlouisfed.org/graph/fredgraph.csv<span class="pp">?</span>bgcolor=%23ebf3fb<span class="kw">&amp;</span><span class="va">chart_type</span><span class="op">=</span>line<span class="kw">&amp;</span><span class="va">drp</span><span class="op">=</span>0<span class="kw">&amp;</span><span class="va">fo</span><span class="op">=</span>open%20sans<span class="kw">&amp;</span><span class="va">graph_bgcolor</span><span class="op">=</span>%23ffffff<span class="kw">&amp;</span><span class="va">height</span><span class="op">=</span>450<span class="kw">&amp;</span><span class="va">mode</span><span class="op">=</span>fred<span class="kw">&amp;</span><span class="va">recession_bars</span><span class="op">=</span>on<span class="kw">&amp;</span><span class="va">txtcolor</span><span class="op">=</span>%23444444<span class="kw">&amp;</span><span class="va">ts</span><span class="op">=</span>12<span class="kw">&amp;</span><span class="va">tts</span><span class="op">=</span>12<span class="kw">&amp;</span><span class="va">width</span><span class="op">=</span>1140<span class="kw">&amp;</span><span class="va">nt</span><span class="op">=</span>0<span class="kw">&amp;</span><span class="va">thu</span><span class="op">=</span>0<span class="kw">&amp;</span><span class="va">trc</span><span class="op">=</span>0<span class="kw">&amp;</span><span class="va">show_legend</span><span class="op">=</span>yes<span class="kw">&amp;</span><span class="va">show_axis_titles</span><span class="op">=</span>yes<span class="kw">&amp;</span><span class="va">show_tooltip</span><span class="op">=</span>yes<span class="kw">&amp;</span><span class="va">id</span><span class="op">=</span>CPIAUCSL<span class="kw">&amp;</span><span class="va">scale</span><span class="op">=</span>left<span class="kw">&amp;</span><span class="va">cosd</span><span class="op">=</span>1947-01-01<span class="kw">&amp;</span><span class="va">coed</span><span class="op">=</span>2025-04-01<span class="kw">&amp;</span><span class="va">line_color</span><span class="op">=</span>%230073e6<span class="kw">&amp;</span><span class="va">link_values</span><span class="op">=</span>false<span class="kw">&amp;</span><span class="va">line_style</span><span class="op">=</span>solid<span class="kw">&amp;</span><span class="va">mark_type</span><span class="op">=</span>none<span class="kw">&amp;</span><span class="va">mw</span><span class="op">=</span>3<span class="kw">&amp;</span><span class="va">lw</span><span class="op">=</span>3<span class="kw">&amp;</span><span class="va">ost</span><span class="op">=</span>-99999<span class="kw">&amp;</span><span class="va">oet</span><span class="op">=</span>99999<span class="kw">&amp;</span><span class="va">mma</span><span class="op">=</span>0<span class="kw">&amp;</span><span class="va">fml</span><span class="op">=</span>a<span class="kw">&amp;</span><span class="va">fq</span><span class="op">=</span>Monthly<span class="kw">&amp;</span><span class="va">fam</span><span class="op">=</span>avg<span class="kw">&amp;</span><span class="va">fgst</span><span class="op">=</span>lin<span class="kw">&amp;</span><span class="va">fgsnd</span><span class="op">=</span>2020-02-01<span class="kw">&amp;</span><span class="va">line_index</span><span class="op">=</span>1<span class="kw">&amp;</span><span class="va">transformation</span><span class="op">=</span>lin<span class="kw">&amp;</span><span class="va">vintage_date</span><span class="op">=</span>2025-05-31<span class="kw">&amp;</span><span class="va">revision_date</span><span class="op">=</span>2025-05-31<span class="kw">&amp;</span><span class="va">nd</span><span class="op">=</span>1947-01-01 <span class="ex">-o</span> CPIAUCSL.csv</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="from-url" class="slide level2">
+<h2>From url</h2>
+<ul>
+<li>Given some url with Python
+<ul>
+<li><code>url = "https://..."</code></li>
+</ul></li>
+<li>You can of course also:
+<ul>
+<li><strong>pandas</strong> <code>pd.read_csv(url)</code></li>
+<li>“os” `os.system(“curl” + url + ” -o name.csv”)</li>
+</ul></li>
 </ul>
 
 
