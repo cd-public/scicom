@@ -28,7 +28,7 @@ title: Matplotlib
 ## Relevance
 
 - We have been working with a piecewise function for sometime!
-- Can we finally visualize it?
+- Can we finally v: hideisualize it?
 
 # Install
 
@@ -142,7 +142,6 @@ open my_chart.svg
 
 - Recall: We should see this:
 ```{python}
-#| echo: hide
 plt.plot(es) # how this was made
 ```
 

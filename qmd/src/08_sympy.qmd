@@ -1,0 +1,48 @@
+---
+title: SymPy
+---
+
+# What is SymPy?
+
+> [SciPy (pronounced “Sigh Pie”) is an open-source software for mathematics, science, and engineering.](https://docs.scipy.org/doc/scipy/index.html)
+
+* **Sym**bolic **Py**thon
+* Basically a NumPy extension.
+
+## Why SymPy 
+
+* Most popular scientific computing platform in the world.
+* Basis of scikit-learn, the most popular machine learning platform in the world.
+* Extremely rigorous - most functions and documentation come with academic citations.
+
+## Why not SymPy
+
+- SciPy for statistics has basically one challenger (statsmodels, which is great).
+- Sometimes SciPy is too "heavyweight" and NumPy would be sufficient.
+- As a rule, I tend to use NumPy for easy things and scikit-learn for hard things, and don't use SciPy for much.
+
+## Relevance
+
+- This is a scientific computing course!
+- We'll do a bit of signal processing and interpolation.
+
+## Credits
+
+- SciPy is a big, complex library with many components.
+- I used each of:
+  	- The [User Guide](https://docs.scipy.org/doc/scipy/tutorial/index.html)
+	- The [API reference](https://docs.scipy.org/doc/scipy/reference/index.html)
+	  	- API is "application program interface" - a description of the functions in SciPy by their arguments and return values.
+	- The [Cookbook](https://scipy-cookbook.readthedocs.io/) which may be unofficial.
+
+# Install
+
+## pip again
+
+- Just like NumPy, Matplotlib is a Python package which we install via `pip`
+```{.bash code-line-numbers="false"}
+python3 -m pip install scipy
+```
+- That might take a moment, when it does we can check it worked!
+
+

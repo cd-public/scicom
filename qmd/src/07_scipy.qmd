@@ -596,7 +596,7 @@ df["REAL"] = df["FEDMINNFRWG"] / df["CPIAUCSL"]
 ```{python}
 df["REALPCT"] = df["REAL"].pct_change()
 df.drop(0)
-df.dropna()
+df = df.dropna()
 ```
 
 ## Unemployment
@@ -722,4 +722,195 @@ plt.title("Electronegativity")
 plt.xlabel("Group")
 plt.ylabel("Period")
 _ = plt.colorbar()
+```
+
+## Reference
+
+- The documentation we're following is [here](https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.LinearNDInterpolator.html)
+ 
+```{python}
+#| code-fold: true
+from scipy.interpolate import LinearNDInterpolator
+import numpy as np
+import matplotlib.pyplot as plt
+rng = np.random.default_rng()
+x = rng.random(10) - 0.5
+y = rng.random(10) - 0.5
+z = np.hypot(x, y)
+X = np.linspace(min(x), max(x))
+Y = np.linspace(min(y), max(y))
+X, Y = np.meshgrid(X, Y)  # 2D grid for interpolation
+interp = LinearNDInterpolator(list(zip(x, y)), z)
+Z = interp(X, Y)
+plt.pcolormesh(X, Y, Z, shading='auto')
+plt.plot(x, y, "ok", label="input point")
+plt.legend()
+plt.colorbar()
+plt.axis("equal")
+plt.show()
+```
+
+## Working df
+
+- We need a `df` to work with.
+- We need only Group, Period, Electronegativity
+- We *must not* have any invalid entries.
+- We modify `df` to have only these 3 values, then `.dropna()`
+```{python}
+df = df[["Group", "Period", "Electronegativity"]]
+df = df.dropna()
+```
+
+
+## X 
+
+- We will:
+  	- Determine the input x values.
+	- We call this `X` (capitalized) to denote it is a vector or array.
+- We used "Group" for x.
+```{python}
+X = df["Group"]
+X[::20]
+```
+
+## Y 
+
+- We will:
+  	- Determine the input x values.
+	- We call this `Y` (capitalized) to denote it is a vector or array.
+- We used "Period" for y.
+```{python}
+Y = df["Period"]
+Y[::20]
+```
+
+
+## 2D
+
+- We will:
+  	- Create the 2D space given `X` and `Y`
+	- This is a "column stack"
+```{python}
+arr2d = np.column_stack((X,Y))
+arr2d[::20]
+```
+
+
+## Z
+
+- We will:
+  	- Provide known output values as `Z`
+```{python}
+Z = df["Electronegativity"]
+Z
+```
+
+## SciPy
+
+- Back to SciPy!
+	- Use `LinearNDInterpolar`
+- It basically makes a function that theoretically described electronegativity.
+
+
+
+## Stop!
+
+
+::: {.callout-note}
+
+- We are about to, essentially, conduct an experiment!
+- We should make a hypothesis first, then test it.
+- First, naively predict Tc's electronegativity, and write down your guess!
+
+:::
+
+- The next slides have my guess, but you should make your own guess first!
+
+
+## My Guess
+
+- I took the electronegativity of Tc's neighbors vertically and horizontally.
+```{python}
+Tc
+```
+
+## One Way
+
+- Tc is group 7 and period 5, so, perhaps...
+```{python}
+# DataFrame "vertical horizontal neighbors"
+vh = df[df["Group"] >= 6]
+vh = vh[vh["Group"] <= 8]
+vh = vh[vh["Period"] >= 4]
+vh = vh[vh["Period"] <= 6]
+vh
+```
+
+## Aside: Boolean Index
+
+- The previous example was not graceful.
+- We can use [Boolean Indexing](https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html)
+- The range detection method used earlier in `piecewise.py` doesn't work on arrays unfortunately.
+- But `(array < value) & (array > value)` works.
+
+## Aside: Example
+
+```{python}
+vh = df[(df["Group"] >= 6) & (df["Group"] <= 8) & (df["Period"] >= 4) & (df["Period"] <= 6)]
+vh
+```
+
+## Aside: Immediate Neighbor
+
+- It actually probably makes more sense to take
+  	- The sum, of
+	- The absolute values, of
+	- The differences, between
+	  	- Tc's group and period, and
+		- The tested row's group and period.
+
+## Immediate Example
+
+```{python}
+close = df[(abs(df["Group"] - 7) + abs(df["Period"] - 5)) < 2]
+close
+```
+
+## My Estimate:
+
+- After picking what I thought was things near Tc that should cancel out each other's distance, I calculate their mean.
+```{python}
+my_pred = close["Electronegativity"].mean()
+my_pred
+```
+- This is my naive prediction.
+- Now I interpolate.
+
+## Interpolate
+
+- `LinearNDInterpolator` takes an array of known inputs and an array of known outputs and returns a function that it thinks describes the relationship.
+- "Thinks" being a vague term here to convey a sense of learning or prediction or estimation.
+```{python}
+f = LinearNDInterpolator(arr2d, Z)
+scipy_pred = f(7,5)
+[scipy_pred, my_pred, Tc["Electronegativity"]]
+```
+
+## Exercise
+
+- Predict using your own methods the density of Tc.
+- Interpolate using SciPy the density of Tc.
+
+## Solution
+
+```{python}
+#| code-fold: true
+#| output: false
+df = pd.read_csv("https://gist.githubusercontent.com/GoodmanSciences/c2dd862cd38f21b0ad36b8f96b4bf1ee/raw/1d92663004489a5b6926e944c1b3d9ec5c40900e/Periodic%2520Table%2520of%2520Elements.csv")
+df.drop(42)
+df = df[["Group", "Period", "Density"]]
+df = df.dropna()
+f = LinearNDInterpolator(np.column_stack((df["Group"],df["Period"])), df["Density"])
+me = df[(abs(df["Group"] - 7) + abs(df["Period"] - 5)) < 2]["Density"].mean()
+[f(7,5), me, Tc["Density"]]
 ```
