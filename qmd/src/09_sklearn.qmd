@@ -1,0 +1,23 @@
+---
+title: Sklearn 
+---
+
+# What is Sklearn?
+
+- `Sklearn` or `scikit-learn`, originally conceived as an extension to SciPy.
+
+> [Scikit-learn is an open source machine learning library that supports supervised and unsupervised learning. It also provides various tools for model fitting, data preprocessing, model selection, model evaluation, and many other utilities.Scikit-learn is an open source machine learning library that supports supervised and unsupervised learning. It also provides various tools for model fitting, data preprocessing, model selection, model evaluation, and many other utilities.](https://scikit-learn.org/stable/getting_started.html)
+
+## Why SymPy 
+
+* "SymPy is free both as in speech and as in beer."
+* "Most computer algebra systems invent their own language. Not SymPy."
+* "An advantage of SymPy is that it is lightweight."
+
+## Why not SymPy
+
+- To my knowledge, there's no real competitors with SymPy.
+- The closest are probably SageMath and Mathematica.
+- I use browser-based Mathematica via [https://www.wolframalpha.com/](https://www.wolframalpha.com/) from time to time (when I don't have a Python installation handy).
+
+

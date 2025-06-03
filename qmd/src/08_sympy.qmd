@@ -464,6 +464,7 @@ $$
 - So we write:
 ```{python}
 eq = x*x - y
+eq
 ```
 
 ## Solve
@@ -500,13 +501,204 @@ sympy.Rational(5/2)
 - In general, if something would be "weird" with Sympy, there is a capitalized name that does what you would expect.
 - Just check the documentation.
 
+# Printing
+
+## Pretty Print
+
+- SymPy provides a number of ways to see equations.
+- By default, these slides use "LaTeX", which I regard as the standard for mathematical typesetting.
+- However, it doesn't often show up that way in the terminal!
+
+## init_printing
+
+- Here's what my terminal looks like:
+
+```{.python code-line-numbers="false"}
+>>> import sympy
+>>> from sympy.abc import x, y, z
+>>> sympy.Eq(x*x,y)
+Eq(x**2, y)
+>>> sympy.init_printing()
+>>> sympy.Eq(x*x,y)
+ 2
+x  = y
+```
+
+## Options
+
+- The following visualization methods are usably by SymPy:
+   -  str
+   -  srepr
+   -  ASCII pretty printer
+   -  Unicode pretty printer
+   -  LaTeX
+   -  MathML
+   -  Dot
+
+## Example
+
+- We'll use an integral example:
+```{python}
+sympy.Integral(sympy.sqrt(1/x), x)
+```
+
+## str
+
+- Just gives the string, basically as we typed it in.
+
+```{python}
+str(sympy.Integral(sympy.sqrt(1/x), x))
+```
+
+## srepr
+
+- `srepr` is string *representation* and is more exact and verbose. 
+- I don't use it often, but it can be helpful to examine equations when I get unexpected answers.
+```{python}
+sympy.srepr(sympy.Integral(sympy.sqrt(1/x), x))
+```
+
+## ASCII
+
+- ASCII is the oldest major standard for character displays, with 127 characters including non-printing or whitespace characters like tab and space.
+- We can make "ASCII art" of equations via `pprint`.
+  	- We must set `use_unicode` to `False`
+```{python}
+sympy.pprint(sympy.Integral(sympy.sqrt(1/x), x), use_unicode=False)
+```
+
+## Unicode
+
+- We get some slightly smoother lines with the more complete Unicode character set.
+	- Unicode is the *modern* more complete character set including non-English characters and the likes of emojis. 🤔💭🔢✖️🧮
+```{python}
+sympy.pprint(sympy.Integral(sympy.sqrt(1/x), x), use_unicode=True)
+```
+
+## LaTeX
+
+- My favorite (by far!)
+- I use LaTeX (.tex) a lot in these and other slides.
+
+
+```{python}
+sympy.latex(sympy.Integral(sympy.sqrt(1/x), x))
+```
+
+- I don't see the double backslash in my terminal, that is just an artiffact of the slides.
+
+```{.python code-line-numbers="false"}
+>>> sympy.latex(sympy.Integral(sympy.sqrt(1/x), x))
+\int \sqrt{\frac{1}{x}}\, dxyy
+```
+
+## Using LaTeX
+
+- I can directly display that LaTeX in these slides...
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+- I type:
+
+```{.LaTeX code-line-numbers="false" filename="file.tex"}
+$$
+\int \sqrt{\frac{1}{x}}\, dxyy
+$$
+```
+
+- `$$` denotes LaTeX "math mode", versus just basic text editing.
+
+:::
+
+::: {.column width="50%"}
+
+- We see:
+
+$$
+\int \sqrt{\frac{1}{x}}\, dxyy
+$$
+
+:::
+
+::::
+
+## QuickLaTeX
+
+- You can see examples online:
+- Go to [https://www.quicklatex.com/](https://www.quicklatex.com/)
+- Use this code:
+```{.LaTeX code-line-numbers="false"}
+\int \sqrt{\frac{1}{x}}\, dxyy
+```
+- I see this:
+
+<center>
+<img style="background:white;width:30%" src="qlx.png"></img>
+</center>
+
+## Overleaf
+
+- The preferred way to use LaTeX for most students is Overleaf:
+  	- [https://www.overleaf.com/](https://www.overleaf.com/)
+- I use it at the command line via `texlive`
+  	- [https://www.tug.org/texlive/](https://www.tug.org/texlive/)
+
+## `tex` command
+
+- I write the LaTeX output to file. 
+```{.python filename="integral.py"}
+import sympy 
+x = sympy.symbols('x')
+print(sympy.latex(sympy.Integral(sympy.sqrt(1/x), x)))
+```
+- And then:
+```{.bash code-line-numbers="false"}
+$ python3 integral.py > file.tex
+```
+- Or all at once using `;` to separate lines
+```{.bash code-line-numbers="false"}
+$ python3 -c "import sympy; x = sympy.symbols('x'); print(sympy.latex(sympy.Integral(sympy.sqrt(1/x), x)))" > file.tex
+```
+
+
+
+## `nvim` edits
+
+- I open the file with `nvim` and add lines specifying I want a document and that I want "math mode"
+- Before:
+```{.LaTeX code-line-numbers="false"}
+\int \sqrt{\frac{1}{x}}\, dx
+```
+- After:
+```{.LaTeX code-line-numbers="false"}
+\begin{document}
+$$
+\int \sqrt{\frac{1}{x}}\, dx
+$$
+\end{document}
+```
+
+## Render
+
+- Simply render to a `.pdf` via
+
+```{.bash code-line-numbers="false"}
+$ pdflatex file.tex
+```
+
+- I have uploaded the file as well:
+	- [src/file.pdf](file.pdf)
+
+
 # ODEs
 
 ## Ordinary Differential Equations
 
->  A differential equation is an equation that relates one or more unknown functions and their derivatives.
+> [A differential equation is an equation that relates one or more unknown functions and their derivatives.](https://en.wikipedia.org/wiki/Differential_equation)
 
-> An ordinary differential equation (ODE) is a differential equation (DE) dependent on only a single independent variable.
+> [An ordinary differential equation (ODE) is a differential equation (DE) dependent on only a single independent variable.](https://en.wikipedia.org/wiki/Ordinary_differential_equation)
 
 ## Credit
 
@@ -515,3 +707,77 @@ sympy.Rational(5/2)
 ## Equation
 
 - Consider the decay of tritium as an example.
+
+$$
+{}^3\text{H} \xrightarrow{\lambda} {}^3\text{He} + \text{e}^- + \bar{\nu}_\text{e}
+$$
+
+- This is, by the way, LaTeX:
+```{.LaTeX code-line-numbers="false" filename="tritium.tex"}
+{}^3\text{H} \xrightarrow{\lambda} {}^3\text{He} + \text{e}^- + \bar{\nu}_\text{e}
+```
+
+## [Tritium](https://www.cnsc-ccsn.gc.ca/eng/resources/fact-sheets/tritium/){.smaller}
+
+
+> Tritium is a radioactive isotope of hydrogen. It has the same number of protons and electrons as hydrogen but has 2 neutrons, whereas regular hydrogen does not have any. This makes tritium unstable and radioactive. Tritium is produced naturally from interactions of cosmic rays with gases in the upper atmosphere, and is also a by-product of nuclear reactors.
+
+
+## [Tritium](https://www.cnsc-ccsn.gc.ca/eng/resources/fact-sheets/tritium/){.smaller}
+
+> Like all radioactive isotopes, tritium decays. As it decays, it emits beta radiation.
+
+> The physical half-life of tritium is 12.33 years, meaning that it takes just over 12 years for tritium to decay to half of its original amount. As tritium decays, it changes to helium. 
+
+
+## Derivatives
+
+- We denote the "number density" (number of atoms in a sample) of $^3\text{H}$ as a function of time $y(t)$
+- The *rate of change* (derivate)
+
+$$
+\frac{d}{d t} y{\left(t \right)} = - \lambda y{\left(t \right)}
+$$
+
+- This is a differential equation because an equation is a function of its own derivative.
+
+## Exercise
+
+1. Specify this equation in SymPy
+2. Solve useing `sympy.dsolve()`
+
+## Tools
+
+- This is how I got lambda:
+```{python}
+t, l = sympy.symbols('t lambda') # use "l" as "lambda" is a Python keyword
+```
+- This is $y(t)$
+```{python}
+y = sympy.Function('y')(t) # use capital Function ala Rational, Integral
+```
+- Take derivatives as follows:
+```{python}
+f = sympy.Function('f')(x)
+f.diff(x)
+```
+
+## Solution
+
+- Write:
+
+```{python}
+#| code-fold: true
+t, l = sympy.symbols('t lambda')
+y = sympy.Function('y')(t)
+dydt = y.diff(t)
+expr = sympy.Eq(dydt, -l*y)
+expr
+```
+
+- Solve:
+
+```{python}
+#| code-fold: true
+sympy.dsolve(expr)
+```
