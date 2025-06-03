@@ -4,45 +4,462 @@ title: SymPy
 
 # What is SymPy?
 
-> [SciPy (pronounced “Sigh Pie”) is an open-source software for mathematics, science, and engineering.](https://docs.scipy.org/doc/scipy/index.html)
+> [A Python library for symbolic mathematics. It aims to become a full-featured computer algebra system (CAS) while keeping the code as simple as possible in order to be comprehensible and easily extensible. SymPy is written entirely in Python.](https://www.sympy.org/en/index.html)
 
 * **Sym**bolic **Py**thon
-* Basically a NumPy extension.
 
 ## Why SymPy 
 
-* Most popular scientific computing platform in the world.
-* Basis of scikit-learn, the most popular machine learning platform in the world.
-* Extremely rigorous - most functions and documentation come with academic citations.
+* "SymPy is free both as in speech and as in beer."
+* "Most computer algebra systems invent their own language. Not SymPy."
+* "An advantage of SymPy is that it is lightweight."
 
 ## Why not SymPy
 
-- SciPy for statistics has basically one challenger (statsmodels, which is great).
-- Sometimes SciPy is too "heavyweight" and NumPy would be sufficient.
-- As a rule, I tend to use NumPy for easy things and scikit-learn for hard things, and don't use SciPy for much.
+- To my knowledge, there's no real competitors with SymPy.
+- The closest are probably SageMath and Mathematica.
+- I use browser-based Mathematica via [https://www.wolframalpha.com/](https://www.wolframalpha.com/) from time to time (when I don't have a Python installation handy).
 
-## Relevance
+## Cite
 
-- This is a scientific computing course!
-- We'll do a bit of signal processing and interpolation.
+```{.bibtex}
+@article{10.7717/peerj-cs.103,
+     title = {SymPy: symbolic computing in Python},
+     author = {Meurer, Aaron and Smith, Christopher P. and Paprocki, Mateusz and \v{C}ert\'{i}k, Ond\v{r}ej and Kirpichev, Sergey B. and Rocklin, Matthew and Kumar, AMiT and Ivanov, Sergiu and Moore, Jason K. and Singh, Sartaj and Rathnayake, Thilina and Vig, Sean and Granger, Brian E. and Muller, Richard P. and Bonazzi, Francesco and Gupta, Harsh and Vats, Shivam and Johansson, Fredrik and Pedregosa, Fabian and Curry, Matthew J. and Terrel, Andy R. and Rou\v{c}ka, \v{S}t\v{e}p\'{a}n and Saboo, Ashutosh and Fernando, Isuru and Kulal, Sumith and Cimrman, Robert and Scopatz, Anthony},
+     year = 2017,
+     month = jan,
+     keywords = {Python, Computer algebra system, Symbolics},
+     abstract = {
+                SymPy is an open source computer algebra system written in pure Python. It is built with a focus on extensibility and ease of use, through both interactive and programmatic applications. These characteristics have led SymPy to become a popular symbolic library for the scientific Python ecosystem. This paper presents the architecture of SymPy, a description of its features, and a discussion of select submodules. The supplementary material provide additional examples and further outline details of the architecture and features of SymPy.
+             },
+     volume = 3,
+     pages = {e103},
+     journal = {PeerJ Computer Science},
+     issn = {2376-5992},
+     url = {https://doi.org/10.7717/peerj-cs.103},
+     doi = {10.7717/peerj-cs.103}
+    }
+```
 
-## Credits
-
-- SciPy is a big, complex library with many components.
-- I used each of:
-  	- The [User Guide](https://docs.scipy.org/doc/scipy/tutorial/index.html)
-	- The [API reference](https://docs.scipy.org/doc/scipy/reference/index.html)
-	  	- API is "application program interface" - a description of the functions in SciPy by their arguments and return values.
-	- The [Cookbook](https://scipy-cookbook.readthedocs.io/) which may be unofficial.
-
-# Install
 
 ## pip again
 
 - Just like NumPy, Matplotlib is a Python package which we install via `pip`
 ```{.bash code-line-numbers="false"}
-python3 -m pip install scipy
+python3 -m pip install sympy
 ```
 - That might take a moment, when it does we can check it worked!
+
+# Motivation 
+
+## Example
+
+- Computers don't hold numbers that precisely.
+
+```{python}
+10.0 ** 100 == 10.0 ** 100 + 47
+```
+
+## Fractions
+
+- Much worse with fractions I find.
+```{python}
+1 / 7000000 * 7000000
+```
+
+## Floats:
+
+- The IEEE 754 Floating-Point Standard
+
+
+<img style="filter:invert(1)" src="https://upload.wikimedia.org/wikipedia/commons/d/d2/Float_example.svg">
+
+- It is basically scientific notation that fits in a fixed amount of characters.
+
+## What is it?
+
+- The IEEE 754 standard defines formats for representing floating-point numbers.
+- It specifies how floating-point numbers are stored and operated on in computer hardware.
+- Most modern CPUs adhere to this standard.
+
+```{python}
+import sys
+# Check the floating-point precision on your system
+sys.float_info
+```
+
+## Why is it important?
+
+- Ensures portability and consistency of numerical computations across different systems.
+- Without a standard, the same calculation could yield different results on different machines.
+- Essential for reliable scientific and engineering software.
+
+## Single Precision (Float32)
+
+- Uses 32 bits to represent a number.
+- 1 sign bit, 8 exponent bits, 23 significand (mantissa) bits.
+- Offers approximately 7 decimal digits of precision.
+
+```{python}
+import numpy as np
+np.float32(1/7)
+```
+
+## Double Precision (Float64)
+
+- Uses 64 bits to represent a number.
+- 1 sign bit, 11 exponent bits, 52 significand bits.
+- Offers approximately 15-17 decimal digits of precision. This is the default in Python and NumPy.
+
+```{python}
+# Example of a float64 number (default in Python)
+1/7
+```
+
+## Special Values
+
+- **Infinity $\infty$**: Result of overflow or division by zero.
+```{python}
+lil = np.finfo(np.float64).resolution # smallest recognizable value
+big = np.finfo(np.float64).max # biggest recognizable value
+big / lil
+```
+- **Not a Number (NaN)**: Result of undefined operations (e.g., $0/0$, $\sqrt{-1}$).
+```{python}
+np.sqrt(-1)
+```
+
+## Pitfall 1: Limited Precision
+
+- Not all real numbers can be represented exactly.
+- Decimal numbers like 0.1 often have an infinitely repeating binary representation.
+- This leads to small, unavoidable rounding errors.
+
+```{python}
+.1 + .2
+```
+
+## Pitfall 2: Accumulation
+
+- Small rounding errors can accumulate over many operations.
+- This can lead to significant inaccuracies in long computations or iterative algorithms.
+- Careful algorithm design and error analysis are crucial.
+
+```{python}
+total = 0.0
+for _ in range(100000):
+    total += 0.1
+total, 100000 * 0.1
+```
+
+## Pitfall 3: Comparison Issues
+
+- Due to limited precision, direct equality comparisons (`==`) between floating-point numbers are often unreliable.
+
+```{python}
+(1 + 2) / 10
+```
+
+```{python}
+1 / 10 + 2 / 10
+```
+
+
+## Pitfall 4: Subtractive Cancellation
+
+- Occurs when subtracting two nearly equal numbers.
+- The most significant bits cancel out, leaving only the less significant bits.
+- Can drastically reduce the effective precision.
+
+```{python}
+x = 1.0000000000000001
+y = 1.0000000000000000
+x - y
+```
+
+# Symbolic Computation
+
+## Credit
+
+- The [SymPy tutorial](https://docs.sympy.org/latest/tutorials/intro-tutorial/).
+- SymPy solves the floating point problem.
+
+## Quoth SymPy
+
+> Symbolic computation deals with the computation of mathematical objects symbolically. This means that the mathematical objects are represented exactly, not approximately, and mathematical expressions with unevaluated variables are left in symbolic form.
+
+## Non-symbolic Computation
+
+- A common problem in computing is to compute the likes of distance between points separated by vectors.
+- Imagine two objects are separated by a horizontal displacement of `3` units, and vertical displacement of `4` units, and we wish to determine the minimum distance.
+- A straightforward application of the Pythagorean Theorem.
+```{python}
+np.sqrt(3 * 3 + 4 * 4)
+```
+
+## Pitfalls
+
+- These distances quickly become inaccurate.
+```{python}
+np.sqrt(2 * 2 + 4 * 4)
+```
+- Then stuff like [this](https://www.kezi.com/railroad-bridge-collapses-into-marys-river-in-corvallis/article_50b3ab98-cae2-11ef-86a9-2b8ecb0cf78c.html) happens:
+![](bridge.jpg)
+
+## Symbolic Computation
+
+- In point of fact, the solution to $\sqrt{2^2 + 4*2}$ is actually $\sqrt{20}$ and there's no other graceful way to represent it.
+- So we'll use *symbols* to store values.
+```{python}
+import sympy
+x = sympy.symbols('x')
+y = sympy.symbols('y')
+dist = sympy.sqrt(x + y)
+dist
+```
+
+## Expressions
+
+- We term this a "symbolic expression".
+- We can perform operations...
+```{python}
+2 * dist
+```
+- We can add other symbols...
+```{python}
+z = sympy.symbols('z')
+z + dist
+```
+
+## Niceties
+
+- We can declare multiple symbols at once:
+```{python}
+a, b, c = sympy.symbols('a b c')
+```
+- SymPy will automatically simplify.
+```{python}
+sympy.sqrt(20)
+```
+- Compare:
+```{python}
+np.sqrt(20), np.sqrt(5), 2 * np.sqrt(5)
+```
+
+# Operations 
+
+## Extended Floats
+
+- SymPy uses floats by default, but doesn't have to.
+- You can specify a number of decimals for any value.
+- We also should that SymPy contains some useful constants!
+```{python}
+# "Evaluate as float to 100 digits"
+# We use sympy.py, not e.g. np.pi
+sympy.pi.evalf(100)
+```
+
+## Substitution
+
+- Often we want to solve an equation algebraically and *also* know a numerical solution.
+- The usefulness of SymPy is to do both, and maximally simply the result to minimize error.
+- We can use `subs()` to get solutions given values.
+```{python}
+dist
+```
+
+## Value Substitution
+- Substitute `3` for `x`
+```{python}
+dist.subs(x, 3)
+```
+
+
+## Expression Substitution
+
+- Perhaps `y` is, itself, a distance expressed over a right triangle with sides `a` and `b`
+```{python}
+dist.subs(y,a*a+b*b)
+```
+
+## Strings
+
+- Sometimes we want to take a Python expression and convert to a symbolic SymPy expression.
+```{python}
+str_expr = "x**2 + 3*x - 1/2"
+from sympy import sympify
+expr = sympify(str_expr)
+expr
+```
+- Then calculate with `.subs()`
+```{python}
+expr.subs(x, 2)
+```
+
+## Functions
+
+- Sibling of `vectorize`
+- Takes a SymPy expression, makes a Python function.
+
+```{python}
+expr # so we remember.
+```
+- Calculate...
+```{python}
+f = sympy.lambdify(x, expr, "scipy")
+f(np.arange(10))
+```
+
+## Aside: SciPy/NumPy
+
+- **Always** use `lambdify` specified with `"scipy"` (or `"numpy"`) if you have SciPy or even just NumPy installed
+- It uses NumPy's more powerful (than Python's) mathematical operations.
+
+## Aside: Plots
+
+```{python}
+# import sympy
+# from sympy.abc import x
+# import scipy
+import matplotlib.pyplot as plt
+f = sympy.lambdify(x,x*x,"scipy")
+xs = np.linspace(-5,5) 
+plt.plot(xs, f(xs))
+```
+
+## Simplification
+
+- If I use SymPy, I don't have to remember this:
+```{python}
+sympy.simplify(sympy.sin(x)**2 + sympy.cos(x)**2)
+```
+- Or figure out this:
+```{python}
+sympy.simplify((x**3 + x**2 - x - 1)/(x**2 + 2*x + 1))
+```
+
+## Polynomials
+
+- Often we *don't* want a simplified polynomial.
+```{python}
+sympy.simplify(x**2 + 2*x + 1)
+```
+- We perhaps instead wish to `factor()`
+```{python}
+sympy.factor(x**2 + 2*x + 1)
+```
+
+## Expand
+
+- We may also start with factored form.
+```{python}
+eq = x**2 - (x+1) * (x-1)
+```
+- This can deceptively by made smaller by expanding it.
+```{python}
+sympy.expand(eq)
+```
+
+## Fractions
+
+- We can also cancel out fractions.
+```{python}
+eq = (x**2 + 2*x + 1)/(x**2 + x)
+eq
+```
+- Using `sympy.factor()`
+```{python}
+sympy.factor(eq)
+```
+
+## Powers
+
+- SymPy can also perform some simplifications related to exponention.
+- Movie size in memory is frame size time frame rate times duration.
+```{python}
+eq = x**10*x**9*x**5*x*9 # Avatar in HD is ~4 hrs long at ~60fps
+eq
+```
+- Or just sub in `2`
+```{python}
+eq.subs(x,2)
+```
+
+# Calculus
+
+## Derivatives
+
+- We can calculate derivatives.
+```{python}
+sympy.diff(x*x, x)
+```
+
+## Integrals
+
+```{python}
+sympy.integrate(sympy.sin(x), x)
+```
+
+## Solve Integrals
+
+- Give a variable a domain...
+```{python}
+integral = sympy.Integral(sympy.exp(x), (x, 0, 1))
+integral
+```
+- And evaluate.
+```{python}
+integral.evalf()
+```
+
+## Compute Limits
+
+- One famous problem is to compute the value of the following function as it approaches zero:
+$$
+\lim{x\to 0} \frac{\sin{x}}{x}
+$$
+
+# Solutions
+
+## Solve Equations
+
+> [The Python package SymPy can symbolically solve equations, differential equations, linear equations, nonlinear equations, matrix problems, inequalities, Diophantine equations, and evaluate integrals. SymPy can also solve numerically.](https://docs.sympy.org/latest/guides/solving/index.html)
+
+
+## Algebra
+
+- We use the much nicer way to get variable names.
+```{python}
+from sympy.abc import x, y
+```
+- We will aim to solve the following:
+$$
+x^2 = y
+$$
+
+## Write in SymPy
+
+- SymPy, like many algebra systems, expects equations to be expressed as equal to zero.
+- We note the following equivalence.
+$$
+x^2 = y \equiv x^2 - y = 0
+$$
+- So we write:
+```{python}
+eq = x*x - y
+```
+
+## Solve
+
+- To solve, we simply use `sympy.solve()`
+	- We specify the equation to solve, and
+	- The variable for which to solve.
+```{python}
+sympy.solve(eq, x)
+```
+- We could also do:
+```{python}
+sympy.solve(eq, y)
+```
 
 

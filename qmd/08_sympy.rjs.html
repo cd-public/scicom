@@ -406,65 +406,710 @@ Prof.&nbsp;Calvin
 <section id="what-is-sympy" class="title-slide slide level1 center">
 <h1>What is SymPy?</h1>
 <blockquote>
-<p><a href="https://docs.scipy.org/doc/scipy/index.html">SciPy (pronounced “Sigh Pie”) is an open-source software for mathematics, science, and engineering.</a></p>
+<p><a href="https://www.sympy.org/en/index.html">A Python library for symbolic mathematics. It aims to become a full-featured computer algebra system (CAS) while keeping the code as simple as possible in order to be comprehensible and easily extensible. SymPy is written entirely in Python.</a></p>
 </blockquote>
 <ul>
 <li><strong>Sym</strong>bolic <strong>Py</strong>thon</li>
-<li>Basically a NumPy extension.</li>
 </ul>
 </section>
 <section id="why-sympy" class="slide level2">
 <h2>Why SymPy</h2>
 <ul>
-<li>Most popular scientific computing platform in the world.</li>
-<li>Basis of scikit-learn, the most popular machine learning platform in the world.</li>
-<li>Extremely rigorous - most functions and documentation come with academic citations.</li>
+<li>“SymPy is free both as in speech and as in beer.”</li>
+<li>“Most computer algebra systems invent their own language. Not SymPy.”</li>
+<li>“An advantage of SymPy is that it is lightweight.”</li>
 </ul>
 </section>
 <section id="why-not-sympy" class="slide level2">
 <h2>Why not SymPy</h2>
 <ul>
-<li>SciPy for statistics has basically one challenger (statsmodels, which is great).</li>
-<li>Sometimes SciPy is too “heavyweight” and NumPy would be sufficient.</li>
-<li>As a rule, I tend to use NumPy for easy things and scikit-learn for hard things, and don’t use SciPy for much.</li>
+<li>To my knowledge, there’s no real competitors with SymPy.</li>
+<li>The closest are probably SageMath and Mathematica.</li>
+<li>I use browser-based Mathematica via <a href="https://www.wolframalpha.com/">https://www.wolframalpha.com/</a> from time to time (when I don’t have a Python installation handy).</li>
 </ul>
 </section>
-<section id="relevance" class="slide level2">
-<h2>Relevance</h2>
-<ul>
-<li>This is a scientific computing course!</li>
-<li>We’ll do a bit of signal processing and interpolation.</li>
-</ul>
-</section>
-<section id="credits" class="slide level2">
-<h2>Credits</h2>
-<ul>
-<li>SciPy is a big, complex library with many components.</li>
-<li>I used each of:
-<ul>
-<li>The <a href="https://docs.scipy.org/doc/scipy/tutorial/index.html">User Guide</a></li>
-<li>The <a href="https://docs.scipy.org/doc/scipy/reference/index.html">API reference</a>
-<ul>
-<li>API is “application program interface” - a description of the functions in SciPy by their arguments and return values.</li>
-</ul></li>
-<li>The <a href="https://scipy-cookbook.readthedocs.io/">Cookbook</a> which may be unofficial.</li>
-</ul></li>
-</ul>
-</section></section>
-<section>
-<section id="install" class="title-slide slide level1 center">
-<h1>Install</h1>
-
+<section id="cite" class="slide level2">
+<h2>Cite</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bibtex number-lines code-with-copy"><code class="sourceCode bibtex"><span id="cb1-1"><a></a><span class="va">@article</span>{<span class="ot">10</span>.<span class="ot">7717</span>/<span class="ot">peerj</span>-<span class="ot">cs</span>.<span class="ot">103</span>,</span>
+<span id="cb1-2"><a></a>     <span class="dt">title</span> = {SymPy: symbolic computing in Python},</span>
+<span id="cb1-3"><a></a>     <span class="dt">author</span> = {Meurer, Aaron and Smith, Christopher P. and Paprocki, Mateusz and <span class="ch">\v</span>{C}ert<span class="ch">\'</span>{i}k, Ond<span class="ch">\v</span>{r}ej and Kirpichev, Sergey B. and Rocklin, Matthew and Kumar, AMiT and Ivanov, Sergiu and Moore, Jason K. and Singh, Sartaj and Rathnayake, Thilina and Vig, Sean and Granger, Brian E. and Muller, Richard P. and Bonazzi, Francesco and Gupta, Harsh and Vats, Shivam and Johansson, Fredrik and Pedregosa, Fabian and Curry, Matthew J. and Terrel, Andy R. and Rou<span class="ch">\v</span>{c}ka, <span class="ch">\v</span>{S}t<span class="ch">\v</span>{e}p<span class="ch">\'</span>{a}n and Saboo, Ashutosh and Fernando, Isuru and Kulal, Sumith and Cimrman, Robert and Scopatz, Anthony},</span>
+<span id="cb1-4"><a></a>     <span class="dt">year</span> = 2017,</span>
+<span id="cb1-5"><a></a>     <span class="dt">month</span> = <span class="st">jan</span>,</span>
+<span id="cb1-6"><a></a>     <span class="dt">keywords</span> = {Python, Computer algebra system, Symbolics},</span>
+<span id="cb1-7"><a></a>     <span class="dt">abstract</span> = {</span>
+<span id="cb1-8"><a></a>                SymPy is an open source computer algebra system written in pure Python. It is built with a focus on extensibility and ease of use, through both interactive and programmatic applications. These characteristics have led SymPy to become a popular symbolic library for the scientific Python ecosystem. This paper presents the architecture of SymPy, a description of its features, and a discussion of select submodules. The supplementary material provide additional examples and further outline details of the architecture and features of SymPy.</span>
+<span id="cb1-9"><a></a>             },</span>
+<span id="cb1-10"><a></a>     <span class="dt">volume</span> = 3,</span>
+<span id="cb1-11"><a></a>     <span class="dt">pages</span> = {e103},</span>
+<span id="cb1-12"><a></a>     <span class="dt">journal</span> = {PeerJ Computer Science},</span>
+<span id="cb1-13"><a></a>     <span class="dt">issn</span> = {2376-5992},</span>
+<span id="cb1-14"><a></a>     <span class="dt">url</span> = {https://doi.org/10.7717/peerj-cs.103},</span>
+<span id="cb1-15"><a></a>     <span class="dt">doi</span> = {10.7717/peerj-cs.103}</span>
+<span id="cb1-16"><a></a>    }</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="pip-again" class="slide level2">
 <h2>pip again</h2>
 <ul>
 <li>Just like NumPy, Matplotlib is a Python package which we install via <code>pip</code></li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> <span class="at">-m</span> pip install scipy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> <span class="at">-m</span> pip install sympy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>That might take a moment, when it does we can check it worked!</li>
 </ul>
+</section></section>
+<section>
+<section id="motivation" class="title-slide slide level1 center">
+<h1>Motivation</h1>
+
+</section>
+<section id="example" class="slide level2">
+<h2>Example</h2>
+<ul>
+<li>Computers don’t hold numbers that precisely.</li>
+</ul>
+<div id="3eac1cff" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a><span class="fl">10.0</span> <span class="op">**</span> <span class="dv">100</span> <span class="op">==</span> <span class="fl">10.0</span> <span class="op">**</span> <span class="dv">100</span> <span class="op">+</span> <span class="dv">47</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="522">
+<pre><code>True</code></pre>
+</div>
+</div>
+</section>
+<section id="fractions" class="slide level2">
+<h2>Fractions</h2>
+<ul>
+<li>Much worse with fractions I find.</li>
+</ul>
+<div id="cbb6af35" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a><span class="dv">1</span> <span class="op">/</span> <span class="dv">7000000</span> <span class="op">*</span> <span class="dv">7000000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="523">
+<pre><code>0.9999999999999999</code></pre>
+</div>
+</div>
+</section>
+<section id="floats" class="slide level2">
+<h2>Floats:</h2>
+<ul>
+<li>The IEEE 754 Floating-Point Standard</li>
+</ul>
+
+<img style="filter:invert(1)" src="https://upload.wikimedia.org/wikipedia/commons/d/d2/Float_example.svg" class="r-stretch"><ul>
+<li>It is basically scientific notation that fits in a fixed amount of characters.</li>
+</ul>
+</section>
+<section id="what-is-it" class="slide level2">
+<h2>What is it?</h2>
+<ul>
+<li>The IEEE 754 standard defines formats for representing floating-point numbers.</li>
+<li>It specifies how floating-point numbers are stored and operated on in computer hardware.</li>
+<li>Most modern CPUs adhere to this standard.</li>
+</ul>
+<div id="fefd0088" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a><span class="im">import</span> sys</span>
+<span id="cb7-2"><a></a><span class="co"># Check the floating-point precision on your system</span></span>
+<span id="cb7-3"><a></a>sys.float_info</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="524">
+<pre><code>sys.float_info(max=1.7976931348623157e+308, max_exp=1024, max_10_exp=308, min=2.2250738585072014e-308, min_exp=-1021, min_10_exp=-307, dig=15, mant_dig=53, epsilon=2.220446049250313e-16, radix=2, rounds=1)</code></pre>
+</div>
+</div>
+</section>
+<section id="why-is-it-important" class="slide level2">
+<h2>Why is it important?</h2>
+<ul>
+<li>Ensures portability and consistency of numerical computations across different systems.</li>
+<li>Without a standard, the same calculation could yield different results on different machines.</li>
+<li>Essential for reliable scientific and engineering software.</li>
+</ul>
+</section>
+<section id="single-precision-float32" class="slide level2">
+<h2>Single Precision (Float32)</h2>
+<ul>
+<li>Uses 32 bits to represent a number.</li>
+<li>1 sign bit, 8 exponent bits, 23 significand (mantissa) bits.</li>
+<li>Offers approximately 7 decimal digits of precision.</li>
+</ul>
+<div id="0da0c55c" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb9-2"><a></a>np.float32(<span class="dv">1</span><span class="op">/</span><span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="525">
+<pre><code>np.float32(0.14285715)</code></pre>
+</div>
+</div>
+</section>
+<section id="double-precision-float64" class="slide level2">
+<h2>Double Precision (Float64)</h2>
+<ul>
+<li>Uses 64 bits to represent a number.</li>
+<li>1 sign bit, 11 exponent bits, 52 significand bits.</li>
+<li>Offers approximately 15-17 decimal digits of precision. This is the default in Python and NumPy.</li>
+</ul>
+<div id="a2c7af1a" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a><span class="co"># Example of a float64 number (default in Python)</span></span>
+<span id="cb11-2"><a></a><span class="dv">1</span><span class="op">/</span><span class="dv">7</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="526">
+<pre><code>0.14285714285714285</code></pre>
+</div>
+</div>
+</section>
+<section id="special-values" class="slide level2">
+<h2>Special Values</h2>
+<ul>
+<li><strong>Infinity <span class="math inline">\(\infty\)</span></strong>: Result of overflow or division by zero.</li>
+</ul>
+<div id="7b9e063e" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a></a>lil <span class="op">=</span> np.finfo(np.float64).resolution <span class="co"># smallest recognizable value</span></span>
+<span id="cb13-2"><a></a>big <span class="op">=</span> np.finfo(np.float64).<span class="bu">max</span> <span class="co"># biggest recognizable value</span></span>
+<span id="cb13-3"><a></a>big <span class="op">/</span> lil</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="527">
+<pre><code>np.float64(inf)</code></pre>
+</div>
+</div>
+<ul>
+<li><strong>Not a Number (NaN)</strong>: Result of undefined operations (e.g., <span class="math inline">\(0/0\)</span>, <span class="math inline">\(\sqrt{-1}\)</span>).</li>
+</ul>
+<div id="ce0479f1" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a></a>np.sqrt(<span class="op">-</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="528">
+<pre><code>np.float64(nan)</code></pre>
+</div>
+</div>
+</section>
+<section id="pitfall-1-limited-precision" class="slide level2">
+<h2>Pitfall 1: Limited Precision</h2>
+<ul>
+<li>Not all real numbers can be represented exactly.</li>
+<li>Decimal numbers like 0.1 often have an infinitely repeating binary representation.</li>
+<li>This leads to small, unavoidable rounding errors.</li>
+</ul>
+<div id="5678d3c3" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a></a><span class="fl">.1</span> <span class="op">+</span> <span class="fl">.2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="529">
+<pre><code>0.30000000000000004</code></pre>
+</div>
+</div>
+</section>
+<section id="pitfall-2-accumulation" class="slide level2">
+<h2>Pitfall 2: Accumulation</h2>
+<ul>
+<li>Small rounding errors can accumulate over many operations.</li>
+<li>This can lead to significant inaccuracies in long computations or iterative algorithms.</li>
+<li>Careful algorithm design and error analysis are crucial.</li>
+</ul>
+<div id="75a796f7" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a></a>total <span class="op">=</span> <span class="fl">0.0</span></span>
+<span id="cb19-2"><a></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">100000</span>):</span>
+<span id="cb19-3"><a></a>    total <span class="op">+=</span> <span class="fl">0.1</span></span>
+<span id="cb19-4"><a></a>total, <span class="dv">100000</span> <span class="op">*</span> <span class="fl">0.1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="530">
+<pre><code>(10000.000000018848, 10000.0)</code></pre>
+</div>
+</div>
+</section>
+<section id="pitfall-3-comparison-issues" class="slide level2">
+<h2>Pitfall 3: Comparison Issues</h2>
+<ul>
+<li>Due to limited precision, direct equality comparisons (<code>==</code>) between floating-point numbers are often unreliable.</li>
+</ul>
+<div id="9feb8f23" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a></a>(<span class="dv">1</span> <span class="op">+</span> <span class="dv">2</span>) <span class="op">/</span> <span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="531">
+<pre><code>0.3</code></pre>
+</div>
+</div>
+<div id="d2e5bab5" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a></a><span class="dv">1</span> <span class="op">/</span> <span class="dv">10</span> <span class="op">+</span> <span class="dv">2</span> <span class="op">/</span> <span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="532">
+<pre><code>0.30000000000000004</code></pre>
+</div>
+</div>
+</section>
+<section id="pitfall-4-subtractive-cancellation" class="slide level2">
+<h2>Pitfall 4: Subtractive Cancellation</h2>
+<ul>
+<li>Occurs when subtracting two nearly equal numbers.</li>
+<li>The most significant bits cancel out, leaving only the less significant bits.</li>
+<li>Can drastically reduce the effective precision.</li>
+</ul>
+<div id="575cf204" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a></a>x <span class="op">=</span> <span class="fl">1.0000000000000001</span></span>
+<span id="cb25-2"><a></a>y <span class="op">=</span> <span class="fl">1.0000000000000000</span></span>
+<span id="cb25-3"><a></a>x <span class="op">-</span> y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="533">
+<pre><code>0.0</code></pre>
+</div>
+</div>
+</section></section>
+<section>
+<section id="symbolic-computation" class="title-slide slide level1 center">
+<h1>Symbolic Computation</h1>
+
+</section>
+<section id="credit" class="slide level2">
+<h2>Credit</h2>
+<ul>
+<li>The <a href="https://docs.sympy.org/latest/tutorials/intro-tutorial/">SymPy tutorial</a>.</li>
+<li>SymPy solves the floating point problem.</li>
+</ul>
+</section>
+<section id="quoth-sympy" class="slide level2">
+<h2>Quoth SymPy</h2>
+<blockquote>
+<p>Symbolic computation deals with the computation of mathematical objects symbolically. This means that the mathematical objects are represented exactly, not approximately, and mathematical expressions with unevaluated variables are left in symbolic form.</p>
+</blockquote>
+</section>
+<section id="non-symbolic-computation" class="slide level2">
+<h2>Non-symbolic Computation</h2>
+<ul>
+<li>A common problem in computing is to compute the likes of distance between points separated by vectors.</li>
+<li>Imagine two objects are separated by a horizontal displacement of <code>3</code> units, and vertical displacement of <code>4</code> units, and we wish to determine the minimum distance.</li>
+<li>A straightforward application of the Pythagorean Theorem.</li>
+</ul>
+<div id="6ead6c96" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a></a>np.sqrt(<span class="dv">3</span> <span class="op">*</span> <span class="dv">3</span> <span class="op">+</span> <span class="dv">4</span> <span class="op">*</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="534">
+<pre><code>np.float64(5.0)</code></pre>
+</div>
+</div>
+</section>
+<section id="pitfalls" class="slide level2">
+<h2>Pitfalls</h2>
+<ul>
+<li>These distances quickly become inaccurate.</li>
+</ul>
+<div id="ea224d73" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a></a>np.sqrt(<span class="dv">2</span> <span class="op">*</span> <span class="dv">2</span> <span class="op">+</span> <span class="dv">4</span> <span class="op">*</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="535">
+<pre><code>np.float64(4.47213595499958)</code></pre>
+</div>
+</div>
+<ul>
+<li>Then stuff like <a href="https://www.kezi.com/railroad-bridge-collapses-into-marys-river-in-corvallis/article_50b3ab98-cae2-11ef-86a9-2b8ecb0cf78c.html">this</a> happens: <img data-src="bridge.jpg"></li>
+</ul>
+</section>
+<section id="symbolic-computation-1" class="slide level2">
+<h2>Symbolic Computation</h2>
+<ul>
+<li>In point of fact, the solution to <span class="math inline">\(\sqrt{2^2 + 4*2}\)</span> is actually <span class="math inline">\(\sqrt{20}\)</span> and there’s no other graceful way to represent it.</li>
+<li>So we’ll use <em>symbols</em> to store values.</li>
+</ul>
+<div id="abc65a7f" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a></a><span class="im">import</span> sympy</span>
+<span id="cb31-2"><a></a>x <span class="op">=</span> sympy.symbols(<span class="st">'x'</span>)</span>
+<span id="cb31-3"><a></a>y <span class="op">=</span> sympy.symbols(<span class="st">'y'</span>)</span>
+<span id="cb31-4"><a></a>dist <span class="op">=</span> sympy.sqrt(x <span class="op">+</span> y)</span>
+<span id="cb31-5"><a></a>dist</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="536">
+<p><span class="math inline">\(\displaystyle \sqrt{x + y}\)</span></p>
+</div>
+</div>
+</section>
+<section id="expressions" class="slide level2">
+<h2>Expressions</h2>
+<ul>
+<li>We term this a “symbolic expression”.</li>
+<li>We can perform operations…</li>
+</ul>
+<div id="04e445de" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a></a><span class="dv">2</span> <span class="op">*</span> dist</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="537">
+<p><span class="math inline">\(\displaystyle 2 \sqrt{x + y}\)</span></p>
+</div>
+</div>
+<ul>
+<li>We can add other symbols…</li>
+</ul>
+<div id="2c36f10b" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a></a>z <span class="op">=</span> sympy.symbols(<span class="st">'z'</span>)</span>
+<span id="cb33-2"><a></a>z <span class="op">+</span> dist</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="538">
+<p><span class="math inline">\(\displaystyle z + \sqrt{x + y}\)</span></p>
+</div>
+</div>
+</section>
+<section id="niceties" class="slide level2">
+<h2>Niceties</h2>
+<ul>
+<li>We can declare multiple symbols at once:</li>
+</ul>
+<div id="1da38443" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a></a>a, b, c <span class="op">=</span> sympy.symbols(<span class="st">'a b c'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>SymPy will automatically simplify.</li>
+</ul>
+<div id="d854d686" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a></a>sympy.sqrt(<span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="540">
+<p><span class="math inline">\(\displaystyle 2 \sqrt{5}\)</span></p>
+</div>
+</div>
+<ul>
+<li>Compare:</li>
+</ul>
+<div id="782fc3c9" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a></a>np.sqrt(<span class="dv">20</span>), np.sqrt(<span class="dv">5</span>), <span class="dv">2</span> <span class="op">*</span> np.sqrt(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="541">
+<pre><code>(np.float64(4.47213595499958),
+ np.float64(2.23606797749979),
+ np.float64(4.47213595499958))</code></pre>
+</div>
+</div>
+</section></section>
+<section>
+<section id="operations" class="title-slide slide level1 center">
+<h1>Operations</h1>
+
+</section>
+<section id="extended-floats" class="slide level2">
+<h2>Extended Floats</h2>
+<ul>
+<li>SymPy uses floats by default, but doesn’t have to.</li>
+<li>You can specify a number of decimals for any value.</li>
+<li>We also should that SymPy contains some useful constants!</li>
+</ul>
+<div id="d13ed616" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a></a><span class="co"># "Evaluate as float to 100 digits"</span></span>
+<span id="cb38-2"><a></a><span class="co"># We use sympy.py, not e.g. np.pi</span></span>
+<span id="cb38-3"><a></a>sympy.pi.evalf(<span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="542">
+<p><span class="math inline">\(\displaystyle 3.141592653589793238462643383279502884197169399375105820974944592307816406286208998628034825342117068\)</span></p>
+</div>
+</div>
+</section>
+<section id="substitution" class="slide level2">
+<h2>Substitution</h2>
+<ul>
+<li>Often we want to solve an equation algebraically and <em>also</em> know a numerical solution.</li>
+<li>The usefulness of SymPy is to do both, and maximally simply the result to minimize error.</li>
+<li>We can use <code>subs()</code> to get solutions given values.</li>
+</ul>
+<div id="daa02e0c" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a></a>dist</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="543">
+<p><span class="math inline">\(\displaystyle \sqrt{x + y}\)</span></p>
+</div>
+</div>
+</section>
+<section id="value-substitution" class="slide level2">
+<h2>Value Substitution</h2>
+<ul>
+<li>Substitute <code>3</code> for <code>x</code></li>
+</ul>
+<div id="33da8ea6" class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a></a>dist.subs(x, <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="544">
+<p><span class="math inline">\(\displaystyle \sqrt{y + 3}\)</span></p>
+</div>
+</div>
+</section>
+<section id="expression-substitution" class="slide level2">
+<h2>Expression Substitution</h2>
+<ul>
+<li>Perhaps <code>y</code> is, itself, a distance expressed over a right triangle with sides <code>a</code> and <code>b</code></li>
+</ul>
+<div id="3269d3f9" class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a></a>dist.subs(y,a<span class="op">*</span>a<span class="op">+</span>b<span class="op">*</span>b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="545">
+<p><span class="math inline">\(\displaystyle \sqrt{a^{2} + b^{2} + x}\)</span></p>
+</div>
+</div>
+</section>
+<section id="strings" class="slide level2">
+<h2>Strings</h2>
+<ul>
+<li>Sometimes we want to take a Python expression and convert to a symbolic SymPy expression.</li>
+</ul>
+<div id="6a77ed56" class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a></a>str_expr <span class="op">=</span> <span class="st">"x**2 + 3*x - 1/2"</span></span>
+<span id="cb42-2"><a></a><span class="im">from</span> sympy <span class="im">import</span> sympify</span>
+<span id="cb42-3"><a></a>expr <span class="op">=</span> sympify(str_expr)</span>
+<span id="cb42-4"><a></a>expr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="546">
+<p><span class="math inline">\(\displaystyle x^{2} + 3 x - \frac{1}{2}\)</span></p>
+</div>
+</div>
+<ul>
+<li>Then calculate with <code>.subs()</code></li>
+</ul>
+<div id="a5ba1273" class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a></a>expr.subs(x, <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="547">
+<p><span class="math inline">\(\displaystyle \frac{19}{2}\)</span></p>
+</div>
+</div>
+</section>
+<section id="functions" class="slide level2">
+<h2>Functions</h2>
+<ul>
+<li>Sibling of <code>vectorize</code></li>
+<li>Takes a SymPy expression, makes a Python function.</li>
+</ul>
+<div id="7e8c4de5" class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a></a>expr <span class="co"># so we remember.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="548">
+<p><span class="math inline">\(\displaystyle x^{2} + 3 x - \frac{1}{2}\)</span></p>
+</div>
+</div>
+<ul>
+<li>Calculate…</li>
+</ul>
+<div id="ea744480" class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a></a>f <span class="op">=</span> sympy.lambdify(x, expr, <span class="st">"scipy"</span>)</span>
+<span id="cb45-2"><a></a>f(np.arange(<span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="549">
+<pre><code>array([ -0.5,   3.5,   9.5,  17.5,  27.5,  39.5,  53.5,  69.5,  87.5,
+       107.5])</code></pre>
+</div>
+</div>
+</section>
+<section id="aside-scipynumpy" class="slide level2">
+<h2>Aside: SciPy/NumPy</h2>
+<ul>
+<li><strong>Always</strong> use <code>lambdify</code> specified with <code>"scipy"</code> (or <code>"numpy"</code>) if you have SciPy or even just NumPy installed</li>
+<li>It uses NumPy’s more powerful (than Python’s) mathematical operations.</li>
+</ul>
+</section>
+<section id="aside-plots" class="slide level2">
+<h2>Aside: Plots</h2>
+<div id="5be8a062" class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a></a><span class="co"># import sympy</span></span>
+<span id="cb47-2"><a></a><span class="co"># from sympy.abc import x</span></span>
+<span id="cb47-3"><a></a><span class="co"># import scipy</span></span>
+<span id="cb47-4"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb47-5"><a></a>f <span class="op">=</span> sympy.lambdify(x,x<span class="op">*</span>x,<span class="st">"scipy"</span>)</span>
+<span id="cb47-6"><a></a>xs <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">5</span>,<span class="dv">5</span>) </span>
+<span id="cb47-7"><a></a>plt.plot(xs, f(xs))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="08_sympy_files/figure-revealjs/cell-30-output-1.png" width="790" height="411"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="simplification" class="slide level2">
+<h2>Simplification</h2>
+<ul>
+<li>If I use SymPy, I don’t have to remember this:</li>
+</ul>
+<div id="178d637d" class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a></a>sympy.simplify(sympy.sin(x)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> sympy.cos(x)<span class="op">**</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="551">
+<p><span class="math inline">\(\displaystyle 1\)</span></p>
+</div>
+</div>
+<ul>
+<li>Or figure out this:</li>
+</ul>
+<div id="8eb5ee1d" class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a></a>sympy.simplify((x<span class="op">**</span><span class="dv">3</span> <span class="op">+</span> x<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> x <span class="op">-</span> <span class="dv">1</span>)<span class="op">/</span>(x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">2</span><span class="op">*</span>x <span class="op">+</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="552">
+<p><span class="math inline">\(\displaystyle x - 1\)</span></p>
+</div>
+</div>
+</section>
+<section id="polynomials" class="slide level2">
+<h2>Polynomials</h2>
+<ul>
+<li>Often we <em>don’t</em> want a simplified polynomial.</li>
+</ul>
+<div id="58f923d3" class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a></a>sympy.simplify(x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">2</span><span class="op">*</span>x <span class="op">+</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="553">
+<p><span class="math inline">\(\displaystyle x^{2} + 2 x + 1\)</span></p>
+</div>
+</div>
+<ul>
+<li>We perhaps instead wish to <code>factor()</code></li>
+</ul>
+<div id="3e6e20b4" class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a></a>sympy.factor(x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">2</span><span class="op">*</span>x <span class="op">+</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="554">
+<p><span class="math inline">\(\displaystyle \left(x + 1\right)^{2}\)</span></p>
+</div>
+</div>
+</section>
+<section id="expand" class="slide level2">
+<h2>Expand</h2>
+<ul>
+<li>We may also start with factored form.</li>
+</ul>
+<div id="3dd369fc" class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a></a>eq <span class="op">=</span> x<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> (x<span class="op">+</span><span class="dv">1</span>) <span class="op">*</span> (x<span class="op">-</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>This can deceptively by made smaller by expanding it.</li>
+</ul>
+<div id="970a3b81" class="cell" data-execution_count="36">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a></a>sympy.expand(eq)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="556">
+<p><span class="math inline">\(\displaystyle 1\)</span></p>
+</div>
+</div>
+</section>
+<section id="fractions-1" class="slide level2">
+<h2>Fractions</h2>
+<ul>
+<li>We can also cancel out fractions.</li>
+</ul>
+<div id="8042b41f" class="cell" data-execution_count="37">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a></a>eq <span class="op">=</span> (x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">2</span><span class="op">*</span>x <span class="op">+</span> <span class="dv">1</span>)<span class="op">/</span>(x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> x)</span>
+<span id="cb54-2"><a></a>eq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="557">
+<p><span class="math inline">\(\displaystyle \frac{x^{2} + 2 x + 1}{x^{2} + x}\)</span></p>
+</div>
+</div>
+<ul>
+<li>Using <code>sympy.factor()</code></li>
+</ul>
+<div id="d306a874" class="cell" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a></a>sympy.factor(eq)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="558">
+<p><span class="math inline">\(\displaystyle \frac{x + 1}{x}\)</span></p>
+</div>
+</div>
+</section>
+<section id="powers" class="slide level2">
+<h2>Powers</h2>
+<ul>
+<li>SymPy can also perform some simplifications related to exponention.</li>
+<li>Movie size in memory is frame size time frame rate times duration.</li>
+</ul>
+<div id="0883fb2f" class="cell" data-execution_count="39">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a></a>eq <span class="op">=</span> x<span class="op">**</span><span class="dv">10</span><span class="op">*</span>x<span class="op">**</span><span class="dv">9</span><span class="op">*</span>x<span class="op">**</span><span class="dv">5</span><span class="op">*</span>x<span class="op">*</span><span class="dv">9</span> <span class="co"># Avatar in HD is ~4 hrs long at ~60fps</span></span>
+<span id="cb56-2"><a></a>eq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="559">
+<p><span class="math inline">\(\displaystyle 9 x^{25}\)</span></p>
+</div>
+</div>
+<ul>
+<li>Or just sub in <code>2</code></li>
+</ul>
+<div id="245f7c1e" class="cell" data-execution_count="40">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a></a>eq.subs(x,<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="560">
+<p><span class="math inline">\(\displaystyle 301989888\)</span></p>
+</div>
+</div>
+</section></section>
+<section>
+<section id="calculus" class="title-slide slide level1 center">
+<h1>Calculus</h1>
+
+</section>
+<section id="derivatives" class="slide level2">
+<h2>Derivatives</h2>
+<ul>
+<li>We can calculate derivatives.</li>
+</ul>
+<div id="6deab6e0" class="cell" data-execution_count="41">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a></a>sympy.diff(x<span class="op">*</span>x, x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="561">
+<p><span class="math inline">\(\displaystyle 2 x\)</span></p>
+</div>
+</div>
+</section>
+<section id="integrals" class="slide level2">
+<h2>Integrals</h2>
+<div id="62ee231a" class="cell" data-execution_count="42">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a></a>sympy.integrate(sympy.sin(x), x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="562">
+<p><span class="math inline">\(\displaystyle - \cos{\left(x \right)}\)</span></p>
+</div>
+</div>
+</section>
+<section id="solve-integrals" class="slide level2">
+<h2>Solve Integrals</h2>
+<ul>
+<li>Give a variable a domain…</li>
+</ul>
+<div id="beb7a83a" class="cell" data-execution_count="43">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a></a>integral <span class="op">=</span> sympy.Integral(sympy.exp(x), (x, <span class="dv">0</span>, <span class="dv">1</span>))</span>
+<span id="cb60-2"><a></a>integral</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="563">
+<p><span class="math inline">\(\displaystyle \int\limits_{0}^{1} e^{x}\, dx\)</span></p>
+</div>
+</div>
+<ul>
+<li>And evaluate.</li>
+</ul>
+<div id="7601d27c" class="cell" data-execution_count="44">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a></a>integral.evalf()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="564">
+<p><span class="math inline">\(\displaystyle 1.71828182845905\)</span></p>
+</div>
+</div>
+</section>
+<section id="compute-limits" class="slide level2">
+<h2>Compute Limits</h2>
+<ul>
+<li>One famous problem is to compute the value of the following function as it approaches zero: <span class="math display">\[
+\lim{x\to 0} \frac{\sin{x}}{x}
+\]</span></li>
+</ul>
+</section></section>
+<section>
+<section id="solutions" class="title-slide slide level1 center">
+<h1>Solutions</h1>
+
+</section>
+<section id="solve-equations" class="slide level2">
+<h2>Solve Equations</h2>
+<blockquote>
+<p><a href="https://docs.sympy.org/latest/guides/solving/index.html">The Python package SymPy can symbolically solve equations, differential equations, linear equations, nonlinear equations, matrix problems, inequalities, Diophantine equations, and evaluate integrals. SymPy can also solve numerically.</a></p>
+</blockquote>
+</section>
+<section id="algebra" class="slide level2">
+<h2>Algebra</h2>
+<ul>
+<li>We use the much nicer way to get variable names.</li>
+</ul>
+<div id="8f60e7e8" class="cell" data-execution_count="45">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a></a><span class="im">from</span> sympy.abc <span class="im">import</span> x, y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>We will aim to solve the following: <span class="math display">\[
+x^2 = y
+\]</span></li>
+</ul>
+</section>
+<section id="write-in-sympy" class="slide level2">
+<h2>Write in SymPy</h2>
+<ul>
+<li>SymPy, like many algebra systems, expects equations to be expressed as equal to zero.</li>
+<li>We note the following equivalence. <span class="math display">\[
+x^2 = y \equiv x^2 - y = 0
+\]</span></li>
+<li>So we write:</li>
+</ul>
+<div id="8ea74c96" class="cell" data-execution_count="46">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a></a>eq <span class="op">=</span> x<span class="op">*</span>x <span class="op">-</span> y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="solve" class="slide level2">
+<h2>Solve</h2>
+<ul>
+<li>To solve, we simply use <code>sympy.solve()</code>
+<ul>
+<li>We specify the equation to solve, and</li>
+<li>The variable for which to solve.</li>
+</ul></li>
+</ul>
+<div id="9d4f7d63" class="cell" data-execution_count="47">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a></a>sympy.solve(eq, x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="567">
+<pre><code>[-sqrt(y), sqrt(y)]</code></pre>
+</div>
+</div>
+<ul>
+<li>We could also do:</li>
+</ul>
+<div id="0600a702" class="cell" data-execution_count="48">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a></a>sympy.solve(eq, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="568">
+<pre><code>[x**2]</code></pre>
+</div>
+</div>
 
 
 </section></section>

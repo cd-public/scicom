@@ -9004,42 +9004,315 @@
     "href": "08_sympy.rjs.html#why-sympy",
     "title": "SymPy",
     "section": "Why SymPy",
-    "text": "Why SymPy\n\nMost popular scientific computing platform in the world.\nBasis of scikit-learn, the most popular machine learning platform in the world.\nExtremely rigorous - most functions and documentation come with academic citations."
+    "text": "Why SymPy\n\n“SymPy is free both as in speech and as in beer.”\n“Most computer algebra systems invent their own language. Not SymPy.”\n“An advantage of SymPy is that it is lightweight.”"
   },
   {
     "objectID": "08_sympy.rjs.html#why-not-sympy",
     "href": "08_sympy.rjs.html#why-not-sympy",
     "title": "SymPy",
     "section": "Why not SymPy",
-    "text": "Why not SymPy\n\nSciPy for statistics has basically one challenger (statsmodels, which is great).\nSometimes SciPy is too “heavyweight” and NumPy would be sufficient.\nAs a rule, I tend to use NumPy for easy things and scikit-learn for hard things, and don’t use SciPy for much."
+    "text": "Why not SymPy\n\nTo my knowledge, there’s no real competitors with SymPy.\nThe closest are probably SageMath and Mathematica.\nI use browser-based Mathematica via https://www.wolframalpha.com/ from time to time (when I don’t have a Python installation handy)."
   },
   {
-    "objectID": "08_sympy.rjs.html#relevance",
-    "href": "08_sympy.rjs.html#relevance",
+    "objectID": "08_sympy.rjs.html#cite",
+    "href": "08_sympy.rjs.html#cite",
     "title": "SymPy",
-    "section": "Relevance",
-    "text": "Relevance\n\nThis is a scientific computing course!\nWe’ll do a bit of signal processing and interpolation."
-  },
-  {
-    "objectID": "08_sympy.rjs.html#credits",
-    "href": "08_sympy.rjs.html#credits",
-    "title": "SymPy",
-    "section": "Credits",
-    "text": "Credits\n\nSciPy is a big, complex library with many components.\nI used each of:\n\nThe User Guide\nThe API reference\n\nAPI is “application program interface” - a description of the functions in SciPy by their arguments and return values.\n\nThe Cookbook which may be unofficial."
+    "section": "Cite",
+    "text": "Cite\n@article{10.7717/peerj-cs.103,\n     title = {SymPy: symbolic computing in Python},\n     author = {Meurer, Aaron and Smith, Christopher P. and Paprocki, Mateusz and \\v{C}ert\\'{i}k, Ond\\v{r}ej and Kirpichev, Sergey B. and Rocklin, Matthew and Kumar, AMiT and Ivanov, Sergiu and Moore, Jason K. and Singh, Sartaj and Rathnayake, Thilina and Vig, Sean and Granger, Brian E. and Muller, Richard P. and Bonazzi, Francesco and Gupta, Harsh and Vats, Shivam and Johansson, Fredrik and Pedregosa, Fabian and Curry, Matthew J. and Terrel, Andy R. and Rou\\v{c}ka, \\v{S}t\\v{e}p\\'{a}n and Saboo, Ashutosh and Fernando, Isuru and Kulal, Sumith and Cimrman, Robert and Scopatz, Anthony},\n     year = 2017,\n     month = jan,\n     keywords = {Python, Computer algebra system, Symbolics},\n     abstract = {\n                SymPy is an open source computer algebra system written in pure Python. It is built with a focus on extensibility and ease of use, through both interactive and programmatic applications. These characteristics have led SymPy to become a popular symbolic library for the scientific Python ecosystem. This paper presents the architecture of SymPy, a description of its features, and a discussion of select submodules. The supplementary material provide additional examples and further outline details of the architecture and features of SymPy.\n             },\n     volume = 3,\n     pages = {e103},\n     journal = {PeerJ Computer Science},\n     issn = {2376-5992},\n     url = {https://doi.org/10.7717/peerj-cs.103},\n     doi = {10.7717/peerj-cs.103}\n    }"
   },
   {
     "objectID": "08_sympy.rjs.html#pip-again",
     "href": "08_sympy.rjs.html#pip-again",
     "title": "SymPy",
     "section": "pip again",
-    "text": "pip again\n\nJust like NumPy, Matplotlib is a Python package which we install via pip\n\npython3 -m pip install scipy\n\nThat might take a moment, when it does we can check it worked!"
+    "text": "pip again\n\nJust like NumPy, Matplotlib is a Python package which we install via pip\n\npython3 -m pip install sympy\n\nThat might take a moment, when it does we can check it worked!"
+  },
+  {
+    "objectID": "08_sympy.rjs.html#example",
+    "href": "08_sympy.rjs.html#example",
+    "title": "SymPy",
+    "section": "Example",
+    "text": "Example\n\nComputers don’t hold numbers that precisely.\n\n\n10.0 ** 100 == 10.0 ** 100 + 47\n\nTrue"
+  },
+  {
+    "objectID": "08_sympy.rjs.html#fractions",
+    "href": "08_sympy.rjs.html#fractions",
+    "title": "SymPy",
+    "section": "Fractions",
+    "text": "Fractions\n\nMuch worse with fractions I find.\n\n\n1 / 7000000 * 7000000\n\n0.9999999999999999"
+  },
+  {
+    "objectID": "08_sympy.rjs.html#floats",
+    "href": "08_sympy.rjs.html#floats",
+    "title": "SymPy",
+    "section": "Floats:",
+    "text": "Floats:\n\nThe IEEE 754 Floating-Point Standard\n\n\n\nIt is basically scientific notation that fits in a fixed amount of characters."
+  },
+  {
+    "objectID": "08_sympy.rjs.html#what-is-it",
+    "href": "08_sympy.rjs.html#what-is-it",
+    "title": "SymPy",
+    "section": "What is it?",
+    "text": "What is it?\n\nThe IEEE 754 standard defines formats for representing floating-point numbers.\nIt specifies how floating-point numbers are stored and operated on in computer hardware.\nMost modern CPUs adhere to this standard.\n\n\nimport sys\n# Check the floating-point precision on your system\nsys.float_info\n\nsys.float_info(max=1.7976931348623157e+308, max_exp=1024, max_10_exp=308, min=2.2250738585072014e-308, min_exp=-1021, min_10_exp=-307, dig=15, mant_dig=53, epsilon=2.220446049250313e-16, radix=2, rounds=1)"
+  },
+  {
+    "objectID": "08_sympy.rjs.html#why-is-it-important",
+    "href": "08_sympy.rjs.html#why-is-it-important",
+    "title": "SymPy",
+    "section": "Why is it important?",
+    "text": "Why is it important?\n\nEnsures portability and consistency of numerical computations across different systems.\nWithout a standard, the same calculation could yield different results on different machines.\nEssential for reliable scientific and engineering software."
+  },
+  {
+    "objectID": "08_sympy.rjs.html#single-precision-float32",
+    "href": "08_sympy.rjs.html#single-precision-float32",
+    "title": "SymPy",
+    "section": "Single Precision (Float32)",
+    "text": "Single Precision (Float32)\n\nUses 32 bits to represent a number.\n1 sign bit, 8 exponent bits, 23 significand (mantissa) bits.\nOffers approximately 7 decimal digits of precision.\n\n\nimport numpy as np\nnp.float32(1/7)\n\nnp.float32(0.14285715)"
+  },
+  {
+    "objectID": "08_sympy.rjs.html#double-precision-float64",
+    "href": "08_sympy.rjs.html#double-precision-float64",
+    "title": "SymPy",
+    "section": "Double Precision (Float64)",
+    "text": "Double Precision (Float64)\n\nUses 64 bits to represent a number.\n1 sign bit, 11 exponent bits, 52 significand bits.\nOffers approximately 15-17 decimal digits of precision. This is the default in Python and NumPy.\n\n\n# Example of a float64 number (default in Python)\n1/7\n\n0.14285714285714285"
+  },
+  {
+    "objectID": "08_sympy.rjs.html#special-values",
+    "href": "08_sympy.rjs.html#special-values",
+    "title": "SymPy",
+    "section": "Special Values",
+    "text": "Special Values\n\nInfinity \\(\\infty\\): Result of overflow or division by zero.\n\n\nlil = np.finfo(np.float64).resolution # smallest recognizable value\nbig = np.finfo(np.float64).max # biggest recognizable value\nbig / lil\n\nnp.float64(inf)\n\n\n\nNot a Number (NaN): Result of undefined operations (e.g., \\(0/0\\), \\(\\sqrt{-1}\\)).\n\n\nnp.sqrt(-1)\n\nnp.float64(nan)"
+  },
+  {
+    "objectID": "08_sympy.rjs.html#pitfall-1-limited-precision",
+    "href": "08_sympy.rjs.html#pitfall-1-limited-precision",
+    "title": "SymPy",
+    "section": "Pitfall 1: Limited Precision",
+    "text": "Pitfall 1: Limited Precision\n\nNot all real numbers can be represented exactly.\nDecimal numbers like 0.1 often have an infinitely repeating binary representation.\nThis leads to small, unavoidable rounding errors.\n\n\n.1 + .2\n\n0.30000000000000004"
+  },
+  {
+    "objectID": "08_sympy.rjs.html#pitfall-2-accumulation",
+    "href": "08_sympy.rjs.html#pitfall-2-accumulation",
+    "title": "SymPy",
+    "section": "Pitfall 2: Accumulation",
+    "text": "Pitfall 2: Accumulation\n\nSmall rounding errors can accumulate over many operations.\nThis can lead to significant inaccuracies in long computations or iterative algorithms.\nCareful algorithm design and error analysis are crucial.\n\n\ntotal = 0.0\nfor _ in range(100000):\n    total += 0.1\ntotal, 100000 * 0.1\n\n(10000.000000018848, 10000.0)"
+  },
+  {
+    "objectID": "08_sympy.rjs.html#pitfall-3-comparison-issues",
+    "href": "08_sympy.rjs.html#pitfall-3-comparison-issues",
+    "title": "SymPy",
+    "section": "Pitfall 3: Comparison Issues",
+    "text": "Pitfall 3: Comparison Issues\n\nDue to limited precision, direct equality comparisons (==) between floating-point numbers are often unreliable.\n\n\n(1 + 2) / 10\n\n0.3\n\n\n\n1 / 10 + 2 / 10\n\n0.30000000000000004"
+  },
+  {
+    "objectID": "08_sympy.rjs.html#pitfall-4-subtractive-cancellation",
+    "href": "08_sympy.rjs.html#pitfall-4-subtractive-cancellation",
+    "title": "SymPy",
+    "section": "Pitfall 4: Subtractive Cancellation",
+    "text": "Pitfall 4: Subtractive Cancellation\n\nOccurs when subtracting two nearly equal numbers.\nThe most significant bits cancel out, leaving only the less significant bits.\nCan drastically reduce the effective precision.\n\n\nx = 1.0000000000000001\ny = 1.0000000000000000\nx - y\n\n0.0"
+  },
+  {
+    "objectID": "08_sympy.rjs.html#credit",
+    "href": "08_sympy.rjs.html#credit",
+    "title": "SymPy",
+    "section": "Credit",
+    "text": "Credit\n\nThe SymPy tutorial.\nSymPy solves the floating point problem."
+  },
+  {
+    "objectID": "08_sympy.rjs.html#quoth-sympy",
+    "href": "08_sympy.rjs.html#quoth-sympy",
+    "title": "SymPy",
+    "section": "Quoth SymPy",
+    "text": "Quoth SymPy\n\nSymbolic computation deals with the computation of mathematical objects symbolically. This means that the mathematical objects are represented exactly, not approximately, and mathematical expressions with unevaluated variables are left in symbolic form."
+  },
+  {
+    "objectID": "08_sympy.rjs.html#non-symbolic-computation",
+    "href": "08_sympy.rjs.html#non-symbolic-computation",
+    "title": "SymPy",
+    "section": "Non-symbolic Computation",
+    "text": "Non-symbolic Computation\n\nA common problem in computing is to compute the likes of distance between points separated by vectors.\nImagine two objects are separated by a horizontal displacement of 3 units, and vertical displacement of 4 units, and we wish to determine the minimum distance.\nA straightforward application of the Pythagorean Theorem.\n\n\nnp.sqrt(3 * 3 + 4 * 4)\n\nnp.float64(5.0)"
+  },
+  {
+    "objectID": "08_sympy.rjs.html#pitfalls",
+    "href": "08_sympy.rjs.html#pitfalls",
+    "title": "SymPy",
+    "section": "Pitfalls",
+    "text": "Pitfalls\n\nThese distances quickly become inaccurate.\n\n\nnp.sqrt(2 * 2 + 4 * 4)\n\nnp.float64(4.47213595499958)\n\n\n\nThen stuff like this happens:"
+  },
+  {
+    "objectID": "08_sympy.rjs.html#symbolic-computation-1",
+    "href": "08_sympy.rjs.html#symbolic-computation-1",
+    "title": "SymPy",
+    "section": "Symbolic Computation",
+    "text": "Symbolic Computation\n\nIn point of fact, the solution to \\(\\sqrt{2^2 + 4*2}\\) is actually \\(\\sqrt{20}\\) and there’s no other graceful way to represent it.\nSo we’ll use symbols to store values.\n\n\nimport sympy\nx = sympy.symbols('x')\ny = sympy.symbols('y')\ndist = sympy.sqrt(x + y)\ndist\n\n\\(\\displaystyle \\sqrt{x + y}\\)"
+  },
+  {
+    "objectID": "08_sympy.rjs.html#expressions",
+    "href": "08_sympy.rjs.html#expressions",
+    "title": "SymPy",
+    "section": "Expressions",
+    "text": "Expressions\n\nWe term this a “symbolic expression”.\nWe can perform operations…\n\n\n2 * dist\n\n\\(\\displaystyle 2 \\sqrt{x + y}\\)\n\n\n\nWe can add other symbols…\n\n\nz = sympy.symbols('z')\nz + dist\n\n\\(\\displaystyle z + \\sqrt{x + y}\\)"
+  },
+  {
+    "objectID": "08_sympy.rjs.html#niceties",
+    "href": "08_sympy.rjs.html#niceties",
+    "title": "SymPy",
+    "section": "Niceties",
+    "text": "Niceties\n\nWe can declare multiple symbols at once:\n\n\na, b, c = sympy.symbols('a b c')\n\n\nSymPy will automatically simplify.\n\n\nsympy.sqrt(20)\n\n\\(\\displaystyle 2 \\sqrt{5}\\)\n\n\n\nCompare:\n\n\nnp.sqrt(20), np.sqrt(5), 2 * np.sqrt(5)\n\n(np.float64(4.47213595499958),\n np.float64(2.23606797749979),\n np.float64(4.47213595499958))"
+  },
+  {
+    "objectID": "08_sympy.rjs.html#extended-floats",
+    "href": "08_sympy.rjs.html#extended-floats",
+    "title": "SymPy",
+    "section": "Extended Floats",
+    "text": "Extended Floats\n\nSymPy uses floats by default, but doesn’t have to.\nYou can specify a number of decimals for any value.\nWe also should that SymPy contains some useful constants!\n\n\n# \"Evaluate as float to 100 digits\"\n# We use sympy.py, not e.g. np.pi\nsympy.pi.evalf(100)\n\n\\(\\displaystyle 3.141592653589793238462643383279502884197169399375105820974944592307816406286208998628034825342117068\\)"
+  },
+  {
+    "objectID": "08_sympy.rjs.html#substitution",
+    "href": "08_sympy.rjs.html#substitution",
+    "title": "SymPy",
+    "section": "Substitution",
+    "text": "Substitution\n\nOften we want to solve an equation algebraically and also know a numerical solution.\nThe usefulness of SymPy is to do both, and maximally simply the result to minimize error.\nWe can use subs() to get solutions given values.\n\n\ndist\n\n\\(\\displaystyle \\sqrt{x + y}\\)"
+  },
+  {
+    "objectID": "08_sympy.rjs.html#value-substitution",
+    "href": "08_sympy.rjs.html#value-substitution",
+    "title": "SymPy",
+    "section": "Value Substitution",
+    "text": "Value Substitution\n\nSubstitute 3 for x\n\n\ndist.subs(x, 3)\n\n\\(\\displaystyle \\sqrt{y + 3}\\)"
+  },
+  {
+    "objectID": "08_sympy.rjs.html#expression-substitution",
+    "href": "08_sympy.rjs.html#expression-substitution",
+    "title": "SymPy",
+    "section": "Expression Substitution",
+    "text": "Expression Substitution\n\nPerhaps y is, itself, a distance expressed over a right triangle with sides a and b\n\n\ndist.subs(y,a*a+b*b)\n\n\\(\\displaystyle \\sqrt{a^{2} + b^{2} + x}\\)"
+  },
+  {
+    "objectID": "08_sympy.rjs.html#strings",
+    "href": "08_sympy.rjs.html#strings",
+    "title": "SymPy",
+    "section": "Strings",
+    "text": "Strings\n\nSometimes we want to take a Python expression and convert to a symbolic SymPy expression.\n\n\nstr_expr = \"x**2 + 3*x - 1/2\"\nfrom sympy import sympify\nexpr = sympify(str_expr)\nexpr\n\n\\(\\displaystyle x^{2} + 3 x - \\frac{1}{2}\\)\n\n\n\nThen calculate with .subs()\n\n\nexpr.subs(x, 2)\n\n\\(\\displaystyle \\frac{19}{2}\\)"
+  },
+  {
+    "objectID": "08_sympy.rjs.html#functions",
+    "href": "08_sympy.rjs.html#functions",
+    "title": "SymPy",
+    "section": "Functions",
+    "text": "Functions\n\nSibling of vectorize\nTakes a SymPy expression, makes a Python function.\n\n\nexpr # so we remember.\n\n\\(\\displaystyle x^{2} + 3 x - \\frac{1}{2}\\)\n\n\n\nCalculate…\n\n\nf = sympy.lambdify(x, expr, \"scipy\")\nf(np.arange(10))\n\narray([ -0.5,   3.5,   9.5,  17.5,  27.5,  39.5,  53.5,  69.5,  87.5,\n       107.5])"
+  },
+  {
+    "objectID": "08_sympy.rjs.html#aside-scipynumpy",
+    "href": "08_sympy.rjs.html#aside-scipynumpy",
+    "title": "SymPy",
+    "section": "Aside: SciPy/NumPy",
+    "text": "Aside: SciPy/NumPy\n\nAlways use lambdify specified with \"scipy\" (or \"numpy\") if you have SciPy or even just NumPy installed\nIt uses NumPy’s more powerful (than Python’s) mathematical operations."
+  },
+  {
+    "objectID": "08_sympy.rjs.html#aside-plots",
+    "href": "08_sympy.rjs.html#aside-plots",
+    "title": "SymPy",
+    "section": "Aside: Plots",
+    "text": "Aside: Plots\n\n# import sympy\n# from sympy.abc import x\n# import scipy\nimport matplotlib.pyplot as plt\nf = sympy.lambdify(x,x*x,\"scipy\")\nxs = np.linspace(-5,5) \nplt.plot(xs, f(xs))"
+  },
+  {
+    "objectID": "08_sympy.rjs.html#simplification",
+    "href": "08_sympy.rjs.html#simplification",
+    "title": "SymPy",
+    "section": "Simplification",
+    "text": "Simplification\n\nIf I use SymPy, I don’t have to remember this:\n\n\nsympy.simplify(sympy.sin(x)**2 + sympy.cos(x)**2)\n\n\\(\\displaystyle 1\\)\n\n\n\nOr figure out this:\n\n\nsympy.simplify((x**3 + x**2 - x - 1)/(x**2 + 2*x + 1))\n\n\\(\\displaystyle x - 1\\)"
+  },
+  {
+    "objectID": "08_sympy.rjs.html#polynomials",
+    "href": "08_sympy.rjs.html#polynomials",
+    "title": "SymPy",
+    "section": "Polynomials",
+    "text": "Polynomials\n\nOften we don’t want a simplified polynomial.\n\n\nsympy.simplify(x**2 + 2*x + 1)\n\n\\(\\displaystyle x^{2} + 2 x + 1\\)\n\n\n\nWe perhaps instead wish to factor()\n\n\nsympy.factor(x**2 + 2*x + 1)\n\n\\(\\displaystyle \\left(x + 1\\right)^{2}\\)"
+  },
+  {
+    "objectID": "08_sympy.rjs.html#expand",
+    "href": "08_sympy.rjs.html#expand",
+    "title": "SymPy",
+    "section": "Expand",
+    "text": "Expand\n\nWe may also start with factored form.\n\n\neq = x**2 - (x+1) * (x-1)\n\n\nThis can deceptively by made smaller by expanding it.\n\n\nsympy.expand(eq)\n\n\\(\\displaystyle 1\\)"
+  },
+  {
+    "objectID": "08_sympy.rjs.html#fractions-1",
+    "href": "08_sympy.rjs.html#fractions-1",
+    "title": "SymPy",
+    "section": "Fractions",
+    "text": "Fractions\n\nWe can also cancel out fractions.\n\n\neq = (x**2 + 2*x + 1)/(x**2 + x)\neq\n\n\\(\\displaystyle \\frac{x^{2} + 2 x + 1}{x^{2} + x}\\)\n\n\n\nUsing sympy.factor()\n\n\nsympy.factor(eq)\n\n\\(\\displaystyle \\frac{x + 1}{x}\\)"
+  },
+  {
+    "objectID": "08_sympy.rjs.html#powers",
+    "href": "08_sympy.rjs.html#powers",
+    "title": "SymPy",
+    "section": "Powers",
+    "text": "Powers\n\nSymPy can also perform some simplifications related to exponention.\nMovie size in memory is frame size time frame rate times duration.\n\n\neq = x**10*x**9*x**5*x*9 # Avatar in HD is ~4 hrs long at ~60fps\neq\n\n\\(\\displaystyle 9 x^{25}\\)\n\n\n\nOr just sub in 2\n\n\neq.subs(x,2)\n\n\\(\\displaystyle 301989888\\)"
+  },
+  {
+    "objectID": "08_sympy.rjs.html#derivatives",
+    "href": "08_sympy.rjs.html#derivatives",
+    "title": "SymPy",
+    "section": "Derivatives",
+    "text": "Derivatives\n\nWe can calculate derivatives.\n\n\nsympy.diff(x*x, x)\n\n\\(\\displaystyle 2 x\\)"
+  },
+  {
+    "objectID": "08_sympy.rjs.html#integrals",
+    "href": "08_sympy.rjs.html#integrals",
+    "title": "SymPy",
+    "section": "Integrals",
+    "text": "Integrals\n\nsympy.integrate(sympy.sin(x), x)\n\n\\(\\displaystyle - \\cos{\\left(x \\right)}\\)"
+  },
+  {
+    "objectID": "08_sympy.rjs.html#solve-integrals",
+    "href": "08_sympy.rjs.html#solve-integrals",
+    "title": "SymPy",
+    "section": "Solve Integrals",
+    "text": "Solve Integrals\n\nGive a variable a domain…\n\n\nintegral = sympy.Integral(sympy.exp(x), (x, 0, 1))\nintegral\n\n\\(\\displaystyle \\int\\limits_{0}^{1} e^{x}\\, dx\\)\n\n\n\nAnd evaluate.\n\n\nintegral.evalf()\n\n\\(\\displaystyle 1.71828182845905\\)"
+  },
+  {
+    "objectID": "08_sympy.rjs.html#compute-limits",
+    "href": "08_sympy.rjs.html#compute-limits",
+    "title": "SymPy",
+    "section": "Compute Limits",
+    "text": "Compute Limits\n\nOne famous problem is to compute the value of the following function as it approaches zero: \\[\n\\lim{x\\to 0} \\frac{\\sin{x}}{x}\n\\]"
+  },
+  {
+    "objectID": "08_sympy.rjs.html#solve-equations",
+    "href": "08_sympy.rjs.html#solve-equations",
+    "title": "SymPy",
+    "section": "Solve Equations",
+    "text": "Solve Equations\n\nThe Python package SymPy can symbolically solve equations, differential equations, linear equations, nonlinear equations, matrix problems, inequalities, Diophantine equations, and evaluate integrals. SymPy can also solve numerically."
+  },
+  {
+    "objectID": "08_sympy.rjs.html#algebra",
+    "href": "08_sympy.rjs.html#algebra",
+    "title": "SymPy",
+    "section": "Algebra",
+    "text": "Algebra\n\nWe use the much nicer way to get variable names.\n\n\nfrom sympy.abc import x, y\n\n\nWe will aim to solve the following: \\[\nx^2 = y\n\\]"
+  },
+  {
+    "objectID": "08_sympy.rjs.html#write-in-sympy",
+    "href": "08_sympy.rjs.html#write-in-sympy",
+    "title": "SymPy",
+    "section": "Write in SymPy",
+    "text": "Write in SymPy\n\nSymPy, like many algebra systems, expects equations to be expressed as equal to zero.\nWe note the following equivalence. \\[\nx^2 = y \\equiv x^2 - y = 0\n\\]\nSo we write:\n\n\neq = x*x - y"
+  },
+  {
+    "objectID": "08_sympy.rjs.html#solve",
+    "href": "08_sympy.rjs.html#solve",
+    "title": "SymPy",
+    "section": "Solve",
+    "text": "Solve\n\nTo solve, we simply use sympy.solve()\n\nWe specify the equation to solve, and\nThe variable for which to solve.\n\n\n\nsympy.solve(eq, x)\n\n[-sqrt(y), sqrt(y)]\n\n\n\nWe could also do:\n\n\nsympy.solve(eq, y)\n\n[x**2]"
   },
   {
     "objectID": "08_sympy.html",
     "href": "08_sympy.html",
     "title": "SymPy",
     "section": "",
-    "text": "SciPy (pronounced “Sigh Pie”) is an open-source software for mathematics, science, and engineering.\n\n\nSymbolic Python\nBasically a NumPy extension.\n\n\n\n\nMost popular scientific computing platform in the world.\nBasis of scikit-learn, the most popular machine learning platform in the world.\nExtremely rigorous - most functions and documentation come with academic citations.\n\n\n\n\n\nSciPy for statistics has basically one challenger (statsmodels, which is great).\nSometimes SciPy is too “heavyweight” and NumPy would be sufficient.\nAs a rule, I tend to use NumPy for easy things and scikit-learn for hard things, and don’t use SciPy for much.\n\n\n\n\n\nThis is a scientific computing course!\nWe’ll do a bit of signal processing and interpolation.\n\n\n\n\n\nSciPy is a big, complex library with many components.\nI used each of:\n\nThe User Guide\nThe API reference\n\nAPI is “application program interface” - a description of the functions in SciPy by their arguments and return values.\n\nThe Cookbook which may be unofficial.",
+    "text": "A Python library for symbolic mathematics. It aims to become a full-featured computer algebra system (CAS) while keeping the code as simple as possible in order to be comprehensible and easily extensible. SymPy is written entirely in Python.\n\n\nSymbolic Python\n\n\n\n\n“SymPy is free both as in speech and as in beer.”\n“Most computer algebra systems invent their own language. Not SymPy.”\n“An advantage of SymPy is that it is lightweight.”\n\n\n\n\n\nTo my knowledge, there’s no real competitors with SymPy.\nThe closest are probably SageMath and Mathematica.\nI use browser-based Mathematica via https://www.wolframalpha.com/ from time to time (when I don’t have a Python installation handy).\n\n\n\n\n@article{10.7717/peerj-cs.103,\n     title = {SymPy: symbolic computing in Python},\n     author = {Meurer, Aaron and Smith, Christopher P. and Paprocki, Mateusz and \\v{C}ert\\'{i}k, Ond\\v{r}ej and Kirpichev, Sergey B. and Rocklin, Matthew and Kumar, AMiT and Ivanov, Sergiu and Moore, Jason K. and Singh, Sartaj and Rathnayake, Thilina and Vig, Sean and Granger, Brian E. and Muller, Richard P. and Bonazzi, Francesco and Gupta, Harsh and Vats, Shivam and Johansson, Fredrik and Pedregosa, Fabian and Curry, Matthew J. and Terrel, Andy R. and Rou\\v{c}ka, \\v{S}t\\v{e}p\\'{a}n and Saboo, Ashutosh and Fernando, Isuru and Kulal, Sumith and Cimrman, Robert and Scopatz, Anthony},\n     year = 2017,\n     month = jan,\n     keywords = {Python, Computer algebra system, Symbolics},\n     abstract = {\n                SymPy is an open source computer algebra system written in pure Python. It is built with a focus on extensibility and ease of use, through both interactive and programmatic applications. These characteristics have led SymPy to become a popular symbolic library for the scientific Python ecosystem. This paper presents the architecture of SymPy, a description of its features, and a discussion of select submodules. The supplementary material provide additional examples and further outline details of the architecture and features of SymPy.\n             },\n     volume = 3,\n     pages = {e103},\n     journal = {PeerJ Computer Science},\n     issn = {2376-5992},\n     url = {https://doi.org/10.7717/peerj-cs.103},\n     doi = {10.7717/peerj-cs.103}\n    }\n\n\n\n\nJust like NumPy, Matplotlib is a Python package which we install via pip\n\npython3 -m pip install sympy\n\nThat might take a moment, when it does we can check it worked!",
     "crumbs": [
       "SymPy"
     ]
@@ -9049,7 +9322,7 @@
     "href": "08_sympy.html#why-sympy",
     "title": "SymPy",
     "section": "",
-    "text": "Most popular scientific computing platform in the world.\nBasis of scikit-learn, the most popular machine learning platform in the world.\nExtremely rigorous - most functions and documentation come with academic citations.",
+    "text": "“SymPy is free both as in speech and as in beer.”\n“Most computer algebra systems invent their own language. Not SymPy.”\n“An advantage of SymPy is that it is lightweight.”",
     "crumbs": [
       "SymPy"
     ]
@@ -9059,27 +9332,17 @@
     "href": "08_sympy.html#why-not-sympy",
     "title": "SymPy",
     "section": "",
-    "text": "SciPy for statistics has basically one challenger (statsmodels, which is great).\nSometimes SciPy is too “heavyweight” and NumPy would be sufficient.\nAs a rule, I tend to use NumPy for easy things and scikit-learn for hard things, and don’t use SciPy for much.",
+    "text": "To my knowledge, there’s no real competitors with SymPy.\nThe closest are probably SageMath and Mathematica.\nI use browser-based Mathematica via https://www.wolframalpha.com/ from time to time (when I don’t have a Python installation handy).",
     "crumbs": [
       "SymPy"
     ]
   },
   {
-    "objectID": "08_sympy.html#relevance",
-    "href": "08_sympy.html#relevance",
+    "objectID": "08_sympy.html#cite",
+    "href": "08_sympy.html#cite",
     "title": "SymPy",
     "section": "",
-    "text": "This is a scientific computing course!\nWe’ll do a bit of signal processing and interpolation.",
-    "crumbs": [
-      "SymPy"
-    ]
-  },
-  {
-    "objectID": "08_sympy.html#credits",
-    "href": "08_sympy.html#credits",
-    "title": "SymPy",
-    "section": "",
-    "text": "SciPy is a big, complex library with many components.\nI used each of:\n\nThe User Guide\nThe API reference\n\nAPI is “application program interface” - a description of the functions in SciPy by their arguments and return values.\n\nThe Cookbook which may be unofficial.",
+    "text": "@article{10.7717/peerj-cs.103,\n     title = {SymPy: symbolic computing in Python},\n     author = {Meurer, Aaron and Smith, Christopher P. and Paprocki, Mateusz and \\v{C}ert\\'{i}k, Ond\\v{r}ej and Kirpichev, Sergey B. and Rocklin, Matthew and Kumar, AMiT and Ivanov, Sergiu and Moore, Jason K. and Singh, Sartaj and Rathnayake, Thilina and Vig, Sean and Granger, Brian E. and Muller, Richard P. and Bonazzi, Francesco and Gupta, Harsh and Vats, Shivam and Johansson, Fredrik and Pedregosa, Fabian and Curry, Matthew J. and Terrel, Andy R. and Rou\\v{c}ka, \\v{S}t\\v{e}p\\'{a}n and Saboo, Ashutosh and Fernando, Isuru and Kulal, Sumith and Cimrman, Robert and Scopatz, Anthony},\n     year = 2017,\n     month = jan,\n     keywords = {Python, Computer algebra system, Symbolics},\n     abstract = {\n                SymPy is an open source computer algebra system written in pure Python. It is built with a focus on extensibility and ease of use, through both interactive and programmatic applications. These characteristics have led SymPy to become a popular symbolic library for the scientific Python ecosystem. This paper presents the architecture of SymPy, a description of its features, and a discussion of select submodules. The supplementary material provide additional examples and further outline details of the architecture and features of SymPy.\n             },\n     volume = 3,\n     pages = {e103},\n     journal = {PeerJ Computer Science},\n     issn = {2376-5992},\n     url = {https://doi.org/10.7717/peerj-cs.103},\n     doi = {10.7717/peerj-cs.103}\n    }",
     "crumbs": [
       "SymPy"
     ]
@@ -9088,8 +9351,408 @@
     "objectID": "08_sympy.html#pip-again",
     "href": "08_sympy.html#pip-again",
     "title": "SymPy",
-    "section": "pip again",
-    "text": "pip again\n\nJust like NumPy, Matplotlib is a Python package which we install via pip\n\npython3 -m pip install scipy\n\nThat might take a moment, when it does we can check it worked!",
+    "section": "",
+    "text": "Just like NumPy, Matplotlib is a Python package which we install via pip\n\npython3 -m pip install sympy\n\nThat might take a moment, when it does we can check it worked!",
+    "crumbs": [
+      "SymPy"
+    ]
+  },
+  {
+    "objectID": "08_sympy.html#example",
+    "href": "08_sympy.html#example",
+    "title": "SymPy",
+    "section": "Example",
+    "text": "Example\n\nComputers don’t hold numbers that precisely.\n\n\n10.0 ** 100 == 10.0 ** 100 + 47\n\nTrue",
+    "crumbs": [
+      "SymPy"
+    ]
+  },
+  {
+    "objectID": "08_sympy.html#fractions",
+    "href": "08_sympy.html#fractions",
+    "title": "SymPy",
+    "section": "Fractions",
+    "text": "Fractions\n\nMuch worse with fractions I find.\n\n\n1 / 7000000 * 7000000\n\n0.9999999999999999",
+    "crumbs": [
+      "SymPy"
+    ]
+  },
+  {
+    "objectID": "08_sympy.html#floats",
+    "href": "08_sympy.html#floats",
+    "title": "SymPy",
+    "section": "Floats:",
+    "text": "Floats:\n\nThe IEEE 754 Floating-Point Standard\n\n\n\nIt is basically scientific notation that fits in a fixed amount of characters.",
+    "crumbs": [
+      "SymPy"
+    ]
+  },
+  {
+    "objectID": "08_sympy.html#what-is-it",
+    "href": "08_sympy.html#what-is-it",
+    "title": "SymPy",
+    "section": "What is it?",
+    "text": "What is it?\n\nThe IEEE 754 standard defines formats for representing floating-point numbers.\nIt specifies how floating-point numbers are stored and operated on in computer hardware.\nMost modern CPUs adhere to this standard.\n\n\nimport sys\n# Check the floating-point precision on your system\nsys.float_info\n\nsys.float_info(max=1.7976931348623157e+308, max_exp=1024, max_10_exp=308, min=2.2250738585072014e-308, min_exp=-1021, min_10_exp=-307, dig=15, mant_dig=53, epsilon=2.220446049250313e-16, radix=2, rounds=1)",
+    "crumbs": [
+      "SymPy"
+    ]
+  },
+  {
+    "objectID": "08_sympy.html#why-is-it-important",
+    "href": "08_sympy.html#why-is-it-important",
+    "title": "SymPy",
+    "section": "Why is it important?",
+    "text": "Why is it important?\n\nEnsures portability and consistency of numerical computations across different systems.\nWithout a standard, the same calculation could yield different results on different machines.\nEssential for reliable scientific and engineering software.",
+    "crumbs": [
+      "SymPy"
+    ]
+  },
+  {
+    "objectID": "08_sympy.html#single-precision-float32",
+    "href": "08_sympy.html#single-precision-float32",
+    "title": "SymPy",
+    "section": "Single Precision (Float32)",
+    "text": "Single Precision (Float32)\n\nUses 32 bits to represent a number.\n1 sign bit, 8 exponent bits, 23 significand (mantissa) bits.\nOffers approximately 7 decimal digits of precision.\n\n\nimport numpy as np\nnp.float32(1/7)\n\nnp.float32(0.14285715)",
+    "crumbs": [
+      "SymPy"
+    ]
+  },
+  {
+    "objectID": "08_sympy.html#double-precision-float64",
+    "href": "08_sympy.html#double-precision-float64",
+    "title": "SymPy",
+    "section": "Double Precision (Float64)",
+    "text": "Double Precision (Float64)\n\nUses 64 bits to represent a number.\n1 sign bit, 11 exponent bits, 52 significand bits.\nOffers approximately 15-17 decimal digits of precision. This is the default in Python and NumPy.\n\n\n# Example of a float64 number (default in Python)\n1/7\n\n0.14285714285714285",
+    "crumbs": [
+      "SymPy"
+    ]
+  },
+  {
+    "objectID": "08_sympy.html#special-values",
+    "href": "08_sympy.html#special-values",
+    "title": "SymPy",
+    "section": "Special Values",
+    "text": "Special Values\n\nInfinity \\(\\infty\\): Result of overflow or division by zero.\n\n\nlil = np.finfo(np.float64).resolution # smallest recognizable value\nbig = np.finfo(np.float64).max # biggest recognizable value\nbig / lil\n\nnp.float64(inf)\n\n\n\nNot a Number (NaN): Result of undefined operations (e.g., \\(0/0\\), \\(\\sqrt{-1}\\)).\n\n\nnp.sqrt(-1)\n\nnp.float64(nan)",
+    "crumbs": [
+      "SymPy"
+    ]
+  },
+  {
+    "objectID": "08_sympy.html#pitfall-1-limited-precision",
+    "href": "08_sympy.html#pitfall-1-limited-precision",
+    "title": "SymPy",
+    "section": "Pitfall 1: Limited Precision",
+    "text": "Pitfall 1: Limited Precision\n\nNot all real numbers can be represented exactly.\nDecimal numbers like 0.1 often have an infinitely repeating binary representation.\nThis leads to small, unavoidable rounding errors.\n\n\n.1 + .2\n\n0.30000000000000004",
+    "crumbs": [
+      "SymPy"
+    ]
+  },
+  {
+    "objectID": "08_sympy.html#pitfall-2-accumulation",
+    "href": "08_sympy.html#pitfall-2-accumulation",
+    "title": "SymPy",
+    "section": "Pitfall 2: Accumulation",
+    "text": "Pitfall 2: Accumulation\n\nSmall rounding errors can accumulate over many operations.\nThis can lead to significant inaccuracies in long computations or iterative algorithms.\nCareful algorithm design and error analysis are crucial.\n\n\ntotal = 0.0\nfor _ in range(100000):\n    total += 0.1\ntotal, 100000 * 0.1\n\n(10000.000000018848, 10000.0)",
+    "crumbs": [
+      "SymPy"
+    ]
+  },
+  {
+    "objectID": "08_sympy.html#pitfall-3-comparison-issues",
+    "href": "08_sympy.html#pitfall-3-comparison-issues",
+    "title": "SymPy",
+    "section": "Pitfall 3: Comparison Issues",
+    "text": "Pitfall 3: Comparison Issues\n\nDue to limited precision, direct equality comparisons (==) between floating-point numbers are often unreliable.\n\n\n(1 + 2) / 10\n\n0.3\n\n\n\n1 / 10 + 2 / 10\n\n0.30000000000000004",
+    "crumbs": [
+      "SymPy"
+    ]
+  },
+  {
+    "objectID": "08_sympy.html#pitfall-4-subtractive-cancellation",
+    "href": "08_sympy.html#pitfall-4-subtractive-cancellation",
+    "title": "SymPy",
+    "section": "Pitfall 4: Subtractive Cancellation",
+    "text": "Pitfall 4: Subtractive Cancellation\n\nOccurs when subtracting two nearly equal numbers.\nThe most significant bits cancel out, leaving only the less significant bits.\nCan drastically reduce the effective precision.\n\n\nx = 1.0000000000000001\ny = 1.0000000000000000\nx - y\n\n0.0",
+    "crumbs": [
+      "SymPy"
+    ]
+  },
+  {
+    "objectID": "08_sympy.html#credit",
+    "href": "08_sympy.html#credit",
+    "title": "SymPy",
+    "section": "Credit",
+    "text": "Credit\n\nThe SymPy tutorial.\nSymPy solves the floating point problem.",
+    "crumbs": [
+      "SymPy"
+    ]
+  },
+  {
+    "objectID": "08_sympy.html#quoth-sympy",
+    "href": "08_sympy.html#quoth-sympy",
+    "title": "SymPy",
+    "section": "Quoth SymPy",
+    "text": "Quoth SymPy\n\nSymbolic computation deals with the computation of mathematical objects symbolically. This means that the mathematical objects are represented exactly, not approximately, and mathematical expressions with unevaluated variables are left in symbolic form.",
+    "crumbs": [
+      "SymPy"
+    ]
+  },
+  {
+    "objectID": "08_sympy.html#non-symbolic-computation",
+    "href": "08_sympy.html#non-symbolic-computation",
+    "title": "SymPy",
+    "section": "Non-symbolic Computation",
+    "text": "Non-symbolic Computation\n\nA common problem in computing is to compute the likes of distance between points separated by vectors.\nImagine two objects are separated by a horizontal displacement of 3 units, and vertical displacement of 4 units, and we wish to determine the minimum distance.\nA straightforward application of the Pythagorean Theorem.\n\n\nnp.sqrt(3 * 3 + 4 * 4)\n\nnp.float64(5.0)",
+    "crumbs": [
+      "SymPy"
+    ]
+  },
+  {
+    "objectID": "08_sympy.html#pitfalls",
+    "href": "08_sympy.html#pitfalls",
+    "title": "SymPy",
+    "section": "Pitfalls",
+    "text": "Pitfalls\n\nThese distances quickly become inaccurate.\n\n\nnp.sqrt(2 * 2 + 4 * 4)\n\nnp.float64(4.47213595499958)\n\n\n\nThen stuff like this happens:",
+    "crumbs": [
+      "SymPy"
+    ]
+  },
+  {
+    "objectID": "08_sympy.html#symbolic-computation-1",
+    "href": "08_sympy.html#symbolic-computation-1",
+    "title": "SymPy",
+    "section": "Symbolic Computation",
+    "text": "Symbolic Computation\n\nIn point of fact, the solution to \\(\\sqrt{2^2 + 4*2}\\) is actually \\(\\sqrt{20}\\) and there’s no other graceful way to represent it.\nSo we’ll use symbols to store values.\n\n\nimport sympy\nx = sympy.symbols('x')\ny = sympy.symbols('y')\ndist = sympy.sqrt(x + y)\ndist\n\n\\(\\displaystyle \\sqrt{x + y}\\)",
+    "crumbs": [
+      "SymPy"
+    ]
+  },
+  {
+    "objectID": "08_sympy.html#expressions",
+    "href": "08_sympy.html#expressions",
+    "title": "SymPy",
+    "section": "Expressions",
+    "text": "Expressions\n\nWe term this a “symbolic expression”.\nWe can perform operations…\n\n\n2 * dist\n\n\\(\\displaystyle 2 \\sqrt{x + y}\\)\n\n\n\nWe can add other symbols…\n\n\nz = sympy.symbols('z')\nz + dist\n\n\\(\\displaystyle z + \\sqrt{x + y}\\)",
+    "crumbs": [
+      "SymPy"
+    ]
+  },
+  {
+    "objectID": "08_sympy.html#niceties",
+    "href": "08_sympy.html#niceties",
+    "title": "SymPy",
+    "section": "Niceties",
+    "text": "Niceties\n\nWe can declare multiple symbols at once:\n\n\na, b, c = sympy.symbols('a b c')\n\n\nSymPy will automatically simplify.\n\n\nsympy.sqrt(20)\n\n\\(\\displaystyle 2 \\sqrt{5}\\)\n\n\n\nCompare:\n\n\nnp.sqrt(20), np.sqrt(5), 2 * np.sqrt(5)\n\n(np.float64(4.47213595499958),\n np.float64(2.23606797749979),\n np.float64(4.47213595499958))",
+    "crumbs": [
+      "SymPy"
+    ]
+  },
+  {
+    "objectID": "08_sympy.html#extended-floats",
+    "href": "08_sympy.html#extended-floats",
+    "title": "SymPy",
+    "section": "Extended Floats",
+    "text": "Extended Floats\n\nSymPy uses floats by default, but doesn’t have to.\nYou can specify a number of decimals for any value.\nWe also should that SymPy contains some useful constants!\n\n\n# \"Evaluate as float to 100 digits\"\n# We use sympy.py, not e.g. np.pi\nsympy.pi.evalf(100)\n\n\\(\\displaystyle 3.141592653589793238462643383279502884197169399375105820974944592307816406286208998628034825342117068\\)",
+    "crumbs": [
+      "SymPy"
+    ]
+  },
+  {
+    "objectID": "08_sympy.html#substitution",
+    "href": "08_sympy.html#substitution",
+    "title": "SymPy",
+    "section": "Substitution",
+    "text": "Substitution\n\nOften we want to solve an equation algebraically and also know a numerical solution.\nThe usefulness of SymPy is to do both, and maximally simply the result to minimize error.\nWe can use subs() to get solutions given values.\n\n\ndist\n\n\\(\\displaystyle \\sqrt{x + y}\\)",
+    "crumbs": [
+      "SymPy"
+    ]
+  },
+  {
+    "objectID": "08_sympy.html#value-substitution",
+    "href": "08_sympy.html#value-substitution",
+    "title": "SymPy",
+    "section": "Value Substitution",
+    "text": "Value Substitution\n\nSubstitute 3 for x\n\n\ndist.subs(x, 3)\n\n\\(\\displaystyle \\sqrt{y + 3}\\)",
+    "crumbs": [
+      "SymPy"
+    ]
+  },
+  {
+    "objectID": "08_sympy.html#expression-substitution",
+    "href": "08_sympy.html#expression-substitution",
+    "title": "SymPy",
+    "section": "Expression Substitution",
+    "text": "Expression Substitution\n\nPerhaps y is, itself, a distance expressed over a right triangle with sides a and b\n\n\ndist.subs(y,a*a+b*b)\n\n\\(\\displaystyle \\sqrt{a^{2} + b^{2} + x}\\)",
+    "crumbs": [
+      "SymPy"
+    ]
+  },
+  {
+    "objectID": "08_sympy.html#strings",
+    "href": "08_sympy.html#strings",
+    "title": "SymPy",
+    "section": "Strings",
+    "text": "Strings\n\nSometimes we want to take a Python expression and convert to a symbolic SymPy expression.\n\n\nstr_expr = \"x**2 + 3*x - 1/2\"\nfrom sympy import sympify\nexpr = sympify(str_expr)\nexpr\n\n\\(\\displaystyle x^{2} + 3 x - \\frac{1}{2}\\)\n\n\n\nThen calculate with .subs()\n\n\nexpr.subs(x, 2)\n\n\\(\\displaystyle \\frac{19}{2}\\)",
+    "crumbs": [
+      "SymPy"
+    ]
+  },
+  {
+    "objectID": "08_sympy.html#functions",
+    "href": "08_sympy.html#functions",
+    "title": "SymPy",
+    "section": "Functions",
+    "text": "Functions\n\nSibling of vectorize\nTakes a SymPy expression, makes a Python function.\n\n\nexpr # so we remember.\n\n\\(\\displaystyle x^{2} + 3 x - \\frac{1}{2}\\)\n\n\n\nCalculate…\n\n\nf = sympy.lambdify(x, expr, \"scipy\")\nf(np.arange(10))\n\narray([ -0.5,   3.5,   9.5,  17.5,  27.5,  39.5,  53.5,  69.5,  87.5,\n       107.5])",
+    "crumbs": [
+      "SymPy"
+    ]
+  },
+  {
+    "objectID": "08_sympy.html#aside-scipynumpy",
+    "href": "08_sympy.html#aside-scipynumpy",
+    "title": "SymPy",
+    "section": "Aside: SciPy/NumPy",
+    "text": "Aside: SciPy/NumPy\n\nAlways use lambdify specified with \"scipy\" (or \"numpy\") if you have SciPy or even just NumPy installed\nIt uses NumPy’s more powerful (than Python’s) mathematical operations.",
+    "crumbs": [
+      "SymPy"
+    ]
+  },
+  {
+    "objectID": "08_sympy.html#aside-plots",
+    "href": "08_sympy.html#aside-plots",
+    "title": "SymPy",
+    "section": "Aside: Plots",
+    "text": "Aside: Plots\n\n# import sympy\n# from sympy.abc import x\n# import scipy\nimport matplotlib.pyplot as plt\nf = sympy.lambdify(x,x*x,\"scipy\")\nxs = np.linspace(-5,5) \nplt.plot(xs, f(xs))",
+    "crumbs": [
+      "SymPy"
+    ]
+  },
+  {
+    "objectID": "08_sympy.html#simplification",
+    "href": "08_sympy.html#simplification",
+    "title": "SymPy",
+    "section": "Simplification",
+    "text": "Simplification\n\nIf I use SymPy, I don’t have to remember this:\n\n\nsympy.simplify(sympy.sin(x)**2 + sympy.cos(x)**2)\n\n\\(\\displaystyle 1\\)\n\n\n\nOr figure out this:\n\n\nsympy.simplify((x**3 + x**2 - x - 1)/(x**2 + 2*x + 1))\n\n\\(\\displaystyle x - 1\\)",
+    "crumbs": [
+      "SymPy"
+    ]
+  },
+  {
+    "objectID": "08_sympy.html#polynomials",
+    "href": "08_sympy.html#polynomials",
+    "title": "SymPy",
+    "section": "Polynomials",
+    "text": "Polynomials\n\nOften we don’t want a simplified polynomial.\n\n\nsympy.simplify(x**2 + 2*x + 1)\n\n\\(\\displaystyle x^{2} + 2 x + 1\\)\n\n\n\nWe perhaps instead wish to factor()\n\n\nsympy.factor(x**2 + 2*x + 1)\n\n\\(\\displaystyle \\left(x + 1\\right)^{2}\\)",
+    "crumbs": [
+      "SymPy"
+    ]
+  },
+  {
+    "objectID": "08_sympy.html#expand",
+    "href": "08_sympy.html#expand",
+    "title": "SymPy",
+    "section": "Expand",
+    "text": "Expand\n\nWe may also start with factored form.\n\n\neq = x**2 - (x+1) * (x-1)\n\n\nThis can deceptively by made smaller by expanding it.\n\n\nsympy.expand(eq)\n\n\\(\\displaystyle 1\\)",
+    "crumbs": [
+      "SymPy"
+    ]
+  },
+  {
+    "objectID": "08_sympy.html#fractions-1",
+    "href": "08_sympy.html#fractions-1",
+    "title": "SymPy",
+    "section": "Fractions",
+    "text": "Fractions\n\nWe can also cancel out fractions.\n\n\neq = (x**2 + 2*x + 1)/(x**2 + x)\neq\n\n\\(\\displaystyle \\frac{x^{2} + 2 x + 1}{x^{2} + x}\\)\n\n\n\nUsing sympy.factor()\n\n\nsympy.factor(eq)\n\n\\(\\displaystyle \\frac{x + 1}{x}\\)",
+    "crumbs": [
+      "SymPy"
+    ]
+  },
+  {
+    "objectID": "08_sympy.html#powers",
+    "href": "08_sympy.html#powers",
+    "title": "SymPy",
+    "section": "Powers",
+    "text": "Powers\n\nSymPy can also perform some simplifications related to exponention.\nMovie size in memory is frame size time frame rate times duration.\n\n\neq = x**10*x**9*x**5*x*9 # Avatar in HD is ~4 hrs long at ~60fps\neq\n\n\\(\\displaystyle 9 x^{25}\\)\n\n\n\nOr just sub in 2\n\n\neq.subs(x,2)\n\n\\(\\displaystyle 301989888\\)",
+    "crumbs": [
+      "SymPy"
+    ]
+  },
+  {
+    "objectID": "08_sympy.html#derivatives",
+    "href": "08_sympy.html#derivatives",
+    "title": "SymPy",
+    "section": "Derivatives",
+    "text": "Derivatives\n\nWe can calculate derivatives.\n\n\nsympy.diff(x*x, x)\n\n\\(\\displaystyle 2 x\\)",
+    "crumbs": [
+      "SymPy"
+    ]
+  },
+  {
+    "objectID": "08_sympy.html#integrals",
+    "href": "08_sympy.html#integrals",
+    "title": "SymPy",
+    "section": "Integrals",
+    "text": "Integrals\n\nsympy.integrate(sympy.sin(x), x)\n\n\\(\\displaystyle - \\cos{\\left(x \\right)}\\)",
+    "crumbs": [
+      "SymPy"
+    ]
+  },
+  {
+    "objectID": "08_sympy.html#solve-integrals",
+    "href": "08_sympy.html#solve-integrals",
+    "title": "SymPy",
+    "section": "Solve Integrals",
+    "text": "Solve Integrals\n\nGive a variable a domain…\n\n\nintegral = sympy.Integral(sympy.exp(x), (x, 0, 1))\nintegral\n\n\\(\\displaystyle \\int\\limits_{0}^{1} e^{x}\\, dx\\)\n\n\n\nAnd evaluate.\n\n\nintegral.evalf()\n\n\\(\\displaystyle 1.71828182845905\\)",
+    "crumbs": [
+      "SymPy"
+    ]
+  },
+  {
+    "objectID": "08_sympy.html#compute-limits",
+    "href": "08_sympy.html#compute-limits",
+    "title": "SymPy",
+    "section": "Compute Limits",
+    "text": "Compute Limits\n\nOne famous problem is to compute the value of the following function as it approaches zero: \\[\n\\lim{x\\to 0} \\frac{\\sin{x}}{x}\n\\]",
+    "crumbs": [
+      "SymPy"
+    ]
+  },
+  {
+    "objectID": "08_sympy.html#solve-equations",
+    "href": "08_sympy.html#solve-equations",
+    "title": "SymPy",
+    "section": "Solve Equations",
+    "text": "Solve Equations\n\nThe Python package SymPy can symbolically solve equations, differential equations, linear equations, nonlinear equations, matrix problems, inequalities, Diophantine equations, and evaluate integrals. SymPy can also solve numerically.",
+    "crumbs": [
+      "SymPy"
+    ]
+  },
+  {
+    "objectID": "08_sympy.html#algebra",
+    "href": "08_sympy.html#algebra",
+    "title": "SymPy",
+    "section": "Algebra",
+    "text": "Algebra\n\nWe use the much nicer way to get variable names.\n\n\nfrom sympy.abc import x, y\n\n\nWe will aim to solve the following: \\[\nx^2 = y\n\\]",
+    "crumbs": [
+      "SymPy"
+    ]
+  },
+  {
+    "objectID": "08_sympy.html#write-in-sympy",
+    "href": "08_sympy.html#write-in-sympy",
+    "title": "SymPy",
+    "section": "Write in SymPy",
+    "text": "Write in SymPy\n\nSymPy, like many algebra systems, expects equations to be expressed as equal to zero.\nWe note the following equivalence. \\[\nx^2 = y \\equiv x^2 - y = 0\n\\]\nSo we write:\n\n\neq = x*x - y",
+    "crumbs": [
+      "SymPy"
+    ]
+  },
+  {
+    "objectID": "08_sympy.html#solve",
+    "href": "08_sympy.html#solve",
+    "title": "SymPy",
+    "section": "Solve",
+    "text": "Solve\n\nTo solve, we simply use sympy.solve()\n\nWe specify the equation to solve, and\nThe variable for which to solve.\n\n\n\nsympy.solve(eq, x)\n\n[-sqrt(y), sqrt(y)]\n\n\n\nWe could also do:\n\n\nsympy.solve(eq, y)\n\n[x**2]",
     "crumbs": [
       "SymPy"
     ]
