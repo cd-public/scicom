@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.30">
+<meta name="generator" content="quarto-1.7.31">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -22,8 +22,9 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 /* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -34,7 +35,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -67,15 +68,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="./">
 <link href="./A0_gitbash.html" rel="next">
 <link href="./07_scipy.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-a4a11d514c7d463668e07712114998e6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-8ef56b68f8fa1e9d2ba328e99e439f80.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-70c9a4798e5f6abb0636bcdc3eed0e90.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-bc3769172936e0eadd9ffe6a8de618cc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -136,7 +138,7 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -292,8 +294,10 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#derivatives" id="toc-derivatives" class="nav-link" data-scroll-target="#derivatives">Derivatives</a></li>
   <li><a href="#integrals" id="toc-integrals" class="nav-link" data-scroll-target="#integrals">Integrals</a></li>
-  <li><a href="#solve-integrals" id="toc-solve-integrals" class="nav-link" data-scroll-target="#solve-integrals">Solve Integrals</a></li>
-  <li><a href="#compute-limits" id="toc-compute-limits" class="nav-link" data-scroll-target="#compute-limits">Compute Limits</a></li>
+  <li><a href="#evaluate-integrals" id="toc-evaluate-integrals" class="nav-link" data-scroll-target="#evaluate-integrals">Evaluate Integrals</a></li>
+  <li><a href="#limits" id="toc-limits" class="nav-link" data-scroll-target="#limits">Limits</a></li>
+  <li><a href="#evaluate-limits" id="toc-evaluate-limits" class="nav-link" data-scroll-target="#evaluate-limits">Evaluate limits</a></li>
+  <li><a href="#viewing-limits" id="toc-viewing-limits" class="nav-link" data-scroll-target="#viewing-limits">Viewing limits</a></li>
   </ul></li>
   <li><a href="#solutions" id="toc-solutions" class="nav-link" data-scroll-target="#solutions">Solutions</a>
   <ul class="collapse">
@@ -301,6 +305,14 @@ window.Quarto = {
   <li><a href="#algebra" id="toc-algebra" class="nav-link" data-scroll-target="#algebra">Algebra</a></li>
   <li><a href="#write-in-sympy" id="toc-write-in-sympy" class="nav-link" data-scroll-target="#write-in-sympy">Write in SymPy</a></li>
   <li><a href="#solve" id="toc-solve" class="nav-link" data-scroll-target="#solve">Solve</a></li>
+  <li><a href="#and-eq" id="toc-and-eq" class="nav-link" data-scroll-target="#and-eq"><code>==</code> and <code>Eq()</code></a></li>
+  <li><a href="#aside-rationals" id="toc-aside-rationals" class="nav-link" data-scroll-target="#aside-rationals">Aside: Rationals</a></li>
+  </ul></li>
+  <li><a href="#odes" id="toc-odes" class="nav-link" data-scroll-target="#odes">ODEs</a>
+  <ul class="collapse">
+  <li><a href="#ordinary-differential-equations" id="toc-ordinary-differential-equations" class="nav-link" data-scroll-target="#ordinary-differential-equations">Ordinary Differential Equations</a></li>
+  <li><a href="#credit-1" id="toc-credit-1" class="nav-link" data-scroll-target="#credit-1">Credit</a></li>
+  <li><a href="#equation" id="toc-equation" class="nav-link" data-scroll-target="#equation">Equation</a></li>
   </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="08_sympy.rjs.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
@@ -395,9 +407,9 @@ window.Quarto = {
 <ul>
 <li>Computers don’t hold numbers that precisely.</li>
 </ul>
-<div id="3eac1cff" class="cell" data-execution_count="2">
+<div id="fa14358f" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="fl">10.0</span> <span class="op">**</span> <span class="dv">100</span> <span class="op">==</span> <span class="fl">10.0</span> <span class="op">**</span> <span class="dv">100</span> <span class="op">+</span> <span class="dv">47</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="522">
+<div class="cell-output cell-output-display" data-execution_count="647">
 <pre><code>True</code></pre>
 </div>
 </div>
@@ -407,9 +419,9 @@ window.Quarto = {
 <ul>
 <li>Much worse with fractions I find.</li>
 </ul>
-<div id="cbb6af35" class="cell" data-execution_count="3">
+<div id="eff89e57" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="dv">1</span> <span class="op">/</span> <span class="dv">7000000</span> <span class="op">*</span> <span class="dv">7000000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="523">
+<div class="cell-output cell-output-display" data-execution_count="648">
 <pre><code>0.9999999999999999</code></pre>
 </div>
 </div>
@@ -431,11 +443,11 @@ window.Quarto = {
 <li>It specifies how floating-point numbers are stored and operated on in computer hardware.</li>
 <li>Most modern CPUs adhere to this standard.</li>
 </ul>
-<div id="fefd0088" class="cell" data-execution_count="4">
+<div id="65970b3a" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="im">import</span> sys</span>
 <span id="cb7-2"><a href="#cb7-2"></a><span class="co"># Check the floating-point precision on your system</span></span>
 <span id="cb7-3"><a href="#cb7-3"></a>sys.float_info</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="524">
+<div class="cell-output cell-output-display" data-execution_count="649">
 <pre><code>sys.float_info(max=1.7976931348623157e+308, max_exp=1024, max_10_exp=308, min=2.2250738585072014e-308, min_exp=-1021, min_10_exp=-307, dig=15, mant_dig=53, epsilon=2.220446049250313e-16, radix=2, rounds=1)</code></pre>
 </div>
 </div>
@@ -455,11 +467,11 @@ window.Quarto = {
 <li>1 sign bit, 8 exponent bits, 23 significand (mantissa) bits.</li>
 <li>Offers approximately 7 decimal digits of precision.</li>
 </ul>
-<div id="0da0c55c" class="cell" data-execution_count="5">
+<div id="f368c91c" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb9-2"><a href="#cb9-2"></a>np.float32(<span class="dv">1</span><span class="op">/</span><span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="525">
-<pre><code>np.float32(0.14285715)</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="650">
+<pre><code>0.14285715</code></pre>
 </div>
 </div>
 </section>
@@ -470,10 +482,10 @@ window.Quarto = {
 <li>1 sign bit, 11 exponent bits, 52 significand bits.</li>
 <li>Offers approximately 15-17 decimal digits of precision. This is the default in Python and NumPy.</li>
 </ul>
-<div id="a2c7af1a" class="cell" data-execution_count="6">
+<div id="dc180d18" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># Example of a float64 number (default in Python)</span></span>
 <span id="cb11-2"><a href="#cb11-2"></a><span class="dv">1</span><span class="op">/</span><span class="dv">7</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="526">
+<div class="cell-output cell-output-display" data-execution_count="651">
 <pre><code>0.14285714285714285</code></pre>
 </div>
 </div>
@@ -483,21 +495,21 @@ window.Quarto = {
 <ul>
 <li><strong>Infinity <span class="math inline">\(\infty\)</span></strong>: Result of overflow or division by zero.</li>
 </ul>
-<div id="7b9e063e" class="cell" data-execution_count="7">
+<div id="940b18e0" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>lil <span class="op">=</span> np.finfo(np.float64).resolution <span class="co"># smallest recognizable value</span></span>
 <span id="cb13-2"><a href="#cb13-2"></a>big <span class="op">=</span> np.finfo(np.float64).<span class="bu">max</span> <span class="co"># biggest recognizable value</span></span>
 <span id="cb13-3"><a href="#cb13-3"></a>big <span class="op">/</span> lil</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="527">
-<pre><code>np.float64(inf)</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="652">
+<pre><code>inf</code></pre>
 </div>
 </div>
 <ul>
 <li><strong>Not a Number (NaN)</strong>: Result of undefined operations (e.g., <span class="math inline">\(0/0\)</span>, <span class="math inline">\(\sqrt{-1}\)</span>).</li>
 </ul>
-<div id="ce0479f1" class="cell" data-execution_count="8">
+<div id="49297549" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>np.sqrt(<span class="op">-</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="528">
-<pre><code>np.float64(nan)</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="653">
+<pre><code>nan</code></pre>
 </div>
 </div>
 </section>
@@ -508,9 +520,9 @@ window.Quarto = {
 <li>Decimal numbers like 0.1 often have an infinitely repeating binary representation.</li>
 <li>This leads to small, unavoidable rounding errors.</li>
 </ul>
-<div id="5678d3c3" class="cell" data-execution_count="9">
+<div id="8e86d7ea" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a><span class="fl">.1</span> <span class="op">+</span> <span class="fl">.2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="529">
+<div class="cell-output cell-output-display" data-execution_count="654">
 <pre><code>0.30000000000000004</code></pre>
 </div>
 </div>
@@ -522,12 +534,12 @@ window.Quarto = {
 <li>This can lead to significant inaccuracies in long computations or iterative algorithms.</li>
 <li>Careful algorithm design and error analysis are crucial.</li>
 </ul>
-<div id="75a796f7" class="cell" data-execution_count="10">
+<div id="acb8355e" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>total <span class="op">=</span> <span class="fl">0.0</span></span>
 <span id="cb19-2"><a href="#cb19-2"></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">100000</span>):</span>
 <span id="cb19-3"><a href="#cb19-3"></a>    total <span class="op">+=</span> <span class="fl">0.1</span></span>
 <span id="cb19-4"><a href="#cb19-4"></a>total, <span class="dv">100000</span> <span class="op">*</span> <span class="fl">0.1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="530">
+<div class="cell-output cell-output-display" data-execution_count="655">
 <pre><code>(10000.000000018848, 10000.0)</code></pre>
 </div>
 </div>
@@ -537,15 +549,15 @@ window.Quarto = {
 <ul>
 <li>Due to limited precision, direct equality comparisons (<code>==</code>) between floating-point numbers are often unreliable.</li>
 </ul>
-<div id="9feb8f23" class="cell" data-execution_count="11">
+<div id="cdb708e2" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>(<span class="dv">1</span> <span class="op">+</span> <span class="dv">2</span>) <span class="op">/</span> <span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="531">
+<div class="cell-output cell-output-display" data-execution_count="656">
 <pre><code>0.3</code></pre>
 </div>
 </div>
-<div id="d2e5bab5" class="cell" data-execution_count="12">
+<div id="bb6ac864" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a><span class="dv">1</span> <span class="op">/</span> <span class="dv">10</span> <span class="op">+</span> <span class="dv">2</span> <span class="op">/</span> <span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="532">
+<div class="cell-output cell-output-display" data-execution_count="657">
 <pre><code>0.30000000000000004</code></pre>
 </div>
 </div>
@@ -557,11 +569,11 @@ window.Quarto = {
 <li>The most significant bits cancel out, leaving only the less significant bits.</li>
 <li>Can drastically reduce the effective precision.</li>
 </ul>
-<div id="575cf204" class="cell" data-execution_count="13">
+<div id="24ab0679" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a>x <span class="op">=</span> <span class="fl">1.0000000000000001</span></span>
 <span id="cb25-2"><a href="#cb25-2"></a>y <span class="op">=</span> <span class="fl">1.0000000000000000</span></span>
 <span id="cb25-3"><a href="#cb25-3"></a>x <span class="op">-</span> y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="533">
+<div class="cell-output cell-output-display" data-execution_count="658">
 <pre><code>0.0</code></pre>
 </div>
 </div>
@@ -589,10 +601,10 @@ window.Quarto = {
 <li>Imagine two objects are separated by a horizontal displacement of <code>3</code> units, and vertical displacement of <code>4</code> units, and we wish to determine the minimum distance.</li>
 <li>A straightforward application of the Pythagorean Theorem.</li>
 </ul>
-<div id="6ead6c96" class="cell" data-execution_count="14">
+<div id="140a329c" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a>np.sqrt(<span class="dv">3</span> <span class="op">*</span> <span class="dv">3</span> <span class="op">+</span> <span class="dv">4</span> <span class="op">*</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="534">
-<pre><code>np.float64(5.0)</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="659">
+<pre><code>5.0</code></pre>
 </div>
 </div>
 </section>
@@ -601,10 +613,10 @@ window.Quarto = {
 <ul>
 <li>These distances quickly become inaccurate.</li>
 </ul>
-<div id="ea224d73" class="cell" data-execution_count="15">
+<div id="1c733d1d" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a>np.sqrt(<span class="dv">2</span> <span class="op">*</span> <span class="dv">2</span> <span class="op">+</span> <span class="dv">4</span> <span class="op">*</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="535">
-<pre><code>np.float64(4.47213595499958)</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="660">
+<pre><code>4.47213595499958</code></pre>
 </div>
 </div>
 <ul>
@@ -617,13 +629,13 @@ window.Quarto = {
 <li>In point of fact, the solution to <span class="math inline">\(\sqrt{2^2 + 4*2}\)</span> is actually <span class="math inline">\(\sqrt{20}\)</span> and there’s no other graceful way to represent it.</li>
 <li>So we’ll use <em>symbols</em> to store values.</li>
 </ul>
-<div id="abc65a7f" class="cell" data-execution_count="16">
+<div id="2f3f0c7b" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a><span class="im">import</span> sympy</span>
 <span id="cb31-2"><a href="#cb31-2"></a>x <span class="op">=</span> sympy.symbols(<span class="st">'x'</span>)</span>
 <span id="cb31-3"><a href="#cb31-3"></a>y <span class="op">=</span> sympy.symbols(<span class="st">'y'</span>)</span>
 <span id="cb31-4"><a href="#cb31-4"></a>dist <span class="op">=</span> sympy.sqrt(x <span class="op">+</span> y)</span>
 <span id="cb31-5"><a href="#cb31-5"></a>dist</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="536">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="661">
 <p><span class="math inline">\(\displaystyle \sqrt{x + y}\)</span></p>
 </div>
 </div>
@@ -634,19 +646,19 @@ window.Quarto = {
 <li>We term this a “symbolic expression”.</li>
 <li>We can perform operations…</li>
 </ul>
-<div id="04e445de" class="cell" data-execution_count="17">
+<div id="8578c372" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a><span class="dv">2</span> <span class="op">*</span> dist</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="537">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="662">
 <p><span class="math inline">\(\displaystyle 2 \sqrt{x + y}\)</span></p>
 </div>
 </div>
 <ul>
 <li>We can add other symbols…</li>
 </ul>
-<div id="2c36f10b" class="cell" data-execution_count="18">
+<div id="431077c0" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a>z <span class="op">=</span> sympy.symbols(<span class="st">'z'</span>)</span>
 <span id="cb33-2"><a href="#cb33-2"></a>z <span class="op">+</span> dist</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="538">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="663">
 <p><span class="math inline">\(\displaystyle z + \sqrt{x + y}\)</span></p>
 </div>
 </div>
@@ -656,27 +668,25 @@ window.Quarto = {
 <ul>
 <li>We can declare multiple symbols at once:</li>
 </ul>
-<div id="1da38443" class="cell" data-execution_count="19">
+<div id="24a9a280" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a>a, b, c <span class="op">=</span> sympy.symbols(<span class="st">'a b c'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>SymPy will automatically simplify.</li>
 </ul>
-<div id="d854d686" class="cell" data-execution_count="20">
+<div id="ad0014ee" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a>sympy.sqrt(<span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="540">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="665">
 <p><span class="math inline">\(\displaystyle 2 \sqrt{5}\)</span></p>
 </div>
 </div>
 <ul>
 <li>Compare:</li>
 </ul>
-<div id="782fc3c9" class="cell" data-execution_count="21">
+<div id="7979cd33" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a>np.sqrt(<span class="dv">20</span>), np.sqrt(<span class="dv">5</span>), <span class="dv">2</span> <span class="op">*</span> np.sqrt(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="541">
-<pre><code>(np.float64(4.47213595499958),
- np.float64(2.23606797749979),
- np.float64(4.47213595499958))</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="666">
+<pre><code>(4.47213595499958, 2.23606797749979, 4.47213595499958)</code></pre>
 </div>
 </div>
 </section>
@@ -690,11 +700,11 @@ window.Quarto = {
 <li>You can specify a number of decimals for any value.</li>
 <li>We also should that SymPy contains some useful constants!</li>
 </ul>
-<div id="d13ed616" class="cell" data-execution_count="22">
+<div id="8e908c13" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a><span class="co"># "Evaluate as float to 100 digits"</span></span>
 <span id="cb38-2"><a href="#cb38-2"></a><span class="co"># We use sympy.py, not e.g. np.pi</span></span>
 <span id="cb38-3"><a href="#cb38-3"></a>sympy.pi.evalf(<span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="542">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="667">
 <p><span class="math inline">\(\displaystyle 3.141592653589793238462643383279502884197169399375105820974944592307816406286208998628034825342117068\)</span></p>
 </div>
 </div>
@@ -706,9 +716,9 @@ window.Quarto = {
 <li>The usefulness of SymPy is to do both, and maximally simply the result to minimize error.</li>
 <li>We can use <code>subs()</code> to get solutions given values.</li>
 </ul>
-<div id="daa02e0c" class="cell" data-execution_count="23">
+<div id="a9880dc5" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a>dist</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="543">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="668">
 <p><span class="math inline">\(\displaystyle \sqrt{x + y}\)</span></p>
 </div>
 </div>
@@ -718,9 +728,9 @@ window.Quarto = {
 <ul>
 <li>Substitute <code>3</code> for <code>x</code></li>
 </ul>
-<div id="33da8ea6" class="cell" data-execution_count="24">
+<div id="e33bb024" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a>dist.subs(x, <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="544">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="669">
 <p><span class="math inline">\(\displaystyle \sqrt{y + 3}\)</span></p>
 </div>
 </div>
@@ -730,9 +740,9 @@ window.Quarto = {
 <ul>
 <li>Perhaps <code>y</code> is, itself, a distance expressed over a right triangle with sides <code>a</code> and <code>b</code></li>
 </ul>
-<div id="3269d3f9" class="cell" data-execution_count="25">
+<div id="1f26b26f" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a>dist.subs(y,a<span class="op">*</span>a<span class="op">+</span>b<span class="op">*</span>b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="545">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="670">
 <p><span class="math inline">\(\displaystyle \sqrt{a^{2} + b^{2} + x}\)</span></p>
 </div>
 </div>
@@ -742,21 +752,21 @@ window.Quarto = {
 <ul>
 <li>Sometimes we want to take a Python expression and convert to a symbolic SymPy expression.</li>
 </ul>
-<div id="6a77ed56" class="cell" data-execution_count="26">
+<div id="69f2d603" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1"></a>str_expr <span class="op">=</span> <span class="st">"x**2 + 3*x - 1/2"</span></span>
 <span id="cb42-2"><a href="#cb42-2"></a><span class="im">from</span> sympy <span class="im">import</span> sympify</span>
 <span id="cb42-3"><a href="#cb42-3"></a>expr <span class="op">=</span> sympify(str_expr)</span>
 <span id="cb42-4"><a href="#cb42-4"></a>expr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="546">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="671">
 <p><span class="math inline">\(\displaystyle x^{2} + 3 x - \frac{1}{2}\)</span></p>
 </div>
 </div>
 <ul>
 <li>Then calculate with <code>.subs()</code></li>
 </ul>
-<div id="a5ba1273" class="cell" data-execution_count="27">
+<div id="a7c1a3a4" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a>expr.subs(x, <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="547">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="672">
 <p><span class="math inline">\(\displaystyle \frac{19}{2}\)</span></p>
 </div>
 </div>
@@ -767,19 +777,19 @@ window.Quarto = {
 <li>Sibling of <code>vectorize</code></li>
 <li>Takes a SymPy expression, makes a Python function.</li>
 </ul>
-<div id="7e8c4de5" class="cell" data-execution_count="28">
+<div id="ae53a36d" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a>expr <span class="co"># so we remember.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="548">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="673">
 <p><span class="math inline">\(\displaystyle x^{2} + 3 x - \frac{1}{2}\)</span></p>
 </div>
 </div>
 <ul>
 <li>Calculate…</li>
 </ul>
-<div id="ea744480" class="cell" data-execution_count="29">
+<div id="baa6a98d" class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1"></a>f <span class="op">=</span> sympy.lambdify(x, expr, <span class="st">"scipy"</span>)</span>
 <span id="cb45-2"><a href="#cb45-2"></a>f(np.arange(<span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="549">
+<div class="cell-output cell-output-display" data-execution_count="674">
 <pre><code>array([ -0.5,   3.5,   9.5,  17.5,  27.5,  39.5,  53.5,  69.5,  87.5,
        107.5])</code></pre>
 </div>
@@ -794,7 +804,7 @@ window.Quarto = {
 </section>
 <section id="aside-plots" class="level2">
 <h2 class="anchored" data-anchor-id="aside-plots">Aside: Plots</h2>
-<div id="5be8a062" class="cell" data-execution_count="30">
+<div id="da7bba59" class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1"></a><span class="co"># import sympy</span></span>
 <span id="cb47-2"><a href="#cb47-2"></a><span class="co"># from sympy.abc import x</span></span>
 <span id="cb47-3"><a href="#cb47-3"></a><span class="co"># import scipy</span></span>
@@ -816,18 +826,18 @@ window.Quarto = {
 <ul>
 <li>If I use SymPy, I don’t have to remember this:</li>
 </ul>
-<div id="178d637d" class="cell" data-execution_count="31">
+<div id="c392395e" class="cell" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1"></a>sympy.simplify(sympy.sin(x)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> sympy.cos(x)<span class="op">**</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="551">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="676">
 <p><span class="math inline">\(\displaystyle 1\)</span></p>
 </div>
 </div>
 <ul>
 <li>Or figure out this:</li>
 </ul>
-<div id="8eb5ee1d" class="cell" data-execution_count="32">
+<div id="087b6b63" class="cell" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1"></a>sympy.simplify((x<span class="op">**</span><span class="dv">3</span> <span class="op">+</span> x<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> x <span class="op">-</span> <span class="dv">1</span>)<span class="op">/</span>(x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">2</span><span class="op">*</span>x <span class="op">+</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="552">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="677">
 <p><span class="math inline">\(\displaystyle x - 1\)</span></p>
 </div>
 </div>
@@ -837,18 +847,18 @@ window.Quarto = {
 <ul>
 <li>Often we <em>don’t</em> want a simplified polynomial.</li>
 </ul>
-<div id="58f923d3" class="cell" data-execution_count="33">
+<div id="578fa121" class="cell" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1"></a>sympy.simplify(x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">2</span><span class="op">*</span>x <span class="op">+</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="553">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="678">
 <p><span class="math inline">\(\displaystyle x^{2} + 2 x + 1\)</span></p>
 </div>
 </div>
 <ul>
 <li>We perhaps instead wish to <code>factor()</code></li>
 </ul>
-<div id="3e6e20b4" class="cell" data-execution_count="34">
+<div id="5b28728a" class="cell" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1"></a>sympy.factor(x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">2</span><span class="op">*</span>x <span class="op">+</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="554">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="679">
 <p><span class="math inline">\(\displaystyle \left(x + 1\right)^{2}\)</span></p>
 </div>
 </div>
@@ -858,15 +868,15 @@ window.Quarto = {
 <ul>
 <li>We may also start with factored form.</li>
 </ul>
-<div id="3dd369fc" class="cell" data-execution_count="35">
+<div id="e67c16cc" class="cell" data-execution_count="35">
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1"></a>eq <span class="op">=</span> x<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> (x<span class="op">+</span><span class="dv">1</span>) <span class="op">*</span> (x<span class="op">-</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>This can deceptively by made smaller by expanding it.</li>
 </ul>
-<div id="970a3b81" class="cell" data-execution_count="36">
+<div id="ca96de0a" class="cell" data-execution_count="36">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1"></a>sympy.expand(eq)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="556">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="681">
 <p><span class="math inline">\(\displaystyle 1\)</span></p>
 </div>
 </div>
@@ -876,19 +886,19 @@ window.Quarto = {
 <ul>
 <li>We can also cancel out fractions.</li>
 </ul>
-<div id="8042b41f" class="cell" data-execution_count="37">
+<div id="92814d86" class="cell" data-execution_count="37">
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1"></a>eq <span class="op">=</span> (x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">2</span><span class="op">*</span>x <span class="op">+</span> <span class="dv">1</span>)<span class="op">/</span>(x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> x)</span>
 <span id="cb54-2"><a href="#cb54-2"></a>eq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="557">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="682">
 <p><span class="math inline">\(\displaystyle \frac{x^{2} + 2 x + 1}{x^{2} + x}\)</span></p>
 </div>
 </div>
 <ul>
 <li>Using <code>sympy.factor()</code></li>
 </ul>
-<div id="d306a874" class="cell" data-execution_count="38">
+<div id="4a442b06" class="cell" data-execution_count="38">
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1"></a>sympy.factor(eq)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="558">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="683">
 <p><span class="math inline">\(\displaystyle \frac{x + 1}{x}\)</span></p>
 </div>
 </div>
@@ -899,19 +909,19 @@ window.Quarto = {
 <li>SymPy can also perform some simplifications related to exponention.</li>
 <li>Movie size in memory is frame size time frame rate times duration.</li>
 </ul>
-<div id="0883fb2f" class="cell" data-execution_count="39">
+<div id="9a9ee4b6" class="cell" data-execution_count="39">
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1"></a>eq <span class="op">=</span> x<span class="op">**</span><span class="dv">10</span><span class="op">*</span>x<span class="op">**</span><span class="dv">9</span><span class="op">*</span>x<span class="op">**</span><span class="dv">5</span><span class="op">*</span>x<span class="op">*</span><span class="dv">9</span> <span class="co"># Avatar in HD is ~4 hrs long at ~60fps</span></span>
 <span id="cb56-2"><a href="#cb56-2"></a>eq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="559">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="684">
 <p><span class="math inline">\(\displaystyle 9 x^{25}\)</span></p>
 </div>
 </div>
 <ul>
 <li>Or just sub in <code>2</code></li>
 </ul>
-<div id="245f7c1e" class="cell" data-execution_count="40">
+<div id="c01870de" class="cell" data-execution_count="40">
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1"></a>eq.subs(x,<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="560">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="685">
 <p><span class="math inline">\(\displaystyle 301989888\)</span></p>
 </div>
 </div>
@@ -924,51 +934,78 @@ window.Quarto = {
 <ul>
 <li>We can calculate derivatives.</li>
 </ul>
-<div id="6deab6e0" class="cell" data-execution_count="41">
+<div id="79276684" class="cell" data-execution_count="41">
 <div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1"></a>sympy.diff(x<span class="op">*</span>x, x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="561">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="686">
 <p><span class="math inline">\(\displaystyle 2 x\)</span></p>
 </div>
 </div>
 </section>
 <section id="integrals" class="level2">
 <h2 class="anchored" data-anchor-id="integrals">Integrals</h2>
-<div id="62ee231a" class="cell" data-execution_count="42">
+<div id="bc9374b6" class="cell" data-execution_count="42">
 <div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1"></a>sympy.integrate(sympy.sin(x), x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="562">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="687">
 <p><span class="math inline">\(\displaystyle - \cos{\left(x \right)}\)</span></p>
 </div>
 </div>
 </section>
-<section id="solve-integrals" class="level2">
-<h2 class="anchored" data-anchor-id="solve-integrals">Solve Integrals</h2>
+<section id="evaluate-integrals" class="level2">
+<h2 class="anchored" data-anchor-id="evaluate-integrals">Evaluate Integrals</h2>
 <ul>
 <li>Give a variable a domain…</li>
 </ul>
-<div id="beb7a83a" class="cell" data-execution_count="43">
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1"></a>integral <span class="op">=</span> sympy.Integral(sympy.exp(x), (x, <span class="dv">0</span>, <span class="dv">1</span>))</span>
-<span id="cb60-2"><a href="#cb60-2"></a>integral</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="563">
-<p><span class="math inline">\(\displaystyle \int\limits_{0}^{1} e^{x}\, dx\)</span></p>
-</div>
-</div>
-<ul>
-<li>And evaluate.</li>
-</ul>
-<div id="7601d27c" class="cell" data-execution_count="44">
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1"></a>integral.evalf()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="564">
-<p><span class="math inline">\(\displaystyle 1.71828182845905\)</span></p>
+<div id="f6043d4c" class="cell" data-execution_count="43">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1"></a>sympy.integrate(sympy.exp(x), (x, <span class="dv">0</span>, <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="688">
+<p><span class="math inline">\(\displaystyle -1 + e\)</span></p>
 </div>
 </div>
 </section>
-<section id="compute-limits" class="level2">
-<h2 class="anchored" data-anchor-id="compute-limits">Compute Limits</h2>
+<section id="limits" class="level2">
+<h2 class="anchored" data-anchor-id="limits">Limits</h2>
 <ul>
 <li>One famous problem is to compute the value of the following function as it approaches zero: <span class="math display">\[
-\lim{x\to 0} \frac{\sin{x}}{x}
+\lim_{x\to 0} \frac{\sin{x}}{x}
 \]</span></li>
 </ul>
+</section>
+<section id="evaluate-limits" class="level2">
+<h2 class="anchored" data-anchor-id="evaluate-limits">Evaluate limits</h2>
+<div id="4bd26206" class="cell" data-execution_count="44">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1"></a>eq <span class="op">=</span> sympy.sin(x)<span class="op">/</span>x</span>
+<span id="cb61-2"><a href="#cb61-2"></a>eq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="689">
+<p><span class="math inline">\(\displaystyle \frac{\sin{\left(x \right)}}{x}\)</span></p>
+</div>
+</div>
+<ul>
+<li>We provide a variable and the value it approaches.</li>
+</ul>
+<div id="d0b97593" class="cell" data-execution_count="45">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1"></a>sympy.limit(eq, x, <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="690">
+<p><span class="math inline">\(\displaystyle 1\)</span></p>
+</div>
+</div>
+</section>
+<section id="viewing-limits" class="level2">
+<h2 class="anchored" data-anchor-id="viewing-limits">Viewing limits</h2>
+<ul>
+<li>To create a printable limit object that can be evaluated.
+<ul>
+<li>Capitalize</li>
+<li>Resolve via <code>.doit</code></li>
+<li>Also works for <code>Derivative</code> and <code>Integral</code></li>
+</ul></li>
+</ul>
+<div id="cb1aabb7" class="cell" data-execution_count="46">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1"></a>lm <span class="op">=</span> sympy.Limit(eq, x, <span class="dv">0</span>)</span>
+<span id="cb63-2"><a href="#cb63-2"></a>lm, lm.doit()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="691">
+<pre><code>(Limit(sin(x)/x, x, 0, dir='+'), 1)</code></pre>
+</div>
+</div>
 </section>
 </section>
 <section id="solutions" class="level1">
@@ -984,8 +1021,8 @@ window.Quarto = {
 <ul>
 <li>We use the much nicer way to get variable names.</li>
 </ul>
-<div id="8f60e7e8" class="cell" data-execution_count="45">
-<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1"></a><span class="im">from</span> sympy.abc <span class="im">import</span> x, y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="30bace38" class="cell" data-execution_count="47">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1"></a><span class="im">from</span> sympy.abc <span class="im">import</span> x, y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>We will aim to solve the following: <span class="math display">\[
@@ -1002,8 +1039,8 @@ x^2 = y \equiv x^2 - y = 0
 \]</span></li>
 <li>So we write:</li>
 </ul>
-<div id="8ea74c96" class="cell" data-execution_count="46">
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1"></a>eq <span class="op">=</span> x<span class="op">*</span>x <span class="op">-</span> y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="3eaa496f" class="cell" data-execution_count="48">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1"></a>eq <span class="op">=</span> x<span class="op">*</span>x <span class="op">-</span> y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="solve" class="level2">
@@ -1015,21 +1052,83 @@ x^2 = y \equiv x^2 - y = 0
 <li>The variable for which to solve.</li>
 </ul></li>
 </ul>
-<div id="9d4f7d63" class="cell" data-execution_count="47">
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1"></a>sympy.solve(eq, x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="567">
+<div id="65a357aa" class="cell" data-execution_count="49">
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1"></a>sympy.solve(eq, x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="694">
 <pre><code>[-sqrt(y), sqrt(y)]</code></pre>
 </div>
 </div>
 <ul>
 <li>We could also do:</li>
 </ul>
-<div id="0600a702" class="cell" data-execution_count="48">
-<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1"></a>sympy.solve(eq, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="568">
+<div id="6ca67625" class="cell" data-execution_count="50">
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1"></a>sympy.solve(eq, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="695">
 <pre><code>[x**2]</code></pre>
 </div>
 </div>
+</section>
+<section id="and-eq" class="level2">
+<h2 class="anchored" data-anchor-id="and-eq"><code>==</code> and <code>Eq()</code></h2>
+<ul>
+<li>SymPy, for a variety of good reasons, struggles with <code>==</code> in equations, so use <code>Eq()</code></li>
+</ul>
+<div id="171cb281" class="cell" data-execution_count="51">
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1"></a>eq <span class="op">=</span> sympy.Eq(x<span class="op">*</span>x,y)</span>
+<span id="cb71-2"><a href="#cb71-2"></a>eq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="696">
+<p><span class="math inline">\(\displaystyle x^{2} = y\)</span></p>
+</div>
+</div>
+<ul>
+<li>It works as expected.</li>
+</ul>
+<div id="e9fab676" class="cell" data-execution_count="52">
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1"></a>sympy.solve(eq)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="697">
+<pre><code>[{y: x**2}]</code></pre>
+</div>
+</div>
+</section>
+<section id="aside-rationals" class="level2">
+<h2 class="anchored" data-anchor-id="aside-rationals">Aside: Rationals</h2>
+<ul>
+<li>The is true for fractions with <code>Rational()</code></li>
+</ul>
+<div id="35106b55" class="cell" data-execution_count="53">
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1"></a>sympy.Rational(<span class="dv">5</span><span class="op">/</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="698">
+<p><span class="math inline">\(\displaystyle \frac{5}{2}\)</span></p>
+</div>
+</div>
+<ul>
+<li>In general, if something would be “weird” with Sympy, there is a capitalized name that does what you would expect.</li>
+<li>Just check the documentation.</li>
+</ul>
+</section>
+</section>
+<section id="odes" class="level1">
+<h1>ODEs</h1>
+<section id="ordinary-differential-equations" class="level2">
+<h2 class="anchored" data-anchor-id="ordinary-differential-equations">Ordinary Differential Equations</h2>
+<blockquote class="blockquote">
+<p>A differential equation is an equation that relates one or more unknown functions and their derivatives.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>An ordinary differential equation (ODE) is a differential equation (DE) dependent on only a single independent variable.</p>
+</blockquote>
+</section>
+<section id="credit-1" class="level2">
+<h2 class="anchored" data-anchor-id="credit-1">Credit</h2>
+<ul>
+<li><a href="https://www.sympy.org/scipy-2017-codegen-tutorial/notebooks/20-ordinary-differential-equations.html">“Numerical integration of Ordinary Differential Equations”</a></li>
+</ul>
+</section>
+<section id="equation" class="level2">
+<h2 class="anchored" data-anchor-id="equation">Equation</h2>
+<ul>
+<li>Consider the decay of tritium as an example.</li>
+</ul>
 
 
 <!-- -->
@@ -1039,290 +1138,293 @@ x^2 = y \equiv x^2 - y = 0
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
-    }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
-      }
-    }
-    return false;
-  }
-  const onCopySuccess = function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
-  });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
-  const viewSource = window.document.getElementById('quarto-view-source') ||
-                     window.document.getElementById('quarto-code-tools-source');
-  if (viewSource) {
-    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
-    viewSource.addEventListener("click", function(e) {
-      if (sourceUrl) {
-        // rstudio viewer pane
-        if (/\bcapabilities=\b/.test(window.location)) {
-          window.open(sourceUrl);
-        } else {
-          window.location.href = sourceUrl;
-        }
-      } else {
-        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
-        modal.show();
-      }
-      return false;
-    });
-  }
-  function toggleCodeHandler(show) {
-    return function(e) {
-      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
-      for (let i=0; i<detailsSrc.length; i++) {
-        const details = detailsSrc[i].parentElement;
-        if (show) {
-          details.open = true;
-        } else {
-          details.removeAttribute("open");
-        }
-      }
-      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
-      const fromCls = show ? "hidden" : "unhidden";
-      const toCls = show ? "unhidden" : "hidden";
-      for (let i=0; i<cellCodeDivs.length; i++) {
-        const codeDiv = cellCodeDivs[i];
-        if (codeDiv.classList.contains(fromCls)) {
-          codeDiv.classList.remove(fromCls);
-          codeDiv.classList.add(toCls);
-        } 
-      }
-      return false;
-    }
-  }
-  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
-  if (hideAllCode) {
-    hideAllCode.addEventListener("click", toggleCodeHandler(false));
-  }
-  const showAllCode = window.document.getElementById("quarto-show-all-code");
-  if (showAllCode) {
-    showAllCode.addEventListener("click", toggleCodeHandler(true));
-  }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-    const config = {
-      allowHTML: true,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start',
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
     };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
         }
       }
+      return false;
     }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
           }
         }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
         }
-        return container.innerHTML
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
       } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      // TODO in 1.5, we should make sure this works without a callout special case
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
       }
     }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
           }
         } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
+            const note = htmlDoc.querySelector('main.content');
             if (note !== null) {
-              const html = processXRef(id, note);
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -1330,185 +1432,161 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
-    });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            div.style.left = 0;
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+      }, function(instance) {
       });
     }
-  }
-});
-</script>
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./07_scipy.html" class="pagination-link" aria-label="SciPy">
@@ -1521,470 +1599,523 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb68" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb68-1"><a href="#cb68-1"></a><span class="co">---</span></span>
-<span id="cb68-2"><a href="#cb68-2"></a><span class="an">title:</span><span class="co"> SymPy</span></span>
-<span id="cb68-3"><a href="#cb68-3"></a><span class="co">---</span></span>
-<span id="cb68-4"><a href="#cb68-4"></a></span>
-<span id="cb68-5"><a href="#cb68-5"></a><span class="fu"># What is SymPy?</span></span>
-<span id="cb68-6"><a href="#cb68-6"></a></span>
-<span id="cb68-7"><a href="#cb68-7"></a><span class="at">&gt; </span><span class="co">[</span><span class="ot">A Python library for symbolic mathematics. It aims to become a full-featured computer algebra system (CAS) while keeping the code as simple as possible in order to be comprehensible and easily extensible. SymPy is written entirely in Python.</span><span class="co">](https://www.sympy.org/en/index.html)</span></span>
-<span id="cb68-8"><a href="#cb68-8"></a></span>
-<span id="cb68-9"><a href="#cb68-9"></a><span class="ss">* </span>**Sym**bolic **Py**thon</span>
-<span id="cb68-10"><a href="#cb68-10"></a></span>
-<span id="cb68-11"><a href="#cb68-11"></a><span class="fu">## Why SymPy </span></span>
-<span id="cb68-12"><a href="#cb68-12"></a></span>
-<span id="cb68-13"><a href="#cb68-13"></a><span class="ss">* </span>"SymPy is free both as in speech and as in beer."</span>
-<span id="cb68-14"><a href="#cb68-14"></a><span class="ss">* </span>"Most computer algebra systems invent their own language. Not SymPy."</span>
-<span id="cb68-15"><a href="#cb68-15"></a><span class="ss">* </span>"An advantage of SymPy is that it is lightweight."</span>
-<span id="cb68-16"><a href="#cb68-16"></a></span>
-<span id="cb68-17"><a href="#cb68-17"></a><span class="fu">## Why not SymPy</span></span>
-<span id="cb68-18"><a href="#cb68-18"></a></span>
-<span id="cb68-19"><a href="#cb68-19"></a><span class="ss">- </span>To my knowledge, there's no real competitors with SymPy.</span>
-<span id="cb68-20"><a href="#cb68-20"></a><span class="ss">- </span>The closest are probably SageMath and Mathematica.</span>
-<span id="cb68-21"><a href="#cb68-21"></a><span class="ss">- </span>I use browser-based Mathematica via <span class="co">[</span><span class="ot">https://www.wolframalpha.com/</span><span class="co">](https://www.wolframalpha.com/)</span> from time to time (when I don't have a Python installation handy).</span>
-<span id="cb68-22"><a href="#cb68-22"></a></span>
-<span id="cb68-23"><a href="#cb68-23"></a><span class="fu">## Cite</span></span>
-<span id="cb68-24"><a href="#cb68-24"></a></span>
-<span id="cb68-25"><a href="#cb68-25"></a><span class="in">```{.bibtex}</span></span>
-<span id="cb68-26"><a href="#cb68-26"></a><span class="in">@article{10.7717/peerj-cs.103,</span></span>
-<span id="cb68-27"><a href="#cb68-27"></a><span class="in">     title = {SymPy: symbolic computing in Python},</span></span>
-<span id="cb68-28"><a href="#cb68-28"></a><span class="in">     author = {Meurer, Aaron and Smith, Christopher P. and Paprocki, Mateusz and \v{C}ert\'{i}k, Ond\v{r}ej and Kirpichev, Sergey B. and Rocklin, Matthew and Kumar, AMiT and Ivanov, Sergiu and Moore, Jason K. and Singh, Sartaj and Rathnayake, Thilina and Vig, Sean and Granger, Brian E. and Muller, Richard P. and Bonazzi, Francesco and Gupta, Harsh and Vats, Shivam and Johansson, Fredrik and Pedregosa, Fabian and Curry, Matthew J. and Terrel, Andy R. and Rou\v{c}ka, \v{S}t\v{e}p\'{a}n and Saboo, Ashutosh and Fernando, Isuru and Kulal, Sumith and Cimrman, Robert and Scopatz, Anthony},</span></span>
-<span id="cb68-29"><a href="#cb68-29"></a><span class="in">     year = 2017,</span></span>
-<span id="cb68-30"><a href="#cb68-30"></a><span class="in">     month = jan,</span></span>
-<span id="cb68-31"><a href="#cb68-31"></a><span class="in">     keywords = {Python, Computer algebra system, Symbolics},</span></span>
-<span id="cb68-32"><a href="#cb68-32"></a><span class="in">     abstract = {</span></span>
-<span id="cb68-33"><a href="#cb68-33"></a><span class="in">                SymPy is an open source computer algebra system written in pure Python. It is built with a focus on extensibility and ease of use, through both interactive and programmatic applications. These characteristics have led SymPy to become a popular symbolic library for the scientific Python ecosystem. This paper presents the architecture of SymPy, a description of its features, and a discussion of select submodules. The supplementary material provide additional examples and further outline details of the architecture and features of SymPy.</span></span>
-<span id="cb68-34"><a href="#cb68-34"></a><span class="in">             },</span></span>
-<span id="cb68-35"><a href="#cb68-35"></a><span class="in">     volume = 3,</span></span>
-<span id="cb68-36"><a href="#cb68-36"></a><span class="in">     pages = {e103},</span></span>
-<span id="cb68-37"><a href="#cb68-37"></a><span class="in">     journal = {PeerJ Computer Science},</span></span>
-<span id="cb68-38"><a href="#cb68-38"></a><span class="in">     issn = {2376-5992},</span></span>
-<span id="cb68-39"><a href="#cb68-39"></a><span class="in">     url = {https://doi.org/10.7717/peerj-cs.103},</span></span>
-<span id="cb68-40"><a href="#cb68-40"></a><span class="in">     doi = {10.7717/peerj-cs.103}</span></span>
-<span id="cb68-41"><a href="#cb68-41"></a><span class="in">    }</span></span>
-<span id="cb68-42"><a href="#cb68-42"></a><span class="in">```</span></span>
-<span id="cb68-43"><a href="#cb68-43"></a></span>
-<span id="cb68-44"><a href="#cb68-44"></a></span>
-<span id="cb68-45"><a href="#cb68-45"></a><span class="fu">## pip again</span></span>
-<span id="cb68-46"><a href="#cb68-46"></a></span>
-<span id="cb68-47"><a href="#cb68-47"></a><span class="ss">- </span>Just like NumPy, Matplotlib is a Python package which we install via <span class="in">`pip`</span></span>
-<span id="cb68-48"><a href="#cb68-48"></a><span class="in">```{.bash code-line-numbers="false"}</span></span>
-<span id="cb68-49"><a href="#cb68-49"></a><span class="in">python3 -m pip install sympy</span></span>
-<span id="cb68-50"><a href="#cb68-50"></a><span class="in">```</span></span>
-<span id="cb68-51"><a href="#cb68-51"></a><span class="ss">- </span>That might take a moment, when it does we can check it worked!</span>
-<span id="cb68-52"><a href="#cb68-52"></a></span>
-<span id="cb68-53"><a href="#cb68-53"></a><span class="fu"># Motivation </span></span>
-<span id="cb68-54"><a href="#cb68-54"></a></span>
-<span id="cb68-55"><a href="#cb68-55"></a><span class="fu">## Example</span></span>
-<span id="cb68-56"><a href="#cb68-56"></a></span>
-<span id="cb68-57"><a href="#cb68-57"></a><span class="ss">- </span>Computers don't hold numbers that precisely.</span>
-<span id="cb68-58"><a href="#cb68-58"></a></span>
-<span id="cb68-61"><a href="#cb68-61"></a><span class="in">```{python}</span></span>
-<span id="cb68-62"><a href="#cb68-62"></a><span class="fl">10.0</span> <span class="op">**</span> <span class="dv">100</span> <span class="op">==</span> <span class="fl">10.0</span> <span class="op">**</span> <span class="dv">100</span> <span class="op">+</span> <span class="dv">47</span></span>
-<span id="cb68-63"><a href="#cb68-63"></a><span class="in">```</span></span>
-<span id="cb68-64"><a href="#cb68-64"></a></span>
-<span id="cb68-65"><a href="#cb68-65"></a><span class="fu">## Fractions</span></span>
-<span id="cb68-66"><a href="#cb68-66"></a></span>
-<span id="cb68-67"><a href="#cb68-67"></a><span class="ss">- </span>Much worse with fractions I find.</span>
-<span id="cb68-70"><a href="#cb68-70"></a><span class="in">```{python}</span></span>
-<span id="cb68-71"><a href="#cb68-71"></a><span class="dv">1</span> <span class="op">/</span> <span class="dv">7000000</span> <span class="op">*</span> <span class="dv">7000000</span></span>
-<span id="cb68-72"><a href="#cb68-72"></a><span class="in">```</span></span>
-<span id="cb68-73"><a href="#cb68-73"></a></span>
-<span id="cb68-74"><a href="#cb68-74"></a><span class="fu">## Floats:</span></span>
-<span id="cb68-75"><a href="#cb68-75"></a></span>
-<span id="cb68-76"><a href="#cb68-76"></a><span class="ss">- </span>The IEEE 754 Floating-Point Standard</span>
-<span id="cb68-77"><a href="#cb68-77"></a></span>
-<span id="cb68-78"><a href="#cb68-78"></a></span>
-<span id="cb68-79"><a href="#cb68-79"></a>&lt;img style="filter:invert(1)" src="https://upload.wikimedia.org/wikipedia/commons/d/d2/Float_example.svg"&gt;</span>
-<span id="cb68-80"><a href="#cb68-80"></a></span>
-<span id="cb68-81"><a href="#cb68-81"></a><span class="ss">- </span>It is basically scientific notation that fits in a fixed amount of characters.</span>
-<span id="cb68-82"><a href="#cb68-82"></a></span>
-<span id="cb68-83"><a href="#cb68-83"></a><span class="fu">## What is it?</span></span>
-<span id="cb68-84"><a href="#cb68-84"></a></span>
-<span id="cb68-85"><a href="#cb68-85"></a><span class="ss">- </span>The IEEE 754 standard defines formats for representing floating-point numbers.</span>
-<span id="cb68-86"><a href="#cb68-86"></a><span class="ss">- </span>It specifies how floating-point numbers are stored and operated on in computer hardware.</span>
-<span id="cb68-87"><a href="#cb68-87"></a><span class="ss">- </span>Most modern CPUs adhere to this standard.</span>
-<span id="cb68-88"><a href="#cb68-88"></a></span>
-<span id="cb68-91"><a href="#cb68-91"></a><span class="in">```{python}</span></span>
-<span id="cb68-92"><a href="#cb68-92"></a><span class="im">import</span> sys</span>
-<span id="cb68-93"><a href="#cb68-93"></a><span class="co"># Check the floating-point precision on your system</span></span>
-<span id="cb68-94"><a href="#cb68-94"></a>sys.float_info</span>
-<span id="cb68-95"><a href="#cb68-95"></a><span class="in">```</span></span>
-<span id="cb68-96"><a href="#cb68-96"></a></span>
-<span id="cb68-97"><a href="#cb68-97"></a><span class="fu">## Why is it important?</span></span>
-<span id="cb68-98"><a href="#cb68-98"></a></span>
-<span id="cb68-99"><a href="#cb68-99"></a><span class="ss">- </span>Ensures portability and consistency of numerical computations across different systems.</span>
-<span id="cb68-100"><a href="#cb68-100"></a><span class="ss">- </span>Without a standard, the same calculation could yield different results on different machines.</span>
-<span id="cb68-101"><a href="#cb68-101"></a><span class="ss">- </span>Essential for reliable scientific and engineering software.</span>
-<span id="cb68-102"><a href="#cb68-102"></a></span>
-<span id="cb68-103"><a href="#cb68-103"></a><span class="fu">## Single Precision (Float32)</span></span>
-<span id="cb68-104"><a href="#cb68-104"></a></span>
-<span id="cb68-105"><a href="#cb68-105"></a><span class="ss">- </span>Uses 32 bits to represent a number.</span>
-<span id="cb68-106"><a href="#cb68-106"></a><span class="ss">- </span>1 sign bit, 8 exponent bits, 23 significand (mantissa) bits.</span>
-<span id="cb68-107"><a href="#cb68-107"></a><span class="ss">- </span>Offers approximately 7 decimal digits of precision.</span>
-<span id="cb68-108"><a href="#cb68-108"></a></span>
-<span id="cb68-111"><a href="#cb68-111"></a><span class="in">```{python}</span></span>
-<span id="cb68-112"><a href="#cb68-112"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb68-113"><a href="#cb68-113"></a>np.float32(<span class="dv">1</span><span class="op">/</span><span class="dv">7</span>)</span>
-<span id="cb68-114"><a href="#cb68-114"></a><span class="in">```</span></span>
-<span id="cb68-115"><a href="#cb68-115"></a></span>
-<span id="cb68-116"><a href="#cb68-116"></a><span class="fu">## Double Precision (Float64)</span></span>
-<span id="cb68-117"><a href="#cb68-117"></a></span>
-<span id="cb68-118"><a href="#cb68-118"></a><span class="ss">- </span>Uses 64 bits to represent a number.</span>
-<span id="cb68-119"><a href="#cb68-119"></a><span class="ss">- </span>1 sign bit, 11 exponent bits, 52 significand bits.</span>
-<span id="cb68-120"><a href="#cb68-120"></a><span class="ss">- </span>Offers approximately 15-17 decimal digits of precision. This is the default in Python and NumPy.</span>
-<span id="cb68-121"><a href="#cb68-121"></a></span>
-<span id="cb68-124"><a href="#cb68-124"></a><span class="in">```{python}</span></span>
-<span id="cb68-125"><a href="#cb68-125"></a><span class="co"># Example of a float64 number (default in Python)</span></span>
-<span id="cb68-126"><a href="#cb68-126"></a><span class="dv">1</span><span class="op">/</span><span class="dv">7</span></span>
-<span id="cb68-127"><a href="#cb68-127"></a><span class="in">```</span></span>
-<span id="cb68-128"><a href="#cb68-128"></a></span>
-<span id="cb68-129"><a href="#cb68-129"></a><span class="fu">## Special Values</span></span>
-<span id="cb68-130"><a href="#cb68-130"></a></span>
-<span id="cb68-131"><a href="#cb68-131"></a><span class="ss">- </span>**Infinity $\infty$**: Result of overflow or division by zero.</span>
-<span id="cb68-134"><a href="#cb68-134"></a><span class="in">```{python}</span></span>
-<span id="cb68-135"><a href="#cb68-135"></a>lil <span class="op">=</span> np.finfo(np.float64).resolution <span class="co"># smallest recognizable value</span></span>
-<span id="cb68-136"><a href="#cb68-136"></a>big <span class="op">=</span> np.finfo(np.float64).<span class="bu">max</span> <span class="co"># biggest recognizable value</span></span>
-<span id="cb68-137"><a href="#cb68-137"></a>big <span class="op">/</span> lil</span>
-<span id="cb68-138"><a href="#cb68-138"></a><span class="in">```</span></span>
-<span id="cb68-139"><a href="#cb68-139"></a><span class="ss">- </span>**Not a Number (NaN)**: Result of undefined operations (e.g., $0/0$, $\sqrt{-1}$).</span>
-<span id="cb68-142"><a href="#cb68-142"></a><span class="in">```{python}</span></span>
-<span id="cb68-143"><a href="#cb68-143"></a>np.sqrt(<span class="op">-</span><span class="dv">1</span>)</span>
-<span id="cb68-144"><a href="#cb68-144"></a><span class="in">```</span></span>
-<span id="cb68-145"><a href="#cb68-145"></a></span>
-<span id="cb68-146"><a href="#cb68-146"></a><span class="fu">## Pitfall 1: Limited Precision</span></span>
-<span id="cb68-147"><a href="#cb68-147"></a></span>
-<span id="cb68-148"><a href="#cb68-148"></a><span class="ss">- </span>Not all real numbers can be represented exactly.</span>
-<span id="cb68-149"><a href="#cb68-149"></a><span class="ss">- </span>Decimal numbers like 0.1 often have an infinitely repeating binary representation.</span>
-<span id="cb68-150"><a href="#cb68-150"></a><span class="ss">- </span>This leads to small, unavoidable rounding errors.</span>
-<span id="cb68-151"><a href="#cb68-151"></a></span>
-<span id="cb68-154"><a href="#cb68-154"></a><span class="in">```{python}</span></span>
-<span id="cb68-155"><a href="#cb68-155"></a><span class="fl">.1</span> <span class="op">+</span> <span class="fl">.2</span></span>
-<span id="cb68-156"><a href="#cb68-156"></a><span class="in">```</span></span>
-<span id="cb68-157"><a href="#cb68-157"></a></span>
-<span id="cb68-158"><a href="#cb68-158"></a><span class="fu">## Pitfall 2: Accumulation</span></span>
-<span id="cb68-159"><a href="#cb68-159"></a></span>
-<span id="cb68-160"><a href="#cb68-160"></a><span class="ss">- </span>Small rounding errors can accumulate over many operations.</span>
-<span id="cb68-161"><a href="#cb68-161"></a><span class="ss">- </span>This can lead to significant inaccuracies in long computations or iterative algorithms.</span>
-<span id="cb68-162"><a href="#cb68-162"></a><span class="ss">- </span>Careful algorithm design and error analysis are crucial.</span>
-<span id="cb68-163"><a href="#cb68-163"></a></span>
-<span id="cb68-166"><a href="#cb68-166"></a><span class="in">```{python}</span></span>
-<span id="cb68-167"><a href="#cb68-167"></a>total <span class="op">=</span> <span class="fl">0.0</span></span>
-<span id="cb68-168"><a href="#cb68-168"></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">100000</span>):</span>
-<span id="cb68-169"><a href="#cb68-169"></a>    total <span class="op">+=</span> <span class="fl">0.1</span></span>
-<span id="cb68-170"><a href="#cb68-170"></a>total, <span class="dv">100000</span> <span class="op">*</span> <span class="fl">0.1</span></span>
-<span id="cb68-171"><a href="#cb68-171"></a><span class="in">```</span></span>
-<span id="cb68-172"><a href="#cb68-172"></a></span>
-<span id="cb68-173"><a href="#cb68-173"></a><span class="fu">## Pitfall 3: Comparison Issues</span></span>
-<span id="cb68-174"><a href="#cb68-174"></a></span>
-<span id="cb68-175"><a href="#cb68-175"></a><span class="ss">- </span>Due to limited precision, direct equality comparisons (<span class="in">`==`</span>) between floating-point numbers are often unreliable.</span>
-<span id="cb68-176"><a href="#cb68-176"></a></span>
-<span id="cb68-179"><a href="#cb68-179"></a><span class="in">```{python}</span></span>
-<span id="cb68-180"><a href="#cb68-180"></a>(<span class="dv">1</span> <span class="op">+</span> <span class="dv">2</span>) <span class="op">/</span> <span class="dv">10</span></span>
-<span id="cb68-181"><a href="#cb68-181"></a><span class="in">```</span></span>
-<span id="cb68-182"><a href="#cb68-182"></a></span>
-<span id="cb68-185"><a href="#cb68-185"></a><span class="in">```{python}</span></span>
-<span id="cb68-186"><a href="#cb68-186"></a><span class="dv">1</span> <span class="op">/</span> <span class="dv">10</span> <span class="op">+</span> <span class="dv">2</span> <span class="op">/</span> <span class="dv">10</span></span>
-<span id="cb68-187"><a href="#cb68-187"></a><span class="in">```</span></span>
-<span id="cb68-188"><a href="#cb68-188"></a></span>
-<span id="cb68-189"><a href="#cb68-189"></a></span>
-<span id="cb68-190"><a href="#cb68-190"></a><span class="fu">## Pitfall 4: Subtractive Cancellation</span></span>
-<span id="cb68-191"><a href="#cb68-191"></a></span>
-<span id="cb68-192"><a href="#cb68-192"></a><span class="ss">- </span>Occurs when subtracting two nearly equal numbers.</span>
-<span id="cb68-193"><a href="#cb68-193"></a><span class="ss">- </span>The most significant bits cancel out, leaving only the less significant bits.</span>
-<span id="cb68-194"><a href="#cb68-194"></a><span class="ss">- </span>Can drastically reduce the effective precision.</span>
-<span id="cb68-195"><a href="#cb68-195"></a></span>
-<span id="cb68-198"><a href="#cb68-198"></a><span class="in">```{python}</span></span>
-<span id="cb68-199"><a href="#cb68-199"></a>x <span class="op">=</span> <span class="fl">1.0000000000000001</span></span>
-<span id="cb68-200"><a href="#cb68-200"></a>y <span class="op">=</span> <span class="fl">1.0000000000000000</span></span>
-<span id="cb68-201"><a href="#cb68-201"></a>x <span class="op">-</span> y</span>
-<span id="cb68-202"><a href="#cb68-202"></a><span class="in">```</span></span>
-<span id="cb68-203"><a href="#cb68-203"></a></span>
-<span id="cb68-204"><a href="#cb68-204"></a><span class="fu"># Symbolic Computation</span></span>
-<span id="cb68-205"><a href="#cb68-205"></a></span>
-<span id="cb68-206"><a href="#cb68-206"></a><span class="fu">## Credit</span></span>
-<span id="cb68-207"><a href="#cb68-207"></a></span>
-<span id="cb68-208"><a href="#cb68-208"></a><span class="ss">- </span>The <span class="co">[</span><span class="ot">SymPy tutorial</span><span class="co">](https://docs.sympy.org/latest/tutorials/intro-tutorial/)</span>.</span>
-<span id="cb68-209"><a href="#cb68-209"></a><span class="ss">- </span>SymPy solves the floating point problem.</span>
-<span id="cb68-210"><a href="#cb68-210"></a></span>
-<span id="cb68-211"><a href="#cb68-211"></a><span class="fu">## Quoth SymPy</span></span>
-<span id="cb68-212"><a href="#cb68-212"></a></span>
-<span id="cb68-213"><a href="#cb68-213"></a><span class="at">&gt; Symbolic computation deals with the computation of mathematical objects symbolically. This means that the mathematical objects are represented exactly, not approximately, and mathematical expressions with unevaluated variables are left in symbolic form.</span></span>
-<span id="cb68-214"><a href="#cb68-214"></a></span>
-<span id="cb68-215"><a href="#cb68-215"></a><span class="fu">## Non-symbolic Computation</span></span>
-<span id="cb68-216"><a href="#cb68-216"></a></span>
-<span id="cb68-217"><a href="#cb68-217"></a><span class="ss">- </span>A common problem in computing is to compute the likes of distance between points separated by vectors.</span>
-<span id="cb68-218"><a href="#cb68-218"></a><span class="ss">- </span>Imagine two objects are separated by a horizontal displacement of <span class="in">`3`</span> units, and vertical displacement of <span class="in">`4`</span> units, and we wish to determine the minimum distance.</span>
-<span id="cb68-219"><a href="#cb68-219"></a><span class="ss">- </span>A straightforward application of the Pythagorean Theorem.</span>
-<span id="cb68-222"><a href="#cb68-222"></a><span class="in">```{python}</span></span>
-<span id="cb68-223"><a href="#cb68-223"></a>np.sqrt(<span class="dv">3</span> <span class="op">*</span> <span class="dv">3</span> <span class="op">+</span> <span class="dv">4</span> <span class="op">*</span> <span class="dv">4</span>)</span>
-<span id="cb68-224"><a href="#cb68-224"></a><span class="in">```</span></span>
-<span id="cb68-225"><a href="#cb68-225"></a></span>
-<span id="cb68-226"><a href="#cb68-226"></a><span class="fu">## Pitfalls</span></span>
-<span id="cb68-227"><a href="#cb68-227"></a></span>
-<span id="cb68-228"><a href="#cb68-228"></a><span class="ss">- </span>These distances quickly become inaccurate.</span>
-<span id="cb68-231"><a href="#cb68-231"></a><span class="in">```{python}</span></span>
-<span id="cb68-232"><a href="#cb68-232"></a>np.sqrt(<span class="dv">2</span> <span class="op">*</span> <span class="dv">2</span> <span class="op">+</span> <span class="dv">4</span> <span class="op">*</span> <span class="dv">4</span>)</span>
-<span id="cb68-233"><a href="#cb68-233"></a><span class="in">```</span></span>
-<span id="cb68-234"><a href="#cb68-234"></a><span class="ss">- </span>Then stuff like <span class="co">[</span><span class="ot">this</span><span class="co">](https://www.kezi.com/railroad-bridge-collapses-into-marys-river-in-corvallis/article_50b3ab98-cae2-11ef-86a9-2b8ecb0cf78c.html)</span> happens:</span>
-<span id="cb68-235"><a href="#cb68-235"></a><span class="al">![](bridge.jpg)</span></span>
-<span id="cb68-236"><a href="#cb68-236"></a></span>
-<span id="cb68-237"><a href="#cb68-237"></a><span class="fu">## Symbolic Computation</span></span>
-<span id="cb68-238"><a href="#cb68-238"></a></span>
-<span id="cb68-239"><a href="#cb68-239"></a><span class="ss">- </span>In point of fact, the solution to $\sqrt{2^2 + 4*2}$ is actually $\sqrt{20}$ and there's no other graceful way to represent it.</span>
-<span id="cb68-240"><a href="#cb68-240"></a><span class="ss">- </span>So we'll use *symbols* to store values.</span>
-<span id="cb68-243"><a href="#cb68-243"></a><span class="in">```{python}</span></span>
-<span id="cb68-244"><a href="#cb68-244"></a><span class="im">import</span> sympy</span>
-<span id="cb68-245"><a href="#cb68-245"></a>x <span class="op">=</span> sympy.symbols(<span class="st">'x'</span>)</span>
-<span id="cb68-246"><a href="#cb68-246"></a>y <span class="op">=</span> sympy.symbols(<span class="st">'y'</span>)</span>
-<span id="cb68-247"><a href="#cb68-247"></a>dist <span class="op">=</span> sympy.sqrt(x <span class="op">+</span> y)</span>
-<span id="cb68-248"><a href="#cb68-248"></a>dist</span>
-<span id="cb68-249"><a href="#cb68-249"></a><span class="in">```</span></span>
-<span id="cb68-250"><a href="#cb68-250"></a></span>
-<span id="cb68-251"><a href="#cb68-251"></a><span class="fu">## Expressions</span></span>
-<span id="cb68-252"><a href="#cb68-252"></a></span>
-<span id="cb68-253"><a href="#cb68-253"></a><span class="ss">- </span>We term this a "symbolic expression".</span>
-<span id="cb68-254"><a href="#cb68-254"></a><span class="ss">- </span>We can perform operations...</span>
-<span id="cb68-257"><a href="#cb68-257"></a><span class="in">```{python}</span></span>
-<span id="cb68-258"><a href="#cb68-258"></a><span class="dv">2</span> <span class="op">*</span> dist</span>
-<span id="cb68-259"><a href="#cb68-259"></a><span class="in">```</span></span>
-<span id="cb68-260"><a href="#cb68-260"></a><span class="ss">- </span>We can add other symbols...</span>
-<span id="cb68-263"><a href="#cb68-263"></a><span class="in">```{python}</span></span>
-<span id="cb68-264"><a href="#cb68-264"></a>z <span class="op">=</span> sympy.symbols(<span class="st">'z'</span>)</span>
-<span id="cb68-265"><a href="#cb68-265"></a>z <span class="op">+</span> dist</span>
-<span id="cb68-266"><a href="#cb68-266"></a><span class="in">```</span></span>
-<span id="cb68-267"><a href="#cb68-267"></a></span>
-<span id="cb68-268"><a href="#cb68-268"></a><span class="fu">## Niceties</span></span>
-<span id="cb68-269"><a href="#cb68-269"></a></span>
-<span id="cb68-270"><a href="#cb68-270"></a><span class="ss">- </span>We can declare multiple symbols at once:</span>
-<span id="cb68-273"><a href="#cb68-273"></a><span class="in">```{python}</span></span>
-<span id="cb68-274"><a href="#cb68-274"></a>a, b, c <span class="op">=</span> sympy.symbols(<span class="st">'a b c'</span>)</span>
-<span id="cb68-275"><a href="#cb68-275"></a><span class="in">```</span></span>
-<span id="cb68-276"><a href="#cb68-276"></a><span class="ss">- </span>SymPy will automatically simplify.</span>
-<span id="cb68-279"><a href="#cb68-279"></a><span class="in">```{python}</span></span>
-<span id="cb68-280"><a href="#cb68-280"></a>sympy.sqrt(<span class="dv">20</span>)</span>
-<span id="cb68-281"><a href="#cb68-281"></a><span class="in">```</span></span>
-<span id="cb68-282"><a href="#cb68-282"></a><span class="ss">- </span>Compare:</span>
-<span id="cb68-285"><a href="#cb68-285"></a><span class="in">```{python}</span></span>
-<span id="cb68-286"><a href="#cb68-286"></a>np.sqrt(<span class="dv">20</span>), np.sqrt(<span class="dv">5</span>), <span class="dv">2</span> <span class="op">*</span> np.sqrt(<span class="dv">5</span>)</span>
-<span id="cb68-287"><a href="#cb68-287"></a><span class="in">```</span></span>
-<span id="cb68-288"><a href="#cb68-288"></a></span>
-<span id="cb68-289"><a href="#cb68-289"></a><span class="fu"># Operations </span></span>
-<span id="cb68-290"><a href="#cb68-290"></a></span>
-<span id="cb68-291"><a href="#cb68-291"></a><span class="fu">## Extended Floats</span></span>
-<span id="cb68-292"><a href="#cb68-292"></a></span>
-<span id="cb68-293"><a href="#cb68-293"></a><span class="ss">- </span>SymPy uses floats by default, but doesn't have to.</span>
-<span id="cb68-294"><a href="#cb68-294"></a><span class="ss">- </span>You can specify a number of decimals for any value.</span>
-<span id="cb68-295"><a href="#cb68-295"></a><span class="ss">- </span>We also should that SymPy contains some useful constants!</span>
-<span id="cb68-298"><a href="#cb68-298"></a><span class="in">```{python}</span></span>
-<span id="cb68-299"><a href="#cb68-299"></a><span class="co"># "Evaluate as float to 100 digits"</span></span>
-<span id="cb68-300"><a href="#cb68-300"></a><span class="co"># We use sympy.py, not e.g. np.pi</span></span>
-<span id="cb68-301"><a href="#cb68-301"></a>sympy.pi.evalf(<span class="dv">100</span>)</span>
-<span id="cb68-302"><a href="#cb68-302"></a><span class="in">```</span></span>
-<span id="cb68-303"><a href="#cb68-303"></a></span>
-<span id="cb68-304"><a href="#cb68-304"></a><span class="fu">## Substitution</span></span>
-<span id="cb68-305"><a href="#cb68-305"></a></span>
-<span id="cb68-306"><a href="#cb68-306"></a><span class="ss">- </span>Often we want to solve an equation algebraically and *also* know a numerical solution.</span>
-<span id="cb68-307"><a href="#cb68-307"></a><span class="ss">- </span>The usefulness of SymPy is to do both, and maximally simply the result to minimize error.</span>
-<span id="cb68-308"><a href="#cb68-308"></a><span class="ss">- </span>We can use <span class="in">`subs()`</span> to get solutions given values.</span>
-<span id="cb68-311"><a href="#cb68-311"></a><span class="in">```{python}</span></span>
-<span id="cb68-312"><a href="#cb68-312"></a>dist</span>
-<span id="cb68-313"><a href="#cb68-313"></a><span class="in">```</span></span>
-<span id="cb68-314"><a href="#cb68-314"></a></span>
-<span id="cb68-315"><a href="#cb68-315"></a><span class="fu">## Value Substitution</span></span>
-<span id="cb68-316"><a href="#cb68-316"></a><span class="ss">- </span>Substitute <span class="in">`3`</span> for <span class="in">`x`</span></span>
-<span id="cb68-319"><a href="#cb68-319"></a><span class="in">```{python}</span></span>
-<span id="cb68-320"><a href="#cb68-320"></a>dist.subs(x, <span class="dv">3</span>)</span>
-<span id="cb68-321"><a href="#cb68-321"></a><span class="in">```</span></span>
-<span id="cb68-322"><a href="#cb68-322"></a></span>
-<span id="cb68-323"><a href="#cb68-323"></a></span>
-<span id="cb68-324"><a href="#cb68-324"></a><span class="fu">## Expression Substitution</span></span>
-<span id="cb68-325"><a href="#cb68-325"></a></span>
-<span id="cb68-326"><a href="#cb68-326"></a><span class="ss">- </span>Perhaps <span class="in">`y`</span> is, itself, a distance expressed over a right triangle with sides <span class="in">`a`</span> and <span class="in">`b`</span></span>
-<span id="cb68-329"><a href="#cb68-329"></a><span class="in">```{python}</span></span>
-<span id="cb68-330"><a href="#cb68-330"></a>dist.subs(y,a<span class="op">*</span>a<span class="op">+</span>b<span class="op">*</span>b)</span>
-<span id="cb68-331"><a href="#cb68-331"></a><span class="in">```</span></span>
-<span id="cb68-332"><a href="#cb68-332"></a></span>
-<span id="cb68-333"><a href="#cb68-333"></a><span class="fu">## Strings</span></span>
-<span id="cb68-334"><a href="#cb68-334"></a></span>
-<span id="cb68-335"><a href="#cb68-335"></a><span class="ss">- </span>Sometimes we want to take a Python expression and convert to a symbolic SymPy expression.</span>
-<span id="cb68-338"><a href="#cb68-338"></a><span class="in">```{python}</span></span>
-<span id="cb68-339"><a href="#cb68-339"></a>str_expr <span class="op">=</span> <span class="st">"x**2 + 3*x - 1/2"</span></span>
-<span id="cb68-340"><a href="#cb68-340"></a><span class="im">from</span> sympy <span class="im">import</span> sympify</span>
-<span id="cb68-341"><a href="#cb68-341"></a>expr <span class="op">=</span> sympify(str_expr)</span>
-<span id="cb68-342"><a href="#cb68-342"></a>expr</span>
-<span id="cb68-343"><a href="#cb68-343"></a><span class="in">```</span></span>
-<span id="cb68-344"><a href="#cb68-344"></a><span class="ss">- </span>Then calculate with <span class="in">`.subs()`</span></span>
-<span id="cb68-347"><a href="#cb68-347"></a><span class="in">```{python}</span></span>
-<span id="cb68-348"><a href="#cb68-348"></a>expr.subs(x, <span class="dv">2</span>)</span>
-<span id="cb68-349"><a href="#cb68-349"></a><span class="in">```</span></span>
-<span id="cb68-350"><a href="#cb68-350"></a></span>
-<span id="cb68-351"><a href="#cb68-351"></a><span class="fu">## Functions</span></span>
-<span id="cb68-352"><a href="#cb68-352"></a></span>
-<span id="cb68-353"><a href="#cb68-353"></a><span class="ss">- </span>Sibling of <span class="in">`vectorize`</span></span>
-<span id="cb68-354"><a href="#cb68-354"></a><span class="ss">- </span>Takes a SymPy expression, makes a Python function.</span>
-<span id="cb68-355"><a href="#cb68-355"></a></span>
-<span id="cb68-358"><a href="#cb68-358"></a><span class="in">```{python}</span></span>
-<span id="cb68-359"><a href="#cb68-359"></a>expr <span class="co"># so we remember.</span></span>
-<span id="cb68-360"><a href="#cb68-360"></a><span class="in">```</span></span>
-<span id="cb68-361"><a href="#cb68-361"></a><span class="ss">- </span>Calculate...</span>
-<span id="cb68-364"><a href="#cb68-364"></a><span class="in">```{python}</span></span>
-<span id="cb68-365"><a href="#cb68-365"></a>f <span class="op">=</span> sympy.lambdify(x, expr, <span class="st">"scipy"</span>)</span>
-<span id="cb68-366"><a href="#cb68-366"></a>f(np.arange(<span class="dv">10</span>))</span>
-<span id="cb68-367"><a href="#cb68-367"></a><span class="in">```</span></span>
-<span id="cb68-368"><a href="#cb68-368"></a></span>
-<span id="cb68-369"><a href="#cb68-369"></a><span class="fu">## Aside: SciPy/NumPy</span></span>
-<span id="cb68-370"><a href="#cb68-370"></a></span>
-<span id="cb68-371"><a href="#cb68-371"></a><span class="ss">- </span>**Always** use <span class="in">`lambdify`</span> specified with <span class="in">`"scipy"`</span> (or <span class="in">`"numpy"`</span>) if you have SciPy or even just NumPy installed</span>
-<span id="cb68-372"><a href="#cb68-372"></a><span class="ss">- </span>It uses NumPy's more powerful (than Python's) mathematical operations.</span>
-<span id="cb68-373"><a href="#cb68-373"></a></span>
-<span id="cb68-374"><a href="#cb68-374"></a><span class="fu">## Aside: Plots</span></span>
-<span id="cb68-375"><a href="#cb68-375"></a></span>
-<span id="cb68-378"><a href="#cb68-378"></a><span class="in">```{python}</span></span>
-<span id="cb68-379"><a href="#cb68-379"></a><span class="co"># import sympy</span></span>
-<span id="cb68-380"><a href="#cb68-380"></a><span class="co"># from sympy.abc import x</span></span>
-<span id="cb68-381"><a href="#cb68-381"></a><span class="co"># import scipy</span></span>
-<span id="cb68-382"><a href="#cb68-382"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb68-383"><a href="#cb68-383"></a>f <span class="op">=</span> sympy.lambdify(x,x<span class="op">*</span>x,<span class="st">"scipy"</span>)</span>
-<span id="cb68-384"><a href="#cb68-384"></a>xs <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">5</span>,<span class="dv">5</span>) </span>
-<span id="cb68-385"><a href="#cb68-385"></a>plt.plot(xs, f(xs))</span>
-<span id="cb68-386"><a href="#cb68-386"></a><span class="in">```</span></span>
-<span id="cb68-387"><a href="#cb68-387"></a></span>
-<span id="cb68-388"><a href="#cb68-388"></a><span class="fu">## Simplification</span></span>
-<span id="cb68-389"><a href="#cb68-389"></a></span>
-<span id="cb68-390"><a href="#cb68-390"></a><span class="ss">- </span>If I use SymPy, I don't have to remember this:</span>
-<span id="cb68-393"><a href="#cb68-393"></a><span class="in">```{python}</span></span>
-<span id="cb68-394"><a href="#cb68-394"></a>sympy.simplify(sympy.sin(x)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> sympy.cos(x)<span class="op">**</span><span class="dv">2</span>)</span>
-<span id="cb68-395"><a href="#cb68-395"></a><span class="in">```</span></span>
-<span id="cb68-396"><a href="#cb68-396"></a><span class="ss">- </span>Or figure out this:</span>
-<span id="cb68-399"><a href="#cb68-399"></a><span class="in">```{python}</span></span>
-<span id="cb68-400"><a href="#cb68-400"></a>sympy.simplify((x<span class="op">**</span><span class="dv">3</span> <span class="op">+</span> x<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> x <span class="op">-</span> <span class="dv">1</span>)<span class="op">/</span>(x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">2</span><span class="op">*</span>x <span class="op">+</span> <span class="dv">1</span>))</span>
-<span id="cb68-401"><a href="#cb68-401"></a><span class="in">```</span></span>
-<span id="cb68-402"><a href="#cb68-402"></a></span>
-<span id="cb68-403"><a href="#cb68-403"></a><span class="fu">## Polynomials</span></span>
-<span id="cb68-404"><a href="#cb68-404"></a></span>
-<span id="cb68-405"><a href="#cb68-405"></a><span class="ss">- </span>Often we *don't* want a simplified polynomial.</span>
-<span id="cb68-408"><a href="#cb68-408"></a><span class="in">```{python}</span></span>
-<span id="cb68-409"><a href="#cb68-409"></a>sympy.simplify(x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">2</span><span class="op">*</span>x <span class="op">+</span> <span class="dv">1</span>)</span>
-<span id="cb68-410"><a href="#cb68-410"></a><span class="in">```</span></span>
-<span id="cb68-411"><a href="#cb68-411"></a><span class="ss">- </span>We perhaps instead wish to <span class="in">`factor()`</span></span>
-<span id="cb68-414"><a href="#cb68-414"></a><span class="in">```{python}</span></span>
-<span id="cb68-415"><a href="#cb68-415"></a>sympy.factor(x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">2</span><span class="op">*</span>x <span class="op">+</span> <span class="dv">1</span>)</span>
-<span id="cb68-416"><a href="#cb68-416"></a><span class="in">```</span></span>
-<span id="cb68-417"><a href="#cb68-417"></a></span>
-<span id="cb68-418"><a href="#cb68-418"></a><span class="fu">## Expand</span></span>
-<span id="cb68-419"><a href="#cb68-419"></a></span>
-<span id="cb68-420"><a href="#cb68-420"></a><span class="ss">- </span>We may also start with factored form.</span>
-<span id="cb68-423"><a href="#cb68-423"></a><span class="in">```{python}</span></span>
-<span id="cb68-424"><a href="#cb68-424"></a>eq <span class="op">=</span> x<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> (x<span class="op">+</span><span class="dv">1</span>) <span class="op">*</span> (x<span class="op">-</span><span class="dv">1</span>)</span>
-<span id="cb68-425"><a href="#cb68-425"></a><span class="in">```</span></span>
-<span id="cb68-426"><a href="#cb68-426"></a><span class="ss">- </span>This can deceptively by made smaller by expanding it.</span>
-<span id="cb68-429"><a href="#cb68-429"></a><span class="in">```{python}</span></span>
-<span id="cb68-430"><a href="#cb68-430"></a>sympy.expand(eq)</span>
-<span id="cb68-431"><a href="#cb68-431"></a><span class="in">```</span></span>
-<span id="cb68-432"><a href="#cb68-432"></a></span>
-<span id="cb68-433"><a href="#cb68-433"></a><span class="fu">## Fractions</span></span>
-<span id="cb68-434"><a href="#cb68-434"></a></span>
-<span id="cb68-435"><a href="#cb68-435"></a><span class="ss">- </span>We can also cancel out fractions.</span>
-<span id="cb68-438"><a href="#cb68-438"></a><span class="in">```{python}</span></span>
-<span id="cb68-439"><a href="#cb68-439"></a>eq <span class="op">=</span> (x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">2</span><span class="op">*</span>x <span class="op">+</span> <span class="dv">1</span>)<span class="op">/</span>(x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> x)</span>
-<span id="cb68-440"><a href="#cb68-440"></a>eq</span>
-<span id="cb68-441"><a href="#cb68-441"></a><span class="in">```</span></span>
-<span id="cb68-442"><a href="#cb68-442"></a><span class="ss">- </span>Using <span class="in">`sympy.factor()`</span></span>
-<span id="cb68-445"><a href="#cb68-445"></a><span class="in">```{python}</span></span>
-<span id="cb68-446"><a href="#cb68-446"></a>sympy.factor(eq)</span>
-<span id="cb68-447"><a href="#cb68-447"></a><span class="in">```</span></span>
-<span id="cb68-448"><a href="#cb68-448"></a></span>
-<span id="cb68-449"><a href="#cb68-449"></a><span class="fu">## Powers</span></span>
-<span id="cb68-450"><a href="#cb68-450"></a></span>
-<span id="cb68-451"><a href="#cb68-451"></a><span class="ss">- </span>SymPy can also perform some simplifications related to exponention.</span>
-<span id="cb68-452"><a href="#cb68-452"></a><span class="ss">- </span>Movie size in memory is frame size time frame rate times duration.</span>
-<span id="cb68-455"><a href="#cb68-455"></a><span class="in">```{python}</span></span>
-<span id="cb68-456"><a href="#cb68-456"></a>eq <span class="op">=</span> x<span class="op">**</span><span class="dv">10</span><span class="op">*</span>x<span class="op">**</span><span class="dv">9</span><span class="op">*</span>x<span class="op">**</span><span class="dv">5</span><span class="op">*</span>x<span class="op">*</span><span class="dv">9</span> <span class="co"># Avatar in HD is ~4 hrs long at ~60fps</span></span>
-<span id="cb68-457"><a href="#cb68-457"></a>eq</span>
-<span id="cb68-458"><a href="#cb68-458"></a><span class="in">```</span></span>
-<span id="cb68-459"><a href="#cb68-459"></a><span class="ss">- </span>Or just sub in <span class="in">`2`</span></span>
-<span id="cb68-462"><a href="#cb68-462"></a><span class="in">```{python}</span></span>
-<span id="cb68-463"><a href="#cb68-463"></a>eq.subs(x,<span class="dv">2</span>)</span>
-<span id="cb68-464"><a href="#cb68-464"></a><span class="in">```</span></span>
-<span id="cb68-465"><a href="#cb68-465"></a></span>
-<span id="cb68-466"><a href="#cb68-466"></a><span class="fu"># Calculus</span></span>
-<span id="cb68-467"><a href="#cb68-467"></a></span>
-<span id="cb68-468"><a href="#cb68-468"></a><span class="fu">## Derivatives</span></span>
-<span id="cb68-469"><a href="#cb68-469"></a></span>
-<span id="cb68-470"><a href="#cb68-470"></a><span class="ss">- </span>We can calculate derivatives.</span>
-<span id="cb68-473"><a href="#cb68-473"></a><span class="in">```{python}</span></span>
-<span id="cb68-474"><a href="#cb68-474"></a>sympy.diff(x<span class="op">*</span>x, x)</span>
-<span id="cb68-475"><a href="#cb68-475"></a><span class="in">```</span></span>
-<span id="cb68-476"><a href="#cb68-476"></a></span>
-<span id="cb68-477"><a href="#cb68-477"></a><span class="fu">## Integrals</span></span>
-<span id="cb68-478"><a href="#cb68-478"></a></span>
-<span id="cb68-481"><a href="#cb68-481"></a><span class="in">```{python}</span></span>
-<span id="cb68-482"><a href="#cb68-482"></a>sympy.integrate(sympy.sin(x), x)</span>
-<span id="cb68-483"><a href="#cb68-483"></a><span class="in">```</span></span>
-<span id="cb68-484"><a href="#cb68-484"></a></span>
-<span id="cb68-485"><a href="#cb68-485"></a><span class="fu">## Solve Integrals</span></span>
-<span id="cb68-486"><a href="#cb68-486"></a></span>
-<span id="cb68-487"><a href="#cb68-487"></a><span class="ss">- </span>Give a variable a domain...</span>
-<span id="cb68-490"><a href="#cb68-490"></a><span class="in">```{python}</span></span>
-<span id="cb68-491"><a href="#cb68-491"></a>integral <span class="op">=</span> sympy.Integral(sympy.exp(x), (x, <span class="dv">0</span>, <span class="dv">1</span>))</span>
-<span id="cb68-492"><a href="#cb68-492"></a>integral</span>
-<span id="cb68-493"><a href="#cb68-493"></a><span class="in">```</span></span>
-<span id="cb68-494"><a href="#cb68-494"></a><span class="ss">- </span>And evaluate.</span>
-<span id="cb68-497"><a href="#cb68-497"></a><span class="in">```{python}</span></span>
-<span id="cb68-498"><a href="#cb68-498"></a>integral.evalf()</span>
-<span id="cb68-499"><a href="#cb68-499"></a><span class="in">```</span></span>
-<span id="cb68-500"><a href="#cb68-500"></a></span>
-<span id="cb68-501"><a href="#cb68-501"></a><span class="fu">## Compute Limits</span></span>
-<span id="cb68-502"><a href="#cb68-502"></a></span>
-<span id="cb68-503"><a href="#cb68-503"></a><span class="ss">- </span>One famous problem is to compute the value of the following function as it approaches zero:</span>
-<span id="cb68-504"><a href="#cb68-504"></a>$$</span>
-<span id="cb68-505"><a href="#cb68-505"></a>\lim{x\to 0} \frac{\sin{x}}{x}</span>
-<span id="cb68-506"><a href="#cb68-506"></a>$$</span>
-<span id="cb68-507"><a href="#cb68-507"></a></span>
-<span id="cb68-508"><a href="#cb68-508"></a><span class="fu"># Solutions</span></span>
-<span id="cb68-509"><a href="#cb68-509"></a></span>
-<span id="cb68-510"><a href="#cb68-510"></a><span class="fu">## Solve Equations</span></span>
-<span id="cb68-511"><a href="#cb68-511"></a></span>
-<span id="cb68-512"><a href="#cb68-512"></a><span class="at">&gt; </span><span class="co">[</span><span class="ot">The Python package SymPy can symbolically solve equations, differential equations, linear equations, nonlinear equations, matrix problems, inequalities, Diophantine equations, and evaluate integrals. SymPy can also solve numerically.</span><span class="co">](https://docs.sympy.org/latest/guides/solving/index.html)</span></span>
-<span id="cb68-513"><a href="#cb68-513"></a></span>
-<span id="cb68-514"><a href="#cb68-514"></a></span>
-<span id="cb68-515"><a href="#cb68-515"></a><span class="fu">## Algebra</span></span>
-<span id="cb68-516"><a href="#cb68-516"></a></span>
-<span id="cb68-517"><a href="#cb68-517"></a><span class="ss">- </span>We use the much nicer way to get variable names.</span>
-<span id="cb68-520"><a href="#cb68-520"></a><span class="in">```{python}</span></span>
-<span id="cb68-521"><a href="#cb68-521"></a><span class="im">from</span> sympy.abc <span class="im">import</span> x, y</span>
-<span id="cb68-522"><a href="#cb68-522"></a><span class="in">```</span></span>
-<span id="cb68-523"><a href="#cb68-523"></a><span class="ss">- </span>We will aim to solve the following:</span>
-<span id="cb68-524"><a href="#cb68-524"></a>$$</span>
-<span id="cb68-525"><a href="#cb68-525"></a>x^2 = y</span>
-<span id="cb68-526"><a href="#cb68-526"></a>$$</span>
-<span id="cb68-527"><a href="#cb68-527"></a></span>
-<span id="cb68-528"><a href="#cb68-528"></a><span class="fu">## Write in SymPy</span></span>
-<span id="cb68-529"><a href="#cb68-529"></a></span>
-<span id="cb68-530"><a href="#cb68-530"></a><span class="ss">- </span>SymPy, like many algebra systems, expects equations to be expressed as equal to zero.</span>
-<span id="cb68-531"><a href="#cb68-531"></a><span class="ss">- </span>We note the following equivalence.</span>
-<span id="cb68-532"><a href="#cb68-532"></a>$$</span>
-<span id="cb68-533"><a href="#cb68-533"></a>x^2 = y \equiv x^2 - y = 0</span>
-<span id="cb68-534"><a href="#cb68-534"></a>$$</span>
-<span id="cb68-535"><a href="#cb68-535"></a><span class="ss">- </span>So we write:</span>
-<span id="cb68-538"><a href="#cb68-538"></a><span class="in">```{python}</span></span>
-<span id="cb68-539"><a href="#cb68-539"></a>eq <span class="op">=</span> x<span class="op">*</span>x <span class="op">-</span> y</span>
-<span id="cb68-540"><a href="#cb68-540"></a><span class="in">```</span></span>
-<span id="cb68-541"><a href="#cb68-541"></a></span>
-<span id="cb68-542"><a href="#cb68-542"></a><span class="fu">## Solve</span></span>
-<span id="cb68-543"><a href="#cb68-543"></a></span>
-<span id="cb68-544"><a href="#cb68-544"></a><span class="ss">- </span>To solve, we simply use <span class="in">`sympy.solve()`</span></span>
-<span id="cb68-545"><a href="#cb68-545"></a><span class="ss">    - </span>We specify the equation to solve, and</span>
-<span id="cb68-546"><a href="#cb68-546"></a><span class="ss">    - </span>The variable for which to solve.</span>
-<span id="cb68-549"><a href="#cb68-549"></a><span class="in">```{python}</span></span>
-<span id="cb68-550"><a href="#cb68-550"></a>sympy.solve(eq, x)</span>
-<span id="cb68-551"><a href="#cb68-551"></a><span class="in">```</span></span>
-<span id="cb68-552"><a href="#cb68-552"></a><span class="ss">- </span>We could also do:</span>
-<span id="cb68-555"><a href="#cb68-555"></a><span class="in">```{python}</span></span>
-<span id="cb68-556"><a href="#cb68-556"></a>sympy.solve(eq, y)</span>
-<span id="cb68-557"><a href="#cb68-557"></a><span class="in">```</span></span>
-<span id="cb68-558"><a href="#cb68-558"></a></span>
+<div class="sourceCode" id="cb75" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb75-1"><a href="#cb75-1"></a><span class="co">---</span></span>
+<span id="cb75-2"><a href="#cb75-2"></a><span class="an">title:</span><span class="co"> SymPy</span></span>
+<span id="cb75-3"><a href="#cb75-3"></a><span class="co">---</span></span>
+<span id="cb75-4"><a href="#cb75-4"></a></span>
+<span id="cb75-5"><a href="#cb75-5"></a><span class="fu"># What is SymPy?</span></span>
+<span id="cb75-6"><a href="#cb75-6"></a></span>
+<span id="cb75-7"><a href="#cb75-7"></a><span class="at">&gt; </span><span class="co">[</span><span class="ot">A Python library for symbolic mathematics. It aims to become a full-featured computer algebra system (CAS) while keeping the code as simple as possible in order to be comprehensible and easily extensible. SymPy is written entirely in Python.</span><span class="co">](https://www.sympy.org/en/index.html)</span></span>
+<span id="cb75-8"><a href="#cb75-8"></a></span>
+<span id="cb75-9"><a href="#cb75-9"></a><span class="ss">* </span>**Sym**bolic **Py**thon</span>
+<span id="cb75-10"><a href="#cb75-10"></a></span>
+<span id="cb75-11"><a href="#cb75-11"></a><span class="fu">## Why SymPy </span></span>
+<span id="cb75-12"><a href="#cb75-12"></a></span>
+<span id="cb75-13"><a href="#cb75-13"></a><span class="ss">* </span>"SymPy is free both as in speech and as in beer."</span>
+<span id="cb75-14"><a href="#cb75-14"></a><span class="ss">* </span>"Most computer algebra systems invent their own language. Not SymPy."</span>
+<span id="cb75-15"><a href="#cb75-15"></a><span class="ss">* </span>"An advantage of SymPy is that it is lightweight."</span>
+<span id="cb75-16"><a href="#cb75-16"></a></span>
+<span id="cb75-17"><a href="#cb75-17"></a><span class="fu">## Why not SymPy</span></span>
+<span id="cb75-18"><a href="#cb75-18"></a></span>
+<span id="cb75-19"><a href="#cb75-19"></a><span class="ss">- </span>To my knowledge, there's no real competitors with SymPy.</span>
+<span id="cb75-20"><a href="#cb75-20"></a><span class="ss">- </span>The closest are probably SageMath and Mathematica.</span>
+<span id="cb75-21"><a href="#cb75-21"></a><span class="ss">- </span>I use browser-based Mathematica via <span class="co">[</span><span class="ot">https://www.wolframalpha.com/</span><span class="co">](https://www.wolframalpha.com/)</span> from time to time (when I don't have a Python installation handy).</span>
+<span id="cb75-22"><a href="#cb75-22"></a></span>
+<span id="cb75-23"><a href="#cb75-23"></a><span class="fu">## Cite</span></span>
+<span id="cb75-24"><a href="#cb75-24"></a></span>
+<span id="cb75-25"><a href="#cb75-25"></a><span class="in">```{.bibtex}</span></span>
+<span id="cb75-26"><a href="#cb75-26"></a><span class="in">@article{10.7717/peerj-cs.103,</span></span>
+<span id="cb75-27"><a href="#cb75-27"></a><span class="in">     title = {SymPy: symbolic computing in Python},</span></span>
+<span id="cb75-28"><a href="#cb75-28"></a><span class="in">     author = {Meurer, Aaron and Smith, Christopher P. and Paprocki, Mateusz and \v{C}ert\'{i}k, Ond\v{r}ej and Kirpichev, Sergey B. and Rocklin, Matthew and Kumar, AMiT and Ivanov, Sergiu and Moore, Jason K. and Singh, Sartaj and Rathnayake, Thilina and Vig, Sean and Granger, Brian E. and Muller, Richard P. and Bonazzi, Francesco and Gupta, Harsh and Vats, Shivam and Johansson, Fredrik and Pedregosa, Fabian and Curry, Matthew J. and Terrel, Andy R. and Rou\v{c}ka, \v{S}t\v{e}p\'{a}n and Saboo, Ashutosh and Fernando, Isuru and Kulal, Sumith and Cimrman, Robert and Scopatz, Anthony},</span></span>
+<span id="cb75-29"><a href="#cb75-29"></a><span class="in">     year = 2017,</span></span>
+<span id="cb75-30"><a href="#cb75-30"></a><span class="in">     month = jan,</span></span>
+<span id="cb75-31"><a href="#cb75-31"></a><span class="in">     keywords = {Python, Computer algebra system, Symbolics},</span></span>
+<span id="cb75-32"><a href="#cb75-32"></a><span class="in">     abstract = {</span></span>
+<span id="cb75-33"><a href="#cb75-33"></a><span class="in">                SymPy is an open source computer algebra system written in pure Python. It is built with a focus on extensibility and ease of use, through both interactive and programmatic applications. These characteristics have led SymPy to become a popular symbolic library for the scientific Python ecosystem. This paper presents the architecture of SymPy, a description of its features, and a discussion of select submodules. The supplementary material provide additional examples and further outline details of the architecture and features of SymPy.</span></span>
+<span id="cb75-34"><a href="#cb75-34"></a><span class="in">             },</span></span>
+<span id="cb75-35"><a href="#cb75-35"></a><span class="in">     volume = 3,</span></span>
+<span id="cb75-36"><a href="#cb75-36"></a><span class="in">     pages = {e103},</span></span>
+<span id="cb75-37"><a href="#cb75-37"></a><span class="in">     journal = {PeerJ Computer Science},</span></span>
+<span id="cb75-38"><a href="#cb75-38"></a><span class="in">     issn = {2376-5992},</span></span>
+<span id="cb75-39"><a href="#cb75-39"></a><span class="in">     url = {https://doi.org/10.7717/peerj-cs.103},</span></span>
+<span id="cb75-40"><a href="#cb75-40"></a><span class="in">     doi = {10.7717/peerj-cs.103}</span></span>
+<span id="cb75-41"><a href="#cb75-41"></a><span class="in">    }</span></span>
+<span id="cb75-42"><a href="#cb75-42"></a><span class="in">```</span></span>
+<span id="cb75-43"><a href="#cb75-43"></a></span>
+<span id="cb75-44"><a href="#cb75-44"></a></span>
+<span id="cb75-45"><a href="#cb75-45"></a><span class="fu">## pip again</span></span>
+<span id="cb75-46"><a href="#cb75-46"></a></span>
+<span id="cb75-47"><a href="#cb75-47"></a><span class="ss">- </span>Just like NumPy, Matplotlib is a Python package which we install via <span class="in">`pip`</span></span>
+<span id="cb75-48"><a href="#cb75-48"></a><span class="in">```{.bash code-line-numbers="false"}</span></span>
+<span id="cb75-49"><a href="#cb75-49"></a><span class="ex">python3</span> <span class="at">-m</span> pip install sympy</span>
+<span id="cb75-50"><a href="#cb75-50"></a><span class="in">```</span></span>
+<span id="cb75-51"><a href="#cb75-51"></a><span class="ss">- </span>That might take a moment, when it does we can check it worked!</span>
+<span id="cb75-52"><a href="#cb75-52"></a></span>
+<span id="cb75-53"><a href="#cb75-53"></a><span class="fu"># Motivation </span></span>
+<span id="cb75-54"><a href="#cb75-54"></a></span>
+<span id="cb75-55"><a href="#cb75-55"></a><span class="fu">## Example</span></span>
+<span id="cb75-56"><a href="#cb75-56"></a></span>
+<span id="cb75-57"><a href="#cb75-57"></a><span class="ss">- </span>Computers don't hold numbers that precisely.</span>
+<span id="cb75-58"><a href="#cb75-58"></a></span>
+<span id="cb75-61"><a href="#cb75-61"></a><span class="in">```{python}</span></span>
+<span id="cb75-62"><a href="#cb75-62"></a><span class="fl">10.0</span> <span class="op">**</span> <span class="dv">100</span> <span class="op">==</span> <span class="fl">10.0</span> <span class="op">**</span> <span class="dv">100</span> <span class="op">+</span> <span class="dv">47</span></span>
+<span id="cb75-63"><a href="#cb75-63"></a><span class="in">```</span></span>
+<span id="cb75-64"><a href="#cb75-64"></a></span>
+<span id="cb75-65"><a href="#cb75-65"></a><span class="fu">## Fractions</span></span>
+<span id="cb75-66"><a href="#cb75-66"></a></span>
+<span id="cb75-67"><a href="#cb75-67"></a><span class="ss">- </span>Much worse with fractions I find.</span>
+<span id="cb75-70"><a href="#cb75-70"></a><span class="in">```{python}</span></span>
+<span id="cb75-71"><a href="#cb75-71"></a><span class="dv">1</span> <span class="op">/</span> <span class="dv">7000000</span> <span class="op">*</span> <span class="dv">7000000</span></span>
+<span id="cb75-72"><a href="#cb75-72"></a><span class="in">```</span></span>
+<span id="cb75-73"><a href="#cb75-73"></a></span>
+<span id="cb75-74"><a href="#cb75-74"></a><span class="fu">## Floats:</span></span>
+<span id="cb75-75"><a href="#cb75-75"></a></span>
+<span id="cb75-76"><a href="#cb75-76"></a><span class="ss">- </span>The IEEE 754 Floating-Point Standard</span>
+<span id="cb75-77"><a href="#cb75-77"></a></span>
+<span id="cb75-78"><a href="#cb75-78"></a></span>
+<span id="cb75-79"><a href="#cb75-79"></a><span class="dt">&lt;</span><span class="kw">img</span><span class="ot"> style</span><span class="op">=</span><span class="st">"filter:invert(1)"</span><span class="ot"> src</span><span class="op">=</span><span class="st">"https://upload.wikimedia.org/wikipedia/commons/d/d2/Float_example.svg"</span><span class="dt">&gt;</span></span>
+<span id="cb75-80"><a href="#cb75-80"></a></span>
+<span id="cb75-81"><a href="#cb75-81"></a><span class="ss">- </span>It is basically scientific notation that fits in a fixed amount of characters.</span>
+<span id="cb75-82"><a href="#cb75-82"></a></span>
+<span id="cb75-83"><a href="#cb75-83"></a><span class="fu">## What is it?</span></span>
+<span id="cb75-84"><a href="#cb75-84"></a></span>
+<span id="cb75-85"><a href="#cb75-85"></a><span class="ss">- </span>The IEEE 754 standard defines formats for representing floating-point numbers.</span>
+<span id="cb75-86"><a href="#cb75-86"></a><span class="ss">- </span>It specifies how floating-point numbers are stored and operated on in computer hardware.</span>
+<span id="cb75-87"><a href="#cb75-87"></a><span class="ss">- </span>Most modern CPUs adhere to this standard.</span>
+<span id="cb75-88"><a href="#cb75-88"></a></span>
+<span id="cb75-91"><a href="#cb75-91"></a><span class="in">```{python}</span></span>
+<span id="cb75-92"><a href="#cb75-92"></a><span class="im">import</span> sys</span>
+<span id="cb75-93"><a href="#cb75-93"></a><span class="co"># Check the floating-point precision on your system</span></span>
+<span id="cb75-94"><a href="#cb75-94"></a>sys.float_info</span>
+<span id="cb75-95"><a href="#cb75-95"></a><span class="in">```</span></span>
+<span id="cb75-96"><a href="#cb75-96"></a></span>
+<span id="cb75-97"><a href="#cb75-97"></a><span class="fu">## Why is it important?</span></span>
+<span id="cb75-98"><a href="#cb75-98"></a></span>
+<span id="cb75-99"><a href="#cb75-99"></a><span class="ss">- </span>Ensures portability and consistency of numerical computations across different systems.</span>
+<span id="cb75-100"><a href="#cb75-100"></a><span class="ss">- </span>Without a standard, the same calculation could yield different results on different machines.</span>
+<span id="cb75-101"><a href="#cb75-101"></a><span class="ss">- </span>Essential for reliable scientific and engineering software.</span>
+<span id="cb75-102"><a href="#cb75-102"></a></span>
+<span id="cb75-103"><a href="#cb75-103"></a><span class="fu">## Single Precision (Float32)</span></span>
+<span id="cb75-104"><a href="#cb75-104"></a></span>
+<span id="cb75-105"><a href="#cb75-105"></a><span class="ss">- </span>Uses 32 bits to represent a number.</span>
+<span id="cb75-106"><a href="#cb75-106"></a><span class="ss">- </span>1 sign bit, 8 exponent bits, 23 significand (mantissa) bits.</span>
+<span id="cb75-107"><a href="#cb75-107"></a><span class="ss">- </span>Offers approximately 7 decimal digits of precision.</span>
+<span id="cb75-108"><a href="#cb75-108"></a></span>
+<span id="cb75-111"><a href="#cb75-111"></a><span class="in">```{python}</span></span>
+<span id="cb75-112"><a href="#cb75-112"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb75-113"><a href="#cb75-113"></a>np.float32(<span class="dv">1</span><span class="op">/</span><span class="dv">7</span>)</span>
+<span id="cb75-114"><a href="#cb75-114"></a><span class="in">```</span></span>
+<span id="cb75-115"><a href="#cb75-115"></a></span>
+<span id="cb75-116"><a href="#cb75-116"></a><span class="fu">## Double Precision (Float64)</span></span>
+<span id="cb75-117"><a href="#cb75-117"></a></span>
+<span id="cb75-118"><a href="#cb75-118"></a><span class="ss">- </span>Uses 64 bits to represent a number.</span>
+<span id="cb75-119"><a href="#cb75-119"></a><span class="ss">- </span>1 sign bit, 11 exponent bits, 52 significand bits.</span>
+<span id="cb75-120"><a href="#cb75-120"></a><span class="ss">- </span>Offers approximately 15-17 decimal digits of precision. This is the default in Python and NumPy.</span>
+<span id="cb75-121"><a href="#cb75-121"></a></span>
+<span id="cb75-124"><a href="#cb75-124"></a><span class="in">```{python}</span></span>
+<span id="cb75-125"><a href="#cb75-125"></a><span class="co"># Example of a float64 number (default in Python)</span></span>
+<span id="cb75-126"><a href="#cb75-126"></a><span class="dv">1</span><span class="op">/</span><span class="dv">7</span></span>
+<span id="cb75-127"><a href="#cb75-127"></a><span class="in">```</span></span>
+<span id="cb75-128"><a href="#cb75-128"></a></span>
+<span id="cb75-129"><a href="#cb75-129"></a><span class="fu">## Special Values</span></span>
+<span id="cb75-130"><a href="#cb75-130"></a></span>
+<span id="cb75-131"><a href="#cb75-131"></a><span class="ss">- </span>**Infinity $\infty$**: Result of overflow or division by zero.</span>
+<span id="cb75-134"><a href="#cb75-134"></a><span class="in">```{python}</span></span>
+<span id="cb75-135"><a href="#cb75-135"></a>lil <span class="op">=</span> np.finfo(np.float64).resolution <span class="co"># smallest recognizable value</span></span>
+<span id="cb75-136"><a href="#cb75-136"></a>big <span class="op">=</span> np.finfo(np.float64).<span class="bu">max</span> <span class="co"># biggest recognizable value</span></span>
+<span id="cb75-137"><a href="#cb75-137"></a>big <span class="op">/</span> lil</span>
+<span id="cb75-138"><a href="#cb75-138"></a><span class="in">```</span></span>
+<span id="cb75-139"><a href="#cb75-139"></a><span class="ss">- </span>**Not a Number (NaN)**: Result of undefined operations (e.g., $0/0$, $\sqrt{-1}$).</span>
+<span id="cb75-142"><a href="#cb75-142"></a><span class="in">```{python}</span></span>
+<span id="cb75-143"><a href="#cb75-143"></a>np.sqrt(<span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb75-144"><a href="#cb75-144"></a><span class="in">```</span></span>
+<span id="cb75-145"><a href="#cb75-145"></a></span>
+<span id="cb75-146"><a href="#cb75-146"></a><span class="fu">## Pitfall 1: Limited Precision</span></span>
+<span id="cb75-147"><a href="#cb75-147"></a></span>
+<span id="cb75-148"><a href="#cb75-148"></a><span class="ss">- </span>Not all real numbers can be represented exactly.</span>
+<span id="cb75-149"><a href="#cb75-149"></a><span class="ss">- </span>Decimal numbers like 0.1 often have an infinitely repeating binary representation.</span>
+<span id="cb75-150"><a href="#cb75-150"></a><span class="ss">- </span>This leads to small, unavoidable rounding errors.</span>
+<span id="cb75-151"><a href="#cb75-151"></a></span>
+<span id="cb75-154"><a href="#cb75-154"></a><span class="in">```{python}</span></span>
+<span id="cb75-155"><a href="#cb75-155"></a><span class="fl">.1</span> <span class="op">+</span> <span class="fl">.2</span></span>
+<span id="cb75-156"><a href="#cb75-156"></a><span class="in">```</span></span>
+<span id="cb75-157"><a href="#cb75-157"></a></span>
+<span id="cb75-158"><a href="#cb75-158"></a><span class="fu">## Pitfall 2: Accumulation</span></span>
+<span id="cb75-159"><a href="#cb75-159"></a></span>
+<span id="cb75-160"><a href="#cb75-160"></a><span class="ss">- </span>Small rounding errors can accumulate over many operations.</span>
+<span id="cb75-161"><a href="#cb75-161"></a><span class="ss">- </span>This can lead to significant inaccuracies in long computations or iterative algorithms.</span>
+<span id="cb75-162"><a href="#cb75-162"></a><span class="ss">- </span>Careful algorithm design and error analysis are crucial.</span>
+<span id="cb75-163"><a href="#cb75-163"></a></span>
+<span id="cb75-166"><a href="#cb75-166"></a><span class="in">```{python}</span></span>
+<span id="cb75-167"><a href="#cb75-167"></a>total <span class="op">=</span> <span class="fl">0.0</span></span>
+<span id="cb75-168"><a href="#cb75-168"></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">100000</span>):</span>
+<span id="cb75-169"><a href="#cb75-169"></a>    total <span class="op">+=</span> <span class="fl">0.1</span></span>
+<span id="cb75-170"><a href="#cb75-170"></a>total, <span class="dv">100000</span> <span class="op">*</span> <span class="fl">0.1</span></span>
+<span id="cb75-171"><a href="#cb75-171"></a><span class="in">```</span></span>
+<span id="cb75-172"><a href="#cb75-172"></a></span>
+<span id="cb75-173"><a href="#cb75-173"></a><span class="fu">## Pitfall 3: Comparison Issues</span></span>
+<span id="cb75-174"><a href="#cb75-174"></a></span>
+<span id="cb75-175"><a href="#cb75-175"></a><span class="ss">- </span>Due to limited precision, direct equality comparisons (<span class="in">`==`</span>) between floating-point numbers are often unreliable.</span>
+<span id="cb75-176"><a href="#cb75-176"></a></span>
+<span id="cb75-179"><a href="#cb75-179"></a><span class="in">```{python}</span></span>
+<span id="cb75-180"><a href="#cb75-180"></a>(<span class="dv">1</span> <span class="op">+</span> <span class="dv">2</span>) <span class="op">/</span> <span class="dv">10</span></span>
+<span id="cb75-181"><a href="#cb75-181"></a><span class="in">```</span></span>
+<span id="cb75-182"><a href="#cb75-182"></a></span>
+<span id="cb75-185"><a href="#cb75-185"></a><span class="in">```{python}</span></span>
+<span id="cb75-186"><a href="#cb75-186"></a><span class="dv">1</span> <span class="op">/</span> <span class="dv">10</span> <span class="op">+</span> <span class="dv">2</span> <span class="op">/</span> <span class="dv">10</span></span>
+<span id="cb75-187"><a href="#cb75-187"></a><span class="in">```</span></span>
+<span id="cb75-188"><a href="#cb75-188"></a></span>
+<span id="cb75-189"><a href="#cb75-189"></a></span>
+<span id="cb75-190"><a href="#cb75-190"></a><span class="fu">## Pitfall 4: Subtractive Cancellation</span></span>
+<span id="cb75-191"><a href="#cb75-191"></a></span>
+<span id="cb75-192"><a href="#cb75-192"></a><span class="ss">- </span>Occurs when subtracting two nearly equal numbers.</span>
+<span id="cb75-193"><a href="#cb75-193"></a><span class="ss">- </span>The most significant bits cancel out, leaving only the less significant bits.</span>
+<span id="cb75-194"><a href="#cb75-194"></a><span class="ss">- </span>Can drastically reduce the effective precision.</span>
+<span id="cb75-195"><a href="#cb75-195"></a></span>
+<span id="cb75-198"><a href="#cb75-198"></a><span class="in">```{python}</span></span>
+<span id="cb75-199"><a href="#cb75-199"></a>x <span class="op">=</span> <span class="fl">1.0000000000000001</span></span>
+<span id="cb75-200"><a href="#cb75-200"></a>y <span class="op">=</span> <span class="fl">1.0000000000000000</span></span>
+<span id="cb75-201"><a href="#cb75-201"></a>x <span class="op">-</span> y</span>
+<span id="cb75-202"><a href="#cb75-202"></a><span class="in">```</span></span>
+<span id="cb75-203"><a href="#cb75-203"></a></span>
+<span id="cb75-204"><a href="#cb75-204"></a><span class="fu"># Symbolic Computation</span></span>
+<span id="cb75-205"><a href="#cb75-205"></a></span>
+<span id="cb75-206"><a href="#cb75-206"></a><span class="fu">## Credit</span></span>
+<span id="cb75-207"><a href="#cb75-207"></a></span>
+<span id="cb75-208"><a href="#cb75-208"></a><span class="ss">- </span>The <span class="co">[</span><span class="ot">SymPy tutorial</span><span class="co">](https://docs.sympy.org/latest/tutorials/intro-tutorial/)</span>.</span>
+<span id="cb75-209"><a href="#cb75-209"></a><span class="ss">- </span>SymPy solves the floating point problem.</span>
+<span id="cb75-210"><a href="#cb75-210"></a></span>
+<span id="cb75-211"><a href="#cb75-211"></a><span class="fu">## Quoth SymPy</span></span>
+<span id="cb75-212"><a href="#cb75-212"></a></span>
+<span id="cb75-213"><a href="#cb75-213"></a><span class="at">&gt; Symbolic computation deals with the computation of mathematical objects symbolically. This means that the mathematical objects are represented exactly, not approximately, and mathematical expressions with unevaluated variables are left in symbolic form.</span></span>
+<span id="cb75-214"><a href="#cb75-214"></a></span>
+<span id="cb75-215"><a href="#cb75-215"></a><span class="fu">## Non-symbolic Computation</span></span>
+<span id="cb75-216"><a href="#cb75-216"></a></span>
+<span id="cb75-217"><a href="#cb75-217"></a><span class="ss">- </span>A common problem in computing is to compute the likes of distance between points separated by vectors.</span>
+<span id="cb75-218"><a href="#cb75-218"></a><span class="ss">- </span>Imagine two objects are separated by a horizontal displacement of <span class="in">`3`</span> units, and vertical displacement of <span class="in">`4`</span> units, and we wish to determine the minimum distance.</span>
+<span id="cb75-219"><a href="#cb75-219"></a><span class="ss">- </span>A straightforward application of the Pythagorean Theorem.</span>
+<span id="cb75-222"><a href="#cb75-222"></a><span class="in">```{python}</span></span>
+<span id="cb75-223"><a href="#cb75-223"></a>np.sqrt(<span class="dv">3</span> <span class="op">*</span> <span class="dv">3</span> <span class="op">+</span> <span class="dv">4</span> <span class="op">*</span> <span class="dv">4</span>)</span>
+<span id="cb75-224"><a href="#cb75-224"></a><span class="in">```</span></span>
+<span id="cb75-225"><a href="#cb75-225"></a></span>
+<span id="cb75-226"><a href="#cb75-226"></a><span class="fu">## Pitfalls</span></span>
+<span id="cb75-227"><a href="#cb75-227"></a></span>
+<span id="cb75-228"><a href="#cb75-228"></a><span class="ss">- </span>These distances quickly become inaccurate.</span>
+<span id="cb75-231"><a href="#cb75-231"></a><span class="in">```{python}</span></span>
+<span id="cb75-232"><a href="#cb75-232"></a>np.sqrt(<span class="dv">2</span> <span class="op">*</span> <span class="dv">2</span> <span class="op">+</span> <span class="dv">4</span> <span class="op">*</span> <span class="dv">4</span>)</span>
+<span id="cb75-233"><a href="#cb75-233"></a><span class="in">```</span></span>
+<span id="cb75-234"><a href="#cb75-234"></a><span class="ss">- </span>Then stuff like <span class="co">[</span><span class="ot">this</span><span class="co">](https://www.kezi.com/railroad-bridge-collapses-into-marys-river-in-corvallis/article_50b3ab98-cae2-11ef-86a9-2b8ecb0cf78c.html)</span> happens:</span>
+<span id="cb75-235"><a href="#cb75-235"></a><span class="al">![](bridge.jpg)</span></span>
+<span id="cb75-236"><a href="#cb75-236"></a></span>
+<span id="cb75-237"><a href="#cb75-237"></a><span class="fu">## Symbolic Computation</span></span>
+<span id="cb75-238"><a href="#cb75-238"></a></span>
+<span id="cb75-239"><a href="#cb75-239"></a><span class="ss">- </span>In point of fact, the solution to $\sqrt{2^2 + 4*2}$ is actually $\sqrt{20}$ and there's no other graceful way to represent it.</span>
+<span id="cb75-240"><a href="#cb75-240"></a><span class="ss">- </span>So we'll use *symbols* to store values.</span>
+<span id="cb75-243"><a href="#cb75-243"></a><span class="in">```{python}</span></span>
+<span id="cb75-244"><a href="#cb75-244"></a><span class="im">import</span> sympy</span>
+<span id="cb75-245"><a href="#cb75-245"></a>x <span class="op">=</span> sympy.symbols(<span class="st">'x'</span>)</span>
+<span id="cb75-246"><a href="#cb75-246"></a>y <span class="op">=</span> sympy.symbols(<span class="st">'y'</span>)</span>
+<span id="cb75-247"><a href="#cb75-247"></a>dist <span class="op">=</span> sympy.sqrt(x <span class="op">+</span> y)</span>
+<span id="cb75-248"><a href="#cb75-248"></a>dist</span>
+<span id="cb75-249"><a href="#cb75-249"></a><span class="in">```</span></span>
+<span id="cb75-250"><a href="#cb75-250"></a></span>
+<span id="cb75-251"><a href="#cb75-251"></a><span class="fu">## Expressions</span></span>
+<span id="cb75-252"><a href="#cb75-252"></a></span>
+<span id="cb75-253"><a href="#cb75-253"></a><span class="ss">- </span>We term this a "symbolic expression".</span>
+<span id="cb75-254"><a href="#cb75-254"></a><span class="ss">- </span>We can perform operations...</span>
+<span id="cb75-257"><a href="#cb75-257"></a><span class="in">```{python}</span></span>
+<span id="cb75-258"><a href="#cb75-258"></a><span class="dv">2</span> <span class="op">*</span> dist</span>
+<span id="cb75-259"><a href="#cb75-259"></a><span class="in">```</span></span>
+<span id="cb75-260"><a href="#cb75-260"></a><span class="ss">- </span>We can add other symbols...</span>
+<span id="cb75-263"><a href="#cb75-263"></a><span class="in">```{python}</span></span>
+<span id="cb75-264"><a href="#cb75-264"></a>z <span class="op">=</span> sympy.symbols(<span class="st">'z'</span>)</span>
+<span id="cb75-265"><a href="#cb75-265"></a>z <span class="op">+</span> dist</span>
+<span id="cb75-266"><a href="#cb75-266"></a><span class="in">```</span></span>
+<span id="cb75-267"><a href="#cb75-267"></a></span>
+<span id="cb75-268"><a href="#cb75-268"></a><span class="fu">## Niceties</span></span>
+<span id="cb75-269"><a href="#cb75-269"></a></span>
+<span id="cb75-270"><a href="#cb75-270"></a><span class="ss">- </span>We can declare multiple symbols at once:</span>
+<span id="cb75-273"><a href="#cb75-273"></a><span class="in">```{python}</span></span>
+<span id="cb75-274"><a href="#cb75-274"></a>a, b, c <span class="op">=</span> sympy.symbols(<span class="st">'a b c'</span>)</span>
+<span id="cb75-275"><a href="#cb75-275"></a><span class="in">```</span></span>
+<span id="cb75-276"><a href="#cb75-276"></a><span class="ss">- </span>SymPy will automatically simplify.</span>
+<span id="cb75-279"><a href="#cb75-279"></a><span class="in">```{python}</span></span>
+<span id="cb75-280"><a href="#cb75-280"></a>sympy.sqrt(<span class="dv">20</span>)</span>
+<span id="cb75-281"><a href="#cb75-281"></a><span class="in">```</span></span>
+<span id="cb75-282"><a href="#cb75-282"></a><span class="ss">- </span>Compare:</span>
+<span id="cb75-285"><a href="#cb75-285"></a><span class="in">```{python}</span></span>
+<span id="cb75-286"><a href="#cb75-286"></a>np.sqrt(<span class="dv">20</span>), np.sqrt(<span class="dv">5</span>), <span class="dv">2</span> <span class="op">*</span> np.sqrt(<span class="dv">5</span>)</span>
+<span id="cb75-287"><a href="#cb75-287"></a><span class="in">```</span></span>
+<span id="cb75-288"><a href="#cb75-288"></a></span>
+<span id="cb75-289"><a href="#cb75-289"></a><span class="fu"># Operations </span></span>
+<span id="cb75-290"><a href="#cb75-290"></a></span>
+<span id="cb75-291"><a href="#cb75-291"></a><span class="fu">## Extended Floats</span></span>
+<span id="cb75-292"><a href="#cb75-292"></a></span>
+<span id="cb75-293"><a href="#cb75-293"></a><span class="ss">- </span>SymPy uses floats by default, but doesn't have to.</span>
+<span id="cb75-294"><a href="#cb75-294"></a><span class="ss">- </span>You can specify a number of decimals for any value.</span>
+<span id="cb75-295"><a href="#cb75-295"></a><span class="ss">- </span>We also should that SymPy contains some useful constants!</span>
+<span id="cb75-298"><a href="#cb75-298"></a><span class="in">```{python}</span></span>
+<span id="cb75-299"><a href="#cb75-299"></a><span class="co"># "Evaluate as float to 100 digits"</span></span>
+<span id="cb75-300"><a href="#cb75-300"></a><span class="co"># We use sympy.py, not e.g. np.pi</span></span>
+<span id="cb75-301"><a href="#cb75-301"></a>sympy.pi.evalf(<span class="dv">100</span>)</span>
+<span id="cb75-302"><a href="#cb75-302"></a><span class="in">```</span></span>
+<span id="cb75-303"><a href="#cb75-303"></a></span>
+<span id="cb75-304"><a href="#cb75-304"></a><span class="fu">## Substitution</span></span>
+<span id="cb75-305"><a href="#cb75-305"></a></span>
+<span id="cb75-306"><a href="#cb75-306"></a><span class="ss">- </span>Often we want to solve an equation algebraically and *also* know a numerical solution.</span>
+<span id="cb75-307"><a href="#cb75-307"></a><span class="ss">- </span>The usefulness of SymPy is to do both, and maximally simply the result to minimize error.</span>
+<span id="cb75-308"><a href="#cb75-308"></a><span class="ss">- </span>We can use <span class="in">`subs()`</span> to get solutions given values.</span>
+<span id="cb75-311"><a href="#cb75-311"></a><span class="in">```{python}</span></span>
+<span id="cb75-312"><a href="#cb75-312"></a>dist</span>
+<span id="cb75-313"><a href="#cb75-313"></a><span class="in">```</span></span>
+<span id="cb75-314"><a href="#cb75-314"></a></span>
+<span id="cb75-315"><a href="#cb75-315"></a><span class="fu">## Value Substitution</span></span>
+<span id="cb75-316"><a href="#cb75-316"></a><span class="ss">- </span>Substitute <span class="in">`3`</span> for <span class="in">`x`</span></span>
+<span id="cb75-319"><a href="#cb75-319"></a><span class="in">```{python}</span></span>
+<span id="cb75-320"><a href="#cb75-320"></a>dist.subs(x, <span class="dv">3</span>)</span>
+<span id="cb75-321"><a href="#cb75-321"></a><span class="in">```</span></span>
+<span id="cb75-322"><a href="#cb75-322"></a></span>
+<span id="cb75-323"><a href="#cb75-323"></a></span>
+<span id="cb75-324"><a href="#cb75-324"></a><span class="fu">## Expression Substitution</span></span>
+<span id="cb75-325"><a href="#cb75-325"></a></span>
+<span id="cb75-326"><a href="#cb75-326"></a><span class="ss">- </span>Perhaps <span class="in">`y`</span> is, itself, a distance expressed over a right triangle with sides <span class="in">`a`</span> and <span class="in">`b`</span></span>
+<span id="cb75-329"><a href="#cb75-329"></a><span class="in">```{python}</span></span>
+<span id="cb75-330"><a href="#cb75-330"></a>dist.subs(y,a<span class="op">*</span>a<span class="op">+</span>b<span class="op">*</span>b)</span>
+<span id="cb75-331"><a href="#cb75-331"></a><span class="in">```</span></span>
+<span id="cb75-332"><a href="#cb75-332"></a></span>
+<span id="cb75-333"><a href="#cb75-333"></a><span class="fu">## Strings</span></span>
+<span id="cb75-334"><a href="#cb75-334"></a></span>
+<span id="cb75-335"><a href="#cb75-335"></a><span class="ss">- </span>Sometimes we want to take a Python expression and convert to a symbolic SymPy expression.</span>
+<span id="cb75-338"><a href="#cb75-338"></a><span class="in">```{python}</span></span>
+<span id="cb75-339"><a href="#cb75-339"></a>str_expr <span class="op">=</span> <span class="st">"x**2 + 3*x - 1/2"</span></span>
+<span id="cb75-340"><a href="#cb75-340"></a><span class="im">from</span> sympy <span class="im">import</span> sympify</span>
+<span id="cb75-341"><a href="#cb75-341"></a>expr <span class="op">=</span> sympify(str_expr)</span>
+<span id="cb75-342"><a href="#cb75-342"></a>expr</span>
+<span id="cb75-343"><a href="#cb75-343"></a><span class="in">```</span></span>
+<span id="cb75-344"><a href="#cb75-344"></a><span class="ss">- </span>Then calculate with <span class="in">`.subs()`</span></span>
+<span id="cb75-347"><a href="#cb75-347"></a><span class="in">```{python}</span></span>
+<span id="cb75-348"><a href="#cb75-348"></a>expr.subs(x, <span class="dv">2</span>)</span>
+<span id="cb75-349"><a href="#cb75-349"></a><span class="in">```</span></span>
+<span id="cb75-350"><a href="#cb75-350"></a></span>
+<span id="cb75-351"><a href="#cb75-351"></a><span class="fu">## Functions</span></span>
+<span id="cb75-352"><a href="#cb75-352"></a></span>
+<span id="cb75-353"><a href="#cb75-353"></a><span class="ss">- </span>Sibling of <span class="in">`vectorize`</span></span>
+<span id="cb75-354"><a href="#cb75-354"></a><span class="ss">- </span>Takes a SymPy expression, makes a Python function.</span>
+<span id="cb75-355"><a href="#cb75-355"></a></span>
+<span id="cb75-358"><a href="#cb75-358"></a><span class="in">```{python}</span></span>
+<span id="cb75-359"><a href="#cb75-359"></a>expr <span class="co"># so we remember.</span></span>
+<span id="cb75-360"><a href="#cb75-360"></a><span class="in">```</span></span>
+<span id="cb75-361"><a href="#cb75-361"></a><span class="ss">- </span>Calculate...</span>
+<span id="cb75-364"><a href="#cb75-364"></a><span class="in">```{python}</span></span>
+<span id="cb75-365"><a href="#cb75-365"></a>f <span class="op">=</span> sympy.lambdify(x, expr, <span class="st">"scipy"</span>)</span>
+<span id="cb75-366"><a href="#cb75-366"></a>f(np.arange(<span class="dv">10</span>))</span>
+<span id="cb75-367"><a href="#cb75-367"></a><span class="in">```</span></span>
+<span id="cb75-368"><a href="#cb75-368"></a></span>
+<span id="cb75-369"><a href="#cb75-369"></a><span class="fu">## Aside: SciPy/NumPy</span></span>
+<span id="cb75-370"><a href="#cb75-370"></a></span>
+<span id="cb75-371"><a href="#cb75-371"></a><span class="ss">- </span>**Always** use <span class="in">`lambdify`</span> specified with <span class="in">`"scipy"`</span> (or <span class="in">`"numpy"`</span>) if you have SciPy or even just NumPy installed</span>
+<span id="cb75-372"><a href="#cb75-372"></a><span class="ss">- </span>It uses NumPy's more powerful (than Python's) mathematical operations.</span>
+<span id="cb75-373"><a href="#cb75-373"></a></span>
+<span id="cb75-374"><a href="#cb75-374"></a><span class="fu">## Aside: Plots</span></span>
+<span id="cb75-375"><a href="#cb75-375"></a></span>
+<span id="cb75-378"><a href="#cb75-378"></a><span class="in">```{python}</span></span>
+<span id="cb75-379"><a href="#cb75-379"></a><span class="co"># import sympy</span></span>
+<span id="cb75-380"><a href="#cb75-380"></a><span class="co"># from sympy.abc import x</span></span>
+<span id="cb75-381"><a href="#cb75-381"></a><span class="co"># import scipy</span></span>
+<span id="cb75-382"><a href="#cb75-382"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb75-383"><a href="#cb75-383"></a>f <span class="op">=</span> sympy.lambdify(x,x<span class="op">*</span>x,<span class="st">"scipy"</span>)</span>
+<span id="cb75-384"><a href="#cb75-384"></a>xs <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">5</span>,<span class="dv">5</span>) </span>
+<span id="cb75-385"><a href="#cb75-385"></a>plt.plot(xs, f(xs))</span>
+<span id="cb75-386"><a href="#cb75-386"></a><span class="in">```</span></span>
+<span id="cb75-387"><a href="#cb75-387"></a></span>
+<span id="cb75-388"><a href="#cb75-388"></a><span class="fu">## Simplification</span></span>
+<span id="cb75-389"><a href="#cb75-389"></a></span>
+<span id="cb75-390"><a href="#cb75-390"></a><span class="ss">- </span>If I use SymPy, I don't have to remember this:</span>
+<span id="cb75-393"><a href="#cb75-393"></a><span class="in">```{python}</span></span>
+<span id="cb75-394"><a href="#cb75-394"></a>sympy.simplify(sympy.sin(x)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> sympy.cos(x)<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb75-395"><a href="#cb75-395"></a><span class="in">```</span></span>
+<span id="cb75-396"><a href="#cb75-396"></a><span class="ss">- </span>Or figure out this:</span>
+<span id="cb75-399"><a href="#cb75-399"></a><span class="in">```{python}</span></span>
+<span id="cb75-400"><a href="#cb75-400"></a>sympy.simplify((x<span class="op">**</span><span class="dv">3</span> <span class="op">+</span> x<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> x <span class="op">-</span> <span class="dv">1</span>)<span class="op">/</span>(x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">2</span><span class="op">*</span>x <span class="op">+</span> <span class="dv">1</span>))</span>
+<span id="cb75-401"><a href="#cb75-401"></a><span class="in">```</span></span>
+<span id="cb75-402"><a href="#cb75-402"></a></span>
+<span id="cb75-403"><a href="#cb75-403"></a><span class="fu">## Polynomials</span></span>
+<span id="cb75-404"><a href="#cb75-404"></a></span>
+<span id="cb75-405"><a href="#cb75-405"></a><span class="ss">- </span>Often we *don't* want a simplified polynomial.</span>
+<span id="cb75-408"><a href="#cb75-408"></a><span class="in">```{python}</span></span>
+<span id="cb75-409"><a href="#cb75-409"></a>sympy.simplify(x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">2</span><span class="op">*</span>x <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb75-410"><a href="#cb75-410"></a><span class="in">```</span></span>
+<span id="cb75-411"><a href="#cb75-411"></a><span class="ss">- </span>We perhaps instead wish to <span class="in">`factor()`</span></span>
+<span id="cb75-414"><a href="#cb75-414"></a><span class="in">```{python}</span></span>
+<span id="cb75-415"><a href="#cb75-415"></a>sympy.factor(x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">2</span><span class="op">*</span>x <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb75-416"><a href="#cb75-416"></a><span class="in">```</span></span>
+<span id="cb75-417"><a href="#cb75-417"></a></span>
+<span id="cb75-418"><a href="#cb75-418"></a><span class="fu">## Expand</span></span>
+<span id="cb75-419"><a href="#cb75-419"></a></span>
+<span id="cb75-420"><a href="#cb75-420"></a><span class="ss">- </span>We may also start with factored form.</span>
+<span id="cb75-423"><a href="#cb75-423"></a><span class="in">```{python}</span></span>
+<span id="cb75-424"><a href="#cb75-424"></a>eq <span class="op">=</span> x<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> (x<span class="op">+</span><span class="dv">1</span>) <span class="op">*</span> (x<span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb75-425"><a href="#cb75-425"></a><span class="in">```</span></span>
+<span id="cb75-426"><a href="#cb75-426"></a><span class="ss">- </span>This can deceptively by made smaller by expanding it.</span>
+<span id="cb75-429"><a href="#cb75-429"></a><span class="in">```{python}</span></span>
+<span id="cb75-430"><a href="#cb75-430"></a>sympy.expand(eq)</span>
+<span id="cb75-431"><a href="#cb75-431"></a><span class="in">```</span></span>
+<span id="cb75-432"><a href="#cb75-432"></a></span>
+<span id="cb75-433"><a href="#cb75-433"></a><span class="fu">## Fractions</span></span>
+<span id="cb75-434"><a href="#cb75-434"></a></span>
+<span id="cb75-435"><a href="#cb75-435"></a><span class="ss">- </span>We can also cancel out fractions.</span>
+<span id="cb75-438"><a href="#cb75-438"></a><span class="in">```{python}</span></span>
+<span id="cb75-439"><a href="#cb75-439"></a>eq <span class="op">=</span> (x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">2</span><span class="op">*</span>x <span class="op">+</span> <span class="dv">1</span>)<span class="op">/</span>(x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> x)</span>
+<span id="cb75-440"><a href="#cb75-440"></a>eq</span>
+<span id="cb75-441"><a href="#cb75-441"></a><span class="in">```</span></span>
+<span id="cb75-442"><a href="#cb75-442"></a><span class="ss">- </span>Using <span class="in">`sympy.factor()`</span></span>
+<span id="cb75-445"><a href="#cb75-445"></a><span class="in">```{python}</span></span>
+<span id="cb75-446"><a href="#cb75-446"></a>sympy.factor(eq)</span>
+<span id="cb75-447"><a href="#cb75-447"></a><span class="in">```</span></span>
+<span id="cb75-448"><a href="#cb75-448"></a></span>
+<span id="cb75-449"><a href="#cb75-449"></a><span class="fu">## Powers</span></span>
+<span id="cb75-450"><a href="#cb75-450"></a></span>
+<span id="cb75-451"><a href="#cb75-451"></a><span class="ss">- </span>SymPy can also perform some simplifications related to exponention.</span>
+<span id="cb75-452"><a href="#cb75-452"></a><span class="ss">- </span>Movie size in memory is frame size time frame rate times duration.</span>
+<span id="cb75-455"><a href="#cb75-455"></a><span class="in">```{python}</span></span>
+<span id="cb75-456"><a href="#cb75-456"></a>eq <span class="op">=</span> x<span class="op">**</span><span class="dv">10</span><span class="op">*</span>x<span class="op">**</span><span class="dv">9</span><span class="op">*</span>x<span class="op">**</span><span class="dv">5</span><span class="op">*</span>x<span class="op">*</span><span class="dv">9</span> <span class="co"># Avatar in HD is ~4 hrs long at ~60fps</span></span>
+<span id="cb75-457"><a href="#cb75-457"></a>eq</span>
+<span id="cb75-458"><a href="#cb75-458"></a><span class="in">```</span></span>
+<span id="cb75-459"><a href="#cb75-459"></a><span class="ss">- </span>Or just sub in <span class="in">`2`</span></span>
+<span id="cb75-462"><a href="#cb75-462"></a><span class="in">```{python}</span></span>
+<span id="cb75-463"><a href="#cb75-463"></a>eq.subs(x,<span class="dv">2</span>)</span>
+<span id="cb75-464"><a href="#cb75-464"></a><span class="in">```</span></span>
+<span id="cb75-465"><a href="#cb75-465"></a></span>
+<span id="cb75-466"><a href="#cb75-466"></a><span class="fu"># Calculus</span></span>
+<span id="cb75-467"><a href="#cb75-467"></a></span>
+<span id="cb75-468"><a href="#cb75-468"></a><span class="fu">## Derivatives</span></span>
+<span id="cb75-469"><a href="#cb75-469"></a></span>
+<span id="cb75-470"><a href="#cb75-470"></a><span class="ss">- </span>We can calculate derivatives.</span>
+<span id="cb75-473"><a href="#cb75-473"></a><span class="in">```{python}</span></span>
+<span id="cb75-474"><a href="#cb75-474"></a>sympy.diff(x<span class="op">*</span>x, x)</span>
+<span id="cb75-475"><a href="#cb75-475"></a><span class="in">```</span></span>
+<span id="cb75-476"><a href="#cb75-476"></a></span>
+<span id="cb75-477"><a href="#cb75-477"></a><span class="fu">## Integrals</span></span>
+<span id="cb75-478"><a href="#cb75-478"></a></span>
+<span id="cb75-481"><a href="#cb75-481"></a><span class="in">```{python}</span></span>
+<span id="cb75-482"><a href="#cb75-482"></a>sympy.integrate(sympy.sin(x), x)</span>
+<span id="cb75-483"><a href="#cb75-483"></a><span class="in">```</span></span>
+<span id="cb75-484"><a href="#cb75-484"></a></span>
+<span id="cb75-485"><a href="#cb75-485"></a><span class="fu">## Evaluate Integrals</span></span>
+<span id="cb75-486"><a href="#cb75-486"></a></span>
+<span id="cb75-487"><a href="#cb75-487"></a><span class="ss">- </span>Give a variable a domain...</span>
+<span id="cb75-490"><a href="#cb75-490"></a><span class="in">```{python}</span></span>
+<span id="cb75-491"><a href="#cb75-491"></a>sympy.integrate(sympy.exp(x), (x, <span class="dv">0</span>, <span class="dv">1</span>))</span>
+<span id="cb75-492"><a href="#cb75-492"></a><span class="in">```</span></span>
+<span id="cb75-493"><a href="#cb75-493"></a></span>
+<span id="cb75-494"><a href="#cb75-494"></a><span class="fu">## Limits</span></span>
+<span id="cb75-495"><a href="#cb75-495"></a></span>
+<span id="cb75-496"><a href="#cb75-496"></a><span class="ss">- </span>One famous problem is to compute the value of the following function as it approaches zero:</span>
+<span id="cb75-497"><a href="#cb75-497"></a>$$</span>
+<span id="cb75-498"><a href="#cb75-498"></a>\lim_{x\to 0} \frac{\sin{x}}{x}</span>
+<span id="cb75-499"><a href="#cb75-499"></a>$$</span>
+<span id="cb75-500"><a href="#cb75-500"></a></span>
+<span id="cb75-501"><a href="#cb75-501"></a><span class="fu">## Evaluate limits</span></span>
+<span id="cb75-502"><a href="#cb75-502"></a></span>
+<span id="cb75-505"><a href="#cb75-505"></a><span class="in">```{python}</span></span>
+<span id="cb75-506"><a href="#cb75-506"></a>eq <span class="op">=</span> sympy.sin(x)<span class="op">/</span>x</span>
+<span id="cb75-507"><a href="#cb75-507"></a>eq</span>
+<span id="cb75-508"><a href="#cb75-508"></a><span class="in">```</span></span>
+<span id="cb75-509"><a href="#cb75-509"></a><span class="ss">- </span>We provide a variable and the value it approaches.</span>
+<span id="cb75-512"><a href="#cb75-512"></a><span class="in">```{python}</span></span>
+<span id="cb75-513"><a href="#cb75-513"></a>sympy.limit(eq, x, <span class="dv">0</span>)</span>
+<span id="cb75-514"><a href="#cb75-514"></a><span class="in">```</span></span>
+<span id="cb75-515"><a href="#cb75-515"></a></span>
+<span id="cb75-516"><a href="#cb75-516"></a><span class="fu">## Viewing limits</span></span>
+<span id="cb75-517"><a href="#cb75-517"></a></span>
+<span id="cb75-518"><a href="#cb75-518"></a><span class="ss">- </span>To create a printable limit object that can be evaluated.</span>
+<span id="cb75-519"><a href="#cb75-519"></a><span class="ss">    - </span>Capitalize</span>
+<span id="cb75-520"><a href="#cb75-520"></a><span class="ss">    - </span>Resolve via <span class="in">`.doit`</span></span>
+<span id="cb75-521"><a href="#cb75-521"></a><span class="ss">    - </span>Also works for <span class="in">`Derivative`</span> and <span class="in">`Integral`</span></span>
+<span id="cb75-524"><a href="#cb75-524"></a><span class="in">```{python}</span></span>
+<span id="cb75-525"><a href="#cb75-525"></a>lm <span class="op">=</span> sympy.Limit(eq, x, <span class="dv">0</span>)</span>
+<span id="cb75-526"><a href="#cb75-526"></a>lm, lm.doit()</span>
+<span id="cb75-527"><a href="#cb75-527"></a><span class="in">```</span></span>
+<span id="cb75-528"><a href="#cb75-528"></a></span>
+<span id="cb75-529"><a href="#cb75-529"></a><span class="fu"># Solutions</span></span>
+<span id="cb75-530"><a href="#cb75-530"></a></span>
+<span id="cb75-531"><a href="#cb75-531"></a><span class="fu">## Solve Equations</span></span>
+<span id="cb75-532"><a href="#cb75-532"></a></span>
+<span id="cb75-533"><a href="#cb75-533"></a><span class="at">&gt; </span><span class="co">[</span><span class="ot">The Python package SymPy can symbolically solve equations, differential equations, linear equations, nonlinear equations, matrix problems, inequalities, Diophantine equations, and evaluate integrals. SymPy can also solve numerically.</span><span class="co">](https://docs.sympy.org/latest/guides/solving/index.html)</span></span>
+<span id="cb75-534"><a href="#cb75-534"></a></span>
+<span id="cb75-535"><a href="#cb75-535"></a></span>
+<span id="cb75-536"><a href="#cb75-536"></a><span class="fu">## Algebra</span></span>
+<span id="cb75-537"><a href="#cb75-537"></a></span>
+<span id="cb75-538"><a href="#cb75-538"></a><span class="ss">- </span>We use the much nicer way to get variable names.</span>
+<span id="cb75-541"><a href="#cb75-541"></a><span class="in">```{python}</span></span>
+<span id="cb75-542"><a href="#cb75-542"></a><span class="im">from</span> sympy.abc <span class="im">import</span> x, y</span>
+<span id="cb75-543"><a href="#cb75-543"></a><span class="in">```</span></span>
+<span id="cb75-544"><a href="#cb75-544"></a><span class="ss">- </span>We will aim to solve the following:</span>
+<span id="cb75-545"><a href="#cb75-545"></a>$$</span>
+<span id="cb75-546"><a href="#cb75-546"></a>x^2 = y</span>
+<span id="cb75-547"><a href="#cb75-547"></a>$$</span>
+<span id="cb75-548"><a href="#cb75-548"></a></span>
+<span id="cb75-549"><a href="#cb75-549"></a><span class="fu">## Write in SymPy</span></span>
+<span id="cb75-550"><a href="#cb75-550"></a></span>
+<span id="cb75-551"><a href="#cb75-551"></a><span class="ss">- </span>SymPy, like many algebra systems, expects equations to be expressed as equal to zero.</span>
+<span id="cb75-552"><a href="#cb75-552"></a><span class="ss">- </span>We note the following equivalence.</span>
+<span id="cb75-553"><a href="#cb75-553"></a>$$</span>
+<span id="cb75-554"><a href="#cb75-554"></a>x^2 = y \equiv x^2 - y = 0</span>
+<span id="cb75-555"><a href="#cb75-555"></a>$$</span>
+<span id="cb75-556"><a href="#cb75-556"></a><span class="ss">- </span>So we write:</span>
+<span id="cb75-559"><a href="#cb75-559"></a><span class="in">```{python}</span></span>
+<span id="cb75-560"><a href="#cb75-560"></a>eq <span class="op">=</span> x<span class="op">*</span>x <span class="op">-</span> y</span>
+<span id="cb75-561"><a href="#cb75-561"></a><span class="in">```</span></span>
+<span id="cb75-562"><a href="#cb75-562"></a></span>
+<span id="cb75-563"><a href="#cb75-563"></a><span class="fu">## Solve</span></span>
+<span id="cb75-564"><a href="#cb75-564"></a></span>
+<span id="cb75-565"><a href="#cb75-565"></a><span class="ss">- </span>To solve, we simply use <span class="in">`sympy.solve()`</span></span>
+<span id="cb75-566"><a href="#cb75-566"></a><span class="ss">    - </span>We specify the equation to solve, and</span>
+<span id="cb75-567"><a href="#cb75-567"></a><span class="ss">    - </span>The variable for which to solve.</span>
+<span id="cb75-570"><a href="#cb75-570"></a><span class="in">```{python}</span></span>
+<span id="cb75-571"><a href="#cb75-571"></a>sympy.solve(eq, x)</span>
+<span id="cb75-572"><a href="#cb75-572"></a><span class="in">```</span></span>
+<span id="cb75-573"><a href="#cb75-573"></a><span class="ss">- </span>We could also do:</span>
+<span id="cb75-576"><a href="#cb75-576"></a><span class="in">```{python}</span></span>
+<span id="cb75-577"><a href="#cb75-577"></a>sympy.solve(eq, y)</span>
+<span id="cb75-578"><a href="#cb75-578"></a><span class="in">```</span></span>
+<span id="cb75-579"><a href="#cb75-579"></a></span>
+<span id="cb75-580"><a href="#cb75-580"></a><span class="fu">## `==` and `Eq()`</span></span>
+<span id="cb75-581"><a href="#cb75-581"></a></span>
+<span id="cb75-582"><a href="#cb75-582"></a><span class="ss">- </span>SymPy, for a variety of good reasons, struggles with <span class="in">`==`</span> in equations, so use <span class="in">`Eq()`</span></span>
+<span id="cb75-585"><a href="#cb75-585"></a><span class="in">```{python}</span></span>
+<span id="cb75-586"><a href="#cb75-586"></a>eq <span class="op">=</span> sympy.Eq(x<span class="op">*</span>x,y)</span>
+<span id="cb75-587"><a href="#cb75-587"></a>eq</span>
+<span id="cb75-588"><a href="#cb75-588"></a><span class="in">```</span></span>
+<span id="cb75-589"><a href="#cb75-589"></a><span class="ss">- </span>It works as expected.</span>
+<span id="cb75-592"><a href="#cb75-592"></a><span class="in">```{python}</span></span>
+<span id="cb75-593"><a href="#cb75-593"></a>sympy.solve(eq)</span>
+<span id="cb75-594"><a href="#cb75-594"></a><span class="in">```</span></span>
+<span id="cb75-595"><a href="#cb75-595"></a></span>
+<span id="cb75-596"><a href="#cb75-596"></a><span class="fu">## Aside: Rationals</span></span>
+<span id="cb75-597"><a href="#cb75-597"></a></span>
+<span id="cb75-598"><a href="#cb75-598"></a><span class="ss">- </span>The is true for fractions with <span class="in">`Rational()`</span></span>
+<span id="cb75-601"><a href="#cb75-601"></a><span class="in">```{python}</span></span>
+<span id="cb75-602"><a href="#cb75-602"></a>sympy.Rational(<span class="dv">5</span><span class="op">/</span><span class="dv">2</span>)</span>
+<span id="cb75-603"><a href="#cb75-603"></a><span class="in">```</span></span>
+<span id="cb75-604"><a href="#cb75-604"></a><span class="ss">- </span>In general, if something would be "weird" with Sympy, there is a capitalized name that does what you would expect.</span>
+<span id="cb75-605"><a href="#cb75-605"></a><span class="ss">- </span>Just check the documentation.</span>
+<span id="cb75-606"><a href="#cb75-606"></a></span>
+<span id="cb75-607"><a href="#cb75-607"></a><span class="fu"># ODEs</span></span>
+<span id="cb75-608"><a href="#cb75-608"></a></span>
+<span id="cb75-609"><a href="#cb75-609"></a><span class="fu">## Ordinary Differential Equations</span></span>
+<span id="cb75-610"><a href="#cb75-610"></a></span>
+<span id="cb75-611"><a href="#cb75-611"></a><span class="at">&gt;  A differential equation is an equation that relates one or more unknown functions and their derivatives.</span></span>
+<span id="cb75-612"><a href="#cb75-612"></a></span>
+<span id="cb75-613"><a href="#cb75-613"></a><span class="at">&gt; An ordinary differential equation (ODE) is a differential equation (DE) dependent on only a single independent variable.</span></span>
+<span id="cb75-614"><a href="#cb75-614"></a></span>
+<span id="cb75-615"><a href="#cb75-615"></a><span class="fu">## Credit</span></span>
+<span id="cb75-616"><a href="#cb75-616"></a></span>
+<span id="cb75-617"><a href="#cb75-617"></a><span class="ss">- </span><span class="co">[</span><span class="ot">"Numerical integration of Ordinary Differential Equations"</span><span class="co">](https://www.sympy.org/scipy-2017-codegen-tutorial/notebooks/20-ordinary-differential-equations.html)</span></span>
+<span id="cb75-618"><a href="#cb75-618"></a></span>
+<span id="cb75-619"><a href="#cb75-619"></a><span class="fu">## Equation</span></span>
+<span id="cb75-620"><a href="#cb75-620"></a></span>
+<span id="cb75-621"><a href="#cb75-621"></a><span class="ss">- </span>Consider the decay of tritium as an example.</span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

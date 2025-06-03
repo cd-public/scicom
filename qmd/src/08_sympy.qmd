@@ -400,24 +400,41 @@ sympy.diff(x*x, x)
 sympy.integrate(sympy.sin(x), x)
 ```
 
-## Solve Integrals
+## Evaluate Integrals
 
 - Give a variable a domain...
 ```{python}
-integral = sympy.Integral(sympy.exp(x), (x, 0, 1))
-integral
-```
-- And evaluate.
-```{python}
-integral.evalf()
+sympy.integrate(sympy.exp(x), (x, 0, 1))
 ```
 
-## Compute Limits
+## Limits
 
 - One famous problem is to compute the value of the following function as it approaches zero:
 $$
-\lim{x\to 0} \frac{\sin{x}}{x}
+\lim_{x\to 0} \frac{\sin{x}}{x}
 $$
+
+## Evaluate limits
+
+```{python}
+eq = sympy.sin(x)/x
+eq
+```
+- We provide a variable and the value it approaches.
+```{python}
+sympy.limit(eq, x, 0)
+```
+
+## Viewing limits
+
+- To create a printable limit object that can be evaluated.
+	- Capitalize
+	- Resolve via `.doit`
+	- Also works for `Derivative` and `Integral`
+```{python}
+lm = sympy.Limit(eq, x, 0)
+lm, lm.doit()
+```
 
 # Solutions
 
@@ -462,4 +479,39 @@ sympy.solve(eq, x)
 sympy.solve(eq, y)
 ```
 
+## `==` and `Eq()`
 
+- SymPy, for a variety of good reasons, struggles with `==` in equations, so use `Eq()`
+```{python}
+eq = sympy.Eq(x*x,y)
+eq
+```
+- It works as expected.
+```{python}
+sympy.solve(eq)
+```
+
+## Aside: Rationals
+
+- The is true for fractions with `Rational()`
+```{python}
+sympy.Rational(5/2)
+```
+- In general, if something would be "weird" with Sympy, there is a capitalized name that does what you would expect.
+- Just check the documentation.
+
+# ODEs
+
+## Ordinary Differential Equations
+
+>  A differential equation is an equation that relates one or more unknown functions and their derivatives.
+
+> An ordinary differential equation (ODE) is a differential equation (DE) dependent on only a single independent variable.
+
+## Credit
+
+- ["Numerical integration of Ordinary Differential Equations"](https://www.sympy.org/scipy-2017-codegen-tutorial/notebooks/20-ordinary-differential-equations.html)
+
+## Equation
+
+- Consider the decay of tritium as an example.
