@@ -1,0 +1,112 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "title: Numba \n",
+        "---\n",
+        "\n",
+        "\n",
+        "\n",
+        "\n",
+        "\n",
+        "\n",
+        "# What is Numba?{.smaller}\n",
+        "\n",
+        "- `Numba` or `scikit-learn`, originally conceived as an extension to SciPy.\n",
+        "\n",
+        "> [Scikit-learn is an open source machine learning library that supports supervised and unsupervised learning. It also provides various tools for model fitting, data preprocessing, model selection, model evaluation, and many other utilities.Scikit-learn is an open source machine learning library that supports supervised and unsupervised learning. It also provides various tools for model fitting, data preprocessing, model selection, model evaluation, and many other utilities.](https://scikit-learn.org/stable/getting_started.html)\n",
+        "\n",
+        "## Why Numba? \n",
+        "\n",
+        "* \"Simple and efficient tools for predictive data analysis\"\n",
+        "* \"Accessible to everybody, and reusable in various contexts\"\n",
+        "* \"Built on NumPy, SciPy, and matplotlib\"\n",
+        "* \"Open source, commercially usable - BSD license\"\n",
+        "\n",
+        "## Why not Numba?\n",
+        "\n",
+        "- The closest thing to competitors, to my knowledge, are Torch and Tensorflow.\n",
+        "  - The Meta and Google GPU-accelerated frameworks, respectively.\n",
+        "- I don't like that the other frameworks are managed by big tech companies, and I don't think they are as well suited to science.\n",
+        "\n",
+        "## Using Numba\n",
+        "\n",
+        "- Numba/scikit-learn is incrementally more involved to install via `pip` because, well, sometimes it is called \"Numba\" and sometimes \"scikit-learn\".\n",
+        "- This gets me almost every time:\n",
+        "```{.bash code-line-numbers=\"false\"}\n",
+        "$ python3 -m pip install Numba\n",
+        "Collecting Numba\n",
+        "  Downloading Numba-0.0.post12.tar.gz (2.6 kB)\n",
+        "  Preparing metadata (setup.py) ... error\n",
+        "  error: subprocess-exited-with-error\n",
+        "\n",
+        "  × python setup.py egg_info did not run successfully.\n",
+        "  │ exit code: 1\n",
+        "  ╰─> [15 lines of output]\n",
+        "      The 'Numba' PyPI package is deprecated, use 'scikit-learn'\n",
+        "      rather than 'Numba' for pip commands.\n",
+        "```\n",
+        "\n",
+        "## Use `scikit-learn`\n",
+        "\n",
+        "- Scikit-learn recommends the following:\n",
+        "```{.bash code-line-numbers=\"false\"}\n",
+        "python3 -m pip install scikit-learn\n",
+        "python3 -m pip show scikit-learn  # show scikit-learn version and location\n",
+        "python3 -m pip freeze             # show all installed packages in the environment\n",
+        "python3 -c \"import Numba; sklearn.show_versions()\"\n",
+        "```\n",
+        "- You will see *a lot* of text.\n",
+        "\n",
+        "## Easier\n",
+        "\n",
+        "- Just open `python`/`python3` and \n"
+      ],
+      "id": "afba1981"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "import Numba"
+      ],
+      "id": "88560776",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "- Like SciPy, usually *parts* of Numba are imported, so that isn't an expected two-letter name like `np` or `pd`\n",
+        "- I *never* use Numba without at least **pandas**, NumPy, and Matplotlib.\n"
+      ],
+      "id": "a24d7b01"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "import numpy as np\n",
+        "import pandas as pd\n",
+        "import matplotlib.pyplot as plt"
+      ],
+      "id": "91661a6e",
+      "execution_count": null,
+      "outputs": []
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "python3",
+      "language": "python",
+      "display_name": "Python 3 (ipykernel)",
+      "path": "C:\\Users\\cd-desk\\AppData\\Local\\Programs\\Python\\Python312\\share\\jupyter\\kernels\\python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}

@@ -2,22 +2,924 @@
 title: Sklearn 
 ---
 
-# What is Sklearn?
+# What is Sklearn?{.smaller}
 
 - `Sklearn` or `scikit-learn`, originally conceived as an extension to SciPy.
 
 > [Scikit-learn is an open source machine learning library that supports supervised and unsupervised learning. It also provides various tools for model fitting, data preprocessing, model selection, model evaluation, and many other utilities.Scikit-learn is an open source machine learning library that supports supervised and unsupervised learning. It also provides various tools for model fitting, data preprocessing, model selection, model evaluation, and many other utilities.](https://scikit-learn.org/stable/getting_started.html)
 
-## Why SymPy 
+## Why sklearn? 
 
-* "SymPy is free both as in speech and as in beer."
-* "Most computer algebra systems invent their own language. Not SymPy."
-* "An advantage of SymPy is that it is lightweight."
+* "Simple and efficient tools for predictive data analysis"
+* "Accessible to everybody, and reusable in various contexts"
+* "Built on NumPy, SciPy, and matplotlib"
+* "Open source, commercially usable - BSD license"
 
-## Why not SymPy
+## Why not sklearn?
 
-- To my knowledge, there's no real competitors with SymPy.
-- The closest are probably SageMath and Mathematica.
-- I use browser-based Mathematica via [https://www.wolframalpha.com/](https://www.wolframalpha.com/) from time to time (when I don't have a Python installation handy).
+- The closest thing to competitors, to my knowledge, are Torch and Tensorflow.
+  - The Meta and Google GPU-accelerated frameworks, respectively.
+- I don't like that the other frameworks are managed by big tech companies, and I don't think they are as well suited to science.
+
+## Using Sklearn
+
+- Sklearn/scikit-learn is incrementally more involved to install via `pip` because, well, sometimes it is called "sklearn" and sometimes "scikit-learn".
+- This gets me almost every time:
+```{.bash code-line-numbers="false"}
+$ python3 -m pip install sklearn
+Collecting sklearn
+  Downloading sklearn-0.0.post12.tar.gz (2.6 kB)
+  Preparing metadata (setup.py) ... error
+  error: subprocess-exited-with-error
+
+  × python setup.py egg_info did not run successfully.
+  │ exit code: 1
+  ╰─> [15 lines of output]
+      The 'sklearn' PyPI package is deprecated, use 'scikit-learn'
+      rather than 'sklearn' for pip commands.
+```
+
+## Use `scikit-learn`
+
+- Scikit-learn recommends the following:
+```{.bash code-line-numbers="false"}
+python3 -m pip install scikit-learn
+python3 -m pip show scikit-learn  # show scikit-learn version and location
+python3 -m pip freeze             # show all installed packages in the environment
+python3 -c "import sklearn; sklearn.show_versions()"
+```
+- You will see *a lot* of text.
+
+## Easier
+
+- Just open `python`/`python3` and 
+```{python}
+import sklearn
+```
+- Like SciPy, usually *parts* of Sklearn are imported, so that isn't an expected two-letter name like `np` or `pd`
+- I *never* use sklearn without at least **pandas**, NumPy, and Matplotlib.
+```{python}
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+```
+
+## These Slides
+
+- We will focus on *cognitive* and *vision* science, motivated by the legendary example that drove early machine learning research...
+
+# [THE MNIST DATABASE](https://web.archive.org/web/20200430193701/http://yann.lecun.com/exdb/mnist/)
+
+of handwritten digits
+
+## Citation
+
+```{.LaTeX filename="mnist.bib" code-line-numbers="false"}
+@article{lecun1998mnist,
+  title={The MNIST database of handwritten digits},
+  author={LeCun, Yann},
+  journal={http://yann. lecun. com/exdb/mnist/},
+  year={1998}
+}
+```
+
+## Credit
+
+- I will follow this guide:
+- [Recognizing hand-written digits](https://scikit-learn.org/stable/auto_examples/classification/plot_digits_classification.html)
+
+## The Data
+
+- The MNIST dataset is pretty easy to find, even if the original source isn't maintained anymore.
+- In fairness, it was posted before *I* started **kindergarten**
+  	- German for "children garden"
+- It is so much everywhere, it is built into sklearn!
+```{python}
+from sklearn import datasets
+
+digits = datasets.load_digits()
+```
+
+## Look at it
+
+```{python}
+digits
+```
+
+## Okay
+
+- `digits` is a "bunch", which I'd never actually heard of before in my life, but appears almost identical to a Python `dict` or "dictionary.
+```{python}
+type(digits)
+``` 
+- Here's a `dict`
+```{python}
+d = {"data" : np.arange(10), "target" : np.arange(10), "frame" : None}
+type(d)
+```
+
+# Dictionaries
+
+## What is a Dictionary?
+
+- A dictionary is a built-in Python data type used to store collections of data.
+- It stores data in "key-value" pairs.
+- Dictionaries are unordered, mutable (like lists, not like tuples), and indexed by *keys*.
+
+```{python}
+my_dict = {"one": 1, "two": 2, "three": 3}
+print(my_dict)
+```
+
+## Key-Value Storage
+
+- Each item in a dictionary consists of a *key* and its corresponding *value*.
+- **Keys** must be unique and immutable (e.g., strings, numbers, tuples).
+  	- Cannot be lists!
+- **Values** can be of any data type and can be duplicated.
+
+```{python}
+number_strings = {1: "one", 2: "two", 11: "eleven", 20: "twenty"}
+number_strings[11], number_strings[2]
+```
+
+## Why dictionaries?
+
+- Think of a physical dictionary: a "key" (the word) points to a "value" (its definition).
+- Python dictionaries work similarly, storing unique keys that retrieve associated values.
+- This structure is powerful for organizing data where each piece needs a distinct label.
+
+```{python}
+meanings = {"earth": "ground, soil, land", "wind": "air in natural motion", "fire": "combustion or burning", "water": "colorless, transparent, odorless liquid"}
+meanings["earth"]
+```
+
+## Accessing Values
+
+- Values are accessed by referring to their associated key.
+- You can use square brackets `[]` or the `.get()` method.
+- `.get()` returns `None` or a default value if the key is not found, preventing errors.
+
+```{python}
+my_dict = {"apple": "red", "banana": "yellow"}
+my_dict["apple"], my_dict.get("strawberry", "idk")
+```
+
+## Adding and Updating Items
+
+- New key-value pairs can be added by assigning a value to a new key.
+- Existing values can be updated by assigning a new value to an existing key.
+
+```{python}
+my_dict = {"name": "Alice"}
+my_dict["age"] = 30
+my_dict["name"] = "Bob"
+my_dict
+```
+
+## Deleting Items
+
+- Items can be removed using the `del` keyword or the `.pop()` method.
+- `.pop()` also returns the value of the removed item.
+
+```{python}
+my_dict = {"a": 1, "b": 2, "c": 3}
+del my_dict["a"]
+my_dict.pop("b")
+```
+
+- Also check `my_dict`:
+```{python}
+my_dict
+```
+
+## NumPy Arrays
+
+- While `np.ndarray` is a homogeneous data structure, dictionaries can store heterogeneous data.
+- Dictionaries can be used to organize parameters or metadata associated with NumPy arrays.
+
+```{python}
+data_info = {"name": "Measurements", "unit": "meters", "data": np.array([10.1, 12.5, 11.3])}
+data_info["data"].mean()
+```
+
+## **pandas** DataFrames
+
+- Dictionaries are commonly used to create `pd.DataFrame` objects.
+- Keys become column names, and values (lists or arrays) become column data.
+- This provides a natural way to structure tabular data before DataFrame creation.
+
+```{python}
+import pandas as pd
+data = {
+    "City": ["Portland", "Seattle", "Boise"],
+    "Population": [650000, 750000, 230000],
+    "State": ["OR", "WA", "ID"]
+}
+pd.DataFrame(data)
+```
+
+## DataFrame Column Selection
+
+- Dictionaries can be used to map original column names to new, more descriptive names.
+- This is useful for renaming columns in a `pd.DataFrame`.
+
+```{python}
+df = pd.DataFrame({'col_a': [1,2], 'col_b': [3,4]})
+column_rename_map = {'col_a': 'Feature_1', 'col_b': 'Feature_2'}
+df.rename(columns=column_rename_map)
+```
+
+## In sklearn
+
+- Dictionaries are fundamental for defining model parameters (hyperparameters) in `sklearn`.
+- They are used in `GridSearchCV` or `RandomizedSearchCV` to specify parameter grids for tuning.
+
+```{python}
+from sklearn.linear_model import LogisticRegression
+params = {"penalty": "l1", "C": 0.1, "solver": "liblinear"}
+model = LogisticRegression(**params)
+model.get_params()
+```
+
+## Model Configuration
+
+- Dictionaries can store various configuration settings for an `sklearn` pipeline or model.
+- This makes configurations easily readable, modifiable, and transportable.
+
+```{python}
+model_config = {
+    "model_type": "RandomForestClassifier",
+    "n_estimators": 100,
+    "max_depth": 10,
+    "random_state": 42
+}
+print(f"Model Type: {model_config['model_type']}")
+print(f"Number of Estimators: {model_config['n_estimators']}")
+```
 
 
+
+## Aside: f-Strings (Format Strings)
+
+- f-strings offer a concise and readable way to embed Python expressions inside string literals.
+- They are prefixed with an `f` (or `F`) and use curly braces `{}` to contain expressions.
+- This feature, introduced in Python 3.6, makes string formatting much more straightforward.
+
+```{python}
+model_config = {"model_type": "LogisticRegression", "n_estimators": 100}
+print(f"Model Type: {model_config['model_type']}")
+```
+
+
+
+## Why Use f-Strings?
+
+- **Readability**: The expressions are right within the string, making it easy to see what's being formatted.
+- **Conciseness**: Less boilerplate code compared to older formatting methods like `.format()` or `%`.
+- **Performance**: Generally faster than other string formatting methods.
+
+```{python}
+my_name = "Alice"
+my_age = 30
+print(f"Hello, my name is {my_name} and I am {my_age} years old.")
+print(f"Number of Estimators: {model_config['n_estimators']}")
+```
+
+## Feature Store
+
+- Dictionaries can temporarily hold features for a single sample before passing to a model.
+- This is particularly useful when working with `DictVectorizer` in text processing.
+
+```{python}
+from sklearn.feature_extraction import DictVectorizer
+data = [{"color": "red", "size": "small"}, {"color": "blue", "size": "large"}]
+vec = DictVectorizer(sparse=False)
+features = vec.fit_transform(data)
+print(features)
+print(vec.get_feature_names_out())
+```
+
+## Key Takeaways
+
+- Dictionaries provide flexible key-value storage for diverse data.
+- They are crucial for organizing data, especially when converting to `pd.DataFrame`.
+- In `sklearn`, dictionaries are indispensable for hyperparameter tuning and model configuration, making your machine learning workflows more organized and reproducible.
+
+
+# The Dataset
+
+## MNIST
+
+- Basically, MNIST contains:
+  - Handwritten digits from government forms
+  - What digit someone thought the person was trying to write.
+- We will:
+  - Try to get a computer to do this work for us.
+- Let's look at an example.
+
+## "target"
+
+- "target" gives what a human *thought* the digit was.
+- It is generally regard that whoever set the targets was mostly correct.
+- The first ten digits are thought to be:
+```{python}
+digits["target"][:10]
+```
+
+## "images"
+
+- "images" are more complicated.
+- Let's take a look at just the initial image:
+```{python}
+im = digits["images"][0]
+im
+```
+
+## Examine
+
+```{python}
+im.shape, im.size, im.ndim
+```
+```{python}
+im.mean(), im.max()
+```
+```{python}
+digits["images"].mean(), digits["images"].max()
+```
+
+## Takeways
+
+- `im` is an 8-by-8 array of values from 0 to 16
+```{python}
+plt.imshow(im)
+```
+
+## Coloration
+
+```{python}
+plt.imshow(im)
+plt.colorbar()
+```
+
+- Might be easier in grayscale.
+
+## cmap
+
+- Matplotlib provides colormaps we can specify.
+  - I say a `'Greys'` in there.
+```{python}
+from matplotlib import colormaps
+list(colormaps)[:20]
+```
+
+## Greyscale
+
+```{python}
+plt.imshow(im, cmap='Greys')
+plt.colorbar()
+```
+
+## Interpolation
+
+- Use an interpolater (`'spline16'` looked good).
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{python}
+plt.imshow(im) # I am writing a comment here to align vertically
+```
+
+:::
+
+::: {.column width="50%"}
+
+
+```{python}
+plt.imshow(im, cmap='Greys', interpolation="spline16")
+```
+
+:::
+
+::::
+
+
+## It's a zero 
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{python}
+digits["target"][0]
+```
+
+:::
+
+::: {.column width="50%"}
+
+
+```{python}
+plt.imshow(digits["images"][0], cmap='Greys', interpolation="spline16")
+```
+
+:::
+
+::::
+
+## Look at more
+
+- Write a function to check some images out.
+
+```{python}
+def see_im(n):
+	plt.imshow(digits["images"][n], cmap='Greys', interpolation='spline16')
+	plt.axis('off') # Just looked up how to remove axes
+	plt.title(digits["target"][n])
+	plt.show() # Like print, for images, or you can save
+```
+- Wait how many do I have?
+```{python}
+digits["target"].shape
+```
+
+## See More
+
+:::: {.columns}
+
+::: {.column width="33%"}
+
+```{python}
+see_im(10)
+```
+
+:::
+
+::: {.column width="33%"}
+
+
+```{python}
+see_im(100)
+```
+
+:::
+
+
+::: {.column width="33%"}
+
+
+```{python}
+see_im(1000)
+```
+
+:::
+
+::::
+
+
+# Classification
+
+## Classification
+
+> [Classification is the activity of assigning objects to some pre-existing classes or categories. This is distinct from the task of establishing the classes themselves (for example through cluster analysis). Examples include diagnostic tests, identifying spam emails and deciding whether to give someone a driving license.](https://en.wikipedia.org/wiki/Classification)
+
+## Flatten
+
+- We, as humans, recognize that those things look a lot like images.
+- But the images are 3D array, which is more more annoying to work with than one-row-per-digit.
+- To begin, we "flatten" to 2D images into 1D arrays.
+- We want `1794` arrays of length `64` (was: 8-by-8)
+
+## Reshape
+
+- We use NumPy `.reshape`
+```{python}
+count = len(digits["images"])
+data = digits["images"].reshape(count, 64)
+data[:3]
+```
+
+## Models
+
+- Foundation to the notion of machine learning is *training* and *testing*.
+  	- More properly to *supervised* machine learning, but more on that latter.
+- Specifically, using training data, we will set the coefficients and parameters of a model, which we can think of as a function with a number of parameters.
+
+## Splits
+
+- We split up our data, and
+  	- Some data we use to *train* a model.
+	  	- Basically, find coefficients of a function.
+	- Some data we use to *test* a classifier
+	  	- Compare model to actual.
+
+# Supervised Learning
+
+## Train-Test Split
+
+- The **training set** is used to teach our model to identify patterns and relationships.
+- The **testing set** is held-out to evaluate the trained model on new, unseen data.
+
+```{python}
+from sklearn.model_selection import train_test_split
+
+X = np.array([[1, 2], [3, 4], [5, 6], [7, 8]])
+y = np.array([0, 1, 0, 1])
+
+# Train on 75%, test on 25% by default
+X_train, X_test, y_train, y_test = train_test_split(X, y)
+X_test, y_test
+```
+
+## Supervised Learning
+
+- **Supervised learning** is a type of machine learning where the algorithm learns from **labeled data**.
+- Labeled data consists of input features (`X`) and corresponding outcomes (`y`).
+
+```{python}
+from sklearn.linear_model import LinearRegression
+
+# Example labeled data (house size in sqft, price in $1000s)
+X_train = np.array([[1000], [1500], [1200], [1800]])
+y_train = np.array([200, 300, 240, 360])
+
+model = LinearRegression()
+_ = model.fit(X_train, y_train) # The "supervision" happens here
+```
+
+## Models and Coefficients
+
+- A **model** represents the learned relationship inputs-to-targets 
+- Sometimes this relationship is expressed through **coefficients**.
+- Change in the target a unit change in input feature with other features constant.
+
+```{python}
+# The model learns the equation: price = coefficient * size + intercept
+model.coef_, model.intercept_
+```
+
+## Higher Dimensions
+
+- With multiple input features, each has a **coefficient**.
+- The sign and magnitude of each coefficient show the influence of a feature.
+
+```{python}
+d = {'size': [1000, 1500, 1200, 1800], 'bedrooms': [2, 3, 2, 4], 'price': [200, 300, 240, 360]}
+df = pd.DataFrame(d)
+X_train, y_train = df[['size', 'bedrooms']], df['price']
+
+model = LinearRegression()
+model.fit(X_train, y_train)
+model.coef_, model.intercept_
+```
+
+## The Digits
+
+- We can train/test split the digits like so:
+```{python}
+# Recall we "flattened" images into "data"
+X_train, X_test, y_train, y_test = train_test_split(data, digits["target"])
+```
+
+# Classifiers
+
+## Perceptron 
+
+- We use a *perceptron*, one of the oldest and most famous machine learning frameworks.
+
+> The artificial neuron network was invented in 1943 by Warren McCulloch and Walter Pitts in A logical calculus of the ideas immanent in nervous activity.
+
+- Described visually in textbooks in [1958](https://commons.wikimedia.org/wiki/File:Organization_of_a_biological_brain_and_a_perceptron.png)
+- Inspired by neuroscience ideas of the time.
+ 
+
+##
+
+<center>
+<img width="70%" style="filter:invert(.9)" src="https://upload.wikimedia.org/wikipedia/commons/0/08/Organization_of_a_biological_brain_and_a_perceptron.png"></img>
+</center>
+
+## Import
+
+- Import and create a perceptron.
+
+```{python}
+from sklearn.linear_model import Perceptron
+clf = Perceptron() # This will be the model that will contain coefficients
+clf # At first, not fitted to anything!
+```
+
+## Training
+
+- We train or `.fit()` the model to the data.
+
+```{python}
+clf.fit(X_train, y_train)
+```
+
+- Then we can predict over the testing set!
+
+```{python}
+y_pred = clf.predict(X_test)
+y_pred[:10], y_test[:10]
+```
+
+## Not bad!
+
+- More detailed reporting from `metrics`
+
+```{python}
+from sklearn import metrics
+
+# We print so it looks a bit nicer
+print(metrics.classification_report(y_test, y_pred))
+```
+
+## Where did we miss?
+
+- We can see what we got wrong.
+```{python}
+# That [0] prevents us from getting tuple of length 1
+misses = np.where(y_test != y_pred)[0]
+misses
+```
+
+- Let's look at the first two of those.
+
+## Two Misses
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{python}
+i = misses[0]
+print(y_test[i], y_pred[i])
+plt.imshow(X_test[i].reshape((8,8)), cmap="Greys")
+```
+
+:::
+
+::: {.column width="50%"}
+
+
+```{python}
+i = misses[1]
+print(y_test[i], y_pred[i])
+plt.imshow(X_test[i].reshape((8,8)), cmap="Greys")
+```
+
+:::
+
+::::
+
+## On Accuracy
+
+- Machine learning frameworks were doing better than I could do around ~2010
+- On these older datasets with:
+  	- Greyscale
+	- 16 color
+	- 64 pixel
+- Maybe your eyes are better than the perceptron, but mine aren't!
+
+# Clustering
+
+## Unsupervised Learning
+
+- **Unsupervised learning** deals with unlabeled data, where there are no predefined target variables (`y`).
+- Find hidden patterns, structures, or relationships within the data itself.
+
+## Clustering
+
+- **Clustering** is an unsupervised learning task that groups data points into clusters based on their similarity.
+- Data points within the same cluster are more similar to each other than to those in other clusters.
+- The goal is to discover natural groupings in the data without any prior knowledge of those groups.
+
+
+## $k$-means Clustering
+
+- **$k$-means clustering** is a popular partitioning algorithm that divides data into `k` predefined clusters.
+- It aims to minimize the sum of squared distances between data points and their assigned cluster's centroid.
+- The `k` parameter (number of clusters) must be specified in advance.
+
+```{python}
+from sklearn.cluster import KMeans
+
+X = np.array([[1, 2], [1.5, 1.8], [5, 8], [8, 8], [1, 0.6], [9, 11]])
+model = KMeans(2) # 2 "clusters"
+```
+
+## How $k$-means Works 
+
+- **Start**: $k$ data points as cluster centroids.
+- **Assign**: To the cluster with closest center.
+- **Update**: Recalculate the cluster mean.
+- **Repeat**: Until the assignments no longer change.
+
+```{python}
+# Fit the KMeans model to the data
+model.fit(X)
+model.cluster_centers_
+```
+
+## Interpreting $k$-means Results
+
+- After fitting, $k$-means provides cluster labels for each data point and the coordinates of the cluster centroids.
+- The labels indicate which cluster each data point belongs to.
+- The centroids represent the "center" of each cluster.
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{python}
+X[model.labels_ == 0]
+```
+
+:::
+
+::: {.column width="50%"}
+
+
+```{python}
+X[model.labels_ == 1]
+```
+
+:::
+
+::::
+
+## Plot it
+
+```{python}
+x, y = X.transpose()
+plt.scatter(x,y,c=model.labels_)
+```
+
+## Choosing $k$
+
+- Determining the optimal `k` is a common challenge in $k$-means.
+- The choice of `k` often depends on domain knowledge and the goal of the clustering.
+- We "cheat" on the digits set - there are 10 digits (exact)
+
+# Exercise
+
+## Cluster Digits
+
+- For the exercise we will cluster the digits.
+- We will use Principle Component Analysis (PCA) to reduce from 64 to fewer dimensions.
+
+## Principal Component Analysis
+
+- **Dimensionality reduction** technique.
+- Transforms high-dimensional data into fewer, uncorrelated **principal components**.
+- Components capture maximum data variance.
+
+```{python}
+from sklearn.decomposition import PCA
+from sklearn.preprocessing import StandardScaler
+X = np.random.rand(50, 5) # 50 samples, 5 features
+scaler = StandardScaler()
+scaled_X = scaler.fit_transform(X)
+```
+
+## PCA: Explained Variance
+
+- Each principal component captures a proportion of the total variance (**explained variance ratio**).
+- Helps decide how many components to keep.
+
+![](https://upload.wikimedia.org/wikipedia/commons/f/f5/GaussianScatterPCA.svg)
+
+## Code Sample
+
+```{python}
+pca = PCA(2)
+X_reduced = pca.fit_transform(scaled_X)
+X[:5], X_reduced[5]
+```
+
+## Benefits of PCA
+
+- **Simplifies data** and reduces storage.
+- Can **reduce noise**.
+- Useful for **visualization**.
+- **Important**: Data scaling is crucial.
+  	- `StandardScaler().fit_transform()`
+
+## Exercise
+
+- Use PCA and $k$-means on the digit data.
+  	- You may need to try different PCA numbers.
+- Look at a 2+ examples in 2+ clusters.
+- Plot the classification.
+  	- I'll use PCA with 2 dimensions for `x` and `y`
+	- Two plots, colored for actual and predicted.
+
+## Solution
+
+- $k$-means
+
+```{python}
+#| code-fold: true
+scaled = StandardScaler().fit_transform(data)
+reduced = PCA(10).fit_transform(scaled)
+model = KMeans(10)
+_ = model.fit(reduced)
+```
+
+## Looker
+
+- I wrote a function to look at things.
+```{python}
+#| code-fold: true
+
+def looker(cluster, index):
+	plt.imshow(data[model.labels_ == cluster][index].reshape(8,8), cmap='Greys')
+	plt.axis('off')
+	plt.show()
+```
+
+## Cluster 0
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{python}
+looker(0,0)
+```
+
+:::
+
+::: {.column width="50%"}
+
+
+```{python}
+looker(0,1)
+```
+
+:::
+
+::::
+
+## Cluster 1
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{python}
+looker(1,0)
+```
+
+:::
+
+::: {.column width="50%"}
+
+
+```{python}
+looker(1,1)
+```
+
+:::
+
+::::
+
+## Plot
+
+
+
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{python}
+#| code-fold: true
+reduced = PCA(2).fit_transform(scaled)
+x, y = reduced.transpose()
+plt.scatter(x,y,c=digits["target"])
+plt.axis('off') # They are not relative to anything "real"
+_ = plt.title("Actual")
+```
+
+:::
+
+::: {.column width="50%"}
+
+
+
+```{python}
+#| code-fold: true
+reduced = PCA(2).fit_transform(scaled)
+x, y = reduced.transpose()
+plt.scatter(x,y,c=model.labels_)
+plt.axis('off') # They are not relative to anything "real"
+_ = plt.title("Predicted")
+```
+
+:::
+
+::::

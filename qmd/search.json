@@ -10252,7 +10252,7 @@
     "href": "09_sklearn.html",
     "title": "Sklearn",
     "section": "",
-    "text": "Sklearn or scikit-learn, originally conceived as an extension to SciPy.\n\n\nScikit-learn is an open source machine learning library that supports supervised and unsupervised learning. It also provides various tools for model fitting, data preprocessing, model selection, model evaluation, and many other utilities.Scikit-learn is an open source machine learning library that supports supervised and unsupervised learning. It also provides various tools for model fitting, data preprocessing, model selection, model evaluation, and many other utilities.\n\n\n\n\n“SymPy is free both as in speech and as in beer.”\n“Most computer algebra systems invent their own language. Not SymPy.”\n“An advantage of SymPy is that it is lightweight.”\n\n\n\n\n\nTo my knowledge, there’s no real competitors with SymPy.\nThe closest are probably SageMath and Mathematica.\nI use browser-based Mathematica via https://www.wolframalpha.com/ from time to time (when I don’t have a Python installation handy).",
+    "text": "Sklearn or scikit-learn, originally conceived as an extension to SciPy.\n\n\nScikit-learn is an open source machine learning library that supports supervised and unsupervised learning. It also provides various tools for model fitting, data preprocessing, model selection, model evaluation, and many other utilities.Scikit-learn is an open source machine learning library that supports supervised and unsupervised learning. It also provides various tools for model fitting, data preprocessing, model selection, model evaluation, and many other utilities.\n\n\n\n\n“Simple and efficient tools for predictive data analysis”\n“Accessible to everybody, and reusable in various contexts”\n“Built on NumPy, SciPy, and matplotlib”\n“Open source, commercially usable - BSD license”\n\n\n\n\n\nThe closest thing to competitors, to my knowledge, are Torch and Tensorflow.\n\nThe Meta and Google GPU-accelerated frameworks, respectively.\n\nI don’t like that the other frameworks are managed by big tech companies, and I don’t think they are as well suited to science.\n\n\n\n\n\nSklearn/scikit-learn is incrementally more involved to install via pip because, well, sometimes it is called “sklearn” and sometimes “scikit-learn”.\nThis gets me almost every time:\n\n$ python3 -m pip install sklearn\nCollecting sklearn\n  Downloading sklearn-0.0.post12.tar.gz (2.6 kB)\n  Preparing metadata (setup.py) ... error\n  error: subprocess-exited-with-error\n\n  × python setup.py egg_info did not run successfully.\n  │ exit code: 1\n  ╰─&gt; [15 lines of output]\n      The 'sklearn' PyPI package is deprecated, use 'scikit-learn'\n      rather than 'sklearn' for pip commands.\n\n\n\n\nScikit-learn recommends the following:\n\npython3 -m pip install scikit-learn\npython3 -m pip show scikit-learn  # show scikit-learn version and location\npython3 -m pip freeze             # show all installed packages in the environment\npython3 -c \"import sklearn; sklearn.show_versions()\"\n\nYou will see a lot of text.\n\n\n\n\n\nJust open python/python3 and\n\n\nimport sklearn\n\n\nLike SciPy, usually parts of Sklearn are imported, so that isn’t an expected two-letter name like np or pd\nI never use sklearn without at least pandas, NumPy, and Matplotlib.\n\n\nimport numpy as np\nimport pandas as pd\nimport matplotlib.pyplot as plt\n\n\n\n\n\nWe will focus on cognitive and vision science, motivated by the legendary example that drove early machine learning research…",
     "crumbs": [
       "Sklearn"
     ]
@@ -10412,5 +10412,1484 @@
     "crumbs": [
       "Appendix - Commands"
     ]
+  },
+  {
+    "objectID": "09_sklearn.html#why-sklearn",
+    "href": "09_sklearn.html#why-sklearn",
+    "title": "Sklearn",
+    "section": "",
+    "text": "“Simple and efficient tools for predictive data analysis”\n“Accessible to everybody, and reusable in various contexts”\n“Built on NumPy, SciPy, and matplotlib”\n“Open source, commercially usable - BSD license”",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.html#why-not-sklearn",
+    "href": "09_sklearn.html#why-not-sklearn",
+    "title": "Sklearn",
+    "section": "",
+    "text": "The closest thing to competitors, to my knowledge, are Torch and Tensorflow.\n\nThe Meta and Google GPU-accelerated frameworks, respectively.\n\nI don’t like that the other frameworks are managed by big tech companies, and I don’t think they are as well suited to science.",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.html#these-slides",
+    "href": "09_sklearn.html#these-slides",
+    "title": "Sklearn",
+    "section": "",
+    "text": "We will focus on cognitive and vision science, motivated by the legendary example that drove early machine learning research…",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#why-sklearn",
+    "href": "09_sklearn.rjs.html#why-sklearn",
+    "title": "Sklearn",
+    "section": "Why sklearn?",
+    "text": "Why sklearn?\n\n“Simple and efficient tools for predictive data analysis”\n“Accessible to everybody, and reusable in various contexts”\n“Built on NumPy, SciPy, and matplotlib”\n“Open source, commercially usable - BSD license”"
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#why-not-sklearn",
+    "href": "09_sklearn.rjs.html#why-not-sklearn",
+    "title": "Sklearn",
+    "section": "Why not sklearn?",
+    "text": "Why not sklearn?\n\nThe closest thing to competitors, to my knowledge, are Torch and Tensorflow.\n\nThe Meta and Google GPU-accelerated frameworks, respectively.\n\nI don’t like that the other frameworks are managed by big tech companies, and I don’t think they are as well suited to science."
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#these-slides",
+    "href": "09_sklearn.rjs.html#these-slides",
+    "title": "Sklearn",
+    "section": "These Slides",
+    "text": "These Slides\n\nWe will focus on cognitive and vision science, motivated by the legendary example that drove early machine learning research…"
+  },
+  {
+    "objectID": "09_sklearn.html#citation",
+    "href": "09_sklearn.html#citation",
+    "title": "Sklearn",
+    "section": "Citation",
+    "text": "Citation\n\n\nmnist.bib\n\n@article{lecun1998mnist,\n  title={The MNIST database of handwritten digits},\n  author={LeCun, Yann},\n  journal={http://yann. lecun. com/exdb/mnist/},\n  year={1998}\n}",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.html#credit",
+    "href": "09_sklearn.html#credit",
+    "title": "Sklearn",
+    "section": "Credit",
+    "text": "Credit\n\nI will follow this guide:\nRecognizing hand-written digits",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#citation",
+    "href": "09_sklearn.rjs.html#citation",
+    "title": "Sklearn",
+    "section": "Citation",
+    "text": "Citation\n\n\nmnist.bib\n\n@article{lecun1998mnist,\n  title={The MNIST database of handwritten digits},\n  author={LeCun, Yann},\n  journal={http://yann. lecun. com/exdb/mnist/},\n  year={1998}\n}"
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#credit",
+    "href": "09_sklearn.rjs.html#credit",
+    "title": "Sklearn",
+    "section": "Credit",
+    "text": "Credit\n\nI will follow this guide:\nRecognizing hand-written digits"
+  },
+  {
+    "objectID": "09_sklearn.html#using-sklearn",
+    "href": "09_sklearn.html#using-sklearn",
+    "title": "Sklearn",
+    "section": "",
+    "text": "Sklearn/scikit-learn is incrementally more involved to install via pip because, well, sometimes it is called “sklearn” and sometimes “scikit-learn”.\nThis gets me almost every time:\n\n$ python3 -m pip install sklearn\nCollecting sklearn\n  Downloading sklearn-0.0.post12.tar.gz (2.6 kB)\n  Preparing metadata (setup.py) ... error\n  error: subprocess-exited-with-error\n\n  × python setup.py egg_info did not run successfully.\n  │ exit code: 1\n  ╰─&gt; [15 lines of output]\n      The 'sklearn' PyPI package is deprecated, use 'scikit-learn'\n      rather than 'sklearn' for pip commands.",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#using-sklearn",
+    "href": "09_sklearn.rjs.html#using-sklearn",
+    "title": "Sklearn",
+    "section": "Using Sklearn",
+    "text": "Using Sklearn\n\nSklearn/scikit-learn is incrementally more involved to install via pip because, well, sometimes it is called “sklearn” and sometimes “scikit-learn”.\nThis gets me almost every time:\n\n$ python3 -m pip install sklearn\nCollecting sklearn\n  Downloading sklearn-0.0.post12.tar.gz (2.6 kB)\n  Preparing metadata (setup.py) ... error\n  error: subprocess-exited-with-error\n\n  × python setup.py egg_info did not run successfully.\n  │ exit code: 1\n  ╰─&gt; [15 lines of output]\n      The 'sklearn' PyPI package is deprecated, use 'scikit-learn'\n      rather than 'sklearn' for pip commands."
+  },
+  {
+    "objectID": "09_sklearn.html#use-scikit-learn",
+    "href": "09_sklearn.html#use-scikit-learn",
+    "title": "Sklearn",
+    "section": "",
+    "text": "Scikit-learn recommends the following:\n\npython3 -m pip install scikit-learn\npython3 -m pip show scikit-learn  # show scikit-learn version and location\npython3 -m pip freeze             # show all installed packages in the environment\npython3 -c \"import sklearn; sklearn.show_versions()\"\n\nYou will see a lot of text.",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#use-scikit-learn",
+    "href": "09_sklearn.rjs.html#use-scikit-learn",
+    "title": "Sklearn",
+    "section": "Use scikit-learn",
+    "text": "Use scikit-learn\n\nScikit-learn recommends the following:\n\npython3 -m pip install scikit-learn\npython3 -m pip show scikit-learn  # show scikit-learn version and location\npython3 -m pip freeze             # show all installed packages in the environment\npython3 -c \"import sklearn; sklearn.show_versions()\"\n\nYou will see a lot of text."
+  },
+  {
+    "objectID": "09_sklearn.html#easier",
+    "href": "09_sklearn.html#easier",
+    "title": "Sklearn",
+    "section": "",
+    "text": "Just open python/python3 and\n\n\nimport sklearn\n\n\nLike SciPy, usually parts of Sklearn are imported, so that isn’t an expected two-letter name like np or pd\nI never use sklearn without at least pandas, NumPy, and Matplotlib.\n\n\nimport numpy as np\nimport pandas as pd\nimport matplotlib.pyplot as plt",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#easier",
+    "href": "09_sklearn.rjs.html#easier",
+    "title": "Sklearn",
+    "section": "Easier",
+    "text": "Easier\n\nJust open python/python3 and\n\n\nimport sklearn\n\n\nLike SciPy, usually parts of Sklearn are imported, so that isn’t an expected two-letter name like np or pd\nI never use sklearn without at least pandas, NumPy, and Matplotlib.\n\n\nimport numpy as np\nimport pandas as pd\nimport matplotlib.pyplot as plt"
+  },
+  {
+    "objectID": "09_sklearn.html#the-data",
+    "href": "09_sklearn.html#the-data",
+    "title": "Sklearn",
+    "section": "The Data",
+    "text": "The Data\n\nThe MNIST dataset is pretty easy to find, even if the original source isn’t maintained anymore.\nIn fairness, it was posted before I started kindergarten\n\nGerman for “children garden”\n\nIt is so much everywhere, it is built into sklearn!\n\n\nfrom sklearn import datasets\n\ndigits = datasets.load_digits()",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#the-data",
+    "href": "09_sklearn.rjs.html#the-data",
+    "title": "Sklearn",
+    "section": "The Data",
+    "text": "The Data\n\nThe MNIST dataset is pretty easy to find, even if the original source isn’t maintained anymore.\nIn fairness, it was posted before I started kindergarten\n\nGerman for “children garden”\n\nIt is so much everywhere, it is built into sklearn!\n\n\nfrom sklearn import datasets\n\ndigits = datasets.load_digits()"
+  },
+  {
+    "objectID": "09_sklearn.html#look-at-it",
+    "href": "09_sklearn.html#look-at-it",
+    "title": "Sklearn",
+    "section": "Look at it",
+    "text": "Look at it\n\ndigits\n\n{'data': array([[ 0.,  0.,  5., ...,  0.,  0.,  0.],\n        [ 0.,  0.,  0., ..., 10.,  0.,  0.],\n        [ 0.,  0.,  0., ..., 16.,  9.,  0.],\n        ...,\n        [ 0.,  0.,  1., ...,  6.,  0.,  0.],\n        [ 0.,  0.,  2., ..., 12.,  0.,  0.],\n        [ 0.,  0., 10., ..., 12.,  1.,  0.]]),\n 'target': array([0, 1, 2, ..., 8, 9, 8]),\n 'frame': None,\n 'feature_names': ['pixel_0_0',\n  'pixel_0_1',\n  'pixel_0_2',\n  'pixel_0_3',\n  'pixel_0_4',\n  'pixel_0_5',\n  'pixel_0_6',\n  'pixel_0_7',\n  'pixel_1_0',\n  'pixel_1_1',\n  'pixel_1_2',\n  'pixel_1_3',\n  'pixel_1_4',\n  'pixel_1_5',\n  'pixel_1_6',\n  'pixel_1_7',\n  'pixel_2_0',\n  'pixel_2_1',\n  'pixel_2_2',\n  'pixel_2_3',\n  'pixel_2_4',\n  'pixel_2_5',\n  'pixel_2_6',\n  'pixel_2_7',\n  'pixel_3_0',\n  'pixel_3_1',\n  'pixel_3_2',\n  'pixel_3_3',\n  'pixel_3_4',\n  'pixel_3_5',\n  'pixel_3_6',\n  'pixel_3_7',\n  'pixel_4_0',\n  'pixel_4_1',\n  'pixel_4_2',\n  'pixel_4_3',\n  'pixel_4_4',\n  'pixel_4_5',\n  'pixel_4_6',\n  'pixel_4_7',\n  'pixel_5_0',\n  'pixel_5_1',\n  'pixel_5_2',\n  'pixel_5_3',\n  'pixel_5_4',\n  'pixel_5_5',\n  'pixel_5_6',\n  'pixel_5_7',\n  'pixel_6_0',\n  'pixel_6_1',\n  'pixel_6_2',\n  'pixel_6_3',\n  'pixel_6_4',\n  'pixel_6_5',\n  'pixel_6_6',\n  'pixel_6_7',\n  'pixel_7_0',\n  'pixel_7_1',\n  'pixel_7_2',\n  'pixel_7_3',\n  'pixel_7_4',\n  'pixel_7_5',\n  'pixel_7_6',\n  'pixel_7_7'],\n 'target_names': array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]),\n 'images': array([[[ 0.,  0.,  5., ...,  1.,  0.,  0.],\n         [ 0.,  0., 13., ..., 15.,  5.,  0.],\n         [ 0.,  3., 15., ..., 11.,  8.,  0.],\n         ...,\n         [ 0.,  4., 11., ..., 12.,  7.,  0.],\n         [ 0.,  2., 14., ..., 12.,  0.,  0.],\n         [ 0.,  0.,  6., ...,  0.,  0.,  0.]],\n \n        [[ 0.,  0.,  0., ...,  5.,  0.,  0.],\n         [ 0.,  0.,  0., ...,  9.,  0.,  0.],\n         [ 0.,  0.,  3., ...,  6.,  0.,  0.],\n         ...,\n         [ 0.,  0.,  1., ...,  6.,  0.,  0.],\n         [ 0.,  0.,  1., ...,  6.,  0.,  0.],\n         [ 0.,  0.,  0., ..., 10.,  0.,  0.]],\n \n        [[ 0.,  0.,  0., ..., 12.,  0.,  0.],\n         [ 0.,  0.,  3., ..., 14.,  0.,  0.],\n         [ 0.,  0.,  8., ..., 16.,  0.,  0.],\n         ...,\n         [ 0.,  9., 16., ...,  0.,  0.,  0.],\n         [ 0.,  3., 13., ..., 11.,  5.,  0.],\n         [ 0.,  0.,  0., ..., 16.,  9.,  0.]],\n \n        ...,\n \n        [[ 0.,  0.,  1., ...,  1.,  0.,  0.],\n         [ 0.,  0., 13., ...,  2.,  1.,  0.],\n         [ 0.,  0., 16., ..., 16.,  5.,  0.],\n         ...,\n         [ 0.,  0., 16., ..., 15.,  0.,  0.],\n         [ 0.,  0., 15., ..., 16.,  0.,  0.],\n         [ 0.,  0.,  2., ...,  6.,  0.,  0.]],\n \n        [[ 0.,  0.,  2., ...,  0.,  0.,  0.],\n         [ 0.,  0., 14., ..., 15.,  1.,  0.],\n         [ 0.,  4., 16., ..., 16.,  7.,  0.],\n         ...,\n         [ 0.,  0.,  0., ..., 16.,  2.,  0.],\n         [ 0.,  0.,  4., ..., 16.,  2.,  0.],\n         [ 0.,  0.,  5., ..., 12.,  0.,  0.]],\n \n        [[ 0.,  0., 10., ...,  1.,  0.,  0.],\n         [ 0.,  2., 16., ...,  1.,  0.,  0.],\n         [ 0.,  0., 15., ..., 15.,  0.,  0.],\n         ...,\n         [ 0.,  4., 16., ..., 16.,  6.,  0.],\n         [ 0.,  8., 16., ..., 16.,  8.,  0.],\n         [ 0.,  1.,  8., ..., 12.,  1.,  0.]]]),\n 'DESCR': \".. _digits_dataset:\\n\\nOptical recognition of handwritten digits dataset\\n--------------------------------------------------\\n\\n**Data Set Characteristics:**\\n\\n:Number of Instances: 1797\\n:Number of Attributes: 64\\n:Attribute Information: 8x8 image of integer pixels in the range 0..16.\\n:Missing Attribute Values: None\\n:Creator: E. Alpaydin (alpaydin '@' boun.edu.tr)\\n:Date: July; 1998\\n\\nThis is a copy of the test set of the UCI ML hand-written digits datasets\\nhttps://archive.ics.uci.edu/ml/datasets/Optical+Recognition+of+Handwritten+Digits\\n\\nThe data set contains images of hand-written digits: 10 classes where\\neach class refers to a digit.\\n\\nPreprocessing programs made available by NIST were used to extract\\nnormalized bitmaps of handwritten digits from a preprinted form. From a\\ntotal of 43 people, 30 contributed to the training set and different 13\\nto the test set. 32x32 bitmaps are divided into nonoverlapping blocks of\\n4x4 and the number of on pixels are counted in each block. This generates\\nan input matrix of 8x8 where each element is an integer in the range\\n0..16. This reduces dimensionality and gives invariance to small\\ndistortions.\\n\\nFor info on NIST preprocessing routines, see M. D. Garris, J. L. Blue, G.\\nT. Candela, D. L. Dimmick, J. Geist, P. J. Grother, S. A. Janet, and C.\\nL. Wilson, NIST Form-Based Handprint Recognition System, NISTIR 5469,\\n1994.\\n\\n.. dropdown:: References\\n\\n  - C. Kaynak (1995) Methods of Combining Multiple Classifiers and Their\\n    Applications to Handwritten Digit Recognition, MSc Thesis, Institute of\\n    Graduate Studies in Science and Engineering, Bogazici University.\\n  - E. Alpaydin, C. Kaynak (1998) Cascading Classifiers, Kybernetika.\\n  - Ken Tang and Ponnuthurai N. Suganthan and Xi Yao and A. Kai Qin.\\n    Linear dimensionalityreduction using relevance weighted LDA. School of\\n    Electrical and Electronic Engineering Nanyang Technological University.\\n    2005.\\n  - Claudio Gentile. A New Approximate Maximal Margin Classification\\n    Algorithm. NIPS. 2000.\\n\"}",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#look-at-it",
+    "href": "09_sklearn.rjs.html#look-at-it",
+    "title": "Sklearn",
+    "section": "Look at it",
+    "text": "Look at it\n\ndigits\n\n{'data': array([[ 0.,  0.,  5., ...,  0.,  0.,  0.],\n        [ 0.,  0.,  0., ..., 10.,  0.,  0.],\n        [ 0.,  0.,  0., ..., 16.,  9.,  0.],\n        ...,\n        [ 0.,  0.,  1., ...,  6.,  0.,  0.],\n        [ 0.,  0.,  2., ..., 12.,  0.,  0.],\n        [ 0.,  0., 10., ..., 12.,  1.,  0.]]),\n 'target': array([0, 1, 2, ..., 8, 9, 8]),\n 'frame': None,\n 'feature_names': ['pixel_0_0',\n  'pixel_0_1',\n  'pixel_0_2',\n  'pixel_0_3',\n  'pixel_0_4',\n  'pixel_0_5',\n  'pixel_0_6',\n  'pixel_0_7',\n  'pixel_1_0',\n  'pixel_1_1',\n  'pixel_1_2',\n  'pixel_1_3',\n  'pixel_1_4',\n  'pixel_1_5',\n  'pixel_1_6',\n  'pixel_1_7',\n  'pixel_2_0',\n  'pixel_2_1',\n  'pixel_2_2',\n  'pixel_2_3',\n  'pixel_2_4',\n  'pixel_2_5',\n  'pixel_2_6',\n  'pixel_2_7',\n  'pixel_3_0',\n  'pixel_3_1',\n  'pixel_3_2',\n  'pixel_3_3',\n  'pixel_3_4',\n  'pixel_3_5',\n  'pixel_3_6',\n  'pixel_3_7',\n  'pixel_4_0',\n  'pixel_4_1',\n  'pixel_4_2',\n  'pixel_4_3',\n  'pixel_4_4',\n  'pixel_4_5',\n  'pixel_4_6',\n  'pixel_4_7',\n  'pixel_5_0',\n  'pixel_5_1',\n  'pixel_5_2',\n  'pixel_5_3',\n  'pixel_5_4',\n  'pixel_5_5',\n  'pixel_5_6',\n  'pixel_5_7',\n  'pixel_6_0',\n  'pixel_6_1',\n  'pixel_6_2',\n  'pixel_6_3',\n  'pixel_6_4',\n  'pixel_6_5',\n  'pixel_6_6',\n  'pixel_6_7',\n  'pixel_7_0',\n  'pixel_7_1',\n  'pixel_7_2',\n  'pixel_7_3',\n  'pixel_7_4',\n  'pixel_7_5',\n  'pixel_7_6',\n  'pixel_7_7'],\n 'target_names': array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]),\n 'images': array([[[ 0.,  0.,  5., ...,  1.,  0.,  0.],\n         [ 0.,  0., 13., ..., 15.,  5.,  0.],\n         [ 0.,  3., 15., ..., 11.,  8.,  0.],\n         ...,\n         [ 0.,  4., 11., ..., 12.,  7.,  0.],\n         [ 0.,  2., 14., ..., 12.,  0.,  0.],\n         [ 0.,  0.,  6., ...,  0.,  0.,  0.]],\n \n        [[ 0.,  0.,  0., ...,  5.,  0.,  0.],\n         [ 0.,  0.,  0., ...,  9.,  0.,  0.],\n         [ 0.,  0.,  3., ...,  6.,  0.,  0.],\n         ...,\n         [ 0.,  0.,  1., ...,  6.,  0.,  0.],\n         [ 0.,  0.,  1., ...,  6.,  0.,  0.],\n         [ 0.,  0.,  0., ..., 10.,  0.,  0.]],\n \n        [[ 0.,  0.,  0., ..., 12.,  0.,  0.],\n         [ 0.,  0.,  3., ..., 14.,  0.,  0.],\n         [ 0.,  0.,  8., ..., 16.,  0.,  0.],\n         ...,\n         [ 0.,  9., 16., ...,  0.,  0.,  0.],\n         [ 0.,  3., 13., ..., 11.,  5.,  0.],\n         [ 0.,  0.,  0., ..., 16.,  9.,  0.]],\n \n        ...,\n \n        [[ 0.,  0.,  1., ...,  1.,  0.,  0.],\n         [ 0.,  0., 13., ...,  2.,  1.,  0.],\n         [ 0.,  0., 16., ..., 16.,  5.,  0.],\n         ...,\n         [ 0.,  0., 16., ..., 15.,  0.,  0.],\n         [ 0.,  0., 15., ..., 16.,  0.,  0.],\n         [ 0.,  0.,  2., ...,  6.,  0.,  0.]],\n \n        [[ 0.,  0.,  2., ...,  0.,  0.,  0.],\n         [ 0.,  0., 14., ..., 15.,  1.,  0.],\n         [ 0.,  4., 16., ..., 16.,  7.,  0.],\n         ...,\n         [ 0.,  0.,  0., ..., 16.,  2.,  0.],\n         [ 0.,  0.,  4., ..., 16.,  2.,  0.],\n         [ 0.,  0.,  5., ..., 12.,  0.,  0.]],\n \n        [[ 0.,  0., 10., ...,  1.,  0.,  0.],\n         [ 0.,  2., 16., ...,  1.,  0.,  0.],\n         [ 0.,  0., 15., ..., 15.,  0.,  0.],\n         ...,\n         [ 0.,  4., 16., ..., 16.,  6.,  0.],\n         [ 0.,  8., 16., ..., 16.,  8.,  0.],\n         [ 0.,  1.,  8., ..., 12.,  1.,  0.]]]),\n 'DESCR': \".. _digits_dataset:\\n\\nOptical recognition of handwritten digits dataset\\n--------------------------------------------------\\n\\n**Data Set Characteristics:**\\n\\n:Number of Instances: 1797\\n:Number of Attributes: 64\\n:Attribute Information: 8x8 image of integer pixels in the range 0..16.\\n:Missing Attribute Values: None\\n:Creator: E. Alpaydin (alpaydin '@' boun.edu.tr)\\n:Date: July; 1998\\n\\nThis is a copy of the test set of the UCI ML hand-written digits datasets\\nhttps://archive.ics.uci.edu/ml/datasets/Optical+Recognition+of+Handwritten+Digits\\n\\nThe data set contains images of hand-written digits: 10 classes where\\neach class refers to a digit.\\n\\nPreprocessing programs made available by NIST were used to extract\\nnormalized bitmaps of handwritten digits from a preprinted form. From a\\ntotal of 43 people, 30 contributed to the training set and different 13\\nto the test set. 32x32 bitmaps are divided into nonoverlapping blocks of\\n4x4 and the number of on pixels are counted in each block. This generates\\nan input matrix of 8x8 where each element is an integer in the range\\n0..16. This reduces dimensionality and gives invariance to small\\ndistortions.\\n\\nFor info on NIST preprocessing routines, see M. D. Garris, J. L. Blue, G.\\nT. Candela, D. L. Dimmick, J. Geist, P. J. Grother, S. A. Janet, and C.\\nL. Wilson, NIST Form-Based Handprint Recognition System, NISTIR 5469,\\n1994.\\n\\n.. dropdown:: References\\n\\n  - C. Kaynak (1995) Methods of Combining Multiple Classifiers and Their\\n    Applications to Handwritten Digit Recognition, MSc Thesis, Institute of\\n    Graduate Studies in Science and Engineering, Bogazici University.\\n  - E. Alpaydin, C. Kaynak (1998) Cascading Classifiers, Kybernetika.\\n  - Ken Tang and Ponnuthurai N. Suganthan and Xi Yao and A. Kai Qin.\\n    Linear dimensionalityreduction using relevance weighted LDA. School of\\n    Electrical and Electronic Engineering Nanyang Technological University.\\n    2005.\\n  - Claudio Gentile. A New Approximate Maximal Margin Classification\\n    Algorithm. NIPS. 2000.\\n\"}"
+  },
+  {
+    "objectID": "09_sklearn.html#okay",
+    "href": "09_sklearn.html#okay",
+    "title": "Sklearn",
+    "section": "Okay",
+    "text": "Okay\n\ndigits is a “bunch”, which I’d never actually heard of before in my life, but appears almost identical to a Python dict or “dictionary.\n\n\ntype(digits)\n\nsklearn.utils._bunch.Bunch\n\n\n\nHere’s a dict\n\n\nd = {\"data\" : np.arange(10), \"target\" : np.arange(10), \"frame\" : None}\ntype(d)\n\ndict",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.html#what-is-a-dictionary",
+    "href": "09_sklearn.html#what-is-a-dictionary",
+    "title": "Sklearn",
+    "section": "What is a Dictionary?",
+    "text": "What is a Dictionary?\n\nA dictionary is a built-in Python data type used to store collections of data.\nIt stores data in “key-value” pairs.\nDictionaries are unordered, mutable (like lists, not like tuples), and indexed by keys.\n\n\nmy_dict = {\"one\": 1, \"two\": 2, \"three\": 3}\nprint(my_dict)\n\n{'one': 1, 'two': 2, 'three': 3}",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.html#key-value-storage",
+    "href": "09_sklearn.html#key-value-storage",
+    "title": "Sklearn",
+    "section": "Key-Value Storage",
+    "text": "Key-Value Storage\n\nEach item in a dictionary consists of a key and its corresponding value.\nKeys must be unique and immutable (e.g., strings, numbers, tuples).\n\nCannot be lists!\n\nValues can be of any data type and can be duplicated.\n\n\nnumber_strings = {1: \"one\", 2: \"two\", 11: \"eleven\", 20: \"twenty\"}\nnumber_strings[11], number_strings[2]\n\n('eleven', 'two')",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.html#accessing-values",
+    "href": "09_sklearn.html#accessing-values",
+    "title": "Sklearn",
+    "section": "Accessing Values",
+    "text": "Accessing Values\n\nValues are accessed by referring to their associated key.\nYou can use square brackets [] or the .get() method.\n.get() returns None or a default value if the key is not found, preventing errors.\n\n\nmy_dict = {\"apple\": \"red\", \"banana\": \"yellow\"}\nmy_dict[\"apple\"], my_dict.get(\"strawberry\", \"idk\")\n\n('red', 'idk')",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.html#adding-and-updating-items",
+    "href": "09_sklearn.html#adding-and-updating-items",
+    "title": "Sklearn",
+    "section": "Adding and Updating Items",
+    "text": "Adding and Updating Items\n\nNew key-value pairs can be added by assigning a value to a new key.\nExisting values can be updated by assigning a new value to an existing key.\n\n\nmy_dict = {\"name\": \"Alice\"}\nmy_dict[\"age\"] = 30\nmy_dict[\"name\"] = \"Bob\"\nmy_dict\n\n{'name': 'Bob', 'age': 30}",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.html#deleting-items",
+    "href": "09_sklearn.html#deleting-items",
+    "title": "Sklearn",
+    "section": "Deleting Items",
+    "text": "Deleting Items\n\nItems can be removed using the del keyword or the .pop() method.\n.pop() also returns the value of the removed item.\n\n\nmy_dict = {\"a\": 1, \"b\": 2, \"c\": 3}\ndel my_dict[\"a\"]\nmy_dict.pop(\"b\")\n\n2\n\n\n\nAlso check my_dict:\n\n\nmy_dict\n\n{'c': 3}",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.html#dictionaries-and-numpy-arrays",
+    "href": "09_sklearn.html#dictionaries-and-numpy-arrays",
+    "title": "Sklearn",
+    "section": "Dictionaries and NumPy Arrays",
+    "text": "Dictionaries and NumPy Arrays\n\nWhile np.ndarray is a homogeneous data structure, dictionaries can store heterogeneous data.\nDictionaries can be used to organize parameters or metadata associated with NumPy arrays.\n\n\ndata_info = {\"name\": \"Measurements\", \"unit\": \"meters\", \"data\": np.array([10.1, 12.5, 11.3])}\nprint(data_info[\"data\"])\nprint(data_info[\"data\"].mean())\n\n[10.1 12.5 11.3]\n11.300000000000002",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.html#dictionaries-and-pandas-dataframes",
+    "href": "09_sklearn.html#dictionaries-and-pandas-dataframes",
+    "title": "Sklearn",
+    "section": "Dictionaries and pandas DataFrames",
+    "text": "Dictionaries and pandas DataFrames\n\nDictionaries are commonly used to create pd.DataFrame objects.\nKeys become column names, and values (lists or arrays) become column data.\nThis provides a natural way to structure tabular data before DataFrame creation.\n\n\nimport pandas as pd\ndata = {\n    \"City\": [\"Portland\", \"Seattle\", \"Boise\"],\n    \"Population\": [650000, 750000, 230000],\n    \"State\": [\"OR\", \"WA\", \"ID\"]\n}\ndf = pd.DataFrame(data)\nprint(df)\n\n       City  Population State\n0  Portland      650000    OR\n1   Seattle      750000    WA\n2     Boise      230000    ID",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.html#dictionary-for-dataframe-column-selection",
+    "href": "09_sklearn.html#dictionary-for-dataframe-column-selection",
+    "title": "Sklearn",
+    "section": "Dictionary for DataFrame Column Selection",
+    "text": "Dictionary for DataFrame Column Selection\n\nDictionaries can be used to map original column names to new, more descriptive names.\nThis is useful for renaming columns in a pd.DataFrame.\n\n\ndf = pd.DataFrame({'col_a': [1,2], 'col_b': [3,4]})\ncolumn_rename_map = {'col_a': 'Feature_1', 'col_b': 'Feature_2'}\ndf_renamed = df.rename(columns=column_rename_map)\nprint(df_renamed)\n\n   Feature_1  Feature_2\n0          1          3\n1          2          4",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.html#dictionaries-in-scikit-learn-sklearn",
+    "href": "09_sklearn.html#dictionaries-in-scikit-learn-sklearn",
+    "title": "Sklearn",
+    "section": "Dictionaries in Scikit-learn (sklearn)",
+    "text": "Dictionaries in Scikit-learn (sklearn)\n\nDictionaries are fundamental for defining model parameters (hyperparameters) in sklearn.\nThey are used in GridSearchCV or RandomizedSearchCV to specify parameter grids for tuning.\n\n\nfrom sklearn.linear_model import LogisticRegression\nparams = {\"penalty\": \"l1\", \"C\": 0.1, \"solver\": \"liblinear\"}\nmodel = LogisticRegression(**params)\nprint(model.get_params())\n\n{'C': 0.1, 'class_weight': None, 'dual': False, 'fit_intercept': True, 'intercept_scaling': 1, 'l1_ratio': None, 'max_iter': 100, 'multi_class': 'deprecated', 'n_jobs': None, 'penalty': 'l1', 'random_state': None, 'solver': 'liblinear', 'tol': 0.0001, 'verbose': 0, 'warm_start': False}",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.html#dictionary-for-model-configuration",
+    "href": "09_sklearn.html#dictionary-for-model-configuration",
+    "title": "Sklearn",
+    "section": "Dictionary for Model Configuration",
+    "text": "Dictionary for Model Configuration\n\nDictionaries can store various configuration settings for an sklearn pipeline or model.\nThis makes configurations easily readable, modifiable, and transportable.\n\n\nmodel_config = {\n    \"model_type\": \"RandomForestClassifier\",\n    \"n_estimators\": 100,\n    \"max_depth\": 10,\n    \"random_state\": 42\n}\nprint(f\"Model Type: {model_config['model_type']}\")\nprint(f\"Number of Estimators: {model_config['n_estimators']}\")\n\nModel Type: RandomForestClassifier\nNumber of Estimators: 100",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.html#dictionary-as-a-feature-store",
+    "href": "09_sklearn.html#dictionary-as-a-feature-store",
+    "title": "Sklearn",
+    "section": "Dictionary as a Feature Store",
+    "text": "Dictionary as a Feature Store\n\nDictionaries can temporarily hold features for a single sample before passing to a model.\nThis is particularly useful when working with DictVectorizer in text processing.\n\n\nfrom sklearn.feature_extraction import DictVectorizer\ndata = [{\"color\": \"red\", \"size\": \"small\"}, {\"color\": \"blue\", \"size\": \"large\"}]\nvec = DictVectorizer(sparse=False)\nfeatures = vec.fit_transform(data)\nprint(features)\nprint(vec.get_feature_names_out())\n\n[[0. 1. 0. 1.]\n [1. 0. 1. 0.]]\n['color=blue' 'color=red' 'size=large' 'size=small']",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.html#key-takeaways",
+    "href": "09_sklearn.html#key-takeaways",
+    "title": "Sklearn",
+    "section": "Key Takeaways",
+    "text": "Key Takeaways\n\nDictionaries provide flexible key-value storage for diverse data.\nThey are crucial for organizing data, especially when converting to pd.DataFrame.\nIn sklearn, dictionaries are indispensable for hyperparameter tuning and model configuration, making your machine learning workflows more organized and reproducible.",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#okay",
+    "href": "09_sklearn.rjs.html#okay",
+    "title": "Sklearn",
+    "section": "Okay",
+    "text": "Okay\n\ndigits is a “bunch”, which I’d never actually heard of before in my life, but appears almost identical to a Python dict or “dictionary.\n\n\ntype(digits)\n\nsklearn.utils._bunch.Bunch\n\n\n\nHere’s a dict\n\n\nd = {\"data\" : np.arange(10), \"target\" : np.arange(10), \"frame\" : None}\ntype(d)\n\ndict"
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#what-is-a-dictionary",
+    "href": "09_sklearn.rjs.html#what-is-a-dictionary",
+    "title": "Sklearn",
+    "section": "What is a Dictionary?",
+    "text": "What is a Dictionary?\n\nA dictionary is a built-in Python data type used to store collections of data.\nIt stores data in “key-value” pairs.\nDictionaries are unordered, mutable (like lists, not like tuples), and indexed by keys.\n\n\nmy_dict = {\"one\": 1, \"two\": 2, \"three\": 3}\nprint(my_dict)\n\n{'one': 1, 'two': 2, 'three': 3}"
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#key-value-storage",
+    "href": "09_sklearn.rjs.html#key-value-storage",
+    "title": "Sklearn",
+    "section": "Key-Value Storage",
+    "text": "Key-Value Storage\n\nEach item in a dictionary consists of a key and its corresponding value.\nKeys must be unique and immutable (e.g., strings, numbers, tuples).\n\nCannot be lists!\n\nValues can be of any data type and can be duplicated.\n\n\nnumber_strings = {1: \"one\", 2: \"two\", 11: \"eleven\", 20: \"twenty\"}\nnumber_strings[11], number_strings[2]\n\n('eleven', 'two')"
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#accessing-values",
+    "href": "09_sklearn.rjs.html#accessing-values",
+    "title": "Sklearn",
+    "section": "Accessing Values",
+    "text": "Accessing Values\n\nValues are accessed by referring to their associated key.\nYou can use square brackets [] or the .get() method.\n.get() returns None or a default value if the key is not found, preventing errors.\n\n\nmy_dict = {\"apple\": \"red\", \"banana\": \"yellow\"}\nmy_dict[\"apple\"], my_dict.get(\"strawberry\", \"idk\")\n\n('red', 'idk')"
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#adding-and-updating-items",
+    "href": "09_sklearn.rjs.html#adding-and-updating-items",
+    "title": "Sklearn",
+    "section": "Adding and Updating Items",
+    "text": "Adding and Updating Items\n\nNew key-value pairs can be added by assigning a value to a new key.\nExisting values can be updated by assigning a new value to an existing key.\n\n\nmy_dict = {\"name\": \"Alice\"}\nmy_dict[\"age\"] = 30\nmy_dict[\"name\"] = \"Bob\"\nmy_dict\n\n{'name': 'Bob', 'age': 30}"
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#deleting-items",
+    "href": "09_sklearn.rjs.html#deleting-items",
+    "title": "Sklearn",
+    "section": "Deleting Items",
+    "text": "Deleting Items\n\nItems can be removed using the del keyword or the .pop() method.\n.pop() also returns the value of the removed item.\n\n\nmy_dict = {\"a\": 1, \"b\": 2, \"c\": 3}\ndel my_dict[\"a\"]\nmy_dict.pop(\"b\")\n\n2\n\n\n\nAlso check my_dict:\n\n\nmy_dict\n\n{'c': 3}"
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#dictionaries-and-numpy-arrays",
+    "href": "09_sklearn.rjs.html#dictionaries-and-numpy-arrays",
+    "title": "Sklearn",
+    "section": "Dictionaries and NumPy Arrays",
+    "text": "Dictionaries and NumPy Arrays\n\nWhile np.ndarray is a homogeneous data structure, dictionaries can store heterogeneous data.\nDictionaries can be used to organize parameters or metadata associated with NumPy arrays.\n\n\ndata_info = {\"name\": \"Measurements\", \"unit\": \"meters\", \"data\": np.array([10.1, 12.5, 11.3])}\nprint(data_info[\"data\"])\nprint(data_info[\"data\"].mean())\n\n[10.1 12.5 11.3]\n11.300000000000002"
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#dictionaries-and-pandas-dataframes",
+    "href": "09_sklearn.rjs.html#dictionaries-and-pandas-dataframes",
+    "title": "Sklearn",
+    "section": "Dictionaries and pandas DataFrames",
+    "text": "Dictionaries and pandas DataFrames\n\nDictionaries are commonly used to create pd.DataFrame objects.\nKeys become column names, and values (lists or arrays) become column data.\nThis provides a natural way to structure tabular data before DataFrame creation.\n\n\nimport pandas as pd\ndata = {\n    \"City\": [\"Portland\", \"Seattle\", \"Boise\"],\n    \"Population\": [650000, 750000, 230000],\n    \"State\": [\"OR\", \"WA\", \"ID\"]\n}\ndf = pd.DataFrame(data)\nprint(df)\n\n       City  Population State\n0  Portland      650000    OR\n1   Seattle      750000    WA\n2     Boise      230000    ID"
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#dictionary-for-dataframe-column-selection",
+    "href": "09_sklearn.rjs.html#dictionary-for-dataframe-column-selection",
+    "title": "Sklearn",
+    "section": "Dictionary for DataFrame Column Selection",
+    "text": "Dictionary for DataFrame Column Selection\n\nDictionaries can be used to map original column names to new, more descriptive names.\nThis is useful for renaming columns in a pd.DataFrame.\n\n\ndf = pd.DataFrame({'col_a': [1,2], 'col_b': [3,4]})\ncolumn_rename_map = {'col_a': 'Feature_1', 'col_b': 'Feature_2'}\ndf_renamed = df.rename(columns=column_rename_map)\nprint(df_renamed)\n\n   Feature_1  Feature_2\n0          1          3\n1          2          4"
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#dictionaries-in-scikit-learn-sklearn",
+    "href": "09_sklearn.rjs.html#dictionaries-in-scikit-learn-sklearn",
+    "title": "Sklearn",
+    "section": "Dictionaries in Scikit-learn (sklearn)",
+    "text": "Dictionaries in Scikit-learn (sklearn)\n\nDictionaries are fundamental for defining model parameters (hyperparameters) in sklearn.\nThey are used in GridSearchCV or RandomizedSearchCV to specify parameter grids for tuning.\n\n\nfrom sklearn.linear_model import LogisticRegression\nparams = {\"penalty\": \"l1\", \"C\": 0.1, \"solver\": \"liblinear\"}\nmodel = LogisticRegression(**params)\nprint(model.get_params())\n\n{'C': 0.1, 'class_weight': None, 'dual': False, 'fit_intercept': True, 'intercept_scaling': 1, 'l1_ratio': None, 'max_iter': 100, 'multi_class': 'deprecated', 'n_jobs': None, 'penalty': 'l1', 'random_state': None, 'solver': 'liblinear', 'tol': 0.0001, 'verbose': 0, 'warm_start': False}"
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#dictionary-for-model-configuration",
+    "href": "09_sklearn.rjs.html#dictionary-for-model-configuration",
+    "title": "Sklearn",
+    "section": "Dictionary for Model Configuration",
+    "text": "Dictionary for Model Configuration\n\nDictionaries can store various configuration settings for an sklearn pipeline or model.\nThis makes configurations easily readable, modifiable, and transportable.\n\n\nmodel_config = {\n    \"model_type\": \"RandomForestClassifier\",\n    \"n_estimators\": 100,\n    \"max_depth\": 10,\n    \"random_state\": 42\n}\nprint(f\"Model Type: {model_config['model_type']}\")\nprint(f\"Number of Estimators: {model_config['n_estimators']}\")\n\nModel Type: RandomForestClassifier\nNumber of Estimators: 100"
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#dictionary-as-a-feature-store",
+    "href": "09_sklearn.rjs.html#dictionary-as-a-feature-store",
+    "title": "Sklearn",
+    "section": "Dictionary as a Feature Store",
+    "text": "Dictionary as a Feature Store\n\nDictionaries can temporarily hold features for a single sample before passing to a model.\nThis is particularly useful when working with DictVectorizer in text processing.\n\n\nfrom sklearn.feature_extraction import DictVectorizer\ndata = [{\"color\": \"red\", \"size\": \"small\"}, {\"color\": \"blue\", \"size\": \"large\"}]\nvec = DictVectorizer(sparse=False)\nfeatures = vec.fit_transform(data)\nprint(features)\nprint(vec.get_feature_names_out())\n\n[[0. 1. 0. 1.]\n [1. 0. 1. 0.]]\n['color=blue' 'color=red' 'size=large' 'size=small']"
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#key-takeaways",
+    "href": "09_sklearn.rjs.html#key-takeaways",
+    "title": "Sklearn",
+    "section": "Key Takeaways",
+    "text": "Key Takeaways\n\nDictionaries provide flexible key-value storage for diverse data.\nThey are crucial for organizing data, especially when converting to pd.DataFrame.\nIn sklearn, dictionaries are indispensable for hyperparameter tuning and model configuration, making your machine learning workflows more organized and reproducible."
+  },
+  {
+    "objectID": "09_sklearn.html#why-dictionaries",
+    "href": "09_sklearn.html#why-dictionaries",
+    "title": "Sklearn",
+    "section": "Why dictionaries?",
+    "text": "Why dictionaries?\n\nThink of a physical dictionary: a “key” (the word) points to a “value” (its definition).\nPython dictionaries work similarly, storing unique keys that retrieve associated values.\nThis structure is powerful for organizing data where each piece needs a distinct label.\n\n\nmeanings = {\"earth\": \"ground, soil, land\", \"wind\": \"air in natural motion\", \"fire\": \"combustion or burning\", \"water\": \"colorless, transparent, odorless liquid\"}\nmeanings[\"earth\"]\n\n'ground, soil, land'",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.html#numpy-arrays",
+    "href": "09_sklearn.html#numpy-arrays",
+    "title": "Sklearn",
+    "section": "NumPy Arrays",
+    "text": "NumPy Arrays\n\nWhile np.ndarray is a homogeneous data structure, dictionaries can store heterogeneous data.\nDictionaries can be used to organize parameters or metadata associated with NumPy arrays.\n\n\ndata_info = {\"name\": \"Measurements\", \"unit\": \"meters\", \"data\": np.array([10.1, 12.5, 11.3])}\ndata_info[\"data\"].mean()\n\nnp.float64(11.300000000000002)",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.html#pandas-dataframes",
+    "href": "09_sklearn.html#pandas-dataframes",
+    "title": "Sklearn",
+    "section": "pandas DataFrames",
+    "text": "pandas DataFrames\n\nDictionaries are commonly used to create pd.DataFrame objects.\nKeys become column names, and values (lists or arrays) become column data.\nThis provides a natural way to structure tabular data before DataFrame creation.\n\n\nimport pandas as pd\ndata = {\n    \"City\": [\"Portland\", \"Seattle\", \"Boise\"],\n    \"Population\": [650000, 750000, 230000],\n    \"State\": [\"OR\", \"WA\", \"ID\"]\n}\npd.DataFrame(data)\n\n\n\n\n\n\n\n\nCity\nPopulation\nState\n\n\n\n\n0\nPortland\n650000\nOR\n\n\n1\nSeattle\n750000\nWA\n\n\n2\nBoise\n230000\nID",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.html#dataframe-column-selection",
+    "href": "09_sklearn.html#dataframe-column-selection",
+    "title": "Sklearn",
+    "section": "DataFrame Column Selection",
+    "text": "DataFrame Column Selection\n\nDictionaries can be used to map original column names to new, more descriptive names.\nThis is useful for renaming columns in a pd.DataFrame.\n\n\ndf = pd.DataFrame({'col_a': [1,2], 'col_b': [3,4]})\ncolumn_rename_map = {'col_a': 'Feature_1', 'col_b': 'Feature_2'}\ndf.rename(columns=column_rename_map)\n\n\n\n\n\n\n\n\nFeature_1\nFeature_2\n\n\n\n\n0\n1\n3\n\n\n1\n2\n4",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.html#in-sklearn",
+    "href": "09_sklearn.html#in-sklearn",
+    "title": "Sklearn",
+    "section": "In sklearn",
+    "text": "In sklearn\n\nDictionaries are fundamental for defining model parameters (hyperparameters) in sklearn.\nThey are used in GridSearchCV or RandomizedSearchCV to specify parameter grids for tuning.\n\n\nfrom sklearn.linear_model import LogisticRegression\nparams = {\"penalty\": \"l1\", \"C\": 0.1, \"solver\": \"liblinear\"}\nmodel = LogisticRegression(**params)\nmodel.get_params()\n\n{'C': 0.1,\n 'class_weight': None,\n 'dual': False,\n 'fit_intercept': True,\n 'intercept_scaling': 1,\n 'l1_ratio': None,\n 'max_iter': 100,\n 'multi_class': 'deprecated',\n 'n_jobs': None,\n 'penalty': 'l1',\n 'random_state': None,\n 'solver': 'liblinear',\n 'tol': 0.0001,\n 'verbose': 0,\n 'warm_start': False}",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.html#model-configuration",
+    "href": "09_sklearn.html#model-configuration",
+    "title": "Sklearn",
+    "section": "Model Configuration",
+    "text": "Model Configuration\n\nDictionaries can store various configuration settings for an sklearn pipeline or model.\nThis makes configurations easily readable, modifiable, and transportable.\n\n\nmodel_config = {\n    \"model_type\": \"RandomForestClassifier\",\n    \"n_estimators\": 100,\n    \"max_depth\": 10,\n    \"random_state\": 42\n}\nprint(f\"Model Type: {model_config['model_type']}\")\nprint(f\"Number of Estimators: {model_config['n_estimators']}\")\n\nModel Type: RandomForestClassifier\nNumber of Estimators: 100",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.html#aside-f-strings-format-strings",
+    "href": "09_sklearn.html#aside-f-strings-format-strings",
+    "title": "Sklearn",
+    "section": "Aside: f-Strings (Format Strings)",
+    "text": "Aside: f-Strings (Format Strings)\n\nf-strings offer a concise and readable way to embed Python expressions inside string literals.\nThey are prefixed with an f (or F) and use curly braces {} to contain expressions.\nThis feature, introduced in Python 3.6, makes string formatting much more straightforward.\n\n\nmodel_config = {\"model_type\": \"LogisticRegression\", \"n_estimators\": 100}\nprint(f\"Model Type: {model_config['model_type']}\")\n\nModel Type: LogisticRegression",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.html#why-use-f-strings",
+    "href": "09_sklearn.html#why-use-f-strings",
+    "title": "Sklearn",
+    "section": "Why Use f-Strings?",
+    "text": "Why Use f-Strings?\n\nReadability: The expressions are right within the string, making it easy to see what’s being formatted.\nConciseness: Less boilerplate code compared to older formatting methods like .format() or %.\nPerformance: Generally faster than other string formatting methods.\n\n\nmy_name = \"Alice\"\nmy_age = 30\nprint(f\"Hello, my name is {my_name} and I am {my_age} years old.\")\nprint(f\"Number of Estimators: {model_config['n_estimators']}\")\n\nHello, my name is Alice and I am 30 years old.\nNumber of Estimators: 100",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.html#feature-store",
+    "href": "09_sklearn.html#feature-store",
+    "title": "Sklearn",
+    "section": "Feature Store",
+    "text": "Feature Store\n\nDictionaries can temporarily hold features for a single sample before passing to a model.\nThis is particularly useful when working with DictVectorizer in text processing.\n\n\nfrom sklearn.feature_extraction import DictVectorizer\ndata = [{\"color\": \"red\", \"size\": \"small\"}, {\"color\": \"blue\", \"size\": \"large\"}]\nvec = DictVectorizer(sparse=False)\nfeatures = vec.fit_transform(data)\nprint(features)\nprint(vec.get_feature_names_out())\n\n[[0. 1. 0. 1.]\n [1. 0. 1. 0.]]\n['color=blue' 'color=red' 'size=large' 'size=small']",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#why-dictionaries",
+    "href": "09_sklearn.rjs.html#why-dictionaries",
+    "title": "Sklearn",
+    "section": "Why dictionaries?",
+    "text": "Why dictionaries?\n\nThink of a physical dictionary: a “key” (the word) points to a “value” (its definition).\nPython dictionaries work similarly, storing unique keys that retrieve associated values.\nThis structure is powerful for organizing data where each piece needs a distinct label.\n\n\nmeanings = {\"earth\": \"ground, soil, land\", \"wind\": \"air in natural motion\", \"fire\": \"combustion or burning\", \"water\": \"colorless, transparent, odorless liquid\"}\nmeanings[\"earth\"]\n\n'ground, soil, land'"
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#numpy-arrays",
+    "href": "09_sklearn.rjs.html#numpy-arrays",
+    "title": "Sklearn",
+    "section": "NumPy Arrays",
+    "text": "NumPy Arrays\n\nWhile np.ndarray is a homogeneous data structure, dictionaries can store heterogeneous data.\nDictionaries can be used to organize parameters or metadata associated with NumPy arrays.\n\n\ndata_info = {\"name\": \"Measurements\", \"unit\": \"meters\", \"data\": np.array([10.1, 12.5, 11.3])}\ndata_info[\"data\"].mean()\n\nnp.float64(11.300000000000002)"
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#pandas-dataframes",
+    "href": "09_sklearn.rjs.html#pandas-dataframes",
+    "title": "Sklearn",
+    "section": "pandas DataFrames",
+    "text": "pandas DataFrames\n\nDictionaries are commonly used to create pd.DataFrame objects.\nKeys become column names, and values (lists or arrays) become column data.\nThis provides a natural way to structure tabular data before DataFrame creation.\n\n\nimport pandas as pd\ndata = {\n    \"City\": [\"Portland\", \"Seattle\", \"Boise\"],\n    \"Population\": [650000, 750000, 230000],\n    \"State\": [\"OR\", \"WA\", \"ID\"]\n}\npd.DataFrame(data)\n\n\n\n\n\n\n\n\nCity\nPopulation\nState\n\n\n\n\n0\nPortland\n650000\nOR\n\n\n1\nSeattle\n750000\nWA\n\n\n2\nBoise\n230000\nID"
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#dataframe-column-selection",
+    "href": "09_sklearn.rjs.html#dataframe-column-selection",
+    "title": "Sklearn",
+    "section": "DataFrame Column Selection",
+    "text": "DataFrame Column Selection\n\nDictionaries can be used to map original column names to new, more descriptive names.\nThis is useful for renaming columns in a pd.DataFrame.\n\n\ndf = pd.DataFrame({'col_a': [1,2], 'col_b': [3,4]})\ncolumn_rename_map = {'col_a': 'Feature_1', 'col_b': 'Feature_2'}\ndf.rename(columns=column_rename_map)\n\n\n\n\n\n\n\n\nFeature_1\nFeature_2\n\n\n\n\n0\n1\n3\n\n\n1\n2\n4"
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#in-sklearn",
+    "href": "09_sklearn.rjs.html#in-sklearn",
+    "title": "Sklearn",
+    "section": "In sklearn",
+    "text": "In sklearn\n\nDictionaries are fundamental for defining model parameters (hyperparameters) in sklearn.\nThey are used in GridSearchCV or RandomizedSearchCV to specify parameter grids for tuning.\n\n\nfrom sklearn.linear_model import LogisticRegression\nparams = {\"penalty\": \"l1\", \"C\": 0.1, \"solver\": \"liblinear\"}\nmodel = LogisticRegression(**params)\nmodel.get_params()\n\n{'C': 0.1,\n 'class_weight': None,\n 'dual': False,\n 'fit_intercept': True,\n 'intercept_scaling': 1,\n 'l1_ratio': None,\n 'max_iter': 100,\n 'multi_class': 'deprecated',\n 'n_jobs': None,\n 'penalty': 'l1',\n 'random_state': None,\n 'solver': 'liblinear',\n 'tol': 0.0001,\n 'verbose': 0,\n 'warm_start': False}"
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#model-configuration",
+    "href": "09_sklearn.rjs.html#model-configuration",
+    "title": "Sklearn",
+    "section": "Model Configuration",
+    "text": "Model Configuration\n\nDictionaries can store various configuration settings for an sklearn pipeline or model.\nThis makes configurations easily readable, modifiable, and transportable.\n\n\nmodel_config = {\n    \"model_type\": \"RandomForestClassifier\",\n    \"n_estimators\": 100,\n    \"max_depth\": 10,\n    \"random_state\": 42\n}\nprint(f\"Model Type: {model_config['model_type']}\")\nprint(f\"Number of Estimators: {model_config['n_estimators']}\")\n\nModel Type: RandomForestClassifier\nNumber of Estimators: 100"
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#aside-f-strings-format-strings",
+    "href": "09_sklearn.rjs.html#aside-f-strings-format-strings",
+    "title": "Sklearn",
+    "section": "Aside: f-Strings (Format Strings)",
+    "text": "Aside: f-Strings (Format Strings)\n\nf-strings offer a concise and readable way to embed Python expressions inside string literals.\nThey are prefixed with an f (or F) and use curly braces {} to contain expressions.\nThis feature, introduced in Python 3.6, makes string formatting much more straightforward.\n\n\nmodel_config = {\"model_type\": \"LogisticRegression\", \"n_estimators\": 100}\nprint(f\"Model Type: {model_config['model_type']}\")\n\nModel Type: LogisticRegression"
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#why-use-f-strings",
+    "href": "09_sklearn.rjs.html#why-use-f-strings",
+    "title": "Sklearn",
+    "section": "Why Use f-Strings?",
+    "text": "Why Use f-Strings?\n\nReadability: The expressions are right within the string, making it easy to see what’s being formatted.\nConciseness: Less boilerplate code compared to older formatting methods like .format() or %.\nPerformance: Generally faster than other string formatting methods.\n\n\nmy_name = \"Alice\"\nmy_age = 30\nprint(f\"Hello, my name is {my_name} and I am {my_age} years old.\")\nprint(f\"Number of Estimators: {model_config['n_estimators']}\")\n\nHello, my name is Alice and I am 30 years old.\nNumber of Estimators: 100"
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#feature-store",
+    "href": "09_sklearn.rjs.html#feature-store",
+    "title": "Sklearn",
+    "section": "Feature Store",
+    "text": "Feature Store\n\nDictionaries can temporarily hold features for a single sample before passing to a model.\nThis is particularly useful when working with DictVectorizer in text processing.\n\n\nfrom sklearn.feature_extraction import DictVectorizer\ndata = [{\"color\": \"red\", \"size\": \"small\"}, {\"color\": \"blue\", \"size\": \"large\"}]\nvec = DictVectorizer(sparse=False)\nfeatures = vec.fit_transform(data)\nprint(features)\nprint(vec.get_feature_names_out())\n\n[[0. 1. 0. 1.]\n [1. 0. 1. 0.]]\n['color=blue' 'color=red' 'size=large' 'size=small']"
+  },
+  {
+    "objectID": "09_sklearn.html#mnist",
+    "href": "09_sklearn.html#mnist",
+    "title": "Sklearn",
+    "section": "MNIST",
+    "text": "MNIST\n\nBasically, MNIST contains:\n\nHandwritten digits from government forms\nWhat digit someone thought the person was trying to write.\n\nWe will:\n\nTry to get a computer to do this work for us.\n\nLet’s look at an example.",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.html#target",
+    "href": "09_sklearn.html#target",
+    "title": "Sklearn",
+    "section": "“target”",
+    "text": "“target”\n\n“target” gives what a human thought the digit was.\nIt is generally regard that whoever set the targets was mostly correct.\nThe first ten digits are thought to be:\n\n\ndigits[\"target\"][:10]\n\narray([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#mnist",
+    "href": "09_sklearn.rjs.html#mnist",
+    "title": "Sklearn",
+    "section": "MNIST",
+    "text": "MNIST\n\nBasically, MNIST contains:\n\nHandwritten digits from government forms\nWhat digit someone thought the person was trying to write.\n\nWe will:\n\nTry to get a computer to do this work for us.\n\nLet’s look at an example."
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#target",
+    "href": "09_sklearn.rjs.html#target",
+    "title": "Sklearn",
+    "section": "“target”",
+    "text": "“target”\n\n“target” gives what a human thought the digit was.\nIt is generally regard that whoever set the targets was mostly correct.\nThe first ten digits are thought to be:\n\n\ndigits[\"target\"][:10]\n\narray([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])"
+  },
+  {
+    "objectID": "09_sklearn.html#images",
+    "href": "09_sklearn.html#images",
+    "title": "Sklearn",
+    "section": "“images”",
+    "text": "“images”\n\n“images” are more complicated.\nLet’s take a look at just the initial image:\n\n\nim = digits[\"images\"][0]\nim\n\narray([[ 0.,  0.,  5., 13.,  9.,  1.,  0.,  0.],\n       [ 0.,  0., 13., 15., 10., 15.,  5.,  0.],\n       [ 0.,  3., 15.,  2.,  0., 11.,  8.,  0.],\n       [ 0.,  4., 12.,  0.,  0.,  8.,  8.,  0.],\n       [ 0.,  5.,  8.,  0.,  0.,  9.,  8.,  0.],\n       [ 0.,  4., 11.,  0.,  1., 12.,  7.,  0.],\n       [ 0.,  2., 14.,  5., 10., 12.,  0.,  0.],\n       [ 0.,  0.,  6., 13., 10.,  0.,  0.,  0.]])",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#images",
+    "href": "09_sklearn.rjs.html#images",
+    "title": "Sklearn",
+    "section": "“images”",
+    "text": "“images”\n\n“images” are more complicated.\nLet’s take a look at just the initial image:\n\n\nim = digits[\"images\"][0]\nim\n\narray([[ 0.,  0.,  5., 13.,  9.,  1.,  0.,  0.],\n       [ 0.,  0., 13., 15., 10., 15.,  5.,  0.],\n       [ 0.,  3., 15.,  2.,  0., 11.,  8.,  0.],\n       [ 0.,  4., 12.,  0.,  0.,  8.,  8.,  0.],\n       [ 0.,  5.,  8.,  0.,  0.,  9.,  8.,  0.],\n       [ 0.,  4., 11.,  0.,  1., 12.,  7.,  0.],\n       [ 0.,  2., 14.,  5., 10., 12.,  0.,  0.],\n       [ 0.,  0.,  6., 13., 10.,  0.,  0.,  0.]])"
+  },
+  {
+    "objectID": "09_sklearn.html#examine",
+    "href": "09_sklearn.html#examine",
+    "title": "Sklearn",
+    "section": "Examine",
+    "text": "Examine\n\nim.shape, im.size, im.ndim\n\n((8, 8), 64, 2)\n\n\n\nim.mean(), im.max()\n\n(np.float64(4.59375), np.float64(15.0))\n\n\n\ndigits[\"images\"].mean(), digits[\"images\"].max()\n\n(np.float64(4.884164579855314), np.float64(16.0))",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#examine",
+    "href": "09_sklearn.rjs.html#examine",
+    "title": "Sklearn",
+    "section": "Examine",
+    "text": "Examine\n\nim.shape, im.size, im.ndim\n\n((8, 8), 64, 2)\n\n\n\nim.mean(), im.max()\n\n(np.float64(4.59375), np.float64(15.0))\n\n\n\ndigits[\"images\"].mean(), digits[\"images\"].max()\n\n(np.float64(4.884164579855314), np.float64(16.0))"
+  },
+  {
+    "objectID": "09_sklearn.html#takeways",
+    "href": "09_sklearn.html#takeways",
+    "title": "Sklearn",
+    "section": "Takeways",
+    "text": "Takeways\n\nim is an 8-by-8 array of values from 0 to 16\n\n\nplt.imshow(im)",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#takeways",
+    "href": "09_sklearn.rjs.html#takeways",
+    "title": "Sklearn",
+    "section": "Takeways",
+    "text": "Takeways\n\nim is an 8-by-8 array of values from 0 to 16\n\n\nplt.imshow(im)"
+  },
+  {
+    "objectID": "09_sklearn.html#coloration",
+    "href": "09_sklearn.html#coloration",
+    "title": "Sklearn",
+    "section": "Coloration",
+    "text": "Coloration\n\nplt.imshow(im)\nplt.colorbar()\n\n\n\n\n\n\n\n\n\nMight be easier in grayscale.",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#coloration",
+    "href": "09_sklearn.rjs.html#coloration",
+    "title": "Sklearn",
+    "section": "Coloration",
+    "text": "Coloration\n\nplt.imshow(im)\nplt.colorbar()\n\n\n\n\n\n\n\n\n\nMight be easier in grayscale."
+  },
+  {
+    "objectID": "09_sklearn.html#cmap",
+    "href": "09_sklearn.html#cmap",
+    "title": "Sklearn",
+    "section": "cmap",
+    "text": "cmap\n\nMatplotlib provides colormaps we can specify.\n\nI say a 'Greys' in there.\n\n\n\nfrom matplotlib import colormaps\nlist(colormaps)[:20]\n\n['magma',\n 'inferno',\n 'plasma',\n 'viridis',\n 'cividis',\n 'twilight',\n 'twilight_shifted',\n 'turbo',\n 'Blues',\n 'BrBG',\n 'BuGn',\n 'BuPu',\n 'CMRmap',\n 'GnBu',\n 'Greens',\n 'Greys',\n 'OrRd',\n 'Oranges',\n 'PRGn',\n 'PiYG']",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#cmap",
+    "href": "09_sklearn.rjs.html#cmap",
+    "title": "Sklearn",
+    "section": "cmap",
+    "text": "cmap\n\nMatplotlib provides colormaps we can specify.\n\nI say a 'Greys' in there.\n\n\n\nfrom matplotlib import colormaps\nlist(colormaps)[:20]\n\n['magma',\n 'inferno',\n 'plasma',\n 'viridis',\n 'cividis',\n 'twilight',\n 'twilight_shifted',\n 'turbo',\n 'Blues',\n 'BrBG',\n 'BuGn',\n 'BuPu',\n 'CMRmap',\n 'GnBu',\n 'Greens',\n 'Greys',\n 'OrRd',\n 'Oranges',\n 'PRGn',\n 'PiYG']"
+  },
+  {
+    "objectID": "09_sklearn.html#greyscale",
+    "href": "09_sklearn.html#greyscale",
+    "title": "Sklearn",
+    "section": "Greyscale",
+    "text": "Greyscale\n\nplt.imshow(im, cmap='Greys')\nplt.colorbar()",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#greyscale",
+    "href": "09_sklearn.rjs.html#greyscale",
+    "title": "Sklearn",
+    "section": "Greyscale",
+    "text": "Greyscale\n\nplt.imshow(im, cmap='Greys')\nplt.colorbar()"
+  },
+  {
+    "objectID": "09_sklearn.html#interpolation",
+    "href": "09_sklearn.html#interpolation",
+    "title": "Sklearn",
+    "section": "Interpolation",
+    "text": "Interpolation\n\nUse an interpolater ('spline16' looked good).\n\n\n\n\nplt.imshow(im) # I am writing a comment here to align vertically\n\n\n\n\n\n\n\n\n\n\nplt.imshow(im, cmap='Greys', interpolation=\"spline16\")",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#interpolation",
+    "href": "09_sklearn.rjs.html#interpolation",
+    "title": "Sklearn",
+    "section": "Interpolation",
+    "text": "Interpolation\n\nUse an interpolater ('spline16' looked good).\n\n\n\n\nplt.imshow(im) # I am writing a comment here to align vertically\n\n\n\n\n\n\n\n\n\n\nplt.imshow(im, cmap='Greys', interpolation=\"spline16\")"
+  },
+  {
+    "objectID": "09_sklearn.html#zero",
+    "href": "09_sklearn.html#zero",
+    "title": "Sklearn",
+    "section": "zero",
+    "text": "zero\n\n\n\ndigits[\"target\"][0]\n\nnp.int64(0)\n\n\n\n\nplt.imshow(digits[\"images\"][0], cmap='Greys', interpolation=\"spline16\")",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#zero",
+    "href": "09_sklearn.rjs.html#zero",
+    "title": "Sklearn",
+    "section": "zero",
+    "text": "zero\n\n\n\ndigits[\"target\"][0]\n\nnp.int64(0)\n\n\n\n\nplt.imshow(digits[\"images\"][0], cmap='Greys', interpolation=\"spline16\")"
+  },
+  {
+    "objectID": "09_sklearn.html#its-a-zero",
+    "href": "09_sklearn.html#its-a-zero",
+    "title": "Sklearn",
+    "section": "It’s a zero",
+    "text": "It’s a zero\n\n\n\ndigits[\"target\"][0]\n\nnp.int64(0)\n\n\n\n\nplt.imshow(digits[\"images\"][0], cmap='Greys', interpolation=\"spline16\")",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#its-a-zero",
+    "href": "09_sklearn.rjs.html#its-a-zero",
+    "title": "Sklearn",
+    "section": "It’s a zero",
+    "text": "It’s a zero\n\n\n\ndigits[\"target\"][0]\n\nnp.int64(0)\n\n\n\n\nplt.imshow(digits[\"images\"][0], cmap='Greys', interpolation=\"spline16\")"
+  },
+  {
+    "objectID": "09_sklearn.html#look-at-more",
+    "href": "09_sklearn.html#look-at-more",
+    "title": "Sklearn",
+    "section": "Look at more",
+    "text": "Look at more\n\nWrite a function to check some images out.\n\n\ndef see_im(n):\n    plt.imshow(digits[\"images\"][n], cmap='Greys', interpolation='spline16')\n    plt.axis('off') # Just looked up how to remove axes\n    plt.title(digits[\"target\"][n])\n    plt.show() # Like print, for images, or you can save\n\n\nWait how many do I have?\n\n\ndigits[\"target\"].shape\n\n(1797,)",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.html#see-more",
+    "href": "09_sklearn.html#see-more",
+    "title": "Sklearn",
+    "section": "See More",
+    "text": "See More\n\n\n\nsee_im(10)\n\n\n\n\n\n\n\n\n\n\nsee_im(100)\n\n\n\n\n\n\n\n\n\n\nsee_im(1000)",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#look-at-more",
+    "href": "09_sklearn.rjs.html#look-at-more",
+    "title": "Sklearn",
+    "section": "Look at more",
+    "text": "Look at more\n\nWrite a function to check some images out.\n\n\ndef see_im(n):\n    plt.imshow(digits[\"images\"][n], cmap='Greys', interpolation='spline16')\n    plt.axis('off') # Just looked up how to remove axes\n    plt.title(digits[\"target\"][n])\n    plt.show() # Like print, for images, or you can save\n\n\nWait how many do I have?\n\n\ndigits[\"target\"].shape\n\n(1797,)"
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#see-more",
+    "href": "09_sklearn.rjs.html#see-more",
+    "title": "Sklearn",
+    "section": "See More",
+    "text": "See More\n\n\n\nsee_im(10)\n\n\n\n\n\n\n\n\n\n\nsee_im(100)\n\n\n\n\n\n\n\n\n\n\nsee_im(1000)"
+  },
+  {
+    "objectID": "09_sklearn.html#classification-1",
+    "href": "09_sklearn.html#classification-1",
+    "title": "Sklearn",
+    "section": "Classification",
+    "text": "Classification\n\nClassification is the activity of assigning objects to some pre-existing classes or categories. This is distinct from the task of establishing the classes themselves (for example through cluster analysis). Examples include diagnostic tests, identifying spam emails and deciding whether to give someone a driving license.",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#classification-1",
+    "href": "09_sklearn.rjs.html#classification-1",
+    "title": "Sklearn",
+    "section": "Classification",
+    "text": "Classification\n\nClassification is the activity of assigning objects to some pre-existing classes or categories. This is distinct from the task of establishing the classes themselves (for example through cluster analysis). Examples include diagnostic tests, identifying spam emails and deciding whether to give someone a driving license."
+  },
+  {
+    "objectID": "09_sklearn.html#flatten",
+    "href": "09_sklearn.html#flatten",
+    "title": "Sklearn",
+    "section": "Flatten",
+    "text": "Flatten\n\nWe, as humans, recognize that those things look a lot like images.\nBut the images are 3D array, which is more more annoying to work with than one-row-per-digit.\nTo begin, we “flatten” to 2D images into 1D arrays.\nWe want 1794 arrays of length 64 (was: 8-by-8)",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#flatten",
+    "href": "09_sklearn.rjs.html#flatten",
+    "title": "Sklearn",
+    "section": "Flatten",
+    "text": "Flatten\n\nWe, as humans, recognize that those things look a lot like images.\nBut the images are 3D array, which is more more annoying to work with than one-row-per-digit.\nTo begin, we “flatten” to 2D images into 1D arrays.\nWe want 1794 arrays of length 64 (was: 8-by-8)"
+  },
+  {
+    "objectID": "09_sklearn.html#reshape",
+    "href": "09_sklearn.html#reshape",
+    "title": "Sklearn",
+    "section": "Reshape",
+    "text": "Reshape\n\nWe use NumPy .reshape\n\n\ncount = len(digits[\"images\"])\ndata = digits[\"images\"].reshape(count, 64)\ndata[:3]\n\narray([[ 0.,  0.,  5., 13.,  9.,  1.,  0.,  0.,  0.,  0., 13., 15., 10.,\n        15.,  5.,  0.,  0.,  3., 15.,  2.,  0., 11.,  8.,  0.,  0.,  4.,\n        12.,  0.,  0.,  8.,  8.,  0.,  0.,  5.,  8.,  0.,  0.,  9.,  8.,\n         0.,  0.,  4., 11.,  0.,  1., 12.,  7.,  0.,  0.,  2., 14.,  5.,\n        10., 12.,  0.,  0.,  0.,  0.,  6., 13., 10.,  0.,  0.,  0.],\n       [ 0.,  0.,  0., 12., 13.,  5.,  0.,  0.,  0.,  0.,  0., 11., 16.,\n         9.,  0.,  0.,  0.,  0.,  3., 15., 16.,  6.,  0.,  0.,  0.,  7.,\n        15., 16., 16.,  2.,  0.,  0.,  0.,  0.,  1., 16., 16.,  3.,  0.,\n         0.,  0.,  0.,  1., 16., 16.,  6.,  0.,  0.,  0.,  0.,  1., 16.,\n        16.,  6.,  0.,  0.,  0.,  0.,  0., 11., 16., 10.,  0.,  0.],\n       [ 0.,  0.,  0.,  4., 15., 12.,  0.,  0.,  0.,  0.,  3., 16., 15.,\n        14.,  0.,  0.,  0.,  0.,  8., 13.,  8., 16.,  0.,  0.,  0.,  0.,\n         1.,  6., 15., 11.,  0.,  0.,  0.,  1.,  8., 13., 15.,  1.,  0.,\n         0.,  0.,  9., 16., 16.,  5.,  0.,  0.,  0.,  0.,  3., 13., 16.,\n        16., 11.,  5.,  0.,  0.,  0.,  0.,  3., 11., 16.,  9.,  0.]])",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#reshape",
+    "href": "09_sklearn.rjs.html#reshape",
+    "title": "Sklearn",
+    "section": "Reshape",
+    "text": "Reshape\n\nWe use NumPy .reshape\n\n\ncount = len(digits[\"images\"])\ndata = digits[\"images\"].reshape(count, 64)\ndata[:3]\n\narray([[ 0.,  0.,  5., 13.,  9.,  1.,  0.,  0.,  0.,  0., 13., 15., 10.,\n        15.,  5.,  0.,  0.,  3., 15.,  2.,  0., 11.,  8.,  0.,  0.,  4.,\n        12.,  0.,  0.,  8.,  8.,  0.,  0.,  5.,  8.,  0.,  0.,  9.,  8.,\n         0.,  0.,  4., 11.,  0.,  1., 12.,  7.,  0.,  0.,  2., 14.,  5.,\n        10., 12.,  0.,  0.,  0.,  0.,  6., 13., 10.,  0.,  0.,  0.],\n       [ 0.,  0.,  0., 12., 13.,  5.,  0.,  0.,  0.,  0.,  0., 11., 16.,\n         9.,  0.,  0.,  0.,  0.,  3., 15., 16.,  6.,  0.,  0.,  0.,  7.,\n        15., 16., 16.,  2.,  0.,  0.,  0.,  0.,  1., 16., 16.,  3.,  0.,\n         0.,  0.,  0.,  1., 16., 16.,  6.,  0.,  0.,  0.,  0.,  1., 16.,\n        16.,  6.,  0.,  0.,  0.,  0.,  0., 11., 16., 10.,  0.,  0.],\n       [ 0.,  0.,  0.,  4., 15., 12.,  0.,  0.,  0.,  0.,  3., 16., 15.,\n        14.,  0.,  0.,  0.,  0.,  8., 13.,  8., 16.,  0.,  0.,  0.,  0.,\n         1.,  6., 15., 11.,  0.,  0.,  0.,  1.,  8., 13., 15.,  1.,  0.,\n         0.,  0.,  9., 16., 16.,  5.,  0.,  0.,  0.,  0.,  3., 13., 16.,\n        16., 11.,  5.,  0.,  0.,  0.,  0.,  3., 11., 16.,  9.,  0.]])"
+  },
+  {
+    "objectID": "09_sklearn.html#traintest-split",
+    "href": "09_sklearn.html#traintest-split",
+    "title": "Sklearn",
+    "section": "Train/Test Split",
+    "text": "Train/Test Split\n\nFoundation to the notion of machine learning is training and testing.\n\nMore properly to supervised machine learning, but more on that latter.\n\nWe split up our data, and\n\nSome data we use to train a classifier.\n\nBasically, find coefficients of a function.\n\nSome data we use to test a classifier\n\nWe see what the trained classfier thinks something is, and compare it to the target.",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.html#train-test-split",
+    "href": "09_sklearn.html#train-test-split",
+    "title": "Sklearn",
+    "section": "Train-Test Split",
+    "text": "Train-Test Split\n\nThe training set is used to teach our model to identify patterns and relationships.\nThe testing set is held-out to evaluate the trained model on new, unseen data.\n\n\nfrom sklearn.model_selection import train_test_split\n\nX = np.array([[1, 2], [3, 4], [5, 6], [7, 8]])\ny = np.array([0, 1, 0, 1])\n\n# Train on 75%, test on 25% by default\nX_train, X_test, y_train, y_test = train_test_split(X, y)\nX_test, y_test\n\n(array([[1, 2]]), array([0]))",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.html#supervised-learning-1",
+    "href": "09_sklearn.html#supervised-learning-1",
+    "title": "Sklearn",
+    "section": "Supervised Learning",
+    "text": "Supervised Learning\n\nSupervised learning is a type of machine learning where the algorithm learns from labeled data.\nLabeled data consists of input features (X) and corresponding outcomes (y).\n\n\nfrom sklearn.linear_model import LinearRegression\n\n# Example labeled data (house size in sqft, price in $1000s)\nX_train = np.array([[1000], [1500], [1200], [1800]])\ny_train = np.array([200, 300, 240, 360])\n\nmodel = LinearRegression()\n_ = model.fit(X_train, y_train) # The \"supervision\" happens here",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.html#models-and-coefficients",
+    "href": "09_sklearn.html#models-and-coefficients",
+    "title": "Sklearn",
+    "section": "Models and Coefficients",
+    "text": "Models and Coefficients\n\nA model represents the learned relationship inputs-to-targets\nSometimes this relationship is expressed through coefficients.\nChange in the target a unit change in input feature with other features constant.\n\n\n# The model learns the equation: price = coefficient * size + intercept\nmodel.coef_, model.intercept_\n\n(array([0.2]), np.float64(-5.684341886080802e-14))",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.html#coefficients-in-higher-dimensions",
+    "href": "09_sklearn.html#coefficients-in-higher-dimensions",
+    "title": "Sklearn",
+    "section": "Coefficients in Higher Dimensions",
+    "text": "Coefficients in Higher Dimensions\n\nWith multiple input features, each has a coefficient.\nThe sign and magnitude of each coefficient show the influence of a feature.\n\n\ndata = {'size': [1000, 1500, 1200, 1800], 'bedrooms': [2, 3, 2, 4], 'price': [200, 300, 240, 360]}\ndf = pd.DataFrame(data)\nX_train, y_train = df[['size', 'bedrooms']], df['price']\n\nmodel = LinearRegression()\nmodel.fit(X_train, y_train)\nmodel.coef_, model.intercept_\n\n(array([ 2.00000000e-01, -1.32379986e-14]), np.float64(0.0))",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#traintest-split",
+    "href": "09_sklearn.rjs.html#traintest-split",
+    "title": "Sklearn",
+    "section": "Train/Test Split",
+    "text": "Train/Test Split\n\nFoundation to the notion of machine learning is training and testing.\n\nMore properly to supervised machine learning, but more on that latter.\n\nWe split up our data, and\n\nSome data we use to train a classifier.\n\nBasically, find coefficients of a function.\n\nSome data we use to test a classifier\n\nWe see what the trained classfier thinks something is, and compare it to the target."
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#train-test-split",
+    "href": "09_sklearn.rjs.html#train-test-split",
+    "title": "Sklearn",
+    "section": "Train-Test Split",
+    "text": "Train-Test Split\n\nThe training set is used to teach our model to identify patterns and relationships.\nThe testing set is held-out to evaluate the trained model on new, unseen data.\n\n\nfrom sklearn.model_selection import train_test_split\n\nX = np.array([[1, 2], [3, 4], [5, 6], [7, 8]])\ny = np.array([0, 1, 0, 1])\n\n# Train on 75%, test on 25% by default\nX_train, X_test, y_train, y_test = train_test_split(X, y)\nX_test, y_test\n\n(array([[7, 8]]), array([1]))"
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#supervised-learning-1",
+    "href": "09_sklearn.rjs.html#supervised-learning-1",
+    "title": "Sklearn",
+    "section": "Supervised Learning",
+    "text": "Supervised Learning\n\nSupervised learning is a type of machine learning where the algorithm learns from labeled data.\nLabeled data consists of input features (X) and corresponding outcomes (y).\n\n\nfrom sklearn.linear_model import LinearRegression\n\n# Example labeled data (house size in sqft, price in $1000s)\nX_train = np.array([[1000], [1500], [1200], [1800]])\ny_train = np.array([200, 300, 240, 360])\n\nmodel = LinearRegression()\n_ = model.fit(X_train, y_train) # The \"supervision\" happens here"
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#models-and-coefficients",
+    "href": "09_sklearn.rjs.html#models-and-coefficients",
+    "title": "Sklearn",
+    "section": "Models and Coefficients",
+    "text": "Models and Coefficients\n\nA model represents the learned relationship inputs-to-targets\nSometimes this relationship is expressed through coefficients.\nChange in the target a unit change in input feature with other features constant.\n\n\n# The model learns the equation: price = coefficient * size + intercept\nmodel.coef_, model.intercept_\n\n(array([0.2]), np.float64(-5.684341886080802e-14))"
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#coefficients-in-higher-dimensions",
+    "href": "09_sklearn.rjs.html#coefficients-in-higher-dimensions",
+    "title": "Sklearn",
+    "section": "Coefficients in Higher Dimensions",
+    "text": "Coefficients in Higher Dimensions\n\nWith multiple input features, each has a coefficient.\nThe sign and magnitude of each coefficient show the influence of a feature.\n\n\ndata = {'size': [1000, 1500, 1200, 1800], 'bedrooms': [2, 3, 2, 4], 'price': [200, 300, 240, 360]}\ndf = pd.DataFrame(data)\nX_train, y_train = df[['size', 'bedrooms']], df['price']\n\nmodel = LinearRegression()\nmodel.fit(X_train, y_train)\nmodel.coef_, model.intercept_\n\n(array([ 2.00000000e-01, -1.32379986e-14]), np.float64(0.0))"
+  },
+  {
+    "objectID": "09_sklearn.html#supervised-learning",
+    "href": "09_sklearn.html#supervised-learning",
+    "title": "Sklearn",
+    "section": "Supervised Learning",
+    "text": "Supervised Learning\n\nSupervised learning is a type of machine learning where the algorithm learns from labeled data.\nLabeled data consists of input features (X) and corresponding target variables or outcomes (y).\nThe goal is for the model to learn a mapping function from the inputs to the outputs, so it can predict the output for new, unseen inputs.\n\n\nfrom sklearn.linear_model import LinearRegression\n\n# Example labeled data (house size in sqft, price in $1000s)\nX_train = np.array([[1000], [1500], [1200], [1800]])\ny_train = np.array([200, 300, 240, 360])\n\nmodel = LinearRegression()\nmodel.fit(X_train, y_train) # The \"supervision\" happens here\n\nLinearRegression()In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.LinearRegression?Documentation for LinearRegressioniFittedLinearRegression()",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#supervised-learning",
+    "href": "09_sklearn.rjs.html#supervised-learning",
+    "title": "Sklearn",
+    "section": "Supervised Learning",
+    "text": "Supervised Learning\n\nSupervised learning is a type of machine learning where the algorithm learns from labeled data.\nLabeled data consists of input features (X) and corresponding target variables or outcomes (y).\nThe goal is for the model to learn a mapping function from the inputs to the outputs, so it can predict the output for new, unseen inputs.\n\n\nfrom sklearn.linear_model import LinearRegression\n\n# Example labeled data (house size in sqft, price in $1000s)\nX_train = np.array([[1000], [1500], [1200], [1800]])\ny_train = np.array([200, 300, 240, 360])\n\nmodel = LinearRegression()\nmodel.fit(X_train, y_train) # The \"supervision\" happens here\n\nLinearRegression()In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.LinearRegression?Documentation for LinearRegressioniFittedLinearRegression()"
+  },
+  {
+    "objectID": "09_sklearn.html#models",
+    "href": "09_sklearn.html#models",
+    "title": "Sklearn",
+    "section": "Models",
+    "text": "Models\n\nFoundation to the notion of machine learning is training and testing.\n\nMore properly to supervised machine learning, but more on that latter.\n\nSpecifically, using training data, we will set the coefficients and parameters of a model, which we can think of as a function with a number of parameters.",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.html#splits",
+    "href": "09_sklearn.html#splits",
+    "title": "Sklearn",
+    "section": "Splits",
+    "text": "Splits\n\nWe split up our data, and\n\nSome data we use to train a model.\n\nBasically, find coefficients of a function.\n\nSome data we use to test a classifier\n\nCompare model to actual.",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#models",
+    "href": "09_sklearn.rjs.html#models",
+    "title": "Sklearn",
+    "section": "Models",
+    "text": "Models\n\nFoundation to the notion of machine learning is training and testing.\n\nMore properly to supervised machine learning, but more on that latter.\n\nSpecifically, using training data, we will set the coefficients and parameters of a model, which we can think of as a function with a number of parameters."
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#splits",
+    "href": "09_sklearn.rjs.html#splits",
+    "title": "Sklearn",
+    "section": "Splits",
+    "text": "Splits\n\nWe split up our data, and\n\nSome data we use to train a model.\n\nBasically, find coefficients of a function.\n\nSome data we use to test a classifier\n\nCompare model to actual."
+  },
+  {
+    "objectID": "09_sklearn.html#higher-dimensions",
+    "href": "09_sklearn.html#higher-dimensions",
+    "title": "Sklearn",
+    "section": "Higher Dimensions",
+    "text": "Higher Dimensions\n\nWith multiple input features, each has a coefficient.\nThe sign and magnitude of each coefficient show the influence of a feature.\n\n\nd = {'size': [1000, 1500, 1200, 1800], 'bedrooms': [2, 3, 2, 4], 'price': [200, 300, 240, 360]}\ndf = pd.DataFrame(d)\nX_train, y_train = df[['size', 'bedrooms']], df['price']\n\nmodel = LinearRegression()\nmodel.fit(X_train, y_train)\nmodel.coef_, model.intercept_\n\n(array([ 2.00000000e-01, -1.32379986e-14]), np.float64(0.0))",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#higher-dimensions",
+    "href": "09_sklearn.rjs.html#higher-dimensions",
+    "title": "Sklearn",
+    "section": "Higher Dimensions",
+    "text": "Higher Dimensions\n\nWith multiple input features, each has a coefficient.\nThe sign and magnitude of each coefficient show the influence of a feature.\n\n\nd = {'size': [1000, 1500, 1200, 1800], 'bedrooms': [2, 3, 2, 4], 'price': [200, 300, 240, 360]}\ndf = pd.DataFrame(d)\nX_train, y_train = df[['size', 'bedrooms']], df['price']\n\nmodel = LinearRegression()\nmodel.fit(X_train, y_train)\nmodel.coef_, model.intercept_\n\n(array([ 2.00000000e-01, -1.32379986e-14]), np.float64(0.0))"
+  },
+  {
+    "objectID": "09_sklearn.html#perceptron",
+    "href": "09_sklearn.html#perceptron",
+    "title": "Sklearn",
+    "section": "Perceptron",
+    "text": "Perceptron\n\nWe use a perceptron, one of the oldest and most famous machine learning frameworks.\n\n\nThe artificial neuron network was invented in 1943 by Warren McCulloch and Walter Pitts in A logical calculus of the ideas immanent in nervous activity.\n\n\nDescribed visually in textbooks in 1958\nInspired by neuroscience ideas of the time.",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#perceptron",
+    "href": "09_sklearn.rjs.html#perceptron",
+    "title": "Sklearn",
+    "section": "Perceptron",
+    "text": "Perceptron\n\nWe use a perceptron, one of the oldest and most famous machine learning frameworks.\n\n\nThe artificial neuron network was invented in 1943 by Warren McCulloch and Walter Pitts in A logical calculus of the ideas immanent in nervous activity.\n\n\nDescribed visually in textbooks in 1958\nInspired by neuroscience ideas of the time."
+  },
+  {
+    "objectID": "09_sklearn.html#import",
+    "href": "09_sklearn.html#import",
+    "title": "Sklearn",
+    "section": "Import",
+    "text": "Import\n\nImport and create a perceptron.\n\n\nfrom sklearn.linear_model import Perceptron\nclf = Perceptron() # This will be the model that will contain coefficients\nclf # At first, not fitted to anything!\n\nPerceptron()In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.Perceptron?Documentation for PerceptroniNot fittedPerceptron()",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#import",
+    "href": "09_sklearn.rjs.html#import",
+    "title": "Sklearn",
+    "section": "Import",
+    "text": "Import\n\nImport and create a perceptron.\n\n\nfrom sklearn.linear_model import Perceptron\nclf = Perceptron() # This will be the model that will contain coefficients\nclf # At first, not fitted to anything!\n\nPerceptron()In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.Perceptron?Documentation for PerceptroniNot fittedPerceptron()"
+  },
+  {
+    "objectID": "09_sklearn.html#the-digits",
+    "href": "09_sklearn.html#the-digits",
+    "title": "Sklearn",
+    "section": "The Digits",
+    "text": "The Digits\n\nWe can train/test split the digits like so:\n\n\n# Recall we \"flattened\" images into \"data\"\nX_train, X_test, y_train, y_test = train_test_split(data, digits[\"target\"])",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#the-digits",
+    "href": "09_sklearn.rjs.html#the-digits",
+    "title": "Sklearn",
+    "section": "The Digits",
+    "text": "The Digits\n\nWe can train/test split the digits like so:\n\n\n# Recall we \"flattened\" images into \"data\"\nX_train, X_test, y_train, y_test = train_test_split(data, digits[\"target\"])"
+  },
+  {
+    "objectID": "09_sklearn.html#training",
+    "href": "09_sklearn.html#training",
+    "title": "Sklearn",
+    "section": "Training",
+    "text": "Training\n\nWe train or .fit() the model to the data.\n\n\nclf.fit(X_train, y_train)\n\nPerceptron()In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.Perceptron?Documentation for PerceptroniFittedPerceptron() \n\n\n\nThen we can predict over the testing set!\n\n\ny_pred = clf.predict(X_test)\ny_pred[:10], y_test[:10]\n\n(array([5, 8, 0, 2, 8, 8, 6, 8, 1, 3]), array([5, 8, 0, 2, 2, 8, 6, 8, 8, 3]))",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#training",
+    "href": "09_sklearn.rjs.html#training",
+    "title": "Sklearn",
+    "section": "Training",
+    "text": "Training\n\nWe train or .fit() the model to the data.\n\n\nclf.fit(X_train, y_train)\n\nPerceptron()In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.Perceptron?Documentation for PerceptroniFittedPerceptron() \n\n\n\nThen we can predict over the testing set!\n\n\ny_pred = clf.predict(X_test)\ny_pred[:10], y_test[:10]\n\n(array([7, 7, 6, 8, 5, 2, 3, 3, 9, 3]), array([7, 9, 6, 8, 5, 2, 3, 3, 9, 3]))"
+  },
+  {
+    "objectID": "09_sklearn.html#not-bad",
+    "href": "09_sklearn.html#not-bad",
+    "title": "Sklearn",
+    "section": "Not bad!",
+    "text": "Not bad!\n\nMore detailed reporting from metrics\n\n\nfrom sklearn import metrics\n\n# We print so it looks a bit nicer\nprint(metrics.classification_report(y_test, y_pred))\n\n              precision    recall  f1-score   support\n\n           0       0.98      0.98      0.98        44\n           1       0.83      0.98      0.90        44\n           2       1.00      0.95      0.97        39\n           3       0.98      0.95      0.97        44\n           4       1.00      0.95      0.97        38\n           5       0.96      1.00      0.98        51\n           6       1.00      0.98      0.99        48\n           7       1.00      1.00      1.00        37\n           8       0.84      0.92      0.88        63\n           9       0.97      0.74      0.84        42\n\n    accuracy                           0.94       450\n   macro avg       0.96      0.94      0.95       450\nweighted avg       0.95      0.94      0.94       450",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#not-bad",
+    "href": "09_sklearn.rjs.html#not-bad",
+    "title": "Sklearn",
+    "section": "Not bad!",
+    "text": "Not bad!\n\nMore detailed reporting from metrics\n\n\nfrom sklearn import metrics\n\n# We print so it looks a bit nicer\nprint(metrics.classification_report(y_test, y_pred))\n\n              precision    recall  f1-score   support\n\n           0       1.00      0.98      0.99        48\n           1       1.00      0.79      0.88        47\n           2       0.98      0.98      0.98        49\n           3       1.00      0.84      0.91        43\n           4       1.00      0.98      0.99        50\n           5       0.93      0.98      0.95        51\n           6       1.00      1.00      1.00        34\n           7       0.92      1.00      0.96        47\n           8       0.73      1.00      0.84        46\n           9       0.97      0.83      0.89        35\n\n    accuracy                           0.94       450\n   macro avg       0.95      0.94      0.94       450\nweighted avg       0.95      0.94      0.94       450"
+  },
+  {
+    "objectID": "09_sklearn.html#where-did-we-miss",
+    "href": "09_sklearn.html#where-did-we-miss",
+    "title": "Sklearn",
+    "section": "Where did we miss?",
+    "text": "Where did we miss?\n\nWe can see what we got wrong.\n\n\n# That [0] prevents us from getting tuple of length 1\nmisses = np.where(y_test != y_pred)[0]\nmisses\n\narray([  4,   8,  35,  36,  45,  56,  63,  67, 113, 158, 184, 191, 198,\n       199, 204, 273, 305, 316, 326, 352, 360, 366, 415, 437, 444])\n\n\n\nLet’s look at the first two of those.",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#where-did-we-miss",
+    "href": "09_sklearn.rjs.html#where-did-we-miss",
+    "title": "Sklearn",
+    "section": "Where did we miss?",
+    "text": "Where did we miss?\n\nWe can see what we got wrong.\n\n\n# That [0] prevents us from getting tuple of length 1\nmisses = np.where(y_test != y_pred)[0]\nmisses\n\narray([  1,  34,  69,  81, 106, 110, 127, 134, 136, 165, 168, 207, 223,\n       249, 255, 314, 321, 322, 346, 367, 379, 387, 390, 406, 433, 438,\n       444])\n\n\n\nLet’s look at the first two of those."
+  },
+  {
+    "objectID": "09_sklearn.html#two-misses",
+    "href": "09_sklearn.html#two-misses",
+    "title": "Sklearn",
+    "section": "Two Misses",
+    "text": "Two Misses\n\n\n\ni = misses[0]\nprint(y_test[i], y_pred[i])\nplt.imshow(X_test[i].reshape((8,8)), cmap=\"Greys\")\n\n2 8\n\n\n\n\n\n\n\n\n\n\n\ni = misses[1]\nprint(y_test[i], y_pred[i])\nplt.imshow(X_test[i].reshape((8,8)), cmap=\"Greys\")\n\n8 1",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.html#see-more-1",
+    "href": "09_sklearn.html#see-more-1",
+    "title": "Sklearn",
+    "section": "See More",
+    "text": "See More\n\n\n\nprint(y_test[12], y_pred[12])\nplt.imshow(X_test[12].reshape((8,8)))\n\n9 9\n\n\n\n\n\n\n\n\n\n\n\nprint(y_test[22], y_pred[22])\nplt.imshow(X_test[22].reshape((8,8)))\n\n5 5",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#two-misses",
+    "href": "09_sklearn.rjs.html#two-misses",
+    "title": "Sklearn",
+    "section": "Two Misses",
+    "text": "Two Misses\n\n\n\ni = misses[0]\nprint(y_test[i], y_pred[i])\nplt.imshow(X_test[i].reshape((8,8)), cmap=\"Greys\")\n\n9 7\n\n\n\n\n\n\n\n\n\n\n\ni = misses[1]\nprint(y_test[i], y_pred[i])\nplt.imshow(X_test[i].reshape((8,8)), cmap=\"Greys\")\n\n1 8"
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#see-more-1",
+    "href": "09_sklearn.rjs.html#see-more-1",
+    "title": "Sklearn",
+    "section": "See More",
+    "text": "See More\n\n\n\nprint(y_test[12], y_pred[12])\nplt.imshow(X_test[12].reshape((8,8)))\n\n0 0\n\n\n\n\n\n\n\n\n\n\n\nprint(y_test[22], y_pred[22])\nplt.imshow(X_test[22].reshape((8,8)))\n\n0 0"
+  },
+  {
+    "objectID": "09_sklearn.html#on-accuracy",
+    "href": "09_sklearn.html#on-accuracy",
+    "title": "Sklearn",
+    "section": "On Accuracy",
+    "text": "On Accuracy\n\nMachine learning frameworks were doing better than I could do around ~2010\nOn these older datasets with:\n\nGreyscale\n16 color\n64 pixel\n\nMaybe your eyes are better than the perceptron, but mine aren’t!",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#on-accuracy",
+    "href": "09_sklearn.rjs.html#on-accuracy",
+    "title": "Sklearn",
+    "section": "On Accuracy",
+    "text": "On Accuracy\n\nMachine learning frameworks were doing better than I could do around ~2010\nOn these older datasets with:\n\nGreyscale\n16 color\n64 pixel\n\nMaybe your eyes are better than the perceptron, but mine aren’t!"
+  },
+  {
+    "objectID": "09_sklearn.html#unsupervised-learning",
+    "href": "09_sklearn.html#unsupervised-learning",
+    "title": "Sklearn",
+    "section": "Unsupervised Learning",
+    "text": "Unsupervised Learning\n\nUnsupervised learning deals with unlabeled data, where there are no predefined target variables (y).\nFind hidden patterns, structures, or relationships within the data itself.",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.html#clustering-1",
+    "href": "09_sklearn.html#clustering-1",
+    "title": "Sklearn",
+    "section": "Clustering",
+    "text": "Clustering\n\nClustering is an unsupervised learning task that groups data points into clusters based on their similarity.\nData points within the same cluster are more similar to each other than to those in other clusters.\nThe goal is to discover natural groupings in the data without any prior knowledge of those groups.",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.html#k-means-clustering",
+    "href": "09_sklearn.html#k-means-clustering",
+    "title": "Sklearn",
+    "section": "\\(k\\)-means Clustering",
+    "text": "\\(k\\)-means Clustering\n\n\\(k\\)-means clustering is a popular partitioning algorithm that divides data into k predefined clusters.\nIt aims to minimize the sum of squared distances between data points and their assigned cluster’s centroid.\nThe k parameter (number of clusters) must be specified in advance.\n\n\nfrom sklearn.cluster import KMeans\n\nX = np.array([[1, 2], [1.5, 1.8], [5, 8], [8, 8], [1, 0.6], [9, 11]])\nmodel = KMeans(2) # 2 \"clusters\"",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.html#how-k-means-works-simplified",
+    "href": "09_sklearn.html#how-k-means-works-simplified",
+    "title": "Sklearn",
+    "section": "How K-Means Works (Simplified)",
+    "text": "How K-Means Works (Simplified)\n\nInitialization: Randomly select k data points as initial cluster centroids.\nAssignment Step: Assign each data point to the cluster whose centroid is closest.\nUpdate Step: Recalculate the centroids as the mean of all data points assigned to that cluster.\nThese steps (assignment and update) are repeated until the cluster assignments no longer change or a maximum number of iterations is reached.\n\n\n# Fit the KMeans model to the data\nmodel.fit(X)\nmodel.cluster_centers_\n\narray([[7.33333333, 9.        ],\n       [1.16666667, 1.46666667]])",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.html#interpreting-k-means-results",
+    "href": "09_sklearn.html#interpreting-k-means-results",
+    "title": "Sklearn",
+    "section": "Interpreting \\(k\\)-means Results",
+    "text": "Interpreting \\(k\\)-means Results\n\nAfter fitting, \\(k\\)-means provides cluster labels for each data point and the coordinates of the cluster centroids.\nThe labels indicate which cluster each data point belongs to.\nThe centroids represent the “center” of each cluster.\n\n\n\n\nX[model.labels_ == 0]\n\narray([[ 5.,  8.],\n       [ 8.,  8.],\n       [ 9., 11.]])\n\n\n\n\nX[model.labels_ == 1]\n\narray([[1. , 2. ],\n       [1.5, 1.8],\n       [1. , 0.6]])",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.html#choosing-the-number-of-clusters-k",
+    "href": "09_sklearn.html#choosing-the-number-of-clusters-k",
+    "title": "Sklearn",
+    "section": "Choosing the Number of Clusters (\\(k\\))",
+    "text": "Choosing the Number of Clusters (\\(k\\))\n\nDetermining the optimal k is a common challenge in K-Means.\nThe choice of k often depends on domain knowledge and the goal of the clustering.\nWe “cheat” on the digits set - there are 10 digits (exact)",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#unsupervised-learning",
+    "href": "09_sklearn.rjs.html#unsupervised-learning",
+    "title": "Sklearn",
+    "section": "Unsupervised Learning",
+    "text": "Unsupervised Learning\n\nUnsupervised learning deals with unlabeled data, where there are no predefined target variables (y).\nFind hidden patterns, structures, or relationships within the data itself."
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#clustering-1",
+    "href": "09_sklearn.rjs.html#clustering-1",
+    "title": "Sklearn",
+    "section": "Clustering",
+    "text": "Clustering\n\nClustering is an unsupervised learning task that groups data points into clusters based on their similarity.\nData points within the same cluster are more similar to each other than to those in other clusters.\nThe goal is to discover natural groupings in the data without any prior knowledge of those groups."
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#k-means-clustering",
+    "href": "09_sklearn.rjs.html#k-means-clustering",
+    "title": "Sklearn",
+    "section": "\\(k\\)-means Clustering",
+    "text": "\\(k\\)-means Clustering\n\n\\(k\\)-means clustering is a popular partitioning algorithm that divides data into k predefined clusters.\nIt aims to minimize the sum of squared distances between data points and their assigned cluster’s centroid.\nThe k parameter (number of clusters) must be specified in advance.\n\n\nfrom sklearn.cluster import KMeans\n\nX = np.array([[1, 2], [1.5, 1.8], [5, 8], [8, 8], [1, 0.6], [9, 11]])\nmodel = KMeans(2) # 2 \"clusters\""
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#how-k-means-works-simplified",
+    "href": "09_sklearn.rjs.html#how-k-means-works-simplified",
+    "title": "Sklearn",
+    "section": "How K-Means Works (Simplified)",
+    "text": "How K-Means Works (Simplified)\n\nInitialization: Randomly select k data points as initial cluster centroids.\nAssignment Step: Assign each data point to the cluster whose centroid is closest.\nUpdate Step: Recalculate the centroids as the mean of all data points assigned to that cluster.\nThese steps (assignment and update) are repeated until the cluster assignments no longer change or a maximum number of iterations is reached.\n\n\n# Fit the KMeans model to the data\nmodel.fit(X)\nmodel.cluster_centers_\n\narray([[1.16666667, 1.46666667],\n       [7.33333333, 9.        ]])"
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#interpreting-k-means-results",
+    "href": "09_sklearn.rjs.html#interpreting-k-means-results",
+    "title": "Sklearn",
+    "section": "Interpreting \\(k\\)-means Results",
+    "text": "Interpreting \\(k\\)-means Results\n\nAfter fitting, \\(k\\)-means provides cluster labels for each data point and the coordinates of the cluster centroids.\nThe labels indicate which cluster each data point belongs to.\nThe centroids represent the “center” of each cluster.\n\n\n\n\nX[model.labels_ == 0]\n\narray([[1. , 2. ],\n       [1.5, 1.8],\n       [1. , 0.6]])\n\n\n\n\nX[model.labels_ == 1]\n\narray([[ 5.,  8.],\n       [ 8.,  8.],\n       [ 9., 11.]])"
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#choosing-the-number-of-clusters-k",
+    "href": "09_sklearn.rjs.html#choosing-the-number-of-clusters-k",
+    "title": "Sklearn",
+    "section": "Choosing the Number of Clusters (\\(k\\))",
+    "text": "Choosing the Number of Clusters (\\(k\\))\n\nDetermining the optimal k is a common challenge in K-Means.\nThe choice of k often depends on domain knowledge and the goal of the clustering.\nWe “cheat” on the digits set - there are 10 digits (exact)"
+  },
+  {
+    "objectID": "09_sklearn.html#how-k-means-works",
+    "href": "09_sklearn.html#how-k-means-works",
+    "title": "Sklearn",
+    "section": "How \\(k\\)-means Works",
+    "text": "How \\(k\\)-means Works\n\nStart: \\(k\\) data points as cluster centroids.\nAssign: To the cluster with closest center.\nUpdate: Recalculate the cluster mean.\nRepeat: Until the assignments no longer change.\n\n\n# Fit the KMeans model to the data\nmodel.fit(X)\nmodel.cluster_centers_\n\narray([[7.33333333, 9.        ],\n       [1.16666667, 1.46666667]])",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#how-k-means-works",
+    "href": "09_sklearn.rjs.html#how-k-means-works",
+    "title": "Sklearn",
+    "section": "How \\(k\\)-means Works",
+    "text": "How \\(k\\)-means Works\n\nStart: \\(k\\) data points as cluster centroids.\nAssign: To the cluster with closest center.\nUpdate: Recalculate the cluster mean.\nRepeat: Until the assignments no longer change.\n\n\n# Fit the KMeans model to the data\nmodel.fit(X)\nmodel.cluster_centers_\n\narray([[1.16666667, 1.46666667],\n       [7.33333333, 9.        ]])"
+  },
+  {
+    "objectID": "09_sklearn.html#choosing-k",
+    "href": "09_sklearn.html#choosing-k",
+    "title": "Sklearn",
+    "section": "Choosing \\(k\\)",
+    "text": "Choosing \\(k\\)\n\nDetermining the optimal k is a common challenge in \\(k\\)-means.\nThe choice of k often depends on domain knowledge and the goal of the clustering.\nWe “cheat” on the digits set - there are 10 digits (exact)",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#choosing-k",
+    "href": "09_sklearn.rjs.html#choosing-k",
+    "title": "Sklearn",
+    "section": "Choosing \\(k\\)",
+    "text": "Choosing \\(k\\)\n\nDetermining the optimal k is a common challenge in \\(k\\)-means.\nThe choice of k often depends on domain knowledge and the goal of the clustering.\nWe “cheat” on the digits set - there are 10 digits (exact)"
+  },
+  {
+    "objectID": "09_sklearn.html#plot-it",
+    "href": "09_sklearn.html#plot-it",
+    "title": "Sklearn",
+    "section": "Plot it",
+    "text": "Plot it\n\nx, y = X.transpose()\nplt.scatter(x,y,c=model.labels_)",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#plot-it",
+    "href": "09_sklearn.rjs.html#plot-it",
+    "title": "Sklearn",
+    "section": "Plot it",
+    "text": "Plot it\n\nx, y = X.transpose()\nplt.scatter(x,y,c=model.labels_)"
+  },
+  {
+    "objectID": "09_sklearn.html#cluster-digits",
+    "href": "09_sklearn.html#cluster-digits",
+    "title": "Sklearn",
+    "section": "Cluster Digits",
+    "text": "Cluster Digits\n\nFor the exercise we will cluster the digits.\nWe will use Principle Component Analysis (PCA) to reduce from 64 to fewer dimensions.",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.html#principal-component-analysis-pca",
+    "href": "09_sklearn.html#principal-component-analysis-pca",
+    "title": "Sklearn",
+    "section": "Principal Component Analysis (PCA)",
+    "text": "Principal Component Analysis (PCA)\n\nDimensionality reduction technique.\nTransforms high-dimensional data into fewer, uncorrelated principal components.\nComponents capture maximum data variance.\n\n\nfrom sklearn.decomposition import PCA\nfrom sklearn.preprocessing import StandardScaler\nX = np.random.rand(50, 5) # 50 samples, 5 features\nscaler = StandardScaler()\nscaled_X = scaler.fit_transform(X)",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.html#pca-explained-variance",
+    "href": "09_sklearn.html#pca-explained-variance",
+    "title": "Sklearn",
+    "section": "PCA: Explained Variance",
+    "text": "PCA: Explained Variance\n\nEach principal component captures a proportion of the total variance (explained variance ratio).\nHelps decide how many components to keep.",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.html#benefits-of-pca",
+    "href": "09_sklearn.html#benefits-of-pca",
+    "title": "Sklearn",
+    "section": "Benefits of PCA",
+    "text": "Benefits of PCA\n\nSimplifies data and reduces storage.\nCan reduce noise.\nUseful for visualization.\nImportant: Data scaling is crucial.\n\nStandardScaler().fit_transform()",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#cluster-digits",
+    "href": "09_sklearn.rjs.html#cluster-digits",
+    "title": "Sklearn",
+    "section": "Cluster Digits",
+    "text": "Cluster Digits\n\nFor the exercise we will cluster the digits.\nWe will use Principle Component Analysis (PCA) to reduce from 64 to fewer dimensions."
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#principal-component-analysis-pca",
+    "href": "09_sklearn.rjs.html#principal-component-analysis-pca",
+    "title": "Sklearn",
+    "section": "Principal Component Analysis (PCA)",
+    "text": "Principal Component Analysis (PCA)\n\nDimensionality reduction technique.\nTransforms high-dimensional data into fewer, uncorrelated principal components.\nComponents capture maximum data variance.\n\n\nfrom sklearn.decomposition import PCA\nfrom sklearn.preprocessing import StandardScaler\nX = np.random.rand(50, 5) # 50 samples, 5 features\nscaler = StandardScaler()\nscaled_X = scaler.fit_transform(X)"
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#pca-explained-variance",
+    "href": "09_sklearn.rjs.html#pca-explained-variance",
+    "title": "Sklearn",
+    "section": "PCA: Explained Variance",
+    "text": "PCA: Explained Variance\n\nEach principal component captures a proportion of the total variance (explained variance ratio).\nHelps decide how many components to keep."
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#benefits-of-pca",
+    "href": "09_sklearn.rjs.html#benefits-of-pca",
+    "title": "Sklearn",
+    "section": "Benefits of PCA",
+    "text": "Benefits of PCA\n\nSimplifies data and reduces storage.\nCan reduce noise.\nUseful for visualization.\nImportant: Data scaling is crucial.\n\nStandardScaler().fit_transform()"
+  },
+  {
+    "objectID": "09_sklearn.html#principal-component-analysis",
+    "href": "09_sklearn.html#principal-component-analysis",
+    "title": "Sklearn",
+    "section": "Principal Component Analysis",
+    "text": "Principal Component Analysis\n\nDimensionality reduction technique.\nTransforms high-dimensional data into fewer, uncorrelated principal components.\nComponents capture maximum data variance.\n\n\nfrom sklearn.decomposition import PCA\nfrom sklearn.preprocessing import StandardScaler\nX = np.random.rand(50, 5) # 50 samples, 5 features\nscaler = StandardScaler()\nscaled_X = scaler.fit_transform(X)",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.html#code-sample",
+    "href": "09_sklearn.html#code-sample",
+    "title": "Sklearn",
+    "section": "Code Sample",
+    "text": "Code Sample\n\npca = PCA(2)\nX_reduced = pca.fit_transform(scaled_X)\nX[:5], X_reduced[5]\n\n(array([[0.39250186, 0.86027584, 0.0088714 , 0.09031264, 0.92406155],\n        [0.02823733, 0.66593355, 0.91355326, 0.38840791, 0.86576046],\n        [0.13334149, 0.67490569, 0.47429288, 0.74461236, 0.62912872],\n        [0.45579094, 0.29786937, 0.85740943, 0.08848002, 0.78133508],\n        [0.07463008, 0.96488199, 0.27140834, 0.93849056, 0.72967892]]),\n array([-0.80350742, -1.76749167]))",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#principal-component-analysis",
+    "href": "09_sklearn.rjs.html#principal-component-analysis",
+    "title": "Sklearn",
+    "section": "Principal Component Analysis",
+    "text": "Principal Component Analysis\n\nDimensionality reduction technique.\nTransforms high-dimensional data into fewer, uncorrelated principal components.\nComponents capture maximum data variance.\n\n\nfrom sklearn.decomposition import PCA\nfrom sklearn.preprocessing import StandardScaler\nX = np.random.rand(50, 5) # 50 samples, 5 features\nscaler = StandardScaler()\nscaled_X = scaler.fit_transform(X)"
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#code-sample",
+    "href": "09_sklearn.rjs.html#code-sample",
+    "title": "Sklearn",
+    "section": "Code Sample",
+    "text": "Code Sample\n\npca = PCA(2)\nX_reduced = pca.fit_transform(scaled_X)\nX[:5], X_reduced[5]\n\n(array([[0.38472853, 0.18100893, 0.68631295, 0.34187999, 0.12097866],\n        [0.56794642, 0.68288459, 0.24670022, 0.09408701, 0.09278339],\n        [0.02315102, 0.7190892 , 0.13918952, 0.85747553, 0.86630376],\n        [0.84121106, 0.49579156, 0.67995649, 0.78917103, 0.29252704],\n        [0.41194437, 0.30207129, 0.35975138, 0.8663255 , 0.15705037]]),\n array([-1.20963037,  0.45937525]))"
+  },
+  {
+    "objectID": "09_sklearn.html#exercise-1",
+    "href": "09_sklearn.html#exercise-1",
+    "title": "Sklearn",
+    "section": "Exercise",
+    "text": "Exercise\n\nUse PCA and \\(k\\)-means on the digit data.\n\nYou may need to try different PCA numbers.\n\nLook at a 2+ examples in 2+ clusters.\nPlot the classification.\n\nI’ll use PCA with 2 dimensions for x and y\nTwo plots, colored for actual and predicted.",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.html#solution",
+    "href": "09_sklearn.html#solution",
+    "title": "Sklearn",
+    "section": "Solution",
+    "text": "Solution\n\n\\(k\\)-means\n\n\n\nCode\nscaled = StandardScaler().fit_transform(data)\nreduced = PCA(10).fit_transform(scaled)\nmodel = KMeans(10)\n_ = model.fit(reduced)",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.html#looker",
+    "href": "09_sklearn.html#looker",
+    "title": "Sklearn",
+    "section": "Looker",
+    "text": "Looker\n\nI wrote a function to look at things.\n\n\n\nCode\ndef looker(cluster, index):\n    plt.imshow(data[model.labels_ == cluster][index].reshape(8,8), cmap='Greys')\n    plt.axis('off')\n    plt.show()",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.html#cluster-0",
+    "href": "09_sklearn.html#cluster-0",
+    "title": "Sklearn",
+    "section": "Cluster 0",
+    "text": "Cluster 0\n\n\n\nlooker(0,0)\n\n\n\n\n\n\n\n\n\n\nlooker(0,1)",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.html#cluster-1",
+    "href": "09_sklearn.html#cluster-1",
+    "title": "Sklearn",
+    "section": "Cluster 1",
+    "text": "Cluster 1\n\n\n\nlooker(1,0)\n\n\n\n\n\n\n\n\n\n\nlooker(1,1)",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#exercise-1",
+    "href": "09_sklearn.rjs.html#exercise-1",
+    "title": "Sklearn",
+    "section": "Exercise",
+    "text": "Exercise\n\nUse PCA and \\(k\\)-means on the digit data.\n\nYou may need to try different PCA numbers.\n\nLook at a 2+ examples in 2+ clusters.\nPlot the classification.\n\nI’ll use PCA with 2 dimensions for x and y\nTwo plots, colored for actual and predicted."
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#solution",
+    "href": "09_sklearn.rjs.html#solution",
+    "title": "Sklearn",
+    "section": "Solution",
+    "text": "Solution\n\n\\(k\\)-means\n\n\n\nCode\nscaled = StandardScaler().fit_transform(data)\nreduced = PCA(10).fit_transform(scaled)\nmodel = KMeans(10)\n_ = model.fit(reduced)"
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#looker",
+    "href": "09_sklearn.rjs.html#looker",
+    "title": "Sklearn",
+    "section": "Looker",
+    "text": "Looker\n\nI wrote a function to look at things.\n\n\n\nCode\ndef looker(cluster, index):\n    plt.imshow(data[model.labels_ == cluster][index].reshape(8,8), cmap='Greys')\n    plt.axis('off')\n    plt.show()"
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#cluster-0",
+    "href": "09_sklearn.rjs.html#cluster-0",
+    "title": "Sklearn",
+    "section": "Cluster 0",
+    "text": "Cluster 0\n\n\n\nlooker(0,0)\n\n\n\n\n\n\n\n\n\n\nlooker(0,1)"
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#cluster-1",
+    "href": "09_sklearn.rjs.html#cluster-1",
+    "title": "Sklearn",
+    "section": "Cluster 1",
+    "text": "Cluster 1\n\n\n\nlooker(1,0)\n\n\n\n\n\n\n\n\n\n\nlooker(1,1)"
+  },
+  {
+    "objectID": "09_sklearn.html#plot",
+    "href": "09_sklearn.html#plot",
+    "title": "Sklearn",
+    "section": "Plot",
+    "text": "Plot\n\n\n\n\nCode\nreduced = PCA(2).fit_transform(scaled)\nx, y = reduced.transpose()\nplt.scatter(x,y,c=digits[\"target\"])\nplt.axis('off') # They are not relative to anything \"real\"\n_ = plt.title(\"Actual\")\n\n\n\n\n\n\n\n\n\n\n\n\nCode\nreduced = PCA(2).fit_transform(scaled)\nx, y = reduced.transpose()\nplt.scatter(x,y,c=model.labels_)\nplt.axis('off') # They are not relative to anything \"real\"\n_ = plt.title(\"Predicted\")",
+    "crumbs": [
+      "Sklearn"
+    ]
+  },
+  {
+    "objectID": "09_sklearn.rjs.html#plot",
+    "href": "09_sklearn.rjs.html#plot",
+    "title": "Sklearn",
+    "section": "Plot",
+    "text": "Plot\n\n\n\n\nCode\nreduced = PCA(2).fit_transform(scaled)\nx, y = reduced.transpose()\nplt.scatter(x,y,c=digits[\"target\"])\nplt.axis('off') # They are not relative to anything \"real\"\n_ = plt.title(\"Actual\")\n\n\n\n\n\n\n\n\n\n\n\n\nCode\nreduced = PCA(2).fit_transform(scaled)\nx, y = reduced.transpose()\nplt.scatter(x,y,c=model.labels_)\nplt.axis('off') # They are not relative to anything \"real\"\n_ = plt.title(\"Predicted\")"
   }
 ]

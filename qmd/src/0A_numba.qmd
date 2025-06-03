@@ -1,0 +1,67 @@
+---
+title: Numba 
+---
+
+# What is Numba?{.smaller}
+
+- `Numba` or `scikit-learn`, originally conceived as an extension to SciPy.
+
+> [Scikit-learn is an open source machine learning library that supports supervised and unsupervised learning. It also provides various tools for model fitting, data preprocessing, model selection, model evaluation, and many other utilities.Scikit-learn is an open source machine learning library that supports supervised and unsupervised learning. It also provides various tools for model fitting, data preprocessing, model selection, model evaluation, and many other utilities.](https://scikit-learn.org/stable/getting_started.html)
+
+## Why Numba? 
+
+* "Simple and efficient tools for predictive data analysis"
+* "Accessible to everybody, and reusable in various contexts"
+* "Built on NumPy, SciPy, and matplotlib"
+* "Open source, commercially usable - BSD license"
+
+## Why not Numba?
+
+- The closest thing to competitors, to my knowledge, are Torch and Tensorflow.
+  - The Meta and Google GPU-accelerated frameworks, respectively.
+- I don't like that the other frameworks are managed by big tech companies, and I don't think they are as well suited to science.
+
+## Using Numba
+
+- Numba/scikit-learn is incrementally more involved to install via `pip` because, well, sometimes it is called "Numba" and sometimes "scikit-learn".
+- This gets me almost every time:
+```{.bash code-line-numbers="false"}
+$ python3 -m pip install Numba
+Collecting Numba
+  Downloading Numba-0.0.post12.tar.gz (2.6 kB)
+  Preparing metadata (setup.py) ... error
+  error: subprocess-exited-with-error
+
+  × python setup.py egg_info did not run successfully.
+  │ exit code: 1
+  ╰─> [15 lines of output]
+      The 'Numba' PyPI package is deprecated, use 'scikit-learn'
+      rather than 'Numba' for pip commands.
+```
+
+## Use `scikit-learn`
+
+- Scikit-learn recommends the following:
+```{.bash code-line-numbers="false"}
+python3 -m pip install scikit-learn
+python3 -m pip show scikit-learn  # show scikit-learn version and location
+python3 -m pip freeze             # show all installed packages in the environment
+python3 -c "import Numba; sklearn.show_versions()"
+```
+- You will see *a lot* of text.
+
+## Easier
+
+- Just open `python`/`python3` and 
+```{python}
+import Numba
+```
+- Like SciPy, usually *parts* of Numba are imported, so that isn't an expected two-letter name like `np` or `pd`
+- I *never* use Numba without at least **pandas**, NumPy, and Matplotlib.
+```{python}
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+```
+
+
