@@ -2,66 +2,464 @@
 title: Numba 
 ---
 
-# What is Numba?{.smaller}
+# What is Numba?
 
-- `Numba` or `scikit-learn`, originally conceived as an extension to SciPy.
+- `Numba` addresses a long-standing problem in scientific computing.
+  	- Writing code in Python, instead of C or Fortran, is fast.
+	- Running code in Python, instead of C or Fortran, is slow.
 
-> [Scikit-learn is an open source machine learning library that supports supervised and unsupervised learning. It also provides various tools for model fitting, data preprocessing, model selection, model evaluation, and many other utilities.Scikit-learn is an open source machine learning library that supports supervised and unsupervised learning. It also provides various tools for model fitting, data preprocessing, model selection, model evaluation, and many other utilities.](https://scikit-learn.org/stable/getting_started.html)
+## C/Fortran
+	  
+- C and Fortran have been swimming around the periphery for some time.
+  	- E.g. NumPy is written in C, uses C numbers.
+	- E.g. SymPy can print C/Fortran code for expressions.
+- C is a general purpose language and the highest performance language in existence.
+- Fortran, for "formula transcription", is the foremost numerical computing platform (for performance).
 
-## Why Numba? 
+## Scripting
 
-* "Simple and efficient tools for predictive data analysis"
-* "Accessible to everybody, and reusable in various contexts"
-* "Built on NumPy, SciPy, and matplotlib"
-* "Open source, commercially usable - BSD license"
+- Python is a *scripting* language.
+  	- Write code in `.py` file or within `python`
+	- The `python` program "runs" the code
+	- No program is created.
+
+## Vs. C/Fortran
+
+- C and Fortran are *compiled* languages.
+  	- Write code.
+	- Call a program, a **compiler**, on the code.
+	- The compiler creates a **program**.
+	- Run the program.
+
+## Numba
+
+- Numba is a compiler for Python.
+- More than that - a jit (just-in-time) compiler.
+- Numba looks and feels like Python, but under the hood is compiling Python code in fast, compiled languages.
+- It is a good halfway step to avoid having to learn C/Fortran.
+
+## In its own words:
+
+
+> [Numba is a compiler for Python array and numerical functions that gives you the power to speed up your applications with high performance functions written directly in Python.](https://numba.readthedocs.io/en/stable/user/overview.html)
+
+> [With a few simple annotations, array-oriented and math-heavy Python code can be just-in-time optimized to performance similar as C, C++ and Fortran, without having to switch languages or Python interpreters.](https://numba.readthedocs.io/en/stable/user/overview.html)
 
 ## Why not Numba?
 
-- The closest thing to competitors, to my knowledge, are Torch and Tensorflow.
-  - The Meta and Google GPU-accelerated frameworks, respectively.
-- I don't like that the other frameworks are managed by big tech companies, and I don't think they are as well suited to science.
+- Just learn C or Fortran
+- Use Cython, an alternative Python compiler.
+- Use SymPy print-to-C/Fortran
+- Use GPU acceleration via PyTorch or Tensorflow for certain applications.
+	- The Meta and Google GPU-accelerated frameworks, respectively.
+	- `numba-cuda` (NVIDIA GPU Numba) exists, but I haven't seen it used much.
 
-## Using Numba
 
-- Numba/scikit-learn is incrementally more involved to install via `pip` because, well, sometimes it is called "Numba" and sometimes "scikit-learn".
-- This gets me almost every time:
+# Install
+
+## Pip again!
+
+- Nothing special here.
 ```{.bash code-line-numbers="false"}
-$ python3 -m pip install Numba
-Collecting Numba
-  Downloading Numba-0.0.post12.tar.gz (2.6 kB)
-  Preparing metadata (setup.py) ... error
-  error: subprocess-exited-with-error
-
-  × python setup.py egg_info did not run successfully.
-  │ exit code: 1
-  ╰─> [15 lines of output]
-      The 'Numba' PyPI package is deprecated, use 'scikit-learn'
-      rather than 'Numba' for pip commands.
+python3 -m pip install numba
 ```
+- Let's try it out.
 
-## Use `scikit-learn`
+## Decorators
 
-- Scikit-learn recommends the following:
-```{.bash code-line-numbers="false"}
-python3 -m pip install scikit-learn
-python3 -m pip show scikit-learn  # show scikit-learn version and location
-python3 -m pip freeze             # show all installed packages in the environment
-python3 -c "import Numba; sklearn.show_versions()"
-```
-- You will see *a lot* of text.
+- We need to introduce something called a *decorator*
+- It's a little note before a function definition that starts with `@`
+  	- This means we'll mostly write functions to use Numba.
+- We'll do an example.
 
-## Easier
+## Import
 
-- Just open `python`/`python3` and 
+- Numba is essential a NumPy optimizer, so we'll include both.
+
 ```{python}
-import Numba
-```
-- Like SciPy, usually *parts* of Numba are imported, so that isn't an expected two-letter name like `np` or `pd`
-- I *never* use Numba without at least **pandas**, NumPy, and Matplotlib.
-```{python}
+from numba import jit
 import numpy as np
+```
+
+## Test it
+
+- `@jit` is the much-ballyhoo'ed *decorator*.
+
+```{python}
+x = np.arange(100).reshape(10, 10)
+
+@jit
+def go_fast(a): # Function is compiled to machine code when called the first time
+    trace = 0.0
+    for i in range(a.shape[0]):   # Numba likes loops
+        trace += np.tanh(a[i, i]) # Numba likes NumPy functions
+    return a + trace              # Numba likes NumPy broadcasting
+
+_ = go_fast(x)
+```
+
+## Aside: **pandas**
+
+- Numba does *not* accelerate **pandas**
+- It is the "numerical" not "data" compiler.
+- Don't do this:
+```{python}
 import pandas as pd
-import matplotlib.pyplot as plt
+
+x = {'a': [1, 2, 3], 'b': [20, 30, 40]}
+
+@jit(forceobj=True, looplift=True) # Need to use object mode, try and compile loops!
+def use_pandas(a): # Function will not benefit from Numba jit
+    df = pd.DataFrame.from_dict(a) # Numba doesn't know about pd.DataFrame
+    df += 1                        # Numba doesn't understand what this is
+    return df.cov()                # or this!
+
+_ = use_pandas(x)
+```
+
+## Modes
+
+- Numba basically has two modes
+  	- `object mode`: Slow Python mode, works for **pandas**
+	- `nonpython`: Fast compiled mode, works for NumPy
+- I wouldn't bother with Numba unless you can use `nonpython`
+  	- Basically Numba doesn't do anything.
+
+# Timing
+
+## time
+
+- It is hard to motivate Numba without seeing how fast it is.
+- We will introduce `time`
+
+```{python}
+import time
+
+time.time()
+```
+
+## perf_counter()
+
+- `time` supports `time.perf_counter()`
+
+> Return the value (in fractional seconds) of a performance counter, i.e. a clock with the highest available resolution to measure a short duration.
+
+- Let's try it out.
+
+## NumPy
+
+- I have have claimed NumPy vector operations are faster than base Python.
+- Let's test it.
+```{python}
+py_lst = list(range(1000000))
+np_arr =  np.arange(1000000)
+
+len(py_lst), len(np_arr)
+```
+
+## Polynomial
+
+- We will write a simple polynomial.
+
+> [The Legendre polynomials were first introduced in 1782 by Adrien-Marie Legendre[5] as the coefficients in the expansion of the Newtonian potential...](https://en.wikipedia.org/wiki/Legendre_polynomials)
+
+> [...served as the fundamental gravitational potential in Newton's law of universal gravitation.](https://en.wikipedia.org/wiki/Newtonian_potential)
+
+## $P_{10}(x)$
+
+- We take $P_{10}(x)$, the 10th Legendre polynomial.
+
+$$
+\tfrac{146189x^{10}-109395x^8+90090x^6-30030x^4+3465x^2-63}{256}
+$$
+
+- This uses only NumPy vectorizable operations:
+```{python}
+def p_ten(x):
+	return (46189*x**10-109395*x**8+90090*x**6-30030*x**4+3456*x*2-63)//256
+
+p_ten(np.arange(5))
+```
+
+## Timing
+
+- It is a straightforward matter to time Python vs NumPy
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{python}
+t = time.perf_counter()
+[p_ten(i) for i in py_lst] # Pythonic vector
+py_t = time.perf_counter() - t
 ```
 
 
+:::
+
+::: {.column width="50%"}
+
+
+```{python}
+t = time.perf_counter()
+p_ten(np_arr) # NumPy vectorization
+np_t = time.perf_counter() - t
+```
+
+:::
+
+::::
+
+- Compare the times - NumPy 24x faster.
+
+```{python}
+py_t, np_t, py_t/np_t, np_t/py_t
+```
+
+# Compilation
+
+## Compiling
+
+- To compile a Numba function, we have to run at least once.
+- We will:
+  	- Write a function.
+	- Time it with NumPy
+	- Add Numba decorators
+	- Run once
+	- Time it with Numba
+- Helpfully, we timed `p_ten()` with NumPy
+
+
+## Numba time.
+
+- Declare with `@jit`
+```{python}
+@jit
+def p_ten_nb(x):
+	return (46189*x**10-109395*x**8+90090*x**6-30030*x**4+3456*x*2-63)//256
+```
+- Compile by running once...
+```{python}
+_ = p_ten_nb(np_arr)
+```
+- Time on the same array
+```{python}
+t = time.perf_counter()
+p_ten_nb(np_arr) # NumPy vectorization
+nb_t = time.perf_counter() - t
+nb_t
+```
+
+## Maybe 10x?
+
+- At first, not great!
+- Let's optimize.
+
+```{python}
+nb_t, np_t, nb_t/np_t, np_t/nb_t
+```
+
+## Using `jit`
+
+> [Numba provides several utilities for code generation, but its central feature is the numba.jit() decorator. Using this decorator, you can mark a function for optimization by Numba’s JIT compiler. Various invocation modes trigger differing compilation options and behaviours.](https://numba.pydata.org/numba-doc/dev/user/jit.html)
+
+## Parallel
+
+- Declare
+```{python}
+
+@jit(nopython=True, parallel=True)
+def p_ten_par(x):
+	return (46189*x**10-109395*x**8+90090*x**6-30030*x**4+3456*x*2-63)//256
+
+_ = p_ten_par(np_arr)  
+```
+- Time
+```{python}
+t = time.perf_counter()
+p_ten_par(np_arr) # NumPy vectorization
+pt_t = time.perf_counter() - t
+pt_t
+```
+
+## For me
+
+- My device is about twice as fast when parallelized.
+- I suspect much faster if I wasn't developing these slides while running servers, etc. in the background.
+```{python}
+# pt = parallel=true time
+pt_t, nb_t, pt_t/nb_t, nb_t/pt_t
+```
+
+## Or...
+
+- Or maybe I just need more numbers.
+```{python}
+np_arr = np.arange(100000000, dtype=np.int64) # 100 mil
+```
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{python}
+@jit(nopython=True, parallel=False)
+def p_ten(x):
+	return (46189*x**10-109395*x**8+90090*x**6-30030*x**4+3456*x*2-63)//256
+
+p_ten(np_arr) # Compile
+t = time.perf_counter()
+p_ten(np_arr)
+pf = time.perf_counter() - t
+pf
+```
+
+
+:::
+
+::: {.column width="50%"}
+
+```{python}
+@jit(nopython=True, parallel=True)
+def p_ten(x):
+	return (46189*x**10-109395*x**8+90090*x**6-30030*x**4+3456*x*2-63)//256
+
+p_ten(np_arr) # Compile
+t = time.perf_counter()
+p_ten(np_arr)
+pt = time.perf_counter() - t
+pt
+```
+
+:::
+
+::::
+
+## GIL
+
+- Python has a "Global Interpreter Lock" to ensure consistency of array operations.
+- All our array operations are independent, so we don't have to worry about any of that, I think.
+- We use `nogil`
+
+## nogil=True
+
+```{python}
+@jit(nopython=True, nogil=True, parallel=True)
+def p_ten(x):
+	return (46189*x**10-109395*x**8+90090*x**6-30030*x**4+3456*x*2-63)//256
+
+p_ten(np_arr) # Compile
+t = time.perf_counter()
+p_ten(np_arr)
+ng = time.perf_counter() - t
+ng, pt # no gil, parallel true
+```
+
+- Doesn't do much here.
+
+## Signatures
+
+- Numba probably infers this, but it also benefits from knowing what kind of integer we are working with.
+- These are like the NumPy types.
+- Probably the biggest value... 
+```{python}
+biggest = p_ten(max(np_arr))
+biggest, np.iinfo(np.int32), np.iinfo(np.int64)
+```
+- Fits in `np.int64`
+
+## cfunc
+
+- If we know the type of the values, we can use `cfunc` instead of `jit`
+- Compiles to C, may be faster!
+- Signatures are `out(in)`, so `/` is `float(int, int)`
+```{python}
+x = 5
+y = 2
+z = x / y
+type(z), type(x), type(y)
+```
+
+## Run it
+
+```{python}
+from numba import cfunc, int64
+
+@cfunc(int64(int64))
+def p_ten(x):
+	return (46189*x**10-109395*x**8+90090*x**6-30030*x**4+3456*x*2-63)//256
+
+p_ten(np_arr) # Compile
+t = time.perf_counter()
+p_ten(np_arr)
+time.perf_counter() - t
+```
+
+- Meh. Works better with formulas than polynomials (exponentials and the like).
+
+## Aside: Intel
+
+- I tried a few Intel packages Numba recommended.
+- I got no noticeable changes from either, but mention them.
+
+## Intel SVML
+
+- These slides were compiled on an Intel device.
+- Numba recommends SVML for Intel devices.
+
+> Intel provides a short vector math library (SVML) that contains a large number of optimised transcendental functions available for use as compiler intrinsics
+
+```{.bash code-line-number="false"}
+python3 -m pip install intel-cmplr-lib-rt
+```
+
+## Threading
+
+- For parallelism, Numba recommends `tbb` (Intel) or OpenMP (otherwise).
+- They are not available on all devices.
+- I could use `tbb`
+```{.bash code-line-number="false"}
+python3 -m pip install tbb
+```
+
+
+## Floats
+
+- Numba works just fine with floats!
+```{python}
+float_arr = np_arr / 7
+# add fastmath to decorator, change // to /
+# `njit` means `jit(nopython=True`
+from numba import njit
+
+@njit(parallel=True)
+def p_ten(x):
+	return (46189.*x**10.-109395.*x**8.+90090.*x**6.-30030.*x**4.+3456.*x*2.-63.)/256.
+
+p_ten(np_arr) # Compile
+t = time.perf_counter()
+p_ten(np_arr)
+float_t = time.perf_counter() - t
+float_t
+```
+
+## Floats
+
+- I used integers, but if we use floats we should use the `fastmath` option.
+- It allows greater inaccuracy (remember float rounding) in exchange for faster operations.
+```{python}
+@njit(fastmath=True, parallel=True)
+def p_ten(x):
+	return (46189.*x**10.-109395.*x**8.+90090.*x**6.-30030.*x**4.+3456.*x*2.-63.)/256.
+
+p_ten(np_arr) # Compile
+t = time.perf_counter()
+p_ten(np_arr)
+fast_t = time.perf_counter() - t
+fast_t, float_t, fast_t/float_t, float_t/fast_t
+```
+
+# Mandelbrot
+
+## 
