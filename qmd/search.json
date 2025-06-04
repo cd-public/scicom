@@ -11573,7 +11573,7 @@
     "href": "0A_numba.rjs.html#time",
     "title": "Numba",
     "section": "time",
-    "text": "time\n\nIt is hard to motivate Numba without seeing how fast it is.\nWe will introduce time\n\n\nimport time\n\ntime.time()\n\n1749008449.5707188"
+    "text": "time\n\nIt is hard to motivate Numba without seeing how fast it is.\nWe will introduce time\n\n\nimport time\n\ntime.time()\n\n1749072691.494536"
   },
   {
     "objectID": "0A_numba.rjs.html#perf_counter",
@@ -11608,7 +11608,7 @@
     "href": "0A_numba.rjs.html#timing-1",
     "title": "Numba",
     "section": "Timing",
-    "text": "Timing\n\nIt is a straightforward matter to time Python vs NumPy\n\n\n\n\nt = time.perf_counter()\n[p_ten(i) for i in py_lst] # Pythonic vector\npy_t = time.perf_counter() - t\n\n\n\nt = time.perf_counter()\np_ten(np_arr) # NumPy vectorization\nnp_t = time.perf_counter() - t\n\n\n\nCompare the times - NumPy 24x faster.\n\n\npy_t, np_t, py_t/np_t, np_t/py_t\n\n(0.9679413000121713,\n 0.04020869988016784,\n 24.07293204945404,\n 0.04154043213122763)"
+    "text": "Timing\n\nIt is a straightforward matter to time Python vs NumPy\n\n\n\n\nt = time.perf_counter()\n[p_ten(i) for i in py_lst] # Pythonic vector\npy_t = time.perf_counter() - t\n\n\n\nt = time.perf_counter()\np_ten(np_arr) # NumPy vectorization\nnp_t = time.perf_counter() - t\n\n\n\nCompare the times - NumPy 24x faster.\n\n\npy_t, np_t, py_t/np_t, np_t/py_t\n\n(1.053028100170195,\n 0.04169120010919869,\n 25.257802543752067,\n 0.0395917260920771)"
   },
   {
     "objectID": "0A_numba.rjs.html#compiling",
@@ -11622,14 +11622,14 @@
     "href": "0A_numba.rjs.html#numba-time.",
     "title": "Numba",
     "section": "Numba time.",
-    "text": "Numba time.\n\nDeclare with @jit\n\n\n@jit\ndef p_ten_nb(x):\n    return (46189*x**10-109395*x**8+90090*x**6-30030*x**4+3456*x*2-63)//256\n\n\nCompile by running once…\n\n\n_ = p_ten_nb(np_arr)\n\n\nTime on the same array\n\n\nt = time.perf_counter()\np_ten_nb(np_arr) # NumPy vectorization\nnb_t = time.perf_counter() - t\nnb_t\n\n0.003835099982097745"
+    "text": "Numba time.\n\nDeclare with @jit\n\n\n@jit\ndef p_ten_nb(x):\n    return (46189*x**10-109395*x**8+90090*x**6-30030*x**4+3456*x*2-63)//256\n\n\nCompile by running once…\n\n\n_ = p_ten_nb(np_arr)\n\n\nTime on the same array\n\n\nt = time.perf_counter()\np_ten_nb(np_arr) # NumPy vectorization\nnb_t = time.perf_counter() - t\nnb_t\n\n0.0041732999961823225"
   },
   {
     "objectID": "0A_numba.rjs.html#maybe-10x",
     "href": "0A_numba.rjs.html#maybe-10x",
     "title": "Numba",
     "section": "Maybe 10x?",
-    "text": "Maybe 10x?\n\nAt first, not great!\nLet’s optimize.\n\n\nnb_t, np_t, nb_t/np_t, np_t/nb_t\n\n(0.003835099982097745,\n 0.04020869988016784,\n 0.09537985544241219,\n 10.484394166478616)"
+    "text": "Maybe 10x?\n\nAt first, not great!\nLet’s optimize.\n\n\nnb_t, np_t, nb_t/np_t, np_t/nb_t\n\n(0.0041732999961823225,\n 0.04169120010919869,\n 0.10010026061258744,\n 9.9899839808634)"
   },
   {
     "objectID": "0A_numba.rjs.html#using-jit",
@@ -11643,21 +11643,21 @@
     "href": "0A_numba.rjs.html#parallel",
     "title": "Numba",
     "section": "Parallel",
-    "text": "Parallel\n\nDeclare\n\n\n@jit(nopython=True, parallel=True)\ndef p_ten_par(x):\n    return (46189*x**10-109395*x**8+90090*x**6-30030*x**4+3456*x*2-63)//256\n\n_ = p_ten_par(np_arr)  \n\n\nTime\n\n\nt = time.perf_counter()\np_ten_par(np_arr) # NumPy vectorization\npt_t = time.perf_counter() - t\npt_t\n\n0.0017589000053703785"
+    "text": "Parallel\n\nDeclare\n\n\n@jit(nopython=True, parallel=True)\ndef p_ten_par(x):\n    return (46189*x**10-109395*x**8+90090*x**6-30030*x**4+3456*x*2-63)//256\n\n_ = p_ten_par(np_arr)  \n\n\nTime\n\n\nt = time.perf_counter()\np_ten_par(np_arr) # NumPy vectorization\npt_t = time.perf_counter() - t\npt_t\n\n0.0019292000215500593"
   },
   {
     "objectID": "0A_numba.rjs.html#for-me",
     "href": "0A_numba.rjs.html#for-me",
     "title": "Numba",
     "section": "For me",
-    "text": "For me\n\nMy device is about twice as fast when parallelized.\nI suspect much faster if I wasn’t developing these slides while running servers, etc. in the background.\n\n\n# pt = parallel=true time\npt_t, nb_t, pt_t/nb_t, nb_t/pt_t\n\n(0.0017589000053703785,\n 0.003835099982097745,\n 0.45863211222156597,\n 2.1803968220980092)"
+    "text": "For me\n\nMy device is about twice as fast when parallelized.\nI suspect much faster if I wasn’t developing these slides while running servers, etc. in the background.\n\n\n# pt = parallel=true time\npt_t, nb_t, pt_t/nb_t, nb_t/pt_t\n\n(0.0019292000215500593,\n 0.0041732999961823225,\n 0.4622720684625752,\n 2.1632282550096544)"
   },
   {
     "objectID": "0A_numba.rjs.html#or",
     "href": "0A_numba.rjs.html#or",
     "title": "Numba",
     "section": "Or…",
-    "text": "Or…\n\nOr maybe I just need more numbers.\n\n\nnp_arr = np.arange(100000000, dtype=np.int64) # 100 mil\n\n\n\n\n@jit(nopython=True, parallel=False)\ndef p_ten(x):\n    return (46189*x**10-109395*x**8+90090*x**6-30030*x**4+3456*x*2-63)//256\n\np_ten(np_arr) # Compile\nt = time.perf_counter()\np_ten(np_arr)\npf = time.perf_counter() - t\npf\n\n0.36344839981757104\n\n\n\n\n@jit(nopython=True, parallel=True)\ndef p_ten(x):\n    return (46189*x**10-109395*x**8+90090*x**6-30030*x**4+3456*x*2-63)//256\n\np_ten(np_arr) # Compile\nt = time.perf_counter()\np_ten(np_arr)\npt = time.perf_counter() - t\npt\n\n0.1386922001838684"
+    "text": "Or…\n\nOr maybe I just need more numbers.\n\n\nnp_arr = np.arange(100000000, dtype=np.int64) # 100 mil\n\n\n\n\n@jit(nopython=True, parallel=False)\ndef p_ten(x):\n    return (46189*x**10-109395*x**8+90090*x**6-30030*x**4+3456*x*2-63)//256\n\np_ten(np_arr) # Compile\nt = time.perf_counter()\np_ten(np_arr)\npf = time.perf_counter() - t\npf\n\n0.37826739996671677\n\n\n\n\n@jit(nopython=True, parallel=True)\ndef p_ten(x):\n    return (46189*x**10-109395*x**8+90090*x**6-30030*x**4+3456*x*2-63)//256\n\np_ten(np_arr) # Compile\nt = time.perf_counter()\np_ten(np_arr)\npt = time.perf_counter() - t\npt\n\n0.15015660016797483"
   },
   {
     "objectID": "0A_numba.rjs.html#gil",
@@ -11671,7 +11671,7 @@
     "href": "0A_numba.rjs.html#nogiltrue",
     "title": "Numba",
     "section": "nogil=True",
-    "text": "nogil=True\n\n@jit(nopython=True, nogil=True, parallel=True)\ndef p_ten(x):\n    return (46189*x**10-109395*x**8+90090*x**6-30030*x**4+3456*x*2-63)//256\n\np_ten(np_arr) # Compile\nt = time.perf_counter()\np_ten(np_arr)\nng = time.perf_counter() - t\nng, pt # no gil, parallel true\n\n(0.14191369991749525, 0.1386922001838684)\n\n\n\nDoesn’t do much here."
+    "text": "nogil=True\n\n@jit(nopython=True, nogil=True, parallel=True)\ndef p_ten(x):\n    return (46189*x**10-109395*x**8+90090*x**6-30030*x**4+3456*x*2-63)//256\n\np_ten(np_arr) # Compile\nt = time.perf_counter()\np_ten(np_arr)\nng = time.perf_counter() - t\nng, pt # no gil, parallel true\n\n(0.14797269995324314, 0.15015660016797483)\n\n\n\nDoesn’t do much here."
   },
   {
     "objectID": "0A_numba.rjs.html#signatures",
@@ -11692,7 +11692,7 @@
     "href": "0A_numba.rjs.html#run-it",
     "title": "Numba",
     "section": "Run it",
-    "text": "Run it\n\nfrom numba import cfunc, int64\n\n@cfunc(int64(int64))\ndef p_ten(x):\n    return (46189*x**10-109395*x**8+90090*x**6-30030*x**4+3456*x*2-63)//256\n\np_ten(np_arr) # Compile\nt = time.perf_counter()\np_ten(np_arr)\ntime.perf_counter() - t\n\n3.9497982999309897\n\n\n\nMeh. Works better with formulas than polynomials (exponentials and the like)."
+    "text": "Run it\n\nfrom numba import cfunc, int64\n\n@cfunc(int64(int64))\ndef p_ten(x):\n    return (46189*x**10-109395*x**8+90090*x**6-30030*x**4+3456*x*2-63)//256\n\np_ten(np_arr) # Compile\nt = time.perf_counter()\np_ten(np_arr)\ntime.perf_counter() - t\n\n4.166833899915218\n\n\n\nMeh. Works better with formulas than polynomials (exponentials and the like)."
   },
   {
     "objectID": "0A_numba.rjs.html#aside-intel",
@@ -11720,14 +11720,84 @@
     "href": "0A_numba.rjs.html#floats",
     "title": "Numba",
     "section": "Floats",
-    "text": "Floats\n\nNumba works just fine with floats!\n\n\nfloat_arr = np_arr / 7\n# add fastmath to decorator, change // to /\n# `njit` means `jit(nopython=True`\nfrom numba import njit\n\n@njit(parallel=True)\ndef p_ten(x):\n    return (46189.*x**10.-109395.*x**8.+90090.*x**6.-30030.*x**4.+3456.*x*2.-63.)/256.\n\np_ten(np_arr) # Compile\nt = time.perf_counter()\np_ten(np_arr)\nfloat_t = time.perf_counter() - t\nfloat_t\n\n0.8945227998774499"
+    "text": "Floats\n\nNumba works just fine with floats!\n\n\nfloat_arr = np_arr / 7\n# add fastmath to decorator, change // to /\n# `njit` means `jit(nopython=True`\nfrom numba import njit\n\n@njit(parallel=True)\ndef p_ten(x):\n    return (46189.*x**10.-109395.*x**8.+90090.*x**6.-30030.*x**4.+3456.*x*2.-63.)/256.\n\np_ten(np_arr) # Compile\nt = time.perf_counter()\np_ten(np_arr)\nfloat_t = time.perf_counter() - t\nfloat_t\n\n0.9491886999458075"
   },
   {
     "objectID": "0A_numba.rjs.html#floats-1",
     "href": "0A_numba.rjs.html#floats-1",
     "title": "Numba",
     "section": "Floats",
-    "text": "Floats\n\nI used integers, but if we use floats we should use the fastmath option.\nIt allows greater inaccuracy (remember float rounding) in exchange for faster operations.\n\n\n@njit(fastmath=True, parallel=True)\ndef p_ten(x):\n    return (46189.*x**10.-109395.*x**8.+90090.*x**6.-30030.*x**4.+3456.*x*2.-63.)/256.\n\np_ten(np_arr) # Compile\nt = time.perf_counter()\np_ten(np_arr)\nfast_t = time.perf_counter() - t\nfast_t, float_t, fast_t/float_t, float_t/fast_t\n\n(0.13804470002651215,\n 0.8945227998774499,\n 0.15432217048623506,\n 6.479950332795482)"
+    "text": "Floats\n\nI used integers, but if we use floats we should use the fastmath option.\nIt allows greater inaccuracy (remember float rounding) in exchange for faster operations.\n\n\n@njit(fastmath=True, parallel=True)\ndef p_ten(x):\n    return (46189.*x**10.-109395.*x**8.+90090.*x**6.-30030.*x**4.+3456.*x*2.-63.)/256.\n\np_ten(np_arr) # Compile\nt = time.perf_counter()\np_ten(np_arr)\nfast_t = time.perf_counter() - t\nfast_t, float_t, fast_t/float_t, float_t/fast_t\n\n(0.13959049992263317,\n 0.9491886999458075,\n 0.14706296011594205,\n 6.799808729619044)"
+  },
+  {
+    "objectID": "0A_numba.rjs.html#julia-sets",
+    "href": "0A_numba.rjs.html#julia-sets",
+    "title": "Numba",
+    "section": "Julia Sets",
+    "text": "Julia Sets\n\nThe Julia set is a topic in complex dynamics.\n\n\nExamples include the mathematical models that describe the swinging of a clock pendulum, the flow of water in a pipe, the random motion of particles in the air, and the number of fish each springtime in a lake."
+  },
+  {
+    "objectID": "0A_numba.rjs.html#complex-quadratic-polynomials",
+    "href": "0A_numba.rjs.html#complex-quadratic-polynomials",
+    "title": "Numba",
+    "section": "Complex Quadratic Polynomials",
+    "text": "Complex Quadratic Polynomials\n\nWhile not required, a common class of dynamics systems are complex-valued polynomial functions of the second degree, so we take, e.g.\n\n\ndef f(z):\n    return z**2 -.4 + .6j"
+  },
+  {
+    "objectID": "0A_numba.rjs.html#complex-values",
+    "href": "0A_numba.rjs.html#complex-values",
+    "title": "Numba",
+    "section": "Complex values",
+    "text": "Complex values\n\nIn Python, complex values are denoted as multiples of j (i is too frequently use).\n\n\nz = 0 + 1j\nz ** 2\n\n(-1+0j)\n\n\n\nNumPy, they have dtype=np.complex128\n\n\narr = np.array([0 + 1j])\narr.dtype\n\ndtype('complex128')"
+  },
+  {
+    "objectID": "0A_numba.rjs.html#common-form",
+    "href": "0A_numba.rjs.html#common-form",
+    "title": "Numba",
+    "section": "Common Form",
+    "text": "Common Form\n\nOften we refer to the these polynomials as follows:\n\n\\[\nf_c(z) = z^2 + c\n\\]\n\nWe refer to the Julia set related to such a polynomial as:\n\n\\[\nJ(f_c)\n\\]"
+  },
+  {
+    "objectID": "0A_numba.rjs.html#sets-and-functions",
+    "href": "0A_numba.rjs.html#sets-and-functions",
+    "title": "Numba",
+    "section": "Sets and Functions",
+    "text": "Sets and Functions\n\nThe Julia set is the elements on the complex plane for which some function converges under repeated iteration.\nFor \\(J(f_c)\\) it is the elements:\n\n\\[\nJ(f_c) \\{ z \\in \\mathbb{C} : \\forall n \\in \\mathbb{N} : |f_c^nN(z)| \\leq R\n\\]"
+  },
+  {
+    "objectID": "0A_numba.rjs.html#on-r",
+    "href": "0A_numba.rjs.html#on-r",
+    "title": "Numba",
+    "section": "On \\(R\\)",
+    "text": "On \\(R\\)\n\nWe define \\(R\\) as \\[\nR &gt; 0 \\land R^2 - R &gt; |c|\n\\]\nIt is simple to restrict \\(|c| &lt; 2\\) and use \\(R = 2\\)"
+  },
+  {
+    "objectID": "0A_numba.rjs.html#exercise",
+    "href": "0A_numba.rjs.html#exercise",
+    "title": "Numba",
+    "section": "Exercise",
+    "text": "Exercise\n\nSet a maximum number of iterations, say 1000\nSet a complex value \\(|c| &lt; 2\\)\nCreate a 2D array of complex values ranging from -2 to 2 (\\(|a| &lt; 2\\))\n\nI used reshape and linspace together.\n\nIterate \\(f_c\\) on each value until either:\n\nMaximum iterations are reached, or\nThe output exceeds \\(R = 2\\) - look at np.absolute()"
+  },
+  {
+    "objectID": "0A_numba.rjs.html#result",
+    "href": "0A_numba.rjs.html#result",
+    "title": "Numba",
+    "section": "Result",
+    "text": "Result\n\nUse Numba to achieve higher numbers of iterations (which create sharper images).\nUse Matplotlib imshow to plot the result.\n\nPlot real component as x, imaginary as y, and iterations as color.\n\nI recommend using \\(c = -0.4 + 0.6i\\) which I think looks nice.\n\nBut you may choose your own \\(c\\)"
+  },
+  {
+    "objectID": "0A_numba.rjs.html#f_cnz",
+    "href": "0A_numba.rjs.html#f_cnz",
+    "title": "Numba",
+    "section": "\\(f_c^n(z)\\)",
+    "text": "\\(f_c^n(z)\\)\n\nApply f_c\n\nWhich, recall, is \\(z^2+c\\)\n\nTo z\n\nThe elements of the array.\n\n\\(n\\) times\n\nSo \\(f_c^2(z) = f_c(f_c(z))\\)\n\n\n\ndef f_c_n(z, c, n):\n    for i in range(n): # \"do thing n times\"\n        z = z**2 + c\n    return z"
+  },
+  {
+    "objectID": "0A_numba.rjs.html#solution",
+    "href": "0A_numba.rjs.html#solution",
+    "title": "Numba",
+    "section": "Solution",
+    "text": "Solution\n\n\nCode\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom numba import njit\n\n@njit\ndef iterator(m, c, z):\n    for i in range(m):\n        z = z**2 + c\n        if (np.absolute(z) &gt; 2):\n                return i\n    return i\n\n# m: max iterations, c: c\ndef j_f(m, c):\n    real = np.linspace(-2,2,1000)\n    imag = (0 + 1j) * real\n    comp = real.reshape(-1,1) + imag\n    f_vec = np.vectorize(iterator, excluded={0,1})\n    return f_vec(m, c, comp)\n\n# m: max iterations, c: c\ndef visualize(m, c):\n    arr = j_f(m,c)\n    plt.imshow(arr)\n    plt.axis('off')\n    plt.savefig(\"julia.png\", bbox_inches=\"tight\", pad_inches=0)\n\nvisualize(1000, -0.4 + 0.6j)"
   },
   {
     "objectID": "0A_numba.html",
@@ -11864,7 +11934,7 @@
     "href": "0A_numba.html#time",
     "title": "Numba",
     "section": "time",
-    "text": "time\n\nIt is hard to motivate Numba without seeing how fast it is.\nWe will introduce time\n\n\nimport time\n\ntime.time()\n\n1749008449.5707188",
+    "text": "time\n\nIt is hard to motivate Numba without seeing how fast it is.\nWe will introduce time\n\n\nimport time\n\ntime.time()\n\n1749072691.494536",
     "crumbs": [
       "Numba"
     ]
@@ -11914,7 +11984,7 @@
     "href": "0A_numba.html#timing-1",
     "title": "Numba",
     "section": "Timing",
-    "text": "Timing\n\nIt is a straightforward matter to time Python vs NumPy\n\n\n\n\nt = time.perf_counter()\n[p_ten(i) for i in py_lst] # Pythonic vector\npy_t = time.perf_counter() - t\n\n\n\nt = time.perf_counter()\np_ten(np_arr) # NumPy vectorization\nnp_t = time.perf_counter() - t\n\n\n\n\nCompare the times - NumPy 24x faster.\n\n\npy_t, np_t, py_t/np_t, np_t/py_t\n\n(0.9679413000121713,\n 0.04020869988016784,\n 24.07293204945404,\n 0.04154043213122763)",
+    "text": "Timing\n\nIt is a straightforward matter to time Python vs NumPy\n\n\n\n\nt = time.perf_counter()\n[p_ten(i) for i in py_lst] # Pythonic vector\npy_t = time.perf_counter() - t\n\n\n\nt = time.perf_counter()\np_ten(np_arr) # NumPy vectorization\nnp_t = time.perf_counter() - t\n\n\n\n\nCompare the times - NumPy 24x faster.\n\n\npy_t, np_t, py_t/np_t, np_t/py_t\n\n(1.053028100170195,\n 0.04169120010919869,\n 25.257802543752067,\n 0.0395917260920771)",
     "crumbs": [
       "Numba"
     ]
@@ -11934,7 +12004,7 @@
     "href": "0A_numba.html#numba-time.",
     "title": "Numba",
     "section": "Numba time.",
-    "text": "Numba time.\n\nDeclare with @jit\n\n\n@jit\ndef p_ten_nb(x):\n    return (46189*x**10-109395*x**8+90090*x**6-30030*x**4+3456*x*2-63)//256\n\n\nCompile by running once…\n\n\n_ = p_ten_nb(np_arr)\n\n\nTime on the same array\n\n\nt = time.perf_counter()\np_ten_nb(np_arr) # NumPy vectorization\nnb_t = time.perf_counter() - t\nnb_t\n\n0.003835099982097745",
+    "text": "Numba time.\n\nDeclare with @jit\n\n\n@jit\ndef p_ten_nb(x):\n    return (46189*x**10-109395*x**8+90090*x**6-30030*x**4+3456*x*2-63)//256\n\n\nCompile by running once…\n\n\n_ = p_ten_nb(np_arr)\n\n\nTime on the same array\n\n\nt = time.perf_counter()\np_ten_nb(np_arr) # NumPy vectorization\nnb_t = time.perf_counter() - t\nnb_t\n\n0.0041732999961823225",
     "crumbs": [
       "Numba"
     ]
@@ -11944,7 +12014,7 @@
     "href": "0A_numba.html#maybe-10x",
     "title": "Numba",
     "section": "Maybe 10x?",
-    "text": "Maybe 10x?\n\nAt first, not great!\nLet’s optimize.\n\n\nnb_t, np_t, nb_t/np_t, np_t/nb_t\n\n(0.003835099982097745,\n 0.04020869988016784,\n 0.09537985544241219,\n 10.484394166478616)",
+    "text": "Maybe 10x?\n\nAt first, not great!\nLet’s optimize.\n\n\nnb_t, np_t, nb_t/np_t, np_t/nb_t\n\n(0.0041732999961823225,\n 0.04169120010919869,\n 0.10010026061258744,\n 9.9899839808634)",
     "crumbs": [
       "Numba"
     ]
@@ -11964,7 +12034,7 @@
     "href": "0A_numba.html#parallel",
     "title": "Numba",
     "section": "Parallel",
-    "text": "Parallel\n\nDeclare\n\n\n@jit(nopython=True, parallel=True)\ndef p_ten_par(x):\n    return (46189*x**10-109395*x**8+90090*x**6-30030*x**4+3456*x*2-63)//256\n\n_ = p_ten_par(np_arr)  \n\n\nTime\n\n\nt = time.perf_counter()\np_ten_par(np_arr) # NumPy vectorization\npt_t = time.perf_counter() - t\npt_t\n\n0.0017589000053703785",
+    "text": "Parallel\n\nDeclare\n\n\n@jit(nopython=True, parallel=True)\ndef p_ten_par(x):\n    return (46189*x**10-109395*x**8+90090*x**6-30030*x**4+3456*x*2-63)//256\n\n_ = p_ten_par(np_arr)  \n\n\nTime\n\n\nt = time.perf_counter()\np_ten_par(np_arr) # NumPy vectorization\npt_t = time.perf_counter() - t\npt_t\n\n0.0019292000215500593",
     "crumbs": [
       "Numba"
     ]
@@ -11974,7 +12044,7 @@
     "href": "0A_numba.html#for-me",
     "title": "Numba",
     "section": "For me",
-    "text": "For me\n\nMy device is about twice as fast when parallelized.\nI suspect much faster if I wasn’t developing these slides while running servers, etc. in the background.\n\n\n# pt = parallel=true time\npt_t, nb_t, pt_t/nb_t, nb_t/pt_t\n\n(0.0017589000053703785,\n 0.003835099982097745,\n 0.45863211222156597,\n 2.1803968220980092)",
+    "text": "For me\n\nMy device is about twice as fast when parallelized.\nI suspect much faster if I wasn’t developing these slides while running servers, etc. in the background.\n\n\n# pt = parallel=true time\npt_t, nb_t, pt_t/nb_t, nb_t/pt_t\n\n(0.0019292000215500593,\n 0.0041732999961823225,\n 0.4622720684625752,\n 2.1632282550096544)",
     "crumbs": [
       "Numba"
     ]
@@ -11984,7 +12054,7 @@
     "href": "0A_numba.html#or",
     "title": "Numba",
     "section": "Or…",
-    "text": "Or…\n\nOr maybe I just need more numbers.\n\n\nnp_arr = np.arange(100000000, dtype=np.int64) # 100 mil\n\n\n\n\n@jit(nopython=True, parallel=False)\ndef p_ten(x):\n    return (46189*x**10-109395*x**8+90090*x**6-30030*x**4+3456*x*2-63)//256\n\np_ten(np_arr) # Compile\nt = time.perf_counter()\np_ten(np_arr)\npf = time.perf_counter() - t\npf\n\n0.36344839981757104\n\n\n\n\n@jit(nopython=True, parallel=True)\ndef p_ten(x):\n    return (46189*x**10-109395*x**8+90090*x**6-30030*x**4+3456*x*2-63)//256\n\np_ten(np_arr) # Compile\nt = time.perf_counter()\np_ten(np_arr)\npt = time.perf_counter() - t\npt\n\n0.1386922001838684",
+    "text": "Or…\n\nOr maybe I just need more numbers.\n\n\nnp_arr = np.arange(100000000, dtype=np.int64) # 100 mil\n\n\n\n\n@jit(nopython=True, parallel=False)\ndef p_ten(x):\n    return (46189*x**10-109395*x**8+90090*x**6-30030*x**4+3456*x*2-63)//256\n\np_ten(np_arr) # Compile\nt = time.perf_counter()\np_ten(np_arr)\npf = time.perf_counter() - t\npf\n\n0.37826739996671677\n\n\n\n\n@jit(nopython=True, parallel=True)\ndef p_ten(x):\n    return (46189*x**10-109395*x**8+90090*x**6-30030*x**4+3456*x*2-63)//256\n\np_ten(np_arr) # Compile\nt = time.perf_counter()\np_ten(np_arr)\npt = time.perf_counter() - t\npt\n\n0.15015660016797483",
     "crumbs": [
       "Numba"
     ]
@@ -12004,7 +12074,7 @@
     "href": "0A_numba.html#nogiltrue",
     "title": "Numba",
     "section": "nogil=True",
-    "text": "nogil=True\n\n@jit(nopython=True, nogil=True, parallel=True)\ndef p_ten(x):\n    return (46189*x**10-109395*x**8+90090*x**6-30030*x**4+3456*x*2-63)//256\n\np_ten(np_arr) # Compile\nt = time.perf_counter()\np_ten(np_arr)\nng = time.perf_counter() - t\nng, pt # no gil, parallel true\n\n(0.14191369991749525, 0.1386922001838684)\n\n\n\nDoesn’t do much here.",
+    "text": "nogil=True\n\n@jit(nopython=True, nogil=True, parallel=True)\ndef p_ten(x):\n    return (46189*x**10-109395*x**8+90090*x**6-30030*x**4+3456*x*2-63)//256\n\np_ten(np_arr) # Compile\nt = time.perf_counter()\np_ten(np_arr)\nng = time.perf_counter() - t\nng, pt # no gil, parallel true\n\n(0.14797269995324314, 0.15015660016797483)\n\n\n\nDoesn’t do much here.",
     "crumbs": [
       "Numba"
     ]
@@ -12034,7 +12104,7 @@
     "href": "0A_numba.html#run-it",
     "title": "Numba",
     "section": "Run it",
-    "text": "Run it\n\nfrom numba import cfunc, int64\n\n@cfunc(int64(int64))\ndef p_ten(x):\n    return (46189*x**10-109395*x**8+90090*x**6-30030*x**4+3456*x*2-63)//256\n\np_ten(np_arr) # Compile\nt = time.perf_counter()\np_ten(np_arr)\ntime.perf_counter() - t\n\n3.9497982999309897\n\n\n\nMeh. Works better with formulas than polynomials (exponentials and the like).",
+    "text": "Run it\n\nfrom numba import cfunc, int64\n\n@cfunc(int64(int64))\ndef p_ten(x):\n    return (46189*x**10-109395*x**8+90090*x**6-30030*x**4+3456*x*2-63)//256\n\np_ten(np_arr) # Compile\nt = time.perf_counter()\np_ten(np_arr)\ntime.perf_counter() - t\n\n4.166833899915218\n\n\n\nMeh. Works better with formulas than polynomials (exponentials and the like).",
     "crumbs": [
       "Numba"
     ]
@@ -12074,7 +12144,7 @@
     "href": "0A_numba.html#floats",
     "title": "Numba",
     "section": "Floats",
-    "text": "Floats\n\nNumba works just fine with floats!\n\n\nfloat_arr = np_arr / 7\n# add fastmath to decorator, change // to /\n# `njit` means `jit(nopython=True`\nfrom numba import njit\n\n@njit(parallel=True)\ndef p_ten(x):\n    return (46189.*x**10.-109395.*x**8.+90090.*x**6.-30030.*x**4.+3456.*x*2.-63.)/256.\n\np_ten(np_arr) # Compile\nt = time.perf_counter()\np_ten(np_arr)\nfloat_t = time.perf_counter() - t\nfloat_t\n\n0.8945227998774499",
+    "text": "Floats\n\nNumba works just fine with floats!\n\n\nfloat_arr = np_arr / 7\n# add fastmath to decorator, change // to /\n# `njit` means `jit(nopython=True`\nfrom numba import njit\n\n@njit(parallel=True)\ndef p_ten(x):\n    return (46189.*x**10.-109395.*x**8.+90090.*x**6.-30030.*x**4.+3456.*x*2.-63.)/256.\n\np_ten(np_arr) # Compile\nt = time.perf_counter()\np_ten(np_arr)\nfloat_t = time.perf_counter() - t\nfloat_t\n\n0.9491886999458075",
     "crumbs": [
       "Numba"
     ]
@@ -12084,7 +12154,107 @@
     "href": "0A_numba.html#floats-1",
     "title": "Numba",
     "section": "Floats",
-    "text": "Floats\n\nI used integers, but if we use floats we should use the fastmath option.\nIt allows greater inaccuracy (remember float rounding) in exchange for faster operations.\n\n\n@njit(fastmath=True, parallel=True)\ndef p_ten(x):\n    return (46189.*x**10.-109395.*x**8.+90090.*x**6.-30030.*x**4.+3456.*x*2.-63.)/256.\n\np_ten(np_arr) # Compile\nt = time.perf_counter()\np_ten(np_arr)\nfast_t = time.perf_counter() - t\nfast_t, float_t, fast_t/float_t, float_t/fast_t\n\n(0.13804470002651215,\n 0.8945227998774499,\n 0.15432217048623506,\n 6.479950332795482)",
+    "text": "Floats\n\nI used integers, but if we use floats we should use the fastmath option.\nIt allows greater inaccuracy (remember float rounding) in exchange for faster operations.\n\n\n@njit(fastmath=True, parallel=True)\ndef p_ten(x):\n    return (46189.*x**10.-109395.*x**8.+90090.*x**6.-30030.*x**4.+3456.*x*2.-63.)/256.\n\np_ten(np_arr) # Compile\nt = time.perf_counter()\np_ten(np_arr)\nfast_t = time.perf_counter() - t\nfast_t, float_t, fast_t/float_t, float_t/fast_t\n\n(0.13959049992263317,\n 0.9491886999458075,\n 0.14706296011594205,\n 6.799808729619044)",
+    "crumbs": [
+      "Numba"
+    ]
+  },
+  {
+    "objectID": "0A_numba.html#julia-sets",
+    "href": "0A_numba.html#julia-sets",
+    "title": "Numba",
+    "section": "Julia Sets",
+    "text": "Julia Sets\n\nThe Julia set is a topic in complex dynamics.\n\n\nExamples include the mathematical models that describe the swinging of a clock pendulum, the flow of water in a pipe, the random motion of particles in the air, and the number of fish each springtime in a lake.",
+    "crumbs": [
+      "Numba"
+    ]
+  },
+  {
+    "objectID": "0A_numba.html#complex-quadratic-polynomials",
+    "href": "0A_numba.html#complex-quadratic-polynomials",
+    "title": "Numba",
+    "section": "Complex Quadratic Polynomials",
+    "text": "Complex Quadratic Polynomials\n\nWhile not required, a common class of dynamics systems are complex-valued polynomial functions of the second degree, so we take, e.g.\n\n\ndef f(z):\n    return z**2 -.4 + .6j",
+    "crumbs": [
+      "Numba"
+    ]
+  },
+  {
+    "objectID": "0A_numba.html#complex-values",
+    "href": "0A_numba.html#complex-values",
+    "title": "Numba",
+    "section": "Complex values",
+    "text": "Complex values\n\nIn Python, complex values are denoted as multiples of j (i is too frequently use).\n\n\nz = 0 + 1j\nz ** 2\n\n(-1+0j)\n\n\n\nNumPy, they have dtype=np.complex128\n\n\narr = np.array([0 + 1j])\narr.dtype\n\ndtype('complex128')",
+    "crumbs": [
+      "Numba"
+    ]
+  },
+  {
+    "objectID": "0A_numba.html#common-form",
+    "href": "0A_numba.html#common-form",
+    "title": "Numba",
+    "section": "Common Form",
+    "text": "Common Form\n\nOften we refer to the these polynomials as follows:\n\n\\[\nf_c(z) = z^2 + c\n\\]\n\nWe refer to the Julia set related to such a polynomial as:\n\n\\[\nJ(f_c)\n\\]",
+    "crumbs": [
+      "Numba"
+    ]
+  },
+  {
+    "objectID": "0A_numba.html#sets-and-functions",
+    "href": "0A_numba.html#sets-and-functions",
+    "title": "Numba",
+    "section": "Sets and Functions",
+    "text": "Sets and Functions\n\nThe Julia set is the elements on the complex plane for which some function converges under repeated iteration.\nFor \\(J(f_c)\\) it is the elements:\n\n\\[\nJ(f_c) \\{ z \\in \\mathbb{C} : \\forall n \\in \\mathbb{N} : |f_c^nN(z)| \\leq R\n\\]",
+    "crumbs": [
+      "Numba"
+    ]
+  },
+  {
+    "objectID": "0A_numba.html#on-r",
+    "href": "0A_numba.html#on-r",
+    "title": "Numba",
+    "section": "On \\(R\\)",
+    "text": "On \\(R\\)\n\nWe define \\(R\\) as \\[\nR &gt; 0 \\land R^2 - R &gt; |c|\n\\]\nIt is simple to restrict \\(|c| &lt; 2\\) and use \\(R = 2\\)",
+    "crumbs": [
+      "Numba"
+    ]
+  },
+  {
+    "objectID": "0A_numba.html#exercise",
+    "href": "0A_numba.html#exercise",
+    "title": "Numba",
+    "section": "Exercise",
+    "text": "Exercise\n\nSet a maximum number of iterations, say 1000\nSet a complex value \\(|c| &lt; 2\\)\nCreate a 2D array of complex values ranging from -2 to 2 (\\(|a| &lt; 2\\))\n\nI used reshape and linspace together.\n\nIterate \\(f_c\\) on each value until either:\n\nMaximum iterations are reached, or\nThe output exceeds \\(R = 2\\) - look at np.absolute()",
+    "crumbs": [
+      "Numba"
+    ]
+  },
+  {
+    "objectID": "0A_numba.html#result",
+    "href": "0A_numba.html#result",
+    "title": "Numba",
+    "section": "Result",
+    "text": "Result\n\nUse Numba to achieve higher numbers of iterations (which create sharper images).\nUse Matplotlib imshow to plot the result.\n\nPlot real component as x, imaginary as y, and iterations as color.\n\nI recommend using \\(c = -0.4 + 0.6i\\) which I think looks nice.\n\nBut you may choose your own \\(c\\)",
+    "crumbs": [
+      "Numba"
+    ]
+  },
+  {
+    "objectID": "0A_numba.html#f_cnz",
+    "href": "0A_numba.html#f_cnz",
+    "title": "Numba",
+    "section": "\\(f_c^n(z)\\)",
+    "text": "\\(f_c^n(z)\\)\n\nApply f_c\n\nWhich, recall, is \\(z^2+c\\)\n\nTo z\n\nThe elements of the array.\n\n\\(n\\) times\n\nSo \\(f_c^2(z) = f_c(f_c(z))\\)\n\n\n\ndef f_c_n(z, c, n):\n    for i in range(n): # \"do thing n times\"\n        z = z**2 + c\n    return z",
+    "crumbs": [
+      "Numba"
+    ]
+  },
+  {
+    "objectID": "0A_numba.html#solution",
+    "href": "0A_numba.html#solution",
+    "title": "Numba",
+    "section": "Solution",
+    "text": "Solution\n\n\nCode\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom numba import njit\n\n@njit\ndef iterator(m, c, z):\n    for i in range(m):\n        z = z**2 + c\n        if (np.absolute(z) &gt; 2):\n                return i\n    return i\n\n# m: max iterations, c: c\ndef j_f(m, c):\n    real = np.linspace(-2,2,1000)\n    imag = (0 + 1j) * real\n    comp = real.reshape(-1,1) + imag\n    f_vec = np.vectorize(iterator, excluded={0,1})\n    return f_vec(m, c, comp)\n\n# m: max iterations, c: c\ndef visualize(m, c):\n    arr = j_f(m,c)\n    plt.imshow(arr)\n    plt.axis('off')\n    plt.savefig(\"julia.png\", bbox_inches=\"tight\", pad_inches=0)\n\nvisualize(1000, -0.4 + 0.6j)",
     "crumbs": [
       "Numba"
     ]

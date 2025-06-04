@@ -299,9 +299,18 @@ window.Quarto = {
   <li><a href="#floats" id="toc-floats" class="nav-link" data-scroll-target="#floats">Floats</a></li>
   <li><a href="#floats-1" id="toc-floats-1" class="nav-link" data-scroll-target="#floats-1">Floats</a></li>
   </ul></li>
-  <li><a href="#mandelbrot" id="toc-mandelbrot" class="nav-link" data-scroll-target="#mandelbrot">Mandelbrot</a>
+  <li><a href="#im-so-julia.---charli-xcx" id="toc-im-so-julia.---charli-xcx" class="nav-link" data-scroll-target="#im-so-julia.---charli-xcx">“I’m so Julia.” - Charli XCX</a>
   <ul class="collapse">
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
+  <li><a href="#julia-sets" id="toc-julia-sets" class="nav-link" data-scroll-target="#julia-sets">Julia Sets</a></li>
+  <li><a href="#complex-quadratic-polynomials" id="toc-complex-quadratic-polynomials" class="nav-link" data-scroll-target="#complex-quadratic-polynomials">Complex Quadratic Polynomials</a></li>
+  <li><a href="#complex-values" id="toc-complex-values" class="nav-link" data-scroll-target="#complex-values">Complex values</a></li>
+  <li><a href="#common-form" id="toc-common-form" class="nav-link" data-scroll-target="#common-form">Common Form</a></li>
+  <li><a href="#sets-and-functions" id="toc-sets-and-functions" class="nav-link" data-scroll-target="#sets-and-functions">Sets and Functions</a></li>
+  <li><a href="#on-r" id="toc-on-r" class="nav-link" data-scroll-target="#on-r">On <span class="math inline">\(R\)</span></a></li>
+  <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise">Exercise</a></li>
+  <li><a href="#result" id="toc-result" class="nav-link" data-scroll-target="#result">Result</a></li>
+  <li><a href="#f_cnz" id="toc-f_cnz" class="nav-link" data-scroll-target="#f_cnz"><span class="math inline">\(f_c^n(z)\)</span></a></li>
+  <li><a href="#solution" id="toc-solution" class="nav-link" data-scroll-target="#solution">Solution</a></li>
   </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="0A_numba.rjs.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
@@ -439,7 +448,7 @@ window.Quarto = {
 <ul>
 <li>Numba is essential a NumPy optimizer, so we’ll include both.</li>
 </ul>
-<div id="cb6eebb3" class="cell" data-execution_count="2">
+<div id="8e326615" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="im">from</span> numba <span class="im">import</span> jit</span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -449,7 +458,7 @@ window.Quarto = {
 <ul>
 <li><code>@jit</code> is the much-ballyhoo’ed <em>decorator</em>.</li>
 </ul>
-<div id="6f92e909" class="cell" data-execution_count="3">
+<div id="716a2183" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>x <span class="op">=</span> np.arange(<span class="dv">100</span>).reshape(<span class="dv">10</span>, <span class="dv">10</span>)</span>
 <span id="cb3-2"><a href="#cb3-2"></a></span>
 <span id="cb3-3"><a href="#cb3-3"></a><span class="at">@jit</span></span>
@@ -469,7 +478,7 @@ window.Quarto = {
 <li>It is the “numerical” not “data” compiler.</li>
 <li>Don’t do this:</li>
 </ul>
-<div id="93cea28f" class="cell" data-execution_count="4">
+<div id="bc7d3896" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb4-2"><a href="#cb4-2"></a></span>
 <span id="cb4-3"><a href="#cb4-3"></a>x <span class="op">=</span> {<span class="st">'a'</span>: [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], <span class="st">'b'</span>: [<span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>]}</span>
@@ -506,12 +515,12 @@ window.Quarto = {
 <li>It is hard to motivate Numba without seeing how fast it is.</li>
 <li>We will introduce <code>time</code></li>
 </ul>
-<div id="5ea5409f" class="cell" data-execution_count="5">
+<div id="c19faec3" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="im">import</span> time</span>
 <span id="cb5-2"><a href="#cb5-2"></a></span>
 <span id="cb5-3"><a href="#cb5-3"></a>time.time()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="79">
-<pre><code>1749008449.5707188</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="34">
+<pre><code>1749072691.494536</code></pre>
 </div>
 </div>
 </section>
@@ -533,12 +542,12 @@ window.Quarto = {
 <li>I have have claimed NumPy vector operations are faster than base Python.</li>
 <li>Let’s test it.</li>
 </ul>
-<div id="391fc49c" class="cell" data-execution_count="6">
+<div id="e247b0a9" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>py_lst <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">1000000</span>))</span>
 <span id="cb7-2"><a href="#cb7-2"></a>np_arr <span class="op">=</span>  np.arange(<span class="dv">1000000</span>)</span>
 <span id="cb7-3"><a href="#cb7-3"></a></span>
 <span id="cb7-4"><a href="#cb7-4"></a><span class="bu">len</span>(py_lst), <span class="bu">len</span>(np_arr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="80">
+<div class="cell-output cell-output-display" data-execution_count="35">
 <pre><code>(1000000, 1000000)</code></pre>
 </div>
 </div>
@@ -566,12 +575,12 @@ window.Quarto = {
 <ul>
 <li>This uses only NumPy vectorizable operations:</li>
 </ul>
-<div id="72599a36" class="cell" data-execution_count="7">
+<div id="7c02c3ac" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">def</span> p_ten(x):</span>
 <span id="cb9-2"><a href="#cb9-2"></a>    <span class="cf">return</span> (<span class="dv">46189</span><span class="op">*</span>x<span class="op">**</span><span class="dv">10</span><span class="op">-</span><span class="dv">109395</span><span class="op">*</span>x<span class="op">**</span><span class="dv">8</span><span class="op">+</span><span class="dv">90090</span><span class="op">*</span>x<span class="op">**</span><span class="dv">6</span><span class="op">-</span><span class="dv">30030</span><span class="op">*</span>x<span class="op">**</span><span class="dv">4</span><span class="op">+</span><span class="dv">3456</span><span class="op">*</span>x<span class="op">*</span><span class="dv">2</span><span class="op">-</span><span class="dv">63</span>)<span class="op">//</span><span class="dv">256</span></span>
 <span id="cb9-3"><a href="#cb9-3"></a></span>
 <span id="cb9-4"><a href="#cb9-4"></a>p_ten(np.arange(<span class="dv">5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="81">
+<div class="cell-output cell-output-display" data-execution_count="36">
 <pre><code>array([       -1,        14,     96060,   8097412, 162596541])</code></pre>
 </div>
 </div>
@@ -583,13 +592,13 @@ window.Quarto = {
 </ul>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div id="c4ad5541" class="cell" data-execution_count="8">
+<div id="ba482a21" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>t <span class="op">=</span> time.perf_counter()</span>
 <span id="cb11-2"><a href="#cb11-2"></a>[p_ten(i) <span class="cf">for</span> i <span class="kw">in</span> py_lst] <span class="co"># Pythonic vector</span></span>
 <span id="cb11-3"><a href="#cb11-3"></a>py_t <span class="op">=</span> time.perf_counter() <span class="op">-</span> t</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:50%;">
-<div id="d1f47f86" class="cell" data-execution_count="9">
+<div id="1b55b442" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>t <span class="op">=</span> time.perf_counter()</span>
 <span id="cb12-2"><a href="#cb12-2"></a>p_ten(np_arr) <span class="co"># NumPy vectorization</span></span>
 <span id="cb12-3"><a href="#cb12-3"></a>np_t <span class="op">=</span> time.perf_counter() <span class="op">-</span> t</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -599,13 +608,13 @@ window.Quarto = {
 <ul>
 <li>Compare the times - NumPy 24x faster.</li>
 </ul>
-<div id="1b1aed77" class="cell" data-execution_count="10">
+<div id="4452be43" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>py_t, np_t, py_t<span class="op">/</span>np_t, np_t<span class="op">/</span>py_t</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="84">
-<pre><code>(0.9679413000121713,
- 0.04020869988016784,
- 24.07293204945404,
- 0.04154043213122763)</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="39">
+<pre><code>(1.053028100170195,
+ 0.04169120010919869,
+ 25.257802543752067,
+ 0.0395917260920771)</code></pre>
 </div>
 </div>
 </section>
@@ -632,7 +641,7 @@ window.Quarto = {
 <ul>
 <li>Declare with <code>@jit</code></li>
 </ul>
-<div id="42efdfc0" class="cell" data-execution_count="11">
+<div id="347549b9" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="at">@jit</span></span>
 <span id="cb15-2"><a href="#cb15-2"></a><span class="kw">def</span> p_ten_nb(x):</span>
 <span id="cb15-3"><a href="#cb15-3"></a>    <span class="cf">return</span> (<span class="dv">46189</span><span class="op">*</span>x<span class="op">**</span><span class="dv">10</span><span class="op">-</span><span class="dv">109395</span><span class="op">*</span>x<span class="op">**</span><span class="dv">8</span><span class="op">+</span><span class="dv">90090</span><span class="op">*</span>x<span class="op">**</span><span class="dv">6</span><span class="op">-</span><span class="dv">30030</span><span class="op">*</span>x<span class="op">**</span><span class="dv">4</span><span class="op">+</span><span class="dv">3456</span><span class="op">*</span>x<span class="op">*</span><span class="dv">2</span><span class="op">-</span><span class="dv">63</span>)<span class="op">//</span><span class="dv">256</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -640,19 +649,19 @@ window.Quarto = {
 <ul>
 <li>Compile by running once…</li>
 </ul>
-<div id="a49dc490" class="cell" data-execution_count="12">
+<div id="794cad10" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>_ <span class="op">=</span> p_ten_nb(np_arr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>Time on the same array</li>
 </ul>
-<div id="7fae1d7b" class="cell" data-execution_count="13">
+<div id="7e1b9d1b" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>t <span class="op">=</span> time.perf_counter()</span>
 <span id="cb17-2"><a href="#cb17-2"></a>p_ten_nb(np_arr) <span class="co"># NumPy vectorization</span></span>
 <span id="cb17-3"><a href="#cb17-3"></a>nb_t <span class="op">=</span> time.perf_counter() <span class="op">-</span> t</span>
 <span id="cb17-4"><a href="#cb17-4"></a>nb_t</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="87">
-<pre><code>0.003835099982097745</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="42">
+<pre><code>0.0041732999961823225</code></pre>
 </div>
 </div>
 </section>
@@ -662,13 +671,13 @@ window.Quarto = {
 <li>At first, not great!</li>
 <li>Let’s optimize.</li>
 </ul>
-<div id="9db18dd8" class="cell" data-execution_count="14">
+<div id="7aa8e9cb" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>nb_t, np_t, nb_t<span class="op">/</span>np_t, np_t<span class="op">/</span>nb_t</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="88">
-<pre><code>(0.003835099982097745,
- 0.04020869988016784,
- 0.09537985544241219,
- 10.484394166478616)</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="43">
+<pre><code>(0.0041732999961823225,
+ 0.04169120010919869,
+ 0.10010026061258744,
+ 9.9899839808634)</code></pre>
 </div>
 </div>
 </section>
@@ -683,7 +692,7 @@ window.Quarto = {
 <ul>
 <li>Declare</li>
 </ul>
-<div id="96dd2241" class="cell" data-execution_count="15">
+<div id="7b800c53" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a><span class="at">@jit</span>(nopython<span class="op">=</span><span class="va">True</span>, parallel<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb21-2"><a href="#cb21-2"></a><span class="kw">def</span> p_ten_par(x):</span>
 <span id="cb21-3"><a href="#cb21-3"></a>    <span class="cf">return</span> (<span class="dv">46189</span><span class="op">*</span>x<span class="op">**</span><span class="dv">10</span><span class="op">-</span><span class="dv">109395</span><span class="op">*</span>x<span class="op">**</span><span class="dv">8</span><span class="op">+</span><span class="dv">90090</span><span class="op">*</span>x<span class="op">**</span><span class="dv">6</span><span class="op">-</span><span class="dv">30030</span><span class="op">*</span>x<span class="op">**</span><span class="dv">4</span><span class="op">+</span><span class="dv">3456</span><span class="op">*</span>x<span class="op">*</span><span class="dv">2</span><span class="op">-</span><span class="dv">63</span>)<span class="op">//</span><span class="dv">256</span></span>
@@ -693,13 +702,13 @@ window.Quarto = {
 <ul>
 <li>Time</li>
 </ul>
-<div id="9b74c3d4" class="cell" data-execution_count="16">
+<div id="a9082afc" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a>t <span class="op">=</span> time.perf_counter()</span>
 <span id="cb22-2"><a href="#cb22-2"></a>p_ten_par(np_arr) <span class="co"># NumPy vectorization</span></span>
 <span id="cb22-3"><a href="#cb22-3"></a>pt_t <span class="op">=</span> time.perf_counter() <span class="op">-</span> t</span>
 <span id="cb22-4"><a href="#cb22-4"></a>pt_t</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="90">
-<pre><code>0.0017589000053703785</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="45">
+<pre><code>0.0019292000215500593</code></pre>
 </div>
 </div>
 </section>
@@ -709,14 +718,14 @@ window.Quarto = {
 <li>My device is about twice as fast when parallelized.</li>
 <li>I suspect much faster if I wasn’t developing these slides while running servers, etc. in the background.</li>
 </ul>
-<div id="4ba88250" class="cell" data-execution_count="17">
+<div id="adac459a" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a><span class="co"># pt = parallel=true time</span></span>
 <span id="cb24-2"><a href="#cb24-2"></a>pt_t, nb_t, pt_t<span class="op">/</span>nb_t, nb_t<span class="op">/</span>pt_t</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="91">
-<pre><code>(0.0017589000053703785,
- 0.003835099982097745,
- 0.45863211222156597,
- 2.1803968220980092)</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="46">
+<pre><code>(0.0019292000215500593,
+ 0.0041732999961823225,
+ 0.4622720684625752,
+ 2.1632282550096544)</code></pre>
 </div>
 </div>
 </section>
@@ -725,12 +734,12 @@ window.Quarto = {
 <ul>
 <li>Or maybe I just need more numbers.</li>
 </ul>
-<div id="a33fdfe0" class="cell" data-execution_count="18">
+<div id="e015740a" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a>np_arr <span class="op">=</span> np.arange(<span class="dv">100000000</span>, dtype<span class="op">=</span>np.int64) <span class="co"># 100 mil</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div id="c5027f31" class="cell" data-execution_count="19">
+<div id="50619761" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a><span class="at">@jit</span>(nopython<span class="op">=</span><span class="va">True</span>, parallel<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb27-2"><a href="#cb27-2"></a><span class="kw">def</span> p_ten(x):</span>
 <span id="cb27-3"><a href="#cb27-3"></a>    <span class="cf">return</span> (<span class="dv">46189</span><span class="op">*</span>x<span class="op">**</span><span class="dv">10</span><span class="op">-</span><span class="dv">109395</span><span class="op">*</span>x<span class="op">**</span><span class="dv">8</span><span class="op">+</span><span class="dv">90090</span><span class="op">*</span>x<span class="op">**</span><span class="dv">6</span><span class="op">-</span><span class="dv">30030</span><span class="op">*</span>x<span class="op">**</span><span class="dv">4</span><span class="op">+</span><span class="dv">3456</span><span class="op">*</span>x<span class="op">*</span><span class="dv">2</span><span class="op">-</span><span class="dv">63</span>)<span class="op">//</span><span class="dv">256</span></span>
@@ -740,12 +749,12 @@ window.Quarto = {
 <span id="cb27-7"><a href="#cb27-7"></a>p_ten(np_arr)</span>
 <span id="cb27-8"><a href="#cb27-8"></a>pf <span class="op">=</span> time.perf_counter() <span class="op">-</span> t</span>
 <span id="cb27-9"><a href="#cb27-9"></a>pf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="93">
-<pre><code>0.36344839981757104</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="48">
+<pre><code>0.37826739996671677</code></pre>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
-<div id="1a91dedd" class="cell" data-execution_count="20">
+<div id="441f2a42" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a><span class="at">@jit</span>(nopython<span class="op">=</span><span class="va">True</span>, parallel<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb29-2"><a href="#cb29-2"></a><span class="kw">def</span> p_ten(x):</span>
 <span id="cb29-3"><a href="#cb29-3"></a>    <span class="cf">return</span> (<span class="dv">46189</span><span class="op">*</span>x<span class="op">**</span><span class="dv">10</span><span class="op">-</span><span class="dv">109395</span><span class="op">*</span>x<span class="op">**</span><span class="dv">8</span><span class="op">+</span><span class="dv">90090</span><span class="op">*</span>x<span class="op">**</span><span class="dv">6</span><span class="op">-</span><span class="dv">30030</span><span class="op">*</span>x<span class="op">**</span><span class="dv">4</span><span class="op">+</span><span class="dv">3456</span><span class="op">*</span>x<span class="op">*</span><span class="dv">2</span><span class="op">-</span><span class="dv">63</span>)<span class="op">//</span><span class="dv">256</span></span>
@@ -755,8 +764,8 @@ window.Quarto = {
 <span id="cb29-7"><a href="#cb29-7"></a>p_ten(np_arr)</span>
 <span id="cb29-8"><a href="#cb29-8"></a>pt <span class="op">=</span> time.perf_counter() <span class="op">-</span> t</span>
 <span id="cb29-9"><a href="#cb29-9"></a>pt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="94">
-<pre><code>0.1386922001838684</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="49">
+<pre><code>0.15015660016797483</code></pre>
 </div>
 </div>
 </div>
@@ -772,7 +781,7 @@ window.Quarto = {
 </section>
 <section id="nogiltrue" class="level2">
 <h2 class="anchored" data-anchor-id="nogiltrue">nogil=True</h2>
-<div id="e311f480" class="cell" data-execution_count="21">
+<div id="6f7c87dc" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a><span class="at">@jit</span>(nopython<span class="op">=</span><span class="va">True</span>, nogil<span class="op">=</span><span class="va">True</span>, parallel<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb31-2"><a href="#cb31-2"></a><span class="kw">def</span> p_ten(x):</span>
 <span id="cb31-3"><a href="#cb31-3"></a>    <span class="cf">return</span> (<span class="dv">46189</span><span class="op">*</span>x<span class="op">**</span><span class="dv">10</span><span class="op">-</span><span class="dv">109395</span><span class="op">*</span>x<span class="op">**</span><span class="dv">8</span><span class="op">+</span><span class="dv">90090</span><span class="op">*</span>x<span class="op">**</span><span class="dv">6</span><span class="op">-</span><span class="dv">30030</span><span class="op">*</span>x<span class="op">**</span><span class="dv">4</span><span class="op">+</span><span class="dv">3456</span><span class="op">*</span>x<span class="op">*</span><span class="dv">2</span><span class="op">-</span><span class="dv">63</span>)<span class="op">//</span><span class="dv">256</span></span>
@@ -782,8 +791,8 @@ window.Quarto = {
 <span id="cb31-7"><a href="#cb31-7"></a>p_ten(np_arr)</span>
 <span id="cb31-8"><a href="#cb31-8"></a>ng <span class="op">=</span> time.perf_counter() <span class="op">-</span> t</span>
 <span id="cb31-9"><a href="#cb31-9"></a>ng, pt <span class="co"># no gil, parallel true</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="95">
-<pre><code>(0.14191369991749525, 0.1386922001838684)</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="50">
+<pre><code>(0.14797269995324314, 0.15015660016797483)</code></pre>
 </div>
 </div>
 <ul>
@@ -797,10 +806,10 @@ window.Quarto = {
 <li>These are like the NumPy types.</li>
 <li>Probably the biggest value…</li>
 </ul>
-<div id="9c4a1532" class="cell" data-execution_count="22">
+<div id="c90ec1c3" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a>biggest <span class="op">=</span> p_ten(<span class="bu">max</span>(np_arr))</span>
 <span id="cb33-2"><a href="#cb33-2"></a>biggest, np.iinfo(np.int32), np.iinfo(np.int64)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="96">
+<div class="cell-output cell-output-display" data-execution_count="51">
 <pre><code>(22357606058205098,
  iinfo(min=-2147483648, max=2147483647, dtype=int32),
  iinfo(min=-9223372036854775808, max=9223372036854775807, dtype=int64))</code></pre>
@@ -817,19 +826,19 @@ window.Quarto = {
 <li>Compiles to C, may be faster!</li>
 <li>Signatures are <code>out(in)</code>, so <code>/</code> is <code>float(int, int)</code></li>
 </ul>
-<div id="c9c0205e" class="cell" data-execution_count="23">
+<div id="b45e5131" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a>x <span class="op">=</span> <span class="dv">5</span></span>
 <span id="cb35-2"><a href="#cb35-2"></a>y <span class="op">=</span> <span class="dv">2</span></span>
 <span id="cb35-3"><a href="#cb35-3"></a>z <span class="op">=</span> x <span class="op">/</span> y</span>
 <span id="cb35-4"><a href="#cb35-4"></a><span class="bu">type</span>(z), <span class="bu">type</span>(x), <span class="bu">type</span>(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="97">
+<div class="cell-output cell-output-display" data-execution_count="52">
 <pre><code>(float, int, int)</code></pre>
 </div>
 </div>
 </section>
 <section id="run-it" class="level2">
 <h2 class="anchored" data-anchor-id="run-it">Run it</h2>
-<div id="386befd8" class="cell" data-execution_count="24">
+<div id="2682d529" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a><span class="im">from</span> numba <span class="im">import</span> cfunc, int64</span>
 <span id="cb37-2"><a href="#cb37-2"></a></span>
 <span id="cb37-3"><a href="#cb37-3"></a><span class="at">@cfunc</span>(int64(int64))</span>
@@ -840,8 +849,8 @@ window.Quarto = {
 <span id="cb37-8"><a href="#cb37-8"></a>t <span class="op">=</span> time.perf_counter()</span>
 <span id="cb37-9"><a href="#cb37-9"></a>p_ten(np_arr)</span>
 <span id="cb37-10"><a href="#cb37-10"></a>time.perf_counter() <span class="op">-</span> t</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="98">
-<pre><code>3.9497982999309897</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="53">
+<pre><code>4.166833899915218</code></pre>
 </div>
 </div>
 <ul>
@@ -880,7 +889,7 @@ window.Quarto = {
 <ul>
 <li>Numba works just fine with floats!</li>
 </ul>
-<div id="f26f1d7c" class="cell" data-execution_count="25">
+<div id="ecb08938" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a>float_arr <span class="op">=</span> np_arr <span class="op">/</span> <span class="dv">7</span></span>
 <span id="cb41-2"><a href="#cb41-2"></a><span class="co"># add fastmath to decorator, change // to /</span></span>
 <span id="cb41-3"><a href="#cb41-3"></a><span class="co"># `njit` means `jit(nopython=True`</span></span>
@@ -895,8 +904,8 @@ window.Quarto = {
 <span id="cb41-12"><a href="#cb41-12"></a>p_ten(np_arr)</span>
 <span id="cb41-13"><a href="#cb41-13"></a>float_t <span class="op">=</span> time.perf_counter() <span class="op">-</span> t</span>
 <span id="cb41-14"><a href="#cb41-14"></a>float_t</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="99">
-<pre><code>0.8945227998774499</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="54">
+<pre><code>0.9491886999458075</code></pre>
 </div>
 </div>
 </section>
@@ -906,7 +915,7 @@ window.Quarto = {
 <li>I used integers, but if we use floats we should use the <code>fastmath</code> option.</li>
 <li>It allows greater inaccuracy (remember float rounding) in exchange for faster operations.</li>
 </ul>
-<div id="2ec759da" class="cell" data-execution_count="26">
+<div id="0cefaa45" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a><span class="at">@njit</span>(fastmath<span class="op">=</span><span class="va">True</span>, parallel<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb43-2"><a href="#cb43-2"></a><span class="kw">def</span> p_ten(x):</span>
 <span id="cb43-3"><a href="#cb43-3"></a>    <span class="cf">return</span> (<span class="fl">46189.</span><span class="op">*</span>x<span class="op">**</span><span class="fl">10.</span><span class="op">-</span><span class="fl">109395.</span><span class="op">*</span>x<span class="op">**</span><span class="fl">8.</span><span class="op">+</span><span class="fl">90090.</span><span class="op">*</span>x<span class="op">**</span><span class="fl">6.</span><span class="op">-</span><span class="fl">30030.</span><span class="op">*</span>x<span class="op">**</span><span class="fl">4.</span><span class="op">+</span><span class="fl">3456.</span><span class="op">*</span>x<span class="op">*</span><span class="fl">2.</span><span class="op">-</span><span class="fl">63.</span>)<span class="op">/</span><span class="fl">256.</span></span>
@@ -916,19 +925,188 @@ window.Quarto = {
 <span id="cb43-7"><a href="#cb43-7"></a>p_ten(np_arr)</span>
 <span id="cb43-8"><a href="#cb43-8"></a>fast_t <span class="op">=</span> time.perf_counter() <span class="op">-</span> t</span>
 <span id="cb43-9"><a href="#cb43-9"></a>fast_t, float_t, fast_t<span class="op">/</span>float_t, float_t<span class="op">/</span>fast_t</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="100">
-<pre><code>(0.13804470002651215,
- 0.8945227998774499,
- 0.15432217048623506,
- 6.479950332795482)</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="55">
+<pre><code>(0.13959049992263317,
+ 0.9491886999458075,
+ 0.14706296011594205,
+ 6.799808729619044)</code></pre>
 </div>
 </div>
 </section>
 </section>
-<section id="mandelbrot" class="level1">
-<h1>Mandelbrot</h1>
-<section id="section" class="level2">
-<h2 class="anchored" data-anchor-id="section"></h2>
+<section id="im-so-julia.---charli-xcx" class="level1" data-background-image="https://upload.wikimedia.org/wikipedia/commons/9/90/Charli_XCX-4059_%28cropped%29.jpg">
+<h1 data-background-image="https://upload.wikimedia.org/wikipedia/commons/9/90/Charli_XCX-4059_%28cropped%29.jpg">“I’m so Julia.” - Charli XCX</h1>
+<section id="julia-sets" class="level2">
+<h2 class="anchored" data-anchor-id="julia-sets">Julia Sets</h2>
+<ul>
+<li>The Julia set is a topic in complex dynamics.</li>
+</ul>
+<blockquote class="blockquote">
+<p><a href="https://en.wikipedia.org/wiki/Dynamical_system">Examples include the mathematical models that describe the swinging of a clock pendulum, the flow of water in a pipe, the random motion of particles in the air, and the number of fish each springtime in a lake.</a></p>
+</blockquote>
+</section>
+<section id="complex-quadratic-polynomials" class="level2">
+<h2 class="anchored" data-anchor-id="complex-quadratic-polynomials">Complex Quadratic Polynomials</h2>
+<ul>
+<li>While not required, a common class of dynamics systems are complex-valued polynomial functions of the second degree, so we take, e.g.</li>
+</ul>
+<div id="9c8b3fb1" class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1"></a><span class="kw">def</span> f(z):</span>
+<span id="cb45-2"><a href="#cb45-2"></a>    <span class="cf">return</span> z<span class="op">**</span><span class="dv">2</span> <span class="op">-</span><span class="fl">.4</span> <span class="op">+</span> <span class="ot">.6j</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="complex-values" class="level2">
+<h2 class="anchored" data-anchor-id="complex-values">Complex values</h2>
+<ul>
+<li>In Python, complex values are denoted as multiples of <code>j</code> (<code>i</code> is too frequently use).</li>
+</ul>
+<div id="78a779e3" class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a>z <span class="op">=</span> <span class="dv">0</span> <span class="op">+</span> <span class="ot">1j</span></span>
+<span id="cb46-2"><a href="#cb46-2"></a>z <span class="op">**</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="57">
+<pre><code>(-1+0j)</code></pre>
+</div>
+</div>
+<ul>
+<li>NumPy, they have <code>dtype=np.complex128</code></li>
+</ul>
+<div id="7bb6839e" class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1"></a>arr <span class="op">=</span> np.array([<span class="dv">0</span> <span class="op">+</span> <span class="ot">1j</span>])</span>
+<span id="cb48-2"><a href="#cb48-2"></a>arr.dtype</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="58">
+<pre><code>dtype('complex128')</code></pre>
+</div>
+</div>
+</section>
+<section id="common-form" class="level2">
+<h2 class="anchored" data-anchor-id="common-form">Common Form</h2>
+<ul>
+<li>Often we refer to the these polynomials as follows:</li>
+</ul>
+<p><span class="math display">\[
+f_c(z) = z^2 + c
+\]</span></p>
+<ul>
+<li>We refer to the Julia set related to such a polynomial as:</li>
+</ul>
+<p><span class="math display">\[
+J(f_c)
+\]</span></p>
+</section>
+<section id="sets-and-functions" class="level2">
+<h2 class="anchored" data-anchor-id="sets-and-functions">Sets and Functions</h2>
+<ul>
+<li>The Julia set is the elements on the complex plane for which some function converges under repeated iteration.</li>
+<li>For <span class="math inline">\(J(f_c)\)</span> it is the elements:</li>
+</ul>
+<p><span class="math display">\[
+J(f_c) \{ z \in \mathbb{C} : \forall n \in \mathbb{N} : |f_c^nN(z)| \leq R
+\]</span></p>
+</section>
+<section id="on-r" class="level2">
+<h2 class="anchored" data-anchor-id="on-r">On <span class="math inline">\(R\)</span></h2>
+<ul>
+<li>We define <span class="math inline">\(R\)</span> as <span class="math display">\[
+R &gt; 0 \land R^2 - R &gt; |c|
+\]</span></li>
+<li>It is simple to restrict <span class="math inline">\(|c| &lt; 2\)</span> and use <span class="math inline">\(R = 2\)</span></li>
+</ul>
+</section>
+<section id="exercise" class="level2">
+<h2 class="anchored" data-anchor-id="exercise">Exercise</h2>
+<ul>
+<li>Set a maximum number of iterations, say 1000</li>
+<li>Set a complex value <span class="math inline">\(|c| &lt; 2\)</span></li>
+<li>Create a 2D array of complex values ranging from -2 to 2 (<span class="math inline">\(|a| &lt; 2\)</span>)
+<ul>
+<li>I used <code>reshape</code> and <code>linspace</code> together.</li>
+</ul></li>
+<li>Iterate <span class="math inline">\(f_c\)</span> on each value until either:
+<ul>
+<li>Maximum iterations are reached, or</li>
+<li>The output exceeds <span class="math inline">\(R = 2\)</span> - look at <code>np.absolute()</code></li>
+</ul></li>
+</ul>
+</section>
+<section id="result" class="level2">
+<h2 class="anchored" data-anchor-id="result">Result</h2>
+<ul>
+<li>Use Numba to achieve higher numbers of iterations (which create sharper images).</li>
+<li>Use Matplotlib <code>imshow</code> to plot the result.
+<ul>
+<li>Plot real component as <code>x</code>, imaginary as <code>y</code>, and iterations as color.</li>
+</ul></li>
+<li>I recommend using <span class="math inline">\(c = -0.4 + 0.6i\)</span> which I think looks nice.
+<ul>
+<li>But you may choose your own <span class="math inline">\(c\)</span></li>
+</ul></li>
+</ul>
+</section>
+<section id="f_cnz" class="level2">
+<h2 class="anchored" data-anchor-id="f_cnz"><span class="math inline">\(f_c^n(z)\)</span></h2>
+<ul>
+<li>Apply <code>f_c</code>
+<ul>
+<li>Which, recall, is <span class="math inline">\(z^2+c\)</span></li>
+</ul></li>
+<li>To <code>z</code>
+<ul>
+<li>The elements of the array.</li>
+</ul></li>
+<li><span class="math inline">\(n\)</span> times
+<ul>
+<li>So <span class="math inline">\(f_c^2(z) = f_c(f_c(z))\)</span></li>
+</ul></li>
+</ul>
+<div id="89bffba8" class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1"></a><span class="kw">def</span> f_c_n(z, c, n):</span>
+<span id="cb50-2"><a href="#cb50-2"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n): <span class="co"># "do thing n times"</span></span>
+<span id="cb50-3"><a href="#cb50-3"></a>        z <span class="op">=</span> z<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> c</span>
+<span id="cb50-4"><a href="#cb50-4"></a>    <span class="cf">return</span> z</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="solution" class="level2">
+<h2 class="anchored" data-anchor-id="solution">Solution</h2>
+<div id="5bedc453" class="cell" data-execution_count="31">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb51-2"><a href="#cb51-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb51-3"><a href="#cb51-3"></a><span class="im">from</span> numba <span class="im">import</span> njit</span>
+<span id="cb51-4"><a href="#cb51-4"></a></span>
+<span id="cb51-5"><a href="#cb51-5"></a><span class="at">@njit</span></span>
+<span id="cb51-6"><a href="#cb51-6"></a><span class="kw">def</span> iterator(m, c, z):</span>
+<span id="cb51-7"><a href="#cb51-7"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(m):</span>
+<span id="cb51-8"><a href="#cb51-8"></a>        z <span class="op">=</span> z<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> c</span>
+<span id="cb51-9"><a href="#cb51-9"></a>        <span class="cf">if</span> (np.absolute(z) <span class="op">&gt;</span> <span class="dv">2</span>):</span>
+<span id="cb51-10"><a href="#cb51-10"></a>                <span class="cf">return</span> i</span>
+<span id="cb51-11"><a href="#cb51-11"></a>    <span class="cf">return</span> i</span>
+<span id="cb51-12"><a href="#cb51-12"></a></span>
+<span id="cb51-13"><a href="#cb51-13"></a><span class="co"># m: max iterations, c: c</span></span>
+<span id="cb51-14"><a href="#cb51-14"></a><span class="kw">def</span> j_f(m, c):</span>
+<span id="cb51-15"><a href="#cb51-15"></a>    real <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">1000</span>)</span>
+<span id="cb51-16"><a href="#cb51-16"></a>    imag <span class="op">=</span> (<span class="dv">0</span> <span class="op">+</span> <span class="ot">1j</span>) <span class="op">*</span> real</span>
+<span id="cb51-17"><a href="#cb51-17"></a>    comp <span class="op">=</span> real.reshape(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>) <span class="op">+</span> imag</span>
+<span id="cb51-18"><a href="#cb51-18"></a>    f_vec <span class="op">=</span> np.vectorize(iterator, excluded<span class="op">=</span>{<span class="dv">0</span>,<span class="dv">1</span>})</span>
+<span id="cb51-19"><a href="#cb51-19"></a>    <span class="cf">return</span> f_vec(m, c, comp)</span>
+<span id="cb51-20"><a href="#cb51-20"></a></span>
+<span id="cb51-21"><a href="#cb51-21"></a><span class="co"># m: max iterations, c: c</span></span>
+<span id="cb51-22"><a href="#cb51-22"></a><span class="kw">def</span> visualize(m, c):</span>
+<span id="cb51-23"><a href="#cb51-23"></a>    arr <span class="op">=</span> j_f(m,c)</span>
+<span id="cb51-24"><a href="#cb51-24"></a>    plt.imshow(arr)</span>
+<span id="cb51-25"><a href="#cb51-25"></a>    plt.axis(<span class="st">'off'</span>)</span>
+<span id="cb51-26"><a href="#cb51-26"></a>    plt.savefig(<span class="st">"julia.png"</span>, bbox_inches<span class="op">=</span><span class="st">"tight"</span>, pad_inches<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb51-27"><a href="#cb51-27"></a></span>
+<span id="cb51-28"><a href="#cb51-28"></a>visualize(<span class="dv">1000</span>, <span class="op">-</span><span class="fl">0.4</span> <span class="op">+</span> <span class="ot">0.6j</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="0A_numba_files/figure-revealjs/cell-31-output-1.png" width="389" height="389" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
 
 
 <!-- -->
@@ -1420,470 +1598,596 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb45" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb45-1"><a href="#cb45-1"></a><span class="co">---</span></span>
-<span id="cb45-2"><a href="#cb45-2"></a><span class="an">title:</span><span class="co"> Numba </span></span>
-<span id="cb45-3"><a href="#cb45-3"></a><span class="co">---</span></span>
-<span id="cb45-4"><a href="#cb45-4"></a></span>
-<span id="cb45-5"><a href="#cb45-5"></a><span class="fu"># What is Numba?</span></span>
-<span id="cb45-6"><a href="#cb45-6"></a></span>
-<span id="cb45-7"><a href="#cb45-7"></a><span class="ss">- </span><span class="in">`Numba`</span> addresses a long-standing problem in scientific computing.</span>
-<span id="cb45-8"><a href="#cb45-8"></a><span class="ss">    - </span>Writing code in Python, instead of C or Fortran, is fast.</span>
-<span id="cb45-9"><a href="#cb45-9"></a><span class="ss">    - </span>Running code in Python, instead of C or Fortran, is slow.</span>
-<span id="cb45-10"><a href="#cb45-10"></a></span>
-<span id="cb45-11"><a href="#cb45-11"></a><span class="fu">## C/Fortran</span></span>
-<span id="cb45-12"><a href="#cb45-12"></a>      </span>
-<span id="cb45-13"><a href="#cb45-13"></a><span class="ss">- </span>C and Fortran have been swimming around the periphery for some time.</span>
-<span id="cb45-14"><a href="#cb45-14"></a><span class="ss">    - </span>E.g. NumPy is written in C, uses C numbers.</span>
-<span id="cb45-15"><a href="#cb45-15"></a><span class="ss">    - </span>E.g. SymPy can print C/Fortran code for expressions.</span>
-<span id="cb45-16"><a href="#cb45-16"></a><span class="ss">- </span>C is a general purpose language and the highest performance language in existence.</span>
-<span id="cb45-17"><a href="#cb45-17"></a><span class="ss">- </span>Fortran, for "formula transcription", is the foremost numerical computing platform (for performance).</span>
-<span id="cb45-18"><a href="#cb45-18"></a></span>
-<span id="cb45-19"><a href="#cb45-19"></a><span class="fu">## Scripting</span></span>
-<span id="cb45-20"><a href="#cb45-20"></a></span>
-<span id="cb45-21"><a href="#cb45-21"></a><span class="ss">- </span>Python is a *scripting* language.</span>
-<span id="cb45-22"><a href="#cb45-22"></a><span class="ss">    - </span>Write code in <span class="in">`.py`</span> file or within <span class="in">`python`</span></span>
-<span id="cb45-23"><a href="#cb45-23"></a><span class="ss">    - </span>The <span class="in">`python`</span> program "runs" the code</span>
-<span id="cb45-24"><a href="#cb45-24"></a><span class="ss">    - </span>No program is created.</span>
-<span id="cb45-25"><a href="#cb45-25"></a></span>
-<span id="cb45-26"><a href="#cb45-26"></a><span class="fu">## Vs. C/Fortran</span></span>
-<span id="cb45-27"><a href="#cb45-27"></a></span>
-<span id="cb45-28"><a href="#cb45-28"></a><span class="ss">- </span>C and Fortran are *compiled* languages.</span>
-<span id="cb45-29"><a href="#cb45-29"></a><span class="ss">    - </span>Write code.</span>
-<span id="cb45-30"><a href="#cb45-30"></a><span class="ss">    - </span>Call a program, a **compiler**, on the code.</span>
-<span id="cb45-31"><a href="#cb45-31"></a><span class="ss">    - </span>The compiler creates a **program**.</span>
-<span id="cb45-32"><a href="#cb45-32"></a><span class="ss">    - </span>Run the program.</span>
-<span id="cb45-33"><a href="#cb45-33"></a></span>
-<span id="cb45-34"><a href="#cb45-34"></a><span class="fu">## Numba</span></span>
-<span id="cb45-35"><a href="#cb45-35"></a></span>
-<span id="cb45-36"><a href="#cb45-36"></a><span class="ss">- </span>Numba is a compiler for Python.</span>
-<span id="cb45-37"><a href="#cb45-37"></a><span class="ss">- </span>More than that - a jit (just-in-time) compiler.</span>
-<span id="cb45-38"><a href="#cb45-38"></a><span class="ss">- </span>Numba looks and feels like Python, but under the hood is compiling Python code in fast, compiled languages.</span>
-<span id="cb45-39"><a href="#cb45-39"></a><span class="ss">- </span>It is a good halfway step to avoid having to learn C/Fortran.</span>
-<span id="cb45-40"><a href="#cb45-40"></a></span>
-<span id="cb45-41"><a href="#cb45-41"></a><span class="fu">## In its own words:</span></span>
-<span id="cb45-42"><a href="#cb45-42"></a></span>
-<span id="cb45-43"><a href="#cb45-43"></a></span>
-<span id="cb45-44"><a href="#cb45-44"></a><span class="at">&gt; </span><span class="co">[</span><span class="ot">Numba is a compiler for Python array and numerical functions that gives you the power to speed up your applications with high performance functions written directly in Python.</span><span class="co">](https://numba.readthedocs.io/en/stable/user/overview.html)</span></span>
-<span id="cb45-45"><a href="#cb45-45"></a></span>
-<span id="cb45-46"><a href="#cb45-46"></a><span class="at">&gt; </span><span class="co">[</span><span class="ot">With a few simple annotations, array-oriented and math-heavy Python code can be just-in-time optimized to performance similar as C, C++ and Fortran, without having to switch languages or Python interpreters.</span><span class="co">](https://numba.readthedocs.io/en/stable/user/overview.html)</span></span>
-<span id="cb45-47"><a href="#cb45-47"></a></span>
-<span id="cb45-48"><a href="#cb45-48"></a><span class="fu">## Why not Numba?</span></span>
-<span id="cb45-49"><a href="#cb45-49"></a></span>
-<span id="cb45-50"><a href="#cb45-50"></a><span class="ss">- </span>Just learn C or Fortran</span>
-<span id="cb45-51"><a href="#cb45-51"></a><span class="ss">- </span>Use Cython, an alternative Python compiler.</span>
-<span id="cb45-52"><a href="#cb45-52"></a><span class="ss">- </span>Use SymPy print-to-C/Fortran</span>
-<span id="cb45-53"><a href="#cb45-53"></a><span class="ss">- </span>Use GPU acceleration via PyTorch or Tensorflow for certain applications.</span>
-<span id="cb45-54"><a href="#cb45-54"></a><span class="ss">    - </span>The Meta and Google GPU-accelerated frameworks, respectively.</span>
-<span id="cb45-55"><a href="#cb45-55"></a><span class="ss">    - </span><span class="in">`numba-cuda`</span> (NVIDIA GPU Numba) exists, but I haven't seen it used much.</span>
-<span id="cb45-56"><a href="#cb45-56"></a></span>
-<span id="cb45-57"><a href="#cb45-57"></a></span>
-<span id="cb45-58"><a href="#cb45-58"></a><span class="fu"># Install</span></span>
-<span id="cb45-59"><a href="#cb45-59"></a></span>
-<span id="cb45-60"><a href="#cb45-60"></a><span class="fu">## Pip again!</span></span>
-<span id="cb45-61"><a href="#cb45-61"></a></span>
-<span id="cb45-62"><a href="#cb45-62"></a><span class="ss">- </span>Nothing special here.</span>
-<span id="cb45-63"><a href="#cb45-63"></a><span class="in">```{.bash code-line-numbers="false"}</span></span>
-<span id="cb45-64"><a href="#cb45-64"></a><span class="in">python3 -m pip install numba</span></span>
-<span id="cb45-65"><a href="#cb45-65"></a><span class="in">```</span></span>
-<span id="cb45-66"><a href="#cb45-66"></a><span class="ss">- </span>Let's try it out.</span>
-<span id="cb45-67"><a href="#cb45-67"></a></span>
-<span id="cb45-68"><a href="#cb45-68"></a><span class="fu">## Decorators</span></span>
-<span id="cb45-69"><a href="#cb45-69"></a></span>
-<span id="cb45-70"><a href="#cb45-70"></a><span class="ss">- </span>We need to introduce something called a *decorator*</span>
-<span id="cb45-71"><a href="#cb45-71"></a><span class="ss">- </span>It's a little note before a function definition that starts with <span class="in">`@`</span></span>
-<span id="cb45-72"><a href="#cb45-72"></a><span class="ss">    - </span>This means we'll mostly write functions to use Numba.</span>
-<span id="cb45-73"><a href="#cb45-73"></a><span class="ss">- </span>We'll do an example.</span>
-<span id="cb45-74"><a href="#cb45-74"></a></span>
-<span id="cb45-75"><a href="#cb45-75"></a><span class="fu">## Import</span></span>
-<span id="cb45-76"><a href="#cb45-76"></a></span>
-<span id="cb45-77"><a href="#cb45-77"></a><span class="ss">- </span>Numba is essential a NumPy optimizer, so we'll include both.</span>
-<span id="cb45-78"><a href="#cb45-78"></a></span>
-<span id="cb45-81"><a href="#cb45-81"></a><span class="in">```{python}</span></span>
-<span id="cb45-82"><a href="#cb45-82"></a><span class="im">from</span> numba <span class="im">import</span> jit</span>
-<span id="cb45-83"><a href="#cb45-83"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb45-84"><a href="#cb45-84"></a><span class="in">```</span></span>
-<span id="cb45-85"><a href="#cb45-85"></a></span>
-<span id="cb45-86"><a href="#cb45-86"></a><span class="fu">## Test it</span></span>
-<span id="cb45-87"><a href="#cb45-87"></a></span>
-<span id="cb45-88"><a href="#cb45-88"></a><span class="ss">- </span><span class="in">`@jit`</span> is the much-ballyhoo'ed *decorator*.</span>
-<span id="cb45-89"><a href="#cb45-89"></a></span>
-<span id="cb45-92"><a href="#cb45-92"></a><span class="in">```{python}</span></span>
-<span id="cb45-93"><a href="#cb45-93"></a>x <span class="op">=</span> np.arange(<span class="dv">100</span>).reshape(<span class="dv">10</span>, <span class="dv">10</span>)</span>
-<span id="cb45-94"><a href="#cb45-94"></a></span>
-<span id="cb45-95"><a href="#cb45-95"></a><span class="at">@jit</span></span>
-<span id="cb45-96"><a href="#cb45-96"></a><span class="kw">def</span> go_fast(a): <span class="co"># Function is compiled to machine code when called the first time</span></span>
-<span id="cb45-97"><a href="#cb45-97"></a>    trace <span class="op">=</span> <span class="fl">0.0</span></span>
-<span id="cb45-98"><a href="#cb45-98"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(a.shape[<span class="dv">0</span>]):   <span class="co"># Numba likes loops</span></span>
-<span id="cb45-99"><a href="#cb45-99"></a>        trace <span class="op">+=</span> np.tanh(a[i, i]) <span class="co"># Numba likes NumPy functions</span></span>
-<span id="cb45-100"><a href="#cb45-100"></a>    <span class="cf">return</span> a <span class="op">+</span> trace              <span class="co"># Numba likes NumPy broadcasting</span></span>
-<span id="cb45-101"><a href="#cb45-101"></a></span>
-<span id="cb45-102"><a href="#cb45-102"></a>_ <span class="op">=</span> go_fast(x)</span>
-<span id="cb45-103"><a href="#cb45-103"></a><span class="in">```</span></span>
-<span id="cb45-104"><a href="#cb45-104"></a></span>
-<span id="cb45-105"><a href="#cb45-105"></a><span class="fu">## Aside: **pandas**</span></span>
-<span id="cb45-106"><a href="#cb45-106"></a></span>
-<span id="cb45-107"><a href="#cb45-107"></a><span class="ss">- </span>Numba does *not* accelerate **pandas**</span>
-<span id="cb45-108"><a href="#cb45-108"></a><span class="ss">- </span>It is the "numerical" not "data" compiler.</span>
-<span id="cb45-109"><a href="#cb45-109"></a><span class="ss">- </span>Don't do this:</span>
-<span id="cb45-112"><a href="#cb45-112"></a><span class="in">```{python}</span></span>
-<span id="cb45-113"><a href="#cb45-113"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb45-114"><a href="#cb45-114"></a></span>
-<span id="cb45-115"><a href="#cb45-115"></a>x <span class="op">=</span> {<span class="st">'a'</span>: [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], <span class="st">'b'</span>: [<span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>]}</span>
-<span id="cb45-116"><a href="#cb45-116"></a></span>
-<span id="cb45-117"><a href="#cb45-117"></a><span class="at">@jit</span>(forceobj<span class="op">=</span><span class="va">True</span>, looplift<span class="op">=</span><span class="va">True</span>) <span class="co"># Need to use object mode, try and compile loops!</span></span>
-<span id="cb45-118"><a href="#cb45-118"></a><span class="kw">def</span> use_pandas(a): <span class="co"># Function will not benefit from Numba jit</span></span>
-<span id="cb45-119"><a href="#cb45-119"></a>    df <span class="op">=</span> pd.DataFrame.from_dict(a) <span class="co"># Numba doesn't know about pd.DataFrame</span></span>
-<span id="cb45-120"><a href="#cb45-120"></a>    df <span class="op">+=</span> <span class="dv">1</span>                        <span class="co"># Numba doesn't understand what this is</span></span>
-<span id="cb45-121"><a href="#cb45-121"></a>    <span class="cf">return</span> df.cov()                <span class="co"># or this!</span></span>
-<span id="cb45-122"><a href="#cb45-122"></a></span>
-<span id="cb45-123"><a href="#cb45-123"></a>_ <span class="op">=</span> use_pandas(x)</span>
-<span id="cb45-124"><a href="#cb45-124"></a><span class="in">```</span></span>
-<span id="cb45-125"><a href="#cb45-125"></a></span>
-<span id="cb45-126"><a href="#cb45-126"></a><span class="fu">## Modes</span></span>
-<span id="cb45-127"><a href="#cb45-127"></a></span>
-<span id="cb45-128"><a href="#cb45-128"></a><span class="ss">- </span>Numba basically has two modes</span>
-<span id="cb45-129"><a href="#cb45-129"></a><span class="ss">    - </span><span class="in">`object mode`</span>: Slow Python mode, works for **pandas**</span>
-<span id="cb45-130"><a href="#cb45-130"></a><span class="ss">    - </span><span class="in">`nonpython`</span>: Fast compiled mode, works for NumPy</span>
-<span id="cb45-131"><a href="#cb45-131"></a><span class="ss">- </span>I wouldn't bother with Numba unless you can use <span class="in">`nonpython`</span></span>
-<span id="cb45-132"><a href="#cb45-132"></a><span class="ss">    - </span>Basically Numba doesn't do anything.</span>
-<span id="cb45-133"><a href="#cb45-133"></a></span>
-<span id="cb45-134"><a href="#cb45-134"></a><span class="fu"># Timing</span></span>
-<span id="cb45-135"><a href="#cb45-135"></a></span>
-<span id="cb45-136"><a href="#cb45-136"></a><span class="fu">## time</span></span>
-<span id="cb45-137"><a href="#cb45-137"></a></span>
-<span id="cb45-138"><a href="#cb45-138"></a><span class="ss">- </span>It is hard to motivate Numba without seeing how fast it is.</span>
-<span id="cb45-139"><a href="#cb45-139"></a><span class="ss">- </span>We will introduce <span class="in">`time`</span></span>
-<span id="cb45-140"><a href="#cb45-140"></a></span>
-<span id="cb45-143"><a href="#cb45-143"></a><span class="in">```{python}</span></span>
-<span id="cb45-144"><a href="#cb45-144"></a><span class="im">import</span> time</span>
-<span id="cb45-145"><a href="#cb45-145"></a></span>
-<span id="cb45-146"><a href="#cb45-146"></a>time.time()</span>
-<span id="cb45-147"><a href="#cb45-147"></a><span class="in">```</span></span>
-<span id="cb45-148"><a href="#cb45-148"></a></span>
-<span id="cb45-149"><a href="#cb45-149"></a><span class="fu">## perf_counter()</span></span>
-<span id="cb45-150"><a href="#cb45-150"></a></span>
-<span id="cb45-151"><a href="#cb45-151"></a><span class="ss">- </span><span class="in">`time`</span> supports <span class="in">`time.perf_counter()`</span></span>
-<span id="cb45-152"><a href="#cb45-152"></a></span>
-<span id="cb45-153"><a href="#cb45-153"></a><span class="at">&gt; Return the value (in fractional seconds) of a performance counter, i.e. a clock with the highest available resolution to measure a short duration.</span></span>
-<span id="cb45-154"><a href="#cb45-154"></a></span>
-<span id="cb45-155"><a href="#cb45-155"></a><span class="ss">- </span>Let's try it out.</span>
-<span id="cb45-156"><a href="#cb45-156"></a></span>
-<span id="cb45-157"><a href="#cb45-157"></a><span class="fu">## NumPy</span></span>
-<span id="cb45-158"><a href="#cb45-158"></a></span>
-<span id="cb45-159"><a href="#cb45-159"></a><span class="ss">- </span>I have have claimed NumPy vector operations are faster than base Python.</span>
-<span id="cb45-160"><a href="#cb45-160"></a><span class="ss">- </span>Let's test it.</span>
-<span id="cb45-163"><a href="#cb45-163"></a><span class="in">```{python}</span></span>
-<span id="cb45-164"><a href="#cb45-164"></a>py_lst <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">1000000</span>))</span>
-<span id="cb45-165"><a href="#cb45-165"></a>np_arr <span class="op">=</span>  np.arange(<span class="dv">1000000</span>)</span>
-<span id="cb45-166"><a href="#cb45-166"></a></span>
-<span id="cb45-167"><a href="#cb45-167"></a><span class="bu">len</span>(py_lst), <span class="bu">len</span>(np_arr)</span>
-<span id="cb45-168"><a href="#cb45-168"></a><span class="in">```</span></span>
-<span id="cb45-169"><a href="#cb45-169"></a></span>
-<span id="cb45-170"><a href="#cb45-170"></a><span class="fu">## Polynomial</span></span>
-<span id="cb45-171"><a href="#cb45-171"></a></span>
-<span id="cb45-172"><a href="#cb45-172"></a><span class="ss">- </span>We will write a simple polynomial.</span>
-<span id="cb45-173"><a href="#cb45-173"></a></span>
-<span id="cb45-174"><a href="#cb45-174"></a><span class="at">&gt; </span><span class="co">[</span><span class="ot">The Legendre polynomials were first introduced in 1782 by Adrien-Marie Legendre[5] as the coefficients in the expansion of the Newtonian potential...</span><span class="co">](https://en.wikipedia.org/wiki/Legendre_polynomials)</span></span>
-<span id="cb45-175"><a href="#cb45-175"></a></span>
-<span id="cb45-176"><a href="#cb45-176"></a><span class="at">&gt; </span><span class="co">[</span><span class="ot">...served as the fundamental gravitational potential in Newton's law of universal gravitation.</span><span class="co">](https://en.wikipedia.org/wiki/Newtonian_potential)</span></span>
-<span id="cb45-177"><a href="#cb45-177"></a></span>
-<span id="cb45-178"><a href="#cb45-178"></a><span class="fu">## $P_{10}(x)$</span></span>
-<span id="cb45-179"><a href="#cb45-179"></a></span>
-<span id="cb45-180"><a href="#cb45-180"></a><span class="ss">- </span>We take $P_{10}(x)$, the 10th Legendre polynomial.</span>
-<span id="cb45-181"><a href="#cb45-181"></a></span>
-<span id="cb45-182"><a href="#cb45-182"></a>$$</span>
-<span id="cb45-183"><a href="#cb45-183"></a>\tfrac{146189x^{10}-109395x^8+90090x^6-30030x^4+3465x^2-63}{256}</span>
-<span id="cb45-184"><a href="#cb45-184"></a>$$</span>
-<span id="cb45-185"><a href="#cb45-185"></a></span>
-<span id="cb45-186"><a href="#cb45-186"></a><span class="ss">- </span>This uses only NumPy vectorizable operations:</span>
-<span id="cb45-189"><a href="#cb45-189"></a><span class="in">```{python}</span></span>
-<span id="cb45-190"><a href="#cb45-190"></a><span class="kw">def</span> p_ten(x):</span>
-<span id="cb45-191"><a href="#cb45-191"></a>    <span class="cf">return</span> (<span class="dv">46189</span><span class="op">*</span>x<span class="op">**</span><span class="dv">10</span><span class="op">-</span><span class="dv">109395</span><span class="op">*</span>x<span class="op">**</span><span class="dv">8</span><span class="op">+</span><span class="dv">90090</span><span class="op">*</span>x<span class="op">**</span><span class="dv">6</span><span class="op">-</span><span class="dv">30030</span><span class="op">*</span>x<span class="op">**</span><span class="dv">4</span><span class="op">+</span><span class="dv">3456</span><span class="op">*</span>x<span class="op">*</span><span class="dv">2</span><span class="op">-</span><span class="dv">63</span>)<span class="op">//</span><span class="dv">256</span></span>
-<span id="cb45-192"><a href="#cb45-192"></a></span>
-<span id="cb45-193"><a href="#cb45-193"></a>p_ten(np.arange(<span class="dv">5</span>))</span>
-<span id="cb45-194"><a href="#cb45-194"></a><span class="in">```</span></span>
-<span id="cb45-195"><a href="#cb45-195"></a></span>
-<span id="cb45-196"><a href="#cb45-196"></a><span class="fu">## Timing</span></span>
-<span id="cb45-197"><a href="#cb45-197"></a></span>
-<span id="cb45-198"><a href="#cb45-198"></a><span class="ss">- </span>It is a straightforward matter to time Python vs NumPy</span>
-<span id="cb45-199"><a href="#cb45-199"></a></span>
-<span id="cb45-200"><a href="#cb45-200"></a>:::: {.columns}</span>
-<span id="cb45-201"><a href="#cb45-201"></a></span>
-<span id="cb45-202"><a href="#cb45-202"></a>::: {.column width="50%"}</span>
-<span id="cb45-203"><a href="#cb45-203"></a></span>
-<span id="cb45-206"><a href="#cb45-206"></a><span class="in">```{python}</span></span>
-<span id="cb45-207"><a href="#cb45-207"></a>t <span class="op">=</span> time.perf_counter()</span>
-<span id="cb45-208"><a href="#cb45-208"></a>[p_ten(i) <span class="cf">for</span> i <span class="kw">in</span> py_lst] <span class="co"># Pythonic vector</span></span>
-<span id="cb45-209"><a href="#cb45-209"></a>py_t <span class="op">=</span> time.perf_counter() <span class="op">-</span> t</span>
-<span id="cb45-210"><a href="#cb45-210"></a><span class="in">```</span></span>
-<span id="cb45-211"><a href="#cb45-211"></a></span>
-<span id="cb45-212"><a href="#cb45-212"></a></span>
-<span id="cb45-213"><a href="#cb45-213"></a>:::</span>
-<span id="cb45-214"><a href="#cb45-214"></a></span>
-<span id="cb45-215"><a href="#cb45-215"></a>::: {.column width="50%"}</span>
-<span id="cb45-216"><a href="#cb45-216"></a></span>
-<span id="cb45-217"><a href="#cb45-217"></a></span>
-<span id="cb45-220"><a href="#cb45-220"></a><span class="in">```{python}</span></span>
-<span id="cb45-221"><a href="#cb45-221"></a>t <span class="op">=</span> time.perf_counter()</span>
-<span id="cb45-222"><a href="#cb45-222"></a>p_ten(np_arr) <span class="co"># NumPy vectorization</span></span>
-<span id="cb45-223"><a href="#cb45-223"></a>np_t <span class="op">=</span> time.perf_counter() <span class="op">-</span> t</span>
-<span id="cb45-224"><a href="#cb45-224"></a><span class="in">```</span></span>
-<span id="cb45-225"><a href="#cb45-225"></a></span>
-<span id="cb45-226"><a href="#cb45-226"></a>:::</span>
-<span id="cb45-227"><a href="#cb45-227"></a></span>
-<span id="cb45-228"><a href="#cb45-228"></a>::::</span>
-<span id="cb45-229"><a href="#cb45-229"></a></span>
-<span id="cb45-230"><a href="#cb45-230"></a><span class="ss">- </span>Compare the times - NumPy 24x faster.</span>
-<span id="cb45-231"><a href="#cb45-231"></a></span>
-<span id="cb45-234"><a href="#cb45-234"></a><span class="in">```{python}</span></span>
-<span id="cb45-235"><a href="#cb45-235"></a>py_t, np_t, py_t<span class="op">/</span>np_t, np_t<span class="op">/</span>py_t</span>
-<span id="cb45-236"><a href="#cb45-236"></a><span class="in">```</span></span>
-<span id="cb45-237"><a href="#cb45-237"></a></span>
-<span id="cb45-238"><a href="#cb45-238"></a><span class="fu"># Compilation</span></span>
-<span id="cb45-239"><a href="#cb45-239"></a></span>
-<span id="cb45-240"><a href="#cb45-240"></a><span class="fu">## Compiling</span></span>
-<span id="cb45-241"><a href="#cb45-241"></a></span>
-<span id="cb45-242"><a href="#cb45-242"></a><span class="ss">- </span>To compile a Numba function, we have to run at least once.</span>
-<span id="cb45-243"><a href="#cb45-243"></a><span class="ss">- </span>We will:</span>
-<span id="cb45-244"><a href="#cb45-244"></a><span class="ss">    - </span>Write a function.</span>
-<span id="cb45-245"><a href="#cb45-245"></a><span class="ss">    - </span>Time it with NumPy</span>
-<span id="cb45-246"><a href="#cb45-246"></a><span class="ss">    - </span>Add Numba decorators</span>
-<span id="cb45-247"><a href="#cb45-247"></a><span class="ss">    - </span>Run once</span>
-<span id="cb45-248"><a href="#cb45-248"></a><span class="ss">    - </span>Time it with Numba</span>
-<span id="cb45-249"><a href="#cb45-249"></a><span class="ss">- </span>Helpfully, we timed <span class="in">`p_ten()`</span> with NumPy</span>
-<span id="cb45-250"><a href="#cb45-250"></a></span>
-<span id="cb45-251"><a href="#cb45-251"></a></span>
-<span id="cb45-252"><a href="#cb45-252"></a><span class="fu">## Numba time.</span></span>
-<span id="cb45-253"><a href="#cb45-253"></a></span>
-<span id="cb45-254"><a href="#cb45-254"></a><span class="ss">- </span>Declare with <span class="in">`@jit`</span></span>
-<span id="cb45-257"><a href="#cb45-257"></a><span class="in">```{python}</span></span>
-<span id="cb45-258"><a href="#cb45-258"></a><span class="at">@jit</span></span>
-<span id="cb45-259"><a href="#cb45-259"></a><span class="kw">def</span> p_ten_nb(x):</span>
-<span id="cb45-260"><a href="#cb45-260"></a>    <span class="cf">return</span> (<span class="dv">46189</span><span class="op">*</span>x<span class="op">**</span><span class="dv">10</span><span class="op">-</span><span class="dv">109395</span><span class="op">*</span>x<span class="op">**</span><span class="dv">8</span><span class="op">+</span><span class="dv">90090</span><span class="op">*</span>x<span class="op">**</span><span class="dv">6</span><span class="op">-</span><span class="dv">30030</span><span class="op">*</span>x<span class="op">**</span><span class="dv">4</span><span class="op">+</span><span class="dv">3456</span><span class="op">*</span>x<span class="op">*</span><span class="dv">2</span><span class="op">-</span><span class="dv">63</span>)<span class="op">//</span><span class="dv">256</span></span>
-<span id="cb45-261"><a href="#cb45-261"></a><span class="in">```</span></span>
-<span id="cb45-262"><a href="#cb45-262"></a><span class="ss">- </span>Compile by running once...</span>
-<span id="cb45-265"><a href="#cb45-265"></a><span class="in">```{python}</span></span>
-<span id="cb45-266"><a href="#cb45-266"></a>_ <span class="op">=</span> p_ten_nb(np_arr)</span>
-<span id="cb45-267"><a href="#cb45-267"></a><span class="in">```</span></span>
-<span id="cb45-268"><a href="#cb45-268"></a><span class="ss">- </span>Time on the same array</span>
-<span id="cb45-271"><a href="#cb45-271"></a><span class="in">```{python}</span></span>
-<span id="cb45-272"><a href="#cb45-272"></a>t <span class="op">=</span> time.perf_counter()</span>
-<span id="cb45-273"><a href="#cb45-273"></a>p_ten_nb(np_arr) <span class="co"># NumPy vectorization</span></span>
-<span id="cb45-274"><a href="#cb45-274"></a>nb_t <span class="op">=</span> time.perf_counter() <span class="op">-</span> t</span>
-<span id="cb45-275"><a href="#cb45-275"></a>nb_t</span>
-<span id="cb45-276"><a href="#cb45-276"></a><span class="in">```</span></span>
-<span id="cb45-277"><a href="#cb45-277"></a></span>
-<span id="cb45-278"><a href="#cb45-278"></a><span class="fu">## Maybe 10x?</span></span>
-<span id="cb45-279"><a href="#cb45-279"></a></span>
-<span id="cb45-280"><a href="#cb45-280"></a><span class="ss">- </span>At first, not great!</span>
-<span id="cb45-281"><a href="#cb45-281"></a><span class="ss">- </span>Let's optimize.</span>
-<span id="cb45-282"><a href="#cb45-282"></a></span>
-<span id="cb45-285"><a href="#cb45-285"></a><span class="in">```{python}</span></span>
-<span id="cb45-286"><a href="#cb45-286"></a>nb_t, np_t, nb_t<span class="op">/</span>np_t, np_t<span class="op">/</span>nb_t</span>
-<span id="cb45-287"><a href="#cb45-287"></a><span class="in">```</span></span>
-<span id="cb45-288"><a href="#cb45-288"></a></span>
-<span id="cb45-289"><a href="#cb45-289"></a><span class="fu">## Using `jit`</span></span>
-<span id="cb45-290"><a href="#cb45-290"></a></span>
-<span id="cb45-291"><a href="#cb45-291"></a><span class="at">&gt; </span><span class="co">[</span><span class="ot">Numba provides several utilities for code generation, but its central feature is the numba.jit() decorator. Using this decorator, you can mark a function for optimization by Numba’s JIT compiler. Various invocation modes trigger differing compilation options and behaviours.</span><span class="co">](https://numba.pydata.org/numba-doc/dev/user/jit.html)</span></span>
-<span id="cb45-292"><a href="#cb45-292"></a></span>
-<span id="cb45-293"><a href="#cb45-293"></a><span class="fu">## Parallel</span></span>
-<span id="cb45-294"><a href="#cb45-294"></a></span>
-<span id="cb45-295"><a href="#cb45-295"></a><span class="ss">- </span>Declare</span>
-<span id="cb45-298"><a href="#cb45-298"></a><span class="in">```{python}</span></span>
-<span id="cb45-299"><a href="#cb45-299"></a><span class="at">@jit</span>(nopython<span class="op">=</span><span class="va">True</span>, parallel<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb45-300"><a href="#cb45-300"></a><span class="kw">def</span> p_ten_par(x):</span>
-<span id="cb45-301"><a href="#cb45-301"></a>    <span class="cf">return</span> (<span class="dv">46189</span><span class="op">*</span>x<span class="op">**</span><span class="dv">10</span><span class="op">-</span><span class="dv">109395</span><span class="op">*</span>x<span class="op">**</span><span class="dv">8</span><span class="op">+</span><span class="dv">90090</span><span class="op">*</span>x<span class="op">**</span><span class="dv">6</span><span class="op">-</span><span class="dv">30030</span><span class="op">*</span>x<span class="op">**</span><span class="dv">4</span><span class="op">+</span><span class="dv">3456</span><span class="op">*</span>x<span class="op">*</span><span class="dv">2</span><span class="op">-</span><span class="dv">63</span>)<span class="op">//</span><span class="dv">256</span></span>
-<span id="cb45-302"><a href="#cb45-302"></a></span>
-<span id="cb45-303"><a href="#cb45-303"></a>_ <span class="op">=</span> p_ten_par(np_arr)  </span>
-<span id="cb45-304"><a href="#cb45-304"></a><span class="in">```</span></span>
-<span id="cb45-305"><a href="#cb45-305"></a><span class="ss">- </span>Time</span>
-<span id="cb45-308"><a href="#cb45-308"></a><span class="in">```{python}</span></span>
-<span id="cb45-309"><a href="#cb45-309"></a>t <span class="op">=</span> time.perf_counter()</span>
-<span id="cb45-310"><a href="#cb45-310"></a>p_ten_par(np_arr) <span class="co"># NumPy vectorization</span></span>
-<span id="cb45-311"><a href="#cb45-311"></a>pt_t <span class="op">=</span> time.perf_counter() <span class="op">-</span> t</span>
-<span id="cb45-312"><a href="#cb45-312"></a>pt_t</span>
-<span id="cb45-313"><a href="#cb45-313"></a><span class="in">```</span></span>
-<span id="cb45-314"><a href="#cb45-314"></a></span>
-<span id="cb45-315"><a href="#cb45-315"></a><span class="fu">## For me</span></span>
-<span id="cb45-316"><a href="#cb45-316"></a></span>
-<span id="cb45-317"><a href="#cb45-317"></a><span class="ss">- </span>My device is about twice as fast when parallelized.</span>
-<span id="cb45-318"><a href="#cb45-318"></a><span class="ss">- </span>I suspect much faster if I wasn't developing these slides while running servers, etc. in the background.</span>
-<span id="cb45-321"><a href="#cb45-321"></a><span class="in">```{python}</span></span>
-<span id="cb45-322"><a href="#cb45-322"></a><span class="co"># pt = parallel=true time</span></span>
-<span id="cb45-323"><a href="#cb45-323"></a>pt_t, nb_t, pt_t<span class="op">/</span>nb_t, nb_t<span class="op">/</span>pt_t</span>
-<span id="cb45-324"><a href="#cb45-324"></a><span class="in">```</span></span>
-<span id="cb45-325"><a href="#cb45-325"></a></span>
-<span id="cb45-326"><a href="#cb45-326"></a><span class="fu">## Or...</span></span>
-<span id="cb45-327"><a href="#cb45-327"></a></span>
-<span id="cb45-328"><a href="#cb45-328"></a><span class="ss">- </span>Or maybe I just need more numbers.</span>
-<span id="cb45-331"><a href="#cb45-331"></a><span class="in">```{python}</span></span>
-<span id="cb45-332"><a href="#cb45-332"></a>np_arr <span class="op">=</span> np.arange(<span class="dv">100000000</span>, dtype<span class="op">=</span>np.int64) <span class="co"># 100 mil</span></span>
-<span id="cb45-333"><a href="#cb45-333"></a><span class="in">```</span></span>
-<span id="cb45-334"><a href="#cb45-334"></a></span>
-<span id="cb45-335"><a href="#cb45-335"></a>:::: {.columns}</span>
-<span id="cb45-336"><a href="#cb45-336"></a></span>
-<span id="cb45-337"><a href="#cb45-337"></a>::: {.column width="50%"}</span>
-<span id="cb45-338"><a href="#cb45-338"></a></span>
-<span id="cb45-341"><a href="#cb45-341"></a><span class="in">```{python}</span></span>
-<span id="cb45-342"><a href="#cb45-342"></a><span class="at">@jit</span>(nopython<span class="op">=</span><span class="va">True</span>, parallel<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb45-343"><a href="#cb45-343"></a><span class="kw">def</span> p_ten(x):</span>
-<span id="cb45-344"><a href="#cb45-344"></a>    <span class="cf">return</span> (<span class="dv">46189</span><span class="op">*</span>x<span class="op">**</span><span class="dv">10</span><span class="op">-</span><span class="dv">109395</span><span class="op">*</span>x<span class="op">**</span><span class="dv">8</span><span class="op">+</span><span class="dv">90090</span><span class="op">*</span>x<span class="op">**</span><span class="dv">6</span><span class="op">-</span><span class="dv">30030</span><span class="op">*</span>x<span class="op">**</span><span class="dv">4</span><span class="op">+</span><span class="dv">3456</span><span class="op">*</span>x<span class="op">*</span><span class="dv">2</span><span class="op">-</span><span class="dv">63</span>)<span class="op">//</span><span class="dv">256</span></span>
-<span id="cb45-345"><a href="#cb45-345"></a></span>
-<span id="cb45-346"><a href="#cb45-346"></a>p_ten(np_arr) <span class="co"># Compile</span></span>
-<span id="cb45-347"><a href="#cb45-347"></a>t <span class="op">=</span> time.perf_counter()</span>
-<span id="cb45-348"><a href="#cb45-348"></a>p_ten(np_arr)</span>
-<span id="cb45-349"><a href="#cb45-349"></a>pf <span class="op">=</span> time.perf_counter() <span class="op">-</span> t</span>
-<span id="cb45-350"><a href="#cb45-350"></a>pf</span>
-<span id="cb45-351"><a href="#cb45-351"></a><span class="in">```</span></span>
-<span id="cb45-352"><a href="#cb45-352"></a></span>
-<span id="cb45-353"><a href="#cb45-353"></a></span>
-<span id="cb45-354"><a href="#cb45-354"></a>:::</span>
-<span id="cb45-355"><a href="#cb45-355"></a></span>
-<span id="cb45-356"><a href="#cb45-356"></a>::: {.column width="50%"}</span>
-<span id="cb45-357"><a href="#cb45-357"></a></span>
-<span id="cb45-360"><a href="#cb45-360"></a><span class="in">```{python}</span></span>
-<span id="cb45-361"><a href="#cb45-361"></a><span class="at">@jit</span>(nopython<span class="op">=</span><span class="va">True</span>, parallel<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb45-362"><a href="#cb45-362"></a><span class="kw">def</span> p_ten(x):</span>
-<span id="cb45-363"><a href="#cb45-363"></a>    <span class="cf">return</span> (<span class="dv">46189</span><span class="op">*</span>x<span class="op">**</span><span class="dv">10</span><span class="op">-</span><span class="dv">109395</span><span class="op">*</span>x<span class="op">**</span><span class="dv">8</span><span class="op">+</span><span class="dv">90090</span><span class="op">*</span>x<span class="op">**</span><span class="dv">6</span><span class="op">-</span><span class="dv">30030</span><span class="op">*</span>x<span class="op">**</span><span class="dv">4</span><span class="op">+</span><span class="dv">3456</span><span class="op">*</span>x<span class="op">*</span><span class="dv">2</span><span class="op">-</span><span class="dv">63</span>)<span class="op">//</span><span class="dv">256</span></span>
-<span id="cb45-364"><a href="#cb45-364"></a></span>
-<span id="cb45-365"><a href="#cb45-365"></a>p_ten(np_arr) <span class="co"># Compile</span></span>
-<span id="cb45-366"><a href="#cb45-366"></a>t <span class="op">=</span> time.perf_counter()</span>
-<span id="cb45-367"><a href="#cb45-367"></a>p_ten(np_arr)</span>
-<span id="cb45-368"><a href="#cb45-368"></a>pt <span class="op">=</span> time.perf_counter() <span class="op">-</span> t</span>
-<span id="cb45-369"><a href="#cb45-369"></a>pt</span>
-<span id="cb45-370"><a href="#cb45-370"></a><span class="in">```</span></span>
-<span id="cb45-371"><a href="#cb45-371"></a></span>
-<span id="cb45-372"><a href="#cb45-372"></a>:::</span>
-<span id="cb45-373"><a href="#cb45-373"></a></span>
-<span id="cb45-374"><a href="#cb45-374"></a>::::</span>
-<span id="cb45-375"><a href="#cb45-375"></a></span>
-<span id="cb45-376"><a href="#cb45-376"></a><span class="fu">## GIL</span></span>
-<span id="cb45-377"><a href="#cb45-377"></a></span>
-<span id="cb45-378"><a href="#cb45-378"></a><span class="ss">- </span>Python has a "Global Interpreter Lock" to ensure consistency of array operations.</span>
-<span id="cb45-379"><a href="#cb45-379"></a><span class="ss">- </span>All our array operations are independent, so we don't have to worry about any of that, I think.</span>
-<span id="cb45-380"><a href="#cb45-380"></a><span class="ss">- </span>We use <span class="in">`nogil`</span></span>
-<span id="cb45-381"><a href="#cb45-381"></a></span>
-<span id="cb45-382"><a href="#cb45-382"></a><span class="fu">## nogil=True</span></span>
-<span id="cb45-383"><a href="#cb45-383"></a></span>
-<span id="cb45-386"><a href="#cb45-386"></a><span class="in">```{python}</span></span>
-<span id="cb45-387"><a href="#cb45-387"></a><span class="at">@jit</span>(nopython<span class="op">=</span><span class="va">True</span>, nogil<span class="op">=</span><span class="va">True</span>, parallel<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb45-388"><a href="#cb45-388"></a><span class="kw">def</span> p_ten(x):</span>
-<span id="cb45-389"><a href="#cb45-389"></a>    <span class="cf">return</span> (<span class="dv">46189</span><span class="op">*</span>x<span class="op">**</span><span class="dv">10</span><span class="op">-</span><span class="dv">109395</span><span class="op">*</span>x<span class="op">**</span><span class="dv">8</span><span class="op">+</span><span class="dv">90090</span><span class="op">*</span>x<span class="op">**</span><span class="dv">6</span><span class="op">-</span><span class="dv">30030</span><span class="op">*</span>x<span class="op">**</span><span class="dv">4</span><span class="op">+</span><span class="dv">3456</span><span class="op">*</span>x<span class="op">*</span><span class="dv">2</span><span class="op">-</span><span class="dv">63</span>)<span class="op">//</span><span class="dv">256</span></span>
-<span id="cb45-390"><a href="#cb45-390"></a></span>
-<span id="cb45-391"><a href="#cb45-391"></a>p_ten(np_arr) <span class="co"># Compile</span></span>
-<span id="cb45-392"><a href="#cb45-392"></a>t <span class="op">=</span> time.perf_counter()</span>
-<span id="cb45-393"><a href="#cb45-393"></a>p_ten(np_arr)</span>
-<span id="cb45-394"><a href="#cb45-394"></a>ng <span class="op">=</span> time.perf_counter() <span class="op">-</span> t</span>
-<span id="cb45-395"><a href="#cb45-395"></a>ng, pt <span class="co"># no gil, parallel true</span></span>
-<span id="cb45-396"><a href="#cb45-396"></a><span class="in">```</span></span>
-<span id="cb45-397"><a href="#cb45-397"></a></span>
-<span id="cb45-398"><a href="#cb45-398"></a><span class="ss">- </span>Doesn't do much here.</span>
-<span id="cb45-399"><a href="#cb45-399"></a></span>
-<span id="cb45-400"><a href="#cb45-400"></a><span class="fu">## Signatures</span></span>
-<span id="cb45-401"><a href="#cb45-401"></a></span>
-<span id="cb45-402"><a href="#cb45-402"></a><span class="ss">- </span>Numba probably infers this, but it also benefits from knowing what kind of integer we are working with.</span>
-<span id="cb45-403"><a href="#cb45-403"></a><span class="ss">- </span>These are like the NumPy types.</span>
-<span id="cb45-404"><a href="#cb45-404"></a><span class="ss">- </span>Probably the biggest value... </span>
-<span id="cb45-407"><a href="#cb45-407"></a><span class="in">```{python}</span></span>
-<span id="cb45-408"><a href="#cb45-408"></a>biggest <span class="op">=</span> p_ten(<span class="bu">max</span>(np_arr))</span>
-<span id="cb45-409"><a href="#cb45-409"></a>biggest, np.iinfo(np.int32), np.iinfo(np.int64)</span>
-<span id="cb45-410"><a href="#cb45-410"></a><span class="in">```</span></span>
-<span id="cb45-411"><a href="#cb45-411"></a><span class="ss">- </span>Fits in <span class="in">`np.int64`</span></span>
-<span id="cb45-412"><a href="#cb45-412"></a></span>
-<span id="cb45-413"><a href="#cb45-413"></a><span class="fu">## cfunc</span></span>
-<span id="cb45-414"><a href="#cb45-414"></a></span>
-<span id="cb45-415"><a href="#cb45-415"></a><span class="ss">- </span>If we know the type of the values, we can use <span class="in">`cfunc`</span> instead of <span class="in">`jit`</span></span>
-<span id="cb45-416"><a href="#cb45-416"></a><span class="ss">- </span>Compiles to C, may be faster!</span>
-<span id="cb45-417"><a href="#cb45-417"></a><span class="ss">- </span>Signatures are <span class="in">`out(in)`</span>, so <span class="in">`/`</span> is <span class="in">`float(int, int)`</span></span>
-<span id="cb45-420"><a href="#cb45-420"></a><span class="in">```{python}</span></span>
-<span id="cb45-421"><a href="#cb45-421"></a>x <span class="op">=</span> <span class="dv">5</span></span>
-<span id="cb45-422"><a href="#cb45-422"></a>y <span class="op">=</span> <span class="dv">2</span></span>
-<span id="cb45-423"><a href="#cb45-423"></a>z <span class="op">=</span> x <span class="op">/</span> y</span>
-<span id="cb45-424"><a href="#cb45-424"></a><span class="bu">type</span>(z), <span class="bu">type</span>(x), <span class="bu">type</span>(y)</span>
-<span id="cb45-425"><a href="#cb45-425"></a><span class="in">```</span></span>
-<span id="cb45-426"><a href="#cb45-426"></a></span>
-<span id="cb45-427"><a href="#cb45-427"></a><span class="fu">## Run it</span></span>
-<span id="cb45-428"><a href="#cb45-428"></a></span>
-<span id="cb45-431"><a href="#cb45-431"></a><span class="in">```{python}</span></span>
-<span id="cb45-432"><a href="#cb45-432"></a><span class="im">from</span> numba <span class="im">import</span> cfunc, int64</span>
-<span id="cb45-433"><a href="#cb45-433"></a></span>
-<span id="cb45-434"><a href="#cb45-434"></a><span class="at">@cfunc</span>(int64(int64))</span>
-<span id="cb45-435"><a href="#cb45-435"></a><span class="kw">def</span> p_ten(x):</span>
-<span id="cb45-436"><a href="#cb45-436"></a>    <span class="cf">return</span> (<span class="dv">46189</span><span class="op">*</span>x<span class="op">**</span><span class="dv">10</span><span class="op">-</span><span class="dv">109395</span><span class="op">*</span>x<span class="op">**</span><span class="dv">8</span><span class="op">+</span><span class="dv">90090</span><span class="op">*</span>x<span class="op">**</span><span class="dv">6</span><span class="op">-</span><span class="dv">30030</span><span class="op">*</span>x<span class="op">**</span><span class="dv">4</span><span class="op">+</span><span class="dv">3456</span><span class="op">*</span>x<span class="op">*</span><span class="dv">2</span><span class="op">-</span><span class="dv">63</span>)<span class="op">//</span><span class="dv">256</span></span>
-<span id="cb45-437"><a href="#cb45-437"></a></span>
-<span id="cb45-438"><a href="#cb45-438"></a>p_ten(np_arr) <span class="co"># Compile</span></span>
-<span id="cb45-439"><a href="#cb45-439"></a>t <span class="op">=</span> time.perf_counter()</span>
-<span id="cb45-440"><a href="#cb45-440"></a>p_ten(np_arr)</span>
-<span id="cb45-441"><a href="#cb45-441"></a>time.perf_counter() <span class="op">-</span> t</span>
-<span id="cb45-442"><a href="#cb45-442"></a><span class="in">```</span></span>
-<span id="cb45-443"><a href="#cb45-443"></a></span>
-<span id="cb45-444"><a href="#cb45-444"></a><span class="ss">- </span>Meh. Works better with formulas than polynomials (exponentials and the like).</span>
-<span id="cb45-445"><a href="#cb45-445"></a></span>
-<span id="cb45-446"><a href="#cb45-446"></a><span class="fu">## Aside: Intel</span></span>
-<span id="cb45-447"><a href="#cb45-447"></a></span>
-<span id="cb45-448"><a href="#cb45-448"></a><span class="ss">- </span>I tried a few Intel packages Numba recommended.</span>
-<span id="cb45-449"><a href="#cb45-449"></a><span class="ss">- </span>I got no noticeable changes from either, but mention them.</span>
-<span id="cb45-450"><a href="#cb45-450"></a></span>
-<span id="cb45-451"><a href="#cb45-451"></a><span class="fu">## Intel SVML</span></span>
-<span id="cb45-452"><a href="#cb45-452"></a></span>
-<span id="cb45-453"><a href="#cb45-453"></a><span class="ss">- </span>These slides were compiled on an Intel device.</span>
-<span id="cb45-454"><a href="#cb45-454"></a><span class="ss">- </span>Numba recommends SVML for Intel devices.</span>
-<span id="cb45-455"><a href="#cb45-455"></a></span>
-<span id="cb45-456"><a href="#cb45-456"></a><span class="at">&gt; Intel provides a short vector math library (SVML) that contains a large number of optimised transcendental functions available for use as compiler intrinsics</span></span>
-<span id="cb45-457"><a href="#cb45-457"></a></span>
-<span id="cb45-458"><a href="#cb45-458"></a><span class="in">```{.bash code-line-number="false"}</span></span>
-<span id="cb45-459"><a href="#cb45-459"></a><span class="in">python3 -m pip install intel-cmplr-lib-rt</span></span>
-<span id="cb45-460"><a href="#cb45-460"></a><span class="in">```</span></span>
-<span id="cb45-461"><a href="#cb45-461"></a></span>
-<span id="cb45-462"><a href="#cb45-462"></a><span class="fu">## Threading</span></span>
-<span id="cb45-463"><a href="#cb45-463"></a></span>
-<span id="cb45-464"><a href="#cb45-464"></a><span class="ss">- </span>For parallelism, Numba recommends <span class="in">`tbb`</span> (Intel) or OpenMP (otherwise).</span>
-<span id="cb45-465"><a href="#cb45-465"></a><span class="ss">- </span>They are not available on all devices.</span>
-<span id="cb45-466"><a href="#cb45-466"></a><span class="ss">- </span>I could use <span class="in">`tbb`</span></span>
-<span id="cb45-467"><a href="#cb45-467"></a><span class="in">```{.bash code-line-number="false"}</span></span>
-<span id="cb45-468"><a href="#cb45-468"></a><span class="in">python3 -m pip install tbb</span></span>
-<span id="cb45-469"><a href="#cb45-469"></a><span class="in">```</span></span>
-<span id="cb45-470"><a href="#cb45-470"></a></span>
-<span id="cb45-471"><a href="#cb45-471"></a></span>
-<span id="cb45-472"><a href="#cb45-472"></a><span class="fu">## Floats</span></span>
-<span id="cb45-473"><a href="#cb45-473"></a></span>
-<span id="cb45-474"><a href="#cb45-474"></a><span class="ss">- </span>Numba works just fine with floats!</span>
-<span id="cb45-477"><a href="#cb45-477"></a><span class="in">```{python}</span></span>
-<span id="cb45-478"><a href="#cb45-478"></a>float_arr <span class="op">=</span> np_arr <span class="op">/</span> <span class="dv">7</span></span>
-<span id="cb45-479"><a href="#cb45-479"></a><span class="co"># add fastmath to decorator, change // to /</span></span>
-<span id="cb45-480"><a href="#cb45-480"></a><span class="co"># `njit` means `jit(nopython=True`</span></span>
-<span id="cb45-481"><a href="#cb45-481"></a><span class="im">from</span> numba <span class="im">import</span> njit</span>
-<span id="cb45-482"><a href="#cb45-482"></a></span>
-<span id="cb45-483"><a href="#cb45-483"></a><span class="at">@njit</span>(parallel<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb45-484"><a href="#cb45-484"></a><span class="kw">def</span> p_ten(x):</span>
-<span id="cb45-485"><a href="#cb45-485"></a>    <span class="cf">return</span> (<span class="fl">46189.</span><span class="op">*</span>x<span class="op">**</span><span class="fl">10.</span><span class="op">-</span><span class="fl">109395.</span><span class="op">*</span>x<span class="op">**</span><span class="fl">8.</span><span class="op">+</span><span class="fl">90090.</span><span class="op">*</span>x<span class="op">**</span><span class="fl">6.</span><span class="op">-</span><span class="fl">30030.</span><span class="op">*</span>x<span class="op">**</span><span class="fl">4.</span><span class="op">+</span><span class="fl">3456.</span><span class="op">*</span>x<span class="op">*</span><span class="fl">2.</span><span class="op">-</span><span class="fl">63.</span>)<span class="op">/</span><span class="fl">256.</span></span>
-<span id="cb45-486"><a href="#cb45-486"></a></span>
-<span id="cb45-487"><a href="#cb45-487"></a>p_ten(np_arr) <span class="co"># Compile</span></span>
-<span id="cb45-488"><a href="#cb45-488"></a>t <span class="op">=</span> time.perf_counter()</span>
-<span id="cb45-489"><a href="#cb45-489"></a>p_ten(np_arr)</span>
-<span id="cb45-490"><a href="#cb45-490"></a>float_t <span class="op">=</span> time.perf_counter() <span class="op">-</span> t</span>
-<span id="cb45-491"><a href="#cb45-491"></a>float_t</span>
-<span id="cb45-492"><a href="#cb45-492"></a><span class="in">```</span></span>
-<span id="cb45-493"><a href="#cb45-493"></a></span>
-<span id="cb45-494"><a href="#cb45-494"></a><span class="fu">## Floats</span></span>
-<span id="cb45-495"><a href="#cb45-495"></a></span>
-<span id="cb45-496"><a href="#cb45-496"></a><span class="ss">- </span>I used integers, but if we use floats we should use the <span class="in">`fastmath`</span> option.</span>
-<span id="cb45-497"><a href="#cb45-497"></a><span class="ss">- </span>It allows greater inaccuracy (remember float rounding) in exchange for faster operations.</span>
-<span id="cb45-500"><a href="#cb45-500"></a><span class="in">```{python}</span></span>
-<span id="cb45-501"><a href="#cb45-501"></a><span class="at">@njit</span>(fastmath<span class="op">=</span><span class="va">True</span>, parallel<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb45-502"><a href="#cb45-502"></a><span class="kw">def</span> p_ten(x):</span>
-<span id="cb45-503"><a href="#cb45-503"></a>    <span class="cf">return</span> (<span class="fl">46189.</span><span class="op">*</span>x<span class="op">**</span><span class="fl">10.</span><span class="op">-</span><span class="fl">109395.</span><span class="op">*</span>x<span class="op">**</span><span class="fl">8.</span><span class="op">+</span><span class="fl">90090.</span><span class="op">*</span>x<span class="op">**</span><span class="fl">6.</span><span class="op">-</span><span class="fl">30030.</span><span class="op">*</span>x<span class="op">**</span><span class="fl">4.</span><span class="op">+</span><span class="fl">3456.</span><span class="op">*</span>x<span class="op">*</span><span class="fl">2.</span><span class="op">-</span><span class="fl">63.</span>)<span class="op">/</span><span class="fl">256.</span></span>
-<span id="cb45-504"><a href="#cb45-504"></a></span>
-<span id="cb45-505"><a href="#cb45-505"></a>p_ten(np_arr) <span class="co"># Compile</span></span>
-<span id="cb45-506"><a href="#cb45-506"></a>t <span class="op">=</span> time.perf_counter()</span>
-<span id="cb45-507"><a href="#cb45-507"></a>p_ten(np_arr)</span>
-<span id="cb45-508"><a href="#cb45-508"></a>fast_t <span class="op">=</span> time.perf_counter() <span class="op">-</span> t</span>
-<span id="cb45-509"><a href="#cb45-509"></a>fast_t, float_t, fast_t<span class="op">/</span>float_t, float_t<span class="op">/</span>fast_t</span>
-<span id="cb45-510"><a href="#cb45-510"></a><span class="in">```</span></span>
-<span id="cb45-511"><a href="#cb45-511"></a></span>
-<span id="cb45-512"><a href="#cb45-512"></a><span class="fu"># Mandelbrot</span></span>
-<span id="cb45-513"><a href="#cb45-513"></a></span>
-<span id="cb45-514"><a href="#cb45-514"></a><span class="fu">## </span></span>
+<div class="sourceCode" id="cb52" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb52-1"><a href="#cb52-1"></a><span class="co">---</span></span>
+<span id="cb52-2"><a href="#cb52-2"></a><span class="an">title:</span><span class="co"> Numba </span></span>
+<span id="cb52-3"><a href="#cb52-3"></a><span class="co">---</span></span>
+<span id="cb52-4"><a href="#cb52-4"></a></span>
+<span id="cb52-5"><a href="#cb52-5"></a><span class="fu"># What is Numba?</span></span>
+<span id="cb52-6"><a href="#cb52-6"></a></span>
+<span id="cb52-7"><a href="#cb52-7"></a><span class="ss">- </span><span class="in">`Numba`</span> addresses a long-standing problem in scientific computing.</span>
+<span id="cb52-8"><a href="#cb52-8"></a><span class="ss">    - </span>Writing code in Python, instead of C or Fortran, is fast.</span>
+<span id="cb52-9"><a href="#cb52-9"></a><span class="ss">    - </span>Running code in Python, instead of C or Fortran, is slow.</span>
+<span id="cb52-10"><a href="#cb52-10"></a></span>
+<span id="cb52-11"><a href="#cb52-11"></a><span class="fu">## C/Fortran</span></span>
+<span id="cb52-12"><a href="#cb52-12"></a>      </span>
+<span id="cb52-13"><a href="#cb52-13"></a><span class="ss">- </span>C and Fortran have been swimming around the periphery for some time.</span>
+<span id="cb52-14"><a href="#cb52-14"></a><span class="ss">    - </span>E.g. NumPy is written in C, uses C numbers.</span>
+<span id="cb52-15"><a href="#cb52-15"></a><span class="ss">    - </span>E.g. SymPy can print C/Fortran code for expressions.</span>
+<span id="cb52-16"><a href="#cb52-16"></a><span class="ss">- </span>C is a general purpose language and the highest performance language in existence.</span>
+<span id="cb52-17"><a href="#cb52-17"></a><span class="ss">- </span>Fortran, for "formula transcription", is the foremost numerical computing platform (for performance).</span>
+<span id="cb52-18"><a href="#cb52-18"></a></span>
+<span id="cb52-19"><a href="#cb52-19"></a><span class="fu">## Scripting</span></span>
+<span id="cb52-20"><a href="#cb52-20"></a></span>
+<span id="cb52-21"><a href="#cb52-21"></a><span class="ss">- </span>Python is a *scripting* language.</span>
+<span id="cb52-22"><a href="#cb52-22"></a><span class="ss">    - </span>Write code in <span class="in">`.py`</span> file or within <span class="in">`python`</span></span>
+<span id="cb52-23"><a href="#cb52-23"></a><span class="ss">    - </span>The <span class="in">`python`</span> program "runs" the code</span>
+<span id="cb52-24"><a href="#cb52-24"></a><span class="ss">    - </span>No program is created.</span>
+<span id="cb52-25"><a href="#cb52-25"></a></span>
+<span id="cb52-26"><a href="#cb52-26"></a><span class="fu">## Vs. C/Fortran</span></span>
+<span id="cb52-27"><a href="#cb52-27"></a></span>
+<span id="cb52-28"><a href="#cb52-28"></a><span class="ss">- </span>C and Fortran are *compiled* languages.</span>
+<span id="cb52-29"><a href="#cb52-29"></a><span class="ss">    - </span>Write code.</span>
+<span id="cb52-30"><a href="#cb52-30"></a><span class="ss">    - </span>Call a program, a **compiler**, on the code.</span>
+<span id="cb52-31"><a href="#cb52-31"></a><span class="ss">    - </span>The compiler creates a **program**.</span>
+<span id="cb52-32"><a href="#cb52-32"></a><span class="ss">    - </span>Run the program.</span>
+<span id="cb52-33"><a href="#cb52-33"></a></span>
+<span id="cb52-34"><a href="#cb52-34"></a><span class="fu">## Numba</span></span>
+<span id="cb52-35"><a href="#cb52-35"></a></span>
+<span id="cb52-36"><a href="#cb52-36"></a><span class="ss">- </span>Numba is a compiler for Python.</span>
+<span id="cb52-37"><a href="#cb52-37"></a><span class="ss">- </span>More than that - a jit (just-in-time) compiler.</span>
+<span id="cb52-38"><a href="#cb52-38"></a><span class="ss">- </span>Numba looks and feels like Python, but under the hood is compiling Python code in fast, compiled languages.</span>
+<span id="cb52-39"><a href="#cb52-39"></a><span class="ss">- </span>It is a good halfway step to avoid having to learn C/Fortran.</span>
+<span id="cb52-40"><a href="#cb52-40"></a></span>
+<span id="cb52-41"><a href="#cb52-41"></a><span class="fu">## In its own words:</span></span>
+<span id="cb52-42"><a href="#cb52-42"></a></span>
+<span id="cb52-43"><a href="#cb52-43"></a></span>
+<span id="cb52-44"><a href="#cb52-44"></a><span class="at">&gt; </span><span class="co">[</span><span class="ot">Numba is a compiler for Python array and numerical functions that gives you the power to speed up your applications with high performance functions written directly in Python.</span><span class="co">](https://numba.readthedocs.io/en/stable/user/overview.html)</span></span>
+<span id="cb52-45"><a href="#cb52-45"></a></span>
+<span id="cb52-46"><a href="#cb52-46"></a><span class="at">&gt; </span><span class="co">[</span><span class="ot">With a few simple annotations, array-oriented and math-heavy Python code can be just-in-time optimized to performance similar as C, C++ and Fortran, without having to switch languages or Python interpreters.</span><span class="co">](https://numba.readthedocs.io/en/stable/user/overview.html)</span></span>
+<span id="cb52-47"><a href="#cb52-47"></a></span>
+<span id="cb52-48"><a href="#cb52-48"></a><span class="fu">## Why not Numba?</span></span>
+<span id="cb52-49"><a href="#cb52-49"></a></span>
+<span id="cb52-50"><a href="#cb52-50"></a><span class="ss">- </span>Just learn C or Fortran</span>
+<span id="cb52-51"><a href="#cb52-51"></a><span class="ss">- </span>Use Cython, an alternative Python compiler.</span>
+<span id="cb52-52"><a href="#cb52-52"></a><span class="ss">- </span>Use SymPy print-to-C/Fortran</span>
+<span id="cb52-53"><a href="#cb52-53"></a><span class="ss">- </span>Use GPU acceleration via PyTorch or Tensorflow for certain applications.</span>
+<span id="cb52-54"><a href="#cb52-54"></a><span class="ss">    - </span>The Meta and Google GPU-accelerated frameworks, respectively.</span>
+<span id="cb52-55"><a href="#cb52-55"></a><span class="ss">    - </span><span class="in">`numba-cuda`</span> (NVIDIA GPU Numba) exists, but I haven't seen it used much.</span>
+<span id="cb52-56"><a href="#cb52-56"></a></span>
+<span id="cb52-57"><a href="#cb52-57"></a></span>
+<span id="cb52-58"><a href="#cb52-58"></a><span class="fu"># Install</span></span>
+<span id="cb52-59"><a href="#cb52-59"></a></span>
+<span id="cb52-60"><a href="#cb52-60"></a><span class="fu">## Pip again!</span></span>
+<span id="cb52-61"><a href="#cb52-61"></a></span>
+<span id="cb52-62"><a href="#cb52-62"></a><span class="ss">- </span>Nothing special here.</span>
+<span id="cb52-63"><a href="#cb52-63"></a><span class="in">```{.bash code-line-numbers="false"}</span></span>
+<span id="cb52-64"><a href="#cb52-64"></a><span class="in">python3 -m pip install numba</span></span>
+<span id="cb52-65"><a href="#cb52-65"></a><span class="in">```</span></span>
+<span id="cb52-66"><a href="#cb52-66"></a><span class="ss">- </span>Let's try it out.</span>
+<span id="cb52-67"><a href="#cb52-67"></a></span>
+<span id="cb52-68"><a href="#cb52-68"></a><span class="fu">## Decorators</span></span>
+<span id="cb52-69"><a href="#cb52-69"></a></span>
+<span id="cb52-70"><a href="#cb52-70"></a><span class="ss">- </span>We need to introduce something called a *decorator*</span>
+<span id="cb52-71"><a href="#cb52-71"></a><span class="ss">- </span>It's a little note before a function definition that starts with <span class="in">`@`</span></span>
+<span id="cb52-72"><a href="#cb52-72"></a><span class="ss">    - </span>This means we'll mostly write functions to use Numba.</span>
+<span id="cb52-73"><a href="#cb52-73"></a><span class="ss">- </span>We'll do an example.</span>
+<span id="cb52-74"><a href="#cb52-74"></a></span>
+<span id="cb52-75"><a href="#cb52-75"></a><span class="fu">## Import</span></span>
+<span id="cb52-76"><a href="#cb52-76"></a></span>
+<span id="cb52-77"><a href="#cb52-77"></a><span class="ss">- </span>Numba is essential a NumPy optimizer, so we'll include both.</span>
+<span id="cb52-78"><a href="#cb52-78"></a></span>
+<span id="cb52-81"><a href="#cb52-81"></a><span class="in">```{python}</span></span>
+<span id="cb52-82"><a href="#cb52-82"></a><span class="im">from</span> numba <span class="im">import</span> jit</span>
+<span id="cb52-83"><a href="#cb52-83"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb52-84"><a href="#cb52-84"></a><span class="in">```</span></span>
+<span id="cb52-85"><a href="#cb52-85"></a></span>
+<span id="cb52-86"><a href="#cb52-86"></a><span class="fu">## Test it</span></span>
+<span id="cb52-87"><a href="#cb52-87"></a></span>
+<span id="cb52-88"><a href="#cb52-88"></a><span class="ss">- </span><span class="in">`@jit`</span> is the much-ballyhoo'ed *decorator*.</span>
+<span id="cb52-89"><a href="#cb52-89"></a></span>
+<span id="cb52-92"><a href="#cb52-92"></a><span class="in">```{python}</span></span>
+<span id="cb52-93"><a href="#cb52-93"></a>x <span class="op">=</span> np.arange(<span class="dv">100</span>).reshape(<span class="dv">10</span>, <span class="dv">10</span>)</span>
+<span id="cb52-94"><a href="#cb52-94"></a></span>
+<span id="cb52-95"><a href="#cb52-95"></a><span class="at">@jit</span></span>
+<span id="cb52-96"><a href="#cb52-96"></a><span class="kw">def</span> go_fast(a): <span class="co"># Function is compiled to machine code when called the first time</span></span>
+<span id="cb52-97"><a href="#cb52-97"></a>    trace <span class="op">=</span> <span class="fl">0.0</span></span>
+<span id="cb52-98"><a href="#cb52-98"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(a.shape[<span class="dv">0</span>]):   <span class="co"># Numba likes loops</span></span>
+<span id="cb52-99"><a href="#cb52-99"></a>        trace <span class="op">+=</span> np.tanh(a[i, i]) <span class="co"># Numba likes NumPy functions</span></span>
+<span id="cb52-100"><a href="#cb52-100"></a>    <span class="cf">return</span> a <span class="op">+</span> trace              <span class="co"># Numba likes NumPy broadcasting</span></span>
+<span id="cb52-101"><a href="#cb52-101"></a></span>
+<span id="cb52-102"><a href="#cb52-102"></a>_ <span class="op">=</span> go_fast(x)</span>
+<span id="cb52-103"><a href="#cb52-103"></a><span class="in">```</span></span>
+<span id="cb52-104"><a href="#cb52-104"></a></span>
+<span id="cb52-105"><a href="#cb52-105"></a><span class="fu">## Aside: **pandas**</span></span>
+<span id="cb52-106"><a href="#cb52-106"></a></span>
+<span id="cb52-107"><a href="#cb52-107"></a><span class="ss">- </span>Numba does *not* accelerate **pandas**</span>
+<span id="cb52-108"><a href="#cb52-108"></a><span class="ss">- </span>It is the "numerical" not "data" compiler.</span>
+<span id="cb52-109"><a href="#cb52-109"></a><span class="ss">- </span>Don't do this:</span>
+<span id="cb52-112"><a href="#cb52-112"></a><span class="in">```{python}</span></span>
+<span id="cb52-113"><a href="#cb52-113"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb52-114"><a href="#cb52-114"></a></span>
+<span id="cb52-115"><a href="#cb52-115"></a>x <span class="op">=</span> {<span class="st">'a'</span>: [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], <span class="st">'b'</span>: [<span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>]}</span>
+<span id="cb52-116"><a href="#cb52-116"></a></span>
+<span id="cb52-117"><a href="#cb52-117"></a><span class="at">@jit</span>(forceobj<span class="op">=</span><span class="va">True</span>, looplift<span class="op">=</span><span class="va">True</span>) <span class="co"># Need to use object mode, try and compile loops!</span></span>
+<span id="cb52-118"><a href="#cb52-118"></a><span class="kw">def</span> use_pandas(a): <span class="co"># Function will not benefit from Numba jit</span></span>
+<span id="cb52-119"><a href="#cb52-119"></a>    df <span class="op">=</span> pd.DataFrame.from_dict(a) <span class="co"># Numba doesn't know about pd.DataFrame</span></span>
+<span id="cb52-120"><a href="#cb52-120"></a>    df <span class="op">+=</span> <span class="dv">1</span>                        <span class="co"># Numba doesn't understand what this is</span></span>
+<span id="cb52-121"><a href="#cb52-121"></a>    <span class="cf">return</span> df.cov()                <span class="co"># or this!</span></span>
+<span id="cb52-122"><a href="#cb52-122"></a></span>
+<span id="cb52-123"><a href="#cb52-123"></a>_ <span class="op">=</span> use_pandas(x)</span>
+<span id="cb52-124"><a href="#cb52-124"></a><span class="in">```</span></span>
+<span id="cb52-125"><a href="#cb52-125"></a></span>
+<span id="cb52-126"><a href="#cb52-126"></a><span class="fu">## Modes</span></span>
+<span id="cb52-127"><a href="#cb52-127"></a></span>
+<span id="cb52-128"><a href="#cb52-128"></a><span class="ss">- </span>Numba basically has two modes</span>
+<span id="cb52-129"><a href="#cb52-129"></a><span class="ss">    - </span><span class="in">`object mode`</span>: Slow Python mode, works for **pandas**</span>
+<span id="cb52-130"><a href="#cb52-130"></a><span class="ss">    - </span><span class="in">`nonpython`</span>: Fast compiled mode, works for NumPy</span>
+<span id="cb52-131"><a href="#cb52-131"></a><span class="ss">- </span>I wouldn't bother with Numba unless you can use <span class="in">`nonpython`</span></span>
+<span id="cb52-132"><a href="#cb52-132"></a><span class="ss">    - </span>Basically Numba doesn't do anything.</span>
+<span id="cb52-133"><a href="#cb52-133"></a></span>
+<span id="cb52-134"><a href="#cb52-134"></a><span class="fu"># Timing</span></span>
+<span id="cb52-135"><a href="#cb52-135"></a></span>
+<span id="cb52-136"><a href="#cb52-136"></a><span class="fu">## time</span></span>
+<span id="cb52-137"><a href="#cb52-137"></a></span>
+<span id="cb52-138"><a href="#cb52-138"></a><span class="ss">- </span>It is hard to motivate Numba without seeing how fast it is.</span>
+<span id="cb52-139"><a href="#cb52-139"></a><span class="ss">- </span>We will introduce <span class="in">`time`</span></span>
+<span id="cb52-140"><a href="#cb52-140"></a></span>
+<span id="cb52-143"><a href="#cb52-143"></a><span class="in">```{python}</span></span>
+<span id="cb52-144"><a href="#cb52-144"></a><span class="im">import</span> time</span>
+<span id="cb52-145"><a href="#cb52-145"></a></span>
+<span id="cb52-146"><a href="#cb52-146"></a>time.time()</span>
+<span id="cb52-147"><a href="#cb52-147"></a><span class="in">```</span></span>
+<span id="cb52-148"><a href="#cb52-148"></a></span>
+<span id="cb52-149"><a href="#cb52-149"></a><span class="fu">## perf_counter()</span></span>
+<span id="cb52-150"><a href="#cb52-150"></a></span>
+<span id="cb52-151"><a href="#cb52-151"></a><span class="ss">- </span><span class="in">`time`</span> supports <span class="in">`time.perf_counter()`</span></span>
+<span id="cb52-152"><a href="#cb52-152"></a></span>
+<span id="cb52-153"><a href="#cb52-153"></a><span class="at">&gt; Return the value (in fractional seconds) of a performance counter, i.e. a clock with the highest available resolution to measure a short duration.</span></span>
+<span id="cb52-154"><a href="#cb52-154"></a></span>
+<span id="cb52-155"><a href="#cb52-155"></a><span class="ss">- </span>Let's try it out.</span>
+<span id="cb52-156"><a href="#cb52-156"></a></span>
+<span id="cb52-157"><a href="#cb52-157"></a><span class="fu">## NumPy</span></span>
+<span id="cb52-158"><a href="#cb52-158"></a></span>
+<span id="cb52-159"><a href="#cb52-159"></a><span class="ss">- </span>I have have claimed NumPy vector operations are faster than base Python.</span>
+<span id="cb52-160"><a href="#cb52-160"></a><span class="ss">- </span>Let's test it.</span>
+<span id="cb52-163"><a href="#cb52-163"></a><span class="in">```{python}</span></span>
+<span id="cb52-164"><a href="#cb52-164"></a>py_lst <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">1000000</span>))</span>
+<span id="cb52-165"><a href="#cb52-165"></a>np_arr <span class="op">=</span>  np.arange(<span class="dv">1000000</span>)</span>
+<span id="cb52-166"><a href="#cb52-166"></a></span>
+<span id="cb52-167"><a href="#cb52-167"></a><span class="bu">len</span>(py_lst), <span class="bu">len</span>(np_arr)</span>
+<span id="cb52-168"><a href="#cb52-168"></a><span class="in">```</span></span>
+<span id="cb52-169"><a href="#cb52-169"></a></span>
+<span id="cb52-170"><a href="#cb52-170"></a><span class="fu">## Polynomial</span></span>
+<span id="cb52-171"><a href="#cb52-171"></a></span>
+<span id="cb52-172"><a href="#cb52-172"></a><span class="ss">- </span>We will write a simple polynomial.</span>
+<span id="cb52-173"><a href="#cb52-173"></a></span>
+<span id="cb52-174"><a href="#cb52-174"></a><span class="at">&gt; </span><span class="co">[</span><span class="ot">The Legendre polynomials were first introduced in 1782 by Adrien-Marie Legendre[5] as the coefficients in the expansion of the Newtonian potential...</span><span class="co">](https://en.wikipedia.org/wiki/Legendre_polynomials)</span></span>
+<span id="cb52-175"><a href="#cb52-175"></a></span>
+<span id="cb52-176"><a href="#cb52-176"></a><span class="at">&gt; </span><span class="co">[</span><span class="ot">...served as the fundamental gravitational potential in Newton's law of universal gravitation.</span><span class="co">](https://en.wikipedia.org/wiki/Newtonian_potential)</span></span>
+<span id="cb52-177"><a href="#cb52-177"></a></span>
+<span id="cb52-178"><a href="#cb52-178"></a><span class="fu">## $P_{10}(x)$</span></span>
+<span id="cb52-179"><a href="#cb52-179"></a></span>
+<span id="cb52-180"><a href="#cb52-180"></a><span class="ss">- </span>We take $P_{10}(x)$, the 10th Legendre polynomial.</span>
+<span id="cb52-181"><a href="#cb52-181"></a></span>
+<span id="cb52-182"><a href="#cb52-182"></a>$$</span>
+<span id="cb52-183"><a href="#cb52-183"></a>\tfrac{146189x^{10}-109395x^8+90090x^6-30030x^4+3465x^2-63}{256}</span>
+<span id="cb52-184"><a href="#cb52-184"></a>$$</span>
+<span id="cb52-185"><a href="#cb52-185"></a></span>
+<span id="cb52-186"><a href="#cb52-186"></a><span class="ss">- </span>This uses only NumPy vectorizable operations:</span>
+<span id="cb52-189"><a href="#cb52-189"></a><span class="in">```{python}</span></span>
+<span id="cb52-190"><a href="#cb52-190"></a><span class="kw">def</span> p_ten(x):</span>
+<span id="cb52-191"><a href="#cb52-191"></a>    <span class="cf">return</span> (<span class="dv">46189</span><span class="op">*</span>x<span class="op">**</span><span class="dv">10</span><span class="op">-</span><span class="dv">109395</span><span class="op">*</span>x<span class="op">**</span><span class="dv">8</span><span class="op">+</span><span class="dv">90090</span><span class="op">*</span>x<span class="op">**</span><span class="dv">6</span><span class="op">-</span><span class="dv">30030</span><span class="op">*</span>x<span class="op">**</span><span class="dv">4</span><span class="op">+</span><span class="dv">3456</span><span class="op">*</span>x<span class="op">*</span><span class="dv">2</span><span class="op">-</span><span class="dv">63</span>)<span class="op">//</span><span class="dv">256</span></span>
+<span id="cb52-192"><a href="#cb52-192"></a></span>
+<span id="cb52-193"><a href="#cb52-193"></a>p_ten(np.arange(<span class="dv">5</span>))</span>
+<span id="cb52-194"><a href="#cb52-194"></a><span class="in">```</span></span>
+<span id="cb52-195"><a href="#cb52-195"></a></span>
+<span id="cb52-196"><a href="#cb52-196"></a><span class="fu">## Timing</span></span>
+<span id="cb52-197"><a href="#cb52-197"></a></span>
+<span id="cb52-198"><a href="#cb52-198"></a><span class="ss">- </span>It is a straightforward matter to time Python vs NumPy</span>
+<span id="cb52-199"><a href="#cb52-199"></a></span>
+<span id="cb52-200"><a href="#cb52-200"></a>:::: {.columns}</span>
+<span id="cb52-201"><a href="#cb52-201"></a></span>
+<span id="cb52-202"><a href="#cb52-202"></a>::: {.column width="50%"}</span>
+<span id="cb52-203"><a href="#cb52-203"></a></span>
+<span id="cb52-206"><a href="#cb52-206"></a><span class="in">```{python}</span></span>
+<span id="cb52-207"><a href="#cb52-207"></a>t <span class="op">=</span> time.perf_counter()</span>
+<span id="cb52-208"><a href="#cb52-208"></a>[p_ten(i) <span class="cf">for</span> i <span class="kw">in</span> py_lst] <span class="co"># Pythonic vector</span></span>
+<span id="cb52-209"><a href="#cb52-209"></a>py_t <span class="op">=</span> time.perf_counter() <span class="op">-</span> t</span>
+<span id="cb52-210"><a href="#cb52-210"></a><span class="in">```</span></span>
+<span id="cb52-211"><a href="#cb52-211"></a></span>
+<span id="cb52-212"><a href="#cb52-212"></a></span>
+<span id="cb52-213"><a href="#cb52-213"></a>:::</span>
+<span id="cb52-214"><a href="#cb52-214"></a></span>
+<span id="cb52-215"><a href="#cb52-215"></a>::: {.column width="50%"}</span>
+<span id="cb52-216"><a href="#cb52-216"></a></span>
+<span id="cb52-217"><a href="#cb52-217"></a></span>
+<span id="cb52-220"><a href="#cb52-220"></a><span class="in">```{python}</span></span>
+<span id="cb52-221"><a href="#cb52-221"></a>t <span class="op">=</span> time.perf_counter()</span>
+<span id="cb52-222"><a href="#cb52-222"></a>p_ten(np_arr) <span class="co"># NumPy vectorization</span></span>
+<span id="cb52-223"><a href="#cb52-223"></a>np_t <span class="op">=</span> time.perf_counter() <span class="op">-</span> t</span>
+<span id="cb52-224"><a href="#cb52-224"></a><span class="in">```</span></span>
+<span id="cb52-225"><a href="#cb52-225"></a></span>
+<span id="cb52-226"><a href="#cb52-226"></a>:::</span>
+<span id="cb52-227"><a href="#cb52-227"></a></span>
+<span id="cb52-228"><a href="#cb52-228"></a>::::</span>
+<span id="cb52-229"><a href="#cb52-229"></a></span>
+<span id="cb52-230"><a href="#cb52-230"></a><span class="ss">- </span>Compare the times - NumPy 24x faster.</span>
+<span id="cb52-231"><a href="#cb52-231"></a></span>
+<span id="cb52-234"><a href="#cb52-234"></a><span class="in">```{python}</span></span>
+<span id="cb52-235"><a href="#cb52-235"></a>py_t, np_t, py_t<span class="op">/</span>np_t, np_t<span class="op">/</span>py_t</span>
+<span id="cb52-236"><a href="#cb52-236"></a><span class="in">```</span></span>
+<span id="cb52-237"><a href="#cb52-237"></a></span>
+<span id="cb52-238"><a href="#cb52-238"></a><span class="fu"># Compilation</span></span>
+<span id="cb52-239"><a href="#cb52-239"></a></span>
+<span id="cb52-240"><a href="#cb52-240"></a><span class="fu">## Compiling</span></span>
+<span id="cb52-241"><a href="#cb52-241"></a></span>
+<span id="cb52-242"><a href="#cb52-242"></a><span class="ss">- </span>To compile a Numba function, we have to run at least once.</span>
+<span id="cb52-243"><a href="#cb52-243"></a><span class="ss">- </span>We will:</span>
+<span id="cb52-244"><a href="#cb52-244"></a><span class="ss">    - </span>Write a function.</span>
+<span id="cb52-245"><a href="#cb52-245"></a><span class="ss">    - </span>Time it with NumPy</span>
+<span id="cb52-246"><a href="#cb52-246"></a><span class="ss">    - </span>Add Numba decorators</span>
+<span id="cb52-247"><a href="#cb52-247"></a><span class="ss">    - </span>Run once</span>
+<span id="cb52-248"><a href="#cb52-248"></a><span class="ss">    - </span>Time it with Numba</span>
+<span id="cb52-249"><a href="#cb52-249"></a><span class="ss">- </span>Helpfully, we timed <span class="in">`p_ten()`</span> with NumPy</span>
+<span id="cb52-250"><a href="#cb52-250"></a></span>
+<span id="cb52-251"><a href="#cb52-251"></a></span>
+<span id="cb52-252"><a href="#cb52-252"></a><span class="fu">## Numba time.</span></span>
+<span id="cb52-253"><a href="#cb52-253"></a></span>
+<span id="cb52-254"><a href="#cb52-254"></a><span class="ss">- </span>Declare with <span class="in">`@jit`</span></span>
+<span id="cb52-257"><a href="#cb52-257"></a><span class="in">```{python}</span></span>
+<span id="cb52-258"><a href="#cb52-258"></a><span class="at">@jit</span></span>
+<span id="cb52-259"><a href="#cb52-259"></a><span class="kw">def</span> p_ten_nb(x):</span>
+<span id="cb52-260"><a href="#cb52-260"></a>    <span class="cf">return</span> (<span class="dv">46189</span><span class="op">*</span>x<span class="op">**</span><span class="dv">10</span><span class="op">-</span><span class="dv">109395</span><span class="op">*</span>x<span class="op">**</span><span class="dv">8</span><span class="op">+</span><span class="dv">90090</span><span class="op">*</span>x<span class="op">**</span><span class="dv">6</span><span class="op">-</span><span class="dv">30030</span><span class="op">*</span>x<span class="op">**</span><span class="dv">4</span><span class="op">+</span><span class="dv">3456</span><span class="op">*</span>x<span class="op">*</span><span class="dv">2</span><span class="op">-</span><span class="dv">63</span>)<span class="op">//</span><span class="dv">256</span></span>
+<span id="cb52-261"><a href="#cb52-261"></a><span class="in">```</span></span>
+<span id="cb52-262"><a href="#cb52-262"></a><span class="ss">- </span>Compile by running once...</span>
+<span id="cb52-265"><a href="#cb52-265"></a><span class="in">```{python}</span></span>
+<span id="cb52-266"><a href="#cb52-266"></a>_ <span class="op">=</span> p_ten_nb(np_arr)</span>
+<span id="cb52-267"><a href="#cb52-267"></a><span class="in">```</span></span>
+<span id="cb52-268"><a href="#cb52-268"></a><span class="ss">- </span>Time on the same array</span>
+<span id="cb52-271"><a href="#cb52-271"></a><span class="in">```{python}</span></span>
+<span id="cb52-272"><a href="#cb52-272"></a>t <span class="op">=</span> time.perf_counter()</span>
+<span id="cb52-273"><a href="#cb52-273"></a>p_ten_nb(np_arr) <span class="co"># NumPy vectorization</span></span>
+<span id="cb52-274"><a href="#cb52-274"></a>nb_t <span class="op">=</span> time.perf_counter() <span class="op">-</span> t</span>
+<span id="cb52-275"><a href="#cb52-275"></a>nb_t</span>
+<span id="cb52-276"><a href="#cb52-276"></a><span class="in">```</span></span>
+<span id="cb52-277"><a href="#cb52-277"></a></span>
+<span id="cb52-278"><a href="#cb52-278"></a><span class="fu">## Maybe 10x?</span></span>
+<span id="cb52-279"><a href="#cb52-279"></a></span>
+<span id="cb52-280"><a href="#cb52-280"></a><span class="ss">- </span>At first, not great!</span>
+<span id="cb52-281"><a href="#cb52-281"></a><span class="ss">- </span>Let's optimize.</span>
+<span id="cb52-282"><a href="#cb52-282"></a></span>
+<span id="cb52-285"><a href="#cb52-285"></a><span class="in">```{python}</span></span>
+<span id="cb52-286"><a href="#cb52-286"></a>nb_t, np_t, nb_t<span class="op">/</span>np_t, np_t<span class="op">/</span>nb_t</span>
+<span id="cb52-287"><a href="#cb52-287"></a><span class="in">```</span></span>
+<span id="cb52-288"><a href="#cb52-288"></a></span>
+<span id="cb52-289"><a href="#cb52-289"></a><span class="fu">## Using `jit`</span></span>
+<span id="cb52-290"><a href="#cb52-290"></a></span>
+<span id="cb52-291"><a href="#cb52-291"></a><span class="at">&gt; </span><span class="co">[</span><span class="ot">Numba provides several utilities for code generation, but its central feature is the numba.jit() decorator. Using this decorator, you can mark a function for optimization by Numba’s JIT compiler. Various invocation modes trigger differing compilation options and behaviours.</span><span class="co">](https://numba.pydata.org/numba-doc/dev/user/jit.html)</span></span>
+<span id="cb52-292"><a href="#cb52-292"></a></span>
+<span id="cb52-293"><a href="#cb52-293"></a><span class="fu">## Parallel</span></span>
+<span id="cb52-294"><a href="#cb52-294"></a></span>
+<span id="cb52-295"><a href="#cb52-295"></a><span class="ss">- </span>Declare</span>
+<span id="cb52-298"><a href="#cb52-298"></a><span class="in">```{python}</span></span>
+<span id="cb52-299"><a href="#cb52-299"></a><span class="at">@jit</span>(nopython<span class="op">=</span><span class="va">True</span>, parallel<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb52-300"><a href="#cb52-300"></a><span class="kw">def</span> p_ten_par(x):</span>
+<span id="cb52-301"><a href="#cb52-301"></a>    <span class="cf">return</span> (<span class="dv">46189</span><span class="op">*</span>x<span class="op">**</span><span class="dv">10</span><span class="op">-</span><span class="dv">109395</span><span class="op">*</span>x<span class="op">**</span><span class="dv">8</span><span class="op">+</span><span class="dv">90090</span><span class="op">*</span>x<span class="op">**</span><span class="dv">6</span><span class="op">-</span><span class="dv">30030</span><span class="op">*</span>x<span class="op">**</span><span class="dv">4</span><span class="op">+</span><span class="dv">3456</span><span class="op">*</span>x<span class="op">*</span><span class="dv">2</span><span class="op">-</span><span class="dv">63</span>)<span class="op">//</span><span class="dv">256</span></span>
+<span id="cb52-302"><a href="#cb52-302"></a></span>
+<span id="cb52-303"><a href="#cb52-303"></a>_ <span class="op">=</span> p_ten_par(np_arr)  </span>
+<span id="cb52-304"><a href="#cb52-304"></a><span class="in">```</span></span>
+<span id="cb52-305"><a href="#cb52-305"></a><span class="ss">- </span>Time</span>
+<span id="cb52-308"><a href="#cb52-308"></a><span class="in">```{python}</span></span>
+<span id="cb52-309"><a href="#cb52-309"></a>t <span class="op">=</span> time.perf_counter()</span>
+<span id="cb52-310"><a href="#cb52-310"></a>p_ten_par(np_arr) <span class="co"># NumPy vectorization</span></span>
+<span id="cb52-311"><a href="#cb52-311"></a>pt_t <span class="op">=</span> time.perf_counter() <span class="op">-</span> t</span>
+<span id="cb52-312"><a href="#cb52-312"></a>pt_t</span>
+<span id="cb52-313"><a href="#cb52-313"></a><span class="in">```</span></span>
+<span id="cb52-314"><a href="#cb52-314"></a></span>
+<span id="cb52-315"><a href="#cb52-315"></a><span class="fu">## For me</span></span>
+<span id="cb52-316"><a href="#cb52-316"></a></span>
+<span id="cb52-317"><a href="#cb52-317"></a><span class="ss">- </span>My device is about twice as fast when parallelized.</span>
+<span id="cb52-318"><a href="#cb52-318"></a><span class="ss">- </span>I suspect much faster if I wasn't developing these slides while running servers, etc. in the background.</span>
+<span id="cb52-321"><a href="#cb52-321"></a><span class="in">```{python}</span></span>
+<span id="cb52-322"><a href="#cb52-322"></a><span class="co"># pt = parallel=true time</span></span>
+<span id="cb52-323"><a href="#cb52-323"></a>pt_t, nb_t, pt_t<span class="op">/</span>nb_t, nb_t<span class="op">/</span>pt_t</span>
+<span id="cb52-324"><a href="#cb52-324"></a><span class="in">```</span></span>
+<span id="cb52-325"><a href="#cb52-325"></a></span>
+<span id="cb52-326"><a href="#cb52-326"></a><span class="fu">## Or...</span></span>
+<span id="cb52-327"><a href="#cb52-327"></a></span>
+<span id="cb52-328"><a href="#cb52-328"></a><span class="ss">- </span>Or maybe I just need more numbers.</span>
+<span id="cb52-331"><a href="#cb52-331"></a><span class="in">```{python}</span></span>
+<span id="cb52-332"><a href="#cb52-332"></a>np_arr <span class="op">=</span> np.arange(<span class="dv">100000000</span>, dtype<span class="op">=</span>np.int64) <span class="co"># 100 mil</span></span>
+<span id="cb52-333"><a href="#cb52-333"></a><span class="in">```</span></span>
+<span id="cb52-334"><a href="#cb52-334"></a></span>
+<span id="cb52-335"><a href="#cb52-335"></a>:::: {.columns}</span>
+<span id="cb52-336"><a href="#cb52-336"></a></span>
+<span id="cb52-337"><a href="#cb52-337"></a>::: {.column width="50%"}</span>
+<span id="cb52-338"><a href="#cb52-338"></a></span>
+<span id="cb52-341"><a href="#cb52-341"></a><span class="in">```{python}</span></span>
+<span id="cb52-342"><a href="#cb52-342"></a><span class="at">@jit</span>(nopython<span class="op">=</span><span class="va">True</span>, parallel<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb52-343"><a href="#cb52-343"></a><span class="kw">def</span> p_ten(x):</span>
+<span id="cb52-344"><a href="#cb52-344"></a>    <span class="cf">return</span> (<span class="dv">46189</span><span class="op">*</span>x<span class="op">**</span><span class="dv">10</span><span class="op">-</span><span class="dv">109395</span><span class="op">*</span>x<span class="op">**</span><span class="dv">8</span><span class="op">+</span><span class="dv">90090</span><span class="op">*</span>x<span class="op">**</span><span class="dv">6</span><span class="op">-</span><span class="dv">30030</span><span class="op">*</span>x<span class="op">**</span><span class="dv">4</span><span class="op">+</span><span class="dv">3456</span><span class="op">*</span>x<span class="op">*</span><span class="dv">2</span><span class="op">-</span><span class="dv">63</span>)<span class="op">//</span><span class="dv">256</span></span>
+<span id="cb52-345"><a href="#cb52-345"></a></span>
+<span id="cb52-346"><a href="#cb52-346"></a>p_ten(np_arr) <span class="co"># Compile</span></span>
+<span id="cb52-347"><a href="#cb52-347"></a>t <span class="op">=</span> time.perf_counter()</span>
+<span id="cb52-348"><a href="#cb52-348"></a>p_ten(np_arr)</span>
+<span id="cb52-349"><a href="#cb52-349"></a>pf <span class="op">=</span> time.perf_counter() <span class="op">-</span> t</span>
+<span id="cb52-350"><a href="#cb52-350"></a>pf</span>
+<span id="cb52-351"><a href="#cb52-351"></a><span class="in">```</span></span>
+<span id="cb52-352"><a href="#cb52-352"></a></span>
+<span id="cb52-353"><a href="#cb52-353"></a></span>
+<span id="cb52-354"><a href="#cb52-354"></a>:::</span>
+<span id="cb52-355"><a href="#cb52-355"></a></span>
+<span id="cb52-356"><a href="#cb52-356"></a>::: {.column width="50%"}</span>
+<span id="cb52-357"><a href="#cb52-357"></a></span>
+<span id="cb52-360"><a href="#cb52-360"></a><span class="in">```{python}</span></span>
+<span id="cb52-361"><a href="#cb52-361"></a><span class="at">@jit</span>(nopython<span class="op">=</span><span class="va">True</span>, parallel<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb52-362"><a href="#cb52-362"></a><span class="kw">def</span> p_ten(x):</span>
+<span id="cb52-363"><a href="#cb52-363"></a>    <span class="cf">return</span> (<span class="dv">46189</span><span class="op">*</span>x<span class="op">**</span><span class="dv">10</span><span class="op">-</span><span class="dv">109395</span><span class="op">*</span>x<span class="op">**</span><span class="dv">8</span><span class="op">+</span><span class="dv">90090</span><span class="op">*</span>x<span class="op">**</span><span class="dv">6</span><span class="op">-</span><span class="dv">30030</span><span class="op">*</span>x<span class="op">**</span><span class="dv">4</span><span class="op">+</span><span class="dv">3456</span><span class="op">*</span>x<span class="op">*</span><span class="dv">2</span><span class="op">-</span><span class="dv">63</span>)<span class="op">//</span><span class="dv">256</span></span>
+<span id="cb52-364"><a href="#cb52-364"></a></span>
+<span id="cb52-365"><a href="#cb52-365"></a>p_ten(np_arr) <span class="co"># Compile</span></span>
+<span id="cb52-366"><a href="#cb52-366"></a>t <span class="op">=</span> time.perf_counter()</span>
+<span id="cb52-367"><a href="#cb52-367"></a>p_ten(np_arr)</span>
+<span id="cb52-368"><a href="#cb52-368"></a>pt <span class="op">=</span> time.perf_counter() <span class="op">-</span> t</span>
+<span id="cb52-369"><a href="#cb52-369"></a>pt</span>
+<span id="cb52-370"><a href="#cb52-370"></a><span class="in">```</span></span>
+<span id="cb52-371"><a href="#cb52-371"></a></span>
+<span id="cb52-372"><a href="#cb52-372"></a>:::</span>
+<span id="cb52-373"><a href="#cb52-373"></a></span>
+<span id="cb52-374"><a href="#cb52-374"></a>::::</span>
+<span id="cb52-375"><a href="#cb52-375"></a></span>
+<span id="cb52-376"><a href="#cb52-376"></a><span class="fu">## GIL</span></span>
+<span id="cb52-377"><a href="#cb52-377"></a></span>
+<span id="cb52-378"><a href="#cb52-378"></a><span class="ss">- </span>Python has a "Global Interpreter Lock" to ensure consistency of array operations.</span>
+<span id="cb52-379"><a href="#cb52-379"></a><span class="ss">- </span>All our array operations are independent, so we don't have to worry about any of that, I think.</span>
+<span id="cb52-380"><a href="#cb52-380"></a><span class="ss">- </span>We use <span class="in">`nogil`</span></span>
+<span id="cb52-381"><a href="#cb52-381"></a></span>
+<span id="cb52-382"><a href="#cb52-382"></a><span class="fu">## nogil=True</span></span>
+<span id="cb52-383"><a href="#cb52-383"></a></span>
+<span id="cb52-386"><a href="#cb52-386"></a><span class="in">```{python}</span></span>
+<span id="cb52-387"><a href="#cb52-387"></a><span class="at">@jit</span>(nopython<span class="op">=</span><span class="va">True</span>, nogil<span class="op">=</span><span class="va">True</span>, parallel<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb52-388"><a href="#cb52-388"></a><span class="kw">def</span> p_ten(x):</span>
+<span id="cb52-389"><a href="#cb52-389"></a>    <span class="cf">return</span> (<span class="dv">46189</span><span class="op">*</span>x<span class="op">**</span><span class="dv">10</span><span class="op">-</span><span class="dv">109395</span><span class="op">*</span>x<span class="op">**</span><span class="dv">8</span><span class="op">+</span><span class="dv">90090</span><span class="op">*</span>x<span class="op">**</span><span class="dv">6</span><span class="op">-</span><span class="dv">30030</span><span class="op">*</span>x<span class="op">**</span><span class="dv">4</span><span class="op">+</span><span class="dv">3456</span><span class="op">*</span>x<span class="op">*</span><span class="dv">2</span><span class="op">-</span><span class="dv">63</span>)<span class="op">//</span><span class="dv">256</span></span>
+<span id="cb52-390"><a href="#cb52-390"></a></span>
+<span id="cb52-391"><a href="#cb52-391"></a>p_ten(np_arr) <span class="co"># Compile</span></span>
+<span id="cb52-392"><a href="#cb52-392"></a>t <span class="op">=</span> time.perf_counter()</span>
+<span id="cb52-393"><a href="#cb52-393"></a>p_ten(np_arr)</span>
+<span id="cb52-394"><a href="#cb52-394"></a>ng <span class="op">=</span> time.perf_counter() <span class="op">-</span> t</span>
+<span id="cb52-395"><a href="#cb52-395"></a>ng, pt <span class="co"># no gil, parallel true</span></span>
+<span id="cb52-396"><a href="#cb52-396"></a><span class="in">```</span></span>
+<span id="cb52-397"><a href="#cb52-397"></a></span>
+<span id="cb52-398"><a href="#cb52-398"></a><span class="ss">- </span>Doesn't do much here.</span>
+<span id="cb52-399"><a href="#cb52-399"></a></span>
+<span id="cb52-400"><a href="#cb52-400"></a><span class="fu">## Signatures</span></span>
+<span id="cb52-401"><a href="#cb52-401"></a></span>
+<span id="cb52-402"><a href="#cb52-402"></a><span class="ss">- </span>Numba probably infers this, but it also benefits from knowing what kind of integer we are working with.</span>
+<span id="cb52-403"><a href="#cb52-403"></a><span class="ss">- </span>These are like the NumPy types.</span>
+<span id="cb52-404"><a href="#cb52-404"></a><span class="ss">- </span>Probably the biggest value... </span>
+<span id="cb52-407"><a href="#cb52-407"></a><span class="in">```{python}</span></span>
+<span id="cb52-408"><a href="#cb52-408"></a>biggest <span class="op">=</span> p_ten(<span class="bu">max</span>(np_arr))</span>
+<span id="cb52-409"><a href="#cb52-409"></a>biggest, np.iinfo(np.int32), np.iinfo(np.int64)</span>
+<span id="cb52-410"><a href="#cb52-410"></a><span class="in">```</span></span>
+<span id="cb52-411"><a href="#cb52-411"></a><span class="ss">- </span>Fits in <span class="in">`np.int64`</span></span>
+<span id="cb52-412"><a href="#cb52-412"></a></span>
+<span id="cb52-413"><a href="#cb52-413"></a><span class="fu">## cfunc</span></span>
+<span id="cb52-414"><a href="#cb52-414"></a></span>
+<span id="cb52-415"><a href="#cb52-415"></a><span class="ss">- </span>If we know the type of the values, we can use <span class="in">`cfunc`</span> instead of <span class="in">`jit`</span></span>
+<span id="cb52-416"><a href="#cb52-416"></a><span class="ss">- </span>Compiles to C, may be faster!</span>
+<span id="cb52-417"><a href="#cb52-417"></a><span class="ss">- </span>Signatures are <span class="in">`out(in)`</span>, so <span class="in">`/`</span> is <span class="in">`float(int, int)`</span></span>
+<span id="cb52-420"><a href="#cb52-420"></a><span class="in">```{python}</span></span>
+<span id="cb52-421"><a href="#cb52-421"></a>x <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb52-422"><a href="#cb52-422"></a>y <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb52-423"><a href="#cb52-423"></a>z <span class="op">=</span> x <span class="op">/</span> y</span>
+<span id="cb52-424"><a href="#cb52-424"></a><span class="bu">type</span>(z), <span class="bu">type</span>(x), <span class="bu">type</span>(y)</span>
+<span id="cb52-425"><a href="#cb52-425"></a><span class="in">```</span></span>
+<span id="cb52-426"><a href="#cb52-426"></a></span>
+<span id="cb52-427"><a href="#cb52-427"></a><span class="fu">## Run it</span></span>
+<span id="cb52-428"><a href="#cb52-428"></a></span>
+<span id="cb52-431"><a href="#cb52-431"></a><span class="in">```{python}</span></span>
+<span id="cb52-432"><a href="#cb52-432"></a><span class="im">from</span> numba <span class="im">import</span> cfunc, int64</span>
+<span id="cb52-433"><a href="#cb52-433"></a></span>
+<span id="cb52-434"><a href="#cb52-434"></a><span class="at">@cfunc</span>(int64(int64))</span>
+<span id="cb52-435"><a href="#cb52-435"></a><span class="kw">def</span> p_ten(x):</span>
+<span id="cb52-436"><a href="#cb52-436"></a>    <span class="cf">return</span> (<span class="dv">46189</span><span class="op">*</span>x<span class="op">**</span><span class="dv">10</span><span class="op">-</span><span class="dv">109395</span><span class="op">*</span>x<span class="op">**</span><span class="dv">8</span><span class="op">+</span><span class="dv">90090</span><span class="op">*</span>x<span class="op">**</span><span class="dv">6</span><span class="op">-</span><span class="dv">30030</span><span class="op">*</span>x<span class="op">**</span><span class="dv">4</span><span class="op">+</span><span class="dv">3456</span><span class="op">*</span>x<span class="op">*</span><span class="dv">2</span><span class="op">-</span><span class="dv">63</span>)<span class="op">//</span><span class="dv">256</span></span>
+<span id="cb52-437"><a href="#cb52-437"></a></span>
+<span id="cb52-438"><a href="#cb52-438"></a>p_ten(np_arr) <span class="co"># Compile</span></span>
+<span id="cb52-439"><a href="#cb52-439"></a>t <span class="op">=</span> time.perf_counter()</span>
+<span id="cb52-440"><a href="#cb52-440"></a>p_ten(np_arr)</span>
+<span id="cb52-441"><a href="#cb52-441"></a>time.perf_counter() <span class="op">-</span> t</span>
+<span id="cb52-442"><a href="#cb52-442"></a><span class="in">```</span></span>
+<span id="cb52-443"><a href="#cb52-443"></a></span>
+<span id="cb52-444"><a href="#cb52-444"></a><span class="ss">- </span>Meh. Works better with formulas than polynomials (exponentials and the like).</span>
+<span id="cb52-445"><a href="#cb52-445"></a></span>
+<span id="cb52-446"><a href="#cb52-446"></a><span class="fu">## Aside: Intel</span></span>
+<span id="cb52-447"><a href="#cb52-447"></a></span>
+<span id="cb52-448"><a href="#cb52-448"></a><span class="ss">- </span>I tried a few Intel packages Numba recommended.</span>
+<span id="cb52-449"><a href="#cb52-449"></a><span class="ss">- </span>I got no noticeable changes from either, but mention them.</span>
+<span id="cb52-450"><a href="#cb52-450"></a></span>
+<span id="cb52-451"><a href="#cb52-451"></a><span class="fu">## Intel SVML</span></span>
+<span id="cb52-452"><a href="#cb52-452"></a></span>
+<span id="cb52-453"><a href="#cb52-453"></a><span class="ss">- </span>These slides were compiled on an Intel device.</span>
+<span id="cb52-454"><a href="#cb52-454"></a><span class="ss">- </span>Numba recommends SVML for Intel devices.</span>
+<span id="cb52-455"><a href="#cb52-455"></a></span>
+<span id="cb52-456"><a href="#cb52-456"></a><span class="at">&gt; Intel provides a short vector math library (SVML) that contains a large number of optimised transcendental functions available for use as compiler intrinsics</span></span>
+<span id="cb52-457"><a href="#cb52-457"></a></span>
+<span id="cb52-458"><a href="#cb52-458"></a><span class="in">```{.bash code-line-number="false"}</span></span>
+<span id="cb52-459"><a href="#cb52-459"></a><span class="in">python3 -m pip install intel-cmplr-lib-rt</span></span>
+<span id="cb52-460"><a href="#cb52-460"></a><span class="in">```</span></span>
+<span id="cb52-461"><a href="#cb52-461"></a></span>
+<span id="cb52-462"><a href="#cb52-462"></a><span class="fu">## Threading</span></span>
+<span id="cb52-463"><a href="#cb52-463"></a></span>
+<span id="cb52-464"><a href="#cb52-464"></a><span class="ss">- </span>For parallelism, Numba recommends <span class="in">`tbb`</span> (Intel) or OpenMP (otherwise).</span>
+<span id="cb52-465"><a href="#cb52-465"></a><span class="ss">- </span>They are not available on all devices.</span>
+<span id="cb52-466"><a href="#cb52-466"></a><span class="ss">- </span>I could use <span class="in">`tbb`</span></span>
+<span id="cb52-467"><a href="#cb52-467"></a><span class="in">```{.bash code-line-number="false"}</span></span>
+<span id="cb52-468"><a href="#cb52-468"></a><span class="in">python3 -m pip install tbb</span></span>
+<span id="cb52-469"><a href="#cb52-469"></a><span class="in">```</span></span>
+<span id="cb52-470"><a href="#cb52-470"></a></span>
+<span id="cb52-471"><a href="#cb52-471"></a></span>
+<span id="cb52-472"><a href="#cb52-472"></a><span class="fu">## Floats</span></span>
+<span id="cb52-473"><a href="#cb52-473"></a></span>
+<span id="cb52-474"><a href="#cb52-474"></a><span class="ss">- </span>Numba works just fine with floats!</span>
+<span id="cb52-477"><a href="#cb52-477"></a><span class="in">```{python}</span></span>
+<span id="cb52-478"><a href="#cb52-478"></a>float_arr <span class="op">=</span> np_arr <span class="op">/</span> <span class="dv">7</span></span>
+<span id="cb52-479"><a href="#cb52-479"></a><span class="co"># add fastmath to decorator, change // to /</span></span>
+<span id="cb52-480"><a href="#cb52-480"></a><span class="co"># `njit` means `jit(nopython=True`</span></span>
+<span id="cb52-481"><a href="#cb52-481"></a><span class="im">from</span> numba <span class="im">import</span> njit</span>
+<span id="cb52-482"><a href="#cb52-482"></a></span>
+<span id="cb52-483"><a href="#cb52-483"></a><span class="at">@njit</span>(parallel<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb52-484"><a href="#cb52-484"></a><span class="kw">def</span> p_ten(x):</span>
+<span id="cb52-485"><a href="#cb52-485"></a>    <span class="cf">return</span> (<span class="fl">46189.</span><span class="op">*</span>x<span class="op">**</span><span class="fl">10.</span><span class="op">-</span><span class="fl">109395.</span><span class="op">*</span>x<span class="op">**</span><span class="fl">8.</span><span class="op">+</span><span class="fl">90090.</span><span class="op">*</span>x<span class="op">**</span><span class="fl">6.</span><span class="op">-</span><span class="fl">30030.</span><span class="op">*</span>x<span class="op">**</span><span class="fl">4.</span><span class="op">+</span><span class="fl">3456.</span><span class="op">*</span>x<span class="op">*</span><span class="fl">2.</span><span class="op">-</span><span class="fl">63.</span>)<span class="op">/</span><span class="fl">256.</span></span>
+<span id="cb52-486"><a href="#cb52-486"></a></span>
+<span id="cb52-487"><a href="#cb52-487"></a>p_ten(np_arr) <span class="co"># Compile</span></span>
+<span id="cb52-488"><a href="#cb52-488"></a>t <span class="op">=</span> time.perf_counter()</span>
+<span id="cb52-489"><a href="#cb52-489"></a>p_ten(np_arr)</span>
+<span id="cb52-490"><a href="#cb52-490"></a>float_t <span class="op">=</span> time.perf_counter() <span class="op">-</span> t</span>
+<span id="cb52-491"><a href="#cb52-491"></a>float_t</span>
+<span id="cb52-492"><a href="#cb52-492"></a><span class="in">```</span></span>
+<span id="cb52-493"><a href="#cb52-493"></a></span>
+<span id="cb52-494"><a href="#cb52-494"></a><span class="fu">## Floats</span></span>
+<span id="cb52-495"><a href="#cb52-495"></a></span>
+<span id="cb52-496"><a href="#cb52-496"></a><span class="ss">- </span>I used integers, but if we use floats we should use the <span class="in">`fastmath`</span> option.</span>
+<span id="cb52-497"><a href="#cb52-497"></a><span class="ss">- </span>It allows greater inaccuracy (remember float rounding) in exchange for faster operations.</span>
+<span id="cb52-500"><a href="#cb52-500"></a><span class="in">```{python}</span></span>
+<span id="cb52-501"><a href="#cb52-501"></a><span class="at">@njit</span>(fastmath<span class="op">=</span><span class="va">True</span>, parallel<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb52-502"><a href="#cb52-502"></a><span class="kw">def</span> p_ten(x):</span>
+<span id="cb52-503"><a href="#cb52-503"></a>    <span class="cf">return</span> (<span class="fl">46189.</span><span class="op">*</span>x<span class="op">**</span><span class="fl">10.</span><span class="op">-</span><span class="fl">109395.</span><span class="op">*</span>x<span class="op">**</span><span class="fl">8.</span><span class="op">+</span><span class="fl">90090.</span><span class="op">*</span>x<span class="op">**</span><span class="fl">6.</span><span class="op">-</span><span class="fl">30030.</span><span class="op">*</span>x<span class="op">**</span><span class="fl">4.</span><span class="op">+</span><span class="fl">3456.</span><span class="op">*</span>x<span class="op">*</span><span class="fl">2.</span><span class="op">-</span><span class="fl">63.</span>)<span class="op">/</span><span class="fl">256.</span></span>
+<span id="cb52-504"><a href="#cb52-504"></a></span>
+<span id="cb52-505"><a href="#cb52-505"></a>p_ten(np_arr) <span class="co"># Compile</span></span>
+<span id="cb52-506"><a href="#cb52-506"></a>t <span class="op">=</span> time.perf_counter()</span>
+<span id="cb52-507"><a href="#cb52-507"></a>p_ten(np_arr)</span>
+<span id="cb52-508"><a href="#cb52-508"></a>fast_t <span class="op">=</span> time.perf_counter() <span class="op">-</span> t</span>
+<span id="cb52-509"><a href="#cb52-509"></a>fast_t, float_t, fast_t<span class="op">/</span>float_t, float_t<span class="op">/</span>fast_t</span>
+<span id="cb52-510"><a href="#cb52-510"></a><span class="in">```</span></span>
+<span id="cb52-511"><a href="#cb52-511"></a></span>
+<span id="cb52-512"><a href="#cb52-512"></a><span class="fu"># "I'm so Julia." - Charli XCX {background-image="https://upload.wikimedia.org/wikipedia/commons/9/90/Charli_XCX-4059_%28cropped%29.jpg"}</span></span>
+<span id="cb52-513"><a href="#cb52-513"></a></span>
+<span id="cb52-514"><a href="#cb52-514"></a><span class="fu">## Julia Sets</span></span>
+<span id="cb52-515"><a href="#cb52-515"></a></span>
+<span id="cb52-516"><a href="#cb52-516"></a><span class="ss">- </span>The Julia set is a topic in complex dynamics.</span>
+<span id="cb52-517"><a href="#cb52-517"></a></span>
+<span id="cb52-518"><a href="#cb52-518"></a><span class="at">&gt; </span><span class="co">[</span><span class="ot">Examples include the mathematical models that describe the swinging of a clock pendulum, the flow of water in a pipe, the random motion of particles in the air, and the number of fish each springtime in a lake.</span><span class="co">](https://en.wikipedia.org/wiki/Dynamical_system)</span></span>
+<span id="cb52-519"><a href="#cb52-519"></a></span>
+<span id="cb52-520"><a href="#cb52-520"></a><span class="fu">## Complex Quadratic Polynomials</span></span>
+<span id="cb52-521"><a href="#cb52-521"></a></span>
+<span id="cb52-522"><a href="#cb52-522"></a><span class="ss">- </span>While not required, a common class of dynamics systems are complex-valued polynomial functions of the second degree, so we take, e.g.</span>
+<span id="cb52-525"><a href="#cb52-525"></a><span class="in">```{python}</span></span>
+<span id="cb52-526"><a href="#cb52-526"></a><span class="kw">def</span> f(z):</span>
+<span id="cb52-527"><a href="#cb52-527"></a>    <span class="cf">return</span> z<span class="op">**</span><span class="dv">2</span> <span class="op">-</span><span class="fl">.4</span> <span class="op">+</span> <span class="ot">.6j</span></span>
+<span id="cb52-528"><a href="#cb52-528"></a><span class="in">```</span></span>
+<span id="cb52-529"><a href="#cb52-529"></a></span>
+<span id="cb52-530"><a href="#cb52-530"></a><span class="fu">## Complex values</span></span>
+<span id="cb52-531"><a href="#cb52-531"></a></span>
+<span id="cb52-532"><a href="#cb52-532"></a><span class="ss">- </span>In Python, complex values are denoted as multiples of <span class="in">`j`</span> (<span class="in">`i`</span> is too frequently use).</span>
+<span id="cb52-535"><a href="#cb52-535"></a><span class="in">```{python}</span></span>
+<span id="cb52-536"><a href="#cb52-536"></a>z <span class="op">=</span> <span class="dv">0</span> <span class="op">+</span> <span class="ot">1j</span></span>
+<span id="cb52-537"><a href="#cb52-537"></a>z <span class="op">**</span> <span class="dv">2</span></span>
+<span id="cb52-538"><a href="#cb52-538"></a><span class="in">```</span></span>
+<span id="cb52-539"><a href="#cb52-539"></a><span class="ss">- </span>NumPy, they have <span class="in">`dtype=np.complex128`</span></span>
+<span id="cb52-542"><a href="#cb52-542"></a><span class="in">```{python}</span></span>
+<span id="cb52-543"><a href="#cb52-543"></a>arr <span class="op">=</span> np.array([<span class="dv">0</span> <span class="op">+</span> <span class="ot">1j</span>])</span>
+<span id="cb52-544"><a href="#cb52-544"></a>arr.dtype</span>
+<span id="cb52-545"><a href="#cb52-545"></a><span class="in">```</span></span>
+<span id="cb52-546"><a href="#cb52-546"></a></span>
+<span id="cb52-547"><a href="#cb52-547"></a><span class="fu">## Common Form</span></span>
+<span id="cb52-548"><a href="#cb52-548"></a></span>
+<span id="cb52-549"><a href="#cb52-549"></a><span class="ss">- </span>Often we refer to the these polynomials as follows:</span>
+<span id="cb52-550"><a href="#cb52-550"></a></span>
+<span id="cb52-551"><a href="#cb52-551"></a>$$</span>
+<span id="cb52-552"><a href="#cb52-552"></a>f_c(z) = z^2 + c</span>
+<span id="cb52-553"><a href="#cb52-553"></a>$$</span>
+<span id="cb52-554"><a href="#cb52-554"></a></span>
+<span id="cb52-555"><a href="#cb52-555"></a><span class="ss">- </span>We refer to the Julia set related to such a polynomial as:</span>
+<span id="cb52-556"><a href="#cb52-556"></a></span>
+<span id="cb52-557"><a href="#cb52-557"></a>$$</span>
+<span id="cb52-558"><a href="#cb52-558"></a>J(f_c)</span>
+<span id="cb52-559"><a href="#cb52-559"></a>$$</span>
+<span id="cb52-560"><a href="#cb52-560"></a></span>
+<span id="cb52-561"><a href="#cb52-561"></a><span class="fu">## Sets and Functions</span></span>
+<span id="cb52-562"><a href="#cb52-562"></a></span>
+<span id="cb52-563"><a href="#cb52-563"></a><span class="ss">- </span>The Julia set is the elements on the complex plane for which some function converges under repeated iteration.</span>
+<span id="cb52-564"><a href="#cb52-564"></a><span class="ss">- </span>For $J(f_c)$ it is the elements:</span>
+<span id="cb52-565"><a href="#cb52-565"></a></span>
+<span id="cb52-566"><a href="#cb52-566"></a>$$</span>
+<span id="cb52-567"><a href="#cb52-567"></a>J(f_c) <span class="sc">\{</span> z \in \mathbb{C} : \forall n \in \mathbb{N} : |f_c^nN(z)| \leq R</span>
+<span id="cb52-568"><a href="#cb52-568"></a>$$</span>
+<span id="cb52-569"><a href="#cb52-569"></a></span>
+<span id="cb52-570"><a href="#cb52-570"></a><span class="fu">## On $R$</span></span>
+<span id="cb52-571"><a href="#cb52-571"></a></span>
+<span id="cb52-572"><a href="#cb52-572"></a><span class="ss">- </span>We define $R$ as</span>
+<span id="cb52-573"><a href="#cb52-573"></a>$$</span>
+<span id="cb52-574"><a href="#cb52-574"></a>R &gt; 0 \land R^2 - R &gt; |c|</span>
+<span id="cb52-575"><a href="#cb52-575"></a>$$</span>
+<span id="cb52-576"><a href="#cb52-576"></a><span class="ss">- </span>It is simple to restrict $|c| &lt; 2$ and use $R = 2$</span>
+<span id="cb52-577"><a href="#cb52-577"></a></span>
+<span id="cb52-578"><a href="#cb52-578"></a><span class="fu">## Exercise</span></span>
+<span id="cb52-579"><a href="#cb52-579"></a></span>
+<span id="cb52-580"><a href="#cb52-580"></a><span class="ss">- </span>Set a maximum number of iterations, say 1000</span>
+<span id="cb52-581"><a href="#cb52-581"></a><span class="ss">- </span>Set a complex value $|c| &lt; 2$</span>
+<span id="cb52-582"><a href="#cb52-582"></a><span class="ss">- </span>Create a 2D array of complex values ranging from -2 to 2 ($|a| &lt; 2$)</span>
+<span id="cb52-583"><a href="#cb52-583"></a><span class="ss">    - </span>I used <span class="in">`reshape`</span> and <span class="in">`linspace`</span> together.</span>
+<span id="cb52-584"><a href="#cb52-584"></a><span class="ss">- </span>Iterate $f_c$ on each value until either:</span>
+<span id="cb52-585"><a href="#cb52-585"></a><span class="ss">    - </span>Maximum iterations are reached, or</span>
+<span id="cb52-586"><a href="#cb52-586"></a><span class="ss">    - </span>The output exceeds $R = 2$ - look at <span class="in">`np.absolute()`</span></span>
+<span id="cb52-587"><a href="#cb52-587"></a></span>
+<span id="cb52-588"><a href="#cb52-588"></a><span class="fu">## Result</span></span>
+<span id="cb52-589"><a href="#cb52-589"></a></span>
+<span id="cb52-590"><a href="#cb52-590"></a><span class="ss">- </span>Use Numba to achieve higher numbers of iterations (which create sharper images).</span>
+<span id="cb52-591"><a href="#cb52-591"></a><span class="ss">- </span>Use Matplotlib <span class="in">`imshow`</span> to plot the result.</span>
+<span id="cb52-592"><a href="#cb52-592"></a><span class="ss">    - </span>Plot real component as <span class="in">`x`</span>, imaginary as <span class="in">`y`</span>, and iterations as color.</span>
+<span id="cb52-593"><a href="#cb52-593"></a><span class="ss">- </span>I recommend using $c = -0.4 + 0.6i$ which I think looks nice.</span>
+<span id="cb52-594"><a href="#cb52-594"></a><span class="ss">    - </span>But you may choose your own $c$</span>
+<span id="cb52-595"><a href="#cb52-595"></a></span>
+<span id="cb52-596"><a href="#cb52-596"></a></span>
+<span id="cb52-597"><a href="#cb52-597"></a><span class="fu">## $f_c^n(z)$</span></span>
+<span id="cb52-598"><a href="#cb52-598"></a></span>
+<span id="cb52-599"><a href="#cb52-599"></a><span class="ss">- </span>Apply <span class="in">`f_c`</span></span>
+<span id="cb52-600"><a href="#cb52-600"></a><span class="ss">    - </span>Which, recall, is $z^2+c$</span>
+<span id="cb52-601"><a href="#cb52-601"></a><span class="ss">- </span>To <span class="in">`z`</span></span>
+<span id="cb52-602"><a href="#cb52-602"></a><span class="ss">    - </span>The elements of the array.</span>
+<span id="cb52-603"><a href="#cb52-603"></a><span class="ss">- </span>$n$ times</span>
+<span id="cb52-604"><a href="#cb52-604"></a><span class="ss">    - </span>So $f_c^2(z) = f_c(f_c(z))$</span>
+<span id="cb52-605"><a href="#cb52-605"></a></span>
+<span id="cb52-608"><a href="#cb52-608"></a><span class="in">```{python}</span></span>
+<span id="cb52-609"><a href="#cb52-609"></a><span class="kw">def</span> f_c_n(z, c, n):</span>
+<span id="cb52-610"><a href="#cb52-610"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n): <span class="co"># "do thing n times"</span></span>
+<span id="cb52-611"><a href="#cb52-611"></a>        z <span class="op">=</span> z<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> c</span>
+<span id="cb52-612"><a href="#cb52-612"></a>    <span class="cf">return</span> z</span>
+<span id="cb52-613"><a href="#cb52-613"></a><span class="in">```</span></span>
+<span id="cb52-614"><a href="#cb52-614"></a></span>
+<span id="cb52-615"><a href="#cb52-615"></a><span class="fu">## Solution</span></span>
+<span id="cb52-616"><a href="#cb52-616"></a></span>
+<span id="cb52-617"><a href="#cb52-617"></a></span>
+<span id="cb52-620"><a href="#cb52-620"></a><span class="in">```{python}</span></span>
+<span id="cb52-621"><a href="#cb52-621"></a><span class="co">#| code-fold: true</span></span>
+<span id="cb52-622"><a href="#cb52-622"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb52-623"><a href="#cb52-623"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb52-624"><a href="#cb52-624"></a><span class="im">from</span> numba <span class="im">import</span> njit</span>
+<span id="cb52-625"><a href="#cb52-625"></a></span>
+<span id="cb52-626"><a href="#cb52-626"></a><span class="at">@njit</span></span>
+<span id="cb52-627"><a href="#cb52-627"></a><span class="kw">def</span> iterator(m, c, z):</span>
+<span id="cb52-628"><a href="#cb52-628"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(m):</span>
+<span id="cb52-629"><a href="#cb52-629"></a>        z <span class="op">=</span> z<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> c</span>
+<span id="cb52-630"><a href="#cb52-630"></a>        <span class="cf">if</span> (np.absolute(z) <span class="op">&gt;</span> <span class="dv">2</span>):</span>
+<span id="cb52-631"><a href="#cb52-631"></a>                <span class="cf">return</span> i</span>
+<span id="cb52-632"><a href="#cb52-632"></a>    <span class="cf">return</span> i</span>
+<span id="cb52-633"><a href="#cb52-633"></a></span>
+<span id="cb52-634"><a href="#cb52-634"></a><span class="co"># m: max iterations, c: c</span></span>
+<span id="cb52-635"><a href="#cb52-635"></a><span class="kw">def</span> j_f(m, c):</span>
+<span id="cb52-636"><a href="#cb52-636"></a>    real <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">1000</span>)</span>
+<span id="cb52-637"><a href="#cb52-637"></a>    imag <span class="op">=</span> (<span class="dv">0</span> <span class="op">+</span> <span class="ot">1j</span>) <span class="op">*</span> real</span>
+<span id="cb52-638"><a href="#cb52-638"></a>    comp <span class="op">=</span> real.reshape(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>) <span class="op">+</span> imag</span>
+<span id="cb52-639"><a href="#cb52-639"></a>    f_vec <span class="op">=</span> np.vectorize(iterator, excluded<span class="op">=</span>{<span class="dv">0</span>,<span class="dv">1</span>})</span>
+<span id="cb52-640"><a href="#cb52-640"></a>    <span class="cf">return</span> f_vec(m, c, comp)</span>
+<span id="cb52-641"><a href="#cb52-641"></a></span>
+<span id="cb52-642"><a href="#cb52-642"></a><span class="co"># m: max iterations, c: c</span></span>
+<span id="cb52-643"><a href="#cb52-643"></a><span class="kw">def</span> visualize(m, c):</span>
+<span id="cb52-644"><a href="#cb52-644"></a>    arr <span class="op">=</span> j_f(m,c)</span>
+<span id="cb52-645"><a href="#cb52-645"></a>    plt.imshow(arr)</span>
+<span id="cb52-646"><a href="#cb52-646"></a>    plt.axis(<span class="st">'off'</span>)</span>
+<span id="cb52-647"><a href="#cb52-647"></a>    plt.savefig(<span class="st">"julia.png"</span>, bbox_inches<span class="op">=</span><span class="st">"tight"</span>, pad_inches<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb52-648"><a href="#cb52-648"></a></span>
+<span id="cb52-649"><a href="#cb52-649"></a>visualize(<span class="dv">1000</span>, <span class="op">-</span><span class="fl">0.4</span> <span class="op">+</span> <span class="ot">0.6j</span>)</span>
+<span id="cb52-650"><a href="#cb52-650"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

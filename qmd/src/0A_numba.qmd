@@ -460,6 +460,133 @@ fast_t = time.perf_counter() - t
 fast_t, float_t, fast_t/float_t, float_t/fast_t
 ```
 
-# Mandelbrot
+# "I'm so Julia." - Charli XCX {background-image="https://upload.wikimedia.org/wikipedia/commons/9/90/Charli_XCX-4059_%28cropped%29.jpg"}
 
-## 
+## Julia Sets
+
+- The Julia set is a topic in complex dynamics.
+
+> [Examples include the mathematical models that describe the swinging of a clock pendulum, the flow of water in a pipe, the random motion of particles in the air, and the number of fish each springtime in a lake.](https://en.wikipedia.org/wiki/Dynamical_system)
+
+## Complex Quadratic Polynomials
+
+- While not required, a common class of dynamics systems are complex-valued polynomial functions of the second degree, so we take, e.g.
+```{python}
+def f(z):
+	return z**2 -.4 + .6j
+```
+
+## Complex values
+
+- In Python, complex values are denoted as multiples of `j` (`i` is too frequently use).
+```{python}
+z = 0 + 1j
+z ** 2
+```
+- NumPy, they have `dtype=np.complex128`
+```{python}
+arr = np.array([0 + 1j])
+arr.dtype
+```
+
+## Common Form
+
+- Often we refer to the these polynomials as follows:
+
+$$
+f_c(z) = z^2 + c
+$$
+
+- We refer to the Julia set related to such a polynomial as:
+
+$$
+J(f_c)
+$$
+
+## Sets and Functions
+
+- The Julia set is the elements on the complex plane for which some function converges under repeated iteration.
+- For $J(f_c)$ it is the elements:
+
+$$
+J(f_c) \{ z \in \mathbb{C} : \forall n \in \mathbb{N} : |f_c^nN(z)| \leq R
+$$
+
+## On $R$
+
+- We define $R$ as
+$$
+R > 0 \land R^2 - R > |c|
+$$
+- It is simple to restrict $|c| < 2$ and use $R = 2$
+
+## Exercise
+
+- Set a maximum number of iterations, say 1000
+- Set a complex value $|c| < 2$
+- Create a 2D array of complex values ranging from -2 to 2 ($|a| < 2$)
+  	- I used `reshape` and `linspace` together.
+- Iterate $f_c$ on each value until either:
+  	- Maximum iterations are reached, or
+	- The output exceeds $R = 2$ - look at `np.absolute()`
+
+## Result
+
+- Use Numba to achieve higher numbers of iterations (which create sharper images).
+- Use Matplotlib `imshow` to plot the result.
+  	- Plot real component as `x`, imaginary as `y`, and iterations as color.
+- I recommend using $c = -0.4 + 0.6i$ which I think looks nice.
+	- But you may choose your own $c$
+
+
+## $f_c^n(z)$
+
+- Apply `f_c`
+	- Which, recall, is $z^2+c$
+- To `z`
+  	- The elements of the array.
+- $n$ times
+	- So $f_c^2(z) = f_c(f_c(z))$
+
+```{python}
+def f_c_n(z, c, n):
+	for i in range(n): # "do thing n times"
+		z = z**2 + c
+	return z
+```
+
+## Solution
+
+
+```{python}
+#| code-fold: true
+import numpy as np
+import matplotlib.pyplot as plt
+from numba import njit
+
+@njit
+def iterator(m, c, z):
+    for i in range(m):
+        z = z**2 + c
+        if (np.absolute(z) > 2):
+                return i
+    return i
+
+# m: max iterations, c: c
+def j_f(m, c):
+    real = np.linspace(-2,2,1000)
+    imag = (0 + 1j) * real
+    comp = real.reshape(-1,1) + imag
+    f_vec = np.vectorize(iterator, excluded={0,1})
+    return f_vec(m, c, comp)
+
+# m: max iterations, c: c
+def visualize(m, c):
+    arr = j_f(m,c)
+    plt.imshow(arr)
+    plt.axis('off')
+    plt.savefig("julia.png", bbox_inches="tight", pad_inches=0)
+
+visualize(1000, -0.4 + 0.6j)
+```
+
