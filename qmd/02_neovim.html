@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.30">
+<meta name="generator" content="quarto-1.7.31">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -22,8 +22,9 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 /* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -34,7 +35,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -67,15 +68,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="./">
 <link href="./03_shell.html" rel="next">
 <link href="./01_python.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-a4a11d514c7d463668e07712114998e6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-8ef56b68f8fa1e9d2ba328e99e439f80.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-70c9a4798e5f6abb0636bcdc3eed0e90.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-bc3769172936e0eadd9ffe6a8de618cc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -107,7 +109,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -1440,290 +1442,293 @@ Code
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
-    }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
-      }
-    }
-    return false;
-  }
-  const onCopySuccess = function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
-  });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
-  const viewSource = window.document.getElementById('quarto-view-source') ||
-                     window.document.getElementById('quarto-code-tools-source');
-  if (viewSource) {
-    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
-    viewSource.addEventListener("click", function(e) {
-      if (sourceUrl) {
-        // rstudio viewer pane
-        if (/\bcapabilities=\b/.test(window.location)) {
-          window.open(sourceUrl);
-        } else {
-          window.location.href = sourceUrl;
-        }
-      } else {
-        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
-        modal.show();
-      }
-      return false;
-    });
-  }
-  function toggleCodeHandler(show) {
-    return function(e) {
-      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
-      for (let i=0; i<detailsSrc.length; i++) {
-        const details = detailsSrc[i].parentElement;
-        if (show) {
-          details.open = true;
-        } else {
-          details.removeAttribute("open");
-        }
-      }
-      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
-      const fromCls = show ? "hidden" : "unhidden";
-      const toCls = show ? "unhidden" : "hidden";
-      for (let i=0; i<cellCodeDivs.length; i++) {
-        const codeDiv = cellCodeDivs[i];
-        if (codeDiv.classList.contains(fromCls)) {
-          codeDiv.classList.remove(fromCls);
-          codeDiv.classList.add(toCls);
-        } 
-      }
-      return false;
-    }
-  }
-  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
-  if (hideAllCode) {
-    hideAllCode.addEventListener("click", toggleCodeHandler(false));
-  }
-  const showAllCode = window.document.getElementById("quarto-show-all-code");
-  if (showAllCode) {
-    showAllCode.addEventListener("click", toggleCodeHandler(true));
-  }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-    const config = {
-      allowHTML: true,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start',
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
     };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
         }
       }
+      return false;
     }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
           }
         }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
         }
-        return container.innerHTML
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
       } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      // TODO in 1.5, we should make sure this works without a callout special case
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
       }
     }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
           }
         } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
+            const note = htmlDoc.querySelector('main.content');
             if (note !== null) {
-              const html = processXRef(id, note);
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -1731,185 +1736,161 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
-    });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            div.style.left = 0;
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+      }, function(instance) {
       });
     }
-  }
-});
-</script>
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./01_python.html" class="pagination-link" aria-label="Python">
@@ -1972,15 +1953,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb47-48"><a href="#cb47-48"></a></span>
 <span id="cb47-49"><a href="#cb47-49"></a>::: {.column width="50%"}</span>
 <span id="cb47-50"><a href="#cb47-50"></a></span>
-<span id="cb47-51"><a href="#cb47-51"></a>| Rate   | From    |</span>
-<span id="cb47-52"><a href="#cb47-52"></a>|--------|--------:|</span>
-<span id="cb47-53"><a href="#cb47-53"></a>| 10%    | 0       |</span>
-<span id="cb47-54"><a href="#cb47-54"></a>| 15%    | 9275    |</span>
-<span id="cb47-55"><a href="#cb47-55"></a>| 25%    | 37650   |</span>
-<span id="cb47-56"><a href="#cb47-56"></a>| 28%    | 91150   |</span>
-<span id="cb47-57"><a href="#cb47-57"></a>| 33%    | 190150  |</span>
-<span id="cb47-58"><a href="#cb47-58"></a>| 35%    | 413350  |</span>
-<span id="cb47-59"><a href="#cb47-59"></a>| 39.6%  | 415050  |</span>
+<span id="cb47-51"><a href="#cb47-51"></a><span class="pp">|</span> Rate   <span class="pp">|</span> From    <span class="pp">|</span></span>
+<span id="cb47-52"><a href="#cb47-52"></a><span class="pp">|--------|--------:|</span></span>
+<span id="cb47-53"><a href="#cb47-53"></a><span class="pp">|</span> 10%    <span class="pp">|</span> 0       <span class="pp">|</span></span>
+<span id="cb47-54"><a href="#cb47-54"></a><span class="pp">|</span> 15%    <span class="pp">|</span> 9275    <span class="pp">|</span></span>
+<span id="cb47-55"><a href="#cb47-55"></a><span class="pp">|</span> 25%    <span class="pp">|</span> 37650   <span class="pp">|</span></span>
+<span id="cb47-56"><a href="#cb47-56"></a><span class="pp">|</span> 28%    <span class="pp">|</span> 91150   <span class="pp">|</span></span>
+<span id="cb47-57"><a href="#cb47-57"></a><span class="pp">|</span> 33%    <span class="pp">|</span> 190150  <span class="pp">|</span></span>
+<span id="cb47-58"><a href="#cb47-58"></a><span class="pp">|</span> 35%    <span class="pp">|</span> 413350  <span class="pp">|</span></span>
+<span id="cb47-59"><a href="#cb47-59"></a><span class="pp">|</span> 39.6%  <span class="pp">|</span> 415050  <span class="pp">|</span></span>
 <span id="cb47-60"><a href="#cb47-60"></a></span>
 <span id="cb47-61"><a href="#cb47-61"></a>:::</span>
 <span id="cb47-62"><a href="#cb47-62"></a></span>
@@ -2045,28 +2026,28 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb47-125"><a href="#cb47-125"></a><span class="fu">## Tedious to Type</span></span>
 <span id="cb47-126"><a href="#cb47-126"></a></span>
 <span id="cb47-127"><a href="#cb47-127"></a><span class="in">```{.bash code-line-numbers="false"}</span></span>
-<span id="cb47-128"><a href="#cb47-128"></a><span class="in">PS C:\Users\calvin&gt; python</span></span>
-<span id="cb47-129"><a href="#cb47-129"></a><span class="in">Python 3.12.5 (tags/v3.12.5:ff3bc82, Aug  6 2024, 20:45:27) [MSC v.1940 64 bit (AMD64)] on win32</span></span>
-<span id="cb47-130"><a href="#cb47-130"></a><span class="in">Type "help", "copyright", "credits" or "license" for more information.</span></span>
-<span id="cb47-131"><a href="#cb47-131"></a><span class="in">&gt;&gt;&gt; def single_tax(pay):</span></span>
-<span id="cb47-132"><a href="#cb47-132"></a><span class="in">...     tax_policy = [</span></span>
-<span id="cb47-133"><a href="#cb47-133"></a><span class="in">...         [415050, .396],</span></span>
-<span id="cb47-134"><a href="#cb47-134"></a><span class="in">...         [413350, .35],</span></span>
-<span id="cb47-135"><a href="#cb47-135"></a><span class="in">...         [190150, .33],</span></span>
-<span id="cb47-136"><a href="#cb47-136"></a><span class="in">...         [91150, .28],</span></span>
-<span id="cb47-137"><a href="#cb47-137"></a><span class="in">...         [37650, .25],</span></span>
-<span id="cb47-138"><a href="#cb47-138"></a><span class="in">...         [9275, .15]</span></span>
-<span id="cb47-139"><a href="#cb47-139"></a><span class="in">...     ]</span></span>
-<span id="cb47-140"><a href="#cb47-140"></a><span class="in">...     tax = 0</span></span>
-<span id="cb47-141"><a href="#cb47-141"></a><span class="in">...     for bracket in tax_policy:</span></span>
-<span id="cb47-142"><a href="#cb47-142"></a><span class="in">...         if pay &gt; bracket[0]:</span></span>
-<span id="cb47-143"><a href="#cb47-143"></a><span class="in">...             tax += (pay - bracket[0]) * bracket[1]</span></span>
-<span id="cb47-144"><a href="#cb47-144"></a><span class="in">...             pay = bracket[0]</span></span>
-<span id="cb47-145"><a href="#cb47-145"></a><span class="in">...     return tax + pay * .1</span></span>
-<span id="cb47-146"><a href="#cb47-146"></a><span class="in">...</span></span>
-<span id="cb47-147"><a href="#cb47-147"></a><span class="in">&gt;&gt;&gt; single_tax(400000)</span></span>
-<span id="cb47-148"><a href="#cb47-148"></a><span class="in">115529.25</span></span>
-<span id="cb47-149"><a href="#cb47-149"></a><span class="in">&gt;&gt;&gt;</span></span>
+<span id="cb47-128"><a href="#cb47-128"></a><span class="ex">PS</span> C:<span class="dt">\U</span>sers<span class="dt">\c</span>alvin<span class="op">&gt;</span> python</span>
+<span id="cb47-129"><a href="#cb47-129"></a><span class="ex">Python</span> 3.12.5 <span class="er">(</span><span class="ex">tags/v3.12.5:ff3bc82,</span> Aug  6 2024, 20:45:27<span class="kw">)</span> <span class="ex">[MSC</span> v.1940 64 bit <span class="er">(</span><span class="ex">AMD64</span><span class="kw">)</span><span class="ex">]</span> on win32</span>
+<span id="cb47-130"><a href="#cb47-130"></a><span class="ex">Type</span> <span class="st">"help"</span>, <span class="st">"copyright"</span>, <span class="st">"credits"</span> or <span class="st">"license"</span> for more information.</span>
+<span id="cb47-131"><a href="#cb47-131"></a><span class="op">&gt;&gt;&gt;</span> def <span class="ex">single_tax</span><span class="er">(</span><span class="ex">pay</span><span class="kw">)</span><span class="bu">:</span></span>
+<span id="cb47-132"><a href="#cb47-132"></a><span class="ex">...</span>     tax_policy = [</span>
+<span id="cb47-133"><a href="#cb47-133"></a><span class="ex">...</span>         [415050, .396],</span>
+<span id="cb47-134"><a href="#cb47-134"></a><span class="ex">...</span>         [413350, .35],</span>
+<span id="cb47-135"><a href="#cb47-135"></a><span class="ex">...</span>         [190150, .33],</span>
+<span id="cb47-136"><a href="#cb47-136"></a><span class="ex">...</span>         [91150, .28],</span>
+<span id="cb47-137"><a href="#cb47-137"></a><span class="ex">...</span>         [37650, .25],</span>
+<span id="cb47-138"><a href="#cb47-138"></a><span class="ex">...</span>         [9275, .15]</span>
+<span id="cb47-139"><a href="#cb47-139"></a><span class="ex">...</span>     ]</span>
+<span id="cb47-140"><a href="#cb47-140"></a><span class="ex">...</span>     tax = 0</span>
+<span id="cb47-141"><a href="#cb47-141"></a><span class="ex">...</span>     for bracket in tax_policy:</span>
+<span id="cb47-142"><a href="#cb47-142"></a><span class="ex">...</span>         if pay <span class="op">&gt;</span> bracket<span class="pp">[</span><span class="ss">0</span><span class="pp">]</span>:</span>
+<span id="cb47-143"><a href="#cb47-143"></a><span class="ex">...</span>             tax += <span class="er">(</span><span class="ex">pay</span> <span class="at">-</span> bracket<span class="pp">[</span><span class="ss">0</span><span class="pp">]</span><span class="kw">)</span> <span class="ex">*</span> bracket<span class="pp">[</span><span class="ss">1</span><span class="pp">]</span></span>
+<span id="cb47-144"><a href="#cb47-144"></a><span class="ex">...</span>             pay = bracket<span class="pp">[</span><span class="ss">0</span><span class="pp">]</span></span>
+<span id="cb47-145"><a href="#cb47-145"></a><span class="ex">...</span>     return tax + pay <span class="pp">*</span> .1</span>
+<span id="cb47-146"><a href="#cb47-146"></a><span class="ex">...</span></span>
+<span id="cb47-147"><a href="#cb47-147"></a><span class="op">&gt;&gt;&gt;</span> single_tax<span class="kw">(</span><span class="ex">400000</span><span class="kw">)</span></span>
+<span id="cb47-148"><a href="#cb47-148"></a><span class="ex">115529.25</span></span>
+<span id="cb47-149"><a href="#cb47-149"></a><span class="op">&gt;&gt;&gt;</span></span>
 <span id="cb47-150"><a href="#cb47-150"></a><span class="in">```</span></span>
 <span id="cb47-151"><a href="#cb47-151"></a></span>
 <span id="cb47-152"><a href="#cb47-152"></a><span class="fu">## Instead: .py files</span></span>
@@ -2149,7 +2130,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb47-229"><a href="#cb47-229"></a></span>
 <span id="cb47-230"><a href="#cb47-230"></a><span class="ss">- </span>On MacOS, type <span class="in">`nvim`</span></span>
 <span id="cb47-231"><a href="#cb47-231"></a><span class="in">```{.zsh filename="MacOS" code-line-numbers="false"}</span></span>
-<span id="cb47-232"><a href="#cb47-232"></a><span class="in">$ nvim</span></span>
+<span id="cb47-232"><a href="#cb47-232"></a><span class="ex">$</span> nvim</span>
 <span id="cb47-233"><a href="#cb47-233"></a><span class="in">```</span></span>
 <span id="cb47-234"><a href="#cb47-234"></a><span class="ss">- </span>On Windows, type <span class="in">`nvim`</span></span>
 <span id="cb47-235"><a href="#cb47-235"></a><span class="in">```{.ps filename="Windows" code-line-numbers="false"}</span></span>
@@ -2161,20 +2142,20 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb47-241"><a href="#cb47-241"></a></span>
 <span id="cb47-242"><a href="#cb47-242"></a><span class="ss">- </span>You'll see something like this:</span>
 <span id="cb47-243"><a href="#cb47-243"></a><span class="in">```{.bash code-line-numbers="false"}</span></span>
-<span id="cb47-244"><a href="#cb47-244"></a><span class="in">                  NVIM v0.11.1</span></span>
+<span id="cb47-244"><a href="#cb47-244"></a>                  <span class="ex">NVIM</span> v0.11.1</span>
 <span id="cb47-245"><a href="#cb47-245"></a></span>
-<span id="cb47-246"><a href="#cb47-246"></a><span class="in">  Nvim is open source and freely distributable</span></span>
-<span id="cb47-247"><a href="#cb47-247"></a><span class="in">           https://neovim.io/#chat</span></span>
+<span id="cb47-246"><a href="#cb47-246"></a>  <span class="ex">Nvim</span> is open source and freely distributable</span>
+<span id="cb47-247"><a href="#cb47-247"></a>           <span class="ex">https://neovim.io/#chat</span></span>
 <span id="cb47-248"><a href="#cb47-248"></a></span>
-<span id="cb47-249"><a href="#cb47-249"></a><span class="in"> type :help nvim&lt;Enter&gt;               if you are new!</span></span>
-<span id="cb47-250"><a href="#cb47-250"></a><span class="in"> type :checkhealth&lt;Enter&gt;             to optimize Nvim</span></span>
-<span id="cb47-251"><a href="#cb47-251"></a><span class="in"> type :q&lt;Enter&gt;                       to exit</span></span>
-<span id="cb47-252"><a href="#cb47-252"></a><span class="in"> type :help&lt;Enter&gt;                    for help</span></span>
+<span id="cb47-249"><a href="#cb47-249"></a> <span class="bu">type</span> :help nvim<span class="op">&lt;</span>Enter<span class="op">&gt;</span>               if you are new!</span>
+<span id="cb47-250"><a href="#cb47-250"></a> <span class="bu">type</span> :checkhealth<span class="op">&lt;</span>Enter<span class="op">&gt;</span>             to optimize Nvim</span>
+<span id="cb47-251"><a href="#cb47-251"></a> <span class="bu">type</span> :q<span class="op">&lt;</span>Enter<span class="op">&gt;</span>                       to exit</span>
+<span id="cb47-252"><a href="#cb47-252"></a> <span class="bu">type</span> :help<span class="op">&lt;</span>Enter<span class="op">&gt;</span>                    for help</span>
 <span id="cb47-253"><a href="#cb47-253"></a></span>
-<span id="cb47-254"><a href="#cb47-254"></a><span class="in">type :help news&lt;Enter&gt; to see changes in v0.11</span></span>
+<span id="cb47-254"><a href="#cb47-254"></a><span class="bu">type</span> :help news<span class="op">&lt;</span>Enter<span class="op">&gt;</span> to see changes in v0.11</span>
 <span id="cb47-255"><a href="#cb47-255"></a></span>
-<span id="cb47-256"><a href="#cb47-256"></a><span class="in">        Help poor children in Uganda!</span></span>
-<span id="cb47-257"><a href="#cb47-257"></a><span class="in"> type :help iccf&lt;Enter&gt;               for information</span></span>
+<span id="cb47-256"><a href="#cb47-256"></a>        <span class="ex">Help</span> poor children in Uganda!</span>
+<span id="cb47-257"><a href="#cb47-257"></a> <span class="bu">type</span> :help iccf<span class="op">&lt;</span>Enter<span class="op">&gt;</span>               for information</span>
 <span id="cb47-258"><a href="#cb47-258"></a><span class="in">```</span></span>
 <span id="cb47-259"><a href="#cb47-259"></a></span>
 <span id="cb47-260"><a href="#cb47-260"></a><span class="fu"># Modes</span></span>
@@ -2186,7 +2167,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb47-266"><a href="#cb47-266"></a><span class="ss">- </span>Rather, by default, we being in *command* mode.</span>
 <span id="cb47-267"><a href="#cb47-267"></a><span class="ss">- </span>We won't worry about that too much, but the first command to learn is</span>
 <span id="cb47-268"><a href="#cb47-268"></a><span class="in">```{.bash code-line-numbers="false"}</span></span>
-<span id="cb47-269"><a href="#cb47-269"></a><span class="in">i</span></span>
+<span id="cb47-269"><a href="#cb47-269"></a><span class="ex">i</span></span>
 <span id="cb47-270"><a href="#cb47-270"></a><span class="in">```</span></span>
 <span id="cb47-271"><a href="#cb47-271"></a><span class="ss">- </span><span class="in">`i`</span> for insert</span>
 <span id="cb47-272"><a href="#cb47-272"></a></span>
@@ -2207,13 +2188,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb47-287"><a href="#cb47-287"></a><span class="ss">- </span>Worked amicably in <span class="in">`i`</span> insert mode</span>
 <span id="cb47-288"><a href="#cb47-288"></a></span>
 <span id="cb47-289"><a href="#cb47-289"></a><span class="in">```{.python filename="pw.py"}</span></span>
-<span id="cb47-290"><a href="#cb47-290"></a><span class="in">def piecewise(x):</span></span>
-<span id="cb47-291"><a href="#cb47-291"></a><span class="in">    if (x &lt; 4):</span></span>
-<span id="cb47-292"><a href="#cb47-292"></a><span class="in">        return 9 * x ** 2 + 5</span></span>
-<span id="cb47-293"><a href="#cb47-293"></a><span class="in">    elif (4 &lt;= x &lt;= 8):</span></span>
-<span id="cb47-294"><a href="#cb47-294"></a><span class="in">        return 9</span></span>
-<span id="cb47-295"><a href="#cb47-295"></a><span class="in">    elif (x &gt; 8):</span></span>
-<span id="cb47-296"><a href="#cb47-296"></a><span class="in">        return 2 - x</span></span>
+<span id="cb47-290"><a href="#cb47-290"></a><span class="kw">def</span> piecewise(x):</span>
+<span id="cb47-291"><a href="#cb47-291"></a>    <span class="cf">if</span> (x <span class="op">&lt;</span> <span class="dv">4</span>):</span>
+<span id="cb47-292"><a href="#cb47-292"></a>        <span class="cf">return</span> <span class="dv">9</span> <span class="op">*</span> x <span class="op">**</span> <span class="dv">2</span> <span class="op">+</span> <span class="dv">5</span></span>
+<span id="cb47-293"><a href="#cb47-293"></a>    <span class="cf">elif</span> (<span class="dv">4</span> <span class="op">&lt;=</span> x <span class="op">&lt;=</span> <span class="dv">8</span>):</span>
+<span id="cb47-294"><a href="#cb47-294"></a>        <span class="cf">return</span> <span class="dv">9</span></span>
+<span id="cb47-295"><a href="#cb47-295"></a>    <span class="cf">elif</span> (x <span class="op">&gt;</span> <span class="dv">8</span>):</span>
+<span id="cb47-296"><a href="#cb47-296"></a>        <span class="cf">return</span> <span class="dv">2</span> <span class="op">-</span> x</span>
 <span id="cb47-297"><a href="#cb47-297"></a><span class="in">```</span></span>
 <span id="cb47-298"><a href="#cb47-298"></a></span>
 <span id="cb47-299"><a href="#cb47-299"></a><span class="ss">- </span>For <span class="in">`.py`</span> files I'll include line numbers but add a filename on top.</span>
@@ -2243,7 +2224,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb47-323"><a href="#cb47-323"></a><span class="ss">- </span>Include the <span class="in">`.py`</span> ending!</span>
 <span id="cb47-324"><a href="#cb47-324"></a><span class="ss">- </span>I wrote:</span>
 <span id="cb47-325"><a href="#cb47-325"></a><span class="in">```{.bash code-line-numbers="false"}</span></span>
-<span id="cb47-326"><a href="#cb47-326"></a><span class="in">:w pw.py</span></span>
+<span id="cb47-326"><a href="#cb47-326"></a><span class="ex">:w</span> pw.py</span>
 <span id="cb47-327"><a href="#cb47-327"></a><span class="in">```</span></span>
 <span id="cb47-328"><a href="#cb47-328"></a></span>
 <span id="cb47-329"><a href="#cb47-329"></a><span class="fu">## Save and Quit</span></span>
@@ -2261,8 +2242,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb47-341"><a href="#cb47-341"></a></span>
 <span id="cb47-342"><a href="#cb47-342"></a><span class="ss">- </span>On MacOS, you'll see <span class="in">`nvim`</span> and a new prompt</span>
 <span id="cb47-343"><a href="#cb47-343"></a><span class="in">```{.zsh filename="MacOS" code-line-numbers="false"}</span></span>
-<span id="cb47-344"><a href="#cb47-344"></a><span class="in">$ nvim</span></span>
-<span id="cb47-345"><a href="#cb47-345"></a><span class="in">$</span></span>
+<span id="cb47-344"><a href="#cb47-344"></a><span class="ex">$</span> nvim</span>
+<span id="cb47-345"><a href="#cb47-345"></a><span class="ex">$</span></span>
 <span id="cb47-346"><a href="#cb47-346"></a><span class="in">```</span></span>
 <span id="cb47-347"><a href="#cb47-347"></a><span class="ss">- </span>On Windows, the same</span>
 <span id="cb47-348"><a href="#cb47-348"></a><span class="in">```{.ps filename="Windows" code-line-numbers="false"}</span></span>
@@ -2301,9 +2282,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb47-381"><a href="#cb47-381"></a><span class="in">-a----         5/20/2025   3:21 PM            151 pw.py</span></span>
 <span id="cb47-382"><a href="#cb47-382"></a><span class="in">```</span></span>
 <span id="cb47-383"><a href="#cb47-383"></a><span class="in">```{.zsh filename="MacOS" code-line-numbers="false"}</span></span>
-<span id="cb47-384"><a href="#cb47-384"></a><span class="in">$ ls pw.py</span></span>
-<span id="cb47-385"><a href="#cb47-385"></a><span class="in">pw.py</span></span>
-<span id="cb47-386"><a href="#cb47-386"></a><span class="in">$</span></span>
+<span id="cb47-384"><a href="#cb47-384"></a><span class="ex">$</span> ls pw.py</span>
+<span id="cb47-385"><a href="#cb47-385"></a><span class="ex">pw.py</span></span>
+<span id="cb47-386"><a href="#cb47-386"></a><span class="ex">$</span></span>
 <span id="cb47-387"><a href="#cb47-387"></a><span class="in">```</span></span>
 <span id="cb47-388"><a href="#cb47-388"></a></span>
 <span id="cb47-389"><a href="#cb47-389"></a><span class="fu">## .py files</span></span>
@@ -2318,7 +2299,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb47-398"><a href="#cb47-398"></a><span class="in">```</span></span>
 <span id="cb47-399"><a href="#cb47-399"></a><span class="ss">- </span>On MacOS, type <span class="in">`python3`</span></span>
 <span id="cb47-400"><a href="#cb47-400"></a><span class="in">```{.zsh filename="MacOS" code-line-numbers="false"}</span></span>
-<span id="cb47-401"><a href="#cb47-401"></a><span class="in">$ python3</span></span>
+<span id="cb47-401"><a href="#cb47-401"></a><span class="ex">$</span> python3</span>
 <span id="cb47-402"><a href="#cb47-402"></a><span class="in">```</span></span>
 <span id="cb47-403"><a href="#cb47-403"></a><span class="ss">- </span>On both, press the **↵ᴇɴᴛᴇʀ** key.</span>
 <span id="cb47-404"><a href="#cb47-404"></a></span>
@@ -2326,9 +2307,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb47-406"><a href="#cb47-406"></a></span>
 <span id="cb47-407"><a href="#cb47-407"></a><span class="ss">- </span>You'll see something like this:</span>
 <span id="cb47-408"><a href="#cb47-408"></a><span class="in">```{.email code-line-numbers="false"}</span></span>
-<span id="cb47-409"><a href="#cb47-409"></a><span class="in">Python 3.12.5 (tags/v3.12.5:ff3bc82, Aug  6 2024, 20:45:27) [MSC v.1940 64 bit (AMD64)] on win32</span></span>
-<span id="cb47-410"><a href="#cb47-410"></a><span class="in">Type "help", "copyright", "credits" or "license" for more information.</span></span>
-<span id="cb47-411"><a href="#cb47-411"></a><span class="in">&gt;&gt;&gt;</span></span>
+<span id="cb47-409"><a href="#cb47-409"></a>Python 3.12.5 (tags/v3.12.5:ff3bc82, Aug  6 2024, 20:45:27) [MSC v.1940 64 bit (AMD64)] on win32</span>
+<span id="cb47-410"><a href="#cb47-410"></a>Type "help", "copyright", "credits" or "license" for more information.</span>
+<span id="cb47-411"><a href="#cb47-411"></a>&gt;&gt;&gt;</span>
 <span id="cb47-412"><a href="#cb47-412"></a><span class="in">```</span></span>
 <span id="cb47-413"><a href="#cb47-413"></a><span class="ss">- </span>Take note of the prompt!</span>
 <span id="cb47-414"><a href="#cb47-414"></a><span class="ss">- </span><span class="in">`&gt;&gt;&gt;`</span></span>
@@ -2343,11 +2324,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb47-423"><a href="#cb47-423"></a><span class="ss">    - </span>It should look like this:</span>
 <span id="cb47-424"><a href="#cb47-424"></a></span>
 <span id="cb47-425"><a href="#cb47-425"></a><span class="in">```{.email code-line-numbers="false"}</span></span>
-<span id="cb47-426"><a href="#cb47-426"></a><span class="in">PS C:\Users\calvin&gt; python</span></span>
-<span id="cb47-427"><a href="#cb47-427"></a><span class="in">Python 3.12.5 (tags/v3.12.5:ff3bc82, Aug  6 2024, 20:45:27) [MSC v.1940 64 bit (AMD64)] on win32</span></span>
-<span id="cb47-428"><a href="#cb47-428"></a><span class="in">Type "help", "copyright", "credits" or "license" for more information.</span></span>
-<span id="cb47-429"><a href="#cb47-429"></a><span class="in">&gt;&gt;&gt; import pw</span></span>
-<span id="cb47-430"><a href="#cb47-430"></a><span class="in">&gt;&gt;&gt;</span></span>
+<span id="cb47-426"><a href="#cb47-426"></a>PS C:\Users\calvin&gt; python</span>
+<span id="cb47-427"><a href="#cb47-427"></a>Python 3.12.5 (tags/v3.12.5:ff3bc82, Aug  6 2024, 20:45:27) [MSC v.1940 64 bit (AMD64)] on win32</span>
+<span id="cb47-428"><a href="#cb47-428"></a>Type "help", "copyright", "credits" or "license" for more information.</span>
+<span id="cb47-429"><a href="#cb47-429"></a>&gt;&gt;&gt; import pw</span>
+<span id="cb47-430"><a href="#cb47-430"></a>&gt;&gt;&gt;</span>
 <span id="cb47-431"><a href="#cb47-431"></a><span class="in">```</span></span>
 <span id="cb47-432"><a href="#cb47-432"></a></span>
 <span id="cb47-433"><a href="#cb47-433"></a><span class="fu">## Modules</span></span>
@@ -2355,13 +2336,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb47-435"><a href="#cb47-435"></a><span class="ss">- </span><span class="in">`import pw`</span> will introduce a new variable to Python to which we can refer by name (pw)</span>
 <span id="cb47-436"><a href="#cb47-436"></a><span class="ss">- </span>It is of a new type for us, "module"</span>
 <span id="cb47-437"><a href="#cb47-437"></a><span class="in">```{.email code-line-numbers="false"}</span></span>
-<span id="cb47-438"><a href="#cb47-438"></a><span class="in">&gt;&gt;&gt; type(pw)</span></span>
-<span id="cb47-439"><a href="#cb47-439"></a><span class="in">&lt;class 'module'&gt;</span></span>
+<span id="cb47-438"><a href="#cb47-438"></a>&gt;&gt;&gt; type(pw)</span>
+<span id="cb47-439"><a href="#cb47-439"></a>&lt;class 'module'&gt;</span>
 <span id="cb47-440"><a href="#cb47-440"></a><span class="in">```</span></span>
 <span id="cb47-441"><a href="#cb47-441"></a><span class="ss">- </span>Modules correspond to <span class="in">`.py`</span> files!</span>
 <span id="cb47-442"><a href="#cb47-442"></a><span class="in">```{.email code-line-numbers="false"}</span></span>
-<span id="cb47-443"><a href="#cb47-443"></a><span class="in">&gt;&gt;&gt; pw</span></span>
-<span id="cb47-444"><a href="#cb47-444"></a><span class="in">&lt;module 'pw' from 'C:\\Users\\calvin\\pw.py'&gt;</span></span>
+<span id="cb47-443"><a href="#cb47-443"></a>&gt;&gt;&gt; pw</span>
+<span id="cb47-444"><a href="#cb47-444"></a>&lt;module 'pw' from 'C:\\Users\\calvin\\pw.py'&gt;</span>
 <span id="cb47-445"><a href="#cb47-445"></a><span class="in">```</span></span>
 <span id="cb47-446"><a href="#cb47-446"></a><span class="ss">- </span>(The <span class="in">`from`</span> will look different on different computers)</span>
 <span id="cb47-447"><a href="#cb47-447"></a></span>
@@ -2370,17 +2351,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb47-450"><a href="#cb47-450"></a><span class="ss">- </span>We can use functions inside modules in a few ways.</span>
 <span id="cb47-451"><a href="#cb47-451"></a><span class="ss">- </span>First, we can use the module name (<span class="in">`pw`</span>) followed by a dot or period (<span class="in">`.`</span>) followed by the name of the function.</span>
 <span id="cb47-452"><a href="#cb47-452"></a><span class="in">```{.email code-line-numbers="false"}</span></span>
-<span id="cb47-453"><a href="#cb47-453"></a><span class="in">&gt;&gt;&gt; pw.piecewise(-1)</span></span>
-<span id="cb47-454"><a href="#cb47-454"></a><span class="in">14</span></span>
+<span id="cb47-453"><a href="#cb47-453"></a>&gt;&gt;&gt; pw.piecewise(-1)</span>
+<span id="cb47-454"><a href="#cb47-454"></a>14</span>
 <span id="cb47-455"><a href="#cb47-455"></a><span class="in">```</span></span>
 <span id="cb47-456"><a href="#cb47-456"></a></span>
 <span id="cb47-457"><a href="#cb47-457"></a><span class="fu">## Renaming Functions</span></span>
 <span id="cb47-458"><a href="#cb47-458"></a></span>
 <span id="cb47-459"><a href="#cb47-459"></a><span class="ss">- </span>Second, we can just use single equals assignment</span>
 <span id="cb47-460"><a href="#cb47-460"></a><span class="in">```{.email code-line-numbers="false"}</span></span>
-<span id="cb47-461"><a href="#cb47-461"></a><span class="in">&gt;&gt;&gt; piecewise = pw.piecewise</span></span>
-<span id="cb47-462"><a href="#cb47-462"></a><span class="in">&gt;&gt;&gt; piecewise(4)</span></span>
-<span id="cb47-463"><a href="#cb47-463"></a><span class="in">9</span></span>
+<span id="cb47-461"><a href="#cb47-461"></a>&gt;&gt;&gt; piecewise = pw.piecewise</span>
+<span id="cb47-462"><a href="#cb47-462"></a>&gt;&gt;&gt; piecewise(4)</span>
+<span id="cb47-463"><a href="#cb47-463"></a>9</span>
 <span id="cb47-464"><a href="#cb47-464"></a><span class="in">```</span></span>
 <span id="cb47-465"><a href="#cb47-465"></a></span>
 <span id="cb47-466"><a href="#cb47-466"></a><span class="fu">## Using `from`</span></span>
@@ -2389,9 +2370,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb47-469"><a href="#cb47-469"></a><span class="ss">    - </span>This is *by far* preferred (it is more clear)</span>
 <span id="cb47-470"><a href="#cb47-470"></a></span>
 <span id="cb47-471"><a href="#cb47-471"></a><span class="in">```{.email code-line-numbers="false"}</span></span>
-<span id="cb47-472"><a href="#cb47-472"></a><span class="in">&gt;&gt;&gt; from pw import piecewise</span></span>
-<span id="cb47-473"><a href="#cb47-473"></a><span class="in">&gt;&gt;&gt; piecewise(11)</span></span>
-<span id="cb47-474"><a href="#cb47-474"></a><span class="in">-9</span></span>
+<span id="cb47-472"><a href="#cb47-472"></a>&gt;&gt;&gt; from pw import piecewise</span>
+<span id="cb47-473"><a href="#cb47-473"></a>&gt;&gt;&gt; piecewise(11)</span>
+<span id="cb47-474"><a href="#cb47-474"></a>-9</span>
 <span id="cb47-475"><a href="#cb47-475"></a><span class="in">```</span></span>
 <span id="cb47-476"><a href="#cb47-476"></a></span>
 <span id="cb47-477"><a href="#cb47-477"></a><span class="ss">- </span>I only show you the other methods to make it clear what this method is doing.</span>
@@ -2441,7 +2422,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb47-521"><a href="#cb47-521"></a><span class="ss">- </span>I use <span class="in">`nvim hi.py`</span> to create *and* open a new file named <span class="in">`hi.py`</span></span>
 <span id="cb47-522"><a href="#cb47-522"></a><span class="ss">- </span>Then I write:</span>
 <span id="cb47-523"><a href="#cb47-523"></a><span class="in">```{.py filename="hi.py"}</span></span>
-<span id="cb47-524"><a href="#cb47-524"></a><span class="in">print("Hello, terminal!")</span></span>
+<span id="cb47-524"><a href="#cb47-524"></a><span class="bu">print</span>(<span class="st">"Hello, terminal!"</span>)</span>
 <span id="cb47-525"><a href="#cb47-525"></a><span class="in">```</span></span>
 <span id="cb47-526"><a href="#cb47-526"></a></span>
 <span id="cb47-527"><a href="#cb47-527"></a><span class="fu">## Running Scripts</span></span>
@@ -2450,10 +2431,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb47-530"><a href="#cb47-530"></a><span class="ss">- </span>Then I run the Python script via <span class="in">`python hi.py`</span></span>
 <span id="cb47-531"><a href="#cb47-531"></a><span class="ss">- </span>For me, it looks like this:</span>
 <span id="cb47-532"><a href="#cb47-532"></a><span class="in">```{.email code-line-numbers="false"}</span></span>
-<span id="cb47-533"><a href="#cb47-533"></a><span class="in">$ nvim hi.py</span></span>
-<span id="cb47-534"><a href="#cb47-534"></a><span class="in">$ python3 hi.py</span></span>
-<span id="cb47-535"><a href="#cb47-535"></a><span class="in">Hello, terminal!</span></span>
-<span id="cb47-536"><a href="#cb47-536"></a><span class="in">$</span></span>
+<span id="cb47-533"><a href="#cb47-533"></a>$ nvim hi.py</span>
+<span id="cb47-534"><a href="#cb47-534"></a>$ python3 hi.py</span>
+<span id="cb47-535"><a href="#cb47-535"></a>Hello, terminal!</span>
+<span id="cb47-536"><a href="#cb47-536"></a>$</span>
 <span id="cb47-537"><a href="#cb47-537"></a><span class="in">```</span></span>
 <span id="cb47-538"><a href="#cb47-538"></a></span>
 <span id="cb47-539"><a href="#cb47-539"></a><span class="fu">## What happened?</span></span>
@@ -2470,22 +2451,22 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb47-550"><a href="#cb47-550"></a><span class="ss">    - </span>This is a "vim motion"</span>
 <span id="cb47-551"><a href="#cb47-551"></a><span class="ss">- </span>I use <span class="in">`i`</span> to change into insert mode, and add:</span>
 <span id="cb47-552"><a href="#cb47-552"></a><span class="in">```{.py filename="pw.py"}</span></span>
-<span id="cb47-553"><a href="#cb47-553"></a><span class="in">for e in [-1, 4, 5, 8, 11]:</span></span>
-<span id="cb47-554"><a href="#cb47-554"></a><span class="in">    print([e, piecewise(e)])</span></span>
+<span id="cb47-553"><a href="#cb47-553"></a><span class="cf">for</span> e <span class="kw">in</span> [<span class="op">-</span><span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">11</span>]:</span>
+<span id="cb47-554"><a href="#cb47-554"></a>    <span class="bu">print</span>([e, piecewise(e)])</span>
 <span id="cb47-555"><a href="#cb47-555"></a><span class="in">```</span></span>
 <span id="cb47-556"><a href="#cb47-556"></a><span class="ss">- </span>Save and exit with (escape then) <span class="in">`:x`</span> </span>
 <span id="cb47-557"><a href="#cb47-557"></a></span>
 <span id="cb47-558"><a href="#cb47-558"></a><span class="fu">## Test it</span></span>
 <span id="cb47-559"><a href="#cb47-559"></a></span>
 <span id="cb47-560"><a href="#cb47-560"></a><span class="in">```{.email code-line-numbers="false"}</span></span>
-<span id="cb47-561"><a href="#cb47-561"></a><span class="in">$ nvim pw.py</span></span>
-<span id="cb47-562"><a href="#cb47-562"></a><span class="in">$ python3 pw.py</span></span>
-<span id="cb47-563"><a href="#cb47-563"></a><span class="in">[-1, 14]</span></span>
-<span id="cb47-564"><a href="#cb47-564"></a><span class="in">[4, 9]</span></span>
-<span id="cb47-565"><a href="#cb47-565"></a><span class="in">[5, 9]</span></span>
-<span id="cb47-566"><a href="#cb47-566"></a><span class="in">[8, 9]</span></span>
-<span id="cb47-567"><a href="#cb47-567"></a><span class="in">[11, -9]</span></span>
-<span id="cb47-568"><a href="#cb47-568"></a><span class="in">$</span></span>
+<span id="cb47-561"><a href="#cb47-561"></a>$ nvim pw.py</span>
+<span id="cb47-562"><a href="#cb47-562"></a>$ python3 pw.py</span>
+<span id="cb47-563"><a href="#cb47-563"></a>[-1, 14]</span>
+<span id="cb47-564"><a href="#cb47-564"></a>[4, 9]</span>
+<span id="cb47-565"><a href="#cb47-565"></a>[5, 9]</span>
+<span id="cb47-566"><a href="#cb47-566"></a>[8, 9]</span>
+<span id="cb47-567"><a href="#cb47-567"></a>[11, -9]</span>
+<span id="cb47-568"><a href="#cb47-568"></a>$</span>
 <span id="cb47-569"><a href="#cb47-569"></a><span class="in">```</span></span>
 <span id="cb47-570"><a href="#cb47-570"></a></span>
 <span id="cb47-571"><a href="#cb47-571"></a><span class="fu">## Using input</span></span>
@@ -2494,7 +2475,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb47-574"><a href="#cb47-574"></a><span class="ss">- </span>Within the terminal, run <span class="in">`python`</span></span>
 <span id="cb47-575"><a href="#cb47-575"></a><span class="ss">- </span>Then within Python, call <span class="in">`input()`</span></span>
 <span id="cb47-576"><a href="#cb47-576"></a><span class="in">```{.email code-line-numbers="false"}</span></span>
-<span id="cb47-577"><a href="#cb47-577"></a><span class="in">&gt;&gt;&gt; input() </span></span>
+<span id="cb47-577"><a href="#cb47-577"></a>&gt;&gt;&gt; input() </span>
 <span id="cb47-578"><a href="#cb47-578"></a><span class="in">```</span></span>
 <span id="cb47-579"><a href="#cb47-579"></a><span class="ss">- </span>What happens?</span>
 <span id="cb47-580"><a href="#cb47-580"></a></span>
@@ -2520,9 +2501,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb47-600"><a href="#cb47-600"></a></span>
 <span id="cb47-601"><a href="#cb47-601"></a></span>
 <span id="cb47-602"><a href="#cb47-602"></a><span class="in">```{.email code-line-numbers="false"}</span></span>
-<span id="cb47-603"><a href="#cb47-603"></a><span class="in">&gt;&gt;&gt; input()</span></span>
-<span id="cb47-604"><a href="#cb47-604"></a><span class="in">something anything</span></span>
-<span id="cb47-605"><a href="#cb47-605"></a><span class="in">'something anything'</span></span>
+<span id="cb47-603"><a href="#cb47-603"></a>&gt;&gt;&gt; input()</span>
+<span id="cb47-604"><a href="#cb47-604"></a>something anything</span>
+<span id="cb47-605"><a href="#cb47-605"></a>'something anything'</span>
 <span id="cb47-606"><a href="#cb47-606"></a><span class="in">```</span></span>
 <span id="cb47-607"><a href="#cb47-607"></a></span>
 <span id="cb47-608"><a href="#cb47-608"></a><span class="ss">- </span>*The `input()` function **returns** the text that is typed in*</span>
@@ -2531,19 +2512,19 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb47-611"><a href="#cb47-611"></a></span>
 <span id="cb47-612"><a href="#cb47-612"></a><span class="ss">- </span>Let's make a little script to try out <span class="in">`input()`</span></span>
 <span id="cb47-613"><a href="#cb47-613"></a><span class="in">```{.py filename="reply.py"}</span></span>
-<span id="cb47-614"><a href="#cb47-614"></a><span class="in">x = input()</span></span>
-<span id="cb47-615"><a href="#cb47-615"></a><span class="in">print(x)</span></span>
+<span id="cb47-614"><a href="#cb47-614"></a>x <span class="op">=</span> <span class="bu">input</span>()</span>
+<span id="cb47-615"><a href="#cb47-615"></a><span class="bu">print</span>(x)</span>
 <span id="cb47-616"><a href="#cb47-616"></a><span class="in">```</span></span>
 <span id="cb47-617"><a href="#cb47-617"></a><span class="ss">- </span>Think about the steps to create and run this file!</span>
 <span id="cb47-618"><a href="#cb47-618"></a></span>
 <span id="cb47-619"><a href="#cb47-619"></a><span class="fu">## Example</span></span>
 <span id="cb47-620"><a href="#cb47-620"></a></span>
 <span id="cb47-621"><a href="#cb47-621"></a><span class="in">```{.email code-line-numbers="false"}</span></span>
-<span id="cb47-622"><a href="#cb47-622"></a><span class="in">$ nvim</span></span>
-<span id="cb47-623"><a href="#cb47-623"></a><span class="in">$ python3 reply.py</span></span>
-<span id="cb47-624"><a href="#cb47-624"></a><span class="in">I wrote this text then pressed enter.</span></span>
-<span id="cb47-625"><a href="#cb47-625"></a><span class="in">I wrote this text then pressed enter.</span></span>
-<span id="cb47-626"><a href="#cb47-626"></a><span class="in">$</span></span>
+<span id="cb47-622"><a href="#cb47-622"></a>$ nvim</span>
+<span id="cb47-623"><a href="#cb47-623"></a>$ python3 reply.py</span>
+<span id="cb47-624"><a href="#cb47-624"></a>I wrote this text then pressed enter.</span>
+<span id="cb47-625"><a href="#cb47-625"></a>I wrote this text then pressed enter.</span>
+<span id="cb47-626"><a href="#cb47-626"></a>$</span>
 <span id="cb47-627"><a href="#cb47-627"></a><span class="in">```</span></span>
 <span id="cb47-628"><a href="#cb47-628"></a></span>
 <span id="cb47-629"><a href="#cb47-629"></a><span class="ss">- </span>Try it out!</span>
@@ -2567,17 +2548,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb47-647"><a href="#cb47-647"></a><span class="ss">- </span>There's one little problem here.</span>
 <span id="cb47-648"><a href="#cb47-648"></a><span class="ss">- </span>Let's update <span class="in">`pw.py`</span> to to run on <span class="in">`input()`</span> and see what happens.</span>
 <span id="cb47-649"><a href="#cb47-649"></a><span class="in">```{.py filename="pw.py"}</span></span>
-<span id="cb47-650"><a href="#cb47-650"></a><span class="in">def piecewise(x):</span></span>
-<span id="cb47-651"><a href="#cb47-651"></a><span class="in">    if (x &lt; 4):</span></span>
-<span id="cb47-652"><a href="#cb47-652"></a><span class="in">        return 9 * x ** 2 + 5</span></span>
-<span id="cb47-653"><a href="#cb47-653"></a><span class="in">    elif (4 &lt;= x &lt;= 8):</span></span>
-<span id="cb47-654"><a href="#cb47-654"></a><span class="in">        return 9</span></span>
-<span id="cb47-655"><a href="#cb47-655"></a><span class="in">    elif (x &gt; 8):</span></span>
-<span id="cb47-656"><a href="#cb47-656"></a><span class="in">        return 2 - x</span></span>
+<span id="cb47-650"><a href="#cb47-650"></a><span class="kw">def</span> piecewise(x):</span>
+<span id="cb47-651"><a href="#cb47-651"></a>    <span class="cf">if</span> (x <span class="op">&lt;</span> <span class="dv">4</span>):</span>
+<span id="cb47-652"><a href="#cb47-652"></a>        <span class="cf">return</span> <span class="dv">9</span> <span class="op">*</span> x <span class="op">**</span> <span class="dv">2</span> <span class="op">+</span> <span class="dv">5</span></span>
+<span id="cb47-653"><a href="#cb47-653"></a>    <span class="cf">elif</span> (<span class="dv">4</span> <span class="op">&lt;=</span> x <span class="op">&lt;=</span> <span class="dv">8</span>):</span>
+<span id="cb47-654"><a href="#cb47-654"></a>        <span class="cf">return</span> <span class="dv">9</span></span>
+<span id="cb47-655"><a href="#cb47-655"></a>    <span class="cf">elif</span> (x <span class="op">&gt;</span> <span class="dv">8</span>):</span>
+<span id="cb47-656"><a href="#cb47-656"></a>        <span class="cf">return</span> <span class="dv">2</span> <span class="op">-</span> x</span>
 <span id="cb47-657"><a href="#cb47-657"></a></span>
-<span id="cb47-658"><a href="#cb47-658"></a><span class="in">x = input()</span></span>
-<span id="cb47-659"><a href="#cb47-659"></a><span class="in">y = piecewise(x)</span></span>
-<span id="cb47-660"><a href="#cb47-660"></a><span class="in">print(y)</span></span>
+<span id="cb47-658"><a href="#cb47-658"></a>x <span class="op">=</span> <span class="bu">input</span>()</span>
+<span id="cb47-659"><a href="#cb47-659"></a>y <span class="op">=</span> piecewise(x)</span>
+<span id="cb47-660"><a href="#cb47-660"></a><span class="bu">print</span>(y)</span>
 <span id="cb47-661"><a href="#cb47-661"></a><span class="in">```</span></span>
 <span id="cb47-662"><a href="#cb47-662"></a></span>
 <span id="cb47-663"><a href="#cb47-663"></a><span class="fu">## Uh oh!</span></span>
@@ -2585,15 +2566,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb47-665"><a href="#cb47-665"></a><span class="ss">- </span>I see the following:</span>
 <span id="cb47-666"><a href="#cb47-666"></a></span>
 <span id="cb47-667"><a href="#cb47-667"></a><span class="in">```{.email code-line-numbers="false"}</span></span>
-<span id="cb47-668"><a href="#cb47-668"></a><span class="in">$ python3 pw.py</span></span>
-<span id="cb47-669"><a href="#cb47-669"></a><span class="in">10</span></span>
-<span id="cb47-670"><a href="#cb47-670"></a><span class="in">Traceback (most recent call last):</span></span>
-<span id="cb47-671"><a href="#cb47-671"></a><span class="in">  File "/home/user/pw.py", line 10, in &lt;module&gt;</span></span>
-<span id="cb47-672"><a href="#cb47-672"></a><span class="in">    y = piecewise(x)</span></span>
-<span id="cb47-673"><a href="#cb47-673"></a><span class="in">  File "/home/user/pw.py", line 2, in piecewise</span></span>
-<span id="cb47-674"><a href="#cb47-674"></a><span class="in">    if (x &lt; 4):</span></span>
-<span id="cb47-675"><a href="#cb47-675"></a><span class="in">TypeError: '&lt;' not supported between instances of 'str' and 'int'</span></span>
-<span id="cb47-676"><a href="#cb47-676"></a><span class="in">$</span></span>
+<span id="cb47-668"><a href="#cb47-668"></a>$ python3 pw.py</span>
+<span id="cb47-669"><a href="#cb47-669"></a>10</span>
+<span id="cb47-670"><a href="#cb47-670"></a>Traceback (most recent call last):</span>
+<span id="cb47-671"><a href="#cb47-671"></a>  File "/home/user/pw.py", line 10, in &lt;module&gt;</span>
+<span id="cb47-672"><a href="#cb47-672"></a>    y = piecewise(x)</span>
+<span id="cb47-673"><a href="#cb47-673"></a>  File "/home/user/pw.py", line 2, in piecewise</span>
+<span id="cb47-674"><a href="#cb47-674"></a>    if (x &lt; 4):</span>
+<span id="cb47-675"><a href="#cb47-675"></a><span class="fu">TypeError: </span>'&lt;' not supported between instances of 'str' and 'int'</span>
+<span id="cb47-676"><a href="#cb47-676"></a>$</span>
 <span id="cb47-677"><a href="#cb47-677"></a><span class="in">```</span></span>
 <span id="cb47-678"><a href="#cb47-678"></a></span>
 <span id="cb47-679"><a href="#cb47-679"></a><span class="fu">## Recall</span></span>
@@ -2618,19 +2599,19 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb47-702"><a href="#cb47-702"></a><span class="fu">## Try it</span></span>
 <span id="cb47-703"><a href="#cb47-703"></a></span>
 <span id="cb47-704"><a href="#cb47-704"></a><span class="in">```{.email code-line-numbers="false"}</span></span>
-<span id="cb47-705"><a href="#cb47-705"></a><span class="in">&gt;&gt;&gt; x = input()</span></span>
-<span id="cb47-706"><a href="#cb47-706"></a><span class="in">10</span></span>
-<span id="cb47-707"><a href="#cb47-707"></a><span class="in">&gt;&gt;&gt; x</span></span>
-<span id="cb47-708"><a href="#cb47-708"></a><span class="in">'10'</span></span>
-<span id="cb47-709"><a href="#cb47-709"></a><span class="in">&gt;&gt;&gt; type(x)</span></span>
-<span id="cb47-710"><a href="#cb47-710"></a><span class="in">&lt;class 'str'&gt;</span></span>
-<span id="cb47-711"><a href="#cb47-711"></a><span class="in">&gt;&gt;&gt; y = int(x)</span></span>
-<span id="cb47-712"><a href="#cb47-712"></a><span class="in">&gt;&gt;&gt; y</span></span>
-<span id="cb47-713"><a href="#cb47-713"></a><span class="in">10</span></span>
-<span id="cb47-714"><a href="#cb47-714"></a><span class="in">&gt;&gt;&gt; type(y)</span></span>
-<span id="cb47-715"><a href="#cb47-715"></a><span class="in">&lt;class 'int'&gt;</span></span>
-<span id="cb47-716"><a href="#cb47-716"></a><span class="in">&gt;&gt;&gt; y &lt; 11</span></span>
-<span id="cb47-717"><a href="#cb47-717"></a><span class="in">True</span></span>
+<span id="cb47-705"><a href="#cb47-705"></a>&gt;&gt;&gt; x = input()</span>
+<span id="cb47-706"><a href="#cb47-706"></a>10</span>
+<span id="cb47-707"><a href="#cb47-707"></a>&gt;&gt;&gt; x</span>
+<span id="cb47-708"><a href="#cb47-708"></a>'10'</span>
+<span id="cb47-709"><a href="#cb47-709"></a>&gt;&gt;&gt; type(x)</span>
+<span id="cb47-710"><a href="#cb47-710"></a>&lt;class 'str'&gt;</span>
+<span id="cb47-711"><a href="#cb47-711"></a>&gt;&gt;&gt; y = int(x)</span>
+<span id="cb47-712"><a href="#cb47-712"></a>&gt;&gt;&gt; y</span>
+<span id="cb47-713"><a href="#cb47-713"></a>10</span>
+<span id="cb47-714"><a href="#cb47-714"></a>&gt;&gt;&gt; type(y)</span>
+<span id="cb47-715"><a href="#cb47-715"></a>&lt;class 'int'&gt;</span>
+<span id="cb47-716"><a href="#cb47-716"></a>&gt;&gt;&gt; y &lt; 11</span>
+<span id="cb47-717"><a href="#cb47-717"></a>True</span>
 <span id="cb47-718"><a href="#cb47-718"></a><span class="in">```</span></span>
 <span id="cb47-719"><a href="#cb47-719"></a></span>
 <span id="cb47-720"><a href="#cb47-720"></a><span class="ss">- </span>Python shows something is a string by enclosing it within quote marks <span class="in">`''`</span></span>
@@ -2638,31 +2619,31 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb47-722"><a href="#cb47-722"></a><span class="fu">## Fix `pw.py`</span></span>
 <span id="cb47-723"><a href="#cb47-723"></a></span>
 <span id="cb47-724"><a href="#cb47-724"></a><span class="in">```{.py filename="pw.py"}</span></span>
-<span id="cb47-725"><a href="#cb47-725"></a><span class="in">def piecewise(x):</span></span>
-<span id="cb47-726"><a href="#cb47-726"></a><span class="in">    if (x &lt; 4):</span></span>
-<span id="cb47-727"><a href="#cb47-727"></a><span class="in">        return 9 * x ** 2 + 5</span></span>
-<span id="cb47-728"><a href="#cb47-728"></a><span class="in">    elif (4 &lt;= x &lt;= 8):</span></span>
-<span id="cb47-729"><a href="#cb47-729"></a><span class="in">        return 9</span></span>
-<span id="cb47-730"><a href="#cb47-730"></a><span class="in">    elif (x &gt; 8):</span></span>
-<span id="cb47-731"><a href="#cb47-731"></a><span class="in">        return 2 - x</span></span>
+<span id="cb47-725"><a href="#cb47-725"></a><span class="kw">def</span> piecewise(x):</span>
+<span id="cb47-726"><a href="#cb47-726"></a>    <span class="cf">if</span> (x <span class="op">&lt;</span> <span class="dv">4</span>):</span>
+<span id="cb47-727"><a href="#cb47-727"></a>        <span class="cf">return</span> <span class="dv">9</span> <span class="op">*</span> x <span class="op">**</span> <span class="dv">2</span> <span class="op">+</span> <span class="dv">5</span></span>
+<span id="cb47-728"><a href="#cb47-728"></a>    <span class="cf">elif</span> (<span class="dv">4</span> <span class="op">&lt;=</span> x <span class="op">&lt;=</span> <span class="dv">8</span>):</span>
+<span id="cb47-729"><a href="#cb47-729"></a>        <span class="cf">return</span> <span class="dv">9</span></span>
+<span id="cb47-730"><a href="#cb47-730"></a>    <span class="cf">elif</span> (x <span class="op">&gt;</span> <span class="dv">8</span>):</span>
+<span id="cb47-731"><a href="#cb47-731"></a>        <span class="cf">return</span> <span class="dv">2</span> <span class="op">-</span> x</span>
 <span id="cb47-732"><a href="#cb47-732"></a></span>
-<span id="cb47-733"><a href="#cb47-733"></a><span class="in">x = input()</span></span>
-<span id="cb47-734"><a href="#cb47-734"></a><span class="in">y = int(x)</span></span>
-<span id="cb47-735"><a href="#cb47-735"></a><span class="in">z = piecewise(y)</span></span>
-<span id="cb47-736"><a href="#cb47-736"></a><span class="in">print(z)</span></span>
+<span id="cb47-733"><a href="#cb47-733"></a>x <span class="op">=</span> <span class="bu">input</span>()</span>
+<span id="cb47-734"><a href="#cb47-734"></a>y <span class="op">=</span> <span class="bu">int</span>(x)</span>
+<span id="cb47-735"><a href="#cb47-735"></a>z <span class="op">=</span> piecewise(y)</span>
+<span id="cb47-736"><a href="#cb47-736"></a><span class="bu">print</span>(z)</span>
 <span id="cb47-737"><a href="#cb47-737"></a><span class="in">```</span></span>
 <span id="cb47-738"><a href="#cb47-738"></a></span>
 <span id="cb47-739"><a href="#cb47-739"></a><span class="fu">## Use it</span></span>
 <span id="cb47-740"><a href="#cb47-740"></a></span>
 <span id="cb47-741"><a href="#cb47-741"></a><span class="in">```{.email code-line-numbers="false"}</span></span>
-<span id="cb47-742"><a href="#cb47-742"></a><span class="in">$ nvim pw.py</span></span>
-<span id="cb47-743"><a href="#cb47-743"></a><span class="in">$ python3 pw.py</span></span>
-<span id="cb47-744"><a href="#cb47-744"></a><span class="in">10</span></span>
-<span id="cb47-745"><a href="#cb47-745"></a><span class="in">-8</span></span>
-<span id="cb47-746"><a href="#cb47-746"></a><span class="in">$ python3 pw.py</span></span>
-<span id="cb47-747"><a href="#cb47-747"></a><span class="in">-1</span></span>
-<span id="cb47-748"><a href="#cb47-748"></a><span class="in">14</span></span>
-<span id="cb47-749"><a href="#cb47-749"></a><span class="in">$</span></span>
+<span id="cb47-742"><a href="#cb47-742"></a>$ nvim pw.py</span>
+<span id="cb47-743"><a href="#cb47-743"></a>$ python3 pw.py</span>
+<span id="cb47-744"><a href="#cb47-744"></a>10</span>
+<span id="cb47-745"><a href="#cb47-745"></a>-8</span>
+<span id="cb47-746"><a href="#cb47-746"></a>$ python3 pw.py</span>
+<span id="cb47-747"><a href="#cb47-747"></a>-1</span>
+<span id="cb47-748"><a href="#cb47-748"></a>14</span>
+<span id="cb47-749"><a href="#cb47-749"></a>$</span>
 <span id="cb47-750"><a href="#cb47-750"></a><span class="in">```</span></span>
 <span id="cb47-751"><a href="#cb47-751"></a></span>
 <span id="cb47-752"><a href="#cb47-752"></a><span class="fu"># Exercise</span></span>
@@ -2704,9 +2685,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb47-790"><a href="#cb47-790"></a></span>
 <span id="cb47-791"><a href="#cb47-791"></a><span class="ss">- </span>Create and try out the following file:</span>
 <span id="cb47-792"><a href="#cb47-792"></a><span class="in">```{.py filename="args.py"}</span></span>
-<span id="cb47-793"><a href="#cb47-793"></a><span class="in">import sys</span></span>
+<span id="cb47-793"><a href="#cb47-793"></a><span class="im">import</span> sys</span>
 <span id="cb47-794"><a href="#cb47-794"></a></span>
-<span id="cb47-795"><a href="#cb47-795"></a><span class="in">print(sys.argv)</span></span>
+<span id="cb47-795"><a href="#cb47-795"></a><span class="bu">print</span>(sys.argv)</span>
 <span id="cb47-796"><a href="#cb47-796"></a><span class="in">```</span></span>
 <span id="cb47-797"><a href="#cb47-797"></a><span class="ss">- </span>What does it do?</span>
 <span id="cb47-798"><a href="#cb47-798"></a></span>
@@ -2723,7 +2704,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb47-809"><a href="#cb47-809"></a><span class="ss">- </span>What happens if you do this?</span>
 <span id="cb47-810"><a href="#cb47-810"></a></span>
 <span id="cb47-811"><a href="#cb47-811"></a><span class="in">```{.email code-line-numbers="false"}</span></span>
-<span id="cb47-812"><a href="#cb47-812"></a><span class="in">$ python3 args.py hello world</span></span>
+<span id="cb47-812"><a href="#cb47-812"></a>$ python3 args.py hello world</span>
 <span id="cb47-813"><a href="#cb47-813"></a><span class="in">```</span></span>
 <span id="cb47-814"><a href="#cb47-814"></a></span>
 <span id="cb47-815"><a href="#cb47-815"></a><span class="fu">## Remember!</span></span>
@@ -2737,9 +2718,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb47-823"><a href="#cb47-823"></a><span class="ss">- </span>Would would print *only this element* as follows:</span>
 <span id="cb47-824"><a href="#cb47-824"></a></span>
 <span id="cb47-825"><a href="#cb47-825"></a><span class="in">```{.py filename="args.py"}</span></span>
-<span id="cb47-826"><a href="#cb47-826"></a><span class="in">import sys</span></span>
+<span id="cb47-826"><a href="#cb47-826"></a><span class="im">import</span> sys</span>
 <span id="cb47-827"><a href="#cb47-827"></a></span>
-<span id="cb47-828"><a href="#cb47-828"></a><span class="in">print(sys.argv[0])</span></span>
+<span id="cb47-828"><a href="#cb47-828"></a><span class="bu">print</span>(sys.argv[<span class="dv">0</span>])</span>
 <span id="cb47-829"><a href="#cb47-829"></a><span class="in">```</span></span>
 <span id="cb47-830"><a href="#cb47-830"></a></span>
 <span id="cb47-831"><a href="#cb47-831"></a>:::</span>
@@ -2752,8 +2733,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb47-838"><a href="#cb47-838"></a><span class="ss">- </span>Have it print a tax cost at command line.</span>
 <span id="cb47-839"><a href="#cb47-839"></a><span class="ss">- </span>Here's an example how it should work!</span>
 <span id="cb47-840"><a href="#cb47-840"></a><span class="in">```{.email code-line-numbers="false"}</span></span>
-<span id="cb47-841"><a href="#cb47-841"></a><span class="in">$ python3 tax.py 40000</span></span>
-<span id="cb47-842"><a href="#cb47-842"></a><span class="in">115529.25</span></span>
+<span id="cb47-841"><a href="#cb47-841"></a>$ python3 tax.py 40000</span>
+<span id="cb47-842"><a href="#cb47-842"></a>115529.25</span>
 <span id="cb47-843"><a href="#cb47-843"></a><span class="in">```</span></span>
 <span id="cb47-844"><a href="#cb47-844"></a></span>
 <span id="cb47-845"><a href="#cb47-845"></a><span class="fu">## Challenge Problem</span></span>
@@ -2765,14 +2746,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb47-851"><a href="#cb47-851"></a></span>
 <span id="cb47-852"><a href="#cb47-852"></a><span class="fu">## Solution</span></span>
 <span id="cb47-853"><a href="#cb47-853"></a></span>
-<span id="cb47-854"><a href="#cb47-854"></a>&lt;details&gt;</span>
-<span id="cb47-855"><a href="#cb47-855"></a>&lt;summary&gt;Code&lt;/summary&gt;</span>
+<span id="cb47-854"><a href="#cb47-854"></a><span class="dt">&lt;</span><span class="kw">details</span><span class="dt">&gt;</span></span>
+<span id="cb47-855"><a href="#cb47-855"></a><span class="dt">&lt;</span><span class="kw">summary</span><span class="dt">&gt;</span>Code<span class="dt">&lt;/</span><span class="kw">summary</span><span class="dt">&gt;</span></span>
 <span id="cb47-856"><a href="#cb47-856"></a><span class="in">```{.python}</span></span>
-<span id="cb47-857"><a href="#cb47-857"></a><span class="in">import sys</span></span>
+<span id="cb47-857"><a href="#cb47-857"></a><span class="im">import</span> sys</span>
 <span id="cb47-858"><a href="#cb47-858"></a></span>
-<span id="cb47-859"><a href="#cb47-859"></a><span class="in">print(single_tax(int(sys.argv[1])))</span></span>
+<span id="cb47-859"><a href="#cb47-859"></a><span class="bu">print</span>(single_tax(<span class="bu">int</span>(sys.argv[<span class="dv">1</span>])))</span>
 <span id="cb47-860"><a href="#cb47-860"></a><span class="in">```</span></span>
-<span id="cb47-861"><a href="#cb47-861"></a>&lt;/details&gt;</span>
+<span id="cb47-861"><a href="#cb47-861"></a><span class="dt">&lt;/</span><span class="kw">details</span><span class="dt">&gt;</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

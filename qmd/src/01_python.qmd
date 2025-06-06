@@ -312,8 +312,8 @@ $$
 9
 >>> 9
 9
->>> 2 - 8
--6
+>>> 9
+9
 >>> 2 - 11
 -9
 ```
@@ -582,6 +582,12 @@ else:
 ```{python}
 5 ** 2
 ```
+- We note that `^` - sometimes used for exponentiation - is something different (and confusing!) in Python.
+```{python}
+5 ^ 2
+```
+- Always use `**`
+
 ## Piecewise
 
 - We can finally write the piecewise expression!
@@ -632,6 +638,7 @@ elif (x > 8):
 
 ## `def`
 
+- We recall we use `print` in a multi-line.
 ```{python}
 def double(x):
     print(x + x)
@@ -641,6 +648,13 @@ def double(x):
 double(7)
 ```
 - "Call" functions the same way we call `print` - with parens.
+
+## Metaphor
+
+- `def` is like asking a friend for something.
+- "Hey can you add `x` and `x` together?"
+- `print` is how your friend tells you the result.
+- "Can you print out the result of `x + x` for me?"
 
 ## `return`
 
@@ -653,12 +667,11 @@ double(7)
 ::: {.column width="50%"}
 
 ```{python}
-def six_gt_five_return():
+def six_gt_five_print():
     print(True)
-```
-```{python}
-if (six_gt_five_return()):
-    print("it is")
+
+if (six_gt_five_print()):
+    print(123)
 ```
 
 :::
@@ -669,10 +682,9 @@ if (six_gt_five_return()):
 ```{python}
 def six_gt_five_print():
     return True
-```
-```{python}
+
 if (six_gt_five_print()):
-    print("it is")
+    print(123)
 ```
 
 :::
@@ -686,8 +698,7 @@ if (six_gt_five_print()):
 
 ```{python}
 savings = 10
-savings = double(savings)
-savings
+double(savings)
 ```
 
 ## Use return
@@ -890,6 +901,15 @@ xs[0] = -2
 xs
 ```
 
+## Metaphor
+
+- Think of a list like a block in a neighborhood.
+  	- Perhaps to "400" block or "8000"
+- The house on the corner has the block number.
+  	- 400 1st St, 8000 9th Ave
+- Latter houses have higher numbers.
+  	- 404 1st St, 8019 9th Ave
+
 ## Adding lists
 
 - Lists also helpfully support addition with `+`
@@ -910,6 +930,14 @@ x = 0
 x = x + 1
 x
 ```
+
+## Careful!
+
+- We cannot add numbers directly to lists
+  	- `[1] + 2` doesn't work!
+- I think of this as adding a house to block without having an address for it.
+  	- Where would the house go?
+- To add a house to block, we need to have a new "lot" for the house to be on.
 
 # Exercise
 
