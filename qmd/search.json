@@ -3604,7 +3604,7 @@
     "href": "A0_gitbash.html#scientific-computing-on-windows",
     "title": "",
     "section": "Scientific Computing on Windows",
-    "text": "Scientific Computing on Windows\n\nBash is a nearly universally standard for command line usage.\nWindows built-in cmd.bat and PowerShell are necessary for Windows to run properly, but rarely used in a computing context.\nGit, an extremely popular command line utility used in bash, provides “Git Bash” for Windows users to have access to bash scripting.",
+    "text": "Scientific Computing on Windows\n\nBash is a nearly universally standard for command line usage.\nWindows built-in cmd.exe and PowerShell are necessary for Windows to run properly, but rarely used in a computing context.\nGit, an extremely popular command line utility used in bash, provides “Git Bash” for Windows users to have access to bash scripting.",
     "crumbs": [
       "Appendix - Git Bash"
     ]
@@ -3804,7 +3804,7 @@
     "href": "A0_gitbash.rjs.html#scientific-computing-on-windows",
     "title": "Scientific Computing",
     "section": "Scientific Computing on Windows",
-    "text": "Scientific Computing on Windows\n\nBash is a nearly universally standard for command line usage.\nWindows built-in cmd.bat and PowerShell are necessary for Windows to run properly, but rarely used in a computing context.\nGit, an extremely popular command line utility used in bash, provides “Git Bash” for Windows users to have access to bash scripting."
+    "text": "Scientific Computing on Windows\n\nBash is a nearly universally standard for command line usage.\nWindows built-in cmd.exe and PowerShell are necessary for Windows to run properly, but rarely used in a computing context.\nGit, an extremely popular command line utility used in bash, provides “Git Bash” for Windows users to have access to bash scripting."
   },
   {
     "objectID": "A0_gitbash.rjs.html#why-git-bash",
@@ -5285,7 +5285,7 @@
     "href": "03_shell.html#windows",
     "title": "Shell",
     "section": "Windows",
-    "text": "Windows\n\nBy default, Windows has two shells:\n\ncmd.bat - From the 90s\nPowerShell - Newer standard\n\nNeither used in scientific computing.\nInstead use:\n\nGit Bash\n\nLike Python, there is a very important box to check!\nI provide an Appendix",
+    "text": "Windows\n\nBy default, Windows has two shells:\n\ncmd.exe - From the 90s\nPowerShell - Newer standard\n\nNeither used in scientific computing.\nInstead use:\n\nGit Bash\n\nLike Python, there is a very important box to check!\nI provide an Appendix",
     "crumbs": [
       "Shell"
     ]
@@ -5901,7 +5901,7 @@
     "href": "03_shell.rjs.html#windows",
     "title": "Shell",
     "section": "Windows",
-    "text": "Windows\n\nBy default, Windows has two shells:\n\ncmd.bat - From the 90s\nPowerShell - Newer standard\n\nNeither used in scientific computing.\nInstead use:\n\nGit Bash\n\nLike Python, there is a very important box to check!\nI provide an Appendix"
+    "text": "Windows\n\nBy default, Windows has two shells:\n\ncmd.exe - From the 90s\nPowerShell - Newer standard\n\nNeither used in scientific computing.\nInstead use:\n\nGit Bash\n\nLike Python, there is a very important box to check!\nI provide an Appendix"
   },
   {
     "objectID": "03_shell.rjs.html#macos",

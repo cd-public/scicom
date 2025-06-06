@@ -81,7 +81,7 @@ digraph shell {
 ## Windows
 
 - By default, Windows has two shells:
-	- `cmd.bat` - From the 90s
+	- `cmd.exe` - From the 90s
 	- PowerShell - Newer standard
 - Neither used in scientific computing.
 - Instead use:

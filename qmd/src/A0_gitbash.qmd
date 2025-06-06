@@ -7,7 +7,7 @@ Title: Appendix - Git Bash
 ## Scientific Computing on Windows
 
 - Bash is a nearly universally standard for command line usage.
-- Windows built-in `cmd.bat` and `PowerShell` are necessary for Windows to run properly, but rarely used in a computing context.
+- Windows built-in `cmd.exe` and `PowerShell` are necessary for Windows to run properly, but rarely used in a computing context.
 - Git, an extremely popular command line utility used in bash, provides "Git Bash" for Windows users to have access to bash scripting.
 
 ## Why Git Bash?
