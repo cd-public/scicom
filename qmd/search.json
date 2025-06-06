@@ -3112,7 +3112,7 @@
     "href": "02_neovim.html#exercise-2",
     "title": "Neovim",
     "section": "Exercise",
-    "text": "Exercise\n\nCreate a file tax.py\nHave it accept an income as a command line argument\nHave it print a tax cost at command line.\nHere’s an example how it should work!\n\n$ python3 tax.py 40000\n115529.25",
+    "text": "Exercise\n\nCreate a file tax.py\nHave it accept an income as a command line argument\nHave it print a tax cost at command line.\nHere’s an example how it should work!\n\n$ python3 tax.py 400000\n115529.25",
     "crumbs": [
       "Neovim"
     ]
@@ -3583,7 +3583,7 @@
     "href": "02_neovim.rjs.html#exercise-2",
     "title": "Neovim",
     "section": "Exercise",
-    "text": "Exercise\n\nCreate a file tax.py\nHave it accept an income as a command line argument\nHave it print a tax cost at command line.\nHere’s an example how it should work!\n\n$ python3 tax.py 40000\n115529.25"
+    "text": "Exercise\n\nCreate a file tax.py\nHave it accept an income as a command line argument\nHave it print a tax cost at command line.\nHere’s an example how it should work!\n\n$ python3 tax.py 400000\n115529.25"
   },
   {
     "objectID": "02_neovim.rjs.html#challenge-problem",

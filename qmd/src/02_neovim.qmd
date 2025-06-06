@@ -828,7 +828,7 @@ print(sys.argv[0])
 - Have it print a tax cost at command line.
 - Here's an example how it should work!
 ```{.email code-line-numbers="false"}
-$ python3 tax.py 40000
+$ python3 tax.py 400000
 115529.25
 ```
 
