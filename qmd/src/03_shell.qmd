@@ -331,7 +331,7 @@ rmdir: failed to remove 'old': Directory not empty
 $ cat args.py
 import sys
 
-print(sys.argv[0])i
+print(sys.argv[0])
 ```
 
 ## Writing
