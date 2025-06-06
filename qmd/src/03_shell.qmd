@@ -103,7 +103,7 @@ digraph shell {
 - But even just using `ls` we see perhaps frustrating differences.
 	- `ls` on bash lists only file names
 	- `ls` on PowerShell lists file names, dates, and more
-	- `ls` on `cmd.bat` is an error.
+	- `ls` on `cmd.exe` is an error.
 
 ## Diving In
 
