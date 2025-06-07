@@ -334,7 +334,7 @@
     "href": "05_matplotlib.html#more-fun",
     "title": "Matplotlib",
     "section": "More fun",
-    "text": "More fun\n\nWe can also plot tax rate\n\n\nplt.plot(incomes, costs / incomes)\n\n/tmp/ipykernel_4804/1186195173.py:1: RuntimeWarning:\n\ninvalid value encountered in divide",
+    "text": "More fun\n\nWe can also plot tax rate\n\n\nplt.plot(incomes, costs / incomes)",
     "crumbs": [
       "Matplotlib"
     ]
@@ -344,7 +344,7 @@
     "href": "05_matplotlib.html#or-both",
     "title": "Matplotlib",
     "section": "Or Both",
-    "text": "Or Both\n\nplt.plot(incomes, costs)\nplt.plot(incomes, costs / incomes)\n\n/tmp/ipykernel_4804/1999314129.py:2: RuntimeWarning:\n\ninvalid value encountered in divide\n\n\n\n\n\n\n\n\n\n\n\nProbably should put them on different scales!",
+    "text": "Or Both\n\nplt.plot(incomes, costs)\nplt.plot(incomes, costs / incomes)\n\n\n\n\n\n\n\n\n\nProbably should put them on different scales!",
     "crumbs": [
       "Matplotlib"
     ]
@@ -364,7 +364,7 @@
     "href": "05_matplotlib.html#section",
     "title": "Matplotlib",
     "section": "",
-    "text": "plt.title\n\n\nplt.title(\"Income Tax % by Income (USD)\")\nplt.plot(incomes, costs / incomes)\n\n/tmp/ipykernel_4804/2974586296.py:2: RuntimeWarning:\n\ninvalid value encountered in divide",
+    "text": "plt.title\n\n\nplt.title(\"Income Tax % by Income (USD)\")\nplt.plot(incomes, costs / incomes)",
     "crumbs": [
       "Matplotlib"
     ]
@@ -374,7 +374,7 @@
     "href": "05_matplotlib.html#section-1",
     "title": "Matplotlib",
     "section": "",
-    "text": "plt.xlabel and plt.ylabel\n\n\nplt.title(\"Income Tax % by Income (USD)\")\nplt.xlabel(\"Income in USD\")\nplt.ylabel(\"Percent Tax Rate\")\nplt.plot(incomes, costs / incomes)\n\n/tmp/ipykernel_4804/1619337187.py:4: RuntimeWarning:\n\ninvalid value encountered in divide",
+    "text": "plt.xlabel and plt.ylabel\n\n\nplt.title(\"Income Tax % by Income (USD)\")\nplt.xlabel(\"Income in USD\")\nplt.ylabel(\"Percent Tax Rate\")\nplt.plot(incomes, costs / incomes)",
     "crumbs": [
       "Matplotlib"
     ]
@@ -384,7 +384,7 @@
     "href": "05_matplotlib.html#section-2",
     "title": "Matplotlib",
     "section": "",
-    "text": "plt.legend\n\n\nplt.title(\"Income Tax % by Income (USD)\")\nplt.xlabel(\"Income in USD\")\nplt.ylabel(\"Percent Tax Rate\")\nplt.plot(incomes, costs / incomes)\nplt.legend() # We didn't label any of our plots!\n\n/tmp/ipykernel_4804/1652991527.py:4: RuntimeWarning:\n\ninvalid value encountered in divide\n\nNo artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.",
+    "text": "plt.legend\n\n\nplt.title(\"Income Tax % by Income (USD)\")\nplt.xlabel(\"Income in USD\")\nplt.ylabel(\"Percent Tax Rate\")\nplt.plot(incomes, costs / incomes)\nplt.legend() # We didn't label any of our plots!",
     "crumbs": [
       "Matplotlib"
     ]
@@ -394,7 +394,7 @@
     "href": "05_matplotlib.html#section-3",
     "title": "Matplotlib",
     "section": "",
-    "text": "label=\n\n\nplt.title(\"Income Tax % by Income (USD)\")\nplt.xlabel(\"Income in USD\")\nplt.ylabel(\"Percent Tax Rate\")\nplt.plot(incomes, costs / incomes * 100, label = \"Tax/Income\")\nplt.legend() # This shows the labels \n\n/tmp/ipykernel_4804/3285922608.py:4: RuntimeWarning:\n\ninvalid value encountered in divide",
+    "text": "label=\n\n\nplt.title(\"Income Tax % by Income (USD)\")\nplt.xlabel(\"Income in USD\")\nplt.ylabel(\"Percent Tax Rate\")\nplt.plot(incomes, costs / incomes * 100, label = \"Tax/Income\")\nplt.legend() # This shows the labels",
     "crumbs": [
       "Matplotlib"
     ]
@@ -414,7 +414,7 @@
     "href": "05_matplotlib.html#section-4",
     "title": "Matplotlib",
     "section": "",
-    "text": "plt.annotate()\n\n\nplt.plot(incomes, costs / incomes * 100, label = \"Tax/Income\")\nplt.annotate(\"Median Income\", xy)\n\n/tmp/ipykernel_4804/2069779692.py:1: RuntimeWarning:\n\ninvalid value encountered in divide\n\n\n\nText(40000, 14.428125, 'Median Income')",
+    "text": "plt.annotate()\n\n\nplt.plot(incomes, costs / incomes * 100, label = \"Tax/Income\")\nplt.annotate(\"Median Income\", xy)\n\nText(40000, 14.428125, 'Median Income')",
     "crumbs": [
       "Matplotlib"
     ]
@@ -434,7 +434,7 @@
     "href": "05_matplotlib.html#section-5",
     "title": "Matplotlib",
     "section": "",
-    "text": "plt.plot(incomes, costs / incomes * 100, label = \"Tax/Income\")\nadd_note(115000, \"CS Mid Career\")\nadd_note(80000, \"CS New Grads\")\nadd_note(70000, \"Physics New Grads\")\nadd_note(55000, \"All New Grads\")\nadd_note(40000, \"Median Income\")\nplt.title(\"Labor Market Outcomes of College Graduates by Major\")\n\n/tmp/ipykernel_4804/2832080454.py:1: RuntimeWarning:\n\ninvalid value encountered in divide\n\n\n\nText(0.5, 1.0, 'Labor Market Outcomes of College Graduates by Major')",
+    "text": "plt.plot(incomes, costs / incomes * 100, label = \"Tax/Income\")\nadd_note(115000, \"CS Mid Career\")\nadd_note(80000, \"CS New Grads\")\nadd_note(70000, \"Physics New Grads\")\nadd_note(55000, \"All New Grads\")\nadd_note(40000, \"Median Income\")\nplt.title(\"Labor Market Outcomes of College Graduates by Major\")\n\nText(0.5, 1.0, 'Labor Market Outcomes of College Graduates by Major')",
     "crumbs": [
       "Matplotlib"
     ]
@@ -464,7 +464,7 @@
     "href": "05_matplotlib.html#section-6",
     "title": "Matplotlib",
     "section": "",
-    "text": "color=\n\n\nplt.plot(incomes, costs / incomes * 100, label = \"Tax Rate\", color=\"blue\")\nplt.plot(incomes, brackets, label=\"Marginal Rate\", color=\"red\")\nplt.legend()\n\n/tmp/ipykernel_4804/3364552391.py:1: RuntimeWarning:\n\ninvalid value encountered in divide",
+    "text": "color=\n\n\nplt.plot(incomes, costs / incomes * 100, label = \"Tax Rate\", color=\"blue\")\nplt.plot(incomes, brackets, label=\"Marginal Rate\", color=\"red\")\nplt.legend()",
     "crumbs": [
       "Matplotlib"
     ]
@@ -474,7 +474,7 @@
     "href": "05_matplotlib.html#section-7",
     "title": "Matplotlib",
     "section": "",
-    "text": "color=\n\n\nrates = costs / incomes * 100\nplt.plot(incomes, rates, label = \"Tax Rate\", color=\"blue\")\nplt.plot(incomes, brackets, label=\"Marginal Rate\", color=\"red\")\nplt.plot(incomes, brackets - rates, label=\"Discount Rate\", color=\"green\")\nplt.legend()\n\n/tmp/ipykernel_4804/2916591473.py:1: RuntimeWarning:\n\ninvalid value encountered in divide",
+    "text": "color=\n\n\nrates = costs / incomes * 100\nplt.plot(incomes, rates, label = \"Tax Rate\", color=\"blue\")\nplt.plot(incomes, brackets, label=\"Marginal Rate\", color=\"red\")\nplt.plot(incomes, brackets - rates, label=\"Discount Rate\", color=\"green\")\nplt.legend()",
     "crumbs": [
       "Matplotlib"
     ]
