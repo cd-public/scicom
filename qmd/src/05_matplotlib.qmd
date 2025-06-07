@@ -28,7 +28,7 @@ title: Matplotlib
 ## Relevance
 
 - We have been working with a piecewise function for sometime!
-- Can we finally v: hideisualize it?
+- Can we finally visualize it?
 
 # Install
 
@@ -54,7 +54,7 @@ import matplotlib.pyplot as plt
 
 - Let's plot something
 
-> [A period is a horizontal row of the periodic table. There are seven periods in the periodic table, with each one beginning at the far left. A new period begins when a new principal energylevel begins filling with electrons.](https://chem.libretexts.org/Bookshelves/Introductory_Chemistry/Introductory_Chemistry_(CK-12)/06%3A_The_Periodic_Table/6.04%3A_Modern_Periodic_Table-_Periods_and_Groups)
+> [A period is a horizontal row of the periodic table. There are seven periods in the periodic table, with each one beginning at the far left. A new period begins when a new principal energy level begins filling with electrons.](https://chem.libretexts.org/Bookshelves/Introductory_Chemistry/Introductory_Chemistry_(CK-12)/06%3A_The_Periodic_Table/6.04%3A_Modern_Periodic_Table-_Periods_and_Groups)
 
 ## The Table
 
@@ -161,7 +161,7 @@ import os # stands for "operating system"
 - OS let's us do a lot of the things we do in the shell without leaving Python.
 - The most useful technique is `os.system()` which allows us to run a shell command from within Python.
 - For example, the following would open "my_chart.svg" on MacOS 
-```{python}
+```{.python}
 os.system("open my_chart.svg")
 ```
 
@@ -596,14 +596,6 @@ _ = plt.pie(es) # NOT num_es
 ```
 
 - This appears to be one color per "row" but we didn't label the rows so it's hard to say.
-
-## ECDF
-
-```{python}
-_ = plt.ecdf(num_es) # empirical cumulative distribution function
-```
-
-- Given $n$ electrons, what % have that many or fewer outermost electrons.
 
 ## Many more!
 

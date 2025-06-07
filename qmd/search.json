@@ -4,7 +4,7 @@
     "href": "05_matplotlib.html",
     "title": "Matplotlib",
     "section": "",
-    "text": "Matplotlib is a comprehensive library for creating static, animated, and interactive visualizations.\n\n\nMATLAB Plot Library\nBased on the “industry standard” library that predates Python\nBasis of many more modern tools (namely Seaborn)\n\n\n\n\nVersus its closest competitors (Altair, Seaborn, ggplot2, Plotly):\n\nAllows dramatically more control over created plots.\nExtremely good NumPy and pandas (our next library) integration.\nWealth of resources\nEntirely free and open-source\n\n\n\n\n\n\nAltair and Plotly have far better web integration and interaction.\nSeaborn has beautiful defaults.\nStatisticians like ggplot2, which is from another language (R)\nMany modern data visualizations go on websites, which is not to Matplotlib’s strengths.\n\n\n\n\n\nWe have been working with a piecewise function for sometime!\nCan we finally v: hideisualize it?",
+    "text": "Matplotlib is a comprehensive library for creating static, animated, and interactive visualizations.\n\n\nMATLAB Plot Library\nBased on the “industry standard” library that predates Python\nBasis of many more modern tools (namely Seaborn)\n\n\n\n\nVersus its closest competitors (Altair, Seaborn, ggplot2, Plotly):\n\nAllows dramatically more control over created plots.\nExtremely good NumPy and pandas (our next library) integration.\nWealth of resources\nEntirely free and open-source\n\n\n\n\n\n\nAltair and Plotly have far better web integration and interaction.\nSeaborn has beautiful defaults.\nStatisticians like ggplot2, which is from another language (R)\nMany modern data visualizations go on websites, which is not to Matplotlib’s strengths.\n\n\n\n\n\nWe have been working with a piecewise function for sometime!\nCan we finally visualize it?",
     "crumbs": [
       "Matplotlib"
     ]
@@ -34,7 +34,7 @@
     "href": "05_matplotlib.html#relevance",
     "title": "Matplotlib",
     "section": "",
-    "text": "We have been working with a piecewise function for sometime!\nCan we finally v: hideisualize it?",
+    "text": "We have been working with a piecewise function for sometime!\nCan we finally visualize it?",
     "crumbs": [
       "Matplotlib"
     ]
@@ -64,7 +64,7 @@
     "href": "05_matplotlib.html#plotting",
     "title": "Matplotlib",
     "section": "Plotting",
-    "text": "Plotting\n\nLet’s plot something\n\n\nA period is a horizontal row of the periodic table. There are seven periods in the periodic table, with each one beginning at the far left. A new period begins when a new principal energylevel begins filling with electrons.",
+    "text": "Plotting\n\nLet’s plot something\n\n\nA period is a horizontal row of the periodic table. There are seven periods in the periodic table, with each one beginning at the far left. A new period begins when a new principal energy level begins filling with electrons.",
     "crumbs": [
       "Matplotlib"
     ]
@@ -174,7 +174,7 @@
     "href": "05_matplotlib.html#using-os",
     "title": "Matplotlib",
     "section": "Using OS",
-    "text": "Using OS\n\nOS let’s us do a lot of the things we do in the shell without leaving Python.\nThe most useful technique is os.system() which allows us to run a shell command from within Python.\nFor example, the following would open “my_chart.svg” on MacOS\n\n\nos.system(\"open my_chart.svg\")\n\n1",
+    "text": "Using OS\n\nOS let’s us do a lot of the things we do in the shell without leaving Python.\nThe most useful technique is os.system() which allows us to run a shell command from within Python.\nFor example, the following would open “my_chart.svg” on MacOS\n\nos.system(\"open my_chart.svg\")",
     "crumbs": [
       "Matplotlib"
     ]
@@ -334,7 +334,7 @@
     "href": "05_matplotlib.html#more-fun",
     "title": "Matplotlib",
     "section": "More fun",
-    "text": "More fun\n\nWe can also plot tax rate\n\n\nplt.plot(incomes, costs / incomes)\n\nC:\\Users\\cd-desk\\AppData\\Local\\Temp\\ipykernel_16272\\1186195173.py:1: RuntimeWarning:\n\ninvalid value encountered in divide",
+    "text": "More fun\n\nWe can also plot tax rate\n\n\nplt.plot(incomes, costs / incomes)\n\n/tmp/ipykernel_4804/1186195173.py:1: RuntimeWarning:\n\ninvalid value encountered in divide",
     "crumbs": [
       "Matplotlib"
     ]
@@ -344,7 +344,7 @@
     "href": "05_matplotlib.html#or-both",
     "title": "Matplotlib",
     "section": "Or Both",
-    "text": "Or Both\n\nplt.plot(incomes, costs)\nplt.plot(incomes, costs / incomes)\n\nC:\\Users\\cd-desk\\AppData\\Local\\Temp\\ipykernel_16272\\1999314129.py:2: RuntimeWarning:\n\ninvalid value encountered in divide\n\n\n\n\n\n\n\n\n\n\n\nProbably should put them on different scales!",
+    "text": "Or Both\n\nplt.plot(incomes, costs)\nplt.plot(incomes, costs / incomes)\n\n/tmp/ipykernel_4804/1999314129.py:2: RuntimeWarning:\n\ninvalid value encountered in divide\n\n\n\n\n\n\n\n\n\n\n\nProbably should put them on different scales!",
     "crumbs": [
       "Matplotlib"
     ]
@@ -364,7 +364,7 @@
     "href": "05_matplotlib.html#section",
     "title": "Matplotlib",
     "section": "",
-    "text": "plt.title\n\n\nplt.title(\"Income Tax % by Income (USD)\")\nplt.plot(incomes, costs / incomes)\n\nC:\\Users\\cd-desk\\AppData\\Local\\Temp\\ipykernel_16272\\2974586296.py:2: RuntimeWarning:\n\ninvalid value encountered in divide",
+    "text": "plt.title\n\n\nplt.title(\"Income Tax % by Income (USD)\")\nplt.plot(incomes, costs / incomes)\n\n/tmp/ipykernel_4804/2974586296.py:2: RuntimeWarning:\n\ninvalid value encountered in divide",
     "crumbs": [
       "Matplotlib"
     ]
@@ -374,7 +374,7 @@
     "href": "05_matplotlib.html#section-1",
     "title": "Matplotlib",
     "section": "",
-    "text": "plt.xlabel and plt.ylabel\n\n\nplt.title(\"Income Tax % by Income (USD)\")\nplt.xlabel(\"Income in USD\")\nplt.ylabel(\"Percent Tax Rate\")\nplt.plot(incomes, costs / incomes)\n\nC:\\Users\\cd-desk\\AppData\\Local\\Temp\\ipykernel_16272\\1619337187.py:4: RuntimeWarning:\n\ninvalid value encountered in divide",
+    "text": "plt.xlabel and plt.ylabel\n\n\nplt.title(\"Income Tax % by Income (USD)\")\nplt.xlabel(\"Income in USD\")\nplt.ylabel(\"Percent Tax Rate\")\nplt.plot(incomes, costs / incomes)\n\n/tmp/ipykernel_4804/1619337187.py:4: RuntimeWarning:\n\ninvalid value encountered in divide",
     "crumbs": [
       "Matplotlib"
     ]
@@ -384,7 +384,7 @@
     "href": "05_matplotlib.html#section-2",
     "title": "Matplotlib",
     "section": "",
-    "text": "plt.legend\n\n\nplt.title(\"Income Tax % by Income (USD)\")\nplt.xlabel(\"Income in USD\")\nplt.ylabel(\"Percent Tax Rate\")\nplt.plot(incomes, costs / incomes)\nplt.legend() # We didn't label any of our plots!\n\nC:\\Users\\cd-desk\\AppData\\Local\\Temp\\ipykernel_16272\\1652991527.py:4: RuntimeWarning:\n\ninvalid value encountered in divide\n\nC:\\Users\\cd-desk\\AppData\\Local\\Temp\\ipykernel_16272\\1652991527.py:5: UserWarning:\n\nNo artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.",
+    "text": "plt.legend\n\n\nplt.title(\"Income Tax % by Income (USD)\")\nplt.xlabel(\"Income in USD\")\nplt.ylabel(\"Percent Tax Rate\")\nplt.plot(incomes, costs / incomes)\nplt.legend() # We didn't label any of our plots!\n\n/tmp/ipykernel_4804/1652991527.py:4: RuntimeWarning:\n\ninvalid value encountered in divide\n\nNo artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.",
     "crumbs": [
       "Matplotlib"
     ]
@@ -394,7 +394,7 @@
     "href": "05_matplotlib.html#section-3",
     "title": "Matplotlib",
     "section": "",
-    "text": "label=\n\n\nplt.title(\"Income Tax % by Income (USD)\")\nplt.xlabel(\"Income in USD\")\nplt.ylabel(\"Percent Tax Rate\")\nplt.plot(incomes, costs / incomes * 100, label = \"Tax/Income\")\nplt.legend() # This shows the labels \n\nC:\\Users\\cd-desk\\AppData\\Local\\Temp\\ipykernel_16272\\3285922608.py:4: RuntimeWarning:\n\ninvalid value encountered in divide",
+    "text": "label=\n\n\nplt.title(\"Income Tax % by Income (USD)\")\nplt.xlabel(\"Income in USD\")\nplt.ylabel(\"Percent Tax Rate\")\nplt.plot(incomes, costs / incomes * 100, label = \"Tax/Income\")\nplt.legend() # This shows the labels \n\n/tmp/ipykernel_4804/3285922608.py:4: RuntimeWarning:\n\ninvalid value encountered in divide",
     "crumbs": [
       "Matplotlib"
     ]
@@ -414,7 +414,7 @@
     "href": "05_matplotlib.html#section-4",
     "title": "Matplotlib",
     "section": "",
-    "text": "plt.annotate()\n\n\nplt.plot(incomes, costs / incomes * 100, label = \"Tax/Income\")\nplt.annotate(\"Median Income\", xy)\n\nC:\\Users\\cd-desk\\AppData\\Local\\Temp\\ipykernel_16272\\2069779692.py:1: RuntimeWarning:\n\ninvalid value encountered in divide\n\n\n\nText(40000, 14.428125, 'Median Income')",
+    "text": "plt.annotate()\n\n\nplt.plot(incomes, costs / incomes * 100, label = \"Tax/Income\")\nplt.annotate(\"Median Income\", xy)\n\n/tmp/ipykernel_4804/2069779692.py:1: RuntimeWarning:\n\ninvalid value encountered in divide\n\n\n\nText(40000, 14.428125, 'Median Income')",
     "crumbs": [
       "Matplotlib"
     ]
@@ -434,7 +434,7 @@
     "href": "05_matplotlib.html#section-5",
     "title": "Matplotlib",
     "section": "",
-    "text": "plt.plot(incomes, costs / incomes * 100, label = \"Tax/Income\")\nadd_note(115000, \"CS Mid Career\")\nadd_note(80000, \"CS New Grads\")\nadd_note(70000, \"Physics New Grads\")\nadd_note(55000, \"All New Grads\")\nadd_note(40000, \"Median Income\")\nplt.title(\"Labor Market Outcomes of College Graduates by Major\")\n\nC:\\Users\\cd-desk\\AppData\\Local\\Temp\\ipykernel_16272\\2832080454.py:1: RuntimeWarning:\n\ninvalid value encountered in divide\n\n\n\nText(0.5, 1.0, 'Labor Market Outcomes of College Graduates by Major')",
+    "text": "plt.plot(incomes, costs / incomes * 100, label = \"Tax/Income\")\nadd_note(115000, \"CS Mid Career\")\nadd_note(80000, \"CS New Grads\")\nadd_note(70000, \"Physics New Grads\")\nadd_note(55000, \"All New Grads\")\nadd_note(40000, \"Median Income\")\nplt.title(\"Labor Market Outcomes of College Graduates by Major\")\n\n/tmp/ipykernel_4804/2832080454.py:1: RuntimeWarning:\n\ninvalid value encountered in divide\n\n\n\nText(0.5, 1.0, 'Labor Market Outcomes of College Graduates by Major')",
     "crumbs": [
       "Matplotlib"
     ]
@@ -464,7 +464,7 @@
     "href": "05_matplotlib.html#section-6",
     "title": "Matplotlib",
     "section": "",
-    "text": "color=\n\n\nplt.plot(incomes, costs / incomes * 100, label = \"Tax Rate\", color=\"blue\")\nplt.plot(incomes, brackets, label=\"Marginal Rate\", color=\"red\")\nplt.legend()\n\nC:\\Users\\cd-desk\\AppData\\Local\\Temp\\ipykernel_16272\\3364552391.py:1: RuntimeWarning:\n\ninvalid value encountered in divide",
+    "text": "color=\n\n\nplt.plot(incomes, costs / incomes * 100, label = \"Tax Rate\", color=\"blue\")\nplt.plot(incomes, brackets, label=\"Marginal Rate\", color=\"red\")\nplt.legend()\n\n/tmp/ipykernel_4804/3364552391.py:1: RuntimeWarning:\n\ninvalid value encountered in divide",
     "crumbs": [
       "Matplotlib"
     ]
@@ -474,7 +474,7 @@
     "href": "05_matplotlib.html#section-7",
     "title": "Matplotlib",
     "section": "",
-    "text": "color=\n\n\nrates = costs / incomes * 100\nplt.plot(incomes, rates, label = \"Tax Rate\", color=\"blue\")\nplt.plot(incomes, brackets, label=\"Marginal Rate\", color=\"red\")\nplt.plot(incomes, brackets - rates, label=\"Discount Rate\", color=\"green\")\nplt.legend()\n\nC:\\Users\\cd-desk\\AppData\\Local\\Temp\\ipykernel_16272\\2916591473.py:1: RuntimeWarning:\n\ninvalid value encountered in divide",
+    "text": "color=\n\n\nrates = costs / incomes * 100\nplt.plot(incomes, rates, label = \"Tax Rate\", color=\"blue\")\nplt.plot(incomes, brackets, label=\"Marginal Rate\", color=\"red\")\nplt.plot(incomes, brackets - rates, label=\"Discount Rate\", color=\"green\")\nplt.legend()\n\n/tmp/ipykernel_4804/2916591473.py:1: RuntimeWarning:\n\ninvalid value encountered in divide",
     "crumbs": [
       "Matplotlib"
     ]
@@ -575,16 +575,6 @@
     "title": "Matplotlib",
     "section": "Pie",
     "text": "Pie\n\n_ = plt.pie(es) # NOT num_es\n\n\n\n\n\n\n\n\n\nThis appears to be one color per “row” but we didn’t label the rows so it’s hard to say.",
-    "crumbs": [
-      "Matplotlib"
-    ]
-  },
-  {
-    "objectID": "05_matplotlib.html#ecdf",
-    "href": "05_matplotlib.html#ecdf",
-    "title": "Matplotlib",
-    "section": "ECDF",
-    "text": "ECDF\n\n_ = plt.ecdf(num_es) # empirical cumulative distribution function\n\n\n\n\n\n\n\n\n\nGiven \\(n\\) electrons, what % have that many or fewer outermost electrons.",
     "crumbs": [
       "Matplotlib"
     ]
@@ -748,7 +738,7 @@
     "href": "05_matplotlib.rjs.html#relevance",
     "title": "Matplotlib",
     "section": "Relevance",
-    "text": "Relevance\n\nWe have been working with a piecewise function for sometime!\nCan we finally v: hideisualize it?"
+    "text": "Relevance\n\nWe have been working with a piecewise function for sometime!\nCan we finally visualize it?"
   },
   {
     "objectID": "05_matplotlib.rjs.html#pip-like-numpy",
@@ -769,7 +759,7 @@
     "href": "05_matplotlib.rjs.html#plotting",
     "title": "Matplotlib",
     "section": "Plotting",
-    "text": "Plotting\n\nLet’s plot something\n\n\nA period is a horizontal row of the periodic table. There are seven periods in the periodic table, with each one beginning at the far left. A new period begins when a new principal energylevel begins filling with electrons."
+    "text": "Plotting\n\nLet’s plot something\n\n\nA period is a horizontal row of the periodic table. There are seven periods in the periodic table, with each one beginning at the far left. A new period begins when a new principal energy level begins filling with electrons."
   },
   {
     "objectID": "05_matplotlib.rjs.html#the-table",
@@ -846,7 +836,7 @@
     "href": "05_matplotlib.rjs.html#using-os",
     "title": "Matplotlib",
     "section": "Using OS",
-    "text": "Using OS\n\nOS let’s us do a lot of the things we do in the shell without leaving Python.\nThe most useful technique is os.system() which allows us to run a shell command from within Python.\nFor example, the following would open “my_chart.svg” on MacOS\n\n\nos.system(\"open my_chart.svg\")\n\n1"
+    "text": "Using OS\n\nOS let’s us do a lot of the things we do in the shell without leaving Python.\nThe most useful technique is os.system() which allows us to run a shell command from within Python.\nFor example, the following would open “my_chart.svg” on MacOS\n\nos.system(\"open my_chart.svg\")"
   },
   {
     "objectID": "05_matplotlib.rjs.html#on-os",
@@ -958,14 +948,14 @@
     "href": "05_matplotlib.rjs.html#more-fun",
     "title": "Matplotlib",
     "section": "More fun",
-    "text": "More fun\n\nWe can also plot tax rate\n\n\nplt.plot(incomes, costs / incomes)\n\nC:\\Users\\cd-desk\\AppData\\Local\\Temp\\ipykernel_16272\\1186195173.py:1: RuntimeWarning:\n\ninvalid value encountered in divide"
+    "text": "More fun\n\nWe can also plot tax rate\n\n\nplt.plot(incomes, costs / incomes)"
   },
   {
     "objectID": "05_matplotlib.rjs.html#or-both",
     "href": "05_matplotlib.rjs.html#or-both",
     "title": "Matplotlib",
     "section": "Or Both",
-    "text": "Or Both\n\nplt.plot(incomes, costs)\nplt.plot(incomes, costs / incomes)\n\nC:\\Users\\cd-desk\\AppData\\Local\\Temp\\ipykernel_16272\\1999314129.py:2: RuntimeWarning:\n\ninvalid value encountered in divide\n\n\n\n\n\n\n\n\n\n\n\nProbably should put them on different scales!"
+    "text": "Or Both\n\nplt.plot(incomes, costs)\nplt.plot(incomes, costs / incomes)\n\n\n\n\n\n\n\n\n\nProbably should put them on different scales!"
   },
   {
     "objectID": "05_matplotlib.rjs.html#well-formed-charts",
@@ -979,28 +969,28 @@
     "href": "05_matplotlib.rjs.html#section",
     "title": "Matplotlib",
     "section": "",
-    "text": "plt.title\n\n\nplt.title(\"Income Tax % by Income (USD)\")\nplt.plot(incomes, costs / incomes)\n\nC:\\Users\\cd-desk\\AppData\\Local\\Temp\\ipykernel_16272\\2974586296.py:2: RuntimeWarning:\n\ninvalid value encountered in divide"
+    "text": "plt.title\n\n\nplt.title(\"Income Tax % by Income (USD)\")\nplt.plot(incomes, costs / incomes)"
   },
   {
     "objectID": "05_matplotlib.rjs.html#section-1",
     "href": "05_matplotlib.rjs.html#section-1",
     "title": "Matplotlib",
     "section": "",
-    "text": "plt.xlabel and plt.ylabel\n\n\nplt.title(\"Income Tax % by Income (USD)\")\nplt.xlabel(\"Income in USD\")\nplt.ylabel(\"Percent Tax Rate\")\nplt.plot(incomes, costs / incomes)\n\nC:\\Users\\cd-desk\\AppData\\Local\\Temp\\ipykernel_16272\\1619337187.py:4: RuntimeWarning:\n\ninvalid value encountered in divide"
+    "text": "plt.xlabel and plt.ylabel\n\n\nplt.title(\"Income Tax % by Income (USD)\")\nplt.xlabel(\"Income in USD\")\nplt.ylabel(\"Percent Tax Rate\")\nplt.plot(incomes, costs / incomes)"
   },
   {
     "objectID": "05_matplotlib.rjs.html#section-2",
     "href": "05_matplotlib.rjs.html#section-2",
     "title": "Matplotlib",
     "section": "",
-    "text": "plt.legend\n\n\nplt.title(\"Income Tax % by Income (USD)\")\nplt.xlabel(\"Income in USD\")\nplt.ylabel(\"Percent Tax Rate\")\nplt.plot(incomes, costs / incomes)\nplt.legend() # We didn't label any of our plots!\n\nC:\\Users\\cd-desk\\AppData\\Local\\Temp\\ipykernel_16272\\1652991527.py:4: RuntimeWarning:\n\ninvalid value encountered in divide\n\nC:\\Users\\cd-desk\\AppData\\Local\\Temp\\ipykernel_16272\\1652991527.py:5: UserWarning:\n\nNo artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument."
+    "text": "plt.legend\n\n\nplt.title(\"Income Tax % by Income (USD)\")\nplt.xlabel(\"Income in USD\")\nplt.ylabel(\"Percent Tax Rate\")\nplt.plot(incomes, costs / incomes)\nplt.legend() # We didn't label any of our plots!"
   },
   {
     "objectID": "05_matplotlib.rjs.html#section-3",
     "href": "05_matplotlib.rjs.html#section-3",
     "title": "Matplotlib",
     "section": "",
-    "text": "label=\n\n\nplt.title(\"Income Tax % by Income (USD)\")\nplt.xlabel(\"Income in USD\")\nplt.ylabel(\"Percent Tax Rate\")\nplt.plot(incomes, costs / incomes * 100, label = \"Tax/Income\")\nplt.legend() # This shows the labels \n\nC:\\Users\\cd-desk\\AppData\\Local\\Temp\\ipykernel_16272\\3285922608.py:4: RuntimeWarning:\n\ninvalid value encountered in divide"
+    "text": "label=\n\n\nplt.title(\"Income Tax % by Income (USD)\")\nplt.xlabel(\"Income in USD\")\nplt.ylabel(\"Percent Tax Rate\")\nplt.plot(incomes, costs / incomes * 100, label = \"Tax/Income\")\nplt.legend() # This shows the labels"
   },
   {
     "objectID": "05_matplotlib.rjs.html#annotation",
@@ -1014,7 +1004,7 @@
     "href": "05_matplotlib.rjs.html#section-4",
     "title": "Matplotlib",
     "section": "",
-    "text": "plt.annotate()\n\n\nplt.plot(incomes, costs / incomes * 100, label = \"Tax/Income\")\nplt.annotate(\"Median Income\", xy)\n\nC:\\Users\\cd-desk\\AppData\\Local\\Temp\\ipykernel_16272\\2069779692.py:1: RuntimeWarning:\n\ninvalid value encountered in divide\n\n\n\nText(40000, 14.428125, 'Median Income')"
+    "text": "plt.annotate()\n\n\nplt.plot(incomes, costs / incomes * 100, label = \"Tax/Income\")\nplt.annotate(\"Median Income\", xy)\n\nText(40000, 14.428125, 'Median Income')"
   },
   {
     "objectID": "05_matplotlib.rjs.html#using-functions",
@@ -1028,7 +1018,7 @@
     "href": "05_matplotlib.rjs.html#section-5",
     "title": "Matplotlib",
     "section": "",
-    "text": "plt.plot(incomes, costs / incomes * 100, label = \"Tax/Income\")\nadd_note(115000, \"CS Mid Career\")\nadd_note(80000, \"CS New Grads\")\nadd_note(70000, \"Physics New Grads\")\nadd_note(55000, \"All New Grads\")\nadd_note(40000, \"Median Income\")\nplt.title(\"Labor Market Outcomes of College Graduates by Major\")\n\nC:\\Users\\cd-desk\\AppData\\Local\\Temp\\ipykernel_16272\\2832080454.py:1: RuntimeWarning:\n\ninvalid value encountered in divide\n\n\n\nText(0.5, 1.0, 'Labor Market Outcomes of College Graduates by Major')"
+    "text": "plt.plot(incomes, costs / incomes * 100, label = \"Tax/Income\")\nadd_note(115000, \"CS Mid Career\")\nadd_note(80000, \"CS New Grads\")\nadd_note(70000, \"Physics New Grads\")\nadd_note(55000, \"All New Grads\")\nadd_note(40000, \"Median Income\")\nplt.title(\"Labor Market Outcomes of College Graduates by Major\")\n\nText(0.5, 1.0, 'Labor Market Outcomes of College Graduates by Major')"
   },
   {
     "objectID": "05_matplotlib.rjs.html#multiple-functions",
@@ -1049,14 +1039,14 @@
     "href": "05_matplotlib.rjs.html#section-6",
     "title": "Matplotlib",
     "section": "",
-    "text": "color=\n\n\nplt.plot(incomes, costs / incomes * 100, label = \"Tax Rate\", color=\"blue\")\nplt.plot(incomes, brackets, label=\"Marginal Rate\", color=\"red\")\nplt.legend()\n\nC:\\Users\\cd-desk\\AppData\\Local\\Temp\\ipykernel_16272\\3364552391.py:1: RuntimeWarning:\n\ninvalid value encountered in divide"
+    "text": "color=\n\n\nplt.plot(incomes, costs / incomes * 100, label = \"Tax Rate\", color=\"blue\")\nplt.plot(incomes, brackets, label=\"Marginal Rate\", color=\"red\")\nplt.legend()"
   },
   {
     "objectID": "05_matplotlib.rjs.html#section-7",
     "href": "05_matplotlib.rjs.html#section-7",
     "title": "Matplotlib",
     "section": "",
-    "text": "color=\n\n\nrates = costs / incomes * 100\nplt.plot(incomes, rates, label = \"Tax Rate\", color=\"blue\")\nplt.plot(incomes, brackets, label=\"Marginal Rate\", color=\"red\")\nplt.plot(incomes, brackets - rates, label=\"Discount Rate\", color=\"green\")\nplt.legend()\n\nC:\\Users\\cd-desk\\AppData\\Local\\Temp\\ipykernel_16272\\2916591473.py:1: RuntimeWarning:\n\ninvalid value encountered in divide"
+    "text": "color=\n\n\nrates = costs / incomes * 100\nplt.plot(incomes, rates, label = \"Tax Rate\", color=\"blue\")\nplt.plot(incomes, brackets, label=\"Marginal Rate\", color=\"red\")\nplt.plot(incomes, brackets - rates, label=\"Discount Rate\", color=\"green\")\nplt.legend()"
   },
   {
     "objectID": "05_matplotlib.rjs.html#more-than-lines",
@@ -1127,13 +1117,6 @@
     "title": "Matplotlib",
     "section": "Pie",
     "text": "Pie\n\n_ = plt.pie(es) # NOT num_es\n\n\n\n\n\n\n\n\n\nThis appears to be one color per “row” but we didn’t label the rows so it’s hard to say."
-  },
-  {
-    "objectID": "05_matplotlib.rjs.html#ecdf",
-    "href": "05_matplotlib.rjs.html#ecdf",
-    "title": "Matplotlib",
-    "section": "ECDF",
-    "text": "ECDF\n\n_ = plt.ecdf(num_es) # empirical cumulative distribution function\n\n\n\n\n\n\n\n\n\nGiven \\(n\\) electrons, what % have that many or fewer outermost electrons."
   },
   {
     "objectID": "05_matplotlib.rjs.html#many-more",
@@ -5305,7 +5288,7 @@
     "href": "03_shell.html#why-standardize",
     "title": "Shell",
     "section": "Why standardize?",
-    "text": "Why standardize?\n\nIt is bad enough to have to say “type python or python3”\nBut even just using ls we see perhaps frustrating differences.\n\nls on bash lists only file names\nls on PowerShell lists file names, dates, and more\nls on cmd.bat is an error.",
+    "text": "Why standardize?\n\nIt is bad enough to have to say “type python or python3”\nBut even just using ls we see perhaps frustrating differences.\n\nls on bash lists only file names\nls on PowerShell lists file names, dates, and more\nls on cmd.exe is an error.",
     "crumbs": [
       "Shell"
     ]
@@ -5465,7 +5448,7 @@
     "href": "03_shell.html#reading",
     "title": "Shell",
     "section": "Reading",
-    "text": "Reading\n\nThe names of files are helpful, but not always all we want to know.\nWhen files only contain text - like .py files, we can use cat to see what text they contain.\n\n$ cat args.py\nimport sys\n\nprint(sys.argv[0])i",
+    "text": "Reading\n\nThe names of files are helpful, but not always all we want to know.\nWhen files only contain text - like .py files, we can use cat to see what text they contain.\n\n$ cat args.py\nimport sys\n\nprint(sys.argv[0])",
     "crumbs": [
       "Shell"
     ]
@@ -5915,7 +5898,7 @@
     "href": "03_shell.rjs.html#why-standardize",
     "title": "Shell",
     "section": "Why standardize?",
-    "text": "Why standardize?\n\nIt is bad enough to have to say “type python or python3”\nBut even just using ls we see perhaps frustrating differences.\n\nls on bash lists only file names\nls on PowerShell lists file names, dates, and more\nls on cmd.bat is an error."
+    "text": "Why standardize?\n\nIt is bad enough to have to say “type python or python3”\nBut even just using ls we see perhaps frustrating differences.\n\nls on bash lists only file names\nls on PowerShell lists file names, dates, and more\nls on cmd.exe is an error."
   },
   {
     "objectID": "03_shell.rjs.html#diving-in",
@@ -6027,7 +6010,7 @@
     "href": "03_shell.rjs.html#reading",
     "title": "Shell",
     "section": "Reading",
-    "text": "Reading\n\nThe names of files are helpful, but not always all we want to know.\nWhen files only contain text - like .py files, we can use cat to see what text they contain.\n\n$ cat args.py\nimport sys\n\nprint(sys.argv[0])i"
+    "text": "Reading\n\nThe names of files are helpful, but not always all we want to know.\nWhen files only contain text - like .py files, we can use cat to see what text they contain.\n\n$ cat args.py\nimport sys\n\nprint(sys.argv[0])"
   },
   {
     "objectID": "03_shell.rjs.html#writing",
@@ -6369,6 +6352,16 @@
     ]
   },
   {
+    "objectID": "04_numpy.html#aside-dunder",
+    "href": "04_numpy.html#aside-dunder",
+    "title": "NumPy",
+    "section": "Aside: Dunder",
+    "text": "Aside: Dunder\n\nAround “version” there are two underscores, called “dunder” for double underscore.\nThese “dunder” values are special built-in Python values with a specific meaning.\nYou can see another by just printing np\n\n\nprint(np)\n\n&lt;module 'numpy' from '/usr/lib/python3/dist-packages/numpy/__init__.py'&gt;",
+    "crumbs": [
+      "NumPy"
+    ]
+  },
+  {
     "objectID": "04_numpy.html#recall",
     "href": "04_numpy.html#recall",
     "title": "NumPy",
@@ -6414,6 +6407,16 @@
     "title": "NumPy",
     "section": "Check Types",
     "text": "Check Types\n\nWe can verify it is a list.\n\n\ntype(taxes)\n\nlist\n\n\n\nWe can verify it’s initial element is also a list.\n\n\ntype(taxes[0])\n\nlist\n\n\n\nSince taxes[0] is a list, we can look at that list’s initial element.\n\n\ntype(taxes[0][0])\n\nint",
+    "crumbs": [
+      "NumPy"
+    ]
+  },
+  {
+    "objectID": "04_numpy.html#metaphor",
+    "href": "04_numpy.html#metaphor",
+    "title": "NumPy",
+    "section": "Metaphor",
+    "text": "Metaphor\n\nPerhaps we regard 0-indexed element of an array as the house on the corner of a block.\nPerhaps we regard the 0-indexed element of that “house” as the ground floor.\n\n\ntaxes[0][0] # House on the corner, ground floor\n\n9275",
     "crumbs": [
       "NumPy"
     ]
@@ -6484,6 +6487,16 @@
     "title": "NumPy",
     "section": "ndarray",
     "text": "ndarray\n\nA three-dimensional array would be like a set of tables, perhaps stacked as though they were printed on separate pages. In NumPy, this idea is generalized to an arbitrary number of dimensions, and so the fundamental array class is called ndarray: it represents an “N-dimensional array”.\n\n\nThe most obvious 3D example would be that taxes part of an array of tax policies\n\n[\"Single\", \"Married, joint\", \"Married, separate\", \"Head of Household\"]",
+    "crumbs": [
+      "NumPy"
+    ]
+  },
+  {
+    "objectID": "04_numpy.html#metaphor-1",
+    "href": "04_numpy.html#metaphor-1",
+    "title": "NumPy",
+    "section": "Metaphor",
+    "text": "Metaphor\n\nPerhaps we have blocks in a city.\nHouses on a block.\nStories on a house or floors in apartment.",
     "crumbs": [
       "NumPy"
     ]
@@ -6619,11 +6632,11 @@
     ]
   },
   {
-    "objectID": "04_numpy.html#step-ommissions",
-    "href": "04_numpy.html#step-ommissions",
+    "objectID": "04_numpy.html#step-omissions",
+    "href": "04_numpy.html#step-omissions",
     "title": "NumPy",
-    "section": "Step Ommissions",
-    "text": "Step Ommissions\n\nWe can omit start, stop, or both and still take steps.\n\n\ncolor_arr[::3]\n\narray(['red', 'green', 'violet'], dtype='&lt;U6')\n\n\n\nWe can use a negative step to reverse.\n\n\ncolor_arr[::-1]\n\narray(['violet', 'indigo', 'blue', 'green', 'yellow', 'orange', 'red'],\n      dtype='&lt;U6')",
+    "section": "Step Omissions",
+    "text": "Step Omissions\n\nWe can omit start, stop, or both and still take steps.\n\n\ncolor_arr[::3]\n\narray(['red', 'green', 'violet'], dtype='&lt;U6')\n\n\n\nWe can use a negative step to reverse.\n\n\ncolor_arr[::-1]\n\narray(['violet', 'indigo', 'blue', 'green', 'yellow', 'orange', 'red'],\n      dtype='&lt;U6')",
     "crumbs": [
       "NumPy"
     ]
@@ -6659,6 +6672,16 @@
     ]
   },
   {
+    "objectID": "04_numpy.html#example-1",
+    "href": "04_numpy.html#example-1",
+    "title": "NumPy",
+    "section": "Example",
+    "text": "Example\n\nI want all the tax rates\n\nMetaphor: 1st floor of every apartment on the block.\n\n\n\n\n\n# Look at the whole block, take address 1\narr[:][1] # Gives house address one\n\narray([3.765e+04, 1.500e-01])\n\n\n\n\n# Look at the whole block, take address 1\narr[:, 1] # Gives all first floors on the block\n\narray([0.1 , 0.15, 0.25, 0.28, 0.33, 0.35])",
+    "crumbs": [
+      "NumPy"
+    ]
+  },
+  {
     "objectID": "04_numpy.html#updates",
     "href": "04_numpy.html#updates",
     "title": "NumPy",
@@ -6689,11 +6712,11 @@
     ]
   },
   {
-    "objectID": "04_numpy.html#example-1",
-    "href": "04_numpy.html#example-1",
+    "objectID": "04_numpy.html#example-2",
+    "href": "04_numpy.html#example-2",
     "title": "NumPy",
     "section": "Example",
-    "text": "Example\n\nI want all the tax rates\n\nMetaphor: 1st floor of every apartment on the block.\n\n\n\n\n\n# Look at the whole block, take address 1\narr[:][1] # Gives house address one\n\narray([3.765e+04, 1.500e-01])\n\n\n\n\n# Look at the whole block, take address 1\narr[:, 1] # Gives all first floors on the block\n\narray([0.1 , 0.15, 0.25, 0.28, 0.33, 0.35])",
+    "text": "Example\n\nSuppose you need to convert some temperatures.\n\n\n# Portland highs and lows 5/26/25-6/2/25 in degF\ntemps = np.array([70, 50, 81, 60, 85, 57, 70, 52, 84, 58, 87, 58, 74, 53, 70, 54])\ntemps -= 32\ntemps *= 5\ntemps //= 9\ntemps\n\narray([21, 10, 27, 15, 29, 13, 21, 11, 28, 14, 30, 14, 23, 11, 21, 12])",
     "crumbs": [
       "NumPy"
     ]
@@ -6799,6 +6822,16 @@
     ]
   },
   {
+    "objectID": "04_numpy.html#aside-mean",
+    "href": "04_numpy.html#aside-mean",
+    "title": "NumPy",
+    "section": "Aside: Mean",
+    "text": "Aside: Mean\n\nOther than np.cumsum, there are other functions over arrays we often use.\nIt isn’t particularly useful here, but np.mean is quite common:\n\n\nnp.mean(total_cost)\n\n51902.26666666666\n\n\n\nTakeaway: Some functions convert arrays back to values.",
+    "crumbs": [
+      "NumPy"
+    ]
+  },
+  {
     "objectID": "04_numpy.html#numpy-does-a-lot",
     "href": "04_numpy.html#numpy-does-a-lot",
     "title": "NumPy",
@@ -6853,7 +6886,7 @@
     "href": "04_numpy.html#aside-random",
     "title": "NumPy",
     "section": "Aside: Random",
-    "text": "Aside: Random\n\nThe following:\n\nGenerates 1 million random integers from 0 to 50000\nPrints every 10 thousandth integer.\n\n\n\nimport numpy as np\nrng = np.random.default_rng()\nincomes = rng.integers(0, 500000, 1000000)\nprint(incomes[::10000])\n\n[330328 266402 457570  72593 473511 491765 494749 111145  50047 335809\n 477768 105998 182045 323703  12915  86332 259180 329763  87288 369640\n 111469 266104 466918 339663 422986 429036 376755  36715  28405  39094\n 343658 454157  84529  27168  86435 401076 276570 237531 476235 418879\n 387787   7763 185499 343929  13571 275919 409210  95393 345726 463501\n  49257  41530 479014 182846 485569 333440 306858 240211 292751 121444\n 251176 345849 416511 185933 355385 106403 215217  60630 427366 197701\n 263346  83914 212973 100731 441911 339816 342654 169926 290332   4400\n 168807 226419 152196   9513 303079 102210 241747  23397  96035 406061\n 375141  23486 256885  71785  12173 191347 188081 152976  46875 186269]\n\n\n\nRead more: Random sample",
+    "text": "Aside: Random\n\nThe following:\n\nGenerates 1 million random integers from 0 to 50000\nPrints every 10 thousandth integer.\n\n\n\nimport numpy as np\nrng = np.random.default_rng()\nincomes = rng.integers(0, 500000, 1000000)\nprint(incomes[::10000])\n\n[410907 159127 300191 307902 357960 136222 437026 109030 273268  88539\n 456241 134564 180183 325223 136434 304736 282183  29243 133058 487577\n 382562  51212 288934 133416 417353  19660 197260 453843 103815  95104\n 353337 162886 302353 430037 102243  86634  52051 482203 490478 216449\n 323657 210036 496238 243801 209375 421017 195874 397143 131358  17804\n 144604    808   3653 488675 460170 384757 441921  78862  61703 483595\n 273486 368416  88643 365887 162816 305914 413988 219777 224312 215707\n 150024 133477 325734  18837 337653 400267 412208 285869   1730 489933\n 168158 334886 441148 156624 188558 250091 141812 385544 396185 366189\n 419542 166840 489804 419570 238538  23807 414215 434035  96668 152917]\n\n\n\nRead more: Random sample",
     "crumbs": [
       "NumPy"
     ]
@@ -6938,6 +6971,13 @@
     "text": "Verify Install\n\nThe following verifies the the NumPy install was successful\nWe see the return of import\n\nIntroduce as, used to shorten names\nWe could have done import pw as piecewise\n\n\n\nimport numpy as np\n\nprint(np.__version__)\n\n1.26.4"
   },
   {
+    "objectID": "04_numpy.rjs.html#aside-dunder",
+    "href": "04_numpy.rjs.html#aside-dunder",
+    "title": "NumPy",
+    "section": "Aside: Dunder",
+    "text": "Aside: Dunder\n\nAround “version” there are two underscores, called “dunder” for double underscore.\nThese “dunder” values are special built-in Python values with a specific meaning.\nYou can see another by just printing np\n\n\nprint(np)\n\n&lt;module 'numpy' from '/usr/lib/python3/dist-packages/numpy/__init__.py'&gt;"
+  },
+  {
     "objectID": "04_numpy.rjs.html#recall",
     "href": "04_numpy.rjs.html#recall",
     "title": "NumPy",
@@ -6971,6 +7011,13 @@
     "title": "NumPy",
     "section": "Check Types",
     "text": "Check Types\n\nWe can verify it is a list.\n\n\ntype(taxes)\n\nlist\n\n\n\nWe can verify it’s initial element is also a list.\n\n\ntype(taxes[0])\n\nlist\n\n\n\nSince taxes[0] is a list, we can look at that list’s initial element.\n\n\ntype(taxes[0][0])\n\nint"
+  },
+  {
+    "objectID": "04_numpy.rjs.html#metaphor",
+    "href": "04_numpy.rjs.html#metaphor",
+    "title": "NumPy",
+    "section": "Metaphor",
+    "text": "Metaphor\n\nPerhaps we regard 0-indexed element of an array as the house on the corner of a block.\nPerhaps we regard the 0-indexed element of that “house” as the ground floor.\n\n\ntaxes[0][0] # House on the corner, ground floor\n\n9275"
   },
   {
     "objectID": "04_numpy.rjs.html#versus-arrays",
@@ -7020,6 +7067,13 @@
     "title": "NumPy",
     "section": "ndarray",
     "text": "ndarray\n\nA three-dimensional array would be like a set of tables, perhaps stacked as though they were printed on separate pages. In NumPy, this idea is generalized to an arbitrary number of dimensions, and so the fundamental array class is called ndarray: it represents an “N-dimensional array”.\n\n\nThe most obvious 3D example would be that taxes part of an array of tax policies\n\n[\"Single\", \"Married, joint\", \"Married, separate\", \"Head of Household\"]"
+  },
+  {
+    "objectID": "04_numpy.rjs.html#metaphor-1",
+    "href": "04_numpy.rjs.html#metaphor-1",
+    "title": "NumPy",
+    "section": "Metaphor",
+    "text": "Metaphor\n\nPerhaps we have blocks in a city.\nHouses on a block.\nStories on a house or floors in apartment."
   },
   {
     "objectID": "04_numpy.rjs.html#making-arrays",
@@ -7113,11 +7167,11 @@
     "text": "Example\n\nIn kindergarten, I learned that red, yellow, and blue were primary colors.\n\nLess sure now but a good ex.\n\n\n\ncolor_arr\n\narray(['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'],\n      dtype='&lt;U6')\n\n\n\nAnd the primaries:\n\n\ncolor_arr[0:5:2]\n\narray(['red', 'yellow', 'blue'], dtype='&lt;U6')"
   },
   {
-    "objectID": "04_numpy.rjs.html#step-ommissions",
-    "href": "04_numpy.rjs.html#step-ommissions",
+    "objectID": "04_numpy.rjs.html#step-omissions",
+    "href": "04_numpy.rjs.html#step-omissions",
     "title": "NumPy",
-    "section": "Step Ommissions",
-    "text": "Step Ommissions\n\nWe can omit start, stop, or both and still take steps.\n\n\ncolor_arr[::3]\n\narray(['red', 'green', 'violet'], dtype='&lt;U6')\n\n\n\nWe can use a negative step to reverse.\n\n\ncolor_arr[::-1]\n\narray(['violet', 'indigo', 'blue', 'green', 'yellow', 'orange', 'red'],\n      dtype='&lt;U6')"
+    "section": "Step Omissions",
+    "text": "Step Omissions\n\nWe can omit start, stop, or both and still take steps.\n\n\ncolor_arr[::3]\n\narray(['red', 'green', 'violet'], dtype='&lt;U6')\n\n\n\nWe can use a negative step to reverse.\n\n\ncolor_arr[::-1]\n\narray(['violet', 'indigo', 'blue', 'green', 'yellow', 'orange', 'red'],\n      dtype='&lt;U6')"
   },
   {
     "objectID": "04_numpy.rjs.html#aside-negatives",
@@ -7141,6 +7195,13 @@
     "text": "Coordinate slices\n\nI recommend using the comma notation.\nOtherwise I get unexpected behavior.\n\n\n\n\n# reverse in both dimensions\narr[::-1][::-1] # Just reverses twice \n\narray([[9.27500e+03, 1.00000e-01],\n       [3.76500e+04, 1.50000e-01],\n       [9.11500e+04, 2.50000e-01],\n       [1.90150e+05, 2.80000e-01],\n       [4.13350e+05, 3.30000e-01],\n       [4.15051e+05, 3.50000e-01]])\n\n\n\n\n# reverse in both dimensions\narr[::-1,::-1] # It works!\n\narray([[3.50000e-01, 4.15051e+05],\n       [3.30000e-01, 4.13350e+05],\n       [2.80000e-01, 1.90150e+05],\n       [2.50000e-01, 9.11500e+04],\n       [1.50000e-01, 3.76500e+04],\n       [1.00000e-01, 9.27500e+03]])\n\n\n\n\nTakeaway: Always use [x,y] instead of [x][y]\nThings like this are we use NumPy!"
   },
   {
+    "objectID": "04_numpy.rjs.html#example-1",
+    "href": "04_numpy.rjs.html#example-1",
+    "title": "NumPy",
+    "section": "Example",
+    "text": "Example\n\nI want all the tax rates\n\nMetaphor: 1st floor of every apartment on the block.\n\n\n\n\n\n# Look at the whole block, take address 1\narr[:][1] # Gives house address one\n\narray([3.765e+04, 1.500e-01])\n\n\n\n\n# Look at the whole block, take address 1\narr[:, 1] # Gives all first floors on the block\n\narray([0.1 , 0.15, 0.25, 0.28, 0.33, 0.35])"
+  },
+  {
     "objectID": "04_numpy.rjs.html#updates",
     "href": "04_numpy.rjs.html#updates",
     "title": "NumPy",
@@ -7162,11 +7223,11 @@
     "text": "Vector Ops\n\nLet’s compare Python\n\n\nl1 = [1,2,3]\nl2 = [1,1,1]\nl1 + l2\n\n[1, 2, 3, 1, 1, 1]\n\n\n\nTo NumPy\n\n\na1 = np.array(l1)\na2 = np.array(l2)\na1 + a2\n\narray([2, 3, 4])\n\n\n\nBy the way, vectorization is really fast.\nOur first “high performance computing” idea."
   },
   {
-    "objectID": "04_numpy.rjs.html#example-1",
-    "href": "04_numpy.rjs.html#example-1",
+    "objectID": "04_numpy.rjs.html#example-2",
+    "href": "04_numpy.rjs.html#example-2",
     "title": "NumPy",
     "section": "Example",
-    "text": "Example\n\nI want all the tax rates\n\nMetaphor: 1st floor of every apartment on the block.\n\n\n\n\n\n# Look at the whole block, take address 1\narr[:][1] # Gives house address one\n\narray([3.765e+04, 1.500e-01])\n\n\n\n\n# Look at the whole block, take address 1\narr[:, 1] # Gives all first floors on the block\n\narray([0.1 , 0.15, 0.25, 0.28, 0.33, 0.35])"
+    "text": "Example\n\nSuppose you need to convert some temperatures.\n\n\n# Portland highs and lows 5/26/25-6/2/25 in degF\ntemps = np.array([70, 50, 81, 60, 85, 57, 70, 52, 84, 58, 87, 58, 74, 53, 70, 54])\ntemps -= 32\ntemps *= 5\ntemps //= 9\ntemps\n\narray([21, 10, 27, 15, 29, 13, 21, 11, 28, 14, 30, 14, 23, 11, 21, 12])"
   },
   {
     "objectID": "04_numpy.rjs.html#aside",
@@ -7237,6 +7298,13 @@
     "title": "NumPy",
     "section": "Accumulation",
     "text": "Accumulation\n\nWhile bracket_cost does correctly describe the cost within on bracket, someone in the n+1’th bracket pays the cost the previous n brackets.\nSomeone how we want to sum those up.\nNumPy has many built-in array functions, including np.cumsum.\n\n\ntotal_cost = np.cumsum(bracket_cost)\ntotal_cost\n\narray([   927.5 ,   5183.75,  18558.75,  46278.75, 119934.75, 120530.1 ])"
+  },
+  {
+    "objectID": "04_numpy.rjs.html#aside-mean",
+    "href": "04_numpy.rjs.html#aside-mean",
+    "title": "NumPy",
+    "section": "Aside: Mean",
+    "text": "Aside: Mean\n\nOther than np.cumsum, there are other functions over arrays we often use.\nIt isn’t particularly useful here, but np.mean is quite common:\n\n\nnp.mean(total_cost)\n\n51902.26666666666\n\n\n\nTakeaway: Some functions convert arrays back to values."
   },
   {
     "objectID": "04_numpy.rjs.html#numpy-does-a-lot",
@@ -12445,107 +12513,5 @@
     "crumbs": [
       "Appendix - Commands"
     ]
-  },
-  {
-    "objectID": "04_numpy.html#aside-dunder",
-    "href": "04_numpy.html#aside-dunder",
-    "title": "NumPy",
-    "section": "Aside: Dunder",
-    "text": "Aside: Dunder\n\nAround “version” there are two underscores, called “dunder” for double underscore.\nThese “dunder” values are special built-in Python values with a specific meaning.\nYou can see another by just printing np\n\n\nprint(np)\n\n&lt;module 'numpy' from '/usr/lib/python3/dist-packages/numpy/__init__.py'&gt;",
-    "crumbs": [
-      "NumPy"
-    ]
-  },
-  {
-    "objectID": "04_numpy.html#metaphor",
-    "href": "04_numpy.html#metaphor",
-    "title": "NumPy",
-    "section": "Metaphor",
-    "text": "Metaphor\n\nPerhaps we regard 0-indexed element of an array as the house on the corner of a block.\nPerhaps we regard the 0-indexed element of that “house” as the ground floor.\n\n\ntaxes[0][0] # House on the corner, ground floor\n\n9275",
-    "crumbs": [
-      "NumPy"
-    ]
-  },
-  {
-    "objectID": "04_numpy.html#metaphor-1",
-    "href": "04_numpy.html#metaphor-1",
-    "title": "NumPy",
-    "section": "Metaphor",
-    "text": "Metaphor\n\nPerhaps we have blocks in a city.\nHouses on a block.\nStories on a house or floors in apartment.",
-    "crumbs": [
-      "NumPy"
-    ]
-  },
-  {
-    "objectID": "04_numpy.html#step-omissions",
-    "href": "04_numpy.html#step-omissions",
-    "title": "NumPy",
-    "section": "Step Omissions",
-    "text": "Step Omissions\n\nWe can omit start, stop, or both and still take steps.\n\n\ncolor_arr[::3]\n\narray(['red', 'green', 'violet'], dtype='&lt;U6')\n\n\n\nWe can use a negative step to reverse.\n\n\ncolor_arr[::-1]\n\narray(['violet', 'indigo', 'blue', 'green', 'yellow', 'orange', 'red'],\n      dtype='&lt;U6')",
-    "crumbs": [
-      "NumPy"
-    ]
-  },
-  {
-    "objectID": "04_numpy.html#example-2",
-    "href": "04_numpy.html#example-2",
-    "title": "NumPy",
-    "section": "Example",
-    "text": "Example\n\nSuppose you need to convert some temperatures.\n\n\n# Portland highs and lows 5/26/25-6/2/25 in degF\ntemps = np.array([70, 50, 81, 60, 85, 57, 70, 52, 84, 58, 87, 58, 74, 53, 70, 54])\ntemps -= 32\ntemps *= 5\ntemps //= 9\ntemps\n\narray([21, 10, 27, 15, 29, 13, 21, 11, 28, 14, 30, 14, 23, 11, 21, 12])",
-    "crumbs": [
-      "NumPy"
-    ]
-  },
-  {
-    "objectID": "04_numpy.html#aside-mean",
-    "href": "04_numpy.html#aside-mean",
-    "title": "NumPy",
-    "section": "Aside: Mean",
-    "text": "Aside: Mean\n\nOther than np.cumsum, there are other functions over arrays we often use.\nIt isn’t particularly useful here, but np.mean is quite common:\n\n\nnp.mean(total_cost)\n\n51902.26666666666\n\n\n\nTakeaway: Some functions convert arrays back to values.",
-    "crumbs": [
-      "NumPy"
-    ]
-  },
-  {
-    "objectID": "04_numpy.rjs.html#aside-dunder",
-    "href": "04_numpy.rjs.html#aside-dunder",
-    "title": "NumPy",
-    "section": "Aside: Dunder",
-    "text": "Aside: Dunder\n\nAround “version” there are two underscores, called “dunder” for double underscore.\nThese “dunder” values are special built-in Python values with a specific meaning.\nYou can see another by just printing np\n\n\nprint(np)\n\n&lt;module 'numpy' from '/usr/lib/python3/dist-packages/numpy/__init__.py'&gt;"
-  },
-  {
-    "objectID": "04_numpy.rjs.html#metaphor",
-    "href": "04_numpy.rjs.html#metaphor",
-    "title": "NumPy",
-    "section": "Metaphor",
-    "text": "Metaphor\n\nPerhaps we regard 0-indexed element of an array as the house on the corner of a block.\nPerhaps we regard the 0-indexed element of that “house” as the ground floor.\n\n\ntaxes[0][0] # House on the corner, ground floor\n\n9275"
-  },
-  {
-    "objectID": "04_numpy.rjs.html#metaphor-1",
-    "href": "04_numpy.rjs.html#metaphor-1",
-    "title": "NumPy",
-    "section": "Metaphor",
-    "text": "Metaphor\n\nPerhaps we have blocks in a city.\nHouses on a block.\nStories on a house or floors in apartment."
-  },
-  {
-    "objectID": "04_numpy.rjs.html#step-omissions",
-    "href": "04_numpy.rjs.html#step-omissions",
-    "title": "NumPy",
-    "section": "Step Omissions",
-    "text": "Step Omissions\n\nWe can omit start, stop, or both and still take steps.\n\n\ncolor_arr[::3]\n\narray(['red', 'green', 'violet'], dtype='&lt;U6')\n\n\n\nWe can use a negative step to reverse.\n\n\ncolor_arr[::-1]\n\narray(['violet', 'indigo', 'blue', 'green', 'yellow', 'orange', 'red'],\n      dtype='&lt;U6')"
-  },
-  {
-    "objectID": "04_numpy.rjs.html#example-2",
-    "href": "04_numpy.rjs.html#example-2",
-    "title": "NumPy",
-    "section": "Example",
-    "text": "Example\n\nSuppose you need to convert some temperatures.\n\n\n# Portland highs and lows 5/26/25-6/2/25 in degF\ntemps = np.array([70, 50, 81, 60, 85, 57, 70, 52, 84, 58, 87, 58, 74, 53, 70, 54])\ntemps -= 32\ntemps *= 5\ntemps //= 9\ntemps\n\narray([21, 10, 27, 15, 29, 13, 21, 11, 28, 14, 30, 14, 23, 11, 21, 12])"
-  },
-  {
-    "objectID": "04_numpy.rjs.html#aside-mean",
-    "href": "04_numpy.rjs.html#aside-mean",
-    "title": "NumPy",
-    "section": "Aside: Mean",
-    "text": "Aside: Mean\n\nOther than np.cumsum, there are other functions over arrays we often use.\nIt isn’t particularly useful here, but np.mean is quite common:\n\n\nnp.mean(total_cost)\n\n51902.26666666666\n\n\n\nTakeaway: Some functions convert arrays back to values."
   }
 ]
