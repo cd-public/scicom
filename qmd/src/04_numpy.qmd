@@ -23,7 +23,8 @@ Basically, to do scientific computing it would be nice to have:
 ## Relevance
 
 * We have essentially been using 1- and 2-dimensional arrays already!
-* Here is the examples `intercepts.py` solution from last time
+* Here is the examples `intercepts.py` solution from last time.
+  	- It will be cut off but you can copy/paste if you need it.
 
 ```{python}
 #| code-fold: true
@@ -49,8 +50,6 @@ for tax in taxes:
 * Change our existing _lists_, which we understand as “N-dimensional arrays” into NumPy arrays.
 * Show the benefits of this arrangement.
 * Show other NumPy features.
-
----
 
 # Package Management
 
@@ -84,7 +83,7 @@ python3 -m pip install numpy
 * The following verifies the the NumPy install was successful
 * We see the return of `import`
     * Introduce `as`, used to shorten names
-    * We could have done `import piecewise as pw`
+    * We could have done `import pw as piecewise`
 
 ```{python}
 import numpy as np
@@ -92,10 +91,19 @@ import numpy as np
 print(np.__version__)
 ```
 
+## Aside: Dunder
+
+- Around "version" there are two underscores, called "dunder" for double underscore.
+- These "dunder" values are special built-in Python values with a specific meaning.
+- You can see another by just printing `np`
+```{python}
+print(np)
+```
+
 ## Recall
 
 * You may wish to review `import`
-* Consult [Neovim -> \`import’](file:///C:/Users/cd-desk/Documents/repos/scicom/qmd/02_neovim.html#import)
+* Consult [Neovim -> \`import’](02_neovim.qmd#import)
 
 # Arrays
 
@@ -148,6 +156,14 @@ type(taxes[0])
 
 ```{python}
 type(taxes[0][0])
+```
+
+## Metaphor
+
+- Perhaps we regard 0-indexed element of an array as the house on the corner of a block.
+- Perhaps we regard the 0-indexed element of that "house" as the ground floor.
+```{python}
+taxes[0][0] # House on the corner, ground floor
 ```
 
 ## Versus arrays
@@ -226,10 +242,16 @@ $$
 
 > A three-dimensional array would be like a set of tables, perhaps stacked as though they were printed on separate pages. In NumPy, this idea is generalized to an arbitrary number of dimensions, and so the fundamental array class is called `ndarray`: it represents an “N-dimensional array”.
 
-- The most obvious 3d example would be that `taxes` part of an *array* of tax policies
+- The most obvious 3D example would be that `taxes` part of an *array* of tax policies
 ```{.python}
 ["Single", "Married, joint", "Married, separate", "Head of Household"]
 ```
+
+## Metaphor
+
+- Perhaps we have blocks in a city.
+- Houses on a block.
+- Stories on a house or floors in apartment.
 
 ## Making Arrays
 
@@ -279,7 +301,7 @@ $$
 
 - We can use social science numbers.
 - [Labor Market Outcomes of College Graduates by Major](https://www.newyorkfed.org/research/college-labor-market#--:explore:outcomes-by-major)
-- Computer scientists have a \$80,000 median wage early career
+- Computer Science majors in 2025 have a \$80,000 median wage
 	- $8.0000 \times 10^4$
 - And 6.1% unemployment
   	- $6.1 \times 10^{-2}$
@@ -352,22 +374,22 @@ color_arr[1:4]
 
 $$
 \small
-\begin{array}{|l|c|c|c|c|c|c|}
+\begin{array}{|c|c|c|c|c|c|}
 \hline
-\textbf{Index} & 0 & 1 & 2 & 3 & 4 & 5 & 6   \\
+ 0 & 1 & 2 & 3 & 4 & 5 & 6   \\
 \hline
-\textbf{Element} & red & orange& yellow& green& blue& indigo& violet\\
+ red & orange& yellow& green& blue& indigo& violet\\
 \hline
 \end{array}
 $$
 
 $$
 \small
-\begin{array}{|l|c|c|c|}
+\begin{array}{|c|c|c|}
 \hline
-\textbf{Index} & 1 & 2 & 3   \\
+ 1 & 2 & 3   \\
 \hline
-\textbf{Element} & orange& yellow& green\\
+ orange& yellow& green\\
 \hline
 \end{array}
 $$
@@ -416,17 +438,21 @@ color_arr[4:]
  
 - Python and NumPy slices have an additional feature I find quite nice called "steps"
 - We specify a slice:
+
 ```{python}
 color_arr[1:4]
 ```
+
 - We add a *third* value
+
 ```{python}
 color_arr[1:4:1]
 ```
 
 ## Step Size
 
--- We add a *third* value
+- We add a *third* value
+
 ```{python}
 color_arr[1:4:1]
 ```
@@ -439,7 +465,7 @@ color_arr[1:4:2]
 ## Example
 
 - In kindergarten, I learned that red, yellow, and blue were primary colors.
-	- I'm relatively unconvinced by that at this time, but it's a good example.
+	- Less sure now but a good ex. 
 ```{python}
 color_arr
 ```
@@ -448,7 +474,7 @@ color_arr
 color_arr[0:5:2]
 ```
 
-## Step Ommissions
+## Step Omissions
 
 - We can omit start, stop, or both and still take steps.
 ```{python}
@@ -492,7 +518,7 @@ arr[1][1], arr[1, 1]
 
 ```{python}
 # reverse in both dimensions
-arr[::-1][::-1] 
+arr[::-1][::-1] # Just reverses twice 
 ```
 
 
@@ -502,7 +528,7 @@ arr[::-1][::-1]
 
 ```{python}
 # reverse in both dimensions
-arr[::-1,::-1]
+arr[::-1,::-1] # It works!
 ```
 
 :::
@@ -511,6 +537,34 @@ arr[::-1,::-1]
 
 - Takeaway:  Always use `[x,y]` instead of `[x][y]`
 - Things like this are we use NumPy!
+
+## Example
+
+- I want all the tax rates
+  	- Metaphor: 1st floor of every apartment on the block.
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{python}
+# Look at the whole block, take address 1
+arr[:][1] # Gives house address one
+```
+
+:::
+
+::: {.column width="50%"}
+
+```{python}
+# Look at the whole block, take address 1
+arr[:, 1] # Gives all first floors on the block
+```
+
+:::
+
+::::
+
 
 ## Updates
 
@@ -580,7 +634,7 @@ np.array([1,2,3,4,5,6,7,8,9,10]) // 3
 
 ## Use case 
 
-- Slices and vectorization are *very* useful in the income tax example.
+- Slices and vectorization help with income tax.
 - We:
   	- Had income cutoffs, that were
 	- The *beginning* of some tax brackets, but
@@ -605,6 +659,7 @@ cutoffs = arr[:,0]
 cutoffs
 ```
 - `[:, 0]` means for every row (slice `:`) take the initial columns (index `0`)
+	- Take the ground floor of every house on the block.
 
 ## Insert
 
@@ -624,9 +679,11 @@ cutoffs
 
 - I usually don't insert, I append.
 - This allows adding two arrays together, like how Python `+` works on lists.
+  	- Remember, NumPy can treat a value like `0` as a 0-D (zero dimensional) array.
+	- `[0]` would also work.
 ```{python}
-# Smoosh arrays together.
-cutoffs = np.append([0],cutoffs)
+# Smoosh arrays, including scalars, together.
+cutoffs = np.append(0,cutoffs)
 cutoffs
 ```
 
@@ -671,6 +728,15 @@ bracket_cost
 total_cost = np.cumsum(bracket_cost)
 total_cost
 ```
+
+## Aside: Mean
+
+- Other than `np.cumsum`, there are other functions over arrays we often use.
+- It isn't particularly useful here, but `np.mean` is quite common:
+```{python}
+np.mean(total_cost)
+```
+- Takeaway: Some functions convert arrays back to values.
 
 # Takeaways
 
