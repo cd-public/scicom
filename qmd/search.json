@@ -7409,7 +7409,7 @@
     "href": "07_scipy.rjs.html#verify",
     "title": "SciPy",
     "section": "Verify",
-    "text": "Verify\n\nWe can quickly verify installation and introduce some conventions.\nOpen up Python and import the libraries:\n\n\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport scipy\n\nprint(scipy.__version__)\n\n1.14.1"
+    "text": "Verify\n\nWe can quickly verify installation and introduce some conventions.\nOpen up Python and import the libraries:\n\n\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport scipy\n\nprint(scipy.__version__)\n\n1.11.4"
   },
   {
     "objectID": "07_scipy.rjs.html#motivation",
@@ -7472,7 +7472,7 @@
     "href": "07_scipy.rjs.html#curl",
     "title": "SciPy",
     "section": "curl",
-    "text": "curl\n\nAs an alternative, you can curl the file from the course webpage.\ncurl is a shell command that downloads a file from a url.\n\nCan also be used to get e.g. the “.csv” file we used with pandas!\n\ncurl https://github.com/cd-public/scicom/raw/refs/heads/main/qmd/src/psy.wav -o psy.wav\nThis directs the command line to download the file from the url and save it locally as “psy.wav”"
+    "text": "curl\n\nAs an alternative, you can curl the file.\n\nJust the one I extracted.\n\nThe curl shell command downloads files from urls.\n\nCan also be used to get “.csv” files for pandas!\n\n\ncurl https://github.com/cd-public/scicom/raw/refs/heads/main/qmd/src/psy.wav -o psy.wav\n\nThis directs the command line to download the file from the url and save it locally as “psy.wav”"
   },
   {
     "objectID": "07_scipy.rjs.html#wavfile",
@@ -7500,14 +7500,14 @@
     "href": "07_scipy.rjs.html#multiple-return",
     "title": "SciPy",
     "section": "Multiple return",
-    "text": "Multiple return\n\nThis uses a slightly advanced Python topic of “multiple return”.\n\n\ndef roots(x):\n    root = np.sqrt(x)\n    return -root, root\n\n\nPython can return multiple comma-separated values from a function.\n\n\nneg, pos = roots(25)\n[neg, pos]\n\n[np.float64(-5.0), np.float64(5.0)]\n\n\n\nWe can “unpack” the multiple values by providing comma separated variable names."
+    "text": "Multiple return\n\nThis uses a slightly advanced Python topic of “multiple return”.\n\n\ndef roots(x):\n    root = np.sqrt(x)\n    return -root, root\n\n\nPython can return multiple comma-separated values from a function.\n\n\nneg, pos = roots(25)\n[neg, pos]\n\n[-5.0, 5.0]\n\n\n\nWe can “unpack” the multiple values by providing comma separated variable names."
   },
   {
     "objectID": "07_scipy.rjs.html#aside-tuples",
     "href": "07_scipy.rjs.html#aside-tuples",
     "title": "SciPy",
     "section": "Aside: Tuples",
-    "text": "Aside: Tuples\n\nThese multiple returns are just tuples.\n\nThe things that are like lists, but not exactly.\n\n\n\nboth = roots(64)\ntype(both)\n\ntuple\n\n\n\nWe can also use indexing to see individual elements of a tuple.\n\n\nboth[0]\n\nnp.float64(-8.0)"
+    "text": "Aside: Tuples\n\nThese multiple returns are just tuples.\n\nThe things that are like lists, but not exactly.\n\n\n\nboth = roots(64)\ntype(both)\n\ntuple\n\n\n\nWe can also use indexing to see individual elements of a tuple.\n\n\nboth[0]\n\n-8.0"
   },
   {
     "objectID": "07_scipy.rjs.html#vs.-lists",
@@ -7521,21 +7521,21 @@
     "href": "07_scipy.rjs.html#aside-errors",
     "title": "SciPy",
     "section": "Aside: Errors",
-    "text": "Aside: Errors\n\nDoing this to a list would create an error.\nThus far we have avoided showing example code that won’t work.\nWe can use try and except (like if and else) on erroneous code.\n\n\ncolor_tup = tuple(color_lst)\ntry:\n    color_tup[-1] = \"violet\"\nexcept:\n    print(\"Tuples can't do that.\")\n\nTuples can't do that."
+    "text": "Aside: Errors\n\nAttempting updates to a tuple will error.\nThus far we have avoided showing example code that won’t work.\nWe can use try and except (like if and else) on erroneous code.\n\n\ncolor_tup = tuple(color_lst)\ntry:\n    color_tup[-1] = \"violet\"\nexcept:\n    print(\"Tuples can't do that.\")\n\nTuples can't do that."
   },
   {
     "objectID": "07_scipy.rjs.html#reading-files",
     "href": "07_scipy.rjs.html#reading-files",
     "title": "SciPy",
     "section": "Reading files",
-    "text": "Reading files\n\nTry except is very handy when reading files.\nA lot of files I try to read are garbled and can’t be read.\nUsing try and except prevents Python errors.\n\nMore useful in big scripts than single-line things."
+    "text": "Reading files\n\nTry/except is very handy when reading files.\nA lot of files I try to read are garbled and can’t be read.\nUsing try and except prevents Python errors.\n\nMore useful in big scripts than single-line things."
   },
   {
     "objectID": "07_scipy.rjs.html#example",
     "href": "07_scipy.rjs.html#example",
     "title": "SciPy",
     "section": "Example",
-    "text": "Example\n\nEarlier today, I tried the curl command to get “psy.wav” while (unbeknownst to me) my internet was spotty.\nI got a file named “psy.wav” that was of size 0\nUnsurprisingly, opening it with SciPy led to an error.\nThis happens all the time!"
+    "text": "Example\n\nWhile making these slides, I tried the curl command to get “psy.wav” while (unbeknownst to me) my internet was spotty.\nI got a file named “psy.wav” that was of size 0\nUnsurprisingly, opening it with SciPy led to an error.\nThis happens all the time!"
   },
   {
     "objectID": "07_scipy.rjs.html#data",
@@ -7549,7 +7549,7 @@
     "href": "07_scipy.rjs.html#rate",
     "title": "SciPy",
     "section": "Rate",
-    "text": "Rate\n\nrate\n\n48000\n\n\n\nYou may have listened to the file (or not).\nAudio doesn’t come in for about 4 seconds.\nThe song ends and there’s a kind of “outro”.\nWe can see these on the plot.\nBut that examples the zeros."
+    "text": "Rate\n\nrate\n\n48000\n\n\n\nYou may have listened to the file (or not).\nAudio doesn’t come in for about 4 seconds.\nThe song ends and there’s a kind of “outro”.\nWe can see these on the plot.\nBut that explains the zeros."
   },
   {
     "objectID": "07_scipy.rjs.html#plot",
@@ -7640,14 +7640,14 @@
     "href": "07_scipy.rjs.html#repeats",
     "title": "SciPy",
     "section": "Repeats?",
-    "text": "Repeats?\n\nLooks like volume cuts low on a repeated pattern.\nMaybe we can isolate that pattern.\nLet’s:\n\nPick a range\nFind a minimal value\nFind where that value occurs.\n\n\n\nlow_val = min(snip)\nlow_val\n\nnp.int16(-32071)"
+    "text": "Repeats?\n\nLooks like volume cuts low on a repeated pattern.\nMaybe we can isolate that pattern.\nLet’s:\n\nPick a range\nFind a minimal value\nFind where that value occurs.\n\n\n\nlow_val = min(snip)\nlow_val\n\n-32071"
   },
   {
     "objectID": "07_scipy.rjs.html#whoops",
     "href": "07_scipy.rjs.html#whoops",
     "title": "SciPy",
     "section": "Whoops!",
-    "text": "Whoops!\n\nOh we need to use absolute value.\nNo worries!\n\n\nlow_val = min(np.absolute(snip))\nlow_val\n\nnp.int16(0)"
+    "text": "Whoops!\n\nOh we need to use absolute value.\nNo worries!\n\n\nlow_val = min(np.absolute(snip))\nlow_val\n\n0"
   },
   {
     "objectID": "07_scipy.rjs.html#patterns",
@@ -7689,7 +7689,7 @@
     "href": "07_scipy.rjs.html#motif",
     "title": "SciPy",
     "section": "Motif",
-    "text": "Motif\n\nstereo = np.array([snip,snip]).transpose()\nmotif = stereo[13580:131204]\nscipy.io.wavfile.write(\"motif.wav\", rate, motif)\n# os.system(\"open motif.wav\") # After import, if you have VLC, on MacOS\n\n\n\n\nother = stereo[13580:271632]\nscipy.io.wavfile.write(\"other.wav\", rate, other)\n\n\n\n\nscipy.io.wavfile.write(\"motifs.wav\", rate, np.concat([motif,motif,motif]))\nscipy.io.wavfile.write(\"others.wav\", rate, np.concat([other,other,other]))\n\n\n\n\n\n\nYou can go become a dj, or…"
+    "text": "Motif\n\nstereo = np.array([snip,snip]).transpose()\nmotif = stereo[13580:131204]\nscipy.io.wavfile.write(\"motif.wav\", rate, motif)\n# os.system(\"open motif.wav\") # After import, if you have VLC, on MacOS\n\n\n\n\nother = stereo[13580:271632]\nscipy.io.wavfile.write(\"other.wav\", rate, other)\n\n\n\n\nscipy.io.wavfile.write(\"motifs.wav\", rate, np.concatenate([motif,motif,motif]))\nscipy.io.wavfile.write(\"others.wav\", rate, np.concatenate([other,other,other]))\n\n\n\n\n\n\nYou can go become a dj, or…"
   },
   {
     "objectID": "07_scipy.rjs.html#fft",
@@ -7787,7 +7787,7 @@
     "href": "07_scipy.rjs.html#linregress",
     "title": "SciPy",
     "section": "linregress",
-    "text": "linregress\n\nres = stats.linregress(df[\"REALPCT\"],df[\"UNRATE\"])\nprint(res)\n\nLinregressResult(slope=np.float64(nan), intercept=np.float64(nan), rvalue=np.float64(nan), pvalue=np.float64(nan), stderr=np.float64(nan), intercept_stderr=np.float64(nan))"
+    "text": "linregress\n\nres = stats.linregress(df[\"REALPCT\"],df[\"UNRATE\"])\nprint(res)\n\nLinregressResult(slope=nan, intercept=nan, rvalue=nan, pvalue=nan, stderr=nan, intercept_stderr=nan)"
   },
   {
     "objectID": "07_scipy.rjs.html#credit",
@@ -7962,14 +7962,14 @@
     "href": "07_scipy.rjs.html#my-estimate",
     "title": "SciPy",
     "section": "My Estimate:",
-    "text": "My Estimate:\n\nAfter picking what I thought was things near Tc that should cancel out each other’s distance, I calculate their mean.\n\n\nmy_pred = close[\"Electronegativity\"].mean()\nmy_pred\n\nnp.float64(1.9525000000000001)\n\n\n\nThis is my naive prediction.\nNow I interpolate."
+    "text": "My Estimate:\n\nAfter picking what I thought was things near Tc that should cancel out each other’s distance, I calculate their mean.\n\n\nmy_pred = close[\"Electronegativity\"].mean()\nmy_pred\n\n1.9525000000000001\n\n\n\nThis is my naive prediction.\nNow I interpolate."
   },
   {
     "objectID": "07_scipy.rjs.html#interpolate",
     "href": "07_scipy.rjs.html#interpolate",
     "title": "SciPy",
     "section": "Interpolate",
-    "text": "Interpolate\n\nLinearNDInterpolator takes an array of known inputs and an array of known outputs and returns a function that it thinks describes the relationship.\n“Thinks” being a vague term here to convey a sense of learning or prediction or estimation.\n\n\nf = LinearNDInterpolator(arr2d, Z)\nscipy_pred = f(7,5)\n[scipy_pred, my_pred, Tc[\"Electronegativity\"]]\n\n[array(1.725), np.float64(1.9525000000000001), np.float64(1.9)]"
+    "text": "Interpolate\n\nLinearNDInterpolator takes an array of known inputs and an array of known outputs and returns a function that it thinks describes the relationship.\n“Thinks” being a vague term here to convey a sense of learning or prediction or estimation.\n\n\nf = LinearNDInterpolator(arr2d, Z)\nscipy_pred = f(7,5)\n[scipy_pred, my_pred, Tc[\"Electronegativity\"]]\n\n[array(1.725), 1.9525000000000001, 1.9]"
   },
   {
     "objectID": "07_scipy.rjs.html#exercise-1",
@@ -8050,7 +8050,7 @@
     "href": "07_scipy.html#verify",
     "title": "SciPy",
     "section": "Verify",
-    "text": "Verify\n\nWe can quickly verify installation and introduce some conventions.\nOpen up Python and import the libraries:\n\n\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport scipy\n\nprint(scipy.__version__)\n\n1.14.1",
+    "text": "Verify\n\nWe can quickly verify installation and introduce some conventions.\nOpen up Python and import the libraries:\n\n\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport scipy\n\nprint(scipy.__version__)\n\n1.11.4",
     "crumbs": [
       "SciPy"
     ]
@@ -8140,7 +8140,7 @@
     "href": "07_scipy.html#curl",
     "title": "SciPy",
     "section": "curl",
-    "text": "curl\n\nAs an alternative, you can curl the file from the course webpage.\ncurl is a shell command that downloads a file from a url.\n\nCan also be used to get e.g. the “.csv” file we used with pandas!\n\ncurl https://github.com/cd-public/scicom/raw/refs/heads/main/qmd/src/psy.wav -o psy.wav\nThis directs the command line to download the file from the url and save it locally as “psy.wav”",
+    "text": "curl\n\nAs an alternative, you can curl the file.\n\nJust the one I extracted.\n\nThe curl shell command downloads files from urls.\n\nCan also be used to get “.csv” files for pandas!\n\n\ncurl https://github.com/cd-public/scicom/raw/refs/heads/main/qmd/src/psy.wav -o psy.wav\n\nThis directs the command line to download the file from the url and save it locally as “psy.wav”",
     "crumbs": [
       "SciPy"
     ]
@@ -8180,7 +8180,7 @@
     "href": "07_scipy.html#multiple-return",
     "title": "SciPy",
     "section": "Multiple return",
-    "text": "Multiple return\n\nThis uses a slightly advanced Python topic of “multiple return”.\n\n\ndef roots(x):\n    root = np.sqrt(x)\n    return -root, root\n\n\nPython can return multiple comma-separated values from a function.\n\n\nneg, pos = roots(25)\n[neg, pos]\n\n[np.float64(-5.0), np.float64(5.0)]\n\n\n\nWe can “unpack” the multiple values by providing comma separated variable names.",
+    "text": "Multiple return\n\nThis uses a slightly advanced Python topic of “multiple return”.\n\n\ndef roots(x):\n    root = np.sqrt(x)\n    return -root, root\n\n\nPython can return multiple comma-separated values from a function.\n\n\nneg, pos = roots(25)\n[neg, pos]\n\n[-5.0, 5.0]\n\n\n\nWe can “unpack” the multiple values by providing comma separated variable names.",
     "crumbs": [
       "SciPy"
     ]
@@ -8190,7 +8190,7 @@
     "href": "07_scipy.html#aside-tuples",
     "title": "SciPy",
     "section": "Aside: Tuples",
-    "text": "Aside: Tuples\n\nThese multiple returns are just tuples.\n\nThe things that are like lists, but not exactly.\n\n\n\nboth = roots(64)\ntype(both)\n\ntuple\n\n\n\nWe can also use indexing to see individual elements of a tuple.\n\n\nboth[0]\n\nnp.float64(-8.0)",
+    "text": "Aside: Tuples\n\nThese multiple returns are just tuples.\n\nThe things that are like lists, but not exactly.\n\n\n\nboth = roots(64)\ntype(both)\n\ntuple\n\n\n\nWe can also use indexing to see individual elements of a tuple.\n\n\nboth[0]\n\n-8.0",
     "crumbs": [
       "SciPy"
     ]
@@ -8210,7 +8210,7 @@
     "href": "07_scipy.html#aside-errors",
     "title": "SciPy",
     "section": "Aside: Errors",
-    "text": "Aside: Errors\n\nDoing this to a list would create an error.\nThus far we have avoided showing example code that won’t work.\nWe can use try and except (like if and else) on erroneous code.\n\n\ncolor_tup = tuple(color_lst)\ntry:\n    color_tup[-1] = \"violet\"\nexcept:\n    print(\"Tuples can't do that.\")\n\nTuples can't do that.",
+    "text": "Aside: Errors\n\nAttempting updates to a tuple will error.\nThus far we have avoided showing example code that won’t work.\nWe can use try and except (like if and else) on erroneous code.\n\n\ncolor_tup = tuple(color_lst)\ntry:\n    color_tup[-1] = \"violet\"\nexcept:\n    print(\"Tuples can't do that.\")\n\nTuples can't do that.",
     "crumbs": [
       "SciPy"
     ]
@@ -8220,7 +8220,7 @@
     "href": "07_scipy.html#reading-files",
     "title": "SciPy",
     "section": "Reading files",
-    "text": "Reading files\n\nTry except is very handy when reading files.\nA lot of files I try to read are garbled and can’t be read.\nUsing try and except prevents Python errors.\n\nMore useful in big scripts than single-line things.",
+    "text": "Reading files\n\nTry/except is very handy when reading files.\nA lot of files I try to read are garbled and can’t be read.\nUsing try and except prevents Python errors.\n\nMore useful in big scripts than single-line things.",
     "crumbs": [
       "SciPy"
     ]
@@ -8230,7 +8230,7 @@
     "href": "07_scipy.html#example",
     "title": "SciPy",
     "section": "Example",
-    "text": "Example\n\nEarlier today, I tried the curl command to get “psy.wav” while (unbeknownst to me) my internet was spotty.\nI got a file named “psy.wav” that was of size 0\nUnsurprisingly, opening it with SciPy led to an error.\nThis happens all the time!",
+    "text": "Example\n\nWhile making these slides, I tried the curl command to get “psy.wav” while (unbeknownst to me) my internet was spotty.\nI got a file named “psy.wav” that was of size 0\nUnsurprisingly, opening it with SciPy led to an error.\nThis happens all the time!",
     "crumbs": [
       "SciPy"
     ]
@@ -8250,7 +8250,7 @@
     "href": "07_scipy.html#rate",
     "title": "SciPy",
     "section": "Rate",
-    "text": "Rate\n\nrate\n\n48000\n\n\n\nYou may have listened to the file (or not).\nAudio doesn’t come in for about 4 seconds.\nThe song ends and there’s a kind of “outro”.\nWe can see these on the plot.\nBut that examples the zeros.",
+    "text": "Rate\n\nrate\n\n48000\n\n\n\nYou may have listened to the file (or not).\nAudio doesn’t come in for about 4 seconds.\nThe song ends and there’s a kind of “outro”.\nWe can see these on the plot.\nBut that explains the zeros.",
     "crumbs": [
       "SciPy"
     ]
@@ -8380,7 +8380,7 @@
     "href": "07_scipy.html#repeats",
     "title": "SciPy",
     "section": "Repeats?",
-    "text": "Repeats?\n\nLooks like volume cuts low on a repeated pattern.\nMaybe we can isolate that pattern.\nLet’s:\n\nPick a range\nFind a minimal value\nFind where that value occurs.\n\n\n\nlow_val = min(snip)\nlow_val\n\nnp.int16(-32071)",
+    "text": "Repeats?\n\nLooks like volume cuts low on a repeated pattern.\nMaybe we can isolate that pattern.\nLet’s:\n\nPick a range\nFind a minimal value\nFind where that value occurs.\n\n\n\nlow_val = min(snip)\nlow_val\n\n-32071",
     "crumbs": [
       "SciPy"
     ]
@@ -8390,7 +8390,7 @@
     "href": "07_scipy.html#whoops",
     "title": "SciPy",
     "section": "Whoops!",
-    "text": "Whoops!\n\nOh we need to use absolute value.\nNo worries!\n\n\nlow_val = min(np.absolute(snip))\nlow_val\n\nnp.int16(0)",
+    "text": "Whoops!\n\nOh we need to use absolute value.\nNo worries!\n\n\nlow_val = min(np.absolute(snip))\nlow_val\n\n0",
     "crumbs": [
       "SciPy"
     ]
@@ -8450,7 +8450,7 @@
     "href": "07_scipy.html#motif",
     "title": "SciPy",
     "section": "Motif",
-    "text": "Motif\n\nstereo = np.array([snip,snip]).transpose()\nmotif = stereo[13580:131204]\nscipy.io.wavfile.write(\"motif.wav\", rate, motif)\n# os.system(\"open motif.wav\") # After import, if you have VLC, on MacOS\n\n\n\n\nother = stereo[13580:271632]\nscipy.io.wavfile.write(\"other.wav\", rate, other)\n\n\n\n\nscipy.io.wavfile.write(\"motifs.wav\", rate, np.concat([motif,motif,motif]))\nscipy.io.wavfile.write(\"others.wav\", rate, np.concat([other,other,other]))\n\n\n\n\n\n\nYou can go become a dj, or…",
+    "text": "Motif\n\nstereo = np.array([snip,snip]).transpose()\nmotif = stereo[13580:131204]\nscipy.io.wavfile.write(\"motif.wav\", rate, motif)\n# os.system(\"open motif.wav\") # After import, if you have VLC, on MacOS\n\n\n\n\nother = stereo[13580:271632]\nscipy.io.wavfile.write(\"other.wav\", rate, other)\n\n\n\n\nscipy.io.wavfile.write(\"motifs.wav\", rate, np.concatenate([motif,motif,motif]))\nscipy.io.wavfile.write(\"others.wav\", rate, np.concatenate([other,other,other]))\n\n\n\n\n\n\nYou can go become a dj, or…",
     "crumbs": [
       "SciPy"
     ]
@@ -8590,7 +8590,7 @@
     "href": "07_scipy.html#linregress",
     "title": "SciPy",
     "section": "linregress",
-    "text": "linregress\n\nres = stats.linregress(df[\"REALPCT\"],df[\"UNRATE\"])\nprint(res)\n\nLinregressResult(slope=np.float64(nan), intercept=np.float64(nan), rvalue=np.float64(nan), pvalue=np.float64(nan), stderr=np.float64(nan), intercept_stderr=np.float64(nan))",
+    "text": "linregress\n\nres = stats.linregress(df[\"REALPCT\"],df[\"UNRATE\"])\nprint(res)\n\nLinregressResult(slope=nan, intercept=nan, rvalue=nan, pvalue=nan, stderr=nan, intercept_stderr=nan)",
     "crumbs": [
       "SciPy"
     ]
@@ -8840,7 +8840,7 @@
     "href": "07_scipy.html#my-estimate",
     "title": "SciPy",
     "section": "My Estimate:",
-    "text": "My Estimate:\n\nAfter picking what I thought was things near Tc that should cancel out each other’s distance, I calculate their mean.\n\n\nmy_pred = close[\"Electronegativity\"].mean()\nmy_pred\n\nnp.float64(1.9525000000000001)\n\n\n\nThis is my naive prediction.\nNow I interpolate.",
+    "text": "My Estimate:\n\nAfter picking what I thought was things near Tc that should cancel out each other’s distance, I calculate their mean.\n\n\nmy_pred = close[\"Electronegativity\"].mean()\nmy_pred\n\n1.9525000000000001\n\n\n\nThis is my naive prediction.\nNow I interpolate.",
     "crumbs": [
       "SciPy"
     ]
@@ -8850,7 +8850,7 @@
     "href": "07_scipy.html#interpolate",
     "title": "SciPy",
     "section": "Interpolate",
-    "text": "Interpolate\n\nLinearNDInterpolator takes an array of known inputs and an array of known outputs and returns a function that it thinks describes the relationship.\n“Thinks” being a vague term here to convey a sense of learning or prediction or estimation.\n\n\nf = LinearNDInterpolator(arr2d, Z)\nscipy_pred = f(7,5)\n[scipy_pred, my_pred, Tc[\"Electronegativity\"]]\n\n[array(1.725), np.float64(1.9525000000000001), np.float64(1.9)]",
+    "text": "Interpolate\n\nLinearNDInterpolator takes an array of known inputs and an array of known outputs and returns a function that it thinks describes the relationship.\n“Thinks” being a vague term here to convey a sense of learning or prediction or estimation.\n\n\nf = LinearNDInterpolator(arr2d, Z)\nscipy_pred = f(7,5)\n[scipy_pred, my_pred, Tc[\"Electronegativity\"]]\n\n[array(1.725), 1.9525000000000001, 1.9]",
     "crumbs": [
       "SciPy"
     ]

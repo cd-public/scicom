@@ -278,14 +278,14 @@ Prof.&nbsp;Calvin
 <li>We can quickly verify installation and introduce some conventions.</li>
 <li>Open up Python and import the libraries:</li>
 </ul>
-<div id="da9b077f" class="cell" data-execution_count="2">
+<div id="e9410196" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb2-2"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb2-3"><a></a><span class="im">import</span> scipy</span>
 <span id="cb2-4"><a></a></span>
 <span id="cb2-5"><a></a><span class="bu">print</span>(scipy.__version__)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>1.14.1</code></pre>
+<pre><code>1.11.4</code></pre>
 </div>
 </div>
 </section></section>
@@ -383,12 +383,17 @@ Prof.&nbsp;Calvin
 <section id="curl" class="slide level2">
 <h2>curl</h2>
 <ul>
-<li>As an alternative, you can <code>curl</code> the file from the course webpage.</li>
-<li><code>curl</code> is a shell command that downloads a file from a url.
+<li>As an alternative, you can <code>curl</code> the file.
 <ul>
-<li>Can also be used to get e.g.&nbsp;the “.csv” file we used with <strong>pandas</strong>!</li>
+<li>Just the one I extracted.</li>
+</ul></li>
+<li>The <code>curl</code> shell command downloads files from urls.
+<ul>
+<li>Can also be used to get “.csv” files for <strong>pandas</strong>!</li>
+</ul></li>
 </ul>
-<div class="sourceCode" id="cb6" data-code-line-number="false"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a></a><span class="ex">curl</span> https://github.com/cd-public/scicom/raw/refs/heads/main/qmd/src/psy.wav <span class="at">-o</span> psy.wav</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb6" data-code-line-number="false"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a></a><span class="ex">curl</span> https://github.com/cd-public/scicom/raw/refs/heads/main/qmd/src/psy.wav <span class="at">-o</span> psy.wav</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
 <li>This directs the command line to download the file from the url and save it locally as “psy.wav”</li>
 </ul>
 </section></section>
@@ -430,7 +435,7 @@ Prof.&nbsp;Calvin
 <ul>
 <li>We will load a sound file as an np.array.</li>
 </ul>
-<div id="a6de3ed7" class="cell" data-execution_count="3">
+<div id="e7511845" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a>rate, data <span class="op">=</span> scipy.io.wavfile.read(<span class="st">"psy.wav"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
@@ -442,7 +447,7 @@ Prof.&nbsp;Calvin
 <ul>
 <li>This uses a slightly advanced Python topic of “multiple return”.</li>
 </ul>
-<div id="c7a96fb1" class="cell" data-execution_count="4">
+<div id="30c93b95" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a><span class="kw">def</span> roots(x):</span>
 <span id="cb8-2"><a></a>    root <span class="op">=</span> np.sqrt(x)</span>
 <span id="cb8-3"><a></a>    <span class="cf">return</span> <span class="op">-</span>root, root</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -450,11 +455,11 @@ Prof.&nbsp;Calvin
 <ul>
 <li>Python can return multiple comma-separated values from a function.</li>
 </ul>
-<div id="8a719c95" class="cell" data-execution_count="5">
+<div id="faf8668c" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a>neg, pos <span class="op">=</span> roots(<span class="dv">25</span>)</span>
 <span id="cb9-2"><a></a>[neg, pos]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="748">
-<pre><code>[np.float64(-5.0), np.float64(5.0)]</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="63">
+<pre><code>[-5.0, 5.0]</code></pre>
 </div>
 </div>
 <ul>
@@ -469,20 +474,20 @@ Prof.&nbsp;Calvin
 <li>The things that are like lists, but not exactly.</li>
 </ul></li>
 </ul>
-<div id="7b4af6db" class="cell" data-execution_count="6">
+<div id="8068f56f" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a>both <span class="op">=</span> roots(<span class="dv">64</span>)</span>
 <span id="cb11-2"><a></a><span class="bu">type</span>(both)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="749">
+<div class="cell-output cell-output-display" data-execution_count="64">
 <pre><code>tuple</code></pre>
 </div>
 </div>
 <ul>
 <li>We can also use indexing to see individual elements of a tuple.</li>
 </ul>
-<div id="e43220f6" class="cell" data-execution_count="7">
+<div id="e3552f26" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a></a>both[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="750">
-<pre><code>np.float64(-8.0)</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="65">
+<pre><code>-8.0</code></pre>
 </div>
 </div>
 </section>
@@ -492,11 +497,11 @@ Prof.&nbsp;Calvin
 <li>The only difference compared to lists is updates.</li>
 <li>In a list, we can change an element with its index:</li>
 </ul>
-<div id="82dacf20" class="cell" data-execution_count="8">
+<div id="ce85125f" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a></a>color_lst <span class="op">=</span> [<span class="st">"red"</span>, <span class="st">"orange"</span>, <span class="st">"yellow"</span>, <span class="st">"green"</span>, <span class="st">"blue"</span>, <span class="st">"indigo"</span>, <span class="st">"violet"</span>]</span>
 <span id="cb15-2"><a></a>color_lst[<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> <span class="st">"purple"</span></span>
 <span id="cb15-3"><a></a>color_lst</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="751">
+<div class="cell-output cell-output-display" data-execution_count="66">
 <pre><code>['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'purple']</code></pre>
 </div>
 </div>
@@ -504,11 +509,11 @@ Prof.&nbsp;Calvin
 <section id="aside-errors" class="slide level2">
 <h2>Aside: Errors</h2>
 <ul>
-<li>Doing this to a list would create an error.</li>
+<li>Attempting updates to a <em>tuple</em> will error.</li>
 <li>Thus far we have avoided showing example code that won’t work.</li>
 <li>We can use <code>try</code> and <code>except</code> (like <code>if</code> and <code>else</code>) on erroneous code.</li>
 </ul>
-<div id="4d6992c2" class="cell" data-execution_count="9">
+<div id="b97b534d" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a></a>color_tup <span class="op">=</span> <span class="bu">tuple</span>(color_lst)</span>
 <span id="cb17-2"><a></a><span class="cf">try</span>:</span>
 <span id="cb17-3"><a></a>    color_tup[<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> <span class="st">"violet"</span></span>
@@ -522,7 +527,7 @@ Prof.&nbsp;Calvin
 <section id="reading-files" class="slide level2">
 <h2>Reading files</h2>
 <ul>
-<li>Try except is <em>very</em> handy when reading files.</li>
+<li>Try/except is <em>very</em> handy when reading files.</li>
 <li>A lot of files I try to read are garbled and can’t be read.</li>
 <li>Using <code>try</code> and <code>except</code> prevents Python errors.
 <ul>
@@ -533,7 +538,7 @@ Prof.&nbsp;Calvin
 <section id="example" class="slide level2">
 <h2>Example</h2>
 <ul>
-<li>Earlier today, I tried the <code>curl</code> command to get “psy.wav” while (unbeknownst to me) my internet was spotty.</li>
+<li>While making these slides, I tried the <code>curl</code> command to get “psy.wav” while (unbeknownst to me) my internet was spotty.</li>
 <li>I got a file named “psy.wav” that was of size <code>0</code></li>
 <li>Unsurprisingly, opening it with SciPy led to an error.</li>
 <li>This happens all the time!</li>
@@ -545,9 +550,9 @@ Prof.&nbsp;Calvin
 <li>Back to our .wav file.</li>
 <li>Let’s look at that data!</li>
 </ul>
-<div id="e9f2b1ec" class="cell" data-execution_count="10">
+<div id="0d74f0cb" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a></a>data[:<span class="dv">10</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="753">
+<div class="cell-output cell-output-display" data-execution_count="68">
 <pre><code>array([[0, 0],
        [0, 0],
        [0, 0],
@@ -563,9 +568,9 @@ Prof.&nbsp;Calvin
 </section>
 <section id="rate" class="slide level2">
 <h2>Rate</h2>
-<div id="5f20bd56" class="cell" data-execution_count="11">
+<div id="becc0e0a" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a></a>rate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="754">
+<div class="cell-output cell-output-display" data-execution_count="69">
 <pre><code>48000</code></pre>
 </div>
 </div>
@@ -574,12 +579,12 @@ Prof.&nbsp;Calvin
 <li>Audio doesn’t come in for about 4 seconds.</li>
 <li>The song ends and there’s a kind of “outro”.</li>
 <li>We can see these on the plot.</li>
-<li>But that examples the zeros.</li>
+<li>But that explains the zeros.</li>
 </ul>
 </section>
 <section id="plot" class="slide level2">
 <h2>Plot</h2>
-<div id="bab89f1a" class="cell" data-execution_count="12">
+<div id="aa502a38" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a></a>plt.plot(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -596,9 +601,9 @@ Prof.&nbsp;Calvin
 <li>Given the rate, we can look at values ever <code>rate</code> amount of time.</li>
 <li>I bet it’s seconds, so we’ll see 3 or 4 zero-only then some non-zero.</li>
 </ul>
-<div id="bf3abf19" class="cell" data-execution_count="13">
+<div id="997368de" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a></a>data[:rate<span class="op">*</span><span class="dv">10</span>:rate]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="756">
+<div class="cell-output cell-output-display" data-execution_count="71">
 <pre><code>array([[     0,      0],
        [     0,      0],
        [     0,      0],
@@ -635,10 +640,10 @@ Prof.&nbsp;Calvin
 <li>Remember <code>.transpose</code>?</li>
 <li>It will take an array of pairs and make a pair of arrays.</li>
 </ul>
-<div id="f369643f" class="cell" data-execution_count="14">
+<div id="076e91bf" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a></a>tpose <span class="op">=</span> data.transpose()</span>
 <span id="cb26-2"><a></a>tpose[<span class="dv">0</span>][:rate<span class="op">*</span><span class="dv">10</span>:rate]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="757">
+<div class="cell-output cell-output-display" data-execution_count="72">
 <pre><code>array([     0,      0,      0,      0,     -2, -13903,  12440,   6053,
          5888,     53], dtype=int16)</code></pre>
 </div>
@@ -649,7 +654,7 @@ Prof.&nbsp;Calvin
 <ul>
 <li>I will arbitrarily call one “left” and one “rite” (not “right” because we don’t know if we’re right).</li>
 </ul>
-<div id="dac85342" class="cell" data-execution_count="15">
+<div id="28561d4e" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a></a>left <span class="op">=</span> tpose[<span class="dv">0</span>]</span>
 <span id="cb28-2"><a></a>rite <span class="op">=</span> tpose[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -659,7 +664,7 @@ Prof.&nbsp;Calvin
 <ul>
 <li>We’ll also make a zero-only array of the same length.</li>
 </ul>
-<div id="5ce522d6" class="cell" data-execution_count="16">
+<div id="908f7067" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a></a><span class="co"># We note the "dtype" was "int16" so we do the same.</span></span>
 <span id="cb29-2"><a></a><span class="co"># We do have to be clear it's NumPy int16 though!</span></span>
 <span id="cb29-3"><a></a>zero <span class="op">=</span> np.zeros(<span class="bu">len</span>(left),dtype<span class="op">=</span>np.int16)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -676,10 +681,10 @@ Prof.&nbsp;Calvin
 </ul>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div id="7869ed17" class="cell" data-execution_count="17">
+<div id="3f9882dc" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a></a>left_only <span class="op">=</span> np.array([left,zero]).transpose()</span>
 <span id="cb30-2"><a></a>left_only[:rate<span class="op">*</span><span class="dv">10</span>:rate]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="760">
+<div class="cell-output cell-output-display" data-execution_count="75">
 <pre><code>array([[     0,      0],
        [     0,      0],
        [     0,      0],
@@ -693,10 +698,10 @@ Prof.&nbsp;Calvin
 </div>
 </div>
 </div><div class="column" style="width:50%;">
-<div id="21b87970" class="cell" data-execution_count="18">
+<div id="2ed26f6e" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a></a>rite_only <span class="op">=</span> np.array([zero,rite]).transpose()</span>
 <span id="cb32-2"><a></a>rite_only[:rate<span class="op">*</span><span class="dv">10</span>:rate]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="761">
+<div class="cell-output cell-output-display" data-execution_count="76">
 <pre><code>array([[     0,      0],
        [     0,      0],
        [     0,      0],
@@ -718,11 +723,11 @@ Prof.&nbsp;Calvin
 </ul>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div id="4d858d5c" class="cell" data-execution_count="19">
+<div id="16065cd6" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a></a>scipy.io.wavfile.write(<span class="st">"left.wav"</span>, rate, left_only)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:50%;">
-<div id="8330169a" class="cell" data-execution_count="20">
+<div id="7f54ecda" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a></a>scipy.io.wavfile.write(<span class="st">"rite.wav"</span>, rate, rite_only)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div></div>
@@ -760,7 +765,7 @@ Prof.&nbsp;Calvin
 <ul>
 <li>Look for patterns</li>
 </ul>
-<div id="94e13596" class="cell" data-execution_count="21">
+<div id="9d19a3fe" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a></a>snip <span class="op">=</span> left[<span class="dv">4</span><span class="op">*</span>rate:<span class="dv">10</span><span class="op">*</span>rate]</span>
 <span id="cb36-2"><a></a>plt.plot(snip)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -784,11 +789,11 @@ Prof.&nbsp;Calvin
 <li>Find where that value occurs.</li>
 </ul></li>
 </ul>
-<div id="450d240c" class="cell" data-execution_count="22">
+<div id="2496008c" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a></a>low_val <span class="op">=</span> <span class="bu">min</span>(snip)</span>
 <span id="cb37-2"><a></a>low_val</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="765">
-<pre><code>np.int16(-32071)</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="80">
+<pre><code>-32071</code></pre>
 </div>
 </div>
 </section>
@@ -798,11 +803,11 @@ Prof.&nbsp;Calvin
 <li>Oh we need to use absolute value.</li>
 <li>No worries!</li>
 </ul>
-<div id="fa589d00" class="cell" data-execution_count="23">
+<div id="28ffdd28" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a></a>low_val <span class="op">=</span> <span class="bu">min</span>(np.absolute(snip))</span>
 <span id="cb39-2"><a></a>low_val</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="766">
-<pre><code>np.int16(0)</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="81">
+<pre><code>0</code></pre>
 </div>
 </div>
 </section></section>
@@ -815,10 +820,10 @@ Prof.&nbsp;Calvin
 <li>We used with <a href="./06_pandas.html#metallic"><strong>pandas</strong></a></li>
 </ul></li>
 </ul>
-<div id="74c4062c" class="cell" data-execution_count="24">
+<div id="4fff8e20" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a></a>lows <span class="op">=</span> np.where(snip <span class="op">==</span> <span class="dv">0</span>)</span>
 <span id="cb41-2"><a></a>lows</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="767">
+<div class="cell-output cell-output-display" data-execution_count="82">
 <pre><code>(array([    13,     14,     18,     20,     31,     39,     44,    126,
            127,    136,    137,    138,    148,    155,    157,    174,
            176,    193,    197,    202,    219,    221,    222,    223,
@@ -833,13 +838,13 @@ Prof.&nbsp;Calvin
 <ul>
 <li>Maybe there’s something repeating on a periodicity of like… 65k?</li>
 </ul>
-<div id="eaf9d9d0" class="cell" data-execution_count="25">
+<div id="ed634732" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a></a><span class="co"># We note that the result was enclosed in () so we get the [0] of it.</span></span>
 <span id="cb43-2"><a></a>lows <span class="op">=</span> lows[<span class="dv">0</span>]</span>
 <span id="cb43-3"><a></a><span class="co"># Then proceed</span></span>
 <span id="cb43-4"><a></a>lows <span class="op">=</span> lows[np.where(lows <span class="op">&gt;</span> <span class="dv">500</span>)]</span>
 <span id="cb43-5"><a></a>lows</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="768">
+<div class="cell-output cell-output-display" data-execution_count="83">
 <pre><code>array([ 13580,  25648,  26839,  28676,  29655,  64732, 131187, 131204,
        153051, 210217, 216983, 271632, 278282])</code></pre>
 </div>
@@ -850,7 +855,7 @@ Prof.&nbsp;Calvin
 <ul>
 <li>Let’s just plot the place the minimum occurs.</li>
 </ul>
-<div id="fd285e79" class="cell" data-execution_count="26">
+<div id="a9358b7e" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a></a>_ <span class="op">=</span> plt.hist(lows)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -866,7 +871,7 @@ Prof.&nbsp;Calvin
 <ul>
 <li>Hard to see, we increase the “bin” count.</li>
 </ul>
-<div id="46ffdc6b" class="cell" data-execution_count="27">
+<div id="ae8e7aaf" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a></a>_ <span class="op">=</span> plt.hist(lows, <span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -879,12 +884,12 @@ Prof.&nbsp;Calvin
 </section>
 <section id="a-pattern" class="slide level2">
 <h2>A Pattern?</h2>
-<div id="95e48984" class="cell" data-execution_count="28">
+<div id="8a0a2bd0" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a></a>_ <span class="op">=</span> plt.hist(np.where(left <span class="op">==</span> <span class="dv">0</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="07_scipy_files/figure-revealjs/cell-28-output-1.png" width="823" height="428"></p>
+<p><img data-src="07_scipy_files/figure-revealjs/cell-28-output-1.png" width="824" height="428"></p>
 </figure>
 </div>
 </div>
@@ -900,9 +905,9 @@ Prof.&nbsp;Calvin
 <li>We’ll take the first zero past.</li>
 <li>I hear about two repeats on this portion, so we’ll take a zero in the middle.</li>
 </ul>
-<div id="2c71e7b5" class="cell" data-execution_count="29">
+<div id="c13e48c1" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a></a>np.where(snip <span class="op">==</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="772">
+<div class="cell-output cell-output-display" data-execution_count="87">
 <pre><code>(array([    13,     14,     18,     20,     31,     39,     44,    126,
            127,    136,    137,    138,    148,    155,    157,    174,
            176,    193,    197,    202,    219,    221,    222,    223,
@@ -914,7 +919,7 @@ Prof.&nbsp;Calvin
 </section>
 <section id="motif" class="slide level2">
 <h2>Motif</h2>
-<div id="cad6ab83" class="cell" data-execution_count="30">
+<div id="7d64c649" class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a></a>stereo <span class="op">=</span> np.array([snip,snip]).transpose()</span>
 <span id="cb50-2"><a></a>motif <span class="op">=</span> stereo[<span class="dv">13580</span>:<span class="dv">131204</span>]</span>
 <span id="cb50-3"><a></a>scipy.io.wavfile.write(<span class="st">"motif.wav"</span>, rate, motif)</span>
@@ -922,15 +927,15 @@ Prof.&nbsp;Calvin
 </div>
 <audio controls="" src="src/motif.wav" type="audio/wav">
 </audio>
-<div id="dd8b1b1e" class="cell" data-execution_count="31">
+<div id="6370f05c" class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a></a>other <span class="op">=</span> stereo[<span class="dv">13580</span>:<span class="dv">271632</span>]</span>
 <span id="cb51-2"><a></a>scipy.io.wavfile.write(<span class="st">"other.wav"</span>, rate, other)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <audio controls="" src="src/motif.wav" type="audio/wav">
 </audio>
-<div id="09b71100" class="cell" data-execution_count="32">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a></a>scipy.io.wavfile.write(<span class="st">"motifs.wav"</span>, rate, np.concat([motif,motif,motif]))</span>
-<span id="cb52-2"><a></a>scipy.io.wavfile.write(<span class="st">"others.wav"</span>, rate, np.concat([other,other,other]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="8b76e1e2" class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a></a>scipy.io.wavfile.write(<span class="st">"motifs.wav"</span>, rate, np.concatenate([motif,motif,motif]))</span>
+<span id="cb52-2"><a></a>scipy.io.wavfile.write(<span class="st">"others.wav"</span>, rate, np.concatenate([other,other,other]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <audio controls="" src="src/motifs.wav" type="audio/wav">
 </audio>
@@ -1008,14 +1013,14 @@ Prof.&nbsp;Calvin
 </section>
 <section id="how-i-did-it" class="slide level2">
 <h2>How I did it</h2>
-<div id="1599b02f" class="cell" data-execution_count="33">
+<div id="72d62b8d" class="cell" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb54-2"><a></a></span>
 <span id="cb54-3"><a></a>minwage <span class="op">=</span> pd.read_csv(<span class="st">"https://github.com/cd-public/scicom/raw/refs/heads/main/qmd/src/FEDMINNFRWG.csv"</span>)</span>
 <span id="cb54-4"><a></a>unemploy <span class="op">=</span> pd.read_csv(<span class="st">"https://github.com/cd-public/scicom/raw/refs/heads/main/qmd/src/UNRATE.csv"</span>)</span>
 <span id="cb54-5"><a></a>inflate <span class="op">=</span> pd.read_csv(<span class="st">"https://github.com/cd-public/scicom/raw/refs/heads/main/qmd/src/CPIAUCSL.csv"</span>)</span>
 <span id="cb54-6"><a></a>inflate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="776">
+<div class="cell-output cell-output-display" data-execution_count="91">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -1105,21 +1110,21 @@ Prof.&nbsp;Calvin
 </section>
 <section id="check-columns" class="slide level2">
 <h2>Check Columns</h2>
-<div id="051aa51f" class="cell" data-execution_count="34">
+<div id="52d69c9b" class="cell" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a></a>minwage.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="777">
+<div class="cell-output cell-output-display" data-execution_count="92">
 <pre><code>Index(['observation_date', 'FEDMINNFRWG'], dtype='object')</code></pre>
 </div>
 </div>
-<div id="1a066f6c" class="cell" data-execution_count="35">
+<div id="944c2feb" class="cell" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a></a>unemploy.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="778">
+<div class="cell-output cell-output-display" data-execution_count="93">
 <pre><code>Index(['observation_date', 'UNRATE'], dtype='object')</code></pre>
 </div>
 </div>
-<div id="8550fc95" class="cell" data-execution_count="36">
+<div id="656e230f" class="cell" data-execution_count="35">
 <div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a></a>inflate.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="779">
+<div class="cell-output cell-output-display" data-execution_count="94">
 <pre><code>Index(['observation_date', 'CPIAUCSL'], dtype='object')</code></pre>
 </div>
 </div>
@@ -1130,11 +1135,11 @@ Prof.&nbsp;Calvin
 <li>This is suitable for a merge.</li>
 <li>Alternatively, set date as index then join.</li>
 </ul>
-<div id="b407c44d" class="cell" data-execution_count="37">
+<div id="d8f7482f" class="cell" data-execution_count="36">
 <div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a></a>df <span class="op">=</span> minwage.merge(unemploy).merge(inflate)</span>
 <span id="cb61-2"><a></a>df <span class="op">=</span> df.drop(columns<span class="op">=</span>[<span class="st">"observation_date"</span>])</span>
 <span id="cb61-3"><a></a>df[:<span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="780">
+<div class="cell-output cell-output-display" data-execution_count="95">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -1193,7 +1198,7 @@ Prof.&nbsp;Calvin
 <li>Inflation is an index of wage units.</li>
 <li>We can divide wage by inflation to get a “real wage”.</li>
 </ul>
-<div id="b97d3181" class="cell" data-execution_count="38">
+<div id="478fe44d" class="cell" data-execution_count="37">
 <div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a></a><span class="co"># I made so many types here.</span></span>
 <span id="cb62-2"><a></a><span class="co"># In a pinch use df[df.columns[0]]</span></span>
 <span id="cb62-3"><a></a>df[<span class="st">"REAL"</span>] <span class="op">=</span> df[<span class="st">"FEDMINNFRWG"</span>] <span class="op">/</span> df[<span class="st">"CPIAUCSL"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1215,7 +1220,7 @@ Prof.&nbsp;Calvin
 <li>We drop an undefined (“NaN”) values</li>
 </ul></li>
 </ul>
-<div id="71ad67c6" class="cell" data-execution_count="39">
+<div id="0fcc445a" class="cell" data-execution_count="38">
 <div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a></a>df[<span class="st">"REALPCT"</span>] <span class="op">=</span> df[<span class="st">"REAL"</span>].pct_change()</span>
 <span id="cb63-2"><a></a>df.drop(<span class="dv">0</span>)</span>
 <span id="cb63-3"><a></a>df <span class="op">=</span> df.dropna()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1226,13 +1231,13 @@ Prof.&nbsp;Calvin
 <ul>
 <li>Oh we should probably take a percentage change in unemployment as well.</li>
 </ul>
-<div id="e6bf27c3" class="cell" data-execution_count="40">
+<div id="9b3fb82f" class="cell" data-execution_count="39">
 <div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a></a>df[<span class="st">"UNRATE"</span>] <span class="op">=</span> df[<span class="st">"UNRATE"</span>].pct_change()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="look-at-it" class="slide level2">
 <h2>Look at it</h2>
-<div id="8a8b4d1d" class="cell" data-execution_count="41">
+<div id="d9133666" class="cell" data-execution_count="40">
 <div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a></a>plt.xlabel(<span class="st">"REALPCT"</span>)</span>
 <span id="cb65-2"><a></a>plt.ylabel(<span class="st">"UNRATE"</span>)</span>
 <span id="cb65-3"><a></a>_ <span class="op">=</span> plt.scatter(df[<span class="st">"REALPCT"</span>],df[<span class="st">"UNRATE"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1252,67 +1257,20 @@ Prof.&nbsp;Calvin
 <li>We are assuming linearity, but it is already a comparison between rates.</li>
 <li>For more, study statistics!</li>
 </ul>
-<div id="d88ac0b5" class="cell" data-execution_count="42">
+<div id="831be9d8" class="cell" data-execution_count="41">
 <div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a></a><span class="im">from</span> scipy <span class="im">import</span> stats</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="linregress" class="slide level2">
 <h2><code>linregress</code></h2>
-<div id="c9dbca00" class="cell" data-execution_count="43">
+<div id="87f2e50b" class="cell" data-execution_count="42">
 <div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a></a>res <span class="op">=</span> stats.linregress(df[<span class="st">"REALPCT"</span>],df[<span class="st">"UNRATE"</span>])</span>
 <span id="cb67-2"><a></a><span class="bu">print</span>(res)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>LinregressResult(slope=np.float64(nan), intercept=np.float64(nan), rvalue=np.float64(nan), pvalue=np.float64(nan), stderr=np.float64(nan), intercept_stderr=np.float64(nan))</code></pre>
+<pre><code>LinregressResult(slope=nan, intercept=nan, rvalue=nan, pvalue=nan, stderr=nan, intercept_stderr=nan)</code></pre>
 </div>
 </div>
 </section>
-<div class="hidden">
-<section id="credit" class="slide level2">
-<h2>Credit</h2>
-<ul>
-<li>The remainder is adapted from the <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.linregress.html#scipy.stats.linregress"><code>scipy.stats.linregress</code> example</a>.</li>
-</ul>
-</section>
-<section id="view" class="slide level2">
-<h2>View</h2>
-<div id="1e9e6adc" class="cell" data-execution_count="44">
-<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a></a>plt.scatter(df[<span class="st">"REALPCT"</span>],df[<span class="st">"UNRATE"</span>])</span>
-<span id="cb69-2"><a></a>x <span class="op">=</span> np.linspace(df[<span class="st">"REALPCT"</span>].<span class="bu">min</span>(), df[<span class="st">"REALPCT"</span>].<span class="bu">max</span>())</span>
-<span id="cb69-3"><a></a>_ <span class="op">=</span> plt.plot(x, res.intercept <span class="op">+</span> res.slope<span class="op">*</span>x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure>
-<p><img data-src="07_scipy_files/figure-revealjs/cell-44-output-1.png" width="794" height="411"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="confidence-interval" class="slide level2">
-<h2>Confidence Interval</h2>
-<ul>
-<li>“Two-sided inverse Students t-distribution”</li>
-</ul>
-<div id="6e124065" class="cell" data-execution_count="45">
-<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a></a><span class="co"># p - probability, df - degrees of freedom</span></span>
-<span id="cb70-2"><a></a><span class="kw">def</span> tinv(p, df): </span>
-<span id="cb70-3"><a></a>    <span class="cf">return</span> <span class="bu">abs</span>(stats.t.ppf(p<span class="op">/</span><span class="dv">2</span>, df))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="results" class="slide level2">
-<h2>Results</h2>
-<div id="cf20f7fa" class="cell" data-execution_count="46">
-<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a></a>ts <span class="op">=</span> tinv(<span class="fl">0.05</span>, <span class="bu">len</span>(x)<span class="op">-</span><span class="dv">2</span>)</span>
-<span id="cb71-2"><a></a><span class="bu">print</span>(<span class="ss">f"slope (95%): </span><span class="sc">{</span>res<span class="sc">.</span>slope<span class="sc">:.6f}</span><span class="ss"> +/- </span><span class="sc">{</span>ts<span class="op">*</span>res<span class="sc">.</span>stderr<span class="sc">:.6f}</span><span class="ss">"</span>)</span>
-<span id="cb71-3"><a></a><span class="bu">print</span>(<span class="ss">f"intercept (95%): </span><span class="sc">{</span>res<span class="sc">.</span>intercept<span class="sc">:.6f}</span><span class="ss">"</span></span>
-<span id="cb71-4"><a></a>      <span class="ss">f" +/- </span><span class="sc">{</span>ts<span class="op">*</span>res<span class="sc">.</span>intercept_stderr<span class="sc">:.6f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>slope (95%): nan +/- nan
-intercept (95%): nan +/- nan</code></pre>
-</div>
-</div>
-</section>
-</div>
 <section id="tada" class="slide level2">
 <h2>Tada!</h2>
 <ul>
@@ -1329,10 +1287,10 @@ intercept (95%): nan +/- nan</code></pre>
 <ul>
 <li>We recall the periodic table data</li>
 </ul>
-<div id="b2cbd148" class="cell" data-execution_count="47">
-<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a></a>df <span class="op">=</span> pd.read_csv(<span class="st">"https://gist.githubusercontent.com/GoodmanSciences/c2dd862cd38f21b0ad36b8f96b4bf1ee/raw/1d92663004489a5b6926e944c1b3d9ec5c40900e/Periodic%2520Table</span><span class="sc">%2520o</span><span class="st">f</span><span class="sc">%2520E</span><span class="st">lements.csv"</span>)</span>
-<span id="cb73-2"><a></a>df[::<span class="dv">30</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="790">
+<div id="6644356b" class="cell" data-execution_count="43">
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a></a>df <span class="op">=</span> pd.read_csv(<span class="st">"https://gist.githubusercontent.com/GoodmanSciences/c2dd862cd38f21b0ad36b8f96b4bf1ee/raw/1d92663004489a5b6926e944c1b3d9ec5c40900e/Periodic%2520Table</span><span class="sc">%2520o</span><span class="st">f</span><span class="sc">%2520E</span><span class="st">lements.csv"</span>)</span>
+<span id="cb69-2"><a></a>df[::<span class="dv">30</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="102">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -1500,12 +1458,12 @@ intercept (95%): nan +/- nan</code></pre>
 <li>Remove the “transuranic” elements which were also not yet observed.</li>
 </ul></li>
 </ul>
-<div id="0c2a94bb" class="cell" data-execution_count="48">
-<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a></a>df <span class="op">=</span> df.iloc[:<span class="dv">91</span>]</span>
-<span id="cb74-2"><a></a>Tc <span class="op">=</span> df.iloc[<span class="dv">42</span>]</span>
-<span id="cb74-3"><a></a>df <span class="op">=</span> df.drop(<span class="dv">42</span>)</span>
-<span id="cb74-4"><a></a>Tc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="791">
+<div id="32e8f0ad" class="cell" data-execution_count="44">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a></a>df <span class="op">=</span> df.iloc[:<span class="dv">91</span>]</span>
+<span id="cb70-2"><a></a>Tc <span class="op">=</span> df.iloc[<span class="dv">42</span>]</span>
+<span id="cb70-3"><a></a>df <span class="op">=</span> df.drop(<span class="dv">42</span>)</span>
+<span id="cb70-4"><a></a>Tc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="103">
 <pre><code>AtomicNumber                        43
 Element                     Technetium
 Symbol                              Tc
@@ -1543,8 +1501,8 @@ Name: 42, dtype: object</code></pre>
 <ul>
 <li>To save some typing, we’ll import it directly.</li>
 </ul>
-<div id="ec6be780" class="cell" data-execution_count="49">
-<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a></a><span class="im">from</span> scipy.interpolate <span class="im">import</span> LinearNDInterpolator</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="e751d0f5" class="cell" data-execution_count="45">
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a></a><span class="im">from</span> scipy.interpolate <span class="im">import</span> LinearNDInterpolator</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="data-1" class="slide level2">
@@ -1552,26 +1510,26 @@ Name: 42, dtype: object</code></pre>
 <ul>
 <li>We recall electronegativity.</li>
 </ul>
-<div id="95b5ea64" class="cell" data-execution_count="50">
+<div id="7e54e1a1" class="cell" data-execution_count="46">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a></a><span class="co"># Plot</span></span>
-<span id="cb77-2"><a></a>plt.scatter(</span>
-<span id="cb77-3"><a></a>    x<span class="op">=</span>df[<span class="st">"Group"</span>],</span>
-<span id="cb77-4"><a></a>    y<span class="op">=</span>df[<span class="st">"Period"</span>],</span>
-<span id="cb77-5"><a></a>    c<span class="op">=</span>df[<span class="st">"Electronegativity"</span>]</span>
-<span id="cb77-6"><a></a>)</span>
-<span id="cb77-7"><a></a>plt.gca().invert_yaxis()</span>
-<span id="cb77-8"><a></a><span class="co"># Label</span></span>
-<span id="cb77-9"><a></a>plt.title(<span class="st">"Electronegativity"</span>)</span>
-<span id="cb77-10"><a></a>plt.xlabel(<span class="st">"Group"</span>)</span>
-<span id="cb77-11"><a></a>plt.ylabel(<span class="st">"Period"</span>)</span>
-<span id="cb77-12"><a></a>_ <span class="op">=</span> plt.colorbar()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a></a><span class="co"># Plot</span></span>
+<span id="cb73-2"><a></a>plt.scatter(</span>
+<span id="cb73-3"><a></a>    x<span class="op">=</span>df[<span class="st">"Group"</span>],</span>
+<span id="cb73-4"><a></a>    y<span class="op">=</span>df[<span class="st">"Period"</span>],</span>
+<span id="cb73-5"><a></a>    c<span class="op">=</span>df[<span class="st">"Electronegativity"</span>]</span>
+<span id="cb73-6"><a></a>)</span>
+<span id="cb73-7"><a></a>plt.gca().invert_yaxis()</span>
+<span id="cb73-8"><a></a><span class="co"># Label</span></span>
+<span id="cb73-9"><a></a>plt.title(<span class="st">"Electronegativity"</span>)</span>
+<span id="cb73-10"><a></a>plt.xlabel(<span class="st">"Group"</span>)</span>
+<span id="cb73-11"><a></a>plt.ylabel(<span class="st">"Period"</span>)</span>
+<span id="cb73-12"><a></a>_ <span class="op">=</span> plt.colorbar()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="07_scipy_files/figure-revealjs/cell-50-output-1.png" width="737" height="449"></p>
+<p><img data-src="07_scipy_files/figure-revealjs/cell-47-output-1.png" width="737" height="449"></p>
 </figure>
 </div>
 </div>
@@ -1582,32 +1540,32 @@ Name: 42, dtype: object</code></pre>
 <ul>
 <li>The documentation we’re following is <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.LinearNDInterpolator.html">here</a></li>
 </ul>
-<div id="864e12ba" class="cell" data-execution_count="51">
+<div id="2f9b93d8" class="cell" data-execution_count="47">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a></a><span class="im">from</span> scipy.interpolate <span class="im">import</span> LinearNDInterpolator</span>
-<span id="cb78-2"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb78-3"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb78-4"><a></a>rng <span class="op">=</span> np.random.default_rng()</span>
-<span id="cb78-5"><a></a>x <span class="op">=</span> rng.random(<span class="dv">10</span>) <span class="op">-</span> <span class="fl">0.5</span></span>
-<span id="cb78-6"><a></a>y <span class="op">=</span> rng.random(<span class="dv">10</span>) <span class="op">-</span> <span class="fl">0.5</span></span>
-<span id="cb78-7"><a></a>z <span class="op">=</span> np.hypot(x, y)</span>
-<span id="cb78-8"><a></a>X <span class="op">=</span> np.linspace(<span class="bu">min</span>(x), <span class="bu">max</span>(x))</span>
-<span id="cb78-9"><a></a>Y <span class="op">=</span> np.linspace(<span class="bu">min</span>(y), <span class="bu">max</span>(y))</span>
-<span id="cb78-10"><a></a>X, Y <span class="op">=</span> np.meshgrid(X, Y)  <span class="co"># 2D grid for interpolation</span></span>
-<span id="cb78-11"><a></a>interp <span class="op">=</span> LinearNDInterpolator(<span class="bu">list</span>(<span class="bu">zip</span>(x, y)), z)</span>
-<span id="cb78-12"><a></a>Z <span class="op">=</span> interp(X, Y)</span>
-<span id="cb78-13"><a></a>plt.pcolormesh(X, Y, Z, shading<span class="op">=</span><span class="st">'auto'</span>)</span>
-<span id="cb78-14"><a></a>plt.plot(x, y, <span class="st">"ok"</span>, label<span class="op">=</span><span class="st">"input point"</span>)</span>
-<span id="cb78-15"><a></a>plt.legend()</span>
-<span id="cb78-16"><a></a>plt.colorbar()</span>
-<span id="cb78-17"><a></a>plt.axis(<span class="st">"equal"</span>)</span>
-<span id="cb78-18"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a></a><span class="im">from</span> scipy.interpolate <span class="im">import</span> LinearNDInterpolator</span>
+<span id="cb74-2"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb74-3"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb74-4"><a></a>rng <span class="op">=</span> np.random.default_rng()</span>
+<span id="cb74-5"><a></a>x <span class="op">=</span> rng.random(<span class="dv">10</span>) <span class="op">-</span> <span class="fl">0.5</span></span>
+<span id="cb74-6"><a></a>y <span class="op">=</span> rng.random(<span class="dv">10</span>) <span class="op">-</span> <span class="fl">0.5</span></span>
+<span id="cb74-7"><a></a>z <span class="op">=</span> np.hypot(x, y)</span>
+<span id="cb74-8"><a></a>X <span class="op">=</span> np.linspace(<span class="bu">min</span>(x), <span class="bu">max</span>(x))</span>
+<span id="cb74-9"><a></a>Y <span class="op">=</span> np.linspace(<span class="bu">min</span>(y), <span class="bu">max</span>(y))</span>
+<span id="cb74-10"><a></a>X, Y <span class="op">=</span> np.meshgrid(X, Y)  <span class="co"># 2D grid for interpolation</span></span>
+<span id="cb74-11"><a></a>interp <span class="op">=</span> LinearNDInterpolator(<span class="bu">list</span>(<span class="bu">zip</span>(x, y)), z)</span>
+<span id="cb74-12"><a></a>Z <span class="op">=</span> interp(X, Y)</span>
+<span id="cb74-13"><a></a>plt.pcolormesh(X, Y, Z, shading<span class="op">=</span><span class="st">'auto'</span>)</span>
+<span id="cb74-14"><a></a>plt.plot(x, y, <span class="st">"ok"</span>, label<span class="op">=</span><span class="st">"input point"</span>)</span>
+<span id="cb74-15"><a></a>plt.legend()</span>
+<span id="cb74-16"><a></a>plt.colorbar()</span>
+<span id="cb74-17"><a></a>plt.axis(<span class="st">"equal"</span>)</span>
+<span id="cb74-18"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="07_scipy_files/figure-revealjs/cell-51-output-1.png" width="751" height="411"></p>
+<p><img data-src="07_scipy_files/figure-revealjs/cell-48-output-1.png" width="751" height="411"></p>
 </figure>
 </div>
 </div>
@@ -1621,9 +1579,9 @@ Name: 42, dtype: object</code></pre>
 <li>We <em>must not</em> have any invalid entries.</li>
 <li>We modify <code>df</code> to have only these 3 values, then <code>.dropna()</code></li>
 </ul>
-<div id="d119960a" class="cell" data-execution_count="52">
-<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb79-1"><a></a>df <span class="op">=</span> df[[<span class="st">"Group"</span>, <span class="st">"Period"</span>, <span class="st">"Electronegativity"</span>]]</span>
-<span id="cb79-2"><a></a>df <span class="op">=</span> df.dropna()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="00e52869" class="cell" data-execution_count="48">
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a></a>df <span class="op">=</span> df[[<span class="st">"Group"</span>, <span class="st">"Period"</span>, <span class="st">"Electronegativity"</span>]]</span>
+<span id="cb75-2"><a></a>df <span class="op">=</span> df.dropna()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="x" class="slide level2">
@@ -1636,10 +1594,10 @@ Name: 42, dtype: object</code></pre>
 </ul></li>
 <li>We used “Group” for x.</li>
 </ul>
-<div id="43466bc0" class="cell" data-execution_count="53">
-<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a></a>X <span class="op">=</span> df[<span class="st">"Group"</span>]</span>
-<span id="cb80-2"><a></a>X[::<span class="dv">20</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="796">
+<div id="cafb037c" class="cell" data-execution_count="49">
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a></a>X <span class="op">=</span> df[<span class="st">"Group"</span>]</span>
+<span id="cb76-2"><a></a>X[::<span class="dv">20</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="108">
 <pre><code>0      1.0
 23     6.0
 45    10.0
@@ -1658,10 +1616,10 @@ Name: Group, dtype: float64</code></pre>
 </ul></li>
 <li>We used “Period” for y.</li>
 </ul>
-<div id="cd4503ec" class="cell" data-execution_count="54">
-<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb82-1"><a></a>Y <span class="op">=</span> df[<span class="st">"Period"</span>]</span>
-<span id="cb82-2"><a></a>Y[::<span class="dv">20</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="797">
+<div id="a81604ba" class="cell" data-execution_count="50">
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a></a>Y <span class="op">=</span> df[<span class="st">"Period"</span>]</span>
+<span id="cb78-2"><a></a>Y[::<span class="dv">20</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="109">
 <pre><code>0     1
 23    4
 45    5
@@ -1679,10 +1637,10 @@ Name: Period, dtype: int64</code></pre>
 <li>This is a “column stack”</li>
 </ul></li>
 </ul>
-<div id="773172b5" class="cell" data-execution_count="55">
-<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb84-1"><a></a>arr2d <span class="op">=</span> np.column_stack((X,Y))</span>
-<span id="cb84-2"><a></a>arr2d[::<span class="dv">20</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="798">
+<div id="92afb4eb" class="cell" data-execution_count="51">
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a></a>arr2d <span class="op">=</span> np.column_stack((X,Y))</span>
+<span id="cb80-2"><a></a>arr2d[::<span class="dv">20</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="110">
 <pre><code>array([[ 1.,  1.],
        [ 6.,  4.],
        [10.,  5.],
@@ -1698,10 +1656,10 @@ Name: Period, dtype: int64</code></pre>
 <li>Provide known output values as <code>Z</code></li>
 </ul></li>
 </ul>
-<div id="24676db3" class="cell" data-execution_count="56">
-<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb86-1"><a></a>Z <span class="op">=</span> df[<span class="st">"Electronegativity"</span>]</span>
-<span id="cb86-2"><a></a>Z</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="799">
+<div id="88054d04" class="cell" data-execution_count="52">
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb82-1"><a></a>Z <span class="op">=</span> df[<span class="st">"Electronegativity"</span>]</span>
+<span id="cb82-2"><a></a>Z</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="111">
 <pre><code>0     2.20
 2     0.98
 3     1.57
@@ -1755,9 +1713,9 @@ Name: Electronegativity, Length: 68, dtype: float64</code></pre>
 <ul>
 <li>I took the electronegativity of Tc’s neighbors vertically and horizontally.</li>
 </ul>
-<div id="f889c61f" class="cell" data-execution_count="57">
-<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb88-1"><a></a>Tc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="800">
+<div id="f4e7a858" class="cell" data-execution_count="53">
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb84-1"><a></a>Tc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="112">
 <pre><code>AtomicNumber                        43
 Element                     Technetium
 Symbol                              Tc
@@ -1795,14 +1753,14 @@ Name: 42, dtype: object</code></pre>
 <ul>
 <li>Tc is group 7 and period 5, so, perhaps…</li>
 </ul>
-<div id="fc07ee8e" class="cell" data-execution_count="58">
-<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb90-1"><a></a><span class="co"># DataFrame "vertical horizontal neighbors"</span></span>
-<span id="cb90-2"><a></a>vh <span class="op">=</span> df[df[<span class="st">"Group"</span>] <span class="op">&gt;=</span> <span class="dv">6</span>]</span>
-<span id="cb90-3"><a></a>vh <span class="op">=</span> vh[vh[<span class="st">"Group"</span>] <span class="op">&lt;=</span> <span class="dv">8</span>]</span>
-<span id="cb90-4"><a></a>vh <span class="op">=</span> vh[vh[<span class="st">"Period"</span>] <span class="op">&gt;=</span> <span class="dv">4</span>]</span>
-<span id="cb90-5"><a></a>vh <span class="op">=</span> vh[vh[<span class="st">"Period"</span>] <span class="op">&lt;=</span> <span class="dv">6</span>]</span>
-<span id="cb90-6"><a></a>vh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="801">
+<div id="3f68125e" class="cell" data-execution_count="54">
+<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb86-1"><a></a><span class="co"># DataFrame "vertical horizontal neighbors"</span></span>
+<span id="cb86-2"><a></a>vh <span class="op">=</span> df[df[<span class="st">"Group"</span>] <span class="op">&gt;=</span> <span class="dv">6</span>]</span>
+<span id="cb86-3"><a></a>vh <span class="op">=</span> vh[vh[<span class="st">"Group"</span>] <span class="op">&lt;=</span> <span class="dv">8</span>]</span>
+<span id="cb86-4"><a></a>vh <span class="op">=</span> vh[vh[<span class="st">"Period"</span>] <span class="op">&gt;=</span> <span class="dv">4</span>]</span>
+<span id="cb86-5"><a></a>vh <span class="op">=</span> vh[vh[<span class="st">"Period"</span>] <span class="op">&lt;=</span> <span class="dv">6</span>]</span>
+<span id="cb86-6"><a></a>vh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="113">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -1894,10 +1852,10 @@ Name: 42, dtype: object</code></pre>
 </section>
 <section id="aside-example" class="slide level2">
 <h2>Aside: Example</h2>
-<div id="dc5288f5" class="cell" data-execution_count="59">
-<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb91-1"><a></a>vh <span class="op">=</span> df[(df[<span class="st">"Group"</span>] <span class="op">&gt;=</span> <span class="dv">6</span>) <span class="op">&amp;</span> (df[<span class="st">"Group"</span>] <span class="op">&lt;=</span> <span class="dv">8</span>) <span class="op">&amp;</span> (df[<span class="st">"Period"</span>] <span class="op">&gt;=</span> <span class="dv">4</span>) <span class="op">&amp;</span> (df[<span class="st">"Period"</span>] <span class="op">&lt;=</span> <span class="dv">6</span>)]</span>
-<span id="cb91-2"><a></a>vh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="802">
+<div id="5203add9" class="cell" data-execution_count="55">
+<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb87-1"><a></a>vh <span class="op">=</span> df[(df[<span class="st">"Group"</span>] <span class="op">&gt;=</span> <span class="dv">6</span>) <span class="op">&amp;</span> (df[<span class="st">"Group"</span>] <span class="op">&lt;=</span> <span class="dv">8</span>) <span class="op">&amp;</span> (df[<span class="st">"Period"</span>] <span class="op">&gt;=</span> <span class="dv">4</span>) <span class="op">&amp;</span> (df[<span class="st">"Period"</span>] <span class="op">&lt;=</span> <span class="dv">6</span>)]</span>
+<span id="cb87-2"><a></a>vh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="114">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -1995,10 +1953,10 @@ Name: 42, dtype: object</code></pre>
 </section>
 <section id="immediate-example" class="slide level2">
 <h2>Immediate Example</h2>
-<div id="7899c9ee" class="cell" data-execution_count="60">
-<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb92-1"><a></a>close <span class="op">=</span> df[(<span class="bu">abs</span>(df[<span class="st">"Group"</span>] <span class="op">-</span> <span class="dv">7</span>) <span class="op">+</span> <span class="bu">abs</span>(df[<span class="st">"Period"</span>] <span class="op">-</span> <span class="dv">5</span>)) <span class="op">&lt;</span> <span class="dv">2</span>]</span>
-<span id="cb92-2"><a></a>close</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="803">
+<div id="9fbeea17" class="cell" data-execution_count="56">
+<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb88-1"><a></a>close <span class="op">=</span> df[(<span class="bu">abs</span>(df[<span class="st">"Group"</span>] <span class="op">-</span> <span class="dv">7</span>) <span class="op">+</span> <span class="bu">abs</span>(df[<span class="st">"Period"</span>] <span class="op">-</span> <span class="dv">5</span>)) <span class="op">&lt;</span> <span class="dv">2</span>]</span>
+<span id="cb88-2"><a></a>close</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="115">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -2060,11 +2018,11 @@ Name: 42, dtype: object</code></pre>
 <ul>
 <li>After picking what I thought was things near Tc that should cancel out each other’s distance, I calculate their mean.</li>
 </ul>
-<div id="dc4325ec" class="cell" data-execution_count="61">
-<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb93-1"><a></a>my_pred <span class="op">=</span> close[<span class="st">"Electronegativity"</span>].mean()</span>
-<span id="cb93-2"><a></a>my_pred</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="804">
-<pre><code>np.float64(1.9525000000000001)</code></pre>
+<div id="e2bd075a" class="cell" data-execution_count="57">
+<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb89-1"><a></a>my_pred <span class="op">=</span> close[<span class="st">"Electronegativity"</span>].mean()</span>
+<span id="cb89-2"><a></a>my_pred</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="116">
+<pre><code>1.9525000000000001</code></pre>
 </div>
 </div>
 <ul>
@@ -2078,12 +2036,12 @@ Name: 42, dtype: object</code></pre>
 <li><code>LinearNDInterpolator</code> takes an array of known inputs and an array of known outputs and returns a function that it thinks describes the relationship.</li>
 <li>“Thinks” being a vague term here to convey a sense of learning or prediction or estimation.</li>
 </ul>
-<div id="2ed76e11" class="cell" data-execution_count="62">
-<div class="sourceCode cell-code" id="cb95"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb95-1"><a></a>f <span class="op">=</span> LinearNDInterpolator(arr2d, Z)</span>
-<span id="cb95-2"><a></a>scipy_pred <span class="op">=</span> f(<span class="dv">7</span>,<span class="dv">5</span>)</span>
-<span id="cb95-3"><a></a>[scipy_pred, my_pred, Tc[<span class="st">"Electronegativity"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="805">
-<pre><code>[array(1.725), np.float64(1.9525000000000001), np.float64(1.9)]</code></pre>
+<div id="ae09a33a" class="cell" data-execution_count="58">
+<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb91-1"><a></a>f <span class="op">=</span> LinearNDInterpolator(arr2d, Z)</span>
+<span id="cb91-2"><a></a>scipy_pred <span class="op">=</span> f(<span class="dv">7</span>,<span class="dv">5</span>)</span>
+<span id="cb91-3"><a></a>[scipy_pred, my_pred, Tc[<span class="st">"Electronegativity"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="117">
+<pre><code>[array(1.725), 1.9525000000000001, 1.9]</code></pre>
 </div>
 </div>
 </section>
@@ -2096,16 +2054,16 @@ Name: 42, dtype: object</code></pre>
 </section>
 <section id="solution" class="slide level2">
 <h2>Solution</h2>
-<div id="bd25c551" class="cell" data-execution_count="63">
+<div id="8825f0af" class="cell" data-execution_count="59">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb97-1"><a></a>df <span class="op">=</span> pd.read_csv(<span class="st">"https://gist.githubusercontent.com/GoodmanSciences/c2dd862cd38f21b0ad36b8f96b4bf1ee/raw/1d92663004489a5b6926e944c1b3d9ec5c40900e/Periodic%2520Table</span><span class="sc">%2520o</span><span class="st">f</span><span class="sc">%2520E</span><span class="st">lements.csv"</span>)</span>
-<span id="cb97-2"><a></a>df.drop(<span class="dv">42</span>)</span>
-<span id="cb97-3"><a></a>df <span class="op">=</span> df[[<span class="st">"Group"</span>, <span class="st">"Period"</span>, <span class="st">"Density"</span>]]</span>
-<span id="cb97-4"><a></a>df <span class="op">=</span> df.dropna()</span>
-<span id="cb97-5"><a></a>f <span class="op">=</span> LinearNDInterpolator(np.column_stack((df[<span class="st">"Group"</span>],df[<span class="st">"Period"</span>])), df[<span class="st">"Density"</span>])</span>
-<span id="cb97-6"><a></a>me <span class="op">=</span> df[(<span class="bu">abs</span>(df[<span class="st">"Group"</span>] <span class="op">-</span> <span class="dv">7</span>) <span class="op">+</span> <span class="bu">abs</span>(df[<span class="st">"Period"</span>] <span class="op">-</span> <span class="dv">5</span>)) <span class="op">&lt;</span> <span class="dv">2</span>][<span class="st">"Density"</span>].mean()</span>
-<span id="cb97-7"><a></a>[f(<span class="dv">7</span>,<span class="dv">5</span>), me, Tc[<span class="st">"Density"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb93-1"><a></a>df <span class="op">=</span> pd.read_csv(<span class="st">"https://gist.githubusercontent.com/GoodmanSciences/c2dd862cd38f21b0ad36b8f96b4bf1ee/raw/1d92663004489a5b6926e944c1b3d9ec5c40900e/Periodic%2520Table</span><span class="sc">%2520o</span><span class="st">f</span><span class="sc">%2520E</span><span class="st">lements.csv"</span>)</span>
+<span id="cb93-2"><a></a>df.drop(<span class="dv">42</span>)</span>
+<span id="cb93-3"><a></a>df <span class="op">=</span> df[[<span class="st">"Group"</span>, <span class="st">"Period"</span>, <span class="st">"Density"</span>]]</span>
+<span id="cb93-4"><a></a>df <span class="op">=</span> df.dropna()</span>
+<span id="cb93-5"><a></a>f <span class="op">=</span> LinearNDInterpolator(np.column_stack((df[<span class="st">"Group"</span>],df[<span class="st">"Period"</span>])), df[<span class="st">"Density"</span>])</span>
+<span id="cb93-6"><a></a>me <span class="op">=</span> df[(<span class="bu">abs</span>(df[<span class="st">"Group"</span>] <span class="op">-</span> <span class="dv">7</span>) <span class="op">+</span> <span class="bu">abs</span>(df[<span class="st">"Period"</span>] <span class="op">-</span> <span class="dv">5</span>)) <span class="op">&lt;</span> <span class="dv">2</span>][<span class="st">"Density"</span>].mean()</span>
+<span id="cb93-7"><a></a>[f(<span class="dv">7</span>,<span class="dv">5</span>), me, Tc[<span class="st">"Density"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 

@@ -122,12 +122,15 @@ yt-dlp -x --audio-format wav https://www.youtube.com/watch?v=9bZkp7q19f0 -o psy.
 
 ## curl
 
-- As an alternative, you can `curl` the file from the course webpage.
-- `curl` is a shell command that downloads a file from a url.
-  	- Can also be used to get e.g. the ".csv" file we used with **pandas**!
+- As an alternative, you can `curl` the file.
+  	- Just the one I extracted.
+- The `curl` shell command downloads files from urls.
+  	- Can also be used to get ".csv" files for **pandas**!
+
 ```{.bash code-line-number="false"}
 curl https://github.com/cd-public/scicom/raw/refs/heads/main/qmd/src/psy.wav -o psy.wav
 ```
+
 - This directs the command line to download the file from the url and save it locally as "psy.wav"
 
 # `scipy.io`
@@ -198,7 +201,7 @@ color_lst
 
 ## Aside: Errors
 
-- Doing this to a list would create an error.
+- Attempting updates to a *tuple* will error.
 - Thus far we have avoided showing example code that won't work.
 - We can use `try` and `except` (like `if` and `else`) on erroneous code.
 ```{python}
@@ -211,14 +214,14 @@ except:
 
 ## Reading files
 
-- Try except is *very* handy when reading files.
+- Try/except is *very* handy when reading files.
 - A lot of files I try to read are garbled and can't be read.
 - Using `try` and `except` prevents Python errors.
   	- More useful in big scripts than single-line things.
 
 ## Example
 
-- Earlier today, I tried the `curl` command to get "psy.wav" while (unbeknownst to me) my internet was spotty.
+- While making these slides, I tried the `curl` command to get "psy.wav" while (unbeknownst to me) my internet was spotty.
 - I got a file named "psy.wav" that was of size `0`
 - Unsurprisingly, opening it with SciPy led to an error.
 - This happens all the time!
@@ -241,7 +244,7 @@ rate
 - Audio doesn't come in for about 4 seconds.
 - The song ends and there's a kind of "outro".
 - We can see these on the plot.
-- But that examples the zeros.
+- But that explains the zeros.
 
 ## Plot
 
@@ -487,8 +490,8 @@ scipy.io.wavfile.write("other.wav", rate, other)
 <audio controls src="src/motif.wav" type="audio/wav"></audio> 
 
 ```{python}
-scipy.io.wavfile.write("motifs.wav", rate, np.concat([motif,motif,motif]))
-scipy.io.wavfile.write("others.wav", rate, np.concat([other,other,other]))
+scipy.io.wavfile.write("motifs.wav", rate, np.concatenate([motif,motif,motif]))
+scipy.io.wavfile.write("others.wav", rate, np.concatenate([other,other,other]))
 ```
 
 <audio controls src="src/motifs.wav" type="audio/wav"></audio> 
@@ -629,40 +632,6 @@ from scipy import stats
 res = stats.linregress(df["REALPCT"],df["UNRATE"])
 print(res)
 ```
-
-:::{.hidden}
-## Credit
-
-- The remainder is adapted from the [`scipy.stats.linregress` example](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.linregress.html#scipy.stats.linregress).
-
-## View
-
-```{python}
-plt.scatter(df["REALPCT"],df["UNRATE"])
-x = np.linspace(df["REALPCT"].min(), df["REALPCT"].max())
-_ = plt.plot(x, res.intercept + res.slope*x)
-```
-
-## Confidence Interval
-
-- "Two-sided inverse Students t-distribution"
-
-```{python}
-# p - probability, df - degrees of freedom
-def tinv(p, df): 
-	return abs(stats.t.ppf(p/2, df))
-```
-
-## Results
-
-```{python}
-ts = tinv(0.05, len(x)-2)
-print(f"slope (95%): {res.slope:.6f} +/- {ts*res.stderr:.6f}")
-print(f"intercept (95%): {res.intercept:.6f}"
-      f" +/- {ts*res.intercept_stderr:.6f}")
-```
-
-:::
 
 ## Tada!
 
