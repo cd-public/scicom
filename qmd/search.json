@@ -304,7 +304,7 @@
     "href": "05_matplotlib.html#plotting-taxation",
     "title": "Matplotlib",
     "section": "Plotting Taxation",
-    "text": "Plotting Taxation\n\nLet’s make a linspace from, say, 0 to 500000.\n\n\nincomes = np.linspace(0,500000,100)",
+    "text": "Plotting Taxation\n\nLet’s make a linspace from, say, 1 to 500000.\n\n\nincomes = np.linspace(1,500000,100)",
     "crumbs": [
       "Matplotlib"
     ]
@@ -314,7 +314,7 @@
     "href": "05_matplotlib.html#vectorizing",
     "title": "Matplotlib",
     "section": "Vectorizing",
-    "text": "Vectorizing\n\nUnlike, say + and -, single_tax is not a built-in, vectorized operation in NumPy.\nNot to worry, we just ask NumPy to np.vectorize it!\n\n\nvector_tax = np.vectorize(single_tax)\ncosts = vector_tax(incomes)\ncosts[::20] # Just look at 5 examples\n\narray([     0.        ,  21319.57828283,  50195.91666667,  83529.25      ,\n       116862.58333333])",
+    "text": "Vectorizing\n\nUnlike, say + and -, single_tax is not a built-in, vectorized operation in NumPy.\nNot to worry, we just ask NumPy to np.vectorize it!\n\n\nvector_tax = np.vectorize(single_tax)\ncosts = vector_tax(incomes)\ncosts[::20] # Just look at 5 examples\n\narray([1.00000000e-01, 2.13198017e+04, 5.01961133e+04, 8.35293800e+04,\n       1.16862647e+05])",
     "crumbs": [
       "Matplotlib"
     ]
@@ -384,7 +384,7 @@
     "href": "05_matplotlib.html#section-2",
     "title": "Matplotlib",
     "section": "",
-    "text": "plt.legend\n\n\nplt.title(\"Income Tax % by Income (USD)\")\nplt.xlabel(\"Income in USD\")\nplt.ylabel(\"Percent Tax Rate\")\nplt.plot(incomes, costs / incomes)\nplt.legend() # We didn't label any of our plots!",
+    "text": "plt.legend\n\n\nplt.title(\"Income Tax % by Income (USD)\")\nplt.xlabel(\"Income in USD\")\nplt.ylabel(\"Percent Tax Rate\")\nplt.plot(incomes, costs / incomes)\nplt.legend() # We didn't label any of our plots!\n\nNo artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.",
     "crumbs": [
       "Matplotlib"
     ]
@@ -594,7 +594,7 @@
     "href": "05_matplotlib.html#credit",
     "title": "Matplotlib",
     "section": "Credit",
-    "text": "Credit\n\nThis exercise, with great appreciation, is adapted from\n\nAn Introduction to Python for Chemistry\n\nI reviewed the chemistry at play in:\n\n3.3 Atmoic Orbitals",
+    "text": "Credit\n\nThis exercise, with great appreciation, is adapted from\n\nAn Introduction to Python for Chemistry\n\nI reviewed the chemistry at play in:\n\n3.3 Atomic Orbitals",
     "crumbs": [
       "Matplotlib"
     ]
@@ -927,14 +927,14 @@
     "href": "05_matplotlib.rjs.html#plotting-taxation",
     "title": "Matplotlib",
     "section": "Plotting Taxation",
-    "text": "Plotting Taxation\n\nLet’s make a linspace from, say, 0 to 500000.\n\n\nincomes = np.linspace(0,500000,100)"
+    "text": "Plotting Taxation\n\nLet’s make a linspace from, say, 1 to 500000.\n\n\nincomes = np.linspace(1,500000,100)"
   },
   {
     "objectID": "05_matplotlib.rjs.html#vectorizing",
     "href": "05_matplotlib.rjs.html#vectorizing",
     "title": "Matplotlib",
     "section": "Vectorizing",
-    "text": "Vectorizing\n\nUnlike, say + and -, single_tax is not a built-in, vectorized operation in NumPy.\nNot to worry, we just ask NumPy to np.vectorize it!\n\n\nvector_tax = np.vectorize(single_tax)\ncosts = vector_tax(incomes)\ncosts[::20] # Just look at 5 examples\n\narray([     0.        ,  21319.57828283,  50195.91666667,  83529.25      ,\n       116862.58333333])"
+    "text": "Vectorizing\n\nUnlike, say + and -, single_tax is not a built-in, vectorized operation in NumPy.\nNot to worry, we just ask NumPy to np.vectorize it!\n\n\nvector_tax = np.vectorize(single_tax)\ncosts = vector_tax(incomes)\ncosts[::20] # Just look at 5 examples\n\narray([1.00000000e-01, 2.13198017e+04, 5.01961133e+04, 8.35293800e+04,\n       1.16862647e+05])"
   },
   {
     "objectID": "05_matplotlib.rjs.html#plot-vector-functions",
@@ -1130,7 +1130,7 @@
     "href": "05_matplotlib.rjs.html#credit",
     "title": "Matplotlib",
     "section": "Credit",
-    "text": "Credit\n\nThis exercise, with great appreciation, is adapted from\n\nAn Introduction to Python for Chemistry\n\nI reviewed the chemistry at play in:\n\n3.3 Atmoic Orbitals"
+    "text": "Credit\n\nThis exercise, with great appreciation, is adapted from\n\nAn Introduction to Python for Chemistry\n\nI reviewed the chemistry at play in:\n\n3.3 Atomic Orbitals"
   },
   {
     "objectID": "05_matplotlib.rjs.html#orbitals",
@@ -10135,7 +10135,7 @@
     "href": "06_pandas.rjs.html#zeroone-index",
     "title": "pandas",
     "section": "Zero/One index",
-    "text": "Zero/One index\n\nDataFrames are 0-indexed\n\n\ndf[\"AtomicNumber\"].iloc[0]\n\nnp.int64(1)\n\n\n\nElements are 1-indexed1 with good reason.\n\n\ndf[[\"AtomicNumber\",\"NumberofProtons\"]].head(1)\n\n\n\n\n\n\n\n\nAtomicNumber\nNumberofProtons\n\n\n\n\n0\n1\n1\n\n\n\n\n\n\n\nNeutronium is a proposed but not academically interesting element with atomic number 0."
+    "text": "Zero/One index\n\nDataFrames are 0-indexed\n\n\ndf[\"AtomicNumber\"].iloc[0]\n\n1\n\n\n\nElements are 1-indexed1 with good reason.\n\n\ndf[[\"AtomicNumber\",\"NumberofProtons\"]].head(1)\n\n\n\n\n\n\n\n\nAtomicNumber\nNumberofProtons\n\n\n\n\n0\n1\n1\n\n\n\n\n\n\n\nNeutronium is a proposed but not academically interesting element with atomic number 0."
   },
   {
     "objectID": "06_pandas.rjs.html#data-manipulation",
@@ -10282,7 +10282,7 @@
     "href": "06_pandas.rjs.html#column-wise",
     "title": "pandas",
     "section": "Column-wise",
-    "text": "Column-wise\n\nWe can do all kinds of operations over a single column.\n\n\nmp = df[\"MeltingPoint\"] # Copy column to save some typing.\n[mp.min(), mp.max(), mp.mean(), mp.median(), mp.mode(), mp.std()]\n\n[np.float64(14.175),\n np.float64(3948.15),\n np.float64(1281.4751836734692),\n np.float64(1204.15),\n 0     913.15\n 1    1204.15\n Name: MeltingPoint, dtype: float64,\n np.float64(903.6851752147392)]"
+    "text": "Column-wise\n\nWe can do all kinds of operations over a single column.\n\n\nmp = df[\"MeltingPoint\"] # Copy column to save some typing.\n[mp.min(), mp.max(), mp.mean(), mp.median(), mp.mode(), mp.std()]\n\n[14.175,\n 3948.15,\n 1281.4751836734692,\n 1204.15,\n 0     913.15\n 1    1204.15\n Name: MeltingPoint, dtype: float64,\n 903.6851752147392]"
   },
   {
     "objectID": "06_pandas.rjs.html#metal-or-not",
@@ -10296,7 +10296,7 @@
     "href": "06_pandas.rjs.html#nan",
     "title": "pandas",
     "section": "NaN",
-    "text": "NaN\n\nNaN means “not a number” and is used by pandas (not generally by Python) to fill in missing data.\n\n\nnp.sqrt(-1)\n\nnp.float64(nan)\n\n\n\nI find this idea a bit odd (and e.g. Polars does not do this) but we can work with it."
+    "text": "NaN\n\nNaN means “not a number” and is used by pandas (not generally by Python) to fill in missing data.\n\n\nnp.sqrt(-1)\n\nnan\n\n\n\nI find this idea a bit odd (and e.g. Polars does not do this) but we can work with it."
   },
   {
     "objectID": "06_pandas.rjs.html#nonmetalloid",
@@ -10324,7 +10324,7 @@
     "href": "06_pandas.rjs.html#loc",
     "title": "pandas",
     "section": "loc",
-    "text": "loc\n\ndf[df[\"Metalloid\"] == \"yes\"] is not the same dataframe as df\nChanges to it will not change df.\nWe use .loc, the cousin of .iloc to update df.\nWe must also very carefully put all indices, comma separated, in single brackets."
+    "text": "loc\n\ndf[df[\"Metalloid\"] == \"yes\"] is not the same dataframe as df\nChanges to it will not change df.\nWe use .loc, the cousin of .iloc to update df.\nWe must also very carefully put all indices, comma separated, in single brackets.\n\nRow and column, together, within []"
   },
   {
     "objectID": "06_pandas.rjs.html#recall-numpy",
@@ -10408,21 +10408,21 @@
     "href": "06_pandas.rjs.html#strings",
     "title": "pandas",
     "section": "Strings",
-    "text": "Strings\n\nLike lists, arrays, and DataFrames, we can use indices on strings of characters.\n\n\nsymbol = \"He\"\nelement = \"Helium\"\nsymbol[0] == element[0]\n\nTrue"
+    "text": "Strings\n\nLike lists, arrays, and DataFrames, we can use indices on strings of characters.\n\n\nele = df.iloc[1]\nsymbol = ele[\"Symbol\"]\nelement = ele[\"Element\"]\nsymbol[0] == element[0], symbol, element\n\n(True, 'He', 'Helium')"
   },
   {
     "objectID": "06_pandas.rjs.html#differing",
     "href": "06_pandas.rjs.html#differing",
     "title": "pandas",
     "section": "Differing",
-    "text": "Differing\n\nSometimes the first letter differs - but not often.\n\n\nsymbol = \"Au\"\nelement = \"Gold\"\nsymbol[0] == element[0] # != means \"does not equal\"\n\nFalse"
+    "text": "Differing\n\nSometimes the first letter differs - but not often.\n\n\nele = df.iloc[18]\nsymbol = ele[\"Symbol\"]\nelement = ele[\"Element\"]\nsymbol[0] == element[0], symbol, element\n\n(False, 'K', 'Potassium')"
   },
   {
     "objectID": "06_pandas.rjs.html#write-a-function",
     "href": "06_pandas.rjs.html#write-a-function",
     "title": "pandas",
     "section": "Write a function",
-    "text": "Write a function\n\nWe make a function that checks if two things start with the same letter.\n\n\ndef differ(x,y):\n    return x[0] != y[0]"
+    "text": "Write a function\n\nWe make a function that checks if two things start with the same letter.\n\n\ndef differ(x,y):\n    # != means \"does not equal\"\n    return x[0] != y[0]"
   },
   {
     "objectID": "06_pandas.rjs.html#vectorize",
@@ -10835,7 +10835,7 @@
     "href": "06_pandas.html#zeroone-index",
     "title": "pandas",
     "section": "Zero/One index",
-    "text": "Zero/One index\n\nDataFrames are 0-indexed\n\n\ndf[\"AtomicNumber\"].iloc[0]\n\nnp.int64(1)\n\n\n\nElements are 1-indexed1 with good reason.\n\n\ndf[[\"AtomicNumber\",\"NumberofProtons\"]].head(1)\n\n\n\n\n\n\n\n\nAtomicNumber\nNumberofProtons\n\n\n\n\n0\n1\n1",
+    "text": "Zero/One index\n\nDataFrames are 0-indexed\n\n\ndf[\"AtomicNumber\"].iloc[0]\n\n1\n\n\n\nElements are 1-indexed1 with good reason.\n\n\ndf[[\"AtomicNumber\",\"NumberofProtons\"]].head(1)\n\n\n\n\n\n\n\n\nAtomicNumber\nNumberofProtons\n\n\n\n\n0\n1\n1",
     "crumbs": [
       "<strong>pandas</strong>"
     ]
@@ -11045,7 +11045,7 @@
     "href": "06_pandas.html#column-wise",
     "title": "pandas",
     "section": "Column-wise",
-    "text": "Column-wise\n\nWe can do all kinds of operations over a single column.\n\n\nmp = df[\"MeltingPoint\"] # Copy column to save some typing.\n[mp.min(), mp.max(), mp.mean(), mp.median(), mp.mode(), mp.std()]\n\n[np.float64(14.175),\n np.float64(3948.15),\n np.float64(1281.4751836734692),\n np.float64(1204.15),\n 0     913.15\n 1    1204.15\n Name: MeltingPoint, dtype: float64,\n np.float64(903.6851752147392)]",
+    "text": "Column-wise\n\nWe can do all kinds of operations over a single column.\n\n\nmp = df[\"MeltingPoint\"] # Copy column to save some typing.\n[mp.min(), mp.max(), mp.mean(), mp.median(), mp.mode(), mp.std()]\n\n[14.175,\n 3948.15,\n 1281.4751836734692,\n 1204.15,\n 0     913.15\n 1    1204.15\n Name: MeltingPoint, dtype: float64,\n 903.6851752147392]",
     "crumbs": [
       "<strong>pandas</strong>"
     ]
@@ -11065,7 +11065,7 @@
     "href": "06_pandas.html#nan",
     "title": "pandas",
     "section": "NaN",
-    "text": "NaN\n\nNaN means “not a number” and is used by pandas (not generally by Python) to fill in missing data.\n\n\nnp.sqrt(-1)\n\nnp.float64(nan)\n\n\n\nI find this idea a bit odd (and e.g. Polars does not do this) but we can work with it.",
+    "text": "NaN\n\nNaN means “not a number” and is used by pandas (not generally by Python) to fill in missing data.\n\n\nnp.sqrt(-1)\n\n/tmp/ipykernel_7857/3438155168.py:1: RuntimeWarning:\n\ninvalid value encountered in sqrt\n\n\n\nnan\n\n\n\nI find this idea a bit odd (and e.g. Polars does not do this) but we can work with it.",
     "crumbs": [
       "<strong>pandas</strong>"
     ]
@@ -11095,7 +11095,7 @@
     "href": "06_pandas.html#metalloids",
     "title": "pandas",
     "section": "Metalloids",
-    "text": "Metalloids\n\nAdditionally deal with metalloids.\n\n\ndf[df[\"Metalloid\"] == \"yes\"][\"Metallic\"] = \"Metalloid\"\ndf.iloc[12:16][[\"Metal\",\"Nonmetal\",\"Metalloid\",\"Metallic\"]]\n\n\n\n\n\n\n\n\nMetal\nNonmetal\nMetalloid\nMetallic\n\n\n\n\n12\nyes\nNaN\nNaN\nMetal\n\n\n13\nNaN\nNaN\nyes\nNonmetal\n\n\n14\nNaN\nyes\nNaN\nNonmetal\n\n\n15\nNaN\nyes\nNaN\nNonmetal\n\n\n\n\n\n\n\n\nWhoops!",
+    "text": "Metalloids\n\nAdditionally deal with metalloids.\n\n\ndf[df[\"Metalloid\"] == \"yes\"][\"Metallic\"] = \"Metalloid\"\ndf.iloc[12:16][[\"Metal\",\"Nonmetal\",\"Metalloid\",\"Metallic\"]]\n\n/tmp/ipykernel_7857/1792942652.py:1: SettingWithCopyWarning:\n\n\nA value is trying to be set on a copy of a slice from a DataFrame.\nTry using .loc[row_indexer,col_indexer] = value instead\n\nSee the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n\n\n\n\n\n\n\n\n\n\nMetal\nNonmetal\nMetalloid\nMetallic\n\n\n\n\n12\nyes\nNaN\nNaN\nMetal\n\n\n13\nNaN\nNaN\nyes\nNonmetal\n\n\n14\nNaN\nyes\nNaN\nNonmetal\n\n\n15\nNaN\nyes\nNaN\nNonmetal\n\n\n\n\n\n\n\n\nWhoops!",
     "crumbs": [
       "<strong>pandas</strong>"
     ]
@@ -11105,7 +11105,7 @@
     "href": "06_pandas.html#loc",
     "title": "pandas",
     "section": "loc",
-    "text": "loc\n\ndf[df[\"Metalloid\"] == \"yes\"] is not the same dataframe as df\nChanges to it will not change df.\nWe use .loc, the cousin of .iloc to update df.\nWe must also very carefully put all indices, comma separated, in single brackets.",
+    "text": "loc\n\ndf[df[\"Metalloid\"] == \"yes\"] is not the same dataframe as df\nChanges to it will not change df.\nWe use .loc, the cousin of .iloc to update df.\nWe must also very carefully put all indices, comma separated, in single brackets.\n\nRow and column, together, within []",
     "crumbs": [
       "<strong>pandas</strong>"
     ]
@@ -11225,7 +11225,7 @@
     "href": "06_pandas.html#strings",
     "title": "pandas",
     "section": "Strings",
-    "text": "Strings\n\nLike lists, arrays, and DataFrames, we can use indices on strings of characters.\n\n\nsymbol = \"He\"\nelement = \"Helium\"\nsymbol[0] == element[0]\n\nTrue",
+    "text": "Strings\n\nLike lists, arrays, and DataFrames, we can use indices on strings of characters.\n\n\nele = df.iloc[1]\nsymbol = ele[\"Symbol\"]\nelement = ele[\"Element\"]\nsymbol[0] == element[0], symbol, element\n\n(True, 'He', 'Helium')",
     "crumbs": [
       "<strong>pandas</strong>"
     ]
@@ -11235,7 +11235,7 @@
     "href": "06_pandas.html#differing",
     "title": "pandas",
     "section": "Differing",
-    "text": "Differing\n\nSometimes the first letter differs - but not often.\n\n\nsymbol = \"Au\"\nelement = \"Gold\"\nsymbol[0] == element[0] # != means \"does not equal\"\n\nFalse",
+    "text": "Differing\n\nSometimes the first letter differs - but not often.\n\n\nele = df.iloc[18]\nsymbol = ele[\"Symbol\"]\nelement = ele[\"Element\"]\nsymbol[0] == element[0], symbol, element\n\n(False, 'K', 'Potassium')",
     "crumbs": [
       "<strong>pandas</strong>"
     ]
@@ -11245,7 +11245,7 @@
     "href": "06_pandas.html#write-a-function",
     "title": "pandas",
     "section": "Write a function",
-    "text": "Write a function\n\nWe make a function that checks if two things start with the same letter.\n\n\ndef differ(x,y):\n    return x[0] != y[0]",
+    "text": "Write a function\n\nWe make a function that checks if two things start with the same letter.\n\n\ndef differ(x,y):\n    # != means \"does not equal\"\n    return x[0] != y[0]",
     "crumbs": [
       "<strong>pandas</strong>"
     ]

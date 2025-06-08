@@ -311,9 +311,9 @@ np.ones(3, dtype=int) // np.arange(2,5,1)
 
 ## Plotting Taxation
 
-- Let's make a linspace from, say, `0` to `500000`.
+- Let's make a linspace from, say, `1` to `500000`.
 ```{python}
-incomes = np.linspace(0,500000,100)
+incomes = np.linspace(1,500000,100)
 ```
 
 ## Vectorizing
@@ -610,7 +610,7 @@ _ = plt.pie(es) # NOT num_es
 - This exercise, with great appreciation, is adapted from 
 	- [An Introduction to Python for Chemistry](https://pythoninchemistry.org/intro_python_chemists/data_work/simple_plots.html)
 - I reviewed the chemistry at play in:
-  	- [3.3 Atmoic Orbitals](https://chem.libretexts.org/Courses/University_of_Florida/CHM2047%3A_One-Semester_General_Chemistry_(Kleiman)/03%3A__Atoms_Orbitals_and_Electronic_Configurations/3.03%3A_Atomic_Orbitals)
+  	- [3.3 Atomic Orbitals](https://chem.libretexts.org/Courses/University_of_Florida/CHM2047%3A_One-Semester_General_Chemistry_(Kleiman)/03%3A__Atoms_Orbitals_and_Electronic_Configurations/3.03%3A_Atomic_Orbitals)
 
 ## Orbitals
 

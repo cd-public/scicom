@@ -437,7 +437,8 @@ df.iloc[12:16][["Metal","Nonmetal","Metalloid","Metallic"]]
 - `df[df["Metalloid"] == "yes"]` is not the same dataframe as `df`
 - Changes to it will not change `df`.
 - We use `.loc`, the cousin of `.iloc` to update `df`.
-- We must also very carefully put all indices, comma separated, in single brackets.
+- **We must also very carefully put all indices, comma separated, in single brackets.**
+  	- Row and column, together, within `[]`
 
 ## Recall: [NumPy](04_numpy.qmd#coordinate-slices)
 
@@ -520,7 +521,7 @@ df.columns
 
 - In **pandas**
 
-> A groupby operation involves some combination of splitting the object, applying a function, and combining the results. This can be used to group large amounts of data and compute operations on these groups.
+> A `groupby` operation involves some combination of splitting the object, applying a function, and combining the results. This can be used to group large amounts of data and compute operations on these groups.
 
 ## Element Groups
 
@@ -568,18 +569,20 @@ df.groupby("Group")["MeltingPoint"].mean().plot()
 
 - Like lists, arrays, and DataFrames, we can use indices on strings of characters.
 ```{python}
-symbol = "He"
-element = "Helium"
-symbol[0] == element[0]
+ele = df.iloc[1]
+symbol = ele["Symbol"]
+element = ele["Element"]
+symbol[0] == element[0], symbol, element
 ```
 
 ## Differing
 
 - Sometimes the first letter differs - but not often.
 ```{python}
-symbol = "Au"
-element = "Gold"
-symbol[0] == element[0] # != means "does not equal"
+ele = df.iloc[18]
+symbol = ele["Symbol"]
+element = ele["Element"]
+symbol[0] == element[0], symbol, element
 ```
 
 ## Write a function
@@ -587,6 +590,7 @@ symbol[0] == element[0] # != means "does not equal"
 - We make a function that checks if two things start with the same letter.
 ```{python}
 def differ(x,y):
+	# != means "does not equal"
 	return x[0] != y[0]
 ```
 
