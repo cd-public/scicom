@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>HW1:
+        Python</title>
+    <style>
+        .page {
+            width: 9in;
+            margin:
+                auto;
+        }
+
+        .page_outer {
+            width: 8.5in;
+            box-shadow:
+                -.1in -.1in .25in darkgray, .1in .1in .25in gray;
+            position:
+                relative;
+        }
+
+        .page_inner {
+            margin: 1in;
+            margin-top:
+                .5in;
+            margin-bottom:
+                .5in;
+
+        }
+
+        th {
+            text-align:
+                left;
+        }
+    </style>
+    <style type="text/css" media="print">
+        .page {
+            width: 8.5in;
+            margin:
+                auto;
+        }
+
+        .page_outer {
+            box-shadow:
+                none;
+        }
+
+        a {
+            color:
+                black;
+            text-decoration-line:
+                none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <div style="height:.25in;"> <!-- Vertical space adjuster for box shadow --></div>
+        <div class="page_outer">
+            <div style="height:.25in;"> <!-- Vertical space adjuster for box shadow --></div>
+            <div class="page_inner">
+                <center>
+                    <h4>CSCI 5400:
+                        Scientific Computing</h4>
+                    <h1>HW1:
+                        Python</h1>
+                    <h3>Due:
+                        Monday, 16 Jun, 11:59 PM AOE </h3>
+                    <hr>
+                </center>
+                <p>This is a problem set of 7 problems, exactly the 7 exercises for each of the 7 lecture topics conducted over residency. This should be a simple assignment, as you should have already completed all of this work with the possible exception of the 7th problem (on SciPy). The work will consist simply of organizing and submitting Python (.py) files via email, an important part of scientific computing and publication.</p>
+                <p><b>Under absolutely no circumstances is any form of submission other than .py files accepted</b>. Writing and editting these files was a core goal of three lectures, and an inability to submit homework properly is indicative of non-engagement with minimally half of the lecture content.</p>
+                <p>By Monday, 16 Jun at 11:59 PM AOE (Teusday, 17 Jun at 7:59 AM ET), send <a href="mailto:cdeutschbein@lagrange.edu">cdeutschbein@lagrange.edu</a> an email with the Subject:
+                    [CSCI 5400] HW1 Submission and exactly seven attachments numbers 01.py to 07.py, inclusive. You are not required to include any body text in the email, but may do so if there is anything you wish me to know!</p>
+                <p><b>Late work is not accepted.</b> This is 7 of the 13 planned assignments, so non-completion (or late completion) is a guaranteed F in the course as it represents more than half of the graded course content.</p>
+                <p>For any questions, reach out to me via LaGrange email no latter than Friday, 13 Jun at 3 AM AOE (Friday, 13 Jun at 11 AM ET). I will respond within 8 hours.</p>
+                <hr>
+                <h2>Files:
+                </h2>
+                <h3>01.py</h3>
+                <p>Links:</p>
+                <ul>
+                    <li><a href="../qmd/01_python.html#exercise">Python Exercise</a></li>
+                    <li><a href="https://cd-public.github.io/scicom/qmd/01_python.html#exercise">https://cd-public.github.io/scicom/qmd/01_python.html#exercise</a></li>
+                </ul>
+                <p>Notes:</p>
+                <ul>
+                    <li>01.py must contain the function:
+                        <code>single_tax</code>
+                    <li>To be eligible for credit, outputs must exactly match the provided example.
+                </ul>
+                <h3>02.py</h3>
+                <p>Links:</p>
+                <ul>
+                    <li><a href="../qmd/02_neovim.html#exercise-1">Neovim Exercise</a></li>
+                    <li><a href="https://cd-public.github.io/scicom/qmd/02_neovim.html#exercise-1">https://cd-public.github.io/scicom/qmd/02_neovim.html#exercise-1</a></li>
+                </ul>
+                <p>Notes:</p>
+                <ul>
+                    <li>02.py must be able to be run as <code>python 02.py 400000</code> or <code>python3 02.py 400000</code>.</li>
+                    <li>To be eligible for credit, must print the same values computed by <code>01.py</code> at the command line.</li>
+                </ul>
+                <h3>03.py</h3>
+                <p>Links:</p>
+                <ul>
+                    <li><a href="../qmd/03_shell.html#exercise">Shell Exercise</a></li>
+                    <li><a href="https://cd-public.github.io/scicom/qmd/03_shell.html#exercise">https://cd-public.github.io/scicom/qmd/03_shell.html#exercise</a></li>
+                </ul>
+                <p>Notes:</p>
+                <ul>
+                    <li>03.py must (1) compute (a la <code>intercepts.py</code>) the same intercept values as provided and (2) compute taxation using provided intercept values (a la <code>tax.py</code> or <code>tax_line.py</code>.</li>
+                    <li>To be eligible for credit, must compute the same values computed by <code>01.py</code>.</li>
+                </ul>
+                <h3>04.py</h3>
+                <p>Links:</p>
+                <ul>
+                    <li><a href="../qmd/04_numpy.html#exercise">NumPy Exercise</a></li>
+                    <li><a href="https://cd-public.github.io/scicom/qmd/04_numpy.html#exercise">https://cd-public.github.io/scicom/qmd/04_numpy.html#exercise</a></li>
+                </ul>
+                <p>Notes:</p>
+                <ul>
+                    <li>04.py must compute (a la <code>intercepts.py</code> the intercept values provided and (2) exclusively use vector operations and NumPy operations, so there may be no use of <code>for</code> or <code>while</code> loops or variables which are not NumPy arrays.
+                    <li>To be eligible for credit, must compute the same values computed by <code>03.py</code>.</li>
+                </ul>
+                <h3>05.py</h3>
+                <p>Links:</p>
+                <ul>
+                    <li><a href="../qmd/05_matplotlib.html#exercise">Matplotlib Exercise</a></li>
+                    <li><a href="https://cd-public.github.io/scicom/qmd/05_matplotlib.html#exercise">https://cd-public.github.io/scicom/qmd/05_matplotlib.html#exercise</a></li>
+                </ul>
+                <p>Notes:</p>
+                <ul>
+                    <li>05.py must, when run as <code>python 05.py</code> or <code>python3 05.py</code> create image file shown as a sample solution:</li>
+                    <ul>
+                        <li>3 lines of exponential functions for the 1<em>s</em>, 2<em>s</em> and 3<em>s</em> hydrogenic orbitals.</li>
+                        <li>Lines must be distinct colors and labelled with a legend.</li>
+                        <li>The graphic must have axis labels and a title.</li>
+                        <li>The axis units and scale must be correct.</li>
+                    </ul>
+                    <li>To be eligible for credit, the file must be named <code>05.svg</code> and be able to be opened by Firefox or Chrome web brower.</li>
+                    <li>It must require <b>no</b> Python libraries other than NumPy and Matplotlib.</li>
+                </ul>
+                <h3>06.py</h3>
+                <p>Links:</p>
+                <ul>
+                    <li><a href="../qmd/06_pandas.html#exercise"><b>pandas</b> Exercise</a></li>
+                    <li><a href="https://cd-public.github.io/scicom/qmd/06_pandas.html#exercise">https://cd-public.github.io/scicom/qmd/06_pandas.html#exercise</a></li>
+                </ul>
+                <p>Notes:</p>
+                <ul>
+                    <li>06.py must, when run as <code>python 06.py</code> or <code>python3 06.py</code> create image file shown as a sample solution:</li>
+                    <ul>
+                        <li>A "periodic table like grid" scatterplot with groups on the horizontal axis and periods on the vertical axis.</li>
+                        <li>Points must be colored according to electonegativty and labelled with a colorbar.</li>
+                        <li>The graphic must have axis labels and a title.</li>
+                        <li>The axis units and scale must be correct.</li>
+                    </ul>
+                    <li>To be eligible for credit, the file must be named <code>06.svg</code> and be able to be opened by Firefox or Chrome web brower.</li>
+                    <li>It must require <b>no</b> Python libraries other than NumPy, <b>pandas</b> and Matplotlib.</li>
+                </ul>
+                <h3>07.py</h3>
+                <p>Links:</p>
+                <ul>
+                    <li><a href="../qmd/07_scipy.html#exercise">SciPy Exercise</a></li>
+                    <li><a href="https://cd-public.github.io/scicom/qmd/07_scipy.html#exercise">https://cd-public.github.io/scicom/qmd/07_scipy.html#exercise</a></li>
+                </ul>
+                <p>Notes:</p>
+                <ul>
+                    <li>07.py must contain:</li>
+                    <ul>
+                        <li>Your calculations using NumPy and <b>pandas</b> of the density of Technetium, without reference to its known density.</li>
+                        <li>Calculations using <code>LinearNDInterpolator</code>, without reference to its know density.</li>
+                        <li>The value of the density of Technetium from the provided <code>.csv</code> file.</li>
+                        <li>A `print` statement, printing all three values, in that order.</li>
+                    </ul>
+                    <li>To be eligible for credit, the file when run as <code>python 07.py</code> or <code>python3 07.py</code> must print these three values, in order, in a single line.</li>
+                </ul>
+                <div style="height:.25in;"> <!-- Vertical space adjuster for box shadow --></div>
+            </div>
+            <div style="height:.25in;"> <!-- Vertical space adjuster for box shadow --></div>
+        </div>
+</body>

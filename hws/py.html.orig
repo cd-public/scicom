@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+           <head>
+           <title>HW1:
+           Python</title>
+           <style>
+.page {
+    width: 9in ;
+margin:
+    auto ;
+}
+.page_outer {
+    width: 8.5in;
+box-shadow:
+    -.1in -.1in .25in darkgray, .1in .1in .25in gray;
+position:
+    relative ;
+}
+.page_inner{
+    margin: 1in;
+margin-top:
+    .5in;
+margin-bottom:
+    .5in;
+
+}
+th {
+text-align:
+    left ;
+}
+</style>
+<style type="text/css" media="print">
+.page {
+    width: 8.5in;
+margin:
+    auto ;
+}
+.page_outer {
+box-shadow:
+    none;
+}
+a {
+color:
+    black;
+text-decoration-line:
+    none;
+}
+</style>
+</head>
+<body>
+<div class="page">
+               <div style="height:.25in;"> <!-- Vertical space adjuster for box shadow --></div>
+                          <div class="page_outer">
+                                         <div style="height:.25in;"> <!-- Vertical space adjuster for box shadow --></div>
+                                                     <div class="page_inner"><center>
+                                                                 <h4>CSCI 5400:
+                                                                 Scientific Computing</h4>
+                                                                 <h1>HW1:
+                                                                 Python</h1>
+                                                                 <h3>Due:
+                                                                 Monday, 16 Jun, 11:59 PM AOE </h3>
+                                                                 <hr>
+                                                                 </center>
+								 <p>This is a problem set of 7 problems, exactly the 7 exercise for each of the 7 lecture topics conducted over residency. This should be a simple assignment, as you should have already completed all of this work with the exception of the 7th problem (on SciPy), and will consist simply of submitting Python (.py) files via email.</p>
+								 <p><b>Under absolutely no circumstances is any form of submission other than .py files accepted</b>. Writing and editting these files was a core goal of three lectures, and an inability to submit homework properly is indicative of non-engagement with minimally half of the lecture content.</p>
+								 <p>By Monday, 16 Jun at 11:59 PM AOE (Teusday, 17 Jun at 7:59 AM ET), send <a href="mailto:cdeutschbein@lagrange.edu">cdeutschbein@lagrange.edu</a> an email with the Subject:
+								 [CSCI 5400] HW1 Submission and exactly seven attachments numbers 01.py to 07.py, inclusive. You are not required to include any body text in the email, but may do so if there is anything you wish me to know!</p>
+                                                                                     <p><b>Late work is not accepted.</b> This is 7 of the 13 planned assignments, so non-completion (or late completion) is a guaranteed F in the course.</p>
+                                                                                         <p>Reach out to me no latter than Friday, 13 Jun at 3 AM AOE (Friday, 13 Jun at 11 AM ET) with any questions. I will respond within 12 hours.</p>
+                                                                                         <hr>
+                                                                                         <h2>Files:
+                                                                                         </h2>
+                                                                                         <h3>01.py</h3>
+                                                                                         <p>Links:
+                                                                                         <ul>
+												 <li><a href="../qmd/01_python.html#exercise">Python Exercise</a></li>
+											 	 <li><a href="https://cd-public.github.io/scicom/qmd/01_python.html#exercise">https://cd-public.github.io/scicom/qmd/01_python.html#exercise</a></li>
+                                                                                         </ul>
+											 <p>Notes:
+											 <ul>
+												<li>01.py must contain the function: <code>single_tax</code>
+												<li>To be eligible for credit, outputs must exactly match the provided example.
+											 </ul>
