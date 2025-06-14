@@ -1,0 +1,268 @@
+---
+title: Git 
+---
+
+# Why Git?
+
+## What is "git"?
+
+- A major command line tool for collaboration and publication.
+- The state-of-the-art of storing and sharing data files.
+- The basis of most modern open source tools.
+
+## Different "git"
+
+- `git` is a command line utility, like `python` or `nvim`
+- "Git" is the name of some software the supports this utility.
+- We also introduce "GitHub"
+
+## What is "GitHub"?
+
+- Was: an independent company maintaining servers for use by `git`
+- Now: a subsidiary of Microsoft for the same purposes.
+
+## Differentiating
+
+|`git`|"GitHub"|
+|-----|--------|
+|Command line tool| Website |
+|Free and open source | Free with paid options |
+|Works on your own computer|Works on the internet|
+|Primarily used with GitHub|Primarily used with `git`|
+
+
+## Conceptualizing
+
+- So far in school you may have:
+	- Turned in physical assignments in person.
+	- Turned in electronic assignments via Google suite.
+	- Turned in electornic assignments via email
+- All of these are very rough on source code many data files (like the `.wav` file).
+
+## Problem Solving
+
+- This exacerbated on:
+  	- Group projects
+	- Remote projects
+	- Projects using more than one file (paper + presentation, often)
+- Also, we face other coding challenges
+  	- What if you `rm` the project by accident?
+	- That is permanent deletion (no "trash" or "recycling bin")
+
+## Stepping Back
+
+- `git` was made to solve this exact problem!
+- The world leading scientific computing operating system, Linux, was being developed remotely via volunteers.
+- They used millions of lines of code in complex file structures.
+- They had to have a way to keep track of everything!
+
+## Enter `git`
+
+- In 2005 the Linux operating system engineers developed `git`:
+	- A way to save *versions* of *complex file systems and files*
+	- A way to *distribute* changes to these complex systems.
+	- A way to *document* these changes.
+- It quickly became popular in the [scientific community](https://github.com/LLNL) as well.
+
+## We will
+
+- Use `git` to:
+	- Manage versions of our code
+	- Publish these versions
+- Use "GitHub" to:
+	- Store the work of `git` online
+	- Document our code with Markdown
+- Use "Markdown to:
+  	- Create clear, formatted summaries of our code.
+
+# GitHub
+
+## Going Backwards
+
+- We'll actually start with GitHub, where you'll need to [create an account](https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github).
+- We can have more fun with `git` latter if there's a "GitHub" we can use with `git`
+
+## Your Account
+
+- To get started with GitHub, you'll need to create a free personal account and verify your email address.
+	- I strongly recommend using your `.edu` email account to get educational access to otherwise premium features.
+	- You may, of course, use a personal email. It is your account!
+
+## Accounts
+
+- Every person who uses GitHub signs in to a user account. 
+	- Your user account is your identity on GitHub and has a username and profile. 
+	- For example, see [@octocat's profile](https://github.com/octocat)
+	- Or look at [mine](https://github.com/cd-public/)
+
+## Signing Up
+
+1. Navigate to https://github.com/.
+1. Click **Sign up**.
+1. Follow the prompts to create your personal account.
+
+## Verify
+
+- During sign up, you'll be asked to verify your email address. 
+- Without a verified email address, you won't be able to do much, so make sure you verify your email!
+
+## Remember!
+
+- Make sure your remember the email you use, your account name, and your password.
+- As a computing professor, I get a lot of questions from students about what their name was.
+	- I don't know! It was your name!
+- You may want to send an email to yourself with a password hint, or take a physical note.
+
+# Repositories
+
+## Atomicity
+
+- The atomic unit of `git` is the "repository" which is basically a file system.
+	- We learned about file systems by navigating around them with the [shell](03_shell.qmd#movement)
+- Like GitHub users, repositories also have names.
+	- Names must be unique per user, but different users may have the same repository name.
+	- For example, both "pandas-dev" and "cd-public" have a "pandas" repository
+
+## Create New
+
+- To understand better, let's [create a repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-new-repository).
+1. Navigate to any [GitHub page](github.com/)
+1. In the top right right past the search bar, click &plus;
+1. Select **New repository**
+![](https://docs.github.com/assets/cb-29762/mw-1440/images/help/repository/repo-create-global-nav-update.webp)
+
+## Take Ownership
+
+1. Leave template blank.
+1. Select yourself as the owner.
+![](https://docs.github.com/assets/cb-26656/mw-1440/images/help/repository/create-repository-owner.webp)
+
+## Name it
+
+1. Name your repository - for now `hello-world` is great!
+![](https://docs.github.com/assets/cb-61121/mw-1440/images/help/repository/create-repository-name.webp)
+
+## Set Visibility
+
+- When you create a repository, you can choose to make the repository public or private.
+  - Public repositories are accessible to everyone on the internet.
+  - Private repositories are only accessible to you and people you explicitly share access.
+- I recommend "public"!
+  - Easier to get help and to show off!
+
+## Finalize
+
+- You're now ready to click <span style="background-color:#238636;color:white">Create repository</span>.
+- We'll see a new page and return to the command line for more `git`!
+
+# git
+
+## Remote
+
+- We have now created a *remote* repository on GitHub.
+	- Remote as in "not on our computer we are using right now"
+	- As in "on a web server somewhere"
+- No we will make a *local* repository on our own computer.
+- Then connect them!
+
+## `mkdir`
+
+- Make and enter directory on your computer!
+  - I'd name it the same as the repository, like `hello-world`
+```{.bash code-line-number="false"}
+mkdir hello-world
+cd hello-world
+```
+
+## Add files
+
+- Let's make a file to add.
+- Like a "Hello, world!" file.
+- Perhaps
+```{.bash code-line-number="false"}
+nvim hello.py
+```
+- Then
+```{.python filename="hello.py"}
+print("Hello, world!")
+```
+- Then `:x` back to command line!
+
+## Initialize
+
+- We currently have a local directory.
+- To promote it to `git` managed repository, we do:
+
+```{.bash code-line-number="false"}
+git init
+```
+
+- You can verify it worked by checking:
+```{.bash code-line-number="false"}
+git status 
+```
+
+## Status
+
+- I consult status often, yours will likely look like this:
+```{.bash code-line-number="false"}
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        hello.py
+
+nothing added to commit but untracked files present (use "git add" to track)
+```
+
+## Add
+
+- The first thing we not is that there are "Untracked files"
+- While we made a `hello.py` and have it in our `hello-world` directory, it isn't yet "tracked" by `git`!
+- By default, `git` only keeps track of what we tell it to!
+- So, we tell it to track our code!
+
+```{.bash code-line-number="false"}
+git add hello.py
+```
+
+## Status
+
+- I check status again	
+
+```{.bash code-line-number="false"}
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   hello.py
+```
+
+## Commit
+
+- With `git` now aware of `hello.py`, we need to commit or changes for `git` to save them.
+  	- Similar to saving files to the file system.
+	- There are, of course, ways to automate this.
+- This probably won't work at first (next slide!) but try:
+
+```{.bash code-line-number="false"}
+git commit -m "first commit"
+```
+- Commits require a commit message (like a version name or number) so specify with `-m`
+
+## Config
+
+- If you haven't used `git` on your system before, you'll have to tell `git` who you are.
+	- In `git` there are no *anonymous* changes - you have to sign every change you make.
+- You'll be prompted to provide something like this:
+  
+
+```{.bash code-line-number="false"}
+git config --global user.email "you@example.com"
+git config --global user.name "Your Name"
+```
+- Do so, giving a name of your choice. The email isn't usually used, so you can use a fake one.

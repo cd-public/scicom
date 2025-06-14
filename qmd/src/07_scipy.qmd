@@ -2,7 +2,9 @@
 title: SciPy
 ---
 
-# What is SciPy?
+# Why SciPy?
+
+## What is SciPy?
 
 > [SciPy (pronounced “Sigh Pie”) is an open-source software for mathematics, science, and engineering.](https://docs.scipy.org/doc/scipy/index.html)
 

@@ -2,9 +2,11 @@
 title: Numba 
 ---
 
-# What is Numba?
+# Why Numba?
 
-- `Numba` addresses a long-standing problem in scientific computing.
+## What is Numba?
+
+- `numba` addresses a long-standing problem in scientific computing.
   	- Writing code in Python, instead of C or Fortran, is fast.
 	- Running code in Python, instead of C or Fortran, is slow.
 

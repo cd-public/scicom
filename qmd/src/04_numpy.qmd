@@ -2,7 +2,9 @@
 title: NumPy
 ---
 
-# What is “NumPy”?
+# Why NumPy?
+
+## What is “NumPy”?
 
 > [The fundamental package for scientific computing with Python.](https://github.com/numpy/numpy)
 

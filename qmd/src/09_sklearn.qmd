@@ -2,7 +2,9 @@
 title: Sklearn 
 ---
 
-# What is Sklearn?{.smaller}
+# Why Sklearn?
+
+## What is Sklearn?{.smaller}
 
 - `Sklearn` or `scikit-learn`, originally conceived as an extension to SciPy.
 

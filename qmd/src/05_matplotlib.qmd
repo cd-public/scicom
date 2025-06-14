@@ -2,7 +2,9 @@
 title: Matplotlib 
 ---
 
-# What's Matplotlib?
+# Why Matplotlib?
+
+## What's Matplotlib?
 
 > [Matplotlib is a comprehensive library for creating static, animated, and interactive visualizations.](https://matplotlib.org/stable/)
 

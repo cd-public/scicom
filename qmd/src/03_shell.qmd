@@ -87,7 +87,7 @@ digraph shell {
 - Instead use:
 	- [Git Bash](https://git-scm.com/downloads/win)
 	  	- Like Python, there is a very important box to check!
-	  	- I provide an [Appendix](A0_gitbash.qmd)
+	  	- I provide an [Appendix](A1_gitbash.qmd)
 
 ## MacOS
 
