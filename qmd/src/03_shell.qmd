@@ -379,7 +379,7 @@ $ cat tax_burden.txt
 
 ## References
 
-- You can see the commands used here in a table reference in an [Appendix](A1_keybinds.qmd)
+- You can see the commands used here in a table reference in an [Appendix](A0_keybinds.qmd)
 - I'll include them here as well!
 
 ## {.smaller}
