@@ -1,3 +1,7 @@
+---
+title: Apendix - GitHub
+---
+
 ```bash
 echo "# for_sc" >> README.md
 git init
@@ -29,6 +33,6 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])?
   - [Make a key.](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
   - [Add key to GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
 
-```
+```bash
 git push -u origin main
 ```

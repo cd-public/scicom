@@ -120,9 +120,13 @@ title: Git
 - The atomic unit of `git` is the "repository" which is basically a file system.
 	- We learned about file systems by navigating around them with the [shell](03_shell.qmd#movement)
 - Like GitHub users, repositories also have names.
+
+## Uniqueness
+
+- Give some thought to naming repositories!
 	- Names must be unique per user, but different users may have the same repository name.
 	- For example, both "pandas-dev" and "cd-public" have a "pandas" repository
-
+		- That is "pandas/pandas-dev" and "cd-public/pandas-dev"
 ## Create New
 
 - To understand better, let's [create a repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-new-repository).
@@ -152,8 +156,16 @@ title: Git
 
 ## Finalize
 
-- You're now ready to click <span style="background-color:#238636;color:white">Create repository</span>.
+- By the way - do *not* initialize with a README.
+  	- Complicates our lives latter!
+- You're now ready to click: <br><span style="background-color:#238636;color:white">Create repository</span>
 - We'll see a new page and return to the command line for more `git`!
+
+## Placing a Pin
+
+- Keep this page open for a little bit latter!
+- We have to set up the repository on our device before we can do anything else!
+  	- This like collaborating with *ourselves* - our GitHub self on the internet
 
 # git
 
@@ -169,7 +181,7 @@ title: Git
 
 - Make and enter directory on your computer!
   - I'd name it the same as the repository, like `hello-world`
-```{.bash code-line-number="false"}
+```{.bash code-line-numbers="false"}
 mkdir hello-world
 cd hello-world
 ```
@@ -179,7 +191,7 @@ cd hello-world
 - Let's make a file to add.
 - Like a "Hello, world!" file.
 - Perhaps
-```{.bash code-line-number="false"}
+```{.bash code-line-numbers="false"}
 nvim hello.py
 ```
 - Then
@@ -193,19 +205,19 @@ print("Hello, world!")
 - We currently have a local directory.
 - To promote it to `git` managed repository, we do:
 
-```{.bash code-line-number="false"}
+```{.bash code-line-numbers="false"}
 git init
 ```
 
 - You can verify it worked by checking:
-```{.bash code-line-number="false"}
+```{.bash code-line-numbers="false"}
 git status 
 ```
 
 ## Status
 
 - I consult status often, yours will likely look like this:
-```{.bash code-line-number="false"}
+```{.bash code-line-numbers="false"}
 On branch master
 
 No commits yet
@@ -224,7 +236,7 @@ nothing added to commit but untracked files present (use "git add" to track)
 - By default, `git` only keeps track of what we tell it to!
 - So, we tell it to track our code!
 
-```{.bash code-line-number="false"}
+```{.bash code-line-numbers="false"}
 git add hello.py
 ```
 
@@ -232,7 +244,7 @@ git add hello.py
 
 - I check status again	
 
-```{.bash code-line-number="false"}
+```{.bash code-line-numbers="false"}
 On branch master
 
 No commits yet
@@ -249,10 +261,17 @@ Changes to be committed:
 	- There are, of course, ways to automate this.
 - This probably won't work at first (next slide!) but try:
 
-```{.bash code-line-number="false"}
-git commit -m "first commit"
+```{.bash code-line-numbers="false"}
+git commit -a -m "first commit"
 ```
+
+## "-a -m"
+
 - Commits require a commit message (like a version name or number) so specify with `-m`
+- Usually I provide `-a` to commit "all" files.
+- I usually make some effort to make my life easier with specific commit messages, perhaps listing:
+	- What I'm trying to do
+	- Why?
 
 ## Config
 
@@ -261,8 +280,268 @@ git commit -m "first commit"
 - You'll be prompted to provide something like this:
   
 
-```{.bash code-line-number="false"}
+```{.bash code-line-numbers="false"}
 git config --global user.email "you@example.com"
 git config --global user.name "Your Name"
 ```
-- Do so, giving a name of your choice. The email isn't usually used, so you can use a fake one.
+
+## My name
+
+- I often include which computer I'm using in my name and also don't use a real email address.
+  	- My GitHub account is already attached to an email address, so I use a throwaway for commits.
+
+```{.bash code-line-numbers="false"}
+git config --global user.email "prof_calvin@scicom.edu"
+git config --global user.name "Calvin for Class"
+```
+
+## Looping Back
+
+- Once you have provided your identity, you can successfuly complete a commit.
+
+```{.bash code-line-numbers="false"}
+git commit -a -m "first commit"
+```
+- This will:
+  	- Mark current code as a version, named by your commit message.
+- This won't:
+  	- Do *anything* to GitHub.
+
+## Branching Out
+
+- As a rule, repositories have *branches*
+	- This was helpful early on when different versions of software had different levels of release readiness or were working on different features.
+- The default branch is usually `main` which we can use for now.
+
+## Branch Command
+
+- The branch command can "list, create, or destroy branches"
+- We mostly need to have our branch on our device have the same name as the branch on GitHub.
+- Rename our brnach with `branch -M` to `main` - the expected name.
+```{.bash code-line-numbers="false"}
+git branch -M main 
+```
+
+# ssh
+
+## Secure Shell
+
+- We know how to deal with a very important topic:
+- *Security*
+- When moving executable code between websites and our system, we have to be careful that it is:
+  	- Not tampered with
+	- Made by who said made it
+
+## Security Concession
+
+- We will use SSH, the "Secure Shell Protocol"
+- It is supported by `git`/GitHub and all major operating systems.
+
+## Keygen
+
+- SSH is based around having "keys"
+  	- Under the hood, these are special numbers with special properties related to primes, basically.
+- We generate a special unique key we can use as a password or signature.
+```{.bash code-line-numbers="false"}
+ssh-keygen
+```
+- More properly we specify: a `-t` key type and a 
+
+## Prompts
+
+- This example uses (1) the default location and (2) no passphrase.
+	- This is less secure but easier to manage.
+	- Work in a passphrase as soon as you can!
+```{.bash code-line-numbers="false"}
+Generating public/private ed25519 key pair.
+Enter file in which to save the key (/home/calvin/.ssh/id_ed25519): 
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /home/calvin/.ssh/id_ed25519
+$ cat ~/.ssh/id_ed25519.pub 
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE5cnx/tgBp8v/LnuHz28evmnRPrnlz3cvYaAAM4G0ik calvin@calvin-Precision-3490
+calvin@calvin-Precis```
+- You now have a key! Let's find a lock.
+
+## GitHub
+
+- The purpose of this exercise is to connect to GitHub!
+- We will mostly use `git` for that, but we can check if we have a connection easily:
+
+```{.bash code-line-numbers="false"}
+ssh -T git@github.com
+```
+- [Read more](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/testing-your-ssh-connection)
+
+## Example
+
+- This is what I see:
+
+```{.bash code-line-numbers="false"}
+The authenticity of host 'github.com (140.82.116.3)' can't be established.
+ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])?
+```
+
+- Before saying "yes" or "no" compare versus the "public SSH key fingerprints"
+	- Check them [here](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints)
+- By default, the modern keygen uses "Ed25519" so compare those keys, and click "yes" if they match!
+
+## Connecting
+
+- After confirming the key correctness, you will likely see this.
+
+```{.bash code-line-numbers="false"}
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added 'github.com' (ED25519) to the list of known hosts.
+git@github.com: Permission denied (publickey).
+```
+
+## One Way
+
+- Now we have instructed *our* computer to trust GitHub.
+- To save our code to GitHub, we must also get GitHub to trust *our* computer.
+- We generated our key, now we must match it to our lock on GitHub!
+
+## GitHub pt 1
+
+- We follow [this guide](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
+- Return to GitHub and in the top right click your profile.
+  	- For me, a picture of myself.
+- Scroll down to "Settings" and click.
+  	- Last in 2nd grouping, for me.
+
+## GitHub pt 2
+
+- Within settings left-side menu click "SSH and GPG keys"
+  	- Middle of 2nd group (Access) for me.
+- Within the center block click <span style="background-color:#238636;color:white">New SSH key</span> in the top right of the block. 
+
+## Prompt
+
+- I get a page "Add new SSH Key".
+- I provide a title (like "For SciCom class" or "Laptop")
+- Now we'll get our key from our system to use.
+- Recall we previously generated a key to the default location, like 
+`/home/calvin/.ssh/id_ed25519`
+	- If you don't remember, just type `ssh-keygen` and it'll show you.
+
+## Copy/Paste
+
+- To get the key for GitHub, we can can 
+  - `cat` that file in the command line
+  - Copy from the command line
+  - Paste into the GitHub "Key" field
+  - Click <span style="background-color:#238636;color:white">Add SSH key</span> 
+
+## SSH Test
+
+- After adding the key to the account, I confirm via SSH like so:
+
+```{.bash code-line-numbers="false"}
+ssh -T git@github.com
+```
+
+- I see the following:
+
+> Hi cd-public! You've successfully authenticated, but GitHub does not provide shell access.
+
+# Push
+
+## Save your work
+
+- My preferred way to save my work, especially when working across multiple team members or devices, is by "pushing" to GitHub.
+- Usually this is only `git push` (after `commit`) but we still have a bit of setup to do.
+
+## Origins
+
+- We want to use `git` to attach our local repository to the GitHub repository.
+- This called "adding a remote origin"
+  	- Remote as in online
+	- Origin as in place to get files from.
+- Our GitHub repository has some SSH name we will need.
+
+## Finding Names
+
+- In your web browser, navigate to your repository page on GitHub.
+- Locate the <span style="background-color:#238636;color:white">\<\> Code</span> button.
+- Click it:
+  	- Select the top "local" tab (for or local repository)
+	- Select the SSH option (for our SSH key)
+	- Copy the name, like 
+> git@github.com:cd-public/hello-world
+
+## Add Remote
+
+- With that name (which is just use GitHub name and repository name), return to the command line and add the *remote origin*.
+
+```{.bash code-line-numbers="false"}
+git remote add origin git@github.com:cd-public/hello-world.git
+```
+
+## Push
+
+- With all that work done, you can simply:
+
+```{.bash code-line-numbers="false"}
+git push
+```
+
+- After a moment and some diagnostic text, you should be able to see your code on GitHub, possibly after refreshing the page!
+
+# Everyday Use
+
+## Easier After
+
+- A lot of what we did, we only have to do once:
+  	- `git config`
+	- `ssh-keygen`
+	- `set origin`
+- Many are special cases:
+  	- Only have to make new repositories for... new repositories (likely projects)
+	- Only have to `git add` for new files.
+
+## Quick Example
+
+- Let's add `bye.py`
+- We'll create a new file at the command line.
+```{.bash code-line-numbers="false"}
+nvim bye.py
+```
+- Add some code...
+```{.python filename="bye.py"}
+print("Bye!")
+```
+
+## Add, Commit, Push
+
+- To get the code onto Github, add to the repo:
+```{.bash code-line-numbers="false"}
+git add bye.py
+```
+- Commit changes to a version:
+
+```{.bash code-line-numbers="false"}
+git commit -a -m "You say hello, I say goodbye"
+```
+
+- Push to GitHub
+
+```{.bash code-line-numbers="false"}
+git push
+```
+
+- And that's that!
+
+## Altogether
+
+- For a single copy/paste
+```{.bash code-line-numbers="false"}
+git add bye.py
+git commit -a -m "You say hello, I say goodbye"
+git push
+```
+
+
+
