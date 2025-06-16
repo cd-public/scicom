@@ -1,0 +1,22 @@
+
+# Markdown
+
+## Documentation
+
+- Previously, we learned about comments.
+  	- Lines in code that do not affect what the code does, but help human users understand it.
+- Often we document repositories with README files.
+  	- *Often* as `README.md`, a "Markdown" file.
+- We introduce Markdown.
+
+## A note
+
+- These slides are written in Markdown.
+- I'll show the Markdown in a left column and how it is shown on the right.
+
+## Text
+
+- The most natural thing to do in a `README.md` is 
+
+## 
+

@@ -13243,7 +13243,7 @@
     "href": "0B_git.html#prompts",
     "title": "Git",
     "section": "Prompts",
-    "text": "Prompts\n\nThis example uses (1) the default location and (2) no passphrase.\n\nThis is less secure but easier to manage.\nWork in a passphrase as soon as you can! {.bash code-line-numbers=\"false\"} Generating public/private ed25519 key pair. Enter file in which to save the key (/home/calvin/.ssh/id_ed25519):  Enter passphrase (empty for no passphrase):  Enter same passphrase again:  Your identification has been saved in /home/calvin/.ssh/id_ed25519 $ cat ~/.ssh/id_ed25519.pub  ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE5cnx/tgBp8v/LnuHz28evmnRPrnlz3cvYaAAM4G0ik calvin@calvin-Precision-3490 calvin@calvin-Precis\n\nYou now have a key! Let’s find a lock.",
+    "text": "Prompts\n\nThis example uses (1) the default location and (2) no passphrase.\n\nThis is less secure but easier to manage.\nWork in a passphrase as soon as you can!\n\n\nGenerating public/private ed25519 key pair.\nEnter file in which to save the key (/home/calvin/.ssh/id_ed25519): \nEnter passphrase (empty for no passphrase): \nEnter same passphrase again: \nYour identification has been saved in /home/calvin/.ssh/id_ed25519\n$ cat ~/.ssh/id_ed25519.pub \nssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE5cnx/tgBp8v/LnuHz28evmnRPrnlz3cvYaAAM4G0ik calvin@calvin-Precision-3490\n\nYou now have a key! Let’s find a lock.",
     "crumbs": [
       "Git"
     ]
@@ -13253,7 +13253,7 @@
     "href": "0B_git.rjs.html#prompts",
     "title": "Git",
     "section": "Prompts",
-    "text": "Prompts\n\nThis example uses (1) the default location and (2) no passphrase.\n\nThis is less secure but easier to manage.\nWork in a passphrase as soon as you can! {.bash code-line-numbers=\"false\"} Generating public/private ed25519 key pair. Enter file in which to save the key (/home/calvin/.ssh/id_ed25519):  Enter passphrase (empty for no passphrase):  Enter same passphrase again:  Your identification has been saved in /home/calvin/.ssh/id_ed25519 $ cat ~/.ssh/id_ed25519.pub  ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE5cnx/tgBp8v/LnuHz28evmnRPrnlz3cvYaAAM4G0ik calvin@calvin-Precision-3490 calvin@calvin-Precis\n\nYou now have a key! Let’s find a lock."
+    "text": "Prompts\n\nThis example uses (1) the default location and (2) no passphrase.\n\nThis is less secure but easier to manage.\nWork in a passphrase as soon as you can!\n\n\nGenerating public/private ed25519 key pair.\nEnter file in which to save the key (/home/calvin/.ssh/id_ed25519): \nEnter passphrase (empty for no passphrase): \nEnter same passphrase again: \nYour identification has been saved in /home/calvin/.ssh/id_ed25519\n$ cat ~/.ssh/id_ed25519.pub \nssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE5cnx/tgBp8v/LnuHz28evmnRPrnlz3cvYaAAM4G0ik calvin@calvin-Precision-3490\n\nYou now have a key! Let’s find a lock."
   },
   {
     "objectID": "0B_git.html#github-1",
@@ -13430,7 +13430,7 @@
     "href": "0B_git.html#ssh-test",
     "title": "Git",
     "section": "SSH Test",
-    "text": "SSH Test\n\nAfter adding the key to the account, I confirm via SSH like so:\n\nssh -T git@github.com\n\nI see the following:\n\n\nHi cd-public! You’ve successfully authenticated, but GitHub does not provide shell access.",
+    "text": "SSH Test\n\nAfter adding the key to the account, I confirm via SSH like so:\n\nssh -T git@github.com\n\nI see the following:\n\nHi cd-public! You've successfully authenticated, but GitHub does not provide shell access.",
     "crumbs": [
       "Git"
     ]
@@ -13440,7 +13440,7 @@
     "href": "0B_git.rjs.html#ssh-test",
     "title": "Git",
     "section": "SSH Test",
-    "text": "SSH Test\n\nAfter adding the key to the account, I confirm via SSH like so:\n\nssh -T git@github.com\n\nI see the following:\n\n\nHi cd-public! You’ve successfully authenticated, but GitHub does not provide shell access."
+    "text": "SSH Test\n\nAfter adding the key to the account, I confirm via SSH like so:\n\nssh -T git@github.com\n\nI see the following:\n\nHi cd-public! You've successfully authenticated, but GitHub does not provide shell access."
   },
   {
     "objectID": "0B_git.html#save-your-work",
@@ -13600,7 +13600,7 @@
     "href": "0B_git.html#altogether",
     "title": "Git",
     "section": "Altogether",
-    "text": "Altogether\n\nFor a single copy/paste\n\ngit add bye.py\ngit commit -a -m \"You say hello, I say goodbye\"\ngit push",
+    "text": "Altogether\n\nFor a single copy/paste\n\ngit add bye.py\ngit commit -a -m \"You say hello, I say goodbye\"\ngit push\n\nIf it works, you’ll see the change on GitHub!",
     "crumbs": [
       "Git"
     ]
@@ -13610,6 +13610,108 @@
     "href": "0B_git.rjs.html#altogether",
     "title": "Git",
     "section": "Altogether",
-    "text": "Altogether\n\nFor a single copy/paste\n\ngit add bye.py\ngit commit -a -m \"You say hello, I say goodbye\"\ngit push"
+    "text": "Altogether\n\nFor a single copy/paste\n\ngit add bye.py\ngit commit -a -m \"You say hello, I say goodbye\"\ngit push\n\nIf it works, you’ll see the change on GitHub!"
+  },
+  {
+    "objectID": "0B_git.html#diagnostics",
+    "href": "0B_git.html#diagnostics",
+    "title": "Git",
+    "section": "Diagnostics",
+    "text": "Diagnostics\n\nFor example, you might see the following:\n\nEnumerating objects: 27, done.\nCounting objects: 100% (27/27), done.\nDelta compression using up to 22 threads\nCompressing objects: 100% (15/15), done.\nWriting objects: 100% (16/16), 98.54 KiB | 2.46 MiB/s, done.\nTotal 16 (delta 11), reused 0 (delta 0), pack-reused 0\nremote: Resolving deltas: 100% (11/11), completed with 10 local objects.\nTo github.com:cd-public/hello-world.git\n   adaa3a7..ba3c794  main -&gt; main",
+    "crumbs": [
+      "Git"
+    ]
+  },
+  {
+    "objectID": "0B_git.rjs.html#diagnostics",
+    "href": "0B_git.rjs.html#diagnostics",
+    "title": "Git",
+    "section": "Diagnostics",
+    "text": "Diagnostics\n\nFor example, you might see the following:\n\nEnumerating objects: 27, done.\nCounting objects: 100% (27/27), done.\nDelta compression using up to 22 threads\nCompressing objects: 100% (15/15), done.\nWriting objects: 100% (16/16), 98.54 KiB | 2.46 MiB/s, done.\nTotal 16 (delta 11), reused 0 (delta 0), pack-reused 0\nremote: Resolving deltas: 100% (11/11), completed with 10 local objects.\nTo github.com:cd-public/hello-world.git\n   adaa3a7..ba3c794  main -&gt; main"
+  },
+  {
+    "objectID": "0B_git.html#again",
+    "href": "0B_git.html#again",
+    "title": "Git",
+    "section": "Again",
+    "text": "Again\n\nPerhaps we wish to be more polite and update saying “Bye!” to saying “Goodbye!”.\n\n\n\nbye.py\n\nprint(\"Goodbye!\")",
+    "crumbs": [
+      "Git"
+    ]
+  },
+  {
+    "objectID": "0B_git.html#no-add",
+    "href": "0B_git.html#no-add",
+    "title": "Git",
+    "section": "No Add",
+    "text": "No Add\n\nDon’t need an add this time!\n\ngit commit -a -m \"Goodbye version\"\ngit push",
+    "crumbs": [
+      "Git"
+    ]
+  },
+  {
+    "objectID": "0B_git.rjs.html#again",
+    "href": "0B_git.rjs.html#again",
+    "title": "Git",
+    "section": "Again",
+    "text": "Again\n\nPerhaps we wish to be more polite and update saying “Bye!” to saying “Goodbye!”.\n\n\n\nbye.py\n\nprint(\"Goodbye!\")"
+  },
+  {
+    "objectID": "0B_git.rjs.html#no-add",
+    "href": "0B_git.rjs.html#no-add",
+    "title": "Git",
+    "section": "No Add",
+    "text": "No Add\n\nDon’t need an add this time!\n\ngit commit -a -m \"Goodbye version\"\ngit push"
+  },
+  {
+    "objectID": "0B_git.html#using-github.com",
+    "href": "0B_git.html#using-github.com",
+    "title": "Git",
+    "section": "Using GitHub.com",
+    "text": "Using GitHub.com\n\nIt is also possible to edit files on GitHub.\n\nThis is the same as a collaborator pushing a change!\n\nIn the repository webpage, click on a file, like hello.py\nMake some edit, like:\n\n\n\nhello.py\n\nprint(\"Hello, remote-to-local!\")",
+    "crumbs": [
+      "Git"
+    ]
+  },
+  {
+    "objectID": "0B_git.html#pulling",
+    "href": "0B_git.html#pulling",
+    "title": "Git",
+    "section": "Pulling",
+    "text": "Pulling\n\nTo get remote changes reflected locally, simply use\n\ngit pull\n\nYou can then run immediately:\n\npython hello.py\n\nAs a rule, it is good to pull often, and especially before a push, if you have a collaborator or use multiple devices.",
+    "crumbs": [
+      "Git"
+    ]
+  },
+  {
+    "objectID": "0B_git.rjs.html#using-github.com",
+    "href": "0B_git.rjs.html#using-github.com",
+    "title": "Git",
+    "section": "Using GitHub.com",
+    "text": "Using GitHub.com\n\nIt is also possible to edit files on GitHub.\n\nThis is the same as a collaborator pushing a change!\n\nIn the repository webpage, click on a file, like hello.py\nMake some edit, like:\n\n\n\nhello.py\n\nprint(\"Hello, remote-to-local!\")"
+  },
+  {
+    "objectID": "0B_git.rjs.html#pulling",
+    "href": "0B_git.rjs.html#pulling",
+    "title": "Git",
+    "section": "Pulling",
+    "text": "Pulling\n\nTo get remote changes reflected locally, simply use\n\ngit pull\n\nYou can then run immediately:\n\npython hello.py\n\nAs a rule, it is good to pull often, and especially before a push, if you have a collaborator or use multiple devices."
+  },
+  {
+    "objectID": "0B_git.html#create-a-class-repo",
+    "href": "0B_git.html#create-a-class-repo",
+    "title": "Git",
+    "section": "Create a class repo",
+    "text": "Create a class repo\n\nCreate a new repository for this class, say “Scientific Computing”",
+    "crumbs": [
+      "Git"
+    ]
+  },
+  {
+    "objectID": "0B_git.rjs.html#create-a-class-repo",
+    "href": "0B_git.rjs.html#create-a-class-repo",
+    "title": "Git",
+    "section": "Create a class repo",
+    "text": "Create a class repo\n\nCreate a new repository for this class, say “Scientific Computing”"
   }
 ]

@@ -352,6 +352,7 @@ ssh-keygen
 - This example uses (1) the default location and (2) no passphrase.
 	- This is less secure but easier to manage.
 	- Work in a passphrase as soon as you can!
+
 ```{.bash code-line-numbers="false"}
 Generating public/private ed25519 key pair.
 Enter file in which to save the key (/home/calvin/.ssh/id_ed25519): 
@@ -360,7 +361,8 @@ Enter same passphrase again:
 Your identification has been saved in /home/calvin/.ssh/id_ed25519
 $ cat ~/.ssh/id_ed25519.pub 
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE5cnx/tgBp8v/LnuHz28evmnRPrnlz3cvYaAAM4G0ik calvin@calvin-Precision-3490
-calvin@calvin-Precis```
+```
+
 - You now have a key! Let's find a lock.
 
 ## GitHub
@@ -445,7 +447,9 @@ ssh -T git@github.com
 
 - I see the following:
 
-> Hi cd-public! You've successfully authenticated, but GitHub does not provide shell access.
+```{.bash code-line-numbers="false"}
+Hi cd-public! You've successfully authenticated, but GitHub does not provide shell access.
+```
 
 # Push
 
@@ -489,6 +493,22 @@ git push
 ```
 
 - After a moment and some diagnostic text, you should be able to see your code on GitHub, possibly after refreshing the page!
+
+## Diagnostics
+
+- For example, you might see the following:
+
+```{.bash code-line-numbers="false"}
+Enumerating objects: 27, done.
+Counting objects: 100% (27/27), done.
+Delta compression using up to 22 threads
+Compressing objects: 100% (15/15), done.
+Writing objects: 100% (16/16), 98.54 KiB | 2.46 MiB/s, done.
+Total 16 (delta 11), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (11/11), completed with 10 local objects.
+To github.com:cd-public/hello-world.git
+   adaa3a7..ba3c794  main -> main
+```
 
 # Everyday Use
 
@@ -543,5 +563,51 @@ git commit -a -m "You say hello, I say goodbye"
 git push
 ```
 
+- If it works, you'll see the change on GitHub!
 
 
+## Again
+
+- Perhaps we wish to be more polite and update saying "Bye!" to saying "Goodbye!".
+```{.python filename="bye.py"}
+print("Goodbye!")
+```
+
+## No Add
+
+- Don't need an add this time!
+
+```{.bash code-line-numbers="false"}
+git commit -a -m "Goodbye version"
+git push
+```
+
+## Using GitHub.com
+
+- It is also possible to edit files on GitHub.
+  	- This is the same as a collaborator pushing a change!
+- In the repository webpage, click on a file, like `hello.py`
+- Make some edit, like:
+```{.python filename="hello.py"}
+print("Hello, remote-to-local!")
+```
+
+## Pulling
+
+- To get remote changes reflected locally, simply use
+```{.bash code-line-numbers="false"}
+git pull
+```
+- You can then run immediately:
+
+```{.bash code-line-numbers="false"}
+python hello.py
+```
+- As a rule, it is good to pull often, and especially before a `push`, if you have a collaborator or use multiple devices.
+
+# Exercise
+
+## Create a class repo
+
+- Create a new repository for this class, say "Scientific Computing"
+- 
