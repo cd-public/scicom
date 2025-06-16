@@ -72,8 +72,6 @@ title: Git
 - Use "GitHub" to:
 	- Store the work of `git` online
 	- Document our code with Markdown
-- Use "Markdown to:
-  	- Create clear, formatted summaries of our code.
 
 # GitHub
 
@@ -97,8 +95,8 @@ title: Git
 
 ## Signing Up
 
-1. Navigate to https://github.com/.
-1. Click **Sign up**.
+1. Navigate to [GitHub.com](https://github.com/).
+1. Click <span style="background-color:#238636;color:white">Sign up for GitHub</span>
 1. Follow the prompts to create your personal account.
 
 ## Verify
@@ -127,6 +125,8 @@ title: Git
 	- Names must be unique per user, but different users may have the same repository name.
 	- For example, both "pandas-dev" and "cd-public" have a "pandas" repository
 		- That is "pandas/pandas-dev" and "cd-public/pandas-dev"
+
+
 ## Create New
 
 - To understand better, let's [create a repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-new-repository).
@@ -231,7 +231,7 @@ nothing added to commit but untracked files present (use "git add" to track)
 
 ## Add
 
-- The first thing we not is that there are "Untracked files"
+- The first thing we note is that there are "Untracked files"
 - While we made a `hello.py` and have it in our `hello-world` directory, it isn't yet "tracked" by `git`!
 - By default, `git` only keeps track of what we tell it to!
 - So, we tell it to track our code!
@@ -256,7 +256,7 @@ Changes to be committed:
 
 ## Commit
 
-- With `git` now aware of `hello.py`, we need to commit or changes for `git` to save them.
+- With `git` now aware of `hello.py`, we need to commit our changes for `git` to save them.
   	- Similar to saving files to the file system.
 	- There are, of course, ways to automate this.
 - This probably won't work at first (next slide!) but try:
@@ -345,7 +345,6 @@ git branch -M main
 ```{.bash code-line-numbers="false"}
 ssh-keygen
 ```
-- More properly we specify: a `-t` key type and a 
 
 ## Prompts
 
@@ -359,8 +358,6 @@ Enter file in which to save the key (/home/calvin/.ssh/id_ed25519):
 Enter passphrase (empty for no passphrase): 
 Enter same passphrase again: 
 Your identification has been saved in /home/calvin/.ssh/id_ed25519
-$ cat ~/.ssh/id_ed25519.pub 
-ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE5cnx/tgBp8v/LnuHz28evmnRPrnlz3cvYaAAM4G0ik calvin@calvin-Precision-3490
 ```
 
 - You now have a key! Let's find a lock.
@@ -409,7 +406,7 @@ git@github.com: Permission denied (publickey).
 ## GitHub pt 1
 
 - We follow [this guide](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
-- Return to GitHub and in the top right click your profile.
+- Return to GitHub and in the top right click your profile picture/avatar.
   	- For me, a picture of myself.
 - Scroll down to "Settings" and click.
   	- Last in 2nd grouping, for me.
@@ -469,11 +466,22 @@ Hi cd-public! You've successfully authenticated, but GitHub does not provide she
 ## Finding Names
 
 - In your web browser, navigate to your repository page on GitHub.
-- Locate the <span style="background-color:#238636;color:white">\<\> Code</span> button.
+  	- This is where we said ["place a pin"](0B_git.qmd#placing-a-pin)
+- Locate the "Quick setup — if you’ve done this kind of thing before" heading.
+  	- Select the "SSH" option.
+	- Copy the address.
+
+> git@github.com:cd-public/hello-world
+
+## Or, existing repositories.
+
+
+- Find the <span style="background-color:#238636;color:white">\<\> Code</span> button in the top right.
 - Click it:
   	- Select the top "local" tab (for or local repository)
 	- Select the SSH option (for our SSH key)
 	- Copy the name, like 
+
 > git@github.com:cd-public/hello-world
 
 ## Add Remote
@@ -489,7 +497,7 @@ git remote add origin git@github.com:cd-public/hello-world.git
 - With all that work done, you can simply:
 
 ```{.bash code-line-numbers="false"}
-git push
+git push -u origin main
 ```
 
 - After a moment and some diagnostic text, you should be able to see your code on GitHub, possibly after refreshing the page!
@@ -587,14 +595,24 @@ git push
 - It is also possible to edit files on GitHub.
   	- This is the same as a collaborator pushing a change!
 - In the repository webpage, click on a file, like `hello.py`
+- This should take you to a page with a central text window showing the text in the file `hello.py`
+- Click, for lack of a better word, the pencil icon on the top right of the text window.
+	- ✏️ 
+
+## Editing files
+
+- Click the "pencil"  ✏️ top right of the text.
 - Make some edit, like:
 ```{.python filename="hello.py"}
 print("Hello, remote-to-local!")
 ```
+- Click <span style="background-color:#238636;color:white">Commit changes...</span> in the top right. 
+- In the pop-up, write commit message a la `git commit -m` then click <span style="background-color:#238636;color:white">Commit changes</span> 
+
 
 ## Pulling
 
-- To get remote changes reflected locally, simply use
+- To get *remote* changes reflected *locally*, simply use
 ```{.bash code-line-numbers="false"}
 git pull
 ```
@@ -607,7 +625,16 @@ python hello.py
 
 # Exercise
 
-## Create a class repo
+## Exercise
 
 - Create a new repository for this class, say "Scientific Computing"
-- 
+- I named mine "scicom" (shorter to type!)
+- Create file `tax.py`.
+- For each of the Python, Neovim, Shell, and NumPy versions of the tax problem:
+	- Save the solution as `tax.py`
+	- Commit with a descriptive message.
+
+## Solution
+
+- Here is an [example repository](https://github.com/cd-example/tax) with a `tax.py`
+- Here is the [page showing the version history](https://github.com/cd-example/tax/commits/main/).

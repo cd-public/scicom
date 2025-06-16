@@ -63,351 +63,147 @@
     "text": "Scientific Publishing\n\nCreate professional scientific documents and presentations using markup languages and tools such as Markdown, HTML/CSS, LaTeX, Quarto, Typst, and Sphinx."
   },
   {
-    "objectID": "A1_gitbash.html#scientific-computing-on-windows",
-    "href": "A1_gitbash.html#scientific-computing-on-windows",
+    "objectID": "A0_keybinds.html#python",
+    "href": "A0_keybinds.html#python",
     "title": "",
-    "section": "Scientific Computing on Windows",
-    "text": "Scientific Computing on Windows\n\nBash is a nearly universally standard for command line usage.\nWindows built-in cmd.exe and PowerShell are necessary for Windows to run properly, but rarely used in a computing context.\nGit, an extremely popular command line utility used in bash, provides “Git Bash” for Windows users to have access to bash scripting.",
+    "section": "Python",
+    "text": "Python\n\nPython can be used within the Python prompt, prefixed with &gt;&gt;&gt;, or via .py files.\nPython is used to conduct computations.\nVersus a calculator, it supports arithmetic, comparisons, code reuse, and repeated actions.",
     "crumbs": [
-      "Appendix - Git Bash"
+      "Appendix - Commands"
     ]
   },
   {
-    "objectID": "A1_gitbash.html#why-git-bash",
-    "href": "A1_gitbash.html#why-git-bash",
+    "objectID": "A0_keybinds.html#section",
+    "href": "A0_keybinds.html#section",
     "title": "",
-    "section": "Why Git Bash?",
-    "text": "Why Git Bash?\n\nIt’s relatively easy to setup and integrates well with Windows.",
+    "section": "",
+    "text": "\\[\nf(x) =\n\\begin{cases}\n  9x^2 + 5 & x &lt; 4 \\\\\n  9 & 4 \\leq x \\leq 8 \\\\\n  2 - x & x &gt; 8\n\\end{cases}\n\\]\n\n\ndef f(x):\n    if (x &lt; 4):\n        return 9 * x ** 2 + 5\n    elif (4 &lt;= x &lt;= 8):\n        return 9\n    elif (x &gt; 8):\n        return 2 - x",
     "crumbs": [
-      "Appendix - Git Bash"
+      "Appendix - Commands"
     ]
   },
   {
-    "objectID": "A1_gitbash.html#why-not-git-bash",
-    "href": "A1_gitbash.html#why-not-git-bash",
+    "objectID": "A0_keybinds.html#section-1",
+    "href": "A0_keybinds.html#section-1",
     "title": "",
-    "section": "Why not Git Bash?",
-    "text": "Why not Git Bash?\n\nWindows Subsystem for Linux (WSL) is better in every way except that beginning users often struggle to keep track of where files are.\nIt is also a bit harder to install.\nIf at all possible, use WSL by following that tutorial.",
+    "section": "",
+    "text": "Find \\(f(x)\\) for each of the following \\(x\\) values: \\[\n\\{-1, 4, 5, 8, 11\\}\n\\]\n\n\n\nresult = []\nfor x in [-1, 4, 5, 8, 11]:\n    result = result + [f(x)]\nresult\n\n[14, 9, 9, 9, -9]",
     "crumbs": [
-      "Appendix - Git Bash"
+      "Appendix - Commands"
     ]
   },
   {
-    "objectID": "A1_gitbash.html#requirements",
-    "href": "A1_gitbash.html#requirements",
+    "objectID": "A0_keybinds.html#neovim",
+    "href": "A0_keybinds.html#neovim",
     "title": "",
-    "section": "Requirements",
-    "text": "Requirements\n\nYou may have it already, but download Window Terminal from the Microsoft Store.\nDownload (but do not yet install) Git for Windows from Git SCM.",
+    "section": "Neovim",
+    "text": "Neovim\n\nUse nvim to access a modal text editor.\nIn i or insert mode, is like other editors.\nOutside i there’s “motions”, “operators”, “commands”\n\n“Motions” move the cursor - where you would type in i mode\n“Operators” manipulate text - add, delete, yank (copy), paste\n“Commands” load and save files and exit Neovim.",
     "crumbs": [
-      "Appendix - Git Bash"
+      "Appendix - Commands"
     ]
   },
   {
-    "objectID": "A1_gitbash.html#installing-git",
-    "href": "A1_gitbash.html#installing-git",
+    "objectID": "A0_keybinds.html#section-2",
+    "href": "A0_keybinds.html#section-2",
     "title": "",
-    "section": "Installing Git",
-    "text": "Installing Git\n\nWe will install git, perhaps the most used command line utility, and bash at the same time.\nWe will go step-by-step through the “Git for Windows” installer to do so.",
+    "section": "",
+    "text": "Motion\nMovement\n\n\n\n\nh\nleft one character\n\n\nj\ndown one line\n\n\nk\nup one line\n\n\nl\nright one character\n\n\n0\nbeginning of line\n\n\n$\nend of line\n\n\n/search_term\ngo to next occurance of “search_term”\n\n\ne\nend of word\n\n\nb\nbeginning of word",
     "crumbs": [
-      "Appendix - Git Bash"
+      "Appendix - Commands"
     ]
   },
   {
-    "objectID": "A1_gitbash.html#accept-license",
-    "href": "A1_gitbash.html#accept-license",
+    "objectID": "A0_keybinds.html#section-3",
+    "href": "A0_keybinds.html#section-3",
     "title": "",
-    "section": "1. Accept License",
-    "text": "1. Accept License\n\nWhen you open “Git for Windows” you will be prompted to accept the “GNU General Public License”\nThis license is what ensures “Git for Windows” is free.\nYou may read it, but it is well studied and trustworthy.\nI click “Next” to move on.",
+    "section": "",
+    "text": "Operator\nAction\n\n\n\n\ni\ninsert text\n\n\nr\nreplace character\n\n\nd\ndelete text, combined with a motion\n\n\ny\nyank text, combined with a motion\n\n\np\npaste yanked text\n\n\n\n\n\n\n\n\n\nCommand\nAction\n\n\n\n\n:saveas file.txt\nsave text as “file.txt”\n\n\n:w\nsave file\n\n\n:x\nsave and exit\n\n\n:q!\nexit without saving\n\n\n\n\nBash\n\nBash commands are used folder-relative.\nBash is used within a terminal and is the default terminal environment.\nTo get bash running:\n\nWindows: Check Appendix - Git Bash\nMacOS: Spotlight menu -&gt; “Terminal” (zsh, but close enough)\n\nMostly used to navigate the file system, organize files, launch programs like Python and Neovim\n\n\n\n\n\n\nCommand\nAction\n\n\n\n\nls\nlist files in folder\n\n\nrm f.txt\ndelete file “f.txt”\n\n\nmkdir dir\ncreate a new folder named “dir”\n\n\nmv f.txt dir\nmove file “f.txt” to folder “dir”\n\n\npwd\nprint current folder\n\n\ncd dir\nchange current folder to “dir”\n\n\ncd ..\ngo to “parent” folder\n\n\necho hi\nprint the text “hi”\n\n\necho hi &gt;f.txt\nwrite “hi” to file “f.txt”\n\n\ncat f.txt\nsee the text in f.txt",
     "crumbs": [
-      "Appendix - Git Bash"
+      "Appendix - Commands"
     ]
   },
   {
-    "objectID": "A1_gitbash.html#select-components",
-    "href": "A1_gitbash.html#select-components",
+    "objectID": "A0_keybinds.html#bash",
+    "href": "A0_keybinds.html#bash",
     "title": "",
-    "section": "2. Select Components",
-    "text": "2. Select Components\n\n\n\n\n\n\nThis is critical\n\n\n\nYou must select “Add a Git Bash Profile to Windows Terminal”\n\n\n\nThis box let’s us use bash directly on Windows!\nProbably no other boxes affect you, but I like “Windows Explorer integration -&gt; Open Git Bash here” which I use often.",
+    "section": "Bash",
+    "text": "Bash\n\nBash commands are used folder-relative.\nBash is used within a terminal and is the default terminal environment.\nTo get bash running:\n\nWindows: Check Appendix - Git Bash\nMacOS: Spotlight menu -&gt; “Terminal” (zsh, but close enough)\n\nMostly used to navigate the file system, organize files, launch programs like Python and Neovim",
     "crumbs": [
-      "Appendix - Git Bash"
+      "Appendix - Commands"
     ]
   },
   {
-    "objectID": "A1_gitbash.html#default-editor",
-    "href": "A1_gitbash.html#default-editor",
+    "objectID": "A0_keybinds.html#section-4",
+    "href": "A0_keybinds.html#section-4",
     "title": "",
-    "section": "3. Default Editor",
-    "text": "3. Default Editor\n\nWhile not required, I configure Neovim to be my default editor.\nIt is quite likely that you do this by:\n\nSelecting “Select other editor as Git’s default editor”\nBrowsing to “C:Files”\nSelecting “nvim.exe”\n\nI find this much nicer than any alternative.\n\nNext best is probably Notepad++",
+    "section": "",
+    "text": "Command\nAction\n\n\n\n\nls\nlist files in folder\n\n\nrm f.txt\ndelete file “f.txt”\n\n\nmkdir dir\ncreate a new folder named “dir”\n\n\nmv f.txt dir\nmove file “f.txt” to folder “dir”\n\n\npwd\nprint current folder\n\n\ncd dir\nchange current folder to “dir”\n\n\ncd ..\ngo to “parent” folder\n\n\necho hi\nprint the text “hi”\n\n\necho hi &gt;f.txt\nwrite “hi” to file “f.txt”\n\n\ncat f.txt\nsee the text in f.txt",
     "crumbs": [
-      "Appendix - Git Bash"
+      "Appendix - Commands"
     ]
   },
   {
-    "objectID": "A1_gitbash.html#aside",
-    "href": "A1_gitbash.html#aside",
-    "title": "",
-    "section": "Aside",
-    "text": "Aside\n\nI leave everything else on defaults.",
-    "crumbs": [
-      "Appendix - Git Bash"
-    ]
-  },
-  {
-    "objectID": "A1_gitbash.html#initial-branch",
-    "href": "A1_gitbash.html#initial-branch",
-    "title": "",
-    "section": "4. Initial Branch",
-    "text": "4. Initial Branch\n\nThis is out of scope for now.\n“Let Git decide” is fine.\n\n\n\n\n\n\n\nNote\n\n\n\nThe language we use to describe computing matters, and GitHub is working to make their language more accurate, precise, and inclusive. Read more",
-    "crumbs": [
-      "Appendix - Git Bash"
-    ]
-  },
-  {
-    "objectID": "A1_gitbash.html#ssh-executable",
-    "href": "A1_gitbash.html#ssh-executable",
-    "title": "",
-    "section": "5. SSH executable",
-    "text": "5. SSH executable\n\nWe’ll cover SSH in more depth latter.\nI leave as default “Use bundled OpenSSH”",
-    "crumbs": [
-      "Appendix - Git Bash"
-    ]
-  },
-  {
-    "objectID": "A1_gitbash.html#openssl-library",
-    "href": "A1_gitbash.html#openssl-library",
-    "title": "",
-    "section": "6. OpenSSL library",
-    "text": "6. OpenSSL library\n\nI leave as default “Use the OpenSSL library”\nI cover OpenSSL in a bit more detail in cryptography courses.",
-    "crumbs": [
-      "Appendix - Git Bash"
-    ]
-  },
-  {
-    "objectID": "A1_gitbash.html#line-endings",
-    "href": "A1_gitbash.html#line-endings",
-    "title": "",
-    "section": "7. Line Endings",
-    "text": "7. Line Endings\n\nVersus MacOS, Windows notes the end of lines of text in a novel way.\nI almost always find this annoying!\nI “Checkout as-is, commit Unix-style line encodings”\nWhy? I don’t like that Windows doesn’t follow standards.\nThis doesn’t really matter.",
-    "crumbs": [
-      "Appendix - Git Bash"
-    ]
-  },
-  {
-    "objectID": "A1_gitbash.html#terminal-emulator",
-    "href": "A1_gitbash.html#terminal-emulator",
-    "title": "",
-    "section": "8. Terminal Emulator",
-    "text": "8. Terminal Emulator\n\nWe will use Windows Terminal regardless.\n\nI select “Use Windows’ default console window” - which is not Windows Terminal - but is expected to become Windows Terminal someday.\nWindows is confusing!",
-    "crumbs": [
-      "Appendix - Git Bash"
-    ]
-  },
-  {
-    "objectID": "A1_gitbash.html#git-pull",
-    "href": "A1_gitbash.html#git-pull",
-    "title": "",
-    "section": "9. git pull",
-    "text": "9. git pull\n\nI leave the default “Fast-forward or merge”\nBy the time this matters to you, you will know how to not use defaults.",
-    "crumbs": [
-      "Appendix - Git Bash"
-    ]
-  },
-  {
-    "objectID": "A1_gitbash.html#credential-helper",
-    "href": "A1_gitbash.html#credential-helper",
-    "title": "",
-    "section": "10. Credential Helper",
-    "text": "10. Credential Helper\n\n\n\n\n\n\nThis is critical\n\n\n\nYou must select “Git Credential Manager”\n\n\n\nIt is otherwise quite difficult to manage passwords when we get there.",
-    "crumbs": [
-      "Appendix - Git Bash"
-    ]
-  },
-  {
-    "objectID": "A1_gitbash.html#extra-options",
-    "href": "A1_gitbash.html#extra-options",
-    "title": "",
-    "section": "11. Extra Options",
-    "text": "11. Extra Options\n\nI do use “Enable file system caching” but I don’t know that I would recommend it.\nNo options is fine here!",
-    "crumbs": [
-      "Appendix - Git Bash"
-    ]
-  },
-  {
-    "objectID": "A1_gitbash.html#finishing-up",
-    "href": "A1_gitbash.html#finishing-up",
-    "title": "",
-    "section": "Finishing up",
-    "text": "Finishing up\n\nAt this time, you may need to close any terminal windows you have open.\nSave your work (:w) first!",
-    "crumbs": [
-      "Appendix - Git Bash"
-    ]
-  },
-  {
-    "objectID": "A1_gitbash.html#install",
-    "href": "A1_gitbash.html#install",
-    "title": "",
-    "section": "Install",
-    "text": "Install\n\nYou should get an install progress bar.",
-    "crumbs": [
-      "Appendix - Git Bash"
-    ]
-  },
-  {
-    "objectID": "A1_gitbash.html#completion",
-    "href": "A1_gitbash.html#completion",
-    "title": "",
-    "section": "Completion",
-    "text": "Completion\n\nI uncheck both boxes and close the installer.\nI open Windows Terminal and click the downward facing arrow button next to the “plus” symbol button after my last tab.\nI select “Git Bash”\nI try ls\n\nYou should see multiple filenames per line and no other information (Bash ls).\nIf you see dates and times, it is still Windows PowerShell.\n\nGo over these instructions again, or ask for help!",
-    "crumbs": [
-      "Appendix - Git Bash"
-    ]
-  },
-  {
-    "objectID": "A1_gitbash.rjs.html#scientific-computing-on-windows",
-    "href": "A1_gitbash.rjs.html#scientific-computing-on-windows",
+    "objectID": "A0_keybinds.rjs.html#python",
+    "href": "A0_keybinds.rjs.html#python",
     "title": "Scientific Computing",
-    "section": "Scientific Computing on Windows",
-    "text": "Scientific Computing on Windows\n\nBash is a nearly universally standard for command line usage.\nWindows built-in cmd.exe and PowerShell are necessary for Windows to run properly, but rarely used in a computing context.\nGit, an extremely popular command line utility used in bash, provides “Git Bash” for Windows users to have access to bash scripting."
+    "section": "Python",
+    "text": "Python\n\nPython can be used within the Python prompt, prefixed with &gt;&gt;&gt;, or via .py files.\nPython is used to conduct computations.\nVersus a calculator, it supports arithmetic, comparisons, code reuse, and repeated actions."
   },
   {
-    "objectID": "A1_gitbash.rjs.html#why-git-bash",
-    "href": "A1_gitbash.rjs.html#why-git-bash",
+    "objectID": "A0_keybinds.rjs.html#section",
+    "href": "A0_keybinds.rjs.html#section",
     "title": "Scientific Computing",
-    "section": "Why Git Bash?",
-    "text": "Why Git Bash?\n\nIt’s relatively easy to setup and integrates well with Windows."
+    "section": "",
+    "text": "\\[\nf(x) =\n\\begin{cases}\n  9x^2 + 5 & x &lt; 4 \\\\\n  9 & 4 \\leq x \\leq 8 \\\\\n  2 - x & x &gt; 8\n\\end{cases}\n\\]\n\n\ndef f(x):\n    if (x &lt; 4):\n        return 9 * x ** 2 + 5\n    elif (4 &lt;= x &lt;= 8):\n        return 9\n    elif (x &gt; 8):\n        return 2 - x"
   },
   {
-    "objectID": "A1_gitbash.rjs.html#why-not-git-bash",
-    "href": "A1_gitbash.rjs.html#why-not-git-bash",
+    "objectID": "A0_keybinds.rjs.html#section-1",
+    "href": "A0_keybinds.rjs.html#section-1",
     "title": "Scientific Computing",
-    "section": "Why not Git Bash?",
-    "text": "Why not Git Bash?\n\nWindows Subsystem for Linux (WSL) is better in every way except that beginning users often struggle to keep track of where files are.\nIt is also a bit harder to install.\nIf at all possible, use WSL by following that tutorial."
+    "section": "",
+    "text": "Find \\(f(x)\\) for each of the following \\(x\\) values: \\[\n\\{-1, 4, 5, 8, 11\\}\n\\]\n\n\n\nresult = []\nfor x in [-1, 4, 5, 8, 11]:\n    result = result + [f(x)]\nresult\n\n[14, 9, 9, 9, -9]"
   },
   {
-    "objectID": "A1_gitbash.rjs.html#requirements",
-    "href": "A1_gitbash.rjs.html#requirements",
+    "objectID": "A0_keybinds.rjs.html#neovim",
+    "href": "A0_keybinds.rjs.html#neovim",
     "title": "Scientific Computing",
-    "section": "Requirements",
-    "text": "Requirements\n\nYou may have it already, but download Window Terminal from the Microsoft Store.\nDownload (but do not yet install) Git for Windows from Git SCM."
+    "section": "Neovim",
+    "text": "Neovim\n\nUse nvim to access a modal text editor.\nIn i or insert mode, is like other editors.\nOutside i there’s “motions”, “operators”, “commands”\n\n“Motions” move the cursor - where you would type in i mode\n“Operators” manipulate text - add, delete, yank (copy), paste\n“Commands” load and save files and exit Neovim."
   },
   {
-    "objectID": "A1_gitbash.rjs.html#installing-git",
-    "href": "A1_gitbash.rjs.html#installing-git",
+    "objectID": "A0_keybinds.rjs.html#section-2",
+    "href": "A0_keybinds.rjs.html#section-2",
     "title": "Scientific Computing",
-    "section": "Installing Git",
-    "text": "Installing Git\n\nWe will install git, perhaps the most used command line utility, and bash at the same time.\nWe will go step-by-step through the “Git for Windows” installer to do so."
+    "section": "",
+    "text": "Motion\nMovement\n\n\n\n\nh\nleft one character\n\n\nj\ndown one line\n\n\nk\nup one line\n\n\nl\nright one character\n\n\n0\nbeginning of line\n\n\n$\nend of line\n\n\n/search_term\ngo to next occurance of “search_term”\n\n\ne\nend of word\n\n\nb\nbeginning of word"
   },
   {
-    "objectID": "A1_gitbash.rjs.html#accept-license",
-    "href": "A1_gitbash.rjs.html#accept-license",
+    "objectID": "A0_keybinds.rjs.html#section-3",
+    "href": "A0_keybinds.rjs.html#section-3",
     "title": "Scientific Computing",
-    "section": "1. Accept License",
-    "text": "1. Accept License\n\nWhen you open “Git for Windows” you will be prompted to accept the “GNU General Public License”\nThis license is what ensures “Git for Windows” is free.\nYou may read it, but it is well studied and trustworthy.\nI click “Next” to move on."
+    "section": "",
+    "text": "Operator\nAction\n\n\n\n\ni\ninsert text\n\n\nr\nreplace character\n\n\nd\ndelete text, combined with a motion\n\n\ny\nyank text, combined with a motion\n\n\np\npaste yanked text\n\n\n\n\n\n\n\n\n\nCommand\nAction\n\n\n\n\n:saveas file.txt\nsave text as “file.txt”\n\n\n:w\nsave file\n\n\n:x\nsave and exit\n\n\n:q!\nexit without saving\n\n\n\n\nBash\n\nBash commands are used folder-relative.\nBash is used within a terminal and is the default terminal environment.\nTo get bash running:\n\nWindows: Check Appendix - Git Bash\nMacOS: Spotlight menu -&gt; “Terminal” (zsh, but close enough)\n\nMostly used to navigate the file system, organize files, launch programs like Python and Neovim\n\n\n\n\n\n\nCommand\nAction\n\n\n\n\nls\nlist files in folder\n\n\nrm f.txt\ndelete file “f.txt”\n\n\nmkdir dir\ncreate a new folder named “dir”\n\n\nmv f.txt dir\nmove file “f.txt” to folder “dir”\n\n\npwd\nprint current folder\n\n\ncd dir\nchange current folder to “dir”\n\n\ncd ..\ngo to “parent” folder\n\n\necho hi\nprint the text “hi”\n\n\necho hi &gt;f.txt\nwrite “hi” to file “f.txt”\n\n\ncat f.txt\nsee the text in f.txt"
   },
   {
-    "objectID": "A1_gitbash.rjs.html#select-components",
-    "href": "A1_gitbash.rjs.html#select-components",
+    "objectID": "A0_keybinds.rjs.html#bash",
+    "href": "A0_keybinds.rjs.html#bash",
     "title": "Scientific Computing",
-    "section": "2. Select Components",
-    "text": "2. Select Components\n\n\n\n\n\n\nThis is critical\n\n\nYou must select “Add a Git Bash Profile to Windows Terminal”\n\n\n\n\nThis box let’s us use bash directly on Windows!\nProbably no other boxes affect you, but I like “Windows Explorer integration -&gt; Open Git Bash here” which I use often."
+    "section": "Bash",
+    "text": "Bash\n\nBash commands are used folder-relative.\nBash is used within a terminal and is the default terminal environment.\nTo get bash running:\n\nWindows: Check Appendix - Git Bash\nMacOS: Spotlight menu -&gt; “Terminal” (zsh, but close enough)\n\nMostly used to navigate the file system, organize files, launch programs like Python and Neovim"
   },
   {
-    "objectID": "A1_gitbash.rjs.html#default-editor",
-    "href": "A1_gitbash.rjs.html#default-editor",
+    "objectID": "A0_keybinds.rjs.html#section-4",
+    "href": "A0_keybinds.rjs.html#section-4",
     "title": "Scientific Computing",
-    "section": "3. Default Editor",
-    "text": "3. Default Editor\n\nWhile not required, I configure Neovim to be my default editor.\nIt is quite likely that you do this by:\n\nSelecting “Select other editor as Git’s default editor”\nBrowsing to “C:Files”\nSelecting “nvim.exe”\n\nI find this much nicer than any alternative.\n\nNext best is probably Notepad++"
-  },
-  {
-    "objectID": "A1_gitbash.rjs.html#aside",
-    "href": "A1_gitbash.rjs.html#aside",
-    "title": "Scientific Computing",
-    "section": "Aside",
-    "text": "Aside\n\nI leave everything else on defaults."
-  },
-  {
-    "objectID": "A1_gitbash.rjs.html#initial-branch",
-    "href": "A1_gitbash.rjs.html#initial-branch",
-    "title": "Scientific Computing",
-    "section": "4. Initial Branch",
-    "text": "4. Initial Branch\n\nThis is out of scope for now.\n“Let Git decide” is fine.\n\n\n\n\n\n\n\nNote\n\n\nThe language we use to describe computing matters, and GitHub is working to make their language more accurate, precise, and inclusive. Read more"
-  },
-  {
-    "objectID": "A1_gitbash.rjs.html#ssh-executable",
-    "href": "A1_gitbash.rjs.html#ssh-executable",
-    "title": "Scientific Computing",
-    "section": "5. SSH executable",
-    "text": "5. SSH executable\n\nWe’ll cover SSH in more depth latter.\nI leave as default “Use bundled OpenSSH”"
-  },
-  {
-    "objectID": "A1_gitbash.rjs.html#openssl-library",
-    "href": "A1_gitbash.rjs.html#openssl-library",
-    "title": "Scientific Computing",
-    "section": "6. OpenSSL library",
-    "text": "6. OpenSSL library\n\nI leave as default “Use the OpenSSL library”\nI cover OpenSSL in a bit more detail in cryptography courses."
-  },
-  {
-    "objectID": "A1_gitbash.rjs.html#line-endings",
-    "href": "A1_gitbash.rjs.html#line-endings",
-    "title": "Scientific Computing",
-    "section": "7. Line Endings",
-    "text": "7. Line Endings\n\nVersus MacOS, Windows notes the end of lines of text in a novel way.\nI almost always find this annoying!\nI “Checkout as-is, commit Unix-style line encodings”\nWhy? I don’t like that Windows doesn’t follow standards.\nThis doesn’t really matter."
-  },
-  {
-    "objectID": "A1_gitbash.rjs.html#terminal-emulator",
-    "href": "A1_gitbash.rjs.html#terminal-emulator",
-    "title": "Scientific Computing",
-    "section": "8. Terminal Emulator",
-    "text": "8. Terminal Emulator\n\nWe will use Windows Terminal regardless.\n\nI select “Use Windows’ default console window” - which is not Windows Terminal - but is expected to become Windows Terminal someday.\nWindows is confusing!"
-  },
-  {
-    "objectID": "A1_gitbash.rjs.html#git-pull",
-    "href": "A1_gitbash.rjs.html#git-pull",
-    "title": "Scientific Computing",
-    "section": "9. git pull",
-    "text": "9. git pull\n\nI leave the default “Fast-forward or merge”\nBy the time this matters to you, you will know how to not use defaults."
-  },
-  {
-    "objectID": "A1_gitbash.rjs.html#credential-helper",
-    "href": "A1_gitbash.rjs.html#credential-helper",
-    "title": "Scientific Computing",
-    "section": "10. Credential Helper",
-    "text": "10. Credential Helper\n\n\n\n\n\n\nThis is critical\n\n\nYou must select “Git Credential Manager”\n\n\n\n\nIt is otherwise quite difficult to manage passwords when we get there."
-  },
-  {
-    "objectID": "A1_gitbash.rjs.html#extra-options",
-    "href": "A1_gitbash.rjs.html#extra-options",
-    "title": "Scientific Computing",
-    "section": "11. Extra Options",
-    "text": "11. Extra Options\n\nI do use “Enable file system caching” but I don’t know that I would recommend it.\nNo options is fine here!"
-  },
-  {
-    "objectID": "A1_gitbash.rjs.html#finishing-up",
-    "href": "A1_gitbash.rjs.html#finishing-up",
-    "title": "Scientific Computing",
-    "section": "Finishing up",
-    "text": "Finishing up\n\nAt this time, you may need to close any terminal windows you have open.\nSave your work (:w) first!"
-  },
-  {
-    "objectID": "A1_gitbash.rjs.html#install",
-    "href": "A1_gitbash.rjs.html#install",
-    "title": "Scientific Computing",
-    "section": "Install",
-    "text": "Install\n\nYou should get an install progress bar."
-  },
-  {
-    "objectID": "A1_gitbash.rjs.html#completion",
-    "href": "A1_gitbash.rjs.html#completion",
-    "title": "Scientific Computing",
-    "section": "Completion",
-    "text": "Completion\n\nI uncheck both boxes and close the installer.\nI open Windows Terminal and click the downward facing arrow button next to the “plus” symbol button after my last tab.\nI select “Git Bash”\nI try ls\n\nYou should see multiple filenames per line and no other information (Bash ls).\nIf you see dates and times, it is still Windows PowerShell.\n\nGo over these instructions again, or ask for help!"
+    "section": "",
+    "text": "Command\nAction\n\n\n\n\nls\nlist files in folder\n\n\nrm f.txt\ndelete file “f.txt”\n\n\nmkdir dir\ncreate a new folder named “dir”\n\n\nmv f.txt dir\nmove file “f.txt” to folder “dir”\n\n\npwd\nprint current folder\n\n\ncd dir\nchange current folder to “dir”\n\n\ncd ..\ngo to “parent” folder\n\n\necho hi\nprint the text “hi”\n\n\necho hi &gt;f.txt\nwrite “hi” to file “f.txt”\n\n\ncat f.txt\nsee the text in f.txt"
   },
   {
     "objectID": "0B_git.html",
     "href": "0B_git.html",
     "title": "Git",
     "section": "",
-    "text": "A major command line tool for collaboration and publication.\nThe state-of-the-art of storing and sharing data files.\nThe basis of most modern open source tools.\n\n\n\n\n\ngit is a command line utility, like python or nvim\n“Git” is the name of some software the supports this utility.\nWe also introduce “GitHub”\n\n\n\n\n\nWas: an independent company maintaining servers for use by git\nNow: a subsidiary of Microsoft for the same purposes.\n\n\n\n\n\n\n\ngit\n“GitHub”\n\n\n\n\nCommand line tool\nWebsite\n\n\nFree and open source\nFree with paid options\n\n\nWorks on your own computer\nWorks on the internet\n\n\nPrimarily used with GitHub\nPrimarily used with git\n\n\n\n\n\n\n\nSo far in school you may have:\n\nTurned in physical assignments in person.\nTurned in electronic assignments via Google suite.\nTurned in electornic assignments via email\n\nAll of these are very rough on source code many data files (like the .wav file).\n\n\n\n\n\nThis exacerbated on:\n\nGroup projects\nRemote projects\nProjects using more than one file (paper + presentation, often)\n\nAlso, we face other coding challenges\n\nWhat if you rm the project by accident?\nThat is permanent deletion (no “trash” or “recycling bin”)\n\n\n\n\n\n\ngit was made to solve this exact problem!\nThe world leading scientific computing operating system, Linux, was being developed remotely via volunteers.\nThey used millions of lines of code in complex file structures.\nThey had to have a way to keep track of everything!\n\n\n\n\n\nIn 2005 the Linux operating system engineers developed git:\n\nA way to save versions of complex file systems and files\nA way to distribute changes to these complex systems.\nA way to document these changes.\n\nIt quickly became popular in the scientific community as well.\n\n\n\n\n\nUse git to:\n\nManage versions of our code\nPublish these versions\n\nUse “GitHub” to:\n\nStore the work of git online\nDocument our code with Markdown\n\nUse “Markdown to:\n\nCreate clear, formatted summaries of our code.",
+    "text": "A major command line tool for collaboration and publication.\nThe state-of-the-art of storing and sharing data files.\nThe basis of most modern open source tools.\n\n\n\n\n\ngit is a command line utility, like python or nvim\n“Git” is the name of some software the supports this utility.\nWe also introduce “GitHub”\n\n\n\n\n\nWas: an independent company maintaining servers for use by git\nNow: a subsidiary of Microsoft for the same purposes.\n\n\n\n\n\n\n\ngit\n“GitHub”\n\n\n\n\nCommand line tool\nWebsite\n\n\nFree and open source\nFree with paid options\n\n\nWorks on your own computer\nWorks on the internet\n\n\nPrimarily used with GitHub\nPrimarily used with git\n\n\n\n\n\n\n\nSo far in school you may have:\n\nTurned in physical assignments in person.\nTurned in electronic assignments via Google suite.\nTurned in electornic assignments via email\n\nAll of these are very rough on source code many data files (like the .wav file).\n\n\n\n\n\nThis exacerbated on:\n\nGroup projects\nRemote projects\nProjects using more than one file (paper + presentation, often)\n\nAlso, we face other coding challenges\n\nWhat if you rm the project by accident?\nThat is permanent deletion (no “trash” or “recycling bin”)\n\n\n\n\n\n\ngit was made to solve this exact problem!\nThe world leading scientific computing operating system, Linux, was being developed remotely via volunteers.\nThey used millions of lines of code in complex file structures.\nThey had to have a way to keep track of everything!\n\n\n\n\n\nIn 2005 the Linux operating system engineers developed git:\n\nA way to save versions of complex file systems and files\nA way to distribute changes to these complex systems.\nA way to document these changes.\n\nIt quickly became popular in the scientific community as well.\n\n\n\n\n\nUse git to:\n\nManage versions of our code\nPublish these versions\n\nUse “GitHub” to:\n\nStore the work of git online\nDocument our code with Markdown",
     "crumbs": [
       "Git"
     ]
@@ -497,7 +293,7 @@
     "href": "0B_git.html#we-will",
     "title": "Git",
     "section": "",
-    "text": "Use git to:\n\nManage versions of our code\nPublish these versions\n\nUse “GitHub” to:\n\nStore the work of git online\nDocument our code with Markdown\n\nUse “Markdown to:\n\nCreate clear, formatted summaries of our code.",
+    "text": "Use git to:\n\nManage versions of our code\nPublish these versions\n\nUse “GitHub” to:\n\nStore the work of git online\nDocument our code with Markdown",
     "crumbs": [
       "Git"
     ]
@@ -537,7 +333,7 @@
     "href": "0B_git.html#signing-up",
     "title": "Git",
     "section": "Signing Up",
-    "text": "Signing Up\n\nNavigate to https://github.com/.\nClick Sign up.\nFollow the prompts to create your personal account.",
+    "text": "Signing Up\n\nNavigate to GitHub.com.\nClick Sign up for GitHub\nFollow the prompts to create your personal account.",
     "crumbs": [
       "Git"
     ]
@@ -568,6 +364,16 @@
     "title": "Git",
     "section": "Atomicity",
     "text": "Atomicity\n\nThe atomic unit of git is the “repository” which is basically a file system.\n\nWe learned about file systems by navigating around them with the shell\n\nLike GitHub users, repositories also have names.",
+    "crumbs": [
+      "Git"
+    ]
+  },
+  {
+    "objectID": "0B_git.html#uniqueness",
+    "href": "0B_git.html#uniqueness",
+    "title": "Git",
+    "section": "Uniqueness",
+    "text": "Uniqueness\n\nGive some thought to naming repositories!\n\nNames must be unique per user, but different users may have the same repository name.\nFor example, both “pandas-dev” and “cd-public” have a “pandas” repository\n\nThat is “pandas/pandas-dev” and “cd-public/pandas-dev”",
     "crumbs": [
       "Git"
     ]
@@ -618,6 +424,16 @@
     "title": "Git",
     "section": "Finalize",
     "text": "Finalize\n\nBy the way - do not initialize with a README.\n\nComplicates our lives latter!\n\nYou’re now ready to click: Create repository\nWe’ll see a new page and return to the command line for more git!",
+    "crumbs": [
+      "Git"
+    ]
+  },
+  {
+    "objectID": "0B_git.html#placing-a-pin",
+    "href": "0B_git.html#placing-a-pin",
+    "title": "Git",
+    "section": "Placing a Pin",
+    "text": "Placing a Pin\n\nKeep this page open for a little bit latter!\nWe have to set up the repository on our device before we can do anything else!\n\nThis like collaborating with ourselves - our GitHub self on the internet",
     "crumbs": [
       "Git"
     ]
@@ -677,7 +493,7 @@
     "href": "0B_git.html#add",
     "title": "Git",
     "section": "Add",
-    "text": "Add\n\nThe first thing we not is that there are “Untracked files”\nWhile we made a hello.py and have it in our hello-world directory, it isn’t yet “tracked” by git!\nBy default, git only keeps track of what we tell it to!\nSo, we tell it to track our code!\n\ngit add hello.py",
+    "text": "Add\n\nThe first thing we note is that there are “Untracked files”\nWhile we made a hello.py and have it in our hello-world directory, it isn’t yet “tracked” by git!\nBy default, git only keeps track of what we tell it to!\nSo, we tell it to track our code!\n\ngit add hello.py",
     "crumbs": [
       "Git"
     ]
@@ -697,7 +513,17 @@
     "href": "0B_git.html#commit",
     "title": "Git",
     "section": "Commit",
-    "text": "Commit\n\nWith git now aware of hello.py, we need to commit or changes for git to save them.\n\nSimilar to saving files to the file system.\nThere are, of course, ways to automate this.\n\nThis probably won’t work at first (next slide!) but try:\n\ngit commit -a -m \"first commit\"",
+    "text": "Commit\n\nWith git now aware of hello.py, we need to commit our changes for git to save them.\n\nSimilar to saving files to the file system.\nThere are, of course, ways to automate this.\n\nThis probably won’t work at first (next slide!) but try:\n\ngit commit -a -m \"first commit\"",
+    "crumbs": [
+      "Git"
+    ]
+  },
+  {
+    "objectID": "0B_git.html#a--m",
+    "href": "0B_git.html#a--m",
+    "title": "Git",
+    "section": "“-a -m”",
+    "text": "“-a -m”\n\nCommits require a commit message (like a version name or number) so specify with -m\nUsually I provide -a to commit “all” files.\nI usually make some effort to make my life easier with specific commit messages, perhaps listing:\n\nWhat I’m trying to do\nWhy?",
     "crumbs": [
       "Git"
     ]
@@ -708,6 +534,356 @@
     "title": "Git",
     "section": "Config",
     "text": "Config\n\nIf you haven’t used git on your system before, you’ll have to tell git who you are.\n\nIn git there are no anonymous changes - you have to sign every change you make.\n\nYou’ll be prompted to provide something like this:\n\ngit config --global user.email \"you@example.com\"\ngit config --global user.name \"Your Name\"",
+    "crumbs": [
+      "Git"
+    ]
+  },
+  {
+    "objectID": "0B_git.html#my-name",
+    "href": "0B_git.html#my-name",
+    "title": "Git",
+    "section": "My name",
+    "text": "My name\n\nI often include which computer I’m using in my name and also don’t use a real email address.\n\nMy GitHub account is already attached to an email address, so I use a throwaway for commits.\n\n\ngit config --global user.email \"prof_calvin@scicom.edu\"\ngit config --global user.name \"Calvin for Class\"",
+    "crumbs": [
+      "Git"
+    ]
+  },
+  {
+    "objectID": "0B_git.html#looping-back",
+    "href": "0B_git.html#looping-back",
+    "title": "Git",
+    "section": "Looping Back",
+    "text": "Looping Back\n\nOnce you have provided your identity, you can successfuly complete a commit.\n\ngit commit -a -m \"first commit\"\n\nThis will:\n\nMark current code as a version, named by your commit message.\n\nThis won’t:\n\nDo anything to GitHub.",
+    "crumbs": [
+      "Git"
+    ]
+  },
+  {
+    "objectID": "0B_git.html#branching-out",
+    "href": "0B_git.html#branching-out",
+    "title": "Git",
+    "section": "Branching Out",
+    "text": "Branching Out\n\nAs a rule, repositories have branches\n\nThis was helpful early on when different versions of software had different levels of release readiness or were working on different features.\n\nThe default branch is usually main which we can use for now.",
+    "crumbs": [
+      "Git"
+    ]
+  },
+  {
+    "objectID": "0B_git.html#branch-command",
+    "href": "0B_git.html#branch-command",
+    "title": "Git",
+    "section": "Branch Command",
+    "text": "Branch Command\n\nThe branch command can “list, create, or destroy branches”\nWe mostly need to have our branch on our device have the same name as the branch on GitHub.\nRename our brnach with branch -M to main - the expected name.\n\ngit branch -M main",
+    "crumbs": [
+      "Git"
+    ]
+  },
+  {
+    "objectID": "0B_git.html#secure-shell",
+    "href": "0B_git.html#secure-shell",
+    "title": "Git",
+    "section": "Secure Shell",
+    "text": "Secure Shell\n\nWe know how to deal with a very important topic:\nSecurity\nWhen moving executable code between websites and our system, we have to be careful that it is:\n\nNot tampered with\nMade by who said made it",
+    "crumbs": [
+      "Git"
+    ]
+  },
+  {
+    "objectID": "0B_git.html#security-concession",
+    "href": "0B_git.html#security-concession",
+    "title": "Git",
+    "section": "Security Concession",
+    "text": "Security Concession\n\nWe will use SSH, the “Secure Shell Protocol”\nIt is supported by git/GitHub and all major operating systems.",
+    "crumbs": [
+      "Git"
+    ]
+  },
+  {
+    "objectID": "0B_git.html#keygen",
+    "href": "0B_git.html#keygen",
+    "title": "Git",
+    "section": "Keygen",
+    "text": "Keygen\n\nSSH is based around having “keys”\n\nUnder the hood, these are special numbers with special properties related to primes, basically.\n\nWe generate a special unique key we can use as a password or signature.\n\nssh-keygen",
+    "crumbs": [
+      "Git"
+    ]
+  },
+  {
+    "objectID": "0B_git.html#prompts",
+    "href": "0B_git.html#prompts",
+    "title": "Git",
+    "section": "Prompts",
+    "text": "Prompts\n\nThis example uses (1) the default location and (2) no passphrase.\n\nThis is less secure but easier to manage.\nWork in a passphrase as soon as you can!\n\n\nGenerating public/private ed25519 key pair.\nEnter file in which to save the key (/home/calvin/.ssh/id_ed25519): \nEnter passphrase (empty for no passphrase): \nEnter same passphrase again: \nYour identification has been saved in /home/calvin/.ssh/id_ed25519\n\nYou now have a key! Let’s find a lock.",
+    "crumbs": [
+      "Git"
+    ]
+  },
+  {
+    "objectID": "0B_git.html#github-1",
+    "href": "0B_git.html#github-1",
+    "title": "Git",
+    "section": "GitHub",
+    "text": "GitHub\n\nThe purpose of this exercise is to connect to GitHub!\nWe will mostly use git for that, but we can check if we have a connection easily:\n\nssh -T git@github.com\n\nRead more",
+    "crumbs": [
+      "Git"
+    ]
+  },
+  {
+    "objectID": "0B_git.html#example",
+    "href": "0B_git.html#example",
+    "title": "Git",
+    "section": "Example",
+    "text": "Example\n\nThis is what I see:\n\nThe authenticity of host 'github.com (140.82.116.3)' can't be established.\nED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.\nThis key is not known by any other names.\nAre you sure you want to continue connecting (yes/no/[fingerprint])?\n\nBefore saying “yes” or “no” compare versus the “public SSH key fingerprints”\n\nCheck them here\n\nBy default, the modern keygen uses “Ed25519” so compare those keys, and click “yes” if they match!",
+    "crumbs": [
+      "Git"
+    ]
+  },
+  {
+    "objectID": "0B_git.html#connecting",
+    "href": "0B_git.html#connecting",
+    "title": "Git",
+    "section": "Connecting",
+    "text": "Connecting\n\nAfter confirming the key correctness, you will likely see this.\n\nAre you sure you want to continue connecting (yes/no/[fingerprint])? yes\nWarning: Permanently added 'github.com' (ED25519) to the list of known hosts.\ngit@github.com: Permission denied (publickey).",
+    "crumbs": [
+      "Git"
+    ]
+  },
+  {
+    "objectID": "0B_git.html#one-way",
+    "href": "0B_git.html#one-way",
+    "title": "Git",
+    "section": "One Way",
+    "text": "One Way\n\nNow we have instructed our computer to trust GitHub.\nTo save our code to GitHub, we must also get GitHub to trust our computer.\nWe generated our key, now we must match it to our lock on GitHub!",
+    "crumbs": [
+      "Git"
+    ]
+  },
+  {
+    "objectID": "0B_git.html#github-pt-1",
+    "href": "0B_git.html#github-pt-1",
+    "title": "Git",
+    "section": "GitHub pt 1",
+    "text": "GitHub pt 1\n\nWe follow this guide\nReturn to GitHub and in the top right click your profile picture/avatar.\n\nFor me, a picture of myself.\n\nScroll down to “Settings” and click.\n\nLast in 2nd grouping, for me.",
+    "crumbs": [
+      "Git"
+    ]
+  },
+  {
+    "objectID": "0B_git.html#github-pt-2",
+    "href": "0B_git.html#github-pt-2",
+    "title": "Git",
+    "section": "GitHub pt 2",
+    "text": "GitHub pt 2\n\nWithin settings left-side menu click “SSH and GPG keys”\n\nMiddle of 2nd group (Access) for me.\n\nWithin the center block click New SSH key in the top right of the block.",
+    "crumbs": [
+      "Git"
+    ]
+  },
+  {
+    "objectID": "0B_git.html#prompt",
+    "href": "0B_git.html#prompt",
+    "title": "Git",
+    "section": "Prompt",
+    "text": "Prompt\n\nI get a page “Add new SSH Key”.\nI provide a title (like “For SciCom class” or “Laptop”)\nNow we’ll get our key from our system to use.\nRecall we previously generated a key to the default location, like /home/calvin/.ssh/id_ed25519\n\nIf you don’t remember, just type ssh-keygen and it’ll show you.",
+    "crumbs": [
+      "Git"
+    ]
+  },
+  {
+    "objectID": "0B_git.html#copypaste",
+    "href": "0B_git.html#copypaste",
+    "title": "Git",
+    "section": "Copy/Paste",
+    "text": "Copy/Paste\n\nTo get the key for GitHub, we can can\n\ncat that file in the command line\nCopy from the command line\nPaste into the GitHub “Key” field\nClick Add SSH key",
+    "crumbs": [
+      "Git"
+    ]
+  },
+  {
+    "objectID": "0B_git.html#ssh-test",
+    "href": "0B_git.html#ssh-test",
+    "title": "Git",
+    "section": "SSH Test",
+    "text": "SSH Test\n\nAfter adding the key to the account, I confirm via SSH like so:\n\nssh -T git@github.com\n\nI see the following:\n\nHi cd-public! You've successfully authenticated, but GitHub does not provide shell access.",
+    "crumbs": [
+      "Git"
+    ]
+  },
+  {
+    "objectID": "0B_git.html#save-your-work",
+    "href": "0B_git.html#save-your-work",
+    "title": "Git",
+    "section": "Save your work",
+    "text": "Save your work\n\nMy preferred way to save my work, especially when working across multiple team members or devices, is by “pushing” to GitHub.\nUsually this is only git push (after commit) but we still have a bit of setup to do.",
+    "crumbs": [
+      "Git"
+    ]
+  },
+  {
+    "objectID": "0B_git.html#origins",
+    "href": "0B_git.html#origins",
+    "title": "Git",
+    "section": "Origins",
+    "text": "Origins\n\nWe want to use git to attach our local repository to the GitHub repository.\nThis called “adding a remote origin”\n\nRemote as in online\nOrigin as in place to get files from.\n\nOur GitHub repository has some SSH name we will need.",
+    "crumbs": [
+      "Git"
+    ]
+  },
+  {
+    "objectID": "0B_git.html#finding-names",
+    "href": "0B_git.html#finding-names",
+    "title": "Git",
+    "section": "Finding Names",
+    "text": "Finding Names\n\nIn your web browser, navigate to your repository page on GitHub.\n\nThis is where we said “place a pin”\n\nLocate the “Quick setup — if you’ve done this kind of thing before” heading.\n\nSelect the “SSH” option.\nCopy the address.\n\n\n\ngit@github.com:cd-public/hello-world",
+    "crumbs": [
+      "Git"
+    ]
+  },
+  {
+    "objectID": "0B_git.html#or-existing-repositories.",
+    "href": "0B_git.html#or-existing-repositories.",
+    "title": "Git",
+    "section": "Or, existing repositories.",
+    "text": "Or, existing repositories.\n\nFind the &lt;&gt; Code button in the top right.\nClick it:\n\nSelect the top “local” tab (for or local repository)\nSelect the SSH option (for our SSH key)\nCopy the name, like\n\n\n\ngit@github.com:cd-public/hello-world",
+    "crumbs": [
+      "Git"
+    ]
+  },
+  {
+    "objectID": "0B_git.html#add-remote",
+    "href": "0B_git.html#add-remote",
+    "title": "Git",
+    "section": "Add Remote",
+    "text": "Add Remote\n\nWith that name (which is just use GitHub name and repository name), return to the command line and add the remote origin.\n\ngit remote add origin git@github.com:cd-public/hello-world.git",
+    "crumbs": [
+      "Git"
+    ]
+  },
+  {
+    "objectID": "0B_git.html#push-1",
+    "href": "0B_git.html#push-1",
+    "title": "Git",
+    "section": "Push",
+    "text": "Push\n\nWith all that work done, you can simply:\n\ngit push -u origin main\n\nAfter a moment and some diagnostic text, you should be able to see your code on GitHub, possibly after refreshing the page!",
+    "crumbs": [
+      "Git"
+    ]
+  },
+  {
+    "objectID": "0B_git.html#diagnostics",
+    "href": "0B_git.html#diagnostics",
+    "title": "Git",
+    "section": "Diagnostics",
+    "text": "Diagnostics\n\nFor example, you might see the following:\n\nEnumerating objects: 27, done.\nCounting objects: 100% (27/27), done.\nDelta compression using up to 22 threads\nCompressing objects: 100% (15/15), done.\nWriting objects: 100% (16/16), 98.54 KiB | 2.46 MiB/s, done.\nTotal 16 (delta 11), reused 0 (delta 0), pack-reused 0\nremote: Resolving deltas: 100% (11/11), completed with 10 local objects.\nTo github.com:cd-public/hello-world.git\n   adaa3a7..ba3c794  main -&gt; main",
+    "crumbs": [
+      "Git"
+    ]
+  },
+  {
+    "objectID": "0B_git.html#easier-after",
+    "href": "0B_git.html#easier-after",
+    "title": "Git",
+    "section": "Easier After",
+    "text": "Easier After\n\nA lot of what we did, we only have to do once:\n\ngit config\nssh-keygen\nset origin\n\nMany are special cases:\n\nOnly have to make new repositories for… new repositories (likely projects)\nOnly have to git add for new files.",
+    "crumbs": [
+      "Git"
+    ]
+  },
+  {
+    "objectID": "0B_git.html#quick-example",
+    "href": "0B_git.html#quick-example",
+    "title": "Git",
+    "section": "Quick Example",
+    "text": "Quick Example\n\nLet’s add bye.py\nWe’ll create a new file at the command line.\n\nnvim bye.py\n\nAdd some code…\n\n\n\nbye.py\n\nprint(\"Bye!\")",
+    "crumbs": [
+      "Git"
+    ]
+  },
+  {
+    "objectID": "0B_git.html#add-commit-push",
+    "href": "0B_git.html#add-commit-push",
+    "title": "Git",
+    "section": "Add, Commit, Push",
+    "text": "Add, Commit, Push\n\nTo get the code onto Github, add to the repo:\n\ngit add bye.py\n\nCommit changes to a version:\n\ngit commit -a -m \"You say hello, I say goodbye\"\n\nPush to GitHub\n\ngit push\n\nAnd that’s that!",
+    "crumbs": [
+      "Git"
+    ]
+  },
+  {
+    "objectID": "0B_git.html#altogether",
+    "href": "0B_git.html#altogether",
+    "title": "Git",
+    "section": "Altogether",
+    "text": "Altogether\n\nFor a single copy/paste\n\ngit add bye.py\ngit commit -a -m \"You say hello, I say goodbye\"\ngit push\n\nIf it works, you’ll see the change on GitHub!",
+    "crumbs": [
+      "Git"
+    ]
+  },
+  {
+    "objectID": "0B_git.html#again",
+    "href": "0B_git.html#again",
+    "title": "Git",
+    "section": "Again",
+    "text": "Again\n\nPerhaps we wish to be more polite and update saying “Bye!” to saying “Goodbye!”.\n\n\n\nbye.py\n\nprint(\"Goodbye!\")",
+    "crumbs": [
+      "Git"
+    ]
+  },
+  {
+    "objectID": "0B_git.html#no-add",
+    "href": "0B_git.html#no-add",
+    "title": "Git",
+    "section": "No Add",
+    "text": "No Add\n\nDon’t need an add this time!\n\ngit commit -a -m \"Goodbye version\"\ngit push",
+    "crumbs": [
+      "Git"
+    ]
+  },
+  {
+    "objectID": "0B_git.html#using-github.com",
+    "href": "0B_git.html#using-github.com",
+    "title": "Git",
+    "section": "Using GitHub.com",
+    "text": "Using GitHub.com\n\nIt is also possible to edit files on GitHub.\n\nThis is the same as a collaborator pushing a change!\n\nIn the repository webpage, click on a file, like hello.py\nThis should take you to a page with a central text window showing the text in the file hello.py\nClick, for lack of a better word, the pencil icon on the top right of the text window.\n\n✏️",
+    "crumbs": [
+      "Git"
+    ]
+  },
+  {
+    "objectID": "0B_git.html#editing-files",
+    "href": "0B_git.html#editing-files",
+    "title": "Git",
+    "section": "Editing files",
+    "text": "Editing files\n\nClick the “pencil” ✏️ top right of the text.\nMake some edit, like:\n\n\n\nhello.py\n\nprint(\"Hello, remote-to-local!\")\n\n\nClick Commit changes… in the top right.\nIn the pop-up, write commit message a la git commit -m then click Commit changes",
+    "crumbs": [
+      "Git"
+    ]
+  },
+  {
+    "objectID": "0B_git.html#pulling",
+    "href": "0B_git.html#pulling",
+    "title": "Git",
+    "section": "Pulling",
+    "text": "Pulling\n\nTo get remote changes reflected locally, simply use\n\ngit pull\n\nYou can then run immediately:\n\npython hello.py\n\nAs a rule, it is good to pull often, and especially before a push, if you have a collaborator or use multiple devices.",
+    "crumbs": [
+      "Git"
+    ]
+  },
+  {
+    "objectID": "0B_git.html#exercise-1",
+    "href": "0B_git.html#exercise-1",
+    "title": "Git",
+    "section": "Exercise",
+    "text": "Exercise\n\nCreate a new repository for this class, say “Scientific Computing”\nI named mine “scicom” (shorter to type!)\nCreate file tax.py.\nFor each of the Python, Neovim, Shell, and NumPy versions of the tax problem:\n\nSave the solution as tax.py\nCommit with a descriptive message.",
+    "crumbs": [
+      "Git"
+    ]
+  },
+  {
+    "objectID": "0B_git.html#solution",
+    "href": "0B_git.html#solution",
+    "title": "Git",
+    "section": "Solution",
+    "text": "Solution\n\nHere is an example repository with a tax.py\nHere is the page showing the version history.",
     "crumbs": [
       "Git"
     ]
@@ -773,7 +949,7 @@
     "href": "0B_git.rjs.html#we-will",
     "title": "Git",
     "section": "We will",
-    "text": "We will\n\nUse git to:\n\nManage versions of our code\nPublish these versions\n\nUse “GitHub” to:\n\nStore the work of git online\nDocument our code with Markdown\n\nUse “Markdown to:\n\nCreate clear, formatted summaries of our code."
+    "text": "We will\n\nUse git to:\n\nManage versions of our code\nPublish these versions\n\nUse “GitHub” to:\n\nStore the work of git online\nDocument our code with Markdown"
   },
   {
     "objectID": "0B_git.rjs.html#going-backwards",
@@ -801,7 +977,7 @@
     "href": "0B_git.rjs.html#signing-up",
     "title": "Git",
     "section": "Signing Up",
-    "text": "Signing Up\n\nNavigate to https://github.com/.\nClick Sign up.\nFollow the prompts to create your personal account."
+    "text": "Signing Up\n\nNavigate to GitHub.com.\nClick Sign up for GitHub\nFollow the prompts to create your personal account."
   },
   {
     "objectID": "0B_git.rjs.html#verify",
@@ -823,6 +999,13 @@
     "title": "Git",
     "section": "Atomicity",
     "text": "Atomicity\n\nThe atomic unit of git is the “repository” which is basically a file system.\n\nWe learned about file systems by navigating around them with the shell\n\nLike GitHub users, repositories also have names."
+  },
+  {
+    "objectID": "0B_git.rjs.html#uniqueness",
+    "href": "0B_git.rjs.html#uniqueness",
+    "title": "Git",
+    "section": "Uniqueness",
+    "text": "Uniqueness\n\nGive some thought to naming repositories!\n\nNames must be unique per user, but different users may have the same repository name.\nFor example, both “pandas-dev” and “cd-public” have a “pandas” repository\n\nThat is “pandas/pandas-dev” and “cd-public/pandas-dev”"
   },
   {
     "objectID": "0B_git.rjs.html#create-new",
@@ -858,6 +1041,13 @@
     "title": "Git",
     "section": "Finalize",
     "text": "Finalize\n\nBy the way - do not initialize with a README.\n\nComplicates our lives latter!\n\nYou’re now ready to click: Create repository\nWe’ll see a new page and return to the command line for more git!"
+  },
+  {
+    "objectID": "0B_git.rjs.html#placing-a-pin",
+    "href": "0B_git.rjs.html#placing-a-pin",
+    "title": "Git",
+    "section": "Placing a Pin",
+    "text": "Placing a Pin\n\nKeep this page open for a little bit latter!\nWe have to set up the repository on our device before we can do anything else!\n\nThis like collaborating with ourselves - our GitHub self on the internet"
   },
   {
     "objectID": "0B_git.rjs.html#remote",
@@ -899,7 +1089,7 @@
     "href": "0B_git.rjs.html#add",
     "title": "Git",
     "section": "Add",
-    "text": "Add\n\nThe first thing we not is that there are “Untracked files”\nWhile we made a hello.py and have it in our hello-world directory, it isn’t yet “tracked” by git!\nBy default, git only keeps track of what we tell it to!\nSo, we tell it to track our code!\n\ngit add hello.py"
+    "text": "Add\n\nThe first thing we note is that there are “Untracked files”\nWhile we made a hello.py and have it in our hello-world directory, it isn’t yet “tracked” by git!\nBy default, git only keeps track of what we tell it to!\nSo, we tell it to track our code!\n\ngit add hello.py"
   },
   {
     "objectID": "0B_git.rjs.html#status-1",
@@ -913,7 +1103,14 @@
     "href": "0B_git.rjs.html#commit",
     "title": "Git",
     "section": "Commit",
-    "text": "Commit\n\nWith git now aware of hello.py, we need to commit or changes for git to save them.\n\nSimilar to saving files to the file system.\nThere are, of course, ways to automate this.\n\nThis probably won’t work at first (next slide!) but try:\n\ngit commit -a -m \"first commit\""
+    "text": "Commit\n\nWith git now aware of hello.py, we need to commit our changes for git to save them.\n\nSimilar to saving files to the file system.\nThere are, of course, ways to automate this.\n\nThis probably won’t work at first (next slide!) but try:\n\ngit commit -a -m \"first commit\""
+  },
+  {
+    "objectID": "0B_git.rjs.html#a--m",
+    "href": "0B_git.rjs.html#a--m",
+    "title": "Git",
+    "section": "“-a -m”",
+    "text": "“-a -m”\n\nCommits require a commit message (like a version name or number) so specify with -m\nUsually I provide -a to commit “all” files.\nI usually make some effort to make my life easier with specific commit messages, perhaps listing:\n\nWhat I’m trying to do\nWhy?"
   },
   {
     "objectID": "0B_git.rjs.html#config",
@@ -921,6 +1118,251 @@
     "title": "Git",
     "section": "Config",
     "text": "Config\n\nIf you haven’t used git on your system before, you’ll have to tell git who you are.\n\nIn git there are no anonymous changes - you have to sign every change you make.\n\nYou’ll be prompted to provide something like this:\n\ngit config --global user.email \"you@example.com\"\ngit config --global user.name \"Your Name\""
+  },
+  {
+    "objectID": "0B_git.rjs.html#my-name",
+    "href": "0B_git.rjs.html#my-name",
+    "title": "Git",
+    "section": "My name",
+    "text": "My name\n\nI often include which computer I’m using in my name and also don’t use a real email address.\n\nMy GitHub account is already attached to an email address, so I use a throwaway for commits.\n\n\ngit config --global user.email \"prof_calvin@scicom.edu\"\ngit config --global user.name \"Calvin for Class\""
+  },
+  {
+    "objectID": "0B_git.rjs.html#looping-back",
+    "href": "0B_git.rjs.html#looping-back",
+    "title": "Git",
+    "section": "Looping Back",
+    "text": "Looping Back\n\nOnce you have provided your identity, you can successfuly complete a commit.\n\ngit commit -a -m \"first commit\"\n\nThis will:\n\nMark current code as a version, named by your commit message.\n\nThis won’t:\n\nDo anything to GitHub."
+  },
+  {
+    "objectID": "0B_git.rjs.html#branching-out",
+    "href": "0B_git.rjs.html#branching-out",
+    "title": "Git",
+    "section": "Branching Out",
+    "text": "Branching Out\n\nAs a rule, repositories have branches\n\nThis was helpful early on when different versions of software had different levels of release readiness or were working on different features.\n\nThe default branch is usually main which we can use for now."
+  },
+  {
+    "objectID": "0B_git.rjs.html#branch-command",
+    "href": "0B_git.rjs.html#branch-command",
+    "title": "Git",
+    "section": "Branch Command",
+    "text": "Branch Command\n\nThe branch command can “list, create, or destroy branches”\nWe mostly need to have our branch on our device have the same name as the branch on GitHub.\nRename our brnach with branch -M to main - the expected name.\n\ngit branch -M main"
+  },
+  {
+    "objectID": "0B_git.rjs.html#secure-shell",
+    "href": "0B_git.rjs.html#secure-shell",
+    "title": "Git",
+    "section": "Secure Shell",
+    "text": "Secure Shell\n\nWe know how to deal with a very important topic:\nSecurity\nWhen moving executable code between websites and our system, we have to be careful that it is:\n\nNot tampered with\nMade by who said made it"
+  },
+  {
+    "objectID": "0B_git.rjs.html#security-concession",
+    "href": "0B_git.rjs.html#security-concession",
+    "title": "Git",
+    "section": "Security Concession",
+    "text": "Security Concession\n\nWe will use SSH, the “Secure Shell Protocol”\nIt is supported by git/GitHub and all major operating systems."
+  },
+  {
+    "objectID": "0B_git.rjs.html#keygen",
+    "href": "0B_git.rjs.html#keygen",
+    "title": "Git",
+    "section": "Keygen",
+    "text": "Keygen\n\nSSH is based around having “keys”\n\nUnder the hood, these are special numbers with special properties related to primes, basically.\n\nWe generate a special unique key we can use as a password or signature.\n\nssh-keygen"
+  },
+  {
+    "objectID": "0B_git.rjs.html#prompts",
+    "href": "0B_git.rjs.html#prompts",
+    "title": "Git",
+    "section": "Prompts",
+    "text": "Prompts\n\nThis example uses (1) the default location and (2) no passphrase.\n\nThis is less secure but easier to manage.\nWork in a passphrase as soon as you can!\n\n\nGenerating public/private ed25519 key pair.\nEnter file in which to save the key (/home/calvin/.ssh/id_ed25519): \nEnter passphrase (empty for no passphrase): \nEnter same passphrase again: \nYour identification has been saved in /home/calvin/.ssh/id_ed25519\n\nYou now have a key! Let’s find a lock."
+  },
+  {
+    "objectID": "0B_git.rjs.html#github-1",
+    "href": "0B_git.rjs.html#github-1",
+    "title": "Git",
+    "section": "GitHub",
+    "text": "GitHub\n\nThe purpose of this exercise is to connect to GitHub!\nWe will mostly use git for that, but we can check if we have a connection easily:\n\nssh -T git@github.com\n\nRead more"
+  },
+  {
+    "objectID": "0B_git.rjs.html#example",
+    "href": "0B_git.rjs.html#example",
+    "title": "Git",
+    "section": "Example",
+    "text": "Example\n\nThis is what I see:\n\nThe authenticity of host 'github.com (140.82.116.3)' can't be established.\nED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.\nThis key is not known by any other names.\nAre you sure you want to continue connecting (yes/no/[fingerprint])?\n\nBefore saying “yes” or “no” compare versus the “public SSH key fingerprints”\n\nCheck them here\n\nBy default, the modern keygen uses “Ed25519” so compare those keys, and click “yes” if they match!"
+  },
+  {
+    "objectID": "0B_git.rjs.html#connecting",
+    "href": "0B_git.rjs.html#connecting",
+    "title": "Git",
+    "section": "Connecting",
+    "text": "Connecting\n\nAfter confirming the key correctness, you will likely see this.\n\nAre you sure you want to continue connecting (yes/no/[fingerprint])? yes\nWarning: Permanently added 'github.com' (ED25519) to the list of known hosts.\ngit@github.com: Permission denied (publickey)."
+  },
+  {
+    "objectID": "0B_git.rjs.html#one-way",
+    "href": "0B_git.rjs.html#one-way",
+    "title": "Git",
+    "section": "One Way",
+    "text": "One Way\n\nNow we have instructed our computer to trust GitHub.\nTo save our code to GitHub, we must also get GitHub to trust our computer.\nWe generated our key, now we must match it to our lock on GitHub!"
+  },
+  {
+    "objectID": "0B_git.rjs.html#github-pt-1",
+    "href": "0B_git.rjs.html#github-pt-1",
+    "title": "Git",
+    "section": "GitHub pt 1",
+    "text": "GitHub pt 1\n\nWe follow this guide\nReturn to GitHub and in the top right click your profile picture/avatar.\n\nFor me, a picture of myself.\n\nScroll down to “Settings” and click.\n\nLast in 2nd grouping, for me."
+  },
+  {
+    "objectID": "0B_git.rjs.html#github-pt-2",
+    "href": "0B_git.rjs.html#github-pt-2",
+    "title": "Git",
+    "section": "GitHub pt 2",
+    "text": "GitHub pt 2\n\nWithin settings left-side menu click “SSH and GPG keys”\n\nMiddle of 2nd group (Access) for me.\n\nWithin the center block click New SSH key in the top right of the block."
+  },
+  {
+    "objectID": "0B_git.rjs.html#prompt",
+    "href": "0B_git.rjs.html#prompt",
+    "title": "Git",
+    "section": "Prompt",
+    "text": "Prompt\n\nI get a page “Add new SSH Key”.\nI provide a title (like “For SciCom class” or “Laptop”)\nNow we’ll get our key from our system to use.\nRecall we previously generated a key to the default location, like /home/calvin/.ssh/id_ed25519\n\nIf you don’t remember, just type ssh-keygen and it’ll show you."
+  },
+  {
+    "objectID": "0B_git.rjs.html#copypaste",
+    "href": "0B_git.rjs.html#copypaste",
+    "title": "Git",
+    "section": "Copy/Paste",
+    "text": "Copy/Paste\n\nTo get the key for GitHub, we can can\n\ncat that file in the command line\nCopy from the command line\nPaste into the GitHub “Key” field\nClick Add SSH key"
+  },
+  {
+    "objectID": "0B_git.rjs.html#ssh-test",
+    "href": "0B_git.rjs.html#ssh-test",
+    "title": "Git",
+    "section": "SSH Test",
+    "text": "SSH Test\n\nAfter adding the key to the account, I confirm via SSH like so:\n\nssh -T git@github.com\n\nI see the following:\n\nHi cd-public! You've successfully authenticated, but GitHub does not provide shell access."
+  },
+  {
+    "objectID": "0B_git.rjs.html#save-your-work",
+    "href": "0B_git.rjs.html#save-your-work",
+    "title": "Git",
+    "section": "Save your work",
+    "text": "Save your work\n\nMy preferred way to save my work, especially when working across multiple team members or devices, is by “pushing” to GitHub.\nUsually this is only git push (after commit) but we still have a bit of setup to do."
+  },
+  {
+    "objectID": "0B_git.rjs.html#origins",
+    "href": "0B_git.rjs.html#origins",
+    "title": "Git",
+    "section": "Origins",
+    "text": "Origins\n\nWe want to use git to attach our local repository to the GitHub repository.\nThis called “adding a remote origin”\n\nRemote as in online\nOrigin as in place to get files from.\n\nOur GitHub repository has some SSH name we will need."
+  },
+  {
+    "objectID": "0B_git.rjs.html#finding-names",
+    "href": "0B_git.rjs.html#finding-names",
+    "title": "Git",
+    "section": "Finding Names",
+    "text": "Finding Names\n\nIn your web browser, navigate to your repository page on GitHub.\n\nThis is where we said “place a pin”\n\nLocate the “Quick setup — if you’ve done this kind of thing before” heading.\n\nSelect the “SSH” option.\nCopy the address.\n\n\n\ngit@github.com:cd-public/hello-world"
+  },
+  {
+    "objectID": "0B_git.rjs.html#or-existing-repositories.",
+    "href": "0B_git.rjs.html#or-existing-repositories.",
+    "title": "Git",
+    "section": "Or, existing repositories.",
+    "text": "Or, existing repositories.\n\nFind the &lt;&gt; Code button in the top right.\nClick it:\n\nSelect the top “local” tab (for or local repository)\nSelect the SSH option (for our SSH key)\nCopy the name, like\n\n\n\ngit@github.com:cd-public/hello-world"
+  },
+  {
+    "objectID": "0B_git.rjs.html#add-remote",
+    "href": "0B_git.rjs.html#add-remote",
+    "title": "Git",
+    "section": "Add Remote",
+    "text": "Add Remote\n\nWith that name (which is just use GitHub name and repository name), return to the command line and add the remote origin.\n\ngit remote add origin git@github.com:cd-public/hello-world.git"
+  },
+  {
+    "objectID": "0B_git.rjs.html#push-1",
+    "href": "0B_git.rjs.html#push-1",
+    "title": "Git",
+    "section": "Push",
+    "text": "Push\n\nWith all that work done, you can simply:\n\ngit push -u origin main\n\nAfter a moment and some diagnostic text, you should be able to see your code on GitHub, possibly after refreshing the page!"
+  },
+  {
+    "objectID": "0B_git.rjs.html#diagnostics",
+    "href": "0B_git.rjs.html#diagnostics",
+    "title": "Git",
+    "section": "Diagnostics",
+    "text": "Diagnostics\n\nFor example, you might see the following:\n\nEnumerating objects: 27, done.\nCounting objects: 100% (27/27), done.\nDelta compression using up to 22 threads\nCompressing objects: 100% (15/15), done.\nWriting objects: 100% (16/16), 98.54 KiB | 2.46 MiB/s, done.\nTotal 16 (delta 11), reused 0 (delta 0), pack-reused 0\nremote: Resolving deltas: 100% (11/11), completed with 10 local objects.\nTo github.com:cd-public/hello-world.git\n   adaa3a7..ba3c794  main -&gt; main"
+  },
+  {
+    "objectID": "0B_git.rjs.html#easier-after",
+    "href": "0B_git.rjs.html#easier-after",
+    "title": "Git",
+    "section": "Easier After",
+    "text": "Easier After\n\nA lot of what we did, we only have to do once:\n\ngit config\nssh-keygen\nset origin\n\nMany are special cases:\n\nOnly have to make new repositories for… new repositories (likely projects)\nOnly have to git add for new files."
+  },
+  {
+    "objectID": "0B_git.rjs.html#quick-example",
+    "href": "0B_git.rjs.html#quick-example",
+    "title": "Git",
+    "section": "Quick Example",
+    "text": "Quick Example\n\nLet’s add bye.py\nWe’ll create a new file at the command line.\n\nnvim bye.py\n\nAdd some code…\n\n\n\nbye.py\n\nprint(\"Bye!\")"
+  },
+  {
+    "objectID": "0B_git.rjs.html#add-commit-push",
+    "href": "0B_git.rjs.html#add-commit-push",
+    "title": "Git",
+    "section": "Add, Commit, Push",
+    "text": "Add, Commit, Push\n\nTo get the code onto Github, add to the repo:\n\ngit add bye.py\n\nCommit changes to a version:\n\ngit commit -a -m \"You say hello, I say goodbye\"\n\nPush to GitHub\n\ngit push\n\nAnd that’s that!"
+  },
+  {
+    "objectID": "0B_git.rjs.html#altogether",
+    "href": "0B_git.rjs.html#altogether",
+    "title": "Git",
+    "section": "Altogether",
+    "text": "Altogether\n\nFor a single copy/paste\n\ngit add bye.py\ngit commit -a -m \"You say hello, I say goodbye\"\ngit push\n\nIf it works, you’ll see the change on GitHub!"
+  },
+  {
+    "objectID": "0B_git.rjs.html#again",
+    "href": "0B_git.rjs.html#again",
+    "title": "Git",
+    "section": "Again",
+    "text": "Again\n\nPerhaps we wish to be more polite and update saying “Bye!” to saying “Goodbye!”.\n\n\n\nbye.py\n\nprint(\"Goodbye!\")"
+  },
+  {
+    "objectID": "0B_git.rjs.html#no-add",
+    "href": "0B_git.rjs.html#no-add",
+    "title": "Git",
+    "section": "No Add",
+    "text": "No Add\n\nDon’t need an add this time!\n\ngit commit -a -m \"Goodbye version\"\ngit push"
+  },
+  {
+    "objectID": "0B_git.rjs.html#using-github.com",
+    "href": "0B_git.rjs.html#using-github.com",
+    "title": "Git",
+    "section": "Using GitHub.com",
+    "text": "Using GitHub.com\n\nIt is also possible to edit files on GitHub.\n\nThis is the same as a collaborator pushing a change!\n\nIn the repository webpage, click on a file, like hello.py\nThis should take you to a page with a central text window showing the text in the file hello.py\nClick, for lack of a better word, the pencil icon on the top right of the text window.\n\n✏️"
+  },
+  {
+    "objectID": "0B_git.rjs.html#editing-files",
+    "href": "0B_git.rjs.html#editing-files",
+    "title": "Git",
+    "section": "Editing files",
+    "text": "Editing files\n\nClick the “pencil” ✏️ top right of the text.\nMake some edit, like:\n\n\n\nhello.py\n\nprint(\"Hello, remote-to-local!\")\n\n\nClick Commit changes… in the top right.\nIn the pop-up, write commit message a la git commit -m then click Commit changes"
+  },
+  {
+    "objectID": "0B_git.rjs.html#pulling",
+    "href": "0B_git.rjs.html#pulling",
+    "title": "Git",
+    "section": "Pulling",
+    "text": "Pulling\n\nTo get remote changes reflected locally, simply use\n\ngit pull\n\nYou can then run immediately:\n\npython hello.py\n\nAs a rule, it is good to pull often, and especially before a push, if you have a collaborator or use multiple devices."
+  },
+  {
+    "objectID": "0B_git.rjs.html#exercise-1",
+    "href": "0B_git.rjs.html#exercise-1",
+    "title": "Git",
+    "section": "Exercise",
+    "text": "Exercise\n\nCreate a new repository for this class, say “Scientific Computing”\nI named mine “scicom” (shorter to type!)\nCreate file tax.py.\nFor each of the Python, Neovim, Shell, and NumPy versions of the tax problem:\n\nSave the solution as tax.py\nCommit with a descriptive message."
+  },
+  {
+    "objectID": "0B_git.rjs.html#solution",
+    "href": "0B_git.rjs.html#solution",
+    "title": "Git",
+    "section": "Solution",
+    "text": "Solution\n\nHere is an example repository with a tax.py\nHere is the page showing the version history."
   },
   {
     "objectID": "09_sklearn.html",
@@ -12923,795 +13365,394 @@
     ]
   },
   {
-    "objectID": "A0_keybinds.rjs.html#python",
-    "href": "A0_keybinds.rjs.html#python",
+    "objectID": "0C_md.rjs.html#documentation",
+    "href": "0C_md.rjs.html#documentation",
     "title": "Scientific Computing",
-    "section": "Python",
-    "text": "Python\n\nPython can be used within the Python prompt, prefixed with &gt;&gt;&gt;, or via .py files.\nPython is used to conduct computations.\nVersus a calculator, it supports arithmetic, comparisons, code reuse, and repeated actions."
+    "section": "Documentation",
+    "text": "Documentation\n\nPreviously, we learned about comments.\n\nLines in code that do not affect what the code does, but help human users understand it.\n\nOften we document repositories with README files.\n\nOften as README.md, a “Markdown” file.\n\nWe introduce Markdown."
   },
   {
-    "objectID": "A0_keybinds.rjs.html#section",
-    "href": "A0_keybinds.rjs.html#section",
+    "objectID": "0C_md.rjs.html#a-note",
+    "href": "0C_md.rjs.html#a-note",
     "title": "Scientific Computing",
-    "section": "",
-    "text": "\\[\nf(x) =\n\\begin{cases}\n  9x^2 + 5 & x &lt; 4 \\\\\n  9 & 4 \\leq x \\leq 8 \\\\\n  2 - x & x &gt; 8\n\\end{cases}\n\\]\n\n\ndef f(x):\n    if (x &lt; 4):\n        return 9 * x ** 2 + 5\n    elif (4 &lt;= x &lt;= 8):\n        return 9\n    elif (x &gt; 8):\n        return 2 - x"
+    "section": "A note",
+    "text": "A note\n\nThese slides are written in Markdown.\nI’ll show the Markdown in a left column and how it is shown on the right."
   },
   {
-    "objectID": "A0_keybinds.rjs.html#section-1",
-    "href": "A0_keybinds.rjs.html#section-1",
+    "objectID": "0C_md.rjs.html#text",
+    "href": "0C_md.rjs.html#text",
     "title": "Scientific Computing",
-    "section": "",
-    "text": "Find \\(f(x)\\) for each of the following \\(x\\) values: \\[\n\\{-1, 4, 5, 8, 11\\}\n\\]\n\n\n\nresult = []\nfor x in [-1, 4, 5, 8, 11]:\n    result = result + [f(x)]\nresult\n\n[14, 9, 9, 9, -9]"
+    "section": "Text",
+    "text": "Text\n\nThe most natural thing to do in a README.md is"
   },
   {
-    "objectID": "A0_keybinds.rjs.html#neovim",
-    "href": "A0_keybinds.rjs.html#neovim",
+    "objectID": "0C_md.html#documentation",
+    "href": "0C_md.html#documentation",
+    "title": "",
+    "section": "Documentation",
+    "text": "Documentation\n\nPreviously, we learned about comments.\n\nLines in code that do not affect what the code does, but help human users understand it.\n\nOften we document repositories with README files.\n\nOften as README.md, a “Markdown” file.\n\nWe introduce Markdown.",
+    "crumbs": [
+      "Markdown"
+    ]
+  },
+  {
+    "objectID": "0C_md.html#a-note",
+    "href": "0C_md.html#a-note",
+    "title": "",
+    "section": "A note",
+    "text": "A note\n\nThese slides are written in Markdown.\nI’ll show the Markdown in a left column and how it is shown on the right.",
+    "crumbs": [
+      "Markdown"
+    ]
+  },
+  {
+    "objectID": "0C_md.html#text",
+    "href": "0C_md.html#text",
+    "title": "",
+    "section": "Text",
+    "text": "Text\n\nThe most natural thing to do in a README.md is",
+    "crumbs": [
+      "Markdown"
+    ]
+  },
+  {
+    "objectID": "A1_gitbash.rjs.html#scientific-computing-on-windows",
+    "href": "A1_gitbash.rjs.html#scientific-computing-on-windows",
     "title": "Scientific Computing",
-    "section": "Neovim",
-    "text": "Neovim\n\nUse nvim to access a modal text editor.\nIn i or insert mode, is like other editors.\nOutside i there’s “motions”, “operators”, “commands”\n\n“Motions” move the cursor - where you would type in i mode\n“Operators” manipulate text - add, delete, yank (copy), paste\n“Commands” load and save files and exit Neovim."
+    "section": "Scientific Computing on Windows",
+    "text": "Scientific Computing on Windows\n\nBash is a nearly universally standard for command line usage.\nWindows built-in cmd.exe and PowerShell are necessary for Windows to run properly, but rarely used in a computing context.\nGit, an extremely popular command line utility used in bash, provides “Git Bash” for Windows users to have access to bash scripting."
   },
   {
-    "objectID": "A0_keybinds.rjs.html#section-2",
-    "href": "A0_keybinds.rjs.html#section-2",
+    "objectID": "A1_gitbash.rjs.html#why-git-bash",
+    "href": "A1_gitbash.rjs.html#why-git-bash",
     "title": "Scientific Computing",
-    "section": "",
-    "text": "Motion\nMovement\n\n\n\n\nh\nleft one character\n\n\nj\ndown one line\n\n\nk\nup one line\n\n\nl\nright one character\n\n\n0\nbeginning of line\n\n\n$\nend of line\n\n\n/search_term\ngo to next occurance of “search_term”\n\n\ne\nend of word\n\n\nb\nbeginning of word"
+    "section": "Why Git Bash?",
+    "text": "Why Git Bash?\n\nIt’s relatively easy to setup and integrates well with Windows."
   },
   {
-    "objectID": "A0_keybinds.rjs.html#section-3",
-    "href": "A0_keybinds.rjs.html#section-3",
+    "objectID": "A1_gitbash.rjs.html#why-not-git-bash",
+    "href": "A1_gitbash.rjs.html#why-not-git-bash",
     "title": "Scientific Computing",
-    "section": "",
-    "text": "Operator\nAction\n\n\n\n\ni\ninsert text\n\n\nr\nreplace character\n\n\nd\ndelete text, combined with a motion\n\n\ny\nyank text, combined with a motion\n\n\np\npaste yanked text\n\n\n\n\n\n\n\n\n\nCommand\nAction\n\n\n\n\n:saveas file.txt\nsave text as “file.txt”\n\n\n:w\nsave file\n\n\n:x\nsave and exit\n\n\n:q!\nexit without saving\n\n\n\n\nBash\n\nBash commands are used folder-relative.\nBash is used within a terminal and is the default terminal environment.\nTo get bash running:\n\nWindows: Check Appendix - Git Bash\nMacOS: Spotlight menu -&gt; “Terminal” (zsh, but close enough)\n\nMostly used to navigate the file system, organize files, launch programs like Python and Neovim\n\n\n\n\n\n\nCommand\nAction\n\n\n\n\nls\nlist files in folder\n\n\nrm f.txt\ndelete file “f.txt”\n\n\nmkdir dir\ncreate a new folder named “dir”\n\n\nmv f.txt dir\nmove file “f.txt” to folder “dir”\n\n\npwd\nprint current folder\n\n\ncd dir\nchange current folder to “dir”\n\n\ncd ..\ngo to “parent” folder\n\n\necho hi\nprint the text “hi”\n\n\necho hi &gt;f.txt\nwrite “hi” to file “f.txt”\n\n\ncat f.txt\nsee the text in f.txt"
+    "section": "Why not Git Bash?",
+    "text": "Why not Git Bash?\n\nWindows Subsystem for Linux (WSL) is better in every way except that beginning users often struggle to keep track of where files are.\nIt is also a bit harder to install.\nIf at all possible, use WSL by following that tutorial."
   },
   {
-    "objectID": "A0_keybinds.rjs.html#bash",
-    "href": "A0_keybinds.rjs.html#bash",
+    "objectID": "A1_gitbash.rjs.html#requirements",
+    "href": "A1_gitbash.rjs.html#requirements",
     "title": "Scientific Computing",
-    "section": "Bash",
-    "text": "Bash\n\nBash commands are used folder-relative.\nBash is used within a terminal and is the default terminal environment.\nTo get bash running:\n\nWindows: Check Appendix - Git Bash\nMacOS: Spotlight menu -&gt; “Terminal” (zsh, but close enough)\n\nMostly used to navigate the file system, organize files, launch programs like Python and Neovim"
+    "section": "Requirements",
+    "text": "Requirements\n\nYou may have it already, but download Window Terminal from the Microsoft Store.\nDownload (but do not yet install) Git for Windows from Git SCM."
   },
   {
-    "objectID": "A0_keybinds.rjs.html#section-4",
-    "href": "A0_keybinds.rjs.html#section-4",
+    "objectID": "A1_gitbash.rjs.html#installing-git",
+    "href": "A1_gitbash.rjs.html#installing-git",
     "title": "Scientific Computing",
-    "section": "",
-    "text": "Command\nAction\n\n\n\n\nls\nlist files in folder\n\n\nrm f.txt\ndelete file “f.txt”\n\n\nmkdir dir\ncreate a new folder named “dir”\n\n\nmv f.txt dir\nmove file “f.txt” to folder “dir”\n\n\npwd\nprint current folder\n\n\ncd dir\nchange current folder to “dir”\n\n\ncd ..\ngo to “parent” folder\n\n\necho hi\nprint the text “hi”\n\n\necho hi &gt;f.txt\nwrite “hi” to file “f.txt”\n\n\ncat f.txt\nsee the text in f.txt"
+    "section": "Installing Git",
+    "text": "Installing Git\n\nWe will install git, perhaps the most used command line utility, and bash at the same time.\nWe will go step-by-step through the “Git for Windows” installer to do so."
   },
   {
-    "objectID": "A0_keybinds.html#python",
-    "href": "A0_keybinds.html#python",
+    "objectID": "A1_gitbash.rjs.html#accept-license",
+    "href": "A1_gitbash.rjs.html#accept-license",
+    "title": "Scientific Computing",
+    "section": "1. Accept License",
+    "text": "1. Accept License\n\nWhen you open “Git for Windows” you will be prompted to accept the “GNU General Public License”\nThis license is what ensures “Git for Windows” is free.\nYou may read it, but it is well studied and trustworthy.\nI click “Next” to move on."
+  },
+  {
+    "objectID": "A1_gitbash.rjs.html#select-components",
+    "href": "A1_gitbash.rjs.html#select-components",
+    "title": "Scientific Computing",
+    "section": "2. Select Components",
+    "text": "2. Select Components\n\n\n\n\n\n\nThis is critical\n\n\nYou must select “Add a Git Bash Profile to Windows Terminal”\n\n\n\n\nThis box let’s us use bash directly on Windows!\nProbably no other boxes affect you, but I like “Windows Explorer integration -&gt; Open Git Bash here” which I use often."
+  },
+  {
+    "objectID": "A1_gitbash.rjs.html#default-editor",
+    "href": "A1_gitbash.rjs.html#default-editor",
+    "title": "Scientific Computing",
+    "section": "3. Default Editor",
+    "text": "3. Default Editor\n\nWhile not required, I configure Neovim to be my default editor.\nIt is quite likely that you do this by:\n\nSelecting “Select other editor as Git’s default editor”\nBrowsing to “C:Files”\nSelecting “nvim.exe”\n\nI find this much nicer than any alternative.\n\nNext best is probably Notepad++"
+  },
+  {
+    "objectID": "A1_gitbash.rjs.html#aside",
+    "href": "A1_gitbash.rjs.html#aside",
+    "title": "Scientific Computing",
+    "section": "Aside",
+    "text": "Aside\n\nI leave everything else on defaults."
+  },
+  {
+    "objectID": "A1_gitbash.rjs.html#initial-branch",
+    "href": "A1_gitbash.rjs.html#initial-branch",
+    "title": "Scientific Computing",
+    "section": "4. Initial Branch",
+    "text": "4. Initial Branch\n\nThis is out of scope for now.\n“Let Git decide” is fine.\n\n\n\n\n\n\n\nNote\n\n\nThe language we use to describe computing matters, and GitHub is working to make their language more accurate, precise, and inclusive. Read more"
+  },
+  {
+    "objectID": "A1_gitbash.rjs.html#ssh-executable",
+    "href": "A1_gitbash.rjs.html#ssh-executable",
+    "title": "Scientific Computing",
+    "section": "5. SSH executable",
+    "text": "5. SSH executable\n\nWe’ll cover SSH in more depth latter.\nI leave as default “Use bundled OpenSSH”"
+  },
+  {
+    "objectID": "A1_gitbash.rjs.html#openssl-library",
+    "href": "A1_gitbash.rjs.html#openssl-library",
+    "title": "Scientific Computing",
+    "section": "6. OpenSSL library",
+    "text": "6. OpenSSL library\n\nI leave as default “Use the OpenSSL library”\nI cover OpenSSL in a bit more detail in cryptography courses."
+  },
+  {
+    "objectID": "A1_gitbash.rjs.html#line-endings",
+    "href": "A1_gitbash.rjs.html#line-endings",
+    "title": "Scientific Computing",
+    "section": "7. Line Endings",
+    "text": "7. Line Endings\n\nVersus MacOS, Windows notes the end of lines of text in a novel way.\nI almost always find this annoying!\nI “Checkout as-is, commit Unix-style line encodings”\nWhy? I don’t like that Windows doesn’t follow standards.\nThis doesn’t really matter."
+  },
+  {
+    "objectID": "A1_gitbash.rjs.html#terminal-emulator",
+    "href": "A1_gitbash.rjs.html#terminal-emulator",
+    "title": "Scientific Computing",
+    "section": "8. Terminal Emulator",
+    "text": "8. Terminal Emulator\n\nWe will use Windows Terminal regardless.\n\nI select “Use Windows’ default console window” - which is not Windows Terminal - but is expected to become Windows Terminal someday.\nWindows is confusing!"
+  },
+  {
+    "objectID": "A1_gitbash.rjs.html#git-pull",
+    "href": "A1_gitbash.rjs.html#git-pull",
+    "title": "Scientific Computing",
+    "section": "9. git pull",
+    "text": "9. git pull\n\nI leave the default “Fast-forward or merge”\nBy the time this matters to you, you will know how to not use defaults."
+  },
+  {
+    "objectID": "A1_gitbash.rjs.html#credential-helper",
+    "href": "A1_gitbash.rjs.html#credential-helper",
+    "title": "Scientific Computing",
+    "section": "10. Credential Helper",
+    "text": "10. Credential Helper\n\n\n\n\n\n\nThis is critical\n\n\nYou must select “Git Credential Manager”\n\n\n\n\nIt is otherwise quite difficult to manage passwords when we get there."
+  },
+  {
+    "objectID": "A1_gitbash.rjs.html#extra-options",
+    "href": "A1_gitbash.rjs.html#extra-options",
+    "title": "Scientific Computing",
+    "section": "11. Extra Options",
+    "text": "11. Extra Options\n\nI do use “Enable file system caching” but I don’t know that I would recommend it.\nNo options is fine here!"
+  },
+  {
+    "objectID": "A1_gitbash.rjs.html#finishing-up",
+    "href": "A1_gitbash.rjs.html#finishing-up",
+    "title": "Scientific Computing",
+    "section": "Finishing up",
+    "text": "Finishing up\n\nAt this time, you may need to close any terminal windows you have open.\nSave your work (:w) first!"
+  },
+  {
+    "objectID": "A1_gitbash.rjs.html#install",
+    "href": "A1_gitbash.rjs.html#install",
+    "title": "Scientific Computing",
+    "section": "Install",
+    "text": "Install\n\nYou should get an install progress bar."
+  },
+  {
+    "objectID": "A1_gitbash.rjs.html#completion",
+    "href": "A1_gitbash.rjs.html#completion",
+    "title": "Scientific Computing",
+    "section": "Completion",
+    "text": "Completion\n\nI uncheck both boxes and close the installer.\nI open Windows Terminal and click the downward facing arrow button next to the “plus” symbol button after my last tab.\nI select “Git Bash”\nI try ls\n\nYou should see multiple filenames per line and no other information (Bash ls).\nIf you see dates and times, it is still Windows PowerShell.\n\nGo over these instructions again, or ask for help!"
+  },
+  {
+    "objectID": "A1_gitbash.html#scientific-computing-on-windows",
+    "href": "A1_gitbash.html#scientific-computing-on-windows",
     "title": "",
-    "section": "Python",
-    "text": "Python\n\nPython can be used within the Python prompt, prefixed with &gt;&gt;&gt;, or via .py files.\nPython is used to conduct computations.\nVersus a calculator, it supports arithmetic, comparisons, code reuse, and repeated actions.",
+    "section": "Scientific Computing on Windows",
+    "text": "Scientific Computing on Windows\n\nBash is a nearly universally standard for command line usage.\nWindows built-in cmd.exe and PowerShell are necessary for Windows to run properly, but rarely used in a computing context.\nGit, an extremely popular command line utility used in bash, provides “Git Bash” for Windows users to have access to bash scripting.",
     "crumbs": [
-      "Appendix - Commands"
+      "Appendix - Git Bash"
     ]
   },
   {
-    "objectID": "A0_keybinds.html#section",
-    "href": "A0_keybinds.html#section",
+    "objectID": "A1_gitbash.html#why-git-bash",
+    "href": "A1_gitbash.html#why-git-bash",
     "title": "",
-    "section": "",
-    "text": "\\[\nf(x) =\n\\begin{cases}\n  9x^2 + 5 & x &lt; 4 \\\\\n  9 & 4 \\leq x \\leq 8 \\\\\n  2 - x & x &gt; 8\n\\end{cases}\n\\]\n\n\ndef f(x):\n    if (x &lt; 4):\n        return 9 * x ** 2 + 5\n    elif (4 &lt;= x &lt;= 8):\n        return 9\n    elif (x &gt; 8):\n        return 2 - x",
+    "section": "Why Git Bash?",
+    "text": "Why Git Bash?\n\nIt’s relatively easy to setup and integrates well with Windows.",
     "crumbs": [
-      "Appendix - Commands"
+      "Appendix - Git Bash"
     ]
   },
   {
-    "objectID": "A0_keybinds.html#section-1",
-    "href": "A0_keybinds.html#section-1",
+    "objectID": "A1_gitbash.html#why-not-git-bash",
+    "href": "A1_gitbash.html#why-not-git-bash",
     "title": "",
-    "section": "",
-    "text": "Find \\(f(x)\\) for each of the following \\(x\\) values: \\[\n\\{-1, 4, 5, 8, 11\\}\n\\]\n\n\n\nresult = []\nfor x in [-1, 4, 5, 8, 11]:\n    result = result + [f(x)]\nresult\n\n[14, 9, 9, 9, -9]",
+    "section": "Why not Git Bash?",
+    "text": "Why not Git Bash?\n\nWindows Subsystem for Linux (WSL) is better in every way except that beginning users often struggle to keep track of where files are.\nIt is also a bit harder to install.\nIf at all possible, use WSL by following that tutorial.",
     "crumbs": [
-      "Appendix - Commands"
+      "Appendix - Git Bash"
     ]
   },
   {
-    "objectID": "A0_keybinds.html#neovim",
-    "href": "A0_keybinds.html#neovim",
+    "objectID": "A1_gitbash.html#requirements",
+    "href": "A1_gitbash.html#requirements",
     "title": "",
-    "section": "Neovim",
-    "text": "Neovim\n\nUse nvim to access a modal text editor.\nIn i or insert mode, is like other editors.\nOutside i there’s “motions”, “operators”, “commands”\n\n“Motions” move the cursor - where you would type in i mode\n“Operators” manipulate text - add, delete, yank (copy), paste\n“Commands” load and save files and exit Neovim.",
+    "section": "Requirements",
+    "text": "Requirements\n\nYou may have it already, but download Window Terminal from the Microsoft Store.\nDownload (but do not yet install) Git for Windows from Git SCM.",
     "crumbs": [
-      "Appendix - Commands"
+      "Appendix - Git Bash"
     ]
   },
   {
-    "objectID": "A0_keybinds.html#section-2",
-    "href": "A0_keybinds.html#section-2",
+    "objectID": "A1_gitbash.html#installing-git",
+    "href": "A1_gitbash.html#installing-git",
     "title": "",
-    "section": "",
-    "text": "Motion\nMovement\n\n\n\n\nh\nleft one character\n\n\nj\ndown one line\n\n\nk\nup one line\n\n\nl\nright one character\n\n\n0\nbeginning of line\n\n\n$\nend of line\n\n\n/search_term\ngo to next occurance of “search_term”\n\n\ne\nend of word\n\n\nb\nbeginning of word",
+    "section": "Installing Git",
+    "text": "Installing Git\n\nWe will install git, perhaps the most used command line utility, and bash at the same time.\nWe will go step-by-step through the “Git for Windows” installer to do so.",
     "crumbs": [
-      "Appendix - Commands"
+      "Appendix - Git Bash"
     ]
   },
   {
-    "objectID": "A0_keybinds.html#section-3",
-    "href": "A0_keybinds.html#section-3",
+    "objectID": "A1_gitbash.html#accept-license",
+    "href": "A1_gitbash.html#accept-license",
     "title": "",
-    "section": "",
-    "text": "Operator\nAction\n\n\n\n\ni\ninsert text\n\n\nr\nreplace character\n\n\nd\ndelete text, combined with a motion\n\n\ny\nyank text, combined with a motion\n\n\np\npaste yanked text\n\n\n\n\n\n\n\n\n\nCommand\nAction\n\n\n\n\n:saveas file.txt\nsave text as “file.txt”\n\n\n:w\nsave file\n\n\n:x\nsave and exit\n\n\n:q!\nexit without saving\n\n\n\n\nBash\n\nBash commands are used folder-relative.\nBash is used within a terminal and is the default terminal environment.\nTo get bash running:\n\nWindows: Check Appendix - Git Bash\nMacOS: Spotlight menu -&gt; “Terminal” (zsh, but close enough)\n\nMostly used to navigate the file system, organize files, launch programs like Python and Neovim\n\n\n\n\n\n\nCommand\nAction\n\n\n\n\nls\nlist files in folder\n\n\nrm f.txt\ndelete file “f.txt”\n\n\nmkdir dir\ncreate a new folder named “dir”\n\n\nmv f.txt dir\nmove file “f.txt” to folder “dir”\n\n\npwd\nprint current folder\n\n\ncd dir\nchange current folder to “dir”\n\n\ncd ..\ngo to “parent” folder\n\n\necho hi\nprint the text “hi”\n\n\necho hi &gt;f.txt\nwrite “hi” to file “f.txt”\n\n\ncat f.txt\nsee the text in f.txt",
+    "section": "1. Accept License",
+    "text": "1. Accept License\n\nWhen you open “Git for Windows” you will be prompted to accept the “GNU General Public License”\nThis license is what ensures “Git for Windows” is free.\nYou may read it, but it is well studied and trustworthy.\nI click “Next” to move on.",
     "crumbs": [
-      "Appendix - Commands"
+      "Appendix - Git Bash"
     ]
   },
   {
-    "objectID": "A0_keybinds.html#bash",
-    "href": "A0_keybinds.html#bash",
+    "objectID": "A1_gitbash.html#select-components",
+    "href": "A1_gitbash.html#select-components",
     "title": "",
-    "section": "Bash",
-    "text": "Bash\n\nBash commands are used folder-relative.\nBash is used within a terminal and is the default terminal environment.\nTo get bash running:\n\nWindows: Check Appendix - Git Bash\nMacOS: Spotlight menu -&gt; “Terminal” (zsh, but close enough)\n\nMostly used to navigate the file system, organize files, launch programs like Python and Neovim",
+    "section": "2. Select Components",
+    "text": "2. Select Components\n\n\n\n\n\n\nThis is critical\n\n\n\nYou must select “Add a Git Bash Profile to Windows Terminal”\n\n\n\nThis box let’s us use bash directly on Windows!\nProbably no other boxes affect you, but I like “Windows Explorer integration -&gt; Open Git Bash here” which I use often.",
     "crumbs": [
-      "Appendix - Commands"
+      "Appendix - Git Bash"
     ]
   },
   {
-    "objectID": "A0_keybinds.html#section-4",
-    "href": "A0_keybinds.html#section-4",
+    "objectID": "A1_gitbash.html#default-editor",
+    "href": "A1_gitbash.html#default-editor",
     "title": "",
-    "section": "",
-    "text": "Command\nAction\n\n\n\n\nls\nlist files in folder\n\n\nrm f.txt\ndelete file “f.txt”\n\n\nmkdir dir\ncreate a new folder named “dir”\n\n\nmv f.txt dir\nmove file “f.txt” to folder “dir”\n\n\npwd\nprint current folder\n\n\ncd dir\nchange current folder to “dir”\n\n\ncd ..\ngo to “parent” folder\n\n\necho hi\nprint the text “hi”\n\n\necho hi &gt;f.txt\nwrite “hi” to file “f.txt”\n\n\ncat f.txt\nsee the text in f.txt",
+    "section": "3. Default Editor",
+    "text": "3. Default Editor\n\nWhile not required, I configure Neovim to be my default editor.\nIt is quite likely that you do this by:\n\nSelecting “Select other editor as Git’s default editor”\nBrowsing to “C:Files”\nSelecting “nvim.exe”\n\nI find this much nicer than any alternative.\n\nNext best is probably Notepad++",
     "crumbs": [
-      "Appendix - Commands"
+      "Appendix - Git Bash"
     ]
   },
   {
-    "objectID": "A2_github.html",
-    "href": "A2_github.html",
+    "objectID": "A1_gitbash.html#aside",
+    "href": "A1_gitbash.html#aside",
     "title": "",
-    "section": "",
-    "text": "echo \"# for_sc\" &gt;&gt; README.md\ngit init\ngit add README.md\n\nBefore the commit works, have to:\n\ngit config --global user.email \"you@example.com\"\ngit config --global user.name \"Your Name\"\n\nThen can\n\ngit commit -m \"first commit\"\ngit branch -M main\ngit remote add origin git@github.com:cd-public/for_sc.git\n\nThen have to:\n\nAccept this:\n\nThe authenticity of host 'github.com (140.82.116.4)' can't be established.\nED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.\nThis key is not known by any other names.\nAre you sure you want to continue connecting (yes/no/[fingerprint])? \n\nMake a key.\nAdd key to GitHub\n\n\ngit push -u origin main",
+    "section": "Aside",
+    "text": "Aside\n\nI leave everything else on defaults.",
     "crumbs": [
-      "A2 Github"
+      "Appendix - Git Bash"
     ]
   },
   {
-    "objectID": "0B_git.html#uniqueness",
-    "href": "0B_git.html#uniqueness",
-    "title": "Git",
-    "section": "Uniqueness",
-    "text": "Uniqueness\n\nGive some thought to naming repositories!\n\nNames must be unique per user, but different users may have the same repository name.\nFor example, both “pandas-dev” and “cd-public” have a “pandas” repository\n\nThat is “pandas/pandas-dev” and “cd-public/pandas-dev” ## Create New\n\n\nTo understand better, let’s create a repository.\n\n\nNavigate to any GitHub page\nIn the top right right past the search bar, click +\nSelect New repository",
+    "objectID": "A1_gitbash.html#initial-branch",
+    "href": "A1_gitbash.html#initial-branch",
+    "title": "",
+    "section": "4. Initial Branch",
+    "text": "4. Initial Branch\n\nThis is out of scope for now.\n“Let Git decide” is fine.\n\n\n\n\n\n\n\nNote\n\n\n\nThe language we use to describe computing matters, and GitHub is working to make their language more accurate, precise, and inclusive. Read more",
     "crumbs": [
-      "Git"
+      "Appendix - Git Bash"
     ]
   },
   {
-    "objectID": "0B_git.html#looping-back",
-    "href": "0B_git.html#looping-back",
-    "title": "Git",
-    "section": "Looping Back",
-    "text": "Looping Back\n\nOnce you have provided your identity, you can successfuly complete a commit.\n\ngit commit -a -m \"first commit\"\n\nThis will:\n\nMark current code as a version, named by your commit message.\n\nThis won’t:\n\nDo anything to GitHub.",
+    "objectID": "A1_gitbash.html#ssh-executable",
+    "href": "A1_gitbash.html#ssh-executable",
+    "title": "",
+    "section": "5. SSH executable",
+    "text": "5. SSH executable\n\nWe’ll cover SSH in more depth latter.\nI leave as default “Use bundled OpenSSH”",
     "crumbs": [
-      "Git"
+      "Appendix - Git Bash"
     ]
   },
   {
-    "objectID": "0B_git.rjs.html#uniqueness",
-    "href": "0B_git.rjs.html#uniqueness",
-    "title": "Git",
-    "section": "Uniqueness",
-    "text": "Uniqueness\n\nGive some thought to naming repositories!\n\nNames must be unique per user, but different users may have the same repository name.\nFor example, both “pandas-dev” and “cd-public” have a “pandas” repository\n\nThat is “pandas/pandas-dev” and “cd-public/pandas-dev” ## Create New\n\n\nTo understand better, let’s create a repository.\n\n\nNavigate to any GitHub page\nIn the top right right past the search bar, click +\nSelect New repository"
-  },
-  {
-    "objectID": "0B_git.rjs.html#looping-back",
-    "href": "0B_git.rjs.html#looping-back",
-    "title": "Git",
-    "section": "Looping Back",
-    "text": "Looping Back\n\nOnce you have provided your identity, you can successfuly complete a commit.\n\ngit commit -a -m \"first commit\"\n\nThis will:\n\nMark current code as a version, named by your commit message.\n\nThis won’t:\n\nDo anything to GitHub."
-  },
-  {
-    "objectID": "0B_git.html#a--m",
-    "href": "0B_git.html#a--m",
-    "title": "Git",
-    "section": "“-a -m”",
-    "text": "“-a -m”\n\nCommits require a commit message (like a version name or number) so specify with -m\nUsually I provide -a to commit “all” files.\nI usually make some effort to make my life easier with specific commit messages, perhaps listing:\n\nWhat I’m trying to do\nWhy?",
+    "objectID": "A1_gitbash.html#openssl-library",
+    "href": "A1_gitbash.html#openssl-library",
+    "title": "",
+    "section": "6. OpenSSL library",
+    "text": "6. OpenSSL library\n\nI leave as default “Use the OpenSSL library”\nI cover OpenSSL in a bit more detail in cryptography courses.",
     "crumbs": [
-      "Git"
+      "Appendix - Git Bash"
     ]
   },
   {
-    "objectID": "0B_git.rjs.html#a--m",
-    "href": "0B_git.rjs.html#a--m",
-    "title": "Git",
-    "section": "“-a -m”",
-    "text": "“-a -m”\n\nCommits require a commit message (like a version name or number) so specify with -m\nUsually I provide -a to commit “all” files.\nI usually make some effort to make my life easier with specific commit messages, perhaps listing:\n\nWhat I’m trying to do\nWhy?"
-  },
-  {
-    "objectID": "0B_git.html#my-name",
-    "href": "0B_git.html#my-name",
-    "title": "Git",
-    "section": "My name",
-    "text": "My name\n\nI often include which computer I’m using in my name and also don’t use a real email address.\n\nMy GitHub account is already attached to an email address, so I use a throwaway for commits.\n\n\ngit config --global user.email \"prof_calvin@scicom.edu\"\ngit config --global user.name \"Calvin for Class\"",
+    "objectID": "A1_gitbash.html#line-endings",
+    "href": "A1_gitbash.html#line-endings",
+    "title": "",
+    "section": "7. Line Endings",
+    "text": "7. Line Endings\n\nVersus MacOS, Windows notes the end of lines of text in a novel way.\nI almost always find this annoying!\nI “Checkout as-is, commit Unix-style line encodings”\nWhy? I don’t like that Windows doesn’t follow standards.\nThis doesn’t really matter.",
     "crumbs": [
-      "Git"
+      "Appendix - Git Bash"
     ]
   },
   {
-    "objectID": "0B_git.rjs.html#my-name",
-    "href": "0B_git.rjs.html#my-name",
-    "title": "Git",
-    "section": "My name",
-    "text": "My name\n\nI often include which computer I’m using in my name and also don’t use a real email address.\n\nMy GitHub account is already attached to an email address, so I use a throwaway for commits.\n\n\ngit config --global user.email \"prof_calvin@scicom.edu\"\ngit config --global user.name \"Calvin for Class\""
-  },
-  {
-    "objectID": "0B_git.html#branching-out",
-    "href": "0B_git.html#branching-out",
-    "title": "Git",
-    "section": "Branching Out",
-    "text": "Branching Out\n\nAs a rule, repositories have branches\n\nThis was helpful early on when different versions of software had different levels of release readiness or were working on different features.\n\nThe default branch is usually main which we can use for now.",
+    "objectID": "A1_gitbash.html#terminal-emulator",
+    "href": "A1_gitbash.html#terminal-emulator",
+    "title": "",
+    "section": "8. Terminal Emulator",
+    "text": "8. Terminal Emulator\n\nWe will use Windows Terminal regardless.\n\nI select “Use Windows’ default console window” - which is not Windows Terminal - but is expected to become Windows Terminal someday.\nWindows is confusing!",
     "crumbs": [
-      "Git"
+      "Appendix - Git Bash"
     ]
   },
   {
-    "objectID": "0B_git.html#branch-command",
-    "href": "0B_git.html#branch-command",
-    "title": "Git",
-    "section": "Branch Command",
-    "text": "Branch Command\n\nThe branch command can “list, create, or destroy branches”\nWe mostly need to have our branch on our device have the same name as the branch on GitHub.\nRename our brnach with branch -M to main - the expected name.\n\ngit branch -M main",
+    "objectID": "A1_gitbash.html#git-pull",
+    "href": "A1_gitbash.html#git-pull",
+    "title": "",
+    "section": "9. git pull",
+    "text": "9. git pull\n\nI leave the default “Fast-forward or merge”\nBy the time this matters to you, you will know how to not use defaults.",
     "crumbs": [
-      "Git"
+      "Appendix - Git Bash"
     ]
   },
   {
-    "objectID": "0B_git.rjs.html#branching-out",
-    "href": "0B_git.rjs.html#branching-out",
-    "title": "Git",
-    "section": "Branching Out",
-    "text": "Branching Out\n\nAs a rule, repositories have branches\n\nThis was helpful early on when different versions of software had different levels of release readiness or were working on different features.\n\nThe default branch is usually main which we can use for now."
-  },
-  {
-    "objectID": "0B_git.rjs.html#branch-command",
-    "href": "0B_git.rjs.html#branch-command",
-    "title": "Git",
-    "section": "Branch Command",
-    "text": "Branch Command\n\nThe branch command can “list, create, or destroy branches”\nWe mostly need to have our branch on our device have the same name as the branch on GitHub.\nRename our brnach with branch -M to main - the expected name.\n\ngit branch -M main"
-  },
-  {
-    "objectID": "0B_git.html#placing-a-pin",
-    "href": "0B_git.html#placing-a-pin",
-    "title": "Git",
-    "section": "Placing a Pin",
-    "text": "Placing a Pin\n\nKeep this page open for a little bit latter!\nWe have to set up the repository on our device before we can do anything else!\n\nThis like collaborating with ourselves - our GitHub self on the internet",
+    "objectID": "A1_gitbash.html#credential-helper",
+    "href": "A1_gitbash.html#credential-helper",
+    "title": "",
+    "section": "10. Credential Helper",
+    "text": "10. Credential Helper\n\n\n\n\n\n\nThis is critical\n\n\n\nYou must select “Git Credential Manager”\n\n\n\nIt is otherwise quite difficult to manage passwords when we get there.",
     "crumbs": [
-      "Git"
+      "Appendix - Git Bash"
     ]
   },
   {
-    "objectID": "0B_git.html#secure-shell",
-    "href": "0B_git.html#secure-shell",
-    "title": "Git",
-    "section": "Secure Shell",
-    "text": "Secure Shell\n\nWe know how to deal with a very important topic:\nSecurity\nWhen moving executable code between websites and our system, we have to be careful that it is:\n\nNot tampered with\nMade by who said made it",
+    "objectID": "A1_gitbash.html#extra-options",
+    "href": "A1_gitbash.html#extra-options",
+    "title": "",
+    "section": "11. Extra Options",
+    "text": "11. Extra Options\n\nI do use “Enable file system caching” but I don’t know that I would recommend it.\nNo options is fine here!",
     "crumbs": [
-      "Git"
+      "Appendix - Git Bash"
     ]
   },
   {
-    "objectID": "0B_git.rjs.html#placing-a-pin",
-    "href": "0B_git.rjs.html#placing-a-pin",
-    "title": "Git",
-    "section": "Placing a Pin",
-    "text": "Placing a Pin\n\nKeep this page open for a little bit latter!\nWe have to set up the repository on our device before we can do anything else!\n\nThis like collaborating with ourselves - our GitHub self on the internet"
-  },
-  {
-    "objectID": "0B_git.rjs.html#secure-shell",
-    "href": "0B_git.rjs.html#secure-shell",
-    "title": "Git",
-    "section": "Secure Shell",
-    "text": "Secure Shell\n\nWe know how to deal with a very important topic:\nSecurity\nWhen moving executable code between websites and our system, we have to be careful that it is:\n\nNot tampered with\nMade by who said made it"
-  },
-  {
-    "objectID": "0B_git.html#security-concession",
-    "href": "0B_git.html#security-concession",
-    "title": "Git",
-    "section": "Security Concession",
-    "text": "Security Concession\n\nWe will use SSH, the “Secure Shell Protocol”\nIt is supported by git/GitHub and all major operating systems.",
+    "objectID": "A1_gitbash.html#finishing-up",
+    "href": "A1_gitbash.html#finishing-up",
+    "title": "",
+    "section": "Finishing up",
+    "text": "Finishing up\n\nAt this time, you may need to close any terminal windows you have open.\nSave your work (:w) first!",
     "crumbs": [
-      "Git"
+      "Appendix - Git Bash"
     ]
   },
   {
-    "objectID": "0B_git.html#keygen",
-    "href": "0B_git.html#keygen",
-    "title": "Git",
-    "section": "Keygen",
-    "text": "Keygen\n\nSSH is based around having “keys”\n\nUnder the hood, these are special numbers with special properties related to primes, basically.\n\nWe generate a special unique key we can use as a password or signature.\n\nssh-keygen\n\nMore properly we specify: a -t key type and a",
+    "objectID": "A1_gitbash.html#install",
+    "href": "A1_gitbash.html#install",
+    "title": "",
+    "section": "Install",
+    "text": "Install\n\nYou should get an install progress bar.",
     "crumbs": [
-      "Git"
+      "Appendix - Git Bash"
     ]
   },
   {
-    "objectID": "0B_git.rjs.html#security-concession",
-    "href": "0B_git.rjs.html#security-concession",
-    "title": "Git",
-    "section": "Security Concession",
-    "text": "Security Concession\n\nWe will use SSH, the “Secure Shell Protocol”\nIt is supported by git/GitHub and all major operating systems."
-  },
-  {
-    "objectID": "0B_git.rjs.html#keygen",
-    "href": "0B_git.rjs.html#keygen",
-    "title": "Git",
-    "section": "Keygen",
-    "text": "Keygen\n\nSSH is based around having “keys”\n\nUnder the hood, these are special numbers with special properties related to primes, basically.\n\nWe generate a special unique key we can use as a password or signature.\n\nssh-keygen\n\nMore properly we specify: a -t key type and a"
-  },
-  {
-    "objectID": "0B_git.html#prompts",
-    "href": "0B_git.html#prompts",
-    "title": "Git",
-    "section": "Prompts",
-    "text": "Prompts\n\nThis example uses (1) the default location and (2) no passphrase.\n\nThis is less secure but easier to manage.\nWork in a passphrase as soon as you can!\n\n\nGenerating public/private ed25519 key pair.\nEnter file in which to save the key (/home/calvin/.ssh/id_ed25519): \nEnter passphrase (empty for no passphrase): \nEnter same passphrase again: \nYour identification has been saved in /home/calvin/.ssh/id_ed25519\n$ cat ~/.ssh/id_ed25519.pub \nssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE5cnx/tgBp8v/LnuHz28evmnRPrnlz3cvYaAAM4G0ik calvin@calvin-Precision-3490\n\nYou now have a key! Let’s find a lock.",
+    "objectID": "A1_gitbash.html#completion",
+    "href": "A1_gitbash.html#completion",
+    "title": "",
+    "section": "Completion",
+    "text": "Completion\n\nI uncheck both boxes and close the installer.\nI open Windows Terminal and click the downward facing arrow button next to the “plus” symbol button after my last tab.\nI select “Git Bash”\nI try ls\n\nYou should see multiple filenames per line and no other information (Bash ls).\nIf you see dates and times, it is still Windows PowerShell.\n\nGo over these instructions again, or ask for help!",
     "crumbs": [
-      "Git"
+      "Appendix - Git Bash"
     ]
-  },
-  {
-    "objectID": "0B_git.rjs.html#prompts",
-    "href": "0B_git.rjs.html#prompts",
-    "title": "Git",
-    "section": "Prompts",
-    "text": "Prompts\n\nThis example uses (1) the default location and (2) no passphrase.\n\nThis is less secure but easier to manage.\nWork in a passphrase as soon as you can!\n\n\nGenerating public/private ed25519 key pair.\nEnter file in which to save the key (/home/calvin/.ssh/id_ed25519): \nEnter passphrase (empty for no passphrase): \nEnter same passphrase again: \nYour identification has been saved in /home/calvin/.ssh/id_ed25519\n$ cat ~/.ssh/id_ed25519.pub \nssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE5cnx/tgBp8v/LnuHz28evmnRPrnlz3cvYaAAM4G0ik calvin@calvin-Precision-3490\n\nYou now have a key! Let’s find a lock."
-  },
-  {
-    "objectID": "0B_git.html#github-1",
-    "href": "0B_git.html#github-1",
-    "title": "Git",
-    "section": "GitHub",
-    "text": "GitHub\n\nThe purpose of this exercise is to connect to GitHub!\nWe will mostly use git for that, but we can check if we have a connection easily:\n\nssh -T git@github.com\n\nRead more",
-    "crumbs": [
-      "Git"
-    ]
-  },
-  {
-    "objectID": "0B_git.rjs.html#github-1",
-    "href": "0B_git.rjs.html#github-1",
-    "title": "Git",
-    "section": "GitHub",
-    "text": "GitHub\n\nThe purpose of this exercise is to connect to GitHub!\nWe will mostly use git for that, but we can check if we have a connection easily:\n\nssh -T git@github.com\n\nRead more"
-  },
-  {
-    "objectID": "0B_git.html#example",
-    "href": "0B_git.html#example",
-    "title": "Git",
-    "section": "Example",
-    "text": "Example\n\nThis is what I see:\n\nThe authenticity of host 'github.com (140.82.116.3)' can't be established.\nED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.\nThis key is not known by any other names.\nAre you sure you want to continue connecting (yes/no/[fingerprint])?\n\nBefore saying “yes” or “no” compare versus the “public SSH key fingerprints”\n\nCheck them here\n\nBy default, the modern keygen uses “Ed25519” so compare those keys, and click “yes” if they match!",
-    "crumbs": [
-      "Git"
-    ]
-  },
-  {
-    "objectID": "0B_git.rjs.html#example",
-    "href": "0B_git.rjs.html#example",
-    "title": "Git",
-    "section": "Example",
-    "text": "Example\n\nThis is what I see:\n\nThe authenticity of host 'github.com (140.82.116.3)' can't be established.\nED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.\nThis key is not known by any other names.\nAre you sure you want to continue connecting (yes/no/[fingerprint])?\n\nBefore saying “yes” or “no” compare versus the “public SSH key fingerprints”\n\nCheck them here\n\nBy default, the modern keygen uses “Ed25519” so compare those keys, and click “yes” if they match!"
-  },
-  {
-    "objectID": "0B_git.html#section",
-    "href": "0B_git.html#section",
-    "title": "Git",
-    "section": "",
-    "text": "Are you sure you want to continue connecting (yes/no/[fingerprint])? yes\nWarning: Permanently added 'github.com' (ED25519) to the list of known hosts.\ngit@github.com: Permission denied (publickey).",
-    "crumbs": [
-      "Git"
-    ]
-  },
-  {
-    "objectID": "0B_git.html#one-way",
-    "href": "0B_git.html#one-way",
-    "title": "Git",
-    "section": "One Way",
-    "text": "One Way\n\nNow we have instructed our computer to trust GitHub.\nTo save our code to GitHub, we must also get GitHub to trust our computer.\nWe generated our key, now we must match it to our lock on GitHub!",
-    "crumbs": [
-      "Git"
-    ]
-  },
-  {
-    "objectID": "0B_git.rjs.html#section",
-    "href": "0B_git.rjs.html#section",
-    "title": "Git",
-    "section": "",
-    "text": "Are you sure you want to continue connecting (yes/no/[fingerprint])? yes\nWarning: Permanently added 'github.com' (ED25519) to the list of known hosts.\ngit@github.com: Permission denied (publickey)."
-  },
-  {
-    "objectID": "0B_git.rjs.html#one-way",
-    "href": "0B_git.rjs.html#one-way",
-    "title": "Git",
-    "section": "One Way",
-    "text": "One Way\n\nNow we have instructed our computer to trust GitHub.\nTo save our code to GitHub, we must also get GitHub to trust our computer.\nWe generated our key, now we must match it to our lock on GitHub!"
-  },
-  {
-    "objectID": "0B_git.html#connecting",
-    "href": "0B_git.html#connecting",
-    "title": "Git",
-    "section": "Connecting",
-    "text": "Connecting\n\nAfter confirming the key correctness, you will likely see this.\n\nAre you sure you want to continue connecting (yes/no/[fingerprint])? yes\nWarning: Permanently added 'github.com' (ED25519) to the list of known hosts.\ngit@github.com: Permission denied (publickey).",
-    "crumbs": [
-      "Git"
-    ]
-  },
-  {
-    "objectID": "0B_git.rjs.html#connecting",
-    "href": "0B_git.rjs.html#connecting",
-    "title": "Git",
-    "section": "Connecting",
-    "text": "Connecting\n\nAfter confirming the key correctness, you will likely see this.\n\nAre you sure you want to continue connecting (yes/no/[fingerprint])? yes\nWarning: Permanently added 'github.com' (ED25519) to the list of known hosts.\ngit@github.com: Permission denied (publickey)."
-  },
-  {
-    "objectID": "0B_git.html#github-2",
-    "href": "0B_git.html#github-2",
-    "title": "Git",
-    "section": "GitHub",
-    "text": "GitHub\n\nReturn to GitHub and in the top right click your profile.\n\nFor me, a picture of myself.\n\nScroll down to “Settings” and click.\n\nLast in 2nd grouping, for me.\n\nWithin settings left-side menu click “SSH and GPG keys”\n\nMiddle of 2nd group (Access) for me.\n\nWithin the center block click New SSH key in the top right of the block.",
-    "crumbs": [
-      "Git"
-    ]
-  },
-  {
-    "objectID": "0B_git.rjs.html#github-2",
-    "href": "0B_git.rjs.html#github-2",
-    "title": "Git",
-    "section": "GitHub",
-    "text": "GitHub\n\nReturn to GitHub and in the top right click your profile.\n\nFor me, a picture of myself.\n\nScroll down to “Settings” and click.\n\nLast in 2nd grouping, for me.\n\nWithin settings left-side menu click “SSH and GPG keys”\n\nMiddle of 2nd group (Access) for me.\n\nWithin the center block click New SSH key in the top right of the block."
-  },
-  {
-    "objectID": "0B_git.html#github-pt-1",
-    "href": "0B_git.html#github-pt-1",
-    "title": "Git",
-    "section": "GitHub pt 1",
-    "text": "GitHub pt 1\n\nWe follow this guide\nReturn to GitHub and in the top right click your profile.\n\nFor me, a picture of myself.\n\nScroll down to “Settings” and click.\n\nLast in 2nd grouping, for me.",
-    "crumbs": [
-      "Git"
-    ]
-  },
-  {
-    "objectID": "0B_git.html#github-pt-2",
-    "href": "0B_git.html#github-pt-2",
-    "title": "Git",
-    "section": "GitHub pt 2",
-    "text": "GitHub pt 2\n\nWithin settings left-side menu click “SSH and GPG keys”\n\nMiddle of 2nd group (Access) for me.\n\nWithin the center block click New SSH key in the top right of the block.",
-    "crumbs": [
-      "Git"
-    ]
-  },
-  {
-    "objectID": "0B_git.rjs.html#github-pt-1",
-    "href": "0B_git.rjs.html#github-pt-1",
-    "title": "Git",
-    "section": "GitHub pt 1",
-    "text": "GitHub pt 1\n\nWe follow this guide\nReturn to GitHub and in the top right click your profile.\n\nFor me, a picture of myself.\n\nScroll down to “Settings” and click.\n\nLast in 2nd grouping, for me."
-  },
-  {
-    "objectID": "0B_git.rjs.html#github-pt-2",
-    "href": "0B_git.rjs.html#github-pt-2",
-    "title": "Git",
-    "section": "GitHub pt 2",
-    "text": "GitHub pt 2\n\nWithin settings left-side menu click “SSH and GPG keys”\n\nMiddle of 2nd group (Access) for me.\n\nWithin the center block click New SSH key in the top right of the block."
-  },
-  {
-    "objectID": "0B_git.html#prompt",
-    "href": "0B_git.html#prompt",
-    "title": "Git",
-    "section": "Prompt",
-    "text": "Prompt\n\nI get a page “Add new SSH Key”.\nI provide a title (like “For SciCom class” or “Laptop”)\nNow we’ll get our key from our system to use.\nRecall we previously generated a key to the default location, like /home/calvin/.ssh/id_ed25519\n\nIf you don’t remember, just type ssh-keygen and it’ll show you.",
-    "crumbs": [
-      "Git"
-    ]
-  },
-  {
-    "objectID": "0B_git.rjs.html#prompt",
-    "href": "0B_git.rjs.html#prompt",
-    "title": "Git",
-    "section": "Prompt",
-    "text": "Prompt\n\nI get a page “Add new SSH Key”.\nI provide a title (like “For SciCom class” or “Laptop”)\nNow we’ll get our key from our system to use.\nRecall we previously generated a key to the default location, like /home/calvin/.ssh/id_ed25519\n\nIf you don’t remember, just type ssh-keygen and it’ll show you."
-  },
-  {
-    "objectID": "0B_git.html#copypaste",
-    "href": "0B_git.html#copypaste",
-    "title": "Git",
-    "section": "Copy/Paste",
-    "text": "Copy/Paste\n\nTo get the key for GitHub, we can can\n\ncat that file in the command line\nCopy from the command line\nPaste into the GitHub “Key” field\nClick Add SSH key",
-    "crumbs": [
-      "Git"
-    ]
-  },
-  {
-    "objectID": "0B_git.rjs.html#copypaste",
-    "href": "0B_git.rjs.html#copypaste",
-    "title": "Git",
-    "section": "Copy/Paste",
-    "text": "Copy/Paste\n\nTo get the key for GitHub, we can can\n\ncat that file in the command line\nCopy from the command line\nPaste into the GitHub “Key” field\nClick Add SSH key"
-  },
-  {
-    "objectID": "0B_git.html#ssh-test",
-    "href": "0B_git.html#ssh-test",
-    "title": "Git",
-    "section": "SSH Test",
-    "text": "SSH Test\n\nAfter adding the key to the account, I confirm via SSH like so:\n\nssh -T git@github.com\n\nI see the following:\n\nHi cd-public! You've successfully authenticated, but GitHub does not provide shell access.",
-    "crumbs": [
-      "Git"
-    ]
-  },
-  {
-    "objectID": "0B_git.rjs.html#ssh-test",
-    "href": "0B_git.rjs.html#ssh-test",
-    "title": "Git",
-    "section": "SSH Test",
-    "text": "SSH Test\n\nAfter adding the key to the account, I confirm via SSH like so:\n\nssh -T git@github.com\n\nI see the following:\n\nHi cd-public! You've successfully authenticated, but GitHub does not provide shell access."
-  },
-  {
-    "objectID": "0B_git.html#save-your-work",
-    "href": "0B_git.html#save-your-work",
-    "title": "Git",
-    "section": "Save your work",
-    "text": "Save your work\n\nMy preferred way to save my work, especially when working across multiple team members or devices, is by “pushing” to GitHub.\nUsually this is only git push (after commit) but we still have a bit of setup to do.",
-    "crumbs": [
-      "Git"
-    ]
-  },
-  {
-    "objectID": "0B_git.html#add-origin",
-    "href": "0B_git.html#add-origin",
-    "title": "Git",
-    "section": "Add Origin",
-    "text": "Add Origin\n\nWe want to use git to attach our local repository to the GitHub repository.\nThis called “adding a remote origin”\n\nRemote as in online\nOrigin as in place to get files from.\n\nOur GitHub repository has some SSH name we will need.",
-    "crumbs": [
-      "Git"
-    ]
-  },
-  {
-    "objectID": "0B_git.html#finding-names",
-    "href": "0B_git.html#finding-names",
-    "title": "Git",
-    "section": "Finding Names",
-    "text": "Finding Names\n\nIn your web browser, navigate to your repository page on GitHub.\nLocate the &lt;&gt; Code button.\nClick it:\n\nSelect the top “local” tab (for or local repository)\nSelect the SSH option (for our SSH key)\nCopy the name, like &gt; git@github.com:cd-public/hello-world",
-    "crumbs": [
-      "Git"
-    ]
-  },
-  {
-    "objectID": "0B_git.rjs.html#save-your-work",
-    "href": "0B_git.rjs.html#save-your-work",
-    "title": "Git",
-    "section": "Save your work",
-    "text": "Save your work\n\nMy preferred way to save my work, especially when working across multiple team members or devices, is by “pushing” to GitHub.\nUsually this is only git push (after commit) but we still have a bit of setup to do."
-  },
-  {
-    "objectID": "0B_git.rjs.html#add-origin",
-    "href": "0B_git.rjs.html#add-origin",
-    "title": "Git",
-    "section": "Add Origin",
-    "text": "Add Origin\n\nWe want to use git to attach our local repository to the GitHub repository.\nThis called “adding a remote origin”\n\nRemote as in online\nOrigin as in place to get files from.\n\nOur GitHub repository has some SSH name we will need."
-  },
-  {
-    "objectID": "0B_git.rjs.html#finding-names",
-    "href": "0B_git.rjs.html#finding-names",
-    "title": "Git",
-    "section": "Finding Names",
-    "text": "Finding Names\n\nIn your web browser, navigate to your repository page on GitHub.\nLocate the &lt;&gt; Code button.\nClick it:\n\nSelect the top “local” tab (for or local repository)\nSelect the SSH option (for our SSH key)\nCopy the name, like &gt; git@github.com:cd-public/hello-world"
-  },
-  {
-    "objectID": "0B_git.html#origins",
-    "href": "0B_git.html#origins",
-    "title": "Git",
-    "section": "Origins",
-    "text": "Origins\n\nWe want to use git to attach our local repository to the GitHub repository.\nThis called “adding a remote origin”\n\nRemote as in online\nOrigin as in place to get files from.\n\nOur GitHub repository has some SSH name we will need.",
-    "crumbs": [
-      "Git"
-    ]
-  },
-  {
-    "objectID": "0B_git.html#add-remote",
-    "href": "0B_git.html#add-remote",
-    "title": "Git",
-    "section": "Add Remote",
-    "text": "Add Remote\n\nWith that name (which is just use GitHub name and repository name), return to the command line and add the remote origin.\n\ngit remote add origin git@github.com:cd-public/hello-world.git",
-    "crumbs": [
-      "Git"
-    ]
-  },
-  {
-    "objectID": "0B_git.html#push-1",
-    "href": "0B_git.html#push-1",
-    "title": "Git",
-    "section": "Push",
-    "text": "Push\n\nWith all that work done, you can simply:\n\ngit push\n\nAfter a moment and some diagnostic text, you should be able to see your code on GitHub, possibly after refreshing the page!",
-    "crumbs": [
-      "Git"
-    ]
-  },
-  {
-    "objectID": "0B_git.html#easier-after",
-    "href": "0B_git.html#easier-after",
-    "title": "Git",
-    "section": "Easier After",
-    "text": "Easier After\n\nA lot of what we did, we only have to do once:\n\ngit config\nssh-keygen\nset origin\n\nMany are special cases:\n\nOnly have to make new repositories for… new repositories (likely projects)\nOnly have to git add for new files.",
-    "crumbs": [
-      "Git"
-    ]
-  },
-  {
-    "objectID": "0B_git.rjs.html#origins",
-    "href": "0B_git.rjs.html#origins",
-    "title": "Git",
-    "section": "Origins",
-    "text": "Origins\n\nWe want to use git to attach our local repository to the GitHub repository.\nThis called “adding a remote origin”\n\nRemote as in online\nOrigin as in place to get files from.\n\nOur GitHub repository has some SSH name we will need."
-  },
-  {
-    "objectID": "0B_git.rjs.html#add-remote",
-    "href": "0B_git.rjs.html#add-remote",
-    "title": "Git",
-    "section": "Add Remote",
-    "text": "Add Remote\n\nWith that name (which is just use GitHub name and repository name), return to the command line and add the remote origin.\n\ngit remote add origin git@github.com:cd-public/hello-world.git"
-  },
-  {
-    "objectID": "0B_git.rjs.html#push-1",
-    "href": "0B_git.rjs.html#push-1",
-    "title": "Git",
-    "section": "Push",
-    "text": "Push\n\nWith all that work done, you can simply:\n\ngit push\n\nAfter a moment and some diagnostic text, you should be able to see your code on GitHub, possibly after refreshing the page!"
-  },
-  {
-    "objectID": "0B_git.rjs.html#easier-after",
-    "href": "0B_git.rjs.html#easier-after",
-    "title": "Git",
-    "section": "Easier After",
-    "text": "Easier After\n\nA lot of what we did, we only have to do once:\n\ngit config\nssh-keygen\nset origin\n\nMany are special cases:\n\nOnly have to make new repositories for… new repositories (likely projects)\nOnly have to git add for new files."
-  },
-  {
-    "objectID": "0B_git.html#quick-example",
-    "href": "0B_git.html#quick-example",
-    "title": "Git",
-    "section": "Quick Example",
-    "text": "Quick Example\n\nLet’s add bye.py\nWe’ll create a new file at the command line.\n\nnvim bye.py\n\nAdd some code…\n\n\n\nbye.py\n\nprint(\"Bye!\")",
-    "crumbs": [
-      "Git"
-    ]
-  },
-  {
-    "objectID": "0B_git.html#add-commit-push",
-    "href": "0B_git.html#add-commit-push",
-    "title": "Git",
-    "section": "Add, Commit, Push",
-    "text": "Add, Commit, Push\n\nTo get the code onto Github, add to the repo:\n\ngit add bye.py\n\nCommit changes to a version:\n\ngit commit -a -m \"You say hello, I say goodbye\"\n\nPush to GitHub\n\ngit push\n\nAnd that’s that!",
-    "crumbs": [
-      "Git"
-    ]
-  },
-  {
-    "objectID": "0B_git.rjs.html#quick-example",
-    "href": "0B_git.rjs.html#quick-example",
-    "title": "Git",
-    "section": "Quick Example",
-    "text": "Quick Example\n\nLet’s add bye.py\nWe’ll create a new file at the command line.\n\nnvim bye.py\n\nAdd some code…\n\n\n\nbye.py\n\nprint(\"Bye!\")"
-  },
-  {
-    "objectID": "0B_git.rjs.html#add-commit-push",
-    "href": "0B_git.rjs.html#add-commit-push",
-    "title": "Git",
-    "section": "Add, Commit, Push",
-    "text": "Add, Commit, Push\n\nTo get the code onto Github, add to the repo:\n\ngit add bye.py\n\nCommit changes to a version:\n\ngit commit -a -m \"You say hello, I say goodbye\"\n\nPush to GitHub\n\ngit push\n\nAnd that’s that!"
-  },
-  {
-    "objectID": "0B_git.html#altogether",
-    "href": "0B_git.html#altogether",
-    "title": "Git",
-    "section": "Altogether",
-    "text": "Altogether\n\nFor a single copy/paste\n\ngit add bye.py\ngit commit -a -m \"You say hello, I say goodbye\"\ngit push\n\nIf it works, you’ll see the change on GitHub!",
-    "crumbs": [
-      "Git"
-    ]
-  },
-  {
-    "objectID": "0B_git.rjs.html#altogether",
-    "href": "0B_git.rjs.html#altogether",
-    "title": "Git",
-    "section": "Altogether",
-    "text": "Altogether\n\nFor a single copy/paste\n\ngit add bye.py\ngit commit -a -m \"You say hello, I say goodbye\"\ngit push\n\nIf it works, you’ll see the change on GitHub!"
-  },
-  {
-    "objectID": "0B_git.html#diagnostics",
-    "href": "0B_git.html#diagnostics",
-    "title": "Git",
-    "section": "Diagnostics",
-    "text": "Diagnostics\n\nFor example, you might see the following:\n\nEnumerating objects: 27, done.\nCounting objects: 100% (27/27), done.\nDelta compression using up to 22 threads\nCompressing objects: 100% (15/15), done.\nWriting objects: 100% (16/16), 98.54 KiB | 2.46 MiB/s, done.\nTotal 16 (delta 11), reused 0 (delta 0), pack-reused 0\nremote: Resolving deltas: 100% (11/11), completed with 10 local objects.\nTo github.com:cd-public/hello-world.git\n   adaa3a7..ba3c794  main -&gt; main",
-    "crumbs": [
-      "Git"
-    ]
-  },
-  {
-    "objectID": "0B_git.rjs.html#diagnostics",
-    "href": "0B_git.rjs.html#diagnostics",
-    "title": "Git",
-    "section": "Diagnostics",
-    "text": "Diagnostics\n\nFor example, you might see the following:\n\nEnumerating objects: 27, done.\nCounting objects: 100% (27/27), done.\nDelta compression using up to 22 threads\nCompressing objects: 100% (15/15), done.\nWriting objects: 100% (16/16), 98.54 KiB | 2.46 MiB/s, done.\nTotal 16 (delta 11), reused 0 (delta 0), pack-reused 0\nremote: Resolving deltas: 100% (11/11), completed with 10 local objects.\nTo github.com:cd-public/hello-world.git\n   adaa3a7..ba3c794  main -&gt; main"
-  },
-  {
-    "objectID": "0B_git.html#again",
-    "href": "0B_git.html#again",
-    "title": "Git",
-    "section": "Again",
-    "text": "Again\n\nPerhaps we wish to be more polite and update saying “Bye!” to saying “Goodbye!”.\n\n\n\nbye.py\n\nprint(\"Goodbye!\")",
-    "crumbs": [
-      "Git"
-    ]
-  },
-  {
-    "objectID": "0B_git.html#no-add",
-    "href": "0B_git.html#no-add",
-    "title": "Git",
-    "section": "No Add",
-    "text": "No Add\n\nDon’t need an add this time!\n\ngit commit -a -m \"Goodbye version\"\ngit push",
-    "crumbs": [
-      "Git"
-    ]
-  },
-  {
-    "objectID": "0B_git.rjs.html#again",
-    "href": "0B_git.rjs.html#again",
-    "title": "Git",
-    "section": "Again",
-    "text": "Again\n\nPerhaps we wish to be more polite and update saying “Bye!” to saying “Goodbye!”.\n\n\n\nbye.py\n\nprint(\"Goodbye!\")"
-  },
-  {
-    "objectID": "0B_git.rjs.html#no-add",
-    "href": "0B_git.rjs.html#no-add",
-    "title": "Git",
-    "section": "No Add",
-    "text": "No Add\n\nDon’t need an add this time!\n\ngit commit -a -m \"Goodbye version\"\ngit push"
-  },
-  {
-    "objectID": "0B_git.html#using-github.com",
-    "href": "0B_git.html#using-github.com",
-    "title": "Git",
-    "section": "Using GitHub.com",
-    "text": "Using GitHub.com\n\nIt is also possible to edit files on GitHub.\n\nThis is the same as a collaborator pushing a change!\n\nIn the repository webpage, click on a file, like hello.py\nMake some edit, like:\n\n\n\nhello.py\n\nprint(\"Hello, remote-to-local!\")",
-    "crumbs": [
-      "Git"
-    ]
-  },
-  {
-    "objectID": "0B_git.html#pulling",
-    "href": "0B_git.html#pulling",
-    "title": "Git",
-    "section": "Pulling",
-    "text": "Pulling\n\nTo get remote changes reflected locally, simply use\n\ngit pull\n\nYou can then run immediately:\n\npython hello.py\n\nAs a rule, it is good to pull often, and especially before a push, if you have a collaborator or use multiple devices.",
-    "crumbs": [
-      "Git"
-    ]
-  },
-  {
-    "objectID": "0B_git.rjs.html#using-github.com",
-    "href": "0B_git.rjs.html#using-github.com",
-    "title": "Git",
-    "section": "Using GitHub.com",
-    "text": "Using GitHub.com\n\nIt is also possible to edit files on GitHub.\n\nThis is the same as a collaborator pushing a change!\n\nIn the repository webpage, click on a file, like hello.py\nMake some edit, like:\n\n\n\nhello.py\n\nprint(\"Hello, remote-to-local!\")"
-  },
-  {
-    "objectID": "0B_git.rjs.html#pulling",
-    "href": "0B_git.rjs.html#pulling",
-    "title": "Git",
-    "section": "Pulling",
-    "text": "Pulling\n\nTo get remote changes reflected locally, simply use\n\ngit pull\n\nYou can then run immediately:\n\npython hello.py\n\nAs a rule, it is good to pull often, and especially before a push, if you have a collaborator or use multiple devices."
-  },
-  {
-    "objectID": "0B_git.html#create-a-class-repo",
-    "href": "0B_git.html#create-a-class-repo",
-    "title": "Git",
-    "section": "Create a class repo",
-    "text": "Create a class repo\n\nCreate a new repository for this class, say “Scientific Computing”",
-    "crumbs": [
-      "Git"
-    ]
-  },
-  {
-    "objectID": "0B_git.rjs.html#create-a-class-repo",
-    "href": "0B_git.rjs.html#create-a-class-repo",
-    "title": "Git",
-    "section": "Create a class repo",
-    "text": "Create a class repo\n\nCreate a new repository for this class, say “Scientific Computing”"
   }
 ]
