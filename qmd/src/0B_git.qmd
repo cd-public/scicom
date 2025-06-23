@@ -71,7 +71,6 @@ title: Git
 	- Publish these versions
 - Use "GitHub" to:
 	- Store the work of `git` online
-	- Document our code with Markdown
 
 # GitHub
 

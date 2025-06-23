@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.6.30">
 
   <meta name="author" content="Prof.&nbsp;Calvin">
-  <title>Scientific Computing – c_md</title>
+  <title>Scientific Computing – Markdown</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -28,6 +28,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #f8f8f2;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #f8f8f2; } /* Normal */
+    code span.al { color: #f07178; background-color: #2a0f15; font-weight: bold; } /* Alert */
+    code span.an { color: #d4d0ab; } /* Annotation */
+    code span.at { color: #00e0e0; } /* Attribute */
+    code span.bn { color: #d4d0ab; } /* BaseN */
+    code span.bu { color: #abe338; } /* BuiltIn */
+    code span.cf { color: #ffa07a; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #abe338; } /* Char */
+    code span.cn { color: #ffd700; } /* Constant */
+    code span.co { color: #f8f8f2; font-style: italic; } /* Comment */
+    code span.cv { color: #ffd700; } /* CommentVar */
+    code span.do { color: #f8f8f2; } /* Documentation */
+    code span.dt { color: #ffa07a; } /* DataType */
+    code span.dv { color: #d4d0ab; } /* DecVal */
+    code span.er { color: #f07178; text-decoration: underline; } /* Error */
+    code span.ex { color: #00e0e0; font-weight: bold; } /* Extension */
+    code span.fl { color: #d4d0ab; } /* Float */
+    code span.fu { color: #ffa07a; } /* Function */
+    code span.im { color: #abe338; } /* Import */
+    code span.in { color: #d4d0ab; } /* Information */
+    code span.kw { color: #ffa07a; font-weight: bold; } /* Keyword */
+    code span.op { color: #ffa07a; } /* Operator */
+    code span.ot { color: #00e0e0; } /* Other */
+    code span.pp { color: #dcc6e0; } /* Preprocessor */
+    code span.re { color: #00e0e0; background-color: #f8f8f2; } /* RegionMarker */
+    code span.sc { color: #abe338; } /* SpecialChar */
+    code span.ss { color: #abe338; } /* SpecialString */
+    code span.st { color: #abe338; } /* String */
+    code span.va { color: #00e0e0; } /* Variable */
+    code span.vs { color: #abe338; } /* VerbatimString */
+    code span.wa { color: #dcc6e0; } /* Warning */
   </style>
   <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-0f071606cd187ea9c4f27a73aca9ddf7.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -324,11 +389,99 @@
   <div class="reveal">
     <div class="slides">
 
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Markdown</h1>
+  <p class="subtitle">Scientific Computing</p>
 
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Prof.&nbsp;Calvin 
+</div>
+</div>
+</div>
+
+</section>
 <section>
-<section id="markdown" class="title-slide slide level1 center">
-<h1>Markdown</h1>
+<section id="why-markdown" class="title-slide slide level1 center">
+<h1>Why Markdown?</h1>
 
+</section>
+<section id="what-is-markdown-.md" class="slide level2">
+<h2>What is Markdown (.md)?</h2>
+<ul>
+<li>A way of writing text and styling text that can be read with or without a markdown editor.</li>
+<li>A lightweight alternative to HTML.</li>
+<li>Probably the foremost standard for documentation in scientific computing.</li>
+</ul>
+</section>
+<section id="different-.md" class="slide level2">
+<h2>Different “.md”</h2>
+<ul>
+<li>Markdown is a fairly open standard, and not all Markdown is exactly the same, but tends to follow common rules.</li>
+<li>I will teach GitHub Markdown, a major but not the only standard.</li>
+<li>These slides are generated in Quarto Markdown, an extension of the standard.</li>
+<li><a href="https://dillinger.io/">Dillinger</a> and <a href="https://obsidian.md/">Obsidian</a> are popular Markdown platforms.</li>
+</ul>
+</section>
+<section id="what-is-the-relation-to-github" class="slide level2">
+<h2>What is the relation to GitHub?</h2>
+<ul>
+<li>By convention, every GitHub repository should come with a README.md file.</li>
+<li>By default, GitHub will style this and display it on the main repository page.</li>
+<li>This is how you should communicate to anyone who discovers your code or is looking for your code <em>what the code does</em>.</li>
+</ul>
+</section>
+<section id="conceptualizing" class="slide level2">
+<h2>Conceptualizing</h2>
+<ul>
+<li>Suppose you are describing some code, like <code>tax.py</code>
+<ul>
+<li>You may wish to link to primary source documents on tax policy.</li>
+<li>You may wish to create paragraphs, unnumbered and numbered lists.</li>
+<li>You may wish to embed images, code snippets.</li>
+<li>You may wish to use rich <strong>bold</strong> or <em>italic</em> text.</li>
+</ul></li>
+</ul>
+</section>
+<section id="problem-solving" class="slide level2">
+<h2>Problem Solving</h2>
+<ul>
+<li>Markdown
+<ul>
+<li>Uses existing, common typographical characters</li>
+<li>Corresponds to widely standardized HTML</li>
+<li>Is human-readable without being rendered in HTML</li>
+</ul></li>
+<li>Can be:
+<ul>
+<li>Written in any text editor.</li>
+<li>Authored in a dedicated Markdown editor.</li>
+</ul></li>
+</ul>
+</section>
+<section id="stepping-back" class="slide level2">
+<h2>Stepping Back</h2>
+<ul>
+<li><code>git</code> was made to solve this exact problem!</li>
+<li>The world leading scientific computing operating system, Linux, was being developed remotely via volunteers.</li>
+<li>They used millions of lines of code in complex file structures.</li>
+<li>They had to have a way to keep track of everything!</li>
+</ul>
+</section>
+<section id="we-will" class="slide level2">
+<h2>We will</h2>
+<ul>
+<li>Introduce Markdown syntax:
+<ul>
+<li>Style text</li>
+<li>Link to resources</li>
+</ul></li>
+<li>Use “Markdown” to:
+<ul>
+<li>Document our code with Markdown</li>
+</ul></li>
+</ul>
 </section>
 <section id="documentation" class="slide level2">
 <h2>Documentation</h2>
@@ -343,25 +496,670 @@
 </ul></li>
 <li>We introduce Markdown.</li>
 </ul>
+</section></section>
+<section>
+<section id="text" class="title-slide slide level1 center">
+<h1>Text</h1>
+
 </section>
 <section id="a-note" class="slide level2">
 <h2>A note</h2>
 <ul>
 <li>These slides are written in Markdown.</li>
-<li>I’ll show the Markdown in a left column and how it is shown on the right.</li>
+<li>I’ll show the Markdown in a left column and how it is rendered. on the right.</li>
+<li>If you wish to follow along, the most obvious way is <a href="https://dillinger.io/" class="uri">https://dillinger.io/</a></li>
 </ul>
 </section>
-<section id="text" class="slide level2">
+<section id="text-1" class="slide level2">
 <h2>Text</h2>
 <ul>
-<li>The most natural thing to do in a <code>README.md</code> is</li>
+<li>The most natural thing to do in a <code>README.md</code> is simply write text.</li>
 </ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb1"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a aria-hidden="true" tabindex="-1"></a>Unremarkable text.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<p>Unremakrable text.</p>
+</div></div>
 </section>
-<section id="section" class="slide level2">
-<h2></h2>
+<section id="bold" class="slide level2">
+<h2>Bold</h2>
+<ul>
+<li>Enclose text in double <code>**</code>, double <code>__</code> or HTML style <code>&lt;b&gt;</code> to bold text.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb2"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a aria-hidden="true" tabindex="-1"></a>We can make text **bold**.</span>
+<span id="cb2-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a aria-hidden="true" tabindex="-1"></a>We can make text __bold__.</span>
+<span id="cb2-4"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a aria-hidden="true" tabindex="-1"></a>We can make text &lt;b&gt;bold&lt;/b&gt;.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<p>We can make text <strong>bold</strong>.</p>
+<p>We can make text <strong>bold</strong>.</p>
+<p>We can make text <b>bold</b>.</p>
+</div></div>
+</section>
+<section id="italic" class="slide level2">
+<h2>Italic</h2>
+<ul>
+<li>Enclose text in single <code>*</code>, single <code>_</code> or HTML style <code>&lt;i&gt;</code> to italicize text.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb3"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a aria-hidden="true" tabindex="-1"></a>We can make text *italic*.</span>
+<span id="cb3-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a aria-hidden="true" tabindex="-1"></a>We can make text _italic_.</span>
+<span id="cb3-4"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a aria-hidden="true" tabindex="-1"></a>We can make text &lt;i&gt;italic&lt;/i&gt;.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<p>We can make text <em>italic</em>.</p>
+<p>We can make text <em>italic</em>.</p>
+<p>We can make text <i>italic</i>.</p>
+</div></div>
+</section>
+<section id="strikethrough" class="slide level2">
+<h2>Strikethrough</h2>
+<ul>
+<li>Very helpful to show what not to do.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb4"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a aria-hidden="true" tabindex="-1"></a>We can make text ~strikethrough~ sometimes.</span>
+<span id="cb4-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a aria-hidden="true" tabindex="-1"></a>We can make text ~~strikethrough~~.</span>
+<span id="cb4-4"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a aria-hidden="true" tabindex="-1"></a>We can make text &lt;s&gt;strikethrough&lt;/s&gt;.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<p>We can make text <sub>strikethrough</sub> sometimes.</p>
+<p>We can make text <del>strikethrough</del>.</p>
+<p>We can make text <s>strikethrough</s>.</p>
+</div></div>
+</section>
+<section id="nesting" class="slide level2">
+<h2>Nesting</h2>
+<ul>
+<li>As a rule, formatting can be nested but not overlapped.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb5"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a aria-hidden="true" tabindex="-1"></a>__Bold__, *italic*, or ***both***.</span>
+<span id="cb5-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a aria-hidden="true" tabindex="-1"></a>__Bold, *nested,*__ or *italic*.</span>
+<span id="cb5-4"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a aria-hidden="true" tabindex="-1"></a>__Can't be *overlapped__, however*.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<p><strong>Bold</strong>, <em>italic</em>, or <strong><em>both</em></strong>.</p>
+<p><strong>Bold, <em>nested,</em></strong> or <em>italic</em>.</p>
+<p>__Can’t be *overlapped__, however*.</p>
+</div></div>
+</section>
+<section id="subsuperscript" class="slide level2">
+<h2>Sub/superscript</h2>
+<ul>
+<li>In scientific publication, we often require subscripts and superscripts.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb6"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a aria-hidden="true" tabindex="-1"></a>Squaring *x* as *x*&lt;sup&gt;2&lt;/sup&gt; or *x*^2^</span>
+<span id="cb6-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a aria-hidden="true" tabindex="-1"></a>Denoting a Helium-3 isotope as He&lt;sub&gt;3&lt;/sub&gt; or He~3~.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<p>Squaring <em>x</em> as <em>x</em><sup>2</sup> or x<sup>2</sup></p>
+<p>Denoting a Helium-3 isotope as He<sub>3</sub> or He<sub>3</sub>.</p>
+</div></div>
+</section>
+<section id="when-.md-fails" class="slide level2">
+<h2>When .md fails</h2>
+<ul>
+<li>A number of of formatting options require the heavier-weight HTML tags.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb7"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a aria-hidden="true" tabindex="-1"></a>Underlining is &lt;u&gt;rarely&lt;/u&gt; used.</span>
+<span id="cb7-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a aria-hidden="true" tabindex="-1"></a>Some editors support ==.md== or &lt;mark&gt;HTML&lt;/mark&gt; highlighting.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<p>Underlining is <u>rarely</u> used.</p>
+<p>Some editors support ==.md== or <mark>HTML</mark> highlighting.</p>
+</div></div>
+</section></section>
+<section>
+<section id="quotes" class="title-slide slide level1 center">
+<h1>Quotes</h1>
+
+</section>
+<section id="blockquotes" class="slide level2">
+<h2>Blockquotes</h2>
+<ul>
+<li>Quotes are used frequently in Markdown, for various reasons.</li>
+<li>When quoting another writer, or a source, often use blockquotes:</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb8"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Veni, vidi, vici.</span></span>
+<span id="cb8-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a aria-hidden="true" tabindex="-1"></a>&lt;blockquote&gt;Oṃ maṇi padme hūm̐&lt;/blockquote&gt;</span>
+<span id="cb8-4"><a aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<blockquote>
+<p>Veni, vidi, vici.</p>
+</blockquote>
+<blockquote>
+Oṃ maṇi padme hūm̐
+</blockquote>
+</div></div>
+</section>
+<section id="unicode" class="slide level2">
+<h2>Unicode</h2>
+<ul>
+<li>We note Markdown generally supports unicode characters as well as anything else does - usually exactly as well as your browser.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb9"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a aria-hidden="true" tabindex="-1"></a><span class="at">&gt; ॐ मणि पद्मे हूँ</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<blockquote>
+<p>ॐ मणि पद्मे हूँ</p>
+</blockquote>
+</div></div>
+</section>
+<section id="backticks" class="slide level2">
+<h2>Backticks</h2>
+<ul>
+<li>The backtick character <code>`</code> (near <code>~</code>) has special meaning in Markdown.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb10"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a aria-hidden="true" tabindex="-1"></a>Single back for <span class="in">`print('hi')`</span></span>
+<span id="cb10-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a aria-hidden="true" tabindex="-1"></a>Use triple backtick for:</span>
+<span id="cb10-4"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-6"><a aria-hidden="true" tabindex="-1"></a><span class="in">for i in range(10):</span></span>
+<span id="cb10-7"><a aria-hidden="true" tabindex="-1"></a><span class="in">    print(i*i)</span></span>
+<span id="cb10-8"><a aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<p>Single back for <code>print('hi')</code></p>
+<p>Use triple backtick for:</p>
+<pre><code>for i in range(10):
+    print(i*i)</code></pre>
+</div></div>
+</section>
+<section id="syntax-highlighting" class="slide level2">
+<h2>Syntax Highlighting</h2>
+<ul>
+<li>Often we want codeblocks to have highlighting as we see in a code editor.</li>
+<li>Specify the file extension immediately after the opening triple backtick.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb12"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a aria-hidden="true" tabindex="-1"></a><span class="in">```py</span></span>
+<span id="cb12-2"><a aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> ten_sqs():</span>
+<span id="cb12-3"><a aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>):</span>
+<span id="cb12-4"><a aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(i<span class="op">*</span>i)</span>
+<span id="cb12-5"><a aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span></span>
+<span id="cb12-6"><a aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<div class="sourceCode" id="cb13"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> ten_sqs():</span>
+<span id="cb13-2"><a aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>):</span>
+<span id="cb13-3"><a aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(i<span class="op">*</span>i)</span>
+<span id="cb13-4"><a aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
+<ul>
+<li>In Quarto Markdown, this also changes background (this is non-standard).</li>
+</ul>
+</section></section>
+<section>
+<section id="lists" class="title-slide slide level1 center">
+<h1>Lists</h1>
+
+</section>
+<section id="better-than-sentences" class="slide level2">
+<h2>Better than sentences</h2>
+<ul>
+<li>As a rule, it’s a good idea to break text up.</li>
+<li>Note that <code>*</code> or <code>-</code> work and linebreaks don’t break the list.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb14"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use lists.</span>
+<span id="cb14-2"><a aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Be concise.</span>
+<span id="cb14-3"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Use bullets.</span>
+<span id="cb14-5"><a aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Save space.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<ul>
+<li><p>Use lists.</p></li>
+<li><p>Be concise.</p></li>
+<li><p>Use bullets.</p></li>
+<li><p>Save space.</p></li>
+</ul>
+</div></div>
+</section>
+<section id="nesting-1" class="slide level2">
+<h2>Nesting</h2>
+<ul>
+<li>Lists can be nested via indentiation with whitespace.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb15"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb15-1"><a aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Lists are great!</span>
+<span id="cb15-2"><a aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Easy to read.</span>
+<span id="cb15-3"><a aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Either as markdown or text!</span>
+<span id="cb15-4"><a aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Easy to type.</span>
+<span id="cb15-5"><a aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Try them out! </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<ul>
+<li>Lists are great!
+<ul>
+<li>Easy to read.
+<ul>
+<li>Either as markdown or text!</li>
+</ul></li>
+<li>Easy to type.</li>
+</ul></li>
+<li>Try them out!</li>
+</ul>
+</div></div>
+</section>
+<section id="numbering" class="slide level2">
+<h2>Numbering</h2>
+<ul>
+<li>Lists are numbered automatically.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:30%;">
+<div class="sourceCode" id="cb16"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb16-1"><a aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>One</span>
+<span id="cb16-2"><a aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Two</span>
+<span id="cb16-3"><a aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Three</span>
+<span id="cb16-4"><a aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Four</span>
+<span id="cb16-5"><a aria-hidden="true" tabindex="-1"></a><span class="ss">   1. </span>Four and half</span>
+<span id="cb16-6"><a aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Five</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>There is no graceful way to start a list at zero.</li>
+</ul>
+</div><div class="column" style="width:20%;">
+
+</div><div class="column" style="width:50%;">
+<ol type="1">
+<li>One</li>
+<li>Two</li>
+<li>Three</li>
+<li>Four
+<ol type="1">
+<li>Four and half</li>
+</ol></li>
+<li>Five</li>
+</ol>
+</div></div>
+</section>
+<section id="task-lists" class="slide level2">
+<h2>Task lists</h2>
+<ul>
+<li>You can also make “task lists”.</li>
+<li>Try clicking those boxes!</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb17"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb17-1"><a aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[x]</span> Open the door</span>
+<span id="cb17-2"><a aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Get on the floor</span>
+<span id="cb17-3"><a aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Walk the dinosaur</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<ul class="task-list">
+<li><label><input type="checkbox" checked="">Open the door</label></li>
+<li><label><input type="checkbox">Get on the floor</label></li>
+<li><label><input type="checkbox">Walk the dinosaur</label></li>
+</ul>
+</div></div>
+</section></section>
+<section>
+<section id="lines" class="title-slide slide level1 center">
+<h1>Lines</h1>
+
+</section>
+<section id="line-breaks" class="slide level2">
+<h2>Line breaks</h2>
+<ul>
+<li>There’s a few ways to perform a .md line break.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb18"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb18-1"><a aria-hidden="true" tabindex="-1"></a>Two spaces </span>
+<span id="cb18-2"><a aria-hidden="true" tabindex="-1"></a>break lines  </span>
+<span id="cb18-3"><a aria-hidden="true" tabindex="-1"></a>one space </span>
+<span id="cb18-4"><a aria-hidden="true" tabindex="-1"></a>does not.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<p>Two spaces break lines<br>
+one space does not.</p>
+</div></div>
+</section>
+<section id="line-breaks-1" class="slide level2">
+<h2>Line breaks</h2>
+<ul>
+<li>Invisible line breaks are very annoying and <code>\</code> is often preferred.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb19"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb19-1"><a aria-hidden="true" tabindex="-1"></a>Back slash\</span>
+<span id="cb19-2"><a aria-hidden="true" tabindex="-1"></a>breaks lines</span>
+<span id="cb19-3"><a aria-hidden="true" tabindex="-1"></a>just like  </span>
+<span id="cb19-4"><a aria-hidden="true" tabindex="-1"></a>two spaces.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<p>Back slash<br>
+breaks lines. just like<br>
+two spaces.</p>
+</div></div>
+</section>
+<section id="line-breaks-2" class="slide level2">
+<h2>Line breaks</h2>
+<ul>
+<li>These work inside lists.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb20"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb20-1"><a aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Some items\</span>
+<span id="cb20-2"><a aria-hidden="true" tabindex="-1"></a>  are long.</span>
+<span id="cb20-3"><a aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Some aren't.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<ul>
+<li>Some items<br>
+are long.</li>
+<li>Some aren’t.</li>
+</ul>
+</div></div>
+</section>
+<section id="html" class="slide level2">
+<h2>HTML</h2>
+<ul>
+<li>The HTML <code>&lt;br/&gt;</code> will often works as well.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb21"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb21-1"><a aria-hidden="true" tabindex="-1"></a>Even in the middle&lt;br/&gt;of lines.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<p>Even in the middle<br>of lines.</p>
+</div></div>
+</section></section>
+<section>
+<section id="links" class="title-slide slide level1 center">
+<h1>Links</h1>
+
+</section>
+<section id="url-links" class="slide level2">
+<h2>URL links</h2>
+<ul>
+<li>As a rule, you can link anywhere on the internet.</li>
+<li>Place the link text in <code>[]</code> and the URL in <code>()</code></li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb22"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb22-1"><a aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Read more</span><span class="co">](https://en.wikipedia.org/wiki/Markdown)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<p><a href="https://en.wikipedia.org/wiki/Markdown">Read more</a></p>
+</div></div>
+</section>
+<section id="images" class="slide level2">
+<h2>Images</h2>
+<ul>
+<li>Use <code>![]</code> before a link to an image file, like a <code>.png</code>, <code>.jpg</code>, or <code>.svg</code>.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb23"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb23-1"><a aria-hidden="true" tabindex="-1"></a><span class="al">![](https://raw.githubusercontent.com/cd-public/scicom/refs/heads/main/qmd/src/julia.png)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<p><img data-src="https://raw.githubusercontent.com/cd-public/scicom/refs/heads/main/qmd/src/julia.png"></p>
+</div></div>
+</section>
+<section id="relative-links" class="slide level2">
+<h2>Relative Links</h2>
+<ul>
+<li>Within a GitHub markdown document, you can also link to images within the repository.</li>
+<li>This <code>.md</code> document is in <code>/main/qmd/src/</code> so I can just use:</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb24"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb24-1"><a aria-hidden="true" tabindex="-1"></a><span class="al">![](julia.png)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<p><img data-src="julia.png"></p>
+</div></div>
+</section>
+<section id="footnotes" class="slide level2">
+<h2>Footnotes</h2>
+<ul>
+<li>Generally, by the time you are using footnotes you should switch to a different platform (LaTeX).</li>
+<li>But they exist!</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb25"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb25-1"><a aria-hidden="true" tabindex="-1"></a>Use numbered<span class="ot">[^1]</span> or named<span class="ot">[^footnote]</span> notes.</span>
+<span id="cb25-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a aria-hidden="true" tabindex="-1"></a><span class="ot">[^1]: </span>I'm number one!</span>
+<span id="cb25-4"><a aria-hidden="true" tabindex="-1"></a>    <span class="ot">[^footnote]: </span>I'm a footnote!</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<p>Use numbered<sup>1</sup> or named<sup>2</sup> notes.</p>
+</div></div>
+<aside><ol class="aside-footnotes"><li id="fn1"><p>I’m number one!</p></li><li id="fn2"><p>I’m a footnote!</p></li></ol></aside></section></section>
+<section>
+<section id="sections" class="title-slide slide level1 center">
+<h1>Sections</h1>
+
+</section>
+<section id="headings" class="slide level2">
+<h2>Headings</h2>
+<ul>
+<li>In my markdown, headings correspond to slides or sections.</li>
+<li>They are <code>#</code> prefixed and get their own line.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb26"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb26-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu"># Heading</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<h1>
+Heading
+</h1>
+</div></div>
+</section>
+<section id="subheadings" class="slide level2">
+<h2>Subheadings</h2>
+<ul>
+<li>In my markdown, headings correspond to slides or sections.</li>
+<li>They are <code>#</code> prefixed and get their own line.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb27"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb27-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">## Subheadings</span></span>
+<span id="cb27-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a aria-hidden="true" tabindex="-1"></a><span class="fu">### Get</span></span>
+<span id="cb27-4"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-5"><a aria-hidden="true" tabindex="-1"></a><span class="fu">#### Progressively</span></span>
+<span id="cb27-6"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-7"><a aria-hidden="true" tabindex="-1"></a><span class="fu">##### Smaller</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<h2>
+Subheadings
+</h2>
+<h3>
+Get
+</h3>
+<h4>
+Progressively
+</h4>
+<h5>
+Smaller
+</h5>
+</div></div>
+</section>
+<section id="links-1" class="slide level2">
+<h2>Links</h2>
+<ul>
+<li>We can link to sections using all lowercase (and replace spaces with <code>-</code>)</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb28"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb28-1"><a aria-hidden="true" tabindex="-1"></a>The previous heading was <span class="co">[</span><span class="ot">Links</span><span class="co">](#links)</span> part of the notes.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<p>The previous heading was <a href="#/links">Links</a> part of the notes.</p>
+</div></div>
+</section></section>
+<section>
+<section id="callouts" class="title-slide slide level1 center">
+<h1>Callouts</h1>
+
+</section>
+<section id="optional-features" class="slide level2">
+<h2>Optional Features</h2>
+<ul>
+<li>Some editors support callout blocks.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb29"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb29-1"><a aria-hidden="true" tabindex="-1"></a><span class="at">&gt; </span><span class="co">[</span><span class="ot">!NOTE</span><span class="co">]</span></span>
+<span id="cb29-2"><a aria-hidden="true" tabindex="-1"></a><span class="at">&gt; GitHub note.</span></span>
+<span id="cb29-3"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-4"><a aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
+<span id="cb29-5"><a aria-hidden="true" tabindex="-1"></a>Quarto note.</span>
+<span id="cb29-6"><a aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb29-7"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-8"><a aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 📝 **Note:** Blockquote/emoji hack.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<blockquote>
+<p>[!NOTE] GitHub note (doesn’t work here).</p>
+</blockquote>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>Quarto note.</p>
+</div>
+</div>
+</div>
+<blockquote>
+<p>📝 <strong>Note:</strong> Blockquote/emoji hack.</p>
+</blockquote>
+</div></div>
+</section></section>
+<section>
+<section id="tables" class="title-slide slide level1 center">
+<h1>Tables</h1>
+
+</section>
+<section id="markdown-dataframes" class="slide level2">
+<h2>Markdown DataFrames</h2>
+<ul>
+<li>The way <strong>pandas</strong> worked under the hood on these slides was actually outputing markdown tables.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb30"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb30-1"><a aria-hidden="true" tabindex="-1"></a>|NumPy|**pandas**|</span>
+<span id="cb30-2"><a aria-hidden="true" tabindex="-1"></a>|-----|----------|</span>
+<span id="cb30-3"><a aria-hidden="true" tabindex="-1"></a>|array|DataFrame |</span>
+<span id="cb30-4"><a aria-hidden="true" tabindex="-1"></a>|typed|Any values|</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>NumPy</th>
+<th><strong>pandas</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>array</td>
+<td>DataFrame</td>
+</tr>
+<tr class="even">
+<td>typed</td>
+<td>Any values</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</section>
+<section id="markdown-arrays" class="slide level2">
+<h2>Markdown Arrays</h2>
+<ul>
+<li>You can leave out headers to get something closer to an unlabeled table or a 2D array.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb31"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb31-1"><a aria-hidden="true" tabindex="-1"></a>|     |          |</span>
+<span id="cb31-2"><a aria-hidden="true" tabindex="-1"></a>|-----|----------|</span>
+<span id="cb31-3"><a aria-hidden="true" tabindex="-1"></a>|9275 | 10       |</span>
+<span id="cb31-4"><a aria-hidden="true" tabindex="-1"></a>|37500| 15       |</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<table class="caption-top">
+<tbody>
+<tr class="odd">
+<td>9275</td>
+<td>10</td>
+</tr>
+<tr class="even">
+<td>37500</td>
+<td>15</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</section>
+<section id="align-text" class="slide level2">
+<h2>Align text</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb32"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb32-1"><a aria-hidden="true" tabindex="-1"></a>|Left, | center, | right! |          </span>
+<span id="cb32-2"><a aria-hidden="true" tabindex="-1"></a>|:-----|:-------:|-------:|</span>
+<span id="cb32-3"><a aria-hidden="true" tabindex="-1"></a>|Text  | x       | 13     |</span>
+<span id="cb32-4"><a aria-hidden="true" tabindex="-1"></a>|Names |         |   113  |</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Left,</th>
+<th style="text-align: center;">center,</th>
+<th style="text-align: right;">right!</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Text</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: right;">13</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Names</td>
+<td style="text-align: center;"></td>
+<td style="text-align: right;">113</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</section></section>
+<section>
+<section id="exercise" class="title-slide slide level1 center">
+<h1>Exercise</h1>
+
+</section>
+<section id="github-skills" class="slide level2">
+<h2>GitHub Skills</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb33"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb33-1"><a aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Complete the GitHub Skills lesson "<span class="co">[</span><span class="ot">Communicate using Markdown</span><span class="co">](https://github.com/skills/communicate-using-markdown)</span>"</span>
+<span id="cb33-2"><a aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Add a README.md to your repository from the <span class="co">[</span><span class="ot">Git exercise</span><span class="co">](0B_git.qmd#exercise)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<ul>
+<li>Complete the GitHub Skills lesson “<a href="https://github.com/skills/communicate-using-markdown">Communicate using Markdown</a>”</li>
+<li>Add a README.md to your repository from the <a href="./0B_git.html#exercise">Git exercise</a></li>
+</ul>
+</div></div>
 
 
 </section></section>
+
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">

@@ -74,7 +74,7 @@ print("I will show code this way on these slides.")
 - A text file (.txt) contains an ordered collection of letters.
 - A notebook is an ordered collection of cells.
     - Text cells contain notes, just like a text file
-    - Code cells contain calculations, like a "script" writting in programming language (like a Python file)
+    - Code cells contain calculations, like a "script" written in programming language (like a Python file)
 
 ## Text Cells
 

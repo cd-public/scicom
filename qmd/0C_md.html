@@ -8,7 +8,7 @@
 
 <meta name="author" content="Prof.&nbsp;Calvin">
 
-<title>c_md – Scientific Computing</title>
+<title>Markdown – Scientific Computing</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,7 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./A0_keybinds.html" rel="next">
+<link href="./0D_tex.html" rel="next">
 <link href="./0B_git.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -215,6 +215,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./0D_tex.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">LaTeX</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./A0_keybinds.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Appendix - Commands</span></a>
   </div>
@@ -235,21 +241,85 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#markdown" id="toc-markdown" class="nav-link active" data-scroll-target="#markdown">Markdown</a>
+  <li><a href="#why-markdown" id="toc-why-markdown" class="nav-link active" data-scroll-target="#why-markdown">Why Markdown?</a>
   <ul class="collapse">
+  <li><a href="#what-is-markdown-.md" id="toc-what-is-markdown-.md" class="nav-link" data-scroll-target="#what-is-markdown-.md">What is Markdown (.md)?</a></li>
+  <li><a href="#different-.md" id="toc-different-.md" class="nav-link" data-scroll-target="#different-.md">Different “.md”</a></li>
+  <li><a href="#what-is-the-relation-to-github" id="toc-what-is-the-relation-to-github" class="nav-link" data-scroll-target="#what-is-the-relation-to-github">What is the relation to GitHub?</a></li>
+  <li><a href="#conceptualizing" id="toc-conceptualizing" class="nav-link" data-scroll-target="#conceptualizing">Conceptualizing</a></li>
+  <li><a href="#problem-solving" id="toc-problem-solving" class="nav-link" data-scroll-target="#problem-solving">Problem Solving</a></li>
+  <li><a href="#stepping-back" id="toc-stepping-back" class="nav-link" data-scroll-target="#stepping-back">Stepping Back</a></li>
+  <li><a href="#we-will" id="toc-we-will" class="nav-link" data-scroll-target="#we-will">We will</a></li>
   <li><a href="#documentation" id="toc-documentation" class="nav-link" data-scroll-target="#documentation">Documentation</a></li>
+  </ul></li>
+  <li><a href="#text" id="toc-text" class="nav-link" data-scroll-target="#text">Text</a>
+  <ul class="collapse">
   <li><a href="#a-note" id="toc-a-note" class="nav-link" data-scroll-target="#a-note">A note</a></li>
-  <li><a href="#text" id="toc-text" class="nav-link" data-scroll-target="#text">Text</a></li>
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
+  <li><a href="#text-1" id="toc-text-1" class="nav-link" data-scroll-target="#text-1">Text</a></li>
+  <li><a href="#bold" id="toc-bold" class="nav-link" data-scroll-target="#bold">Bold</a></li>
+  <li><a href="#italic" id="toc-italic" class="nav-link" data-scroll-target="#italic">Italic</a></li>
+  <li><a href="#strikethrough" id="toc-strikethrough" class="nav-link" data-scroll-target="#strikethrough">Strikethrough</a></li>
+  <li><a href="#nesting" id="toc-nesting" class="nav-link" data-scroll-target="#nesting">Nesting</a></li>
+  <li><a href="#subsuperscript" id="toc-subsuperscript" class="nav-link" data-scroll-target="#subsuperscript">Sub/superscript</a></li>
+  <li><a href="#when-.md-fails" id="toc-when-.md-fails" class="nav-link" data-scroll-target="#when-.md-fails">When .md fails</a></li>
+  </ul></li>
+  <li><a href="#quotes" id="toc-quotes" class="nav-link" data-scroll-target="#quotes">Quotes</a>
+  <ul class="collapse">
+  <li><a href="#blockquotes" id="toc-blockquotes" class="nav-link" data-scroll-target="#blockquotes">Blockquotes</a></li>
+  <li><a href="#unicode" id="toc-unicode" class="nav-link" data-scroll-target="#unicode">Unicode</a></li>
+  <li><a href="#backticks" id="toc-backticks" class="nav-link" data-scroll-target="#backticks">Backticks</a></li>
+  <li><a href="#syntax-highlighting" id="toc-syntax-highlighting" class="nav-link" data-scroll-target="#syntax-highlighting">Syntax Highlighting</a></li>
+  </ul></li>
+  <li><a href="#lists" id="toc-lists" class="nav-link" data-scroll-target="#lists">Lists</a>
+  <ul class="collapse">
+  <li><a href="#better-than-sentences" id="toc-better-than-sentences" class="nav-link" data-scroll-target="#better-than-sentences">Better than sentences</a></li>
+  <li><a href="#nesting-1" id="toc-nesting-1" class="nav-link" data-scroll-target="#nesting-1">Nesting</a></li>
+  <li><a href="#numbering" id="toc-numbering" class="nav-link" data-scroll-target="#numbering">Numbering</a></li>
+  <li><a href="#task-lists" id="toc-task-lists" class="nav-link" data-scroll-target="#task-lists">Task lists</a></li>
+  </ul></li>
+  <li><a href="#lines" id="toc-lines" class="nav-link" data-scroll-target="#lines">Lines</a>
+  <ul class="collapse">
+  <li><a href="#line-breaks" id="toc-line-breaks" class="nav-link" data-scroll-target="#line-breaks">Line breaks</a></li>
+  <li><a href="#line-breaks-1" id="toc-line-breaks-1" class="nav-link" data-scroll-target="#line-breaks-1">Line breaks</a></li>
+  <li><a href="#line-breaks-2" id="toc-line-breaks-2" class="nav-link" data-scroll-target="#line-breaks-2">Line breaks</a></li>
+  <li><a href="#html" id="toc-html" class="nav-link" data-scroll-target="#html">HTML</a></li>
+  </ul></li>
+  <li><a href="#links" id="toc-links" class="nav-link" data-scroll-target="#links">Links</a>
+  <ul class="collapse">
+  <li><a href="#url-links" id="toc-url-links" class="nav-link" data-scroll-target="#url-links">URL links</a></li>
+  <li><a href="#images" id="toc-images" class="nav-link" data-scroll-target="#images">Images</a></li>
+  <li><a href="#relative-links" id="toc-relative-links" class="nav-link" data-scroll-target="#relative-links">Relative Links</a></li>
+  <li><a href="#footnotes" id="toc-footnotes" class="nav-link" data-scroll-target="#footnotes">Footnotes</a></li>
+  </ul></li>
+  <li><a href="#sections" id="toc-sections" class="nav-link" data-scroll-target="#sections">Sections</a>
+  <ul class="collapse">
+  <li><a href="#headings" id="toc-headings" class="nav-link" data-scroll-target="#headings">Headings</a></li>
+  <li><a href="#subheadings" id="toc-subheadings" class="nav-link" data-scroll-target="#subheadings">Subheadings</a></li>
+  <li><a href="#links-1" id="toc-links-1" class="nav-link" data-scroll-target="#links-1">Links</a></li>
+  </ul></li>
+  <li><a href="#callouts" id="toc-callouts" class="nav-link" data-scroll-target="#callouts">Callouts</a>
+  <ul class="collapse">
+  <li><a href="#optional-features" id="toc-optional-features" class="nav-link" data-scroll-target="#optional-features">Optional Features</a></li>
+  </ul></li>
+  <li><a href="#tables" id="toc-tables" class="nav-link" data-scroll-target="#tables">Tables</a>
+  <ul class="collapse">
+  <li><a href="#markdown-dataframes" id="toc-markdown-dataframes" class="nav-link" data-scroll-target="#markdown-dataframes">Markdown DataFrames</a></li>
+  <li><a href="#markdown-arrays" id="toc-markdown-arrays" class="nav-link" data-scroll-target="#markdown-arrays">Markdown Arrays</a></li>
+  <li><a href="#align-text" id="toc-align-text" class="nav-link" data-scroll-target="#align-text">Align text</a></li>
+  </ul></li>
+  <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise">Exercise</a>
+  <ul class="collapse">
+  <li><a href="#github-skills" id="toc-github-skills" class="nav-link" data-scroll-target="#github-skills">GitHub Skills</a></li>
   </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="0C_md.rjs.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><div class="quarto-title-block"><div class="quarto-title-tools-only"><h1></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i></button></div></div>
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">Markdown</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i></button></div></div>
 <p class="subtitle lead">Scientific Computing</p>
 </div>
 
@@ -273,8 +343,84 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="markdown" class="level1">
-<h1>Markdown</h1>
+<section id="why-markdown" class="level1">
+<h1>Why Markdown?</h1>
+<section id="what-is-markdown-.md" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-markdown-.md">What is Markdown (.md)?</h2>
+<ul>
+<li>A way of writing text and styling text that can be read with or without a markdown editor.</li>
+<li>A lightweight alternative to HTML.</li>
+<li>Probably the foremost standard for documentation in scientific computing.</li>
+</ul>
+</section>
+<section id="different-.md" class="level2">
+<h2 class="anchored" data-anchor-id="different-.md">Different “.md”</h2>
+<ul>
+<li>Markdown is a fairly open standard, and not all Markdown is exactly the same, but tends to follow common rules.</li>
+<li>I will teach GitHub Markdown, a major but not the only standard.</li>
+<li>These slides are generated in Quarto Markdown, an extension of the standard.</li>
+<li><a href="https://dillinger.io/">Dillinger</a> and <a href="https://obsidian.md/">Obsidian</a> are popular Markdown platforms.</li>
+</ul>
+</section>
+<section id="what-is-the-relation-to-github" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-the-relation-to-github">What is the relation to GitHub?</h2>
+<ul>
+<li>By convention, every GitHub repository should come with a README.md file.</li>
+<li>By default, GitHub will style this and display it on the main repository page.</li>
+<li>This is how you should communicate to anyone who discovers your code or is looking for your code <em>what the code does</em>.</li>
+</ul>
+</section>
+<section id="conceptualizing" class="level2">
+<h2 class="anchored" data-anchor-id="conceptualizing">Conceptualizing</h2>
+<ul>
+<li>Suppose you are describing some code, like <code>tax.py</code>
+<ul>
+<li>You may wish to link to primary source documents on tax policy.</li>
+<li>You may wish to create paragraphs, unnumbered and numbered lists.</li>
+<li>You may wish to embed images, code snippets.</li>
+<li>You may wish to use rich <strong>bold</strong> or <em>italic</em> text.</li>
+</ul></li>
+</ul>
+</section>
+<section id="problem-solving" class="level2">
+<h2 class="anchored" data-anchor-id="problem-solving">Problem Solving</h2>
+<ul>
+<li>Markdown
+<ul>
+<li>Uses existing, common typographical characters</li>
+<li>Corresponds to widely standardized HTML</li>
+<li>Is human-readable without being rendered in HTML</li>
+</ul></li>
+<li>Can be:
+<ul>
+<li>Written in any text editor.</li>
+<li>Authored in a dedicated Markdown editor.</li>
+</ul></li>
+</ul>
+</section>
+<section id="stepping-back" class="level2">
+<h2 class="anchored" data-anchor-id="stepping-back">Stepping Back</h2>
+<ul>
+<li><code>git</code> was made to solve this exact problem!</li>
+<li>The world leading scientific computing operating system, Linux, was being developed remotely via volunteers.</li>
+<li>They used millions of lines of code in complex file structures.</li>
+<li>They had to have a way to keep track of everything!</li>
+</ul>
+</section>
+<section id="we-will" class="level2">
+<h2 class="anchored" data-anchor-id="we-will">We will</h2>
+<ul>
+<li>Introduce Markdown syntax:
+<ul>
+<li>Style text</li>
+<li>Link to resources</li>
+</ul></li>
+<li>Use “Markdown” to:
+<ul>
+<li>Document our code with Markdown</li>
+</ul></li>
+</ul>
+</section>
 <section id="documentation" class="level2">
 <h2 class="anchored" data-anchor-id="documentation">Documentation</h2>
 <ul>
@@ -289,21 +435,678 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>We introduce Markdown.</li>
 </ul>
 </section>
+</section>
+<section id="text" class="level1">
+<h1>Text</h1>
 <section id="a-note" class="level2">
 <h2 class="anchored" data-anchor-id="a-note">A note</h2>
 <ul>
 <li>These slides are written in Markdown.</li>
-<li>I’ll show the Markdown in a left column and how it is shown on the right.</li>
+<li>I’ll show the Markdown in a left column and how it is rendered. on the right.</li>
+<li>If you wish to follow along, the most obvious way is <a href="https://dillinger.io/" class="uri">https://dillinger.io/</a></li>
 </ul>
 </section>
-<section id="text" class="level2">
-<h2 class="anchored" data-anchor-id="text">Text</h2>
+<section id="text-1" class="level2">
+<h2 class="anchored" data-anchor-id="text-1">Text</h2>
 <ul>
-<li>The most natural thing to do in a <code>README.md</code> is</li>
+<li>The most natural thing to do in a <code>README.md</code> is simply write text.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb1"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Unremarkable text.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<p>Unremakrable text.</p>
+</div>
+</div>
+</section>
+<section id="bold" class="level2">
+<h2 class="anchored" data-anchor-id="bold">Bold</h2>
+<ul>
+<li>Enclose text in double <code>**</code>, double <code>__</code> or HTML style <code>&lt;b&gt;</code> to bold text.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb2"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>We can make text **bold**.</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>We can make text __bold__.</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>We can make text &lt;b&gt;bold&lt;/b&gt;.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<p>We can make text <strong>bold</strong>.</p>
+<p>We can make text <strong>bold</strong>.</p>
+<p>We can make text <b>bold</b>.</p>
+</div>
+</div>
+</section>
+<section id="italic" class="level2">
+<h2 class="anchored" data-anchor-id="italic">Italic</h2>
+<ul>
+<li>Enclose text in single <code>*</code>, single <code>_</code> or HTML style <code>&lt;i&gt;</code> to italicize text.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb3"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>We can make text *italic*.</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>We can make text _italic_.</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>We can make text &lt;i&gt;italic&lt;/i&gt;.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<p>We can make text <em>italic</em>.</p>
+<p>We can make text <em>italic</em>.</p>
+<p>We can make text <i>italic</i>.</p>
+</div>
+</div>
+</section>
+<section id="strikethrough" class="level2">
+<h2 class="anchored" data-anchor-id="strikethrough">Strikethrough</h2>
+<ul>
+<li>Very helpful to show what not to do.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb4"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>We can make text ~strikethrough~ sometimes.</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>We can make text ~~strikethrough~~.</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>We can make text &lt;s&gt;strikethrough&lt;/s&gt;.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<p>We can make text <sub>strikethrough</sub> sometimes.</p>
+<p>We can make text <del>strikethrough</del>.</p>
+<p>We can make text <s>strikethrough</s>.</p>
+</div>
+</div>
+</section>
+<section id="nesting" class="level2">
+<h2 class="anchored" data-anchor-id="nesting">Nesting</h2>
+<ul>
+<li>As a rule, formatting can be nested but not overlapped.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb5"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>__Bold__, *italic*, or ***both***.</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>__Bold, *nested,*__ or *italic*.</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>__Can't be *overlapped__, however*.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<p><strong>Bold</strong>, <em>italic</em>, or <strong><em>both</em></strong>.</p>
+<p><strong>Bold, <em>nested,</em></strong> or <em>italic</em>.</p>
+<p>__Can’t be *overlapped__, however*.</p>
+</div>
+</div>
+</section>
+<section id="subsuperscript" class="level2">
+<h2 class="anchored" data-anchor-id="subsuperscript">Sub/superscript</h2>
+<ul>
+<li>In scientific publication, we often require subscripts and superscripts.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb6"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>Squaring *x* as *x*&lt;sup&gt;2&lt;/sup&gt; or *x*^2^</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>Denoting a Helium-3 isotope as He&lt;sub&gt;3&lt;/sub&gt; or He~3~.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<p>Squaring <em>x</em> as <em>x</em><sup>2</sup> or x<sup>2</sup></p>
+<p>Denoting a Helium-3 isotope as He<sub>3</sub> or He<sub>3</sub>.</p>
+</div>
+</div>
+</section>
+<section id="when-.md-fails" class="level2">
+<h2 class="anchored" data-anchor-id="when-.md-fails">When .md fails</h2>
+<ul>
+<li>A number of of formatting options require the heavier-weight HTML tags.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb7"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>Underlining is &lt;u&gt;rarely&lt;/u&gt; used.</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>Some editors support ==.md== or &lt;mark&gt;HTML&lt;/mark&gt; highlighting.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<p>Underlining is <u>rarely</u> used.</p>
+<p>Some editors support ==.md== or <mark>HTML</mark> highlighting.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="quotes" class="level1">
+<h1>Quotes</h1>
+<section id="blockquotes" class="level2">
+<h2 class="anchored" data-anchor-id="blockquotes">Blockquotes</h2>
+<ul>
+<li>Quotes are used frequently in Markdown, for various reasons.</li>
+<li>When quoting another writer, or a source, often use blockquotes:</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb8"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Veni, vidi, vici.</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>&lt;blockquote&gt;Oṃ maṇi padme hūm̐&lt;/blockquote&gt;</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<blockquote class="blockquote">
+<p>Veni, vidi, vici.</p>
+</blockquote>
+<blockquote class="blockquote">
+Oṃ maṇi padme hūm̐
+</blockquote>
+</div>
+</div>
+</section>
+<section id="unicode" class="level2">
+<h2 class="anchored" data-anchor-id="unicode">Unicode</h2>
+<ul>
+<li>We note Markdown generally supports unicode characters as well as anything else does - usually exactly as well as your browser.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb9"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; ॐ मणि पद्मे हूँ</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<blockquote class="blockquote">
+<p>ॐ मणि पद्मे हूँ</p>
+</blockquote>
+</div>
+</div>
+</section>
+<section id="backticks" class="level2">
+<h2 class="anchored" data-anchor-id="backticks">Backticks</h2>
+<ul>
+<li>The backtick character <code>`</code> (near <code>~</code>) has special meaning in Markdown.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb10"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>Single back for <span class="in">`print('hi')`</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>Use triple backtick for:</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="in">for i in range(10):</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="in">    print(i*i)</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<p>Single back for <code>print('hi')</code></p>
+<p>Use triple backtick for:</p>
+<pre><code>for i in range(10):
+    print(i*i)</code></pre>
+</div>
+</div>
+</section>
+<section id="syntax-highlighting" class="level2">
+<h2 class="anchored" data-anchor-id="syntax-highlighting">Syntax Highlighting</h2>
+<ul>
+<li>Often we want codeblocks to have highlighting as we see in a code editor.</li>
+<li>Specify the file extension immediately after the opening triple backtick.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb12"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="in">```py</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> ten_sqs():</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>):</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(i<span class="op">*</span>i)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<div class="sourceCode" id="cb13"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> ten_sqs():</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>):</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(i<span class="op">*</span>i)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<ul>
+<li>In Quarto Markdown, this also changes background (this is non-standard).</li>
 </ul>
 </section>
-<section id="section" class="level2">
-<h2 class="anchored" data-anchor-id="section"></h2>
+</section>
+<section id="lists" class="level1">
+<h1>Lists</h1>
+<section id="better-than-sentences" class="level2">
+<h2 class="anchored" data-anchor-id="better-than-sentences">Better than sentences</h2>
+<ul>
+<li>As a rule, it’s a good idea to break text up.</li>
+<li>Note that <code>*</code> or <code>-</code> work and linebreaks don’t break the list.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb14"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use lists.</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Be concise.</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Use bullets.</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Save space.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<ul>
+<li><p>Use lists.</p></li>
+<li><p>Be concise.</p></li>
+<li><p>Use bullets.</p></li>
+<li><p>Save space.</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="nesting-1" class="level2">
+<h2 class="anchored" data-anchor-id="nesting-1">Nesting</h2>
+<ul>
+<li>Lists can be nested via indentiation with whitespace.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb15"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Lists are great!</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Easy to read.</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Either as markdown or text!</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Easy to type.</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Try them out! </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<ul>
+<li>Lists are great!
+<ul>
+<li>Easy to read.
+<ul>
+<li>Either as markdown or text!</li>
+</ul></li>
+<li>Easy to type.</li>
+</ul></li>
+<li>Try them out!</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="numbering" class="level2">
+<h2 class="anchored" data-anchor-id="numbering">Numbering</h2>
+<ul>
+<li>Lists are numbered automatically.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:30%;">
+<div class="sourceCode" id="cb16"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>One</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Two</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Three</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Four</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="ss">   1. </span>Four and half</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Five</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>There is no graceful way to start a list at zero.</li>
+</ul>
+</div><div class="column" style="width:20%;">
+
+</div><div class="column" style="width:50%;">
+<ol type="1">
+<li>One</li>
+<li>Two</li>
+<li>Three</li>
+<li>Four
+<ol type="1">
+<li>Four and half</li>
+</ol></li>
+<li>Five</li>
+</ol>
+</div>
+</div>
+</section>
+<section id="task-lists" class="level2">
+<h2 class="anchored" data-anchor-id="task-lists">Task lists</h2>
+<ul>
+<li>You can also make “task lists”.</li>
+<li>Try clicking those boxes!</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb17"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[x]</span> Open the door</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Get on the floor</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Walk the dinosaur</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<ul class="task-list">
+<li><label><input type="checkbox" checked="">Open the door</label></li>
+<li><label><input type="checkbox">Get on the floor</label></li>
+<li><label><input type="checkbox">Walk the dinosaur</label></li>
+</ul>
+</div>
+</div>
+</section>
+</section>
+<section id="lines" class="level1">
+<h1>Lines</h1>
+<section id="line-breaks" class="level2">
+<h2 class="anchored" data-anchor-id="line-breaks">Line breaks</h2>
+<ul>
+<li>There’s a few ways to perform a .md line break.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb18"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>Two spaces </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>break lines  </span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>one space </span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>does not.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<p>Two spaces break lines<br>
+one space does not.</p>
+</div>
+</div>
+</section>
+<section id="line-breaks-1" class="level2">
+<h2 class="anchored" data-anchor-id="line-breaks-1">Line breaks</h2>
+<ul>
+<li>Invisible line breaks are very annoying and <code>\</code> is often preferred.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb19"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>Back slash\</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>breaks lines</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>just like  </span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>two spaces.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<p>Back slash<br>
+breaks lines. just like<br>
+two spaces.</p>
+</div>
+</div>
+</section>
+<section id="line-breaks-2" class="level2">
+<h2 class="anchored" data-anchor-id="line-breaks-2">Line breaks</h2>
+<ul>
+<li>These work inside lists.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb20"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Some items\</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  are long.</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Some aren't.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<ul>
+<li>Some items<br>
+are long.</li>
+<li>Some aren’t.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="html" class="level2">
+<h2 class="anchored" data-anchor-id="html">HTML</h2>
+<ul>
+<li>The HTML <code>&lt;br/&gt;</code> will often works as well.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb21"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>Even in the middle&lt;br/&gt;of lines.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<p>Even in the middle<br>of lines.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="links" class="level1">
+<h1>Links</h1>
+<section id="url-links" class="level2">
+<h2 class="anchored" data-anchor-id="url-links">URL links</h2>
+<ul>
+<li>As a rule, you can link anywhere on the internet.</li>
+<li>Place the link text in <code>[]</code> and the URL in <code>()</code></li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb22"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Read more</span><span class="co">](https://en.wikipedia.org/wiki/Markdown)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<p><a href="https://en.wikipedia.org/wiki/Markdown">Read more</a></p>
+</div>
+</div>
+</section>
+<section id="images" class="level2">
+<h2 class="anchored" data-anchor-id="images">Images</h2>
+<ul>
+<li>Use <code>![]</code> before a link to an image file, like a <code>.png</code>, <code>.jpg</code>, or <code>.svg</code>.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb23"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="al">![](https://raw.githubusercontent.com/cd-public/scicom/refs/heads/main/qmd/src/julia.png)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<p><img src="https://raw.githubusercontent.com/cd-public/scicom/refs/heads/main/qmd/src/julia.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="relative-links" class="level2">
+<h2 class="anchored" data-anchor-id="relative-links">Relative Links</h2>
+<ul>
+<li>Within a GitHub markdown document, you can also link to images within the repository.</li>
+<li>This <code>.md</code> document is in <code>/main/qmd/src/</code> so I can just use:</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb24"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="al">![](julia.png)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<p><img src="julia.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="footnotes" class="level2">
+<h2 class="anchored" data-anchor-id="footnotes">Footnotes</h2>
+<ul>
+<li>Generally, by the time you are using footnotes you should switch to a different platform (LaTeX).</li>
+<li>But they exist!</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb25"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>Use numbered<span class="ot">[^1]</span> or named<span class="ot">[^footnote]</span> notes.</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="ot">[^1]: </span>I'm number one!</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>    <span class="ot">[^footnote]: </span>I'm a footnote!</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<p>Use numbered<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> or named<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> notes.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="sections" class="level1">
+<h1>Sections</h1>
+<section id="headings" class="level2">
+<h2 class="anchored" data-anchor-id="headings">Headings</h2>
+<ul>
+<li>In my markdown, headings correspond to slides or sections.</li>
+<li>They are <code>#</code> prefixed and get their own line.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb26"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Heading</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<h1>
+Heading
+</h1>
+</div>
+</div>
+</section>
+<section id="subheadings" class="level2">
+<h2 class="anchored" data-anchor-id="subheadings">Subheadings</h2>
+<ul>
+<li>In my markdown, headings correspond to slides or sections.</li>
+<li>They are <code>#</code> prefixed and get their own line.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb27"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Subheadings</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="fu">### Get</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Progressively</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Smaller</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<h2 class="anchored">
+Subheadings
+</h2>
+<h3 class="anchored">
+Get
+</h3>
+<h4 class="anchored">
+Progressively
+</h4>
+<h5 class="anchored">
+Smaller
+</h5>
+</div>
+</div>
+</section>
+<section id="links-1" class="level2">
+<h2 class="anchored" data-anchor-id="links-1">Links</h2>
+<ul>
+<li>We can link to sections using all lowercase (and replace spaces with <code>-</code>)</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb28"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>The previous heading was <span class="co">[</span><span class="ot">Links</span><span class="co">](#links)</span> part of the notes.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<p>The previous heading was <a href="#links">Links</a> part of the notes.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="callouts" class="level1">
+<h1>Callouts</h1>
+<section id="optional-features" class="level2">
+<h2 class="anchored" data-anchor-id="optional-features">Optional Features</h2>
+<ul>
+<li>Some editors support callout blocks.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb29"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; </span><span class="co">[</span><span class="ot">!NOTE</span><span class="co">]</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; GitHub note.</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>Quarto note.</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 📝 **Note:** Blockquote/emoji hack.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<blockquote class="blockquote">
+<p>[!NOTE] GitHub note (doesn’t work here).</p>
+</blockquote>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Quarto note.</p>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>📝 <strong>Note:</strong> Blockquote/emoji hack.</p>
+</blockquote>
+</div>
+</div>
+</section>
+</section>
+<section id="tables" class="level1">
+<h1>Tables</h1>
+<section id="markdown-dataframes" class="level2">
+<h2 class="anchored" data-anchor-id="markdown-dataframes">Markdown DataFrames</h2>
+<ul>
+<li>The way <strong>pandas</strong> worked under the hood on these slides was actually outputing markdown tables.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb30"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>|NumPy|**pandas**|</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>|-----|----------|</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>|array|DataFrame |</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>|typed|Any values|</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>NumPy</th>
+<th><strong>pandas</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>array</td>
+<td>DataFrame</td>
+</tr>
+<tr class="even">
+<td>typed</td>
+<td>Any values</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="markdown-arrays" class="level2">
+<h2 class="anchored" data-anchor-id="markdown-arrays">Markdown Arrays</h2>
+<ul>
+<li>You can leave out headers to get something closer to an unlabeled table or a 2D array.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb31"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>|     |          |</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>|-----|----------|</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>|9275 | 10       |</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>|37500| 15       |</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td>9275</td>
+<td>10</td>
+</tr>
+<tr class="even">
+<td>37500</td>
+<td>15</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="align-text" class="level2">
+<h2 class="anchored" data-anchor-id="align-text">Align text</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb32"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>|Left, | center, | right! |          </span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>|:-----|:-------:|-------:|</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>|Text  | x       | 13     |</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>|Names |         |   113  |</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Left,</th>
+<th style="text-align: center;">center,</th>
+<th style="text-align: right;">right!</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Text</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: right;">13</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Names</td>
+<td style="text-align: center;"></td>
+<td style="text-align: right;">113</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+</section>
+<section id="exercise" class="level1">
+<h1>Exercise</h1>
+<section id="github-skills" class="level2">
+<h2 class="anchored" data-anchor-id="github-skills">GitHub Skills</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb33"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Complete the GitHub Skills lesson "<span class="co">[</span><span class="ot">Communicate using Markdown</span><span class="co">](https://github.com/skills/communicate-using-markdown)</span>"</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Add a README.md to your repository from the <span class="co">[</span><span class="ot">Git exercise</span><span class="co">](0B_git.qmd#exercise)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<ul>
+<li>Complete the GitHub Skills lesson “<a href="https://github.com/skills/communicate-using-markdown">Communicate using Markdown</a>”</li>
+<li>Add a README.md to your repository from the <a href="./0B_git.html#exercise">Git exercise</a></li>
+</ul>
+</div>
+</div>
 
 
 <!-- -->
@@ -311,7 +1114,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 </section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>I’m number one!<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>I’m a footnote!<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -790,31 +1600,991 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./A0_keybinds.html" class="pagination-link" aria-label="Appendix - Commands">
-        <span class="nav-page-text">Appendix - Commands</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./0D_tex.html" class="pagination-link" aria-label="LaTeX">
+        <span class="nav-page-text">LaTeX</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu"># Markdown</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a></span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="fu">## Documentation</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a></span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="ss">- </span>Previously, we learned about comments.</span>
-<span id="cb1-6"><a href="#cb1-6"></a><span class="ss">    - </span>Lines in code that do not affect what the code does, but help human users understand it.</span>
-<span id="cb1-7"><a href="#cb1-7"></a><span class="ss">- </span>Often we document repositories with README files.</span>
-<span id="cb1-8"><a href="#cb1-8"></a><span class="ss">    - </span>*Often* as <span class="in">`README.md`</span>, a "Markdown" file.</span>
-<span id="cb1-9"><a href="#cb1-9"></a><span class="ss">- </span>We introduce Markdown.</span>
-<span id="cb1-10"><a href="#cb1-10"></a></span>
-<span id="cb1-11"><a href="#cb1-11"></a><span class="fu">## A note</span></span>
-<span id="cb1-12"><a href="#cb1-12"></a></span>
-<span id="cb1-13"><a href="#cb1-13"></a><span class="ss">- </span>These slides are written in Markdown.</span>
-<span id="cb1-14"><a href="#cb1-14"></a><span class="ss">- </span>I'll show the Markdown in a left column and how it is shown on the right.</span>
-<span id="cb1-15"><a href="#cb1-15"></a></span>
-<span id="cb1-16"><a href="#cb1-16"></a><span class="fu">## Text</span></span>
-<span id="cb1-17"><a href="#cb1-17"></a></span>
-<span id="cb1-18"><a href="#cb1-18"></a><span class="ss">- </span>The most natural thing to do in a <span class="in">`README.md`</span> is </span>
-<span id="cb1-19"><a href="#cb1-19"></a></span>
-<span id="cb1-20"><a href="#cb1-20"></a><span class="fu">## </span></span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb34" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> Markdown</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="an">code-line-numbers:</span><span class="co"> false</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a><span class="fu"># Why Markdown?</span></span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a><span class="fu">## What is Markdown (.md)?</span></span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>A way of writing text and styling text that can be read with or without a markdown editor.</span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>A lightweight alternative to HTML.</span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Probably the foremost standard for documentation in scientific computing.</span>
+<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a><span class="fu">## Different ".md"</span></span>
+<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-16"><a href="#cb34-16" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Markdown is a fairly open standard, and not all Markdown is exactly the same, but tends to follow common rules.</span>
+<span id="cb34-17"><a href="#cb34-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>I will teach GitHub Markdown, a major but not the only standard.</span>
+<span id="cb34-18"><a href="#cb34-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>These slides are generated in Quarto Markdown, an extension of the standard.</span>
+<span id="cb34-19"><a href="#cb34-19" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Dillinger</span><span class="co">](https://dillinger.io/)</span> and <span class="co">[</span><span class="ot">Obsidian</span><span class="co">](https://obsidian.md/)</span> are popular Markdown platforms.</span>
+<span id="cb34-20"><a href="#cb34-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-21"><a href="#cb34-21" aria-hidden="true" tabindex="-1"></a><span class="fu">## What is the relation to GitHub?</span></span>
+<span id="cb34-22"><a href="#cb34-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-23"><a href="#cb34-23" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>By convention, every GitHub repository should come with a README.md file.</span>
+<span id="cb34-24"><a href="#cb34-24" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>By default, GitHub will style this and display it on the main repository page.</span>
+<span id="cb34-25"><a href="#cb34-25" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>This is how you should communicate to anyone who discovers your code or is looking for your code *what the code does*.</span>
+<span id="cb34-26"><a href="#cb34-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-27"><a href="#cb34-27" aria-hidden="true" tabindex="-1"></a><span class="fu">## Conceptualizing</span></span>
+<span id="cb34-28"><a href="#cb34-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-29"><a href="#cb34-29" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Suppose you are describing some code, like <span class="in">`tax.py`</span> </span>
+<span id="cb34-30"><a href="#cb34-30" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>You may wish to link to primary source documents on tax policy.</span>
+<span id="cb34-31"><a href="#cb34-31" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>You may wish to create paragraphs, unnumbered and numbered lists.</span>
+<span id="cb34-32"><a href="#cb34-32" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>You may wish to embed images, code snippets.</span>
+<span id="cb34-33"><a href="#cb34-33" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>You may wish to use rich **bold** or *italic* text.</span>
+<span id="cb34-34"><a href="#cb34-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-35"><a href="#cb34-35" aria-hidden="true" tabindex="-1"></a><span class="fu">## Problem Solving</span></span>
+<span id="cb34-36"><a href="#cb34-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-37"><a href="#cb34-37" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Markdown</span>
+<span id="cb34-38"><a href="#cb34-38" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Uses existing, common typographical characters</span>
+<span id="cb34-39"><a href="#cb34-39" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Corresponds to widely standardized HTML</span>
+<span id="cb34-40"><a href="#cb34-40" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Is human-readable without being rendered in HTML</span>
+<span id="cb34-41"><a href="#cb34-41" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Can be:</span>
+<span id="cb34-42"><a href="#cb34-42" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Written in any text editor.</span>
+<span id="cb34-43"><a href="#cb34-43" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Authored in a dedicated Markdown editor.</span>
+<span id="cb34-44"><a href="#cb34-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-45"><a href="#cb34-45" aria-hidden="true" tabindex="-1"></a><span class="fu">## Stepping Back</span></span>
+<span id="cb34-46"><a href="#cb34-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-47"><a href="#cb34-47" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`git`</span> was made to solve this exact problem!</span>
+<span id="cb34-48"><a href="#cb34-48" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The world leading scientific computing operating system, Linux, was being developed remotely via volunteers.</span>
+<span id="cb34-49"><a href="#cb34-49" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>They used millions of lines of code in complex file structures.</span>
+<span id="cb34-50"><a href="#cb34-50" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>They had to have a way to keep track of everything!</span>
+<span id="cb34-51"><a href="#cb34-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-52"><a href="#cb34-52" aria-hidden="true" tabindex="-1"></a><span class="fu">## We will</span></span>
+<span id="cb34-53"><a href="#cb34-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-54"><a href="#cb34-54" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Introduce Markdown syntax:</span>
+<span id="cb34-55"><a href="#cb34-55" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Style text</span>
+<span id="cb34-56"><a href="#cb34-56" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Link to resources</span>
+<span id="cb34-57"><a href="#cb34-57" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use "Markdown" to:</span>
+<span id="cb34-58"><a href="#cb34-58" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Document our code with Markdown</span>
+<span id="cb34-59"><a href="#cb34-59" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb34-60"><a href="#cb34-60" aria-hidden="true" tabindex="-1"></a><span class="fu">## Documentation</span></span>
+<span id="cb34-61"><a href="#cb34-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-62"><a href="#cb34-62" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Previously, we learned about comments.</span>
+<span id="cb34-63"><a href="#cb34-63" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Lines in code that do not affect what the code does, but help human users understand it.</span>
+<span id="cb34-64"><a href="#cb34-64" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Often we document repositories with README files.</span>
+<span id="cb34-65"><a href="#cb34-65" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>*Often* as <span class="in">`README.md`</span>, a "Markdown" file.</span>
+<span id="cb34-66"><a href="#cb34-66" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>We introduce Markdown.</span>
+<span id="cb34-67"><a href="#cb34-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-68"><a href="#cb34-68" aria-hidden="true" tabindex="-1"></a><span class="fu"># Text</span></span>
+<span id="cb34-69"><a href="#cb34-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-70"><a href="#cb34-70" aria-hidden="true" tabindex="-1"></a><span class="fu">## A note</span></span>
+<span id="cb34-71"><a href="#cb34-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-72"><a href="#cb34-72" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>These slides are written in Markdown.</span>
+<span id="cb34-73"><a href="#cb34-73" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>I'll show the Markdown in a left column and how it is rendered. on the right.</span>
+<span id="cb34-74"><a href="#cb34-74" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>If you wish to follow along, the most obvious way is <span class="ot">&lt;https://dillinger.io/&gt;</span></span>
+<span id="cb34-75"><a href="#cb34-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-76"><a href="#cb34-76" aria-hidden="true" tabindex="-1"></a><span class="fu">## Text</span></span>
+<span id="cb34-77"><a href="#cb34-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-78"><a href="#cb34-78" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The most natural thing to do in a <span class="in">`README.md`</span> is simply write text.</span>
+<span id="cb34-79"><a href="#cb34-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-80"><a href="#cb34-80" aria-hidden="true" tabindex="-1"></a>:::: {.columns}</span>
+<span id="cb34-81"><a href="#cb34-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-82"><a href="#cb34-82" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb34-83"><a href="#cb34-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-84"><a href="#cb34-84" aria-hidden="true" tabindex="-1"></a><span class="in">```{.md}</span></span>
+<span id="cb34-85"><a href="#cb34-85" aria-hidden="true" tabindex="-1"></a><span class="in">Unremarkable text.</span></span>
+<span id="cb34-86"><a href="#cb34-86" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb34-87"><a href="#cb34-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-88"><a href="#cb34-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-89"><a href="#cb34-89" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-90"><a href="#cb34-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-91"><a href="#cb34-91" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb34-92"><a href="#cb34-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-93"><a href="#cb34-93" aria-hidden="true" tabindex="-1"></a>Unremakrable text.</span>
+<span id="cb34-94"><a href="#cb34-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-95"><a href="#cb34-95" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-96"><a href="#cb34-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-97"><a href="#cb34-97" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb34-98"><a href="#cb34-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-99"><a href="#cb34-99" aria-hidden="true" tabindex="-1"></a><span class="fu">## Bold</span></span>
+<span id="cb34-100"><a href="#cb34-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-101"><a href="#cb34-101" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Enclose text in double <span class="in">`**`</span>, double <span class="in">`__`</span> or HTML style <span class="in">`&lt;b&gt;`</span> to bold text.</span>
+<span id="cb34-102"><a href="#cb34-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-103"><a href="#cb34-103" aria-hidden="true" tabindex="-1"></a>:::: {.columns}</span>
+<span id="cb34-104"><a href="#cb34-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-105"><a href="#cb34-105" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb34-106"><a href="#cb34-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-107"><a href="#cb34-107" aria-hidden="true" tabindex="-1"></a><span class="in">```{.md}</span></span>
+<span id="cb34-108"><a href="#cb34-108" aria-hidden="true" tabindex="-1"></a><span class="in">We can make text **bold**.</span></span>
+<span id="cb34-109"><a href="#cb34-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-110"><a href="#cb34-110" aria-hidden="true" tabindex="-1"></a><span class="in">We can make text __bold__.</span></span>
+<span id="cb34-111"><a href="#cb34-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-112"><a href="#cb34-112" aria-hidden="true" tabindex="-1"></a><span class="in">We can make text &lt;b&gt;bold&lt;/b&gt;.</span></span>
+<span id="cb34-113"><a href="#cb34-113" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb34-114"><a href="#cb34-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-115"><a href="#cb34-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-116"><a href="#cb34-116" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-117"><a href="#cb34-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-118"><a href="#cb34-118" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb34-119"><a href="#cb34-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-120"><a href="#cb34-120" aria-hidden="true" tabindex="-1"></a>We can make text **bold**.</span>
+<span id="cb34-121"><a href="#cb34-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-122"><a href="#cb34-122" aria-hidden="true" tabindex="-1"></a>We can make text __bold__.</span>
+<span id="cb34-123"><a href="#cb34-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-124"><a href="#cb34-124" aria-hidden="true" tabindex="-1"></a>We can make text &lt;b&gt;bold&lt;/b&gt;.</span>
+<span id="cb34-125"><a href="#cb34-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-126"><a href="#cb34-126" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-127"><a href="#cb34-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-128"><a href="#cb34-128" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb34-129"><a href="#cb34-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-130"><a href="#cb34-130" aria-hidden="true" tabindex="-1"></a><span class="fu">## Italic</span></span>
+<span id="cb34-131"><a href="#cb34-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-132"><a href="#cb34-132" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Enclose text in single <span class="in">`*`</span>, single <span class="in">`_`</span> or HTML style <span class="in">`&lt;i&gt;`</span> to italicize text.</span>
+<span id="cb34-133"><a href="#cb34-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-134"><a href="#cb34-134" aria-hidden="true" tabindex="-1"></a>:::: {.columns}</span>
+<span id="cb34-135"><a href="#cb34-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-136"><a href="#cb34-136" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb34-137"><a href="#cb34-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-138"><a href="#cb34-138" aria-hidden="true" tabindex="-1"></a><span class="in">```{.md}</span></span>
+<span id="cb34-139"><a href="#cb34-139" aria-hidden="true" tabindex="-1"></a><span class="in">We can make text *italic*.</span></span>
+<span id="cb34-140"><a href="#cb34-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-141"><a href="#cb34-141" aria-hidden="true" tabindex="-1"></a><span class="in">We can make text _italic_.</span></span>
+<span id="cb34-142"><a href="#cb34-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-143"><a href="#cb34-143" aria-hidden="true" tabindex="-1"></a><span class="in">We can make text &lt;i&gt;italic&lt;/i&gt;.</span></span>
+<span id="cb34-144"><a href="#cb34-144" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb34-145"><a href="#cb34-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-146"><a href="#cb34-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-147"><a href="#cb34-147" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-148"><a href="#cb34-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-149"><a href="#cb34-149" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb34-150"><a href="#cb34-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-151"><a href="#cb34-151" aria-hidden="true" tabindex="-1"></a>We can make text *italic*.</span>
+<span id="cb34-152"><a href="#cb34-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-153"><a href="#cb34-153" aria-hidden="true" tabindex="-1"></a>We can make text _italic_.</span>
+<span id="cb34-154"><a href="#cb34-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-155"><a href="#cb34-155" aria-hidden="true" tabindex="-1"></a>We can make text &lt;i&gt;italic&lt;/i&gt;.</span>
+<span id="cb34-156"><a href="#cb34-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-157"><a href="#cb34-157" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-158"><a href="#cb34-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-159"><a href="#cb34-159" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb34-160"><a href="#cb34-160" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-161"><a href="#cb34-161" aria-hidden="true" tabindex="-1"></a><span class="fu">## Strikethrough</span></span>
+<span id="cb34-162"><a href="#cb34-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-163"><a href="#cb34-163" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Very helpful to show what not to do.</span>
+<span id="cb34-164"><a href="#cb34-164" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb34-165"><a href="#cb34-165" aria-hidden="true" tabindex="-1"></a>:::: {.columns}</span>
+<span id="cb34-166"><a href="#cb34-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-167"><a href="#cb34-167" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb34-168"><a href="#cb34-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-169"><a href="#cb34-169" aria-hidden="true" tabindex="-1"></a><span class="in">```{.md}</span></span>
+<span id="cb34-170"><a href="#cb34-170" aria-hidden="true" tabindex="-1"></a><span class="in">We can make text ~strikethrough~ sometimes.</span></span>
+<span id="cb34-171"><a href="#cb34-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-172"><a href="#cb34-172" aria-hidden="true" tabindex="-1"></a><span class="in">We can make text ~~strikethrough~~.</span></span>
+<span id="cb34-173"><a href="#cb34-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-174"><a href="#cb34-174" aria-hidden="true" tabindex="-1"></a><span class="in">We can make text &lt;s&gt;strikethrough&lt;/s&gt;.</span></span>
+<span id="cb34-175"><a href="#cb34-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-176"><a href="#cb34-176" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb34-177"><a href="#cb34-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-178"><a href="#cb34-178" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-179"><a href="#cb34-179" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-180"><a href="#cb34-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-181"><a href="#cb34-181" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb34-182"><a href="#cb34-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-183"><a href="#cb34-183" aria-hidden="true" tabindex="-1"></a>We can make text ~strikethrough~ sometimes.</span>
+<span id="cb34-184"><a href="#cb34-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-185"><a href="#cb34-185" aria-hidden="true" tabindex="-1"></a>We can make text ~~strikethrough~~.</span>
+<span id="cb34-186"><a href="#cb34-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-187"><a href="#cb34-187" aria-hidden="true" tabindex="-1"></a>We can make text &lt;s&gt;strikethrough&lt;/s&gt;.</span>
+<span id="cb34-188"><a href="#cb34-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-189"><a href="#cb34-189" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-190"><a href="#cb34-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-191"><a href="#cb34-191" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb34-192"><a href="#cb34-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-193"><a href="#cb34-193" aria-hidden="true" tabindex="-1"></a><span class="fu">## Nesting</span></span>
+<span id="cb34-194"><a href="#cb34-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-195"><a href="#cb34-195" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>As a rule, formatting can be nested but not overlapped.</span>
+<span id="cb34-196"><a href="#cb34-196" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-197"><a href="#cb34-197" aria-hidden="true" tabindex="-1"></a>:::: {.columns}</span>
+<span id="cb34-198"><a href="#cb34-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-199"><a href="#cb34-199" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb34-200"><a href="#cb34-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-201"><a href="#cb34-201" aria-hidden="true" tabindex="-1"></a><span class="in">```{.md}</span></span>
+<span id="cb34-202"><a href="#cb34-202" aria-hidden="true" tabindex="-1"></a><span class="in">__Bold__, *italic*, or ***both***.</span></span>
+<span id="cb34-203"><a href="#cb34-203" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-204"><a href="#cb34-204" aria-hidden="true" tabindex="-1"></a><span class="in">__Bold, *nested,*__ or *italic*.</span></span>
+<span id="cb34-205"><a href="#cb34-205" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-206"><a href="#cb34-206" aria-hidden="true" tabindex="-1"></a><span class="in">__Can't be *overlapped__, however*.</span></span>
+<span id="cb34-207"><a href="#cb34-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-208"><a href="#cb34-208" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb34-209"><a href="#cb34-209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-210"><a href="#cb34-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-211"><a href="#cb34-211" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-212"><a href="#cb34-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-213"><a href="#cb34-213" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb34-214"><a href="#cb34-214" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-215"><a href="#cb34-215" aria-hidden="true" tabindex="-1"></a>__Bold__, *italic*, or ***both***.</span>
+<span id="cb34-216"><a href="#cb34-216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-217"><a href="#cb34-217" aria-hidden="true" tabindex="-1"></a>__Bold, *nested,*__ or *italic*.</span>
+<span id="cb34-218"><a href="#cb34-218" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-219"><a href="#cb34-219" aria-hidden="true" tabindex="-1"></a>__Can't be *overlapped__, however*.</span>
+<span id="cb34-220"><a href="#cb34-220" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-221"><a href="#cb34-221" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-222"><a href="#cb34-222" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb34-223"><a href="#cb34-223" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-224"><a href="#cb34-224" aria-hidden="true" tabindex="-1"></a><span class="fu">## Sub/superscript</span></span>
+<span id="cb34-225"><a href="#cb34-225" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-226"><a href="#cb34-226" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>In scientific publication, we often require subscripts and superscripts.</span>
+<span id="cb34-227"><a href="#cb34-227" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-228"><a href="#cb34-228" aria-hidden="true" tabindex="-1"></a>:::: {.columns}</span>
+<span id="cb34-229"><a href="#cb34-229" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-230"><a href="#cb34-230" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb34-231"><a href="#cb34-231" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-232"><a href="#cb34-232" aria-hidden="true" tabindex="-1"></a><span class="in">```{.md}</span></span>
+<span id="cb34-233"><a href="#cb34-233" aria-hidden="true" tabindex="-1"></a><span class="in">Squaring *x* as *x*&lt;sup&gt;2&lt;/sup&gt; or *x*^2^</span></span>
+<span id="cb34-234"><a href="#cb34-234" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-235"><a href="#cb34-235" aria-hidden="true" tabindex="-1"></a><span class="in">Denoting a Helium-3 isotope as He&lt;sub&gt;3&lt;/sub&gt; or He~3~.</span></span>
+<span id="cb34-236"><a href="#cb34-236" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-237"><a href="#cb34-237" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb34-238"><a href="#cb34-238" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-239"><a href="#cb34-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-240"><a href="#cb34-240" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-241"><a href="#cb34-241" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-242"><a href="#cb34-242" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb34-243"><a href="#cb34-243" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-244"><a href="#cb34-244" aria-hidden="true" tabindex="-1"></a>Squaring *x* as *x*&lt;sup&gt;2&lt;/sup&gt; or x^2^</span>
+<span id="cb34-245"><a href="#cb34-245" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-246"><a href="#cb34-246" aria-hidden="true" tabindex="-1"></a>Denoting a Helium-3 isotope as He&lt;sub&gt;3&lt;/sub&gt; or He~3~.</span>
+<span id="cb34-247"><a href="#cb34-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-248"><a href="#cb34-248" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-249"><a href="#cb34-249" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-250"><a href="#cb34-250" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb34-251"><a href="#cb34-251" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-252"><a href="#cb34-252" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-253"><a href="#cb34-253" aria-hidden="true" tabindex="-1"></a><span class="fu">## When .md fails</span></span>
+<span id="cb34-254"><a href="#cb34-254" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-255"><a href="#cb34-255" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>A number of of formatting options require the heavier-weight HTML tags.</span>
+<span id="cb34-256"><a href="#cb34-256" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-257"><a href="#cb34-257" aria-hidden="true" tabindex="-1"></a>:::: {.columns}</span>
+<span id="cb34-258"><a href="#cb34-258" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-259"><a href="#cb34-259" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb34-260"><a href="#cb34-260" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-261"><a href="#cb34-261" aria-hidden="true" tabindex="-1"></a><span class="in">```{.md}</span></span>
+<span id="cb34-262"><a href="#cb34-262" aria-hidden="true" tabindex="-1"></a><span class="in">Underlining is &lt;u&gt;rarely&lt;/u&gt; used.</span></span>
+<span id="cb34-263"><a href="#cb34-263" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-264"><a href="#cb34-264" aria-hidden="true" tabindex="-1"></a><span class="in">Some editors support ==.md== or &lt;mark&gt;HTML&lt;/mark&gt; highlighting.</span></span>
+<span id="cb34-265"><a href="#cb34-265" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb34-266"><a href="#cb34-266" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-267"><a href="#cb34-267" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-268"><a href="#cb34-268" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-269"><a href="#cb34-269" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-270"><a href="#cb34-270" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb34-271"><a href="#cb34-271" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-272"><a href="#cb34-272" aria-hidden="true" tabindex="-1"></a>Underlining is &lt;u&gt;rarely&lt;/u&gt; used.</span>
+<span id="cb34-273"><a href="#cb34-273" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-274"><a href="#cb34-274" aria-hidden="true" tabindex="-1"></a>Some editors support ==.md== or &lt;mark&gt;HTML&lt;/mark&gt; highlighting.</span>
+<span id="cb34-275"><a href="#cb34-275" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-276"><a href="#cb34-276" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-277"><a href="#cb34-277" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-278"><a href="#cb34-278" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb34-279"><a href="#cb34-279" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-280"><a href="#cb34-280" aria-hidden="true" tabindex="-1"></a><span class="fu"># Quotes</span></span>
+<span id="cb34-281"><a href="#cb34-281" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-282"><a href="#cb34-282" aria-hidden="true" tabindex="-1"></a><span class="fu">## Blockquotes</span></span>
+<span id="cb34-283"><a href="#cb34-283" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-284"><a href="#cb34-284" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Quotes are used frequently in Markdown, for various reasons.</span>
+<span id="cb34-285"><a href="#cb34-285" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>When quoting another writer, or a source, often use blockquotes:</span>
+<span id="cb34-286"><a href="#cb34-286" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-287"><a href="#cb34-287" aria-hidden="true" tabindex="-1"></a>:::: {.columns}</span>
+<span id="cb34-288"><a href="#cb34-288" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-289"><a href="#cb34-289" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb34-290"><a href="#cb34-290" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-291"><a href="#cb34-291" aria-hidden="true" tabindex="-1"></a><span class="in">```{.md}</span></span>
+<span id="cb34-292"><a href="#cb34-292" aria-hidden="true" tabindex="-1"></a><span class="in">&gt; Veni, vidi, vici.</span></span>
+<span id="cb34-293"><a href="#cb34-293" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-294"><a href="#cb34-294" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;blockquote&gt;Oṃ maṇi padme hūm̐&lt;/blockquote&gt;</span></span>
+<span id="cb34-295"><a href="#cb34-295" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-296"><a href="#cb34-296" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-297"><a href="#cb34-297" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb34-298"><a href="#cb34-298" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-299"><a href="#cb34-299" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-300"><a href="#cb34-300" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-301"><a href="#cb34-301" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-302"><a href="#cb34-302" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb34-303"><a href="#cb34-303" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-304"><a href="#cb34-304" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Veni, vidi, vici.</span></span>
+<span id="cb34-305"><a href="#cb34-305" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-306"><a href="#cb34-306" aria-hidden="true" tabindex="-1"></a>&lt;blockquote&gt;Oṃ maṇi padme hūm̐&lt;/blockquote&gt;</span>
+<span id="cb34-307"><a href="#cb34-307" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-308"><a href="#cb34-308" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-309"><a href="#cb34-309" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb34-310"><a href="#cb34-310" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-311"><a href="#cb34-311" aria-hidden="true" tabindex="-1"></a><span class="fu">## Unicode</span></span>
+<span id="cb34-312"><a href="#cb34-312" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-313"><a href="#cb34-313" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>We note Markdown generally supports unicode characters as well as anything else does - usually exactly as well as your browser.</span>
+<span id="cb34-314"><a href="#cb34-314" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-315"><a href="#cb34-315" aria-hidden="true" tabindex="-1"></a>:::: {.columns}</span>
+<span id="cb34-316"><a href="#cb34-316" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-317"><a href="#cb34-317" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb34-318"><a href="#cb34-318" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-319"><a href="#cb34-319" aria-hidden="true" tabindex="-1"></a><span class="in">```{.md}</span></span>
+<span id="cb34-320"><a href="#cb34-320" aria-hidden="true" tabindex="-1"></a><span class="in">&gt; ॐ मणि पद्मे हूँ</span></span>
+<span id="cb34-321"><a href="#cb34-321" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb34-322"><a href="#cb34-322" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-323"><a href="#cb34-323" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-324"><a href="#cb34-324" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-325"><a href="#cb34-325" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-326"><a href="#cb34-326" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb34-327"><a href="#cb34-327" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-328"><a href="#cb34-328" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; ॐ मणि पद्मे हूँ</span></span>
+<span id="cb34-329"><a href="#cb34-329" aria-hidden="true" tabindex="-1"></a><span class="at">:::</span></span>
+<span id="cb34-330"><a href="#cb34-330" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-331"><a href="#cb34-331" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb34-332"><a href="#cb34-332" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-333"><a href="#cb34-333" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-334"><a href="#cb34-334" aria-hidden="true" tabindex="-1"></a><span class="fu">## Backticks</span></span>
+<span id="cb34-335"><a href="#cb34-335" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-336"><a href="#cb34-336" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The backtick character <span class="in">`` ` ``</span> (near <span class="in">`~`</span>) has special meaning in Markdown.</span>
+<span id="cb34-337"><a href="#cb34-337" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-338"><a href="#cb34-338" aria-hidden="true" tabindex="-1"></a>:::: {.columns}</span>
+<span id="cb34-339"><a href="#cb34-339" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-340"><a href="#cb34-340" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb34-341"><a href="#cb34-341" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-342"><a href="#cb34-342" aria-hidden="true" tabindex="-1"></a><span class="in">````{.md}</span></span>
+<span id="cb34-343"><a href="#cb34-343" aria-hidden="true" tabindex="-1"></a><span class="in">Single back for `print('hi')`</span></span>
+<span id="cb34-344"><a href="#cb34-344" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-345"><a href="#cb34-345" aria-hidden="true" tabindex="-1"></a><span class="in">Use triple backtick for:</span></span>
+<span id="cb34-346"><a href="#cb34-346" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-347"><a href="#cb34-347" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb34-348"><a href="#cb34-348" aria-hidden="true" tabindex="-1"></a><span class="in">for i in range(10):</span></span>
+<span id="cb34-349"><a href="#cb34-349" aria-hidden="true" tabindex="-1"></a><span class="in">    print(i*i)</span></span>
+<span id="cb34-350"><a href="#cb34-350" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb34-351"><a href="#cb34-351" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-352"><a href="#cb34-352" aria-hidden="true" tabindex="-1"></a><span class="in">````</span></span>
+<span id="cb34-353"><a href="#cb34-353" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-354"><a href="#cb34-354" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-355"><a href="#cb34-355" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-356"><a href="#cb34-356" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb34-357"><a href="#cb34-357" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-358"><a href="#cb34-358" aria-hidden="true" tabindex="-1"></a>Single back for <span class="in">`print('hi')`</span></span>
+<span id="cb34-359"><a href="#cb34-359" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-360"><a href="#cb34-360" aria-hidden="true" tabindex="-1"></a>Use triple backtick for:</span>
+<span id="cb34-361"><a href="#cb34-361" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-362"><a href="#cb34-362" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb34-363"><a href="#cb34-363" aria-hidden="true" tabindex="-1"></a><span class="in">for i in range(10):</span></span>
+<span id="cb34-364"><a href="#cb34-364" aria-hidden="true" tabindex="-1"></a><span class="in">    print(i*i)</span></span>
+<span id="cb34-365"><a href="#cb34-365" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb34-366"><a href="#cb34-366" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-367"><a href="#cb34-367" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-368"><a href="#cb34-368" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-369"><a href="#cb34-369" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb34-370"><a href="#cb34-370" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-371"><a href="#cb34-371" aria-hidden="true" tabindex="-1"></a><span class="fu">## Syntax Highlighting</span></span>
+<span id="cb34-372"><a href="#cb34-372" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-373"><a href="#cb34-373" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Often we want codeblocks to have highlighting as we see in a code editor.</span>
+<span id="cb34-374"><a href="#cb34-374" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Specify the file extension immediately after the opening triple backtick.</span>
+<span id="cb34-375"><a href="#cb34-375" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-376"><a href="#cb34-376" aria-hidden="true" tabindex="-1"></a>:::: {.columns}</span>
+<span id="cb34-377"><a href="#cb34-377" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-378"><a href="#cb34-378" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb34-379"><a href="#cb34-379" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-380"><a href="#cb34-380" aria-hidden="true" tabindex="-1"></a><span class="in">````{.md}</span></span>
+<span id="cb34-381"><a href="#cb34-381" aria-hidden="true" tabindex="-1"></a><span class="in">```py</span></span>
+<span id="cb34-382"><a href="#cb34-382" aria-hidden="true" tabindex="-1"></a><span class="in">def ten_sqs():</span></span>
+<span id="cb34-383"><a href="#cb34-383" aria-hidden="true" tabindex="-1"></a><span class="in">    for i in range(10):</span></span>
+<span id="cb34-384"><a href="#cb34-384" aria-hidden="true" tabindex="-1"></a><span class="in">        print(i*i)</span></span>
+<span id="cb34-385"><a href="#cb34-385" aria-hidden="true" tabindex="-1"></a><span class="in">    return</span></span>
+<span id="cb34-386"><a href="#cb34-386" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb34-387"><a href="#cb34-387" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-388"><a href="#cb34-388" aria-hidden="true" tabindex="-1"></a><span class="in">````</span></span>
+<span id="cb34-389"><a href="#cb34-389" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-390"><a href="#cb34-390" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-391"><a href="#cb34-391" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-392"><a href="#cb34-392" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb34-393"><a href="#cb34-393" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-394"><a href="#cb34-394" aria-hidden="true" tabindex="-1"></a><span class="in">```py</span></span>
+<span id="cb34-395"><a href="#cb34-395" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> ten_sqs():</span>
+<span id="cb34-396"><a href="#cb34-396" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>):</span>
+<span id="cb34-397"><a href="#cb34-397" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(i<span class="op">*</span>i)</span>
+<span id="cb34-398"><a href="#cb34-398" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span></span>
+<span id="cb34-399"><a href="#cb34-399" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb34-400"><a href="#cb34-400" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-401"><a href="#cb34-401" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-402"><a href="#cb34-402" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-403"><a href="#cb34-403" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb34-404"><a href="#cb34-404" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-405"><a href="#cb34-405" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>In Quarto Markdown, this also changes background (this is non-standard).</span>
+<span id="cb34-406"><a href="#cb34-406" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-407"><a href="#cb34-407" aria-hidden="true" tabindex="-1"></a><span class="fu"># Lists</span></span>
+<span id="cb34-408"><a href="#cb34-408" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-409"><a href="#cb34-409" aria-hidden="true" tabindex="-1"></a><span class="fu">## Better than sentences</span></span>
+<span id="cb34-410"><a href="#cb34-410" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-411"><a href="#cb34-411" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>As a rule, it's a good idea to break text up.</span>
+<span id="cb34-412"><a href="#cb34-412" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Note that <span class="in">`*`</span> or <span class="in">`-`</span> work and linebreaks don't break the list.</span>
+<span id="cb34-413"><a href="#cb34-413" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-414"><a href="#cb34-414" aria-hidden="true" tabindex="-1"></a>:::: {.columns}</span>
+<span id="cb34-415"><a href="#cb34-415" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-416"><a href="#cb34-416" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb34-417"><a href="#cb34-417" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-418"><a href="#cb34-418" aria-hidden="true" tabindex="-1"></a><span class="in">```{.md}</span></span>
+<span id="cb34-419"><a href="#cb34-419" aria-hidden="true" tabindex="-1"></a><span class="in">- Use lists.</span></span>
+<span id="cb34-420"><a href="#cb34-420" aria-hidden="true" tabindex="-1"></a><span class="in">- Be concise.</span></span>
+<span id="cb34-421"><a href="#cb34-421" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-422"><a href="#cb34-422" aria-hidden="true" tabindex="-1"></a><span class="in">* Use bullets.</span></span>
+<span id="cb34-423"><a href="#cb34-423" aria-hidden="true" tabindex="-1"></a><span class="in">* Save space.</span></span>
+<span id="cb34-424"><a href="#cb34-424" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb34-425"><a href="#cb34-425" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-426"><a href="#cb34-426" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-427"><a href="#cb34-427" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-428"><a href="#cb34-428" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-429"><a href="#cb34-429" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb34-430"><a href="#cb34-430" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-431"><a href="#cb34-431" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use lists.</span>
+<span id="cb34-432"><a href="#cb34-432" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Be concise.</span>
+<span id="cb34-433"><a href="#cb34-433" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-434"><a href="#cb34-434" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Use bullets.</span>
+<span id="cb34-435"><a href="#cb34-435" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Save space.</span>
+<span id="cb34-436"><a href="#cb34-436" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-437"><a href="#cb34-437" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-438"><a href="#cb34-438" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb34-439"><a href="#cb34-439" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-440"><a href="#cb34-440" aria-hidden="true" tabindex="-1"></a><span class="fu">## Nesting</span></span>
+<span id="cb34-441"><a href="#cb34-441" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-442"><a href="#cb34-442" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Lists can be nested via indentiation with whitespace.</span>
+<span id="cb34-443"><a href="#cb34-443" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-444"><a href="#cb34-444" aria-hidden="true" tabindex="-1"></a>:::: {.columns}</span>
+<span id="cb34-445"><a href="#cb34-445" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-446"><a href="#cb34-446" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb34-447"><a href="#cb34-447" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-448"><a href="#cb34-448" aria-hidden="true" tabindex="-1"></a><span class="in">```{.md}</span></span>
+<span id="cb34-449"><a href="#cb34-449" aria-hidden="true" tabindex="-1"></a><span class="in">- Lists are great!</span></span>
+<span id="cb34-450"><a href="#cb34-450" aria-hidden="true" tabindex="-1"></a><span class="in">  - Easy to read.</span></span>
+<span id="cb34-451"><a href="#cb34-451" aria-hidden="true" tabindex="-1"></a><span class="in">    - Either as markdown or text!</span></span>
+<span id="cb34-452"><a href="#cb34-452" aria-hidden="true" tabindex="-1"></a><span class="in">  - Easy to type.</span></span>
+<span id="cb34-453"><a href="#cb34-453" aria-hidden="true" tabindex="-1"></a><span class="in">- Try them out! </span></span>
+<span id="cb34-454"><a href="#cb34-454" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb34-455"><a href="#cb34-455" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-456"><a href="#cb34-456" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-457"><a href="#cb34-457" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-458"><a href="#cb34-458" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-459"><a href="#cb34-459" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb34-460"><a href="#cb34-460" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-461"><a href="#cb34-461" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Lists are great!</span>
+<span id="cb34-462"><a href="#cb34-462" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Easy to read.</span>
+<span id="cb34-463"><a href="#cb34-463" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Either as markdown or text!</span>
+<span id="cb34-464"><a href="#cb34-464" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Easy to type.</span>
+<span id="cb34-465"><a href="#cb34-465" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Try them out!</span>
+<span id="cb34-466"><a href="#cb34-466" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-467"><a href="#cb34-467" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-468"><a href="#cb34-468" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-469"><a href="#cb34-469" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb34-470"><a href="#cb34-470" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-471"><a href="#cb34-471" aria-hidden="true" tabindex="-1"></a><span class="fu">## Numbering</span></span>
+<span id="cb34-472"><a href="#cb34-472" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-473"><a href="#cb34-473" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Lists are numbered automatically.</span>
+<span id="cb34-474"><a href="#cb34-474" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-475"><a href="#cb34-475" aria-hidden="true" tabindex="-1"></a>:::: {.columns}</span>
+<span id="cb34-476"><a href="#cb34-476" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-477"><a href="#cb34-477" aria-hidden="true" tabindex="-1"></a>::: {.column width="30%"}</span>
+<span id="cb34-478"><a href="#cb34-478" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-479"><a href="#cb34-479" aria-hidden="true" tabindex="-1"></a><span class="in">```{.md}</span></span>
+<span id="cb34-480"><a href="#cb34-480" aria-hidden="true" tabindex="-1"></a><span class="in">1. One</span></span>
+<span id="cb34-481"><a href="#cb34-481" aria-hidden="true" tabindex="-1"></a><span class="in">1. Two</span></span>
+<span id="cb34-482"><a href="#cb34-482" aria-hidden="true" tabindex="-1"></a><span class="in">1. Three</span></span>
+<span id="cb34-483"><a href="#cb34-483" aria-hidden="true" tabindex="-1"></a><span class="in">1. Four</span></span>
+<span id="cb34-484"><a href="#cb34-484" aria-hidden="true" tabindex="-1"></a><span class="in">   1. Four and half</span></span>
+<span id="cb34-485"><a href="#cb34-485" aria-hidden="true" tabindex="-1"></a><span class="in">1. Five</span></span>
+<span id="cb34-486"><a href="#cb34-486" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb34-487"><a href="#cb34-487" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-488"><a href="#cb34-488" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>There is no graceful way to start a list at zero.</span>
+<span id="cb34-489"><a href="#cb34-489" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-490"><a href="#cb34-490" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-491"><a href="#cb34-491" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-492"><a href="#cb34-492" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-493"><a href="#cb34-493" aria-hidden="true" tabindex="-1"></a>::: {.column width="20%"}</span>
+<span id="cb34-494"><a href="#cb34-494" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-495"><a href="#cb34-495" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-496"><a href="#cb34-496" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-497"><a href="#cb34-497" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb34-498"><a href="#cb34-498" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-499"><a href="#cb34-499" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>One</span>
+<span id="cb34-500"><a href="#cb34-500" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Two</span>
+<span id="cb34-501"><a href="#cb34-501" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Three</span>
+<span id="cb34-502"><a href="#cb34-502" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Four</span>
+<span id="cb34-503"><a href="#cb34-503" aria-hidden="true" tabindex="-1"></a><span class="ss">   1. </span>Four and half</span>
+<span id="cb34-504"><a href="#cb34-504" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Five</span>
+<span id="cb34-505"><a href="#cb34-505" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-506"><a href="#cb34-506" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-507"><a href="#cb34-507" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-508"><a href="#cb34-508" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb34-509"><a href="#cb34-509" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-510"><a href="#cb34-510" aria-hidden="true" tabindex="-1"></a><span class="fu">## Task lists</span></span>
+<span id="cb34-511"><a href="#cb34-511" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-512"><a href="#cb34-512" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>You can also make "task lists".</span>
+<span id="cb34-513"><a href="#cb34-513" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Try clicking those boxes!</span>
+<span id="cb34-514"><a href="#cb34-514" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-515"><a href="#cb34-515" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-516"><a href="#cb34-516" aria-hidden="true" tabindex="-1"></a>:::: {.columns}</span>
+<span id="cb34-517"><a href="#cb34-517" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-518"><a href="#cb34-518" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb34-519"><a href="#cb34-519" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-520"><a href="#cb34-520" aria-hidden="true" tabindex="-1"></a><span class="in">```{.md}</span></span>
+<span id="cb34-521"><a href="#cb34-521" aria-hidden="true" tabindex="-1"></a><span class="in">- [x] Open the door</span></span>
+<span id="cb34-522"><a href="#cb34-522" aria-hidden="true" tabindex="-1"></a><span class="in">- [ ] Get on the floor</span></span>
+<span id="cb34-523"><a href="#cb34-523" aria-hidden="true" tabindex="-1"></a><span class="in">- [ ] Walk the dinosaur</span></span>
+<span id="cb34-524"><a href="#cb34-524" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb34-525"><a href="#cb34-525" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-526"><a href="#cb34-526" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-527"><a href="#cb34-527" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-528"><a href="#cb34-528" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-529"><a href="#cb34-529" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb34-530"><a href="#cb34-530" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-531"><a href="#cb34-531" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[x]</span> Open the door</span>
+<span id="cb34-532"><a href="#cb34-532" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Get on the floor</span>
+<span id="cb34-533"><a href="#cb34-533" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Walk the dinosaur</span>
+<span id="cb34-534"><a href="#cb34-534" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-535"><a href="#cb34-535" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-536"><a href="#cb34-536" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-537"><a href="#cb34-537" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb34-538"><a href="#cb34-538" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-539"><a href="#cb34-539" aria-hidden="true" tabindex="-1"></a><span class="fu"># Lines</span></span>
+<span id="cb34-540"><a href="#cb34-540" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-541"><a href="#cb34-541" aria-hidden="true" tabindex="-1"></a><span class="fu">## Line breaks</span></span>
+<span id="cb34-542"><a href="#cb34-542" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-543"><a href="#cb34-543" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>There's a few ways to perform a .md line break.</span>
+<span id="cb34-544"><a href="#cb34-544" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-545"><a href="#cb34-545" aria-hidden="true" tabindex="-1"></a>:::: {.columns}</span>
+<span id="cb34-546"><a href="#cb34-546" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-547"><a href="#cb34-547" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb34-548"><a href="#cb34-548" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-549"><a href="#cb34-549" aria-hidden="true" tabindex="-1"></a><span class="in">```{.md}</span></span>
+<span id="cb34-550"><a href="#cb34-550" aria-hidden="true" tabindex="-1"></a><span class="in">Two spaces </span></span>
+<span id="cb34-551"><a href="#cb34-551" aria-hidden="true" tabindex="-1"></a><span class="in">break lines  </span></span>
+<span id="cb34-552"><a href="#cb34-552" aria-hidden="true" tabindex="-1"></a><span class="in">one space </span></span>
+<span id="cb34-553"><a href="#cb34-553" aria-hidden="true" tabindex="-1"></a><span class="in">does not.</span></span>
+<span id="cb34-554"><a href="#cb34-554" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb34-555"><a href="#cb34-555" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-556"><a href="#cb34-556" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-557"><a href="#cb34-557" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-558"><a href="#cb34-558" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-559"><a href="#cb34-559" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb34-560"><a href="#cb34-560" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-561"><a href="#cb34-561" aria-hidden="true" tabindex="-1"></a>Two spaces </span>
+<span id="cb34-562"><a href="#cb34-562" aria-hidden="true" tabindex="-1"></a>break lines  </span>
+<span id="cb34-563"><a href="#cb34-563" aria-hidden="true" tabindex="-1"></a>one space </span>
+<span id="cb34-564"><a href="#cb34-564" aria-hidden="true" tabindex="-1"></a>does not.</span>
+<span id="cb34-565"><a href="#cb34-565" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-566"><a href="#cb34-566" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-567"><a href="#cb34-567" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-568"><a href="#cb34-568" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb34-569"><a href="#cb34-569" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-570"><a href="#cb34-570" aria-hidden="true" tabindex="-1"></a><span class="fu">## Line breaks</span></span>
+<span id="cb34-571"><a href="#cb34-571" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-572"><a href="#cb34-572" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Invisible line breaks are very annoying and <span class="in">`\`</span> is often preferred. </span>
+<span id="cb34-573"><a href="#cb34-573" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-574"><a href="#cb34-574" aria-hidden="true" tabindex="-1"></a>:::: {.columns}</span>
+<span id="cb34-575"><a href="#cb34-575" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-576"><a href="#cb34-576" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb34-577"><a href="#cb34-577" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-578"><a href="#cb34-578" aria-hidden="true" tabindex="-1"></a><span class="in">```{.md}</span></span>
+<span id="cb34-579"><a href="#cb34-579" aria-hidden="true" tabindex="-1"></a><span class="in">Back slash\</span></span>
+<span id="cb34-580"><a href="#cb34-580" aria-hidden="true" tabindex="-1"></a><span class="in">breaks lines</span></span>
+<span id="cb34-581"><a href="#cb34-581" aria-hidden="true" tabindex="-1"></a><span class="in">just like  </span></span>
+<span id="cb34-582"><a href="#cb34-582" aria-hidden="true" tabindex="-1"></a><span class="in">two spaces.</span></span>
+<span id="cb34-583"><a href="#cb34-583" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb34-584"><a href="#cb34-584" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-585"><a href="#cb34-585" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-586"><a href="#cb34-586" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-587"><a href="#cb34-587" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb34-588"><a href="#cb34-588" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-589"><a href="#cb34-589" aria-hidden="true" tabindex="-1"></a>Back slash\</span>
+<span id="cb34-590"><a href="#cb34-590" aria-hidden="true" tabindex="-1"></a>breaks lines.</span>
+<span id="cb34-591"><a href="#cb34-591" aria-hidden="true" tabindex="-1"></a>just like  </span>
+<span id="cb34-592"><a href="#cb34-592" aria-hidden="true" tabindex="-1"></a>two spaces.</span>
+<span id="cb34-593"><a href="#cb34-593" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-594"><a href="#cb34-594" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-595"><a href="#cb34-595" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-596"><a href="#cb34-596" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb34-597"><a href="#cb34-597" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-598"><a href="#cb34-598" aria-hidden="true" tabindex="-1"></a><span class="fu">## Line breaks</span></span>
+<span id="cb34-599"><a href="#cb34-599" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-600"><a href="#cb34-600" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>These work inside lists. </span>
+<span id="cb34-601"><a href="#cb34-601" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-602"><a href="#cb34-602" aria-hidden="true" tabindex="-1"></a>:::: {.columns}</span>
+<span id="cb34-603"><a href="#cb34-603" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-604"><a href="#cb34-604" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb34-605"><a href="#cb34-605" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-606"><a href="#cb34-606" aria-hidden="true" tabindex="-1"></a><span class="in">```{.md}</span></span>
+<span id="cb34-607"><a href="#cb34-607" aria-hidden="true" tabindex="-1"></a><span class="in">- Some items\</span></span>
+<span id="cb34-608"><a href="#cb34-608" aria-hidden="true" tabindex="-1"></a><span class="in">  are long.</span></span>
+<span id="cb34-609"><a href="#cb34-609" aria-hidden="true" tabindex="-1"></a><span class="in">- Some aren't.</span></span>
+<span id="cb34-610"><a href="#cb34-610" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb34-611"><a href="#cb34-611" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-612"><a href="#cb34-612" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-613"><a href="#cb34-613" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-614"><a href="#cb34-614" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb34-615"><a href="#cb34-615" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-616"><a href="#cb34-616" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Some items\</span>
+<span id="cb34-617"><a href="#cb34-617" aria-hidden="true" tabindex="-1"></a>  are long.</span>
+<span id="cb34-618"><a href="#cb34-618" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Some aren't.</span>
+<span id="cb34-619"><a href="#cb34-619" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-620"><a href="#cb34-620" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-621"><a href="#cb34-621" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-622"><a href="#cb34-622" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb34-623"><a href="#cb34-623" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-624"><a href="#cb34-624" aria-hidden="true" tabindex="-1"></a><span class="fu">## HTML</span></span>
+<span id="cb34-625"><a href="#cb34-625" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-626"><a href="#cb34-626" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The HTML <span class="in">`&lt;br/&gt;`</span> will often works as well.</span>
+<span id="cb34-627"><a href="#cb34-627" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-628"><a href="#cb34-628" aria-hidden="true" tabindex="-1"></a>:::: {.columns}</span>
+<span id="cb34-629"><a href="#cb34-629" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-630"><a href="#cb34-630" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb34-631"><a href="#cb34-631" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-632"><a href="#cb34-632" aria-hidden="true" tabindex="-1"></a><span class="in">```{.md}</span></span>
+<span id="cb34-633"><a href="#cb34-633" aria-hidden="true" tabindex="-1"></a><span class="in">Even in the middle&lt;br/&gt;of lines.</span></span>
+<span id="cb34-634"><a href="#cb34-634" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb34-635"><a href="#cb34-635" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-636"><a href="#cb34-636" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-637"><a href="#cb34-637" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-638"><a href="#cb34-638" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb34-639"><a href="#cb34-639" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-640"><a href="#cb34-640" aria-hidden="true" tabindex="-1"></a>Even in the middle&lt;br/&gt;of lines.</span>
+<span id="cb34-641"><a href="#cb34-641" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-642"><a href="#cb34-642" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-643"><a href="#cb34-643" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-644"><a href="#cb34-644" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb34-645"><a href="#cb34-645" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-646"><a href="#cb34-646" aria-hidden="true" tabindex="-1"></a><span class="fu"># Links</span></span>
+<span id="cb34-647"><a href="#cb34-647" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-648"><a href="#cb34-648" aria-hidden="true" tabindex="-1"></a><span class="fu">## URL links</span></span>
+<span id="cb34-649"><a href="#cb34-649" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-650"><a href="#cb34-650" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>As a rule, you can link anywhere on the internet.</span>
+<span id="cb34-651"><a href="#cb34-651" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Place the link text in <span class="in">`[]`</span> and the URL in <span class="in">`()`</span></span>
+<span id="cb34-652"><a href="#cb34-652" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-653"><a href="#cb34-653" aria-hidden="true" tabindex="-1"></a>:::: {.columns}</span>
+<span id="cb34-654"><a href="#cb34-654" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-655"><a href="#cb34-655" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb34-656"><a href="#cb34-656" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-657"><a href="#cb34-657" aria-hidden="true" tabindex="-1"></a><span class="in">```{.md}</span></span>
+<span id="cb34-658"><a href="#cb34-658" aria-hidden="true" tabindex="-1"></a><span class="in">[Read more](https://en.wikipedia.org/wiki/Markdown)</span></span>
+<span id="cb34-659"><a href="#cb34-659" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb34-660"><a href="#cb34-660" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-661"><a href="#cb34-661" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-662"><a href="#cb34-662" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-663"><a href="#cb34-663" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb34-664"><a href="#cb34-664" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-665"><a href="#cb34-665" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Read more</span><span class="co">](https://en.wikipedia.org/wiki/Markdown)</span></span>
+<span id="cb34-666"><a href="#cb34-666" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-667"><a href="#cb34-667" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-668"><a href="#cb34-668" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-669"><a href="#cb34-669" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb34-670"><a href="#cb34-670" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-671"><a href="#cb34-671" aria-hidden="true" tabindex="-1"></a><span class="fu">## Images</span></span>
+<span id="cb34-672"><a href="#cb34-672" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-673"><a href="#cb34-673" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use <span class="in">`![]`</span> before a link to an image file, like a <span class="in">`.png`</span>, <span class="in">`.jpg`</span>, or <span class="in">`.svg`</span>.</span>
+<span id="cb34-674"><a href="#cb34-674" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-675"><a href="#cb34-675" aria-hidden="true" tabindex="-1"></a>:::: {.columns}</span>
+<span id="cb34-676"><a href="#cb34-676" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-677"><a href="#cb34-677" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb34-678"><a href="#cb34-678" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-679"><a href="#cb34-679" aria-hidden="true" tabindex="-1"></a><span class="in">```{.md}</span></span>
+<span id="cb34-680"><a href="#cb34-680" aria-hidden="true" tabindex="-1"></a><span class="in">![](https://raw.githubusercontent.com/cd-public/scicom/refs/heads/main/qmd/src/julia.png)</span></span>
+<span id="cb34-681"><a href="#cb34-681" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb34-682"><a href="#cb34-682" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-683"><a href="#cb34-683" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-684"><a href="#cb34-684" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-685"><a href="#cb34-685" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb34-686"><a href="#cb34-686" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-687"><a href="#cb34-687" aria-hidden="true" tabindex="-1"></a><span class="al">![](https://raw.githubusercontent.com/cd-public/scicom/refs/heads/main/qmd/src/julia.png)</span></span>
+<span id="cb34-688"><a href="#cb34-688" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-689"><a href="#cb34-689" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-690"><a href="#cb34-690" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-691"><a href="#cb34-691" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb34-692"><a href="#cb34-692" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-693"><a href="#cb34-693" aria-hidden="true" tabindex="-1"></a><span class="fu">## Relative Links</span></span>
+<span id="cb34-694"><a href="#cb34-694" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-695"><a href="#cb34-695" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Within a GitHub markdown document, you can also link to images within the repository.</span>
+<span id="cb34-696"><a href="#cb34-696" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>This <span class="in">`.md`</span> document is in <span class="in">`/main/qmd/src/`</span> so I can just use:</span>
+<span id="cb34-697"><a href="#cb34-697" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-698"><a href="#cb34-698" aria-hidden="true" tabindex="-1"></a>:::: {.columns}</span>
+<span id="cb34-699"><a href="#cb34-699" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-700"><a href="#cb34-700" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb34-701"><a href="#cb34-701" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-702"><a href="#cb34-702" aria-hidden="true" tabindex="-1"></a><span class="in">```{.md}</span></span>
+<span id="cb34-703"><a href="#cb34-703" aria-hidden="true" tabindex="-1"></a><span class="in">![](julia.png)</span></span>
+<span id="cb34-704"><a href="#cb34-704" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb34-705"><a href="#cb34-705" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-706"><a href="#cb34-706" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-707"><a href="#cb34-707" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-708"><a href="#cb34-708" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb34-709"><a href="#cb34-709" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-710"><a href="#cb34-710" aria-hidden="true" tabindex="-1"></a><span class="al">![](julia.png)</span></span>
+<span id="cb34-711"><a href="#cb34-711" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-712"><a href="#cb34-712" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-713"><a href="#cb34-713" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-714"><a href="#cb34-714" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb34-715"><a href="#cb34-715" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-716"><a href="#cb34-716" aria-hidden="true" tabindex="-1"></a><span class="fu">## Footnotes</span></span>
+<span id="cb34-717"><a href="#cb34-717" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-718"><a href="#cb34-718" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Generally, by the time you are using footnotes you should switch to a different platform (LaTeX).</span>
+<span id="cb34-719"><a href="#cb34-719" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>But they exist!</span>
+<span id="cb34-720"><a href="#cb34-720" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-721"><a href="#cb34-721" aria-hidden="true" tabindex="-1"></a>:::: {.columns}</span>
+<span id="cb34-722"><a href="#cb34-722" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-723"><a href="#cb34-723" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb34-724"><a href="#cb34-724" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-725"><a href="#cb34-725" aria-hidden="true" tabindex="-1"></a><span class="in">```{.md}</span></span>
+<span id="cb34-726"><a href="#cb34-726" aria-hidden="true" tabindex="-1"></a><span class="in">Use numbered[^1] or named[^footnote] notes.</span></span>
+<span id="cb34-727"><a href="#cb34-727" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-728"><a href="#cb34-728" aria-hidden="true" tabindex="-1"></a><span class="in">[^1]: I'm number one!</span></span>
+<span id="cb34-729"><a href="#cb34-729" aria-hidden="true" tabindex="-1"></a><span class="in">    [^footnote]: I'm a footnote!</span></span>
+<span id="cb34-730"><a href="#cb34-730" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb34-731"><a href="#cb34-731" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-732"><a href="#cb34-732" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-733"><a href="#cb34-733" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-734"><a href="#cb34-734" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb34-735"><a href="#cb34-735" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-736"><a href="#cb34-736" aria-hidden="true" tabindex="-1"></a>Use numbered<span class="ot">[^1]</span> or named<span class="ot">[^footnote]</span> notes.</span>
+<span id="cb34-737"><a href="#cb34-737" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-738"><a href="#cb34-738" aria-hidden="true" tabindex="-1"></a><span class="ot">[^1]: </span>I'm number one!</span>
+<span id="cb34-739"><a href="#cb34-739" aria-hidden="true" tabindex="-1"></a><span class="ot">[^footnote]: </span>I'm a footnote!</span>
+<span id="cb34-740"><a href="#cb34-740" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-741"><a href="#cb34-741" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-742"><a href="#cb34-742" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-743"><a href="#cb34-743" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb34-744"><a href="#cb34-744" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-745"><a href="#cb34-745" aria-hidden="true" tabindex="-1"></a><span class="fu"># Sections</span></span>
+<span id="cb34-746"><a href="#cb34-746" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-747"><a href="#cb34-747" aria-hidden="true" tabindex="-1"></a><span class="fu">## Headings</span></span>
+<span id="cb34-748"><a href="#cb34-748" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-749"><a href="#cb34-749" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>In my markdown, headings correspond to slides or sections.</span>
+<span id="cb34-750"><a href="#cb34-750" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>They are <span class="in">`#`</span> prefixed and get their own line.</span>
+<span id="cb34-751"><a href="#cb34-751" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-752"><a href="#cb34-752" aria-hidden="true" tabindex="-1"></a>:::: {.columns}</span>
+<span id="cb34-753"><a href="#cb34-753" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-754"><a href="#cb34-754" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb34-755"><a href="#cb34-755" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-756"><a href="#cb34-756" aria-hidden="true" tabindex="-1"></a><span class="in">```{.md}</span></span>
+<span id="cb34-757"><a href="#cb34-757" aria-hidden="true" tabindex="-1"></a><span class="in"># Heading</span></span>
+<span id="cb34-758"><a href="#cb34-758" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb34-759"><a href="#cb34-759" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-760"><a href="#cb34-760" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-761"><a href="#cb34-761" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-762"><a href="#cb34-762" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb34-763"><a href="#cb34-763" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-764"><a href="#cb34-764" aria-hidden="true" tabindex="-1"></a>&lt;h1&gt;Heading&lt;/h1&gt;</span>
+<span id="cb34-765"><a href="#cb34-765" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-766"><a href="#cb34-766" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-767"><a href="#cb34-767" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-768"><a href="#cb34-768" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb34-769"><a href="#cb34-769" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-770"><a href="#cb34-770" aria-hidden="true" tabindex="-1"></a><span class="fu">## Subheadings</span></span>
+<span id="cb34-771"><a href="#cb34-771" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-772"><a href="#cb34-772" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>In my markdown, headings correspond to slides or sections.</span>
+<span id="cb34-773"><a href="#cb34-773" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>They are <span class="in">`#`</span> prefixed and get their own line.</span>
+<span id="cb34-774"><a href="#cb34-774" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-775"><a href="#cb34-775" aria-hidden="true" tabindex="-1"></a>:::: {.columns}</span>
+<span id="cb34-776"><a href="#cb34-776" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-777"><a href="#cb34-777" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb34-778"><a href="#cb34-778" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-779"><a href="#cb34-779" aria-hidden="true" tabindex="-1"></a><span class="in">```{.md}</span></span>
+<span id="cb34-780"><a href="#cb34-780" aria-hidden="true" tabindex="-1"></a><span class="in">## Subheadings</span></span>
+<span id="cb34-781"><a href="#cb34-781" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-782"><a href="#cb34-782" aria-hidden="true" tabindex="-1"></a><span class="in">### Get</span></span>
+<span id="cb34-783"><a href="#cb34-783" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-784"><a href="#cb34-784" aria-hidden="true" tabindex="-1"></a><span class="in">#### Progressively</span></span>
+<span id="cb34-785"><a href="#cb34-785" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-786"><a href="#cb34-786" aria-hidden="true" tabindex="-1"></a><span class="in">##### Smaller</span></span>
+<span id="cb34-787"><a href="#cb34-787" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb34-788"><a href="#cb34-788" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-789"><a href="#cb34-789" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-790"><a href="#cb34-790" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-791"><a href="#cb34-791" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb34-792"><a href="#cb34-792" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-793"><a href="#cb34-793" aria-hidden="true" tabindex="-1"></a>&lt;h2&gt;Subheadings&lt;/h2&gt;</span>
+<span id="cb34-794"><a href="#cb34-794" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-795"><a href="#cb34-795" aria-hidden="true" tabindex="-1"></a>&lt;h3&gt;Get&lt;/h3&gt;</span>
+<span id="cb34-796"><a href="#cb34-796" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-797"><a href="#cb34-797" aria-hidden="true" tabindex="-1"></a>&lt;h4&gt;Progressively&lt;/h4&gt;</span>
+<span id="cb34-798"><a href="#cb34-798" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-799"><a href="#cb34-799" aria-hidden="true" tabindex="-1"></a>&lt;h5&gt;Smaller&lt;/h5&gt;</span>
+<span id="cb34-800"><a href="#cb34-800" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-801"><a href="#cb34-801" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-802"><a href="#cb34-802" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-803"><a href="#cb34-803" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb34-804"><a href="#cb34-804" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-805"><a href="#cb34-805" aria-hidden="true" tabindex="-1"></a><span class="fu">## Links</span></span>
+<span id="cb34-806"><a href="#cb34-806" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-807"><a href="#cb34-807" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>We can link to sections using all lowercase (and replace spaces with <span class="in">`-`</span>)</span>
+<span id="cb34-808"><a href="#cb34-808" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-809"><a href="#cb34-809" aria-hidden="true" tabindex="-1"></a>:::: {.columns}</span>
+<span id="cb34-810"><a href="#cb34-810" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-811"><a href="#cb34-811" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb34-812"><a href="#cb34-812" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-813"><a href="#cb34-813" aria-hidden="true" tabindex="-1"></a><span class="in">```{.md}</span></span>
+<span id="cb34-814"><a href="#cb34-814" aria-hidden="true" tabindex="-1"></a><span class="in">The previous heading was [Links](#links) part of the notes.</span></span>
+<span id="cb34-815"><a href="#cb34-815" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb34-816"><a href="#cb34-816" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-817"><a href="#cb34-817" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-818"><a href="#cb34-818" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-819"><a href="#cb34-819" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb34-820"><a href="#cb34-820" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-821"><a href="#cb34-821" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-822"><a href="#cb34-822" aria-hidden="true" tabindex="-1"></a>The previous heading was <span class="co">[</span><span class="ot">Links</span><span class="co">](#links)</span> part of the notes.</span>
+<span id="cb34-823"><a href="#cb34-823" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-824"><a href="#cb34-824" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-825"><a href="#cb34-825" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-826"><a href="#cb34-826" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-827"><a href="#cb34-827" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb34-828"><a href="#cb34-828" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-829"><a href="#cb34-829" aria-hidden="true" tabindex="-1"></a><span class="fu"># Callouts</span></span>
+<span id="cb34-830"><a href="#cb34-830" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-831"><a href="#cb34-831" aria-hidden="true" tabindex="-1"></a><span class="fu">## Optional Features</span></span>
+<span id="cb34-832"><a href="#cb34-832" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-833"><a href="#cb34-833" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Some editors support callout blocks.</span>
+<span id="cb34-834"><a href="#cb34-834" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-835"><a href="#cb34-835" aria-hidden="true" tabindex="-1"></a>:::: {.columns}</span>
+<span id="cb34-836"><a href="#cb34-836" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-837"><a href="#cb34-837" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb34-838"><a href="#cb34-838" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-839"><a href="#cb34-839" aria-hidden="true" tabindex="-1"></a><span class="in">```{.md}</span></span>
+<span id="cb34-840"><a href="#cb34-840" aria-hidden="true" tabindex="-1"></a><span class="in">&gt; [!NOTE]</span></span>
+<span id="cb34-841"><a href="#cb34-841" aria-hidden="true" tabindex="-1"></a><span class="in">&gt; GitHub note.</span></span>
+<span id="cb34-842"><a href="#cb34-842" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-843"><a href="#cb34-843" aria-hidden="true" tabindex="-1"></a><span class="in">::: {.callout-note}</span></span>
+<span id="cb34-844"><a href="#cb34-844" aria-hidden="true" tabindex="-1"></a><span class="in">Quarto note.</span></span>
+<span id="cb34-845"><a href="#cb34-845" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
+<span id="cb34-846"><a href="#cb34-846" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-847"><a href="#cb34-847" aria-hidden="true" tabindex="-1"></a><span class="in">&gt; 📝 **Note:** Blockquote/emoji hack.</span></span>
+<span id="cb34-848"><a href="#cb34-848" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb34-849"><a href="#cb34-849" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-850"><a href="#cb34-850" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-851"><a href="#cb34-851" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-852"><a href="#cb34-852" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb34-853"><a href="#cb34-853" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-854"><a href="#cb34-854" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-855"><a href="#cb34-855" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; </span><span class="co">[</span><span class="ot">!NOTE</span><span class="co">]</span></span>
+<span id="cb34-856"><a href="#cb34-856" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; GitHub note (doesn't work here).</span></span>
+<span id="cb34-857"><a href="#cb34-857" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-858"><a href="#cb34-858" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
+<span id="cb34-859"><a href="#cb34-859" aria-hidden="true" tabindex="-1"></a>Quarto note.</span>
+<span id="cb34-860"><a href="#cb34-860" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-861"><a href="#cb34-861" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-862"><a href="#cb34-862" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 📝 **Note:** Blockquote/emoji hack.</span></span>
+<span id="cb34-863"><a href="#cb34-863" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-864"><a href="#cb34-864" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-865"><a href="#cb34-865" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-866"><a href="#cb34-866" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-867"><a href="#cb34-867" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb34-868"><a href="#cb34-868" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-869"><a href="#cb34-869" aria-hidden="true" tabindex="-1"></a><span class="fu"># Tables</span></span>
+<span id="cb34-870"><a href="#cb34-870" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-871"><a href="#cb34-871" aria-hidden="true" tabindex="-1"></a><span class="fu">## Markdown DataFrames</span></span>
+<span id="cb34-872"><a href="#cb34-872" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-873"><a href="#cb34-873" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The way **pandas** worked under the hood on these slides was actually outputing markdown tables.</span>
+<span id="cb34-874"><a href="#cb34-874" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-875"><a href="#cb34-875" aria-hidden="true" tabindex="-1"></a>:::: {.columns}</span>
+<span id="cb34-876"><a href="#cb34-876" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-877"><a href="#cb34-877" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb34-878"><a href="#cb34-878" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-879"><a href="#cb34-879" aria-hidden="true" tabindex="-1"></a><span class="in">```{.md}</span></span>
+<span id="cb34-880"><a href="#cb34-880" aria-hidden="true" tabindex="-1"></a><span class="in">|NumPy|**pandas**|</span></span>
+<span id="cb34-881"><a href="#cb34-881" aria-hidden="true" tabindex="-1"></a><span class="in">|-----|----------|</span></span>
+<span id="cb34-882"><a href="#cb34-882" aria-hidden="true" tabindex="-1"></a><span class="in">|array|DataFrame |</span></span>
+<span id="cb34-883"><a href="#cb34-883" aria-hidden="true" tabindex="-1"></a><span class="in">|typed|Any values|</span></span>
+<span id="cb34-884"><a href="#cb34-884" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb34-885"><a href="#cb34-885" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-886"><a href="#cb34-886" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-887"><a href="#cb34-887" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-888"><a href="#cb34-888" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb34-889"><a href="#cb34-889" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-890"><a href="#cb34-890" aria-hidden="true" tabindex="-1"></a>|NumPy|**pandas**|</span>
+<span id="cb34-891"><a href="#cb34-891" aria-hidden="true" tabindex="-1"></a>|-----|----------|</span>
+<span id="cb34-892"><a href="#cb34-892" aria-hidden="true" tabindex="-1"></a>|array|DataFrame |</span>
+<span id="cb34-893"><a href="#cb34-893" aria-hidden="true" tabindex="-1"></a>|typed|Any values|</span>
+<span id="cb34-894"><a href="#cb34-894" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-895"><a href="#cb34-895" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-896"><a href="#cb34-896" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-897"><a href="#cb34-897" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-898"><a href="#cb34-898" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb34-899"><a href="#cb34-899" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-900"><a href="#cb34-900" aria-hidden="true" tabindex="-1"></a><span class="fu">## Markdown Arrays</span></span>
+<span id="cb34-901"><a href="#cb34-901" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-902"><a href="#cb34-902" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>You can leave out headers to get something closer to an unlabeled table or a 2D array.</span>
+<span id="cb34-903"><a href="#cb34-903" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-904"><a href="#cb34-904" aria-hidden="true" tabindex="-1"></a>:::: {.columns}</span>
+<span id="cb34-905"><a href="#cb34-905" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-906"><a href="#cb34-906" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb34-907"><a href="#cb34-907" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-908"><a href="#cb34-908" aria-hidden="true" tabindex="-1"></a><span class="in">```{.md}</span></span>
+<span id="cb34-909"><a href="#cb34-909" aria-hidden="true" tabindex="-1"></a><span class="in">|     |          |</span></span>
+<span id="cb34-910"><a href="#cb34-910" aria-hidden="true" tabindex="-1"></a><span class="in">|-----|----------|</span></span>
+<span id="cb34-911"><a href="#cb34-911" aria-hidden="true" tabindex="-1"></a><span class="in">|9275 | 10       |</span></span>
+<span id="cb34-912"><a href="#cb34-912" aria-hidden="true" tabindex="-1"></a><span class="in">|37500| 15       |</span></span>
+<span id="cb34-913"><a href="#cb34-913" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb34-914"><a href="#cb34-914" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-915"><a href="#cb34-915" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-916"><a href="#cb34-916" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-917"><a href="#cb34-917" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb34-918"><a href="#cb34-918" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-919"><a href="#cb34-919" aria-hidden="true" tabindex="-1"></a>|     |          |</span>
+<span id="cb34-920"><a href="#cb34-920" aria-hidden="true" tabindex="-1"></a>|-----|----------|</span>
+<span id="cb34-921"><a href="#cb34-921" aria-hidden="true" tabindex="-1"></a>|9275 | 10       |</span>
+<span id="cb34-922"><a href="#cb34-922" aria-hidden="true" tabindex="-1"></a>|37500| 15       |</span>
+<span id="cb34-923"><a href="#cb34-923" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-924"><a href="#cb34-924" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-925"><a href="#cb34-925" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-926"><a href="#cb34-926" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-927"><a href="#cb34-927" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb34-928"><a href="#cb34-928" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-929"><a href="#cb34-929" aria-hidden="true" tabindex="-1"></a><span class="fu">## Align text</span></span>
+<span id="cb34-930"><a href="#cb34-930" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb34-931"><a href="#cb34-931" aria-hidden="true" tabindex="-1"></a>:::: {.columns}</span>
+<span id="cb34-932"><a href="#cb34-932" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-933"><a href="#cb34-933" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb34-934"><a href="#cb34-934" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-935"><a href="#cb34-935" aria-hidden="true" tabindex="-1"></a><span class="in">```{.md}</span></span>
+<span id="cb34-936"><a href="#cb34-936" aria-hidden="true" tabindex="-1"></a><span class="in">|Left, | center, | right! |          </span></span>
+<span id="cb34-937"><a href="#cb34-937" aria-hidden="true" tabindex="-1"></a><span class="in">|:-----|:-------:|-------:|</span></span>
+<span id="cb34-938"><a href="#cb34-938" aria-hidden="true" tabindex="-1"></a><span class="in">|Text  | x       | 13     |</span></span>
+<span id="cb34-939"><a href="#cb34-939" aria-hidden="true" tabindex="-1"></a><span class="in">|Names |         |   113  |</span></span>
+<span id="cb34-940"><a href="#cb34-940" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb34-941"><a href="#cb34-941" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-942"><a href="#cb34-942" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-943"><a href="#cb34-943" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-944"><a href="#cb34-944" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb34-945"><a href="#cb34-945" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-946"><a href="#cb34-946" aria-hidden="true" tabindex="-1"></a>|Left, | center, | right! |          </span>
+<span id="cb34-947"><a href="#cb34-947" aria-hidden="true" tabindex="-1"></a>|:-----|:-------:|----------:|</span>
+<span id="cb34-948"><a href="#cb34-948" aria-hidden="true" tabindex="-1"></a>|Text  | x       | 13        |</span>
+<span id="cb34-949"><a href="#cb34-949" aria-hidden="true" tabindex="-1"></a>|Names |         |     113   |</span>
+<span id="cb34-950"><a href="#cb34-950" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-951"><a href="#cb34-951" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-952"><a href="#cb34-952" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-953"><a href="#cb34-953" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-954"><a href="#cb34-954" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb34-955"><a href="#cb34-955" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-956"><a href="#cb34-956" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-957"><a href="#cb34-957" aria-hidden="true" tabindex="-1"></a><span class="fu"># Exercise</span></span>
+<span id="cb34-958"><a href="#cb34-958" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-959"><a href="#cb34-959" aria-hidden="true" tabindex="-1"></a><span class="fu">## GitHub Skills</span></span>
+<span id="cb34-960"><a href="#cb34-960" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-961"><a href="#cb34-961" aria-hidden="true" tabindex="-1"></a>:::: {.columns}</span>
+<span id="cb34-962"><a href="#cb34-962" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-963"><a href="#cb34-963" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb34-964"><a href="#cb34-964" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-965"><a href="#cb34-965" aria-hidden="true" tabindex="-1"></a><span class="in">```{.md}</span></span>
+<span id="cb34-966"><a href="#cb34-966" aria-hidden="true" tabindex="-1"></a><span class="in">- Complete the GitHub Skills lesson "[Communicate using Markdown](https://github.com/skills/communicate-using-markdown)"</span></span>
+<span id="cb34-967"><a href="#cb34-967" aria-hidden="true" tabindex="-1"></a><span class="in">- Add a README.md to your repository from the [Git exercise](0B_git.qmd#exercise)</span></span>
+<span id="cb34-968"><a href="#cb34-968" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb34-969"><a href="#cb34-969" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-970"><a href="#cb34-970" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-971"><a href="#cb34-971" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-972"><a href="#cb34-972" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb34-973"><a href="#cb34-973" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-974"><a href="#cb34-974" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Complete the GitHub Skills lesson "<span class="co">[</span><span class="ot">Communicate using Markdown</span><span class="co">](https://github.com/skills/communicate-using-markdown)</span>"</span>
+<span id="cb34-975"><a href="#cb34-975" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Add a README.md to your repository from the <span class="co">[</span><span class="ot">Git exercise</span><span class="co">](0B_git.qmd#exercise)</span></span>
+<span id="cb34-976"><a href="#cb34-976" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-977"><a href="#cb34-977" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-978"><a href="#cb34-978" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb34-979"><a href="#cb34-979" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-980"><a href="#cb34-980" aria-hidden="true" tabindex="-1"></a>::::</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
