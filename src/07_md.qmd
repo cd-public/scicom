@@ -1,0 +1,981 @@
+---
+title: Markdown
+code-line-numbers: false
+---
+
+# Why Markdown?
+
+## What is Markdown (.md)?
+
+- A way of writing text and styling text that can be read with or without a markdown editor.
+- A lightweight alternative to HTML.
+- Probably the foremost standard for documentation in scientific computing.
+
+## Different ".md"
+
+- Markdown is a fairly open standard, and not all Markdown is exactly the same, but tends to follow common rules.
+- I will teach GitHub Markdown, a major but not the only standard.
+- These slides are generated in Quarto Markdown, an extension of the standard.
+- [Dillinger](https://dillinger.io/) and [Obsidian](https://obsidian.md/) are popular Markdown platforms.
+
+## What is the relation to GitHub?
+
+- By convention, every GitHub repository should come with a README.md file.
+- By default, GitHub will style this and display it on the main repository page.
+- This is how you should communicate to anyone who discovers your code or is looking for your code *what the code does*.
+
+## Conceptualizing
+
+- Suppose you are describing some code, like `tax.py` 
+	- You may wish to link to primary source documents on tax policy.
+	- You may wish to create paragraphs, unnumbered and numbered lists.
+	- You may wish to embed images, code snippets.
+	- You may wish to use rich **bold** or *italic* text.
+
+## Problem Solving
+
+- Markdown
+  	- Uses existing, common typographical characters
+	- Corresponds to widely standardized HTML
+	- Is human-readable without being rendered in HTML
+- Can be:
+  	- Written in any text editor.
+	- Authored in a dedicated Markdown editor.
+
+## Stepping Back
+
+- `git` was made to solve this exact problem!
+- The world leading scientific computing operating system, Linux, was being developed remotely via volunteers.
+- They used millions of lines of code in complex file structures.
+- They had to have a way to keep track of everything!
+
+## We will
+
+- Introduce Markdown syntax:
+	- Style text
+	- Link to resources
+- Use "Markdown" to:
+	- Document our code with Markdown
+	  
+## Documentation
+
+- Previously, we learned about comments.
+  	- Lines in code that do not affect what the code does, but help human users understand it.
+- Often we document repositories with README files.
+  	- *Often* as `README.md`, a "Markdown" file.
+- We introduce Markdown.
+
+# Text
+
+## A note
+
+- These slides are written in Markdown.
+- I'll show the Markdown in a left column and how it is rendered. on the right.
+- If you wish to follow along, the most obvious way is <https://dillinger.io/>
+
+## Text
+
+- The most natural thing to do in a `README.md` is simply write text.
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{.md}
+Unremarkable text.
+```
+
+
+:::
+
+::: {.column width="50%"}
+
+Unremakrable text.
+
+:::
+
+::::
+
+## Bold
+
+- Enclose text in double `**`, double `__` or HTML style `<b>` to bold text.
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{.md}
+We can make text **bold**.
+
+We can make text __bold__.
+
+We can make text <b>bold</b>.
+```
+
+
+:::
+
+::: {.column width="50%"}
+
+We can make text **bold**.
+
+We can make text __bold__.
+
+We can make text <b>bold</b>.
+
+:::
+
+::::
+
+## Italic
+
+- Enclose text in single `*`, single `_` or HTML style `<i>` to italicize text.
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{.md}
+We can make text *italic*.
+
+We can make text _italic_.
+
+We can make text <i>italic</i>.
+```
+
+
+:::
+
+::: {.column width="50%"}
+
+We can make text *italic*.
+
+We can make text _italic_.
+
+We can make text <i>italic</i>.
+
+:::
+
+::::
+
+## Strikethrough
+
+- Very helpful to show what not to do.
+  
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{.md}
+We can make text ~strikethrough~ sometimes.
+
+We can make text ~~strikethrough~~.
+
+We can make text <s>strikethrough</s>.
+
+```
+
+
+:::
+
+::: {.column width="50%"}
+
+We can make text ~strikethrough~ sometimes.
+
+We can make text ~~strikethrough~~.
+
+We can make text <s>strikethrough</s>.
+
+:::
+
+::::
+
+## Nesting
+
+- As a rule, formatting can be nested but not overlapped.
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{.md}
+__Bold__, *italic*, or ***both***.
+
+__Bold, *nested,*__ or *italic*.
+
+__Can't be *overlapped__, however*.
+
+```
+
+
+:::
+
+::: {.column width="50%"}
+
+__Bold__, *italic*, or ***both***.
+
+__Bold, *nested,*__ or *italic*.
+
+__Can't be *overlapped__, however*.
+:::
+
+::::
+
+## Sub/superscript
+
+- In scientific publication, we often require subscripts and superscripts.
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{.md}
+Squaring *x* as *x*<sup>2</sup> or *x*^2^
+
+Denoting a Helium-3 isotope as He<sub>3</sub> or He~3~.
+
+```
+
+
+:::
+
+::: {.column width="50%"}
+
+Squaring *x* as *x*<sup>2</sup> or x^2^
+
+Denoting a Helium-3 isotope as He<sub>3</sub> or He~3~.
+
+:::
+
+::::
+
+
+## When .md fails
+
+- A number of of formatting options require the heavier-weight HTML tags.
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{.md}
+Underlining is <u>rarely</u> used.
+
+Some editors support ==.md== or <mark>HTML</mark> highlighting.
+```
+
+
+:::
+
+::: {.column width="50%"}
+
+Underlining is <u>rarely</u> used.
+
+Some editors support ==.md== or <mark>HTML</mark> highlighting.
+
+:::
+
+::::
+
+# Quotes
+
+## Blockquotes
+
+- Quotes are used frequently in Markdown, for various reasons.
+- When quoting another writer, or a source, often use blockquotes:
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{.md}
+> Veni, vidi, vici.
+
+<blockquote>Oṃ maṇi padme hūm̐</blockquote>
+
+
+```
+
+
+:::
+
+::: {.column width="50%"}
+
+> Veni, vidi, vici.
+
+<blockquote>Oṃ maṇi padme hūm̐</blockquote>
+:::
+
+::::
+
+## Unicode
+
+- We note Markdown generally supports unicode characters as well as anything else does - usually exactly as well as your browser.
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{.md}
+> ॐ मणि पद्मे हूँ
+```
+
+
+:::
+
+::: {.column width="50%"}
+
+> ॐ मणि पद्मे हूँ
+:::
+
+::::
+
+
+## Backticks
+
+- The backtick character `` ` `` (near `~`) has special meaning in Markdown.
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+````{.md}
+Single back for `print('hi')`
+
+Use triple backtick for:
+
+```
+for i in range(10):
+	print(i*i)
+```
+
+````
+
+:::
+
+::: {.column width="50%"}
+
+Single back for `print('hi')`
+
+Use triple backtick for:
+
+```
+for i in range(10):
+	print(i*i)
+```
+
+:::
+
+::::
+
+## Syntax Highlighting
+
+- Often we want codeblocks to have highlighting as we see in a code editor.
+- Specify the file extension immediately after the opening triple backtick.
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+````{.md}
+```py
+def ten_sqs():
+	for i in range(10):
+		print(i*i)
+	return
+```
+
+````
+
+:::
+
+::: {.column width="50%"}
+
+```py
+def ten_sqs():
+	for i in range(10):
+		print(i*i)
+	return
+```
+
+:::
+
+::::
+
+- In Quarto Markdown, this also changes background (this is non-standard).
+
+# Lists
+
+## Better than sentences
+
+- As a rule, it's a good idea to break text up.
+- Note that `*` or `-` work and linebreaks don't break the list.
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{.md}
+- Use lists.
+- Be concise.
+
+* Use bullets.
+* Save space.
+```
+
+
+:::
+
+::: {.column width="50%"}
+
+- Use lists.
+- Be concise.
+
+* Use bullets.
+* Save space.
+:::
+
+::::
+
+## Nesting
+
+- Lists can be nested via indentiation with whitespace.
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{.md}
+- Lists are great!
+  - Easy to read.
+    - Either as markdown or text!
+  - Easy to type.
+- Try them out! 
+```
+
+
+:::
+
+::: {.column width="50%"}
+
+- Lists are great!
+  - Easy to read.
+    - Either as markdown or text!
+  - Easy to type.
+- Try them out!
+
+:::
+
+::::
+
+## Numbering
+
+- Lists are numbered automatically.
+
+:::: {.columns}
+
+::: {.column width="30%"}
+
+```{.md}
+1. One
+1. Two
+1. Three
+1. Four
+   1. Four and half
+1. Five
+```
+
+- There is no graceful way to start a list at zero.
+
+:::
+
+
+::: {.column width="20%"}
+
+:::
+
+::: {.column width="50%"}
+
+1. One
+1. Two
+1. Three
+1. Four
+   1. Four and half
+1. Five
+
+:::
+
+::::
+
+## Task lists
+
+- You can also make "task lists".
+- Try clicking those boxes!
+
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{.md}
+- [x] Open the door
+- [ ] Get on the floor
+- [ ] Walk the dinosaur
+```
+
+
+:::
+
+::: {.column width="50%"}
+
+- [x] Open the door
+- [ ] Get on the floor
+- [ ] Walk the dinosaur
+
+:::
+
+::::
+
+# Lines
+
+## Line breaks
+
+- There's a few ways to perform a .md line break.
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{.md}
+Two spaces 
+break lines  
+one space 
+does not.
+```
+
+
+:::
+
+::: {.column width="50%"}
+
+Two spaces 
+break lines  
+one space 
+does not.
+
+:::
+
+::::
+
+## Line breaks
+
+- Invisible line breaks are very annoying and `\` is often preferred. 
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{.md}
+Back slash\
+breaks lines
+just like  
+two spaces.
+```
+
+:::
+
+::: {.column width="50%"}
+
+Back slash\
+breaks lines.
+just like  
+two spaces.
+
+:::
+
+::::
+
+## Line breaks
+
+- These work inside lists. 
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{.md}
+- Some items\
+  are long.
+- Some aren't.
+```
+
+:::
+
+::: {.column width="50%"}
+
+- Some items\
+  are long.
+- Some aren't.
+
+:::
+
+::::
+
+## HTML
+
+- The HTML `<br/>` will often works as well.
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{.md}
+Even in the middle<br/>of lines.
+```
+
+:::
+
+::: {.column width="50%"}
+
+Even in the middle<br/>of lines.
+
+:::
+
+::::
+
+# Links
+
+## URL links
+
+- As a rule, you can link anywhere on the internet.
+- Place the link text in `[]` and the URL in `()`
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{.md}
+[Read more](https://en.wikipedia.org/wiki/Markdown)
+```
+
+:::
+
+::: {.column width="50%"}
+
+[Read more](https://en.wikipedia.org/wiki/Markdown)
+
+:::
+
+::::
+
+## Images
+
+- Use `![]` before a link to an image file, like a `.png`, `.jpg`, or `.svg`.
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{.md}
+![](https://raw.githubusercontent.com/cd-public/scicom/refs/heads/main/qmd/src/julia.png)
+```
+
+:::
+
+::: {.column width="50%"}
+
+![](https://raw.githubusercontent.com/cd-public/scicom/refs/heads/main/qmd/src/julia.png)
+
+:::
+
+::::
+
+## Relative Links
+
+- Within a GitHub markdown document, you can also link to images within the repository.
+- This `.md` document is in `/main/qmd/src/` so I can just use:
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{.md}
+![](julia.png)
+```
+
+:::
+
+::: {.column width="50%"}
+
+![](julia.png)
+
+:::
+
+::::
+
+## Footnotes
+
+- Generally, by the time you are using footnotes you should switch to a different platform (LaTeX).
+- But they exist!
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{.md}
+Use numbered[^1] or named[^footnote] notes.
+
+[^1]: I'm number one!
+	[^footnote]: I'm a footnote!
+```
+
+:::
+
+::: {.column width="50%"}
+
+Use numbered[^1] or named[^footnote] notes.
+
+[^1]: I'm number one!
+[^footnote]: I'm a footnote!
+
+:::
+
+::::
+
+# Sections
+
+## Headings
+
+- In my markdown, headings correspond to slides or sections.
+- They are `#` prefixed and get their own line.
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{.md}
+# Heading
+```
+
+:::
+
+::: {.column width="50%"}
+
+<h1>Heading</h1>
+
+:::
+
+::::
+
+## Subheadings
+
+- In my markdown, headings correspond to slides or sections.
+- They are `#` prefixed and get their own line.
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{.md}
+## Subheadings
+
+### Get
+
+#### Progressively
+
+##### Smaller
+```
+
+:::
+
+::: {.column width="50%"}
+
+<h2>Subheadings</h2>
+
+<h3>Get</h3>
+
+<h4>Progressively</h4>
+
+<h5>Smaller</h5>
+
+:::
+
+::::
+
+## Links
+
+- We can link to sections using all lowercase (and replace spaces with `-`)
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{.md}
+The previous heading was [Links](#links) part of the notes.
+```
+
+:::
+
+::: {.column width="50%"}
+
+
+The previous heading was [Links](#links) part of the notes.
+
+
+:::
+
+::::
+
+# Callouts
+
+## Optional Features
+
+- Some editors support callout blocks.
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{.md}
+> [!NOTE]
+> GitHub note.
+
+::: {.callout-note}
+Quarto note.
+:::
+
+> 📝 **Note:** Blockquote/emoji hack.
+```
+
+:::
+
+::: {.column width="50%"}
+
+
+> [!NOTE]
+> GitHub note (doesn't work here).
+
+::: {.callout-note}
+Quarto note.
+:::
+
+> 📝 **Note:** Blockquote/emoji hack.
+
+
+:::
+
+::::
+
+# Tables
+
+## Markdown DataFrames
+
+- The way **pandas** worked under the hood on these slides was actually outputing markdown tables.
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{.md}
+|NumPy|**pandas**|
+|-----|----------|
+|array|DataFrame |
+|typed|Any values|
+```
+
+:::
+
+::: {.column width="50%"}
+
+|NumPy|**pandas**|
+|-----|----------|
+|array|DataFrame |
+|typed|Any values|
+
+
+:::
+
+::::
+
+## Markdown Arrays
+
+- You can leave out headers to get something closer to an unlabeled table or a 2D array.
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{.md}
+|     |          |
+|-----|----------|
+|9275 | 10       |
+|37500| 15       |
+```
+
+:::
+
+::: {.column width="50%"}
+
+|     |          |
+|-----|----------|
+|9275 | 10       |
+|37500| 15       |
+
+
+:::
+
+::::
+
+## Align text
+ 
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{.md}
+|Left, | center, | right! |          
+|:-----|:-------:|-------:|
+|Text  | x       | 13     |
+|Names |         |   113  |
+```
+
+:::
+
+::: {.column width="50%"}
+
+|Left, | center, | right! |          
+|:-----|:-------:|----------:|
+|Text  | x       | 13        |
+|Names |         |     113   |
+
+
+:::
+
+::::
+
+
+# Exercise
+
+## GitHub Skills
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{.md}
+- Complete the GitHub Skills lesson "[Communicate using Markdown](https://github.com/skills/communicate-using-markdown)"
+- Add a README.md to your repository from the [Git exercise](04_git.qmd#exercise)
+```
+
+:::
+
+::: {.column width="50%"}
+
+- Complete the GitHub Skills lesson "[Communicate using Markdown](https://github.com/skills/communicate-using-markdown)"
+- Add a README.md to your repository from the [Git exercise](04_git.qmd#exercise)
+
+
+:::
+
+::::
+

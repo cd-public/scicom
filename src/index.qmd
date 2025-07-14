@@ -1,0 +1,87 @@
+---
+title: Thinking Machines
+author: ""
+subtitle: ""
+format: html
+---
+
+# IDS 101: College Colloquium
+
+MWThF 12:00-01:00, Ford 201
+
+|Instructor|Assistant|Partner|
+|-|-|-|
+|[Prof. Calvin (Deutschbein)](mailto:ckdeutschbein@willamette.edu)|Addie Gage|Claire Hoffman|
+
+
+[Syllabus](syllabus/syllabus.pdf)
+
+# Calendar
+
+## Opening Days
+
+|Type|Day|Date|Time|Topic|
+|----|---|----|----|-----|
+|Class| Wed | 08/20 | 03:30-04:30 | [Aims of Education](00_aims.qmd) |
+|Group| Thr | 08/21 | 09:00-10:30| [Installing Python](01_python.qmd#installing-python)|
+|Class| Thr | 08/21 | 02:00-03:00 | [Learning Python](01_python.qmd#why-python)|
+|Lab| Fri | 08/22 | 09:30-11:30| [Exercise](01_python.qmd#exercise)|
+
+## Semester
+
+|Week|Date (M) |Topic (MW)|Exercise (F)|
+|:--:|:---|:----|:-------|
+|01|08/25|[Neovim](02_neovim.qmd)|[Arguments](02_neovim.qmd#exercise)|
+|02|09/01|[Shell](03_shell.qmd)|[Intercepts](03_shell.qmd#exercise)|
+|03|09/08|[Git](04_git.qmd)|[Repository](04_git.qmd#exercise)|
+|04|09/15|[NumPy](05_numpy.qmd)|[Vectors](05_numpy.qmd#exercise)|
+|05|09/22|[Matplotlib](06_matplotlib.qmd)|[Orbitals](06_matplotlib.qmd#exercise)|
+|06|09/29|[Markdown](07_md.qmd)|*Midterm Consultation*|
+|07|10/06|[**pandas**](08_pandas.qmd)|*Midterm Due*|
+|08|10/13|[SciPy](09_scipy.qmd)|[Technetium](09_scipy.qmd#exercise)|
+|09|10/20|[SymPy](0A_sympy.qmd)|[ODEs](0A_sympy.qmd#exercise)|
+|10|10/27|[Sklearn](0B_sklearn.qmd)|[$k$-means](0B_sklearn.qmd#exercise)|
+|11|11/03|Quarto|*Final Consultation*||
+|12|11/10|Pages|*Final Due*|
+
+## Midterm
+
+**Due 10/10 at 12:00 noon**
+
+1. Select a problem from CHEM-115, CS-151, MATH-150, PHYS-221.
+    - Approve your problem by Friday, 10/03 (week 6).
+2. Create a GitHub repository.
+3. Create a Python (.py) file providing a solution.
+    - You must use NumPy vectorization.
+4. Create a Matplotlib graphic (.png) illustrating your solution.
+5. Create a Markdown table using **pandas**.
+    - Use [`.to_markdown()`](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_markdown.html)
+6. Create a Markdown document describing the solution.
+    - Include an example of code use and output from class.
+    - Include an additional application.
+    - Include a Matplotlib graphic.
+    - Include a **pandas** dataframe.
+    - Include prose describing all four, approximately 500 words (1 page) each.
+    
+Graded on [AP Scale](https://apcentral.collegeboard.org/media/pdf/ap-english-language-and-composition-frqs-1-2-3-scoring-rubrics.pdf) as an argument essay in support (or against) scientific computing.  
+    
+## Final
+
+**Due 11/14 at 12:00 noon**
+
+1. Select a problem from CHEM-115, CS-151, MATH-150, PHYS-221.
+    - Approve your problem by Friday, 11/07 (week 10).
+2. Create a GitHub repository.
+    - Configure the repository to publish a webpage using GitHub pages
+3. Create a Jupyter (.ipynb) file providing a solution.
+    - Use Jupyter and Quarto to additional create equivalent:
+        - Quarto (.qmd) file.
+        - Python (.py) file.
+        - HTML (.html) file.
+            - This file should be published via GitHub pages.
+4. Include Matplotlib graphics illustrating your solution.
+5. Include LaTeX equations generated with SymPy in your solution.
+6. Your Quarto webpage should be approximately 3000 words (6 pages), plus tables and graphics.
+    
+Graded on [AP Scale](https://apcentral.collegeboard.org/media/pdf/ap-english-language-and-composition-frqs-1-2-3-scoring-rubrics.pdf) as an argument essay in support (or against) scientific computing.  
+   
