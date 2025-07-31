@@ -1,189 +1,1096 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
-<head>
-    <title>Scientific Computing</title>
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.30">
 
-    <!-- CSS Files -->
-    <link rel="stylesheet" href="https://cd-public.github.io/css/tabs.css" type="text/css" media="all">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="">
+
+<title>Thinking Machines</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-a4a11d514c7d463668e07712114998e6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-70c9a4798e5f6abb0636bcdc3eed0e90.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 </head>
 
-<body>
-    <div class="tabs" style="width:100%">
-        <input type="radio" name="tabs" id="tab1">
-        <label for="tab1">Home</label>
-        <div class="tab">
-            <h4>CSCI 5400: Scientific Computing</h4>
-            <p><a href="syllabus/syllabus.pdf">Syllabus</a> [<a href="syllabus/syllabus.tex">.tex</a>]
-            <h4>Instructor</h4>
-            <p><a href="https://cd-public.github.io/">Calvin Deutschbein</a>
-            <p><a href="mailto:ckdeutschbein@willamette.edu">ckdeutschbein@willamette.edu</a>
+<body class="nav-sidebar floating">
 
-            <h4>Letter to Students</h4>
-
-            <blockquote style="font-family:sans-serif;background-color:#00D0D0;width:50%;overflow:wrap">
-
-                <p>Students,
-
-                <p>All lectures and supplementary talks will be recorded and broadcast via YouTube Live through user @cd-public, for which there is a course specific playlist.
-
-                <ul>
-                    <li>General: <a href="https://www.youtube.com/@cd-public/streams">https://www.youtube.com/@cd-public/streams</a>
-                    <li>Course: <a href="https://www.youtube.com/playlist?list=PLu3KAnn4RkATf4335TfJzAja90hKYpgMC">https://www.youtube.com/playlist?list=PLu3KAnn4RkATf4335TfJzAja90hKYpgMC</a>
-                </ul>
-
-                <p>All course material will be hosted via GitHub pages at the following url, for which this is a course specific page.
-
-                <ul>
-                    <li>GitHub Pages: <a href="https://cd-public.github.io/scicom/">https://cd-public.github.io/scicom/</a>
-                </ul>
-
-                <p>All technologies used in the course are available free and open source. There is no textbook, but supplemental options for texts will be provided.
-
-                <ul>
-                    <li>Digital Text: <a href="qmd/index.html">Scientific Computing</a>
-                    <li>Optional Text: <a href="https://sbu-python-class.github.io/python-science/Introduction.html">PHY 546: Python for Scientific Computing</a>
-                    <li>Optional Text: <a href="https://numericalmethodssullivan.github.io/">Numerical Methods: An Inquiry-Based Approach With Python </a>
-                </ul>
-
-                <p>There is a strong trend in academia toward learning management systems like Brightspace and toward maintaining student visible gradebooks, which have strong benefits for other courses but not, I think, for mine. I note that:
-
-                <ol>
-                    <li>I do not use LMS systems, which I find difficult to integrate with the technology stacks that achieve core instructional goals for courses within the computational sciences.
-                    <li>I do not use a student visible gradebook because I use ungrading, which I have found to be associated with stronger achievement from students in demanding courses.
-                </ol>
-
-                <p>Reach out via official school-provided email if you want a grade check or cannot find some course materials.
-
-                <p>Best,
-
-                <p>-c
-
-            </blockquote>
-
-
-            <h4>Modality</h4>
-            CSCI 5400: Scientific Computing will be held 28 May 25 - 3 Jun 25, with a campus residency occurring 5 Jul 25 - 8 Jul 25.
-            <h4>Course Description</h4>
-            <p>A study of high-performance computing for advanced scientific research on modern processors. Topics include high-performance computing techniques, floating point properties, and advanced numerical methods.
-
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      Thinking Machines
+      </li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Thinking Machines</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
         </div>
-        <input type="radio" name="tabs" id="tab2" checked="checked">
-        <label for="tab2">Schedule</label>
-
-        <div class="tab">
-
-            <h2>Residency : Scientific Computing</h2>
-            <p>6 Jun - 8 Jun, 2025</p>
-            <table style="width:100%;background-color:#A0A0A0;font-family:monospace">
-                <tbody>
-                    <tr style="background-color:#00BBBB">
-                        <th style="width:25%"><b></b></th>
-                        <th style="width:25%"><b>Fri</b></th>
-                        <th style="width:25%"><b>Sat</b></th>
-                        <th style="width:25%"><b>Sun</b></th>
-                    </tr>
-                    <tr style="background-color:#00DDDD">
-                        <td>Part 1</td>
-                        <td><a href="qmd/01_python.rjs.html">Python</a></td> <!-- Colab, Binder, Local, VS Code -->
-                        <td><a href="qmd/04_numpy.rjs.html">NumPy</a></td>
-                        <td><a href="qmd/07_scipy.rjs.html">SciPy</a></td>
-                    </tr>
-                    <tr style="background-color:#00DDDD">
-                        <td>Part 2</td>
-                        <td><a href="qmd/02_neovim.rjs.html">Neovim</a></td> <!-- and matplotlib -->
-                        <td><a href="qmd/05_matplotlib.rjs.html">Matplotlib</a></td>
-                    </tr>>
-                    <tr style="background-color:#00DDDD">
-                        <td>Part 3</td>
-                        <td><a href="qmd/03_shell.rjs.html">Shell</a></td>
-                        <td><a href="qmd/06_pandas.rjs.html"><b>pandas</b></a></td>
-                    </tr>
-                    <tr style="background-color:#88DDDD">
-                        <td>"Guest"</td>
-                        <td><a href="https://www.youtube.com/watch?v=GpTY019G2DM">Bioinformatics</a></td>
-                        <td><a href="https://www.youtube.com/watch?v=kWJGYcTH-S8">Climate Modeling</a></td>
-                        <td><a href="https://www.youtube.com/watch?v=GRABw1gHlng">Epigenomics</a></td>
-                    </tr>
-                </tbody>
-            </table>
-            <h3>VoDs</h3>
-            <table style="width:100%;background-color:#A0A0A0;font-family:monospace">
-                <tbody>
-                    <tr style="background-color:#00BBBB">
-                        <th style="width:25%"><b></b></th>
-                        <th style="width:25%"><b>Fri</b></th>
-                        <th style="width:25%"><b>Sat</b></th>
-                        <th style="width:25%"><b>Sun</b></th>
-                    </tr>
-                    <tr style="background-color:#00DDDD">
-                        <td>AM</td>
-                        <td><a href="https://youtube.com/live/MpLqWPSPL_4?feature=share">SciCom I</a></td>
-                        <td><a href="https://youtube.com/live/EGaU7Y13s6Y?feature=share">SciCom III</a></td>
-                        <td><a href="https://youtube.com/live/r3owUuifZho?feature=share">SciCom V</a></td>
-
-                    <tr style="background-color:#00DDDD">
-                        <td>PM</td>
-                        <td><a href="https://youtube.com/live/87brZUk0EM8?feature=share">SciCom II</a></td>
-                        <td><a href="https://youtube.com/live/eKRul1cVrPA?feature=share">SciCom IV</a></td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <h2>Asynchronous : Scientific Publishing</h2>
-            <p>Submit problem sets by midnight AOE on the following Monday from being assigned via email link to <a href="mailto:cdeutschbein@lagrange.edu">cdeutschbein@lagrange.edu</a>. The only acceptable format is a hyperlink to a GitHub repository.
-            <p>16 Jun - 25 Jul, 2025</p>
-            <table style="width:100%;background-color:#A0A0A0;font-family:monospace">
-                <tbody>
-                    <tr style="background-color:#00BBBB">
-                        <th style="width:25%"><b>Week</b></th>
-                        <th style="width:25%"><b>Slides</b></th>
-                        <th style="width:25%"><b>Video</b></th>
-                        <th style="width:25%"><b>Homework</b></th>
-                    </tr>
-                    <tr style="background-color:#00DDDD">
-                        <td>09 Jun</td>
-                        <td colspan=2 style="background-color:#A0A0A0;"></td>
-                        <td><a href="hws/py.html">Python</a></td>
-                    </tr>
-                    <tr style="background-color:#00DDDD">
-                        <td>16 Jun</td>
-                        <td><a href="qmd/0B_git.rjs.html">Git Slides</td>
-                        <td><a href="https://youtu.be/fJtpR8Cc4bA">Git on YT</td>
-                        <td><a href="qmd/0B_git.rjs.html#exercise-1">Git Exercise</td>
-                    </tr>
-                    <tr style="background-color:#00DDDD">
-                        <td>23 Jun</td>
-                        <td><a href="qmd/0D_tex.rjs.html">Markdown Slides</td>
-                        <td style="background-color:#A0A0A0;"></td>
-                        <td><a href="qmd/0D_tex.rjs.html#exercise">Markdown Exercise</td>
-                    </tr>
-                    <tr style="background-color:#00DDDD">
-                        <td>30 Jun</td>
-                        <td><a href="qmd/0C_md.rjs.html">LaTeX Slides</td>
-                        <td style="background-color:#A0A0A0;"></td>
-                        <td><a href="qmd/0C_md.rjs.html#exercise">LaTeX Exercise</td>
-                    </tr>
-                    <tr style="background-color:#00DDDD">
-                        <td>07 Jul</td>
-                        <td><a href="qmd/08_sympy.rjs.html">SymPy</a></td>
-                        <td style="background-color:#A0A0A0;"></td>
-                        <td><a href="qmd/08_sympy.rjs.html#exercise">SymPy Exercise</td>
-                    </tr>
-                    <tr style="background-color:#00DDDD">
-                        <td>14 Jul</td>
-                        <td><a href="qmd/09_sklearn.rjs.html">Sklearn</a></td> 
-                        <td style="background-color:#A0A0A0;"></td>
-                        <td><a href="qmd/09_sklearn.rjs.html#exercise">Sklearn Exercise</td>
-                    <tr style="background-color:#00DDDD">
-                        <td>21 Jul</td>
-                        <td><a href="qmd/0A_numba.rjs.html">Numba</a></td>
-                        <td style="background-color:#A0A0A0;"></td>
-                        <td><a href="qmd/0A_numba.rjs.html#exercise">Numba Exercise</td>
-                </tbody>
-            </table>
         </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00_aims.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aims</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01_python.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02_neovim.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Neovim</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03_shell.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Shell</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04_git.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Git</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05_numpy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">NumPy</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06_matplotlib.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Matplotlib</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07_md.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Markdown</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08_pandas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>pandas</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09_scipy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SciPy</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0A_sympy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SymPy</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0B_sklearn.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sklearn</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0C_numba.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Numba</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0D_tex.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">LaTeX</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A0_keybinds.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Appendix - Commands</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A1_gitbash.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Appendix - Git Bash</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#ids-101-college-colloquium" id="toc-ids-101-college-colloquium" class="nav-link active" data-scroll-target="#ids-101-college-colloquium">IDS 101: College Colloquium</a></li>
+  <li><a href="#calendar" id="toc-calendar" class="nav-link" data-scroll-target="#calendar">Calendar</a>
+  <ul class="collapse">
+  <li><a href="#opening-days" id="toc-opening-days" class="nav-link" data-scroll-target="#opening-days">Opening Days</a></li>
+  <li><a href="#semester" id="toc-semester" class="nav-link" data-scroll-target="#semester">Semester</a></li>
+  <li><a href="#midterm" id="toc-midterm" class="nav-link" data-scroll-target="#midterm">Midterm</a></li>
+  <li><a href="#final" id="toc-final" class="nav-link" data-scroll-target="#final">Final</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
 
-</body>
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">Thinking Machines</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i></button></div></div>
+</div>
 
-</html>
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="ids-101-college-colloquium" class="level1">
+<h1>IDS 101: College Colloquium</h1>
+<p>MWThF 12:00-01:00, Ford 201</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Instructor</th>
+<th>Assistant</th>
+<th>Partner</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="mailto:ckdeutschbein@willamette.edu">Prof.&nbsp;Calvin (Deutschbein)</a></td>
+<td>Addie Gage</td>
+<td>Claire Hoffman</td>
+</tr>
+</tbody>
+</table>
+<p><a href="syllabus/syllabus.pdf">Syllabus</a></p>
+</section>
+<section id="calendar" class="level1">
+<h1>Calendar</h1>
+<section id="opening-days" class="level2">
+<h2 class="anchored" data-anchor-id="opening-days">Opening Days</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Type</th>
+<th>Day</th>
+<th>Date</th>
+<th>Time</th>
+<th>Topic</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Class</td>
+<td>Wed</td>
+<td>08/20</td>
+<td>03:30-04:30</td>
+<td><a href="./00_aims.html">Aims of Education</a></td>
+</tr>
+<tr class="even">
+<td>Group</td>
+<td>Thr</td>
+<td>08/21</td>
+<td>09:00-10:30</td>
+<td><a href="./01_python.html#installing-python">Installing Python</a></td>
+</tr>
+<tr class="odd">
+<td>Class</td>
+<td>Thr</td>
+<td>08/21</td>
+<td>02:00-03:00</td>
+<td><a href="./01_python.html#why-python">Learning Python</a></td>
+</tr>
+<tr class="even">
+<td>Lab</td>
+<td>Fri</td>
+<td>08/22</td>
+<td>10:00-11:30</td>
+<td><a href="./01_python.html#exercise">Exercise</a></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="semester" class="level2">
+<h2 class="anchored" data-anchor-id="semester">Semester</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Week</th>
+<th style="text-align: left;">Date (M)</th>
+<th style="text-align: left;">Topic (MW)</th>
+<th style="text-align: left;">Exercise (F)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">01</td>
+<td style="text-align: left;">08/25</td>
+<td style="text-align: left;"><a href="./02_neovim.html">Neovim</a></td>
+<td style="text-align: left;"><a href="./02_neovim.html#exercise">Arguments</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">02</td>
+<td style="text-align: left;">09/01</td>
+<td style="text-align: left;"><a href="./03_shell.html">Shell</a></td>
+<td style="text-align: left;"><a href="./03_shell.html#exercise">Intercepts</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">03</td>
+<td style="text-align: left;">09/08</td>
+<td style="text-align: left;"><a href="./04_git.html">Git</a></td>
+<td style="text-align: left;"><a href="./04_git.html#exercise">Repository</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">04</td>
+<td style="text-align: left;">09/15</td>
+<td style="text-align: left;"><a href="./05_numpy.html">NumPy</a></td>
+<td style="text-align: left;"><a href="./05_numpy.html#exercise">Vectors</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">05</td>
+<td style="text-align: left;">09/22</td>
+<td style="text-align: left;"><a href="./06_matplotlib.html">Matplotlib</a></td>
+<td style="text-align: left;"><a href="./06_matplotlib.html#exercise">Orbitals</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">06</td>
+<td style="text-align: left;">09/29</td>
+<td style="text-align: left;"><a href="./07_md.html">Markdown</a></td>
+<td style="text-align: left;"><em>Midterm Consultation</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">07</td>
+<td style="text-align: left;">10/06</td>
+<td style="text-align: left;"><a href="./08_pandas.html"><strong>pandas</strong></a></td>
+<td style="text-align: left;"><em>Midterm Due</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">08</td>
+<td style="text-align: left;">10/13</td>
+<td style="text-align: left;"><a href="./09_scipy.html">SciPy</a></td>
+<td style="text-align: left;"><a href="./09_scipy.html#exercise">Technetium</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">09</td>
+<td style="text-align: left;">10/20</td>
+<td style="text-align: left;"><a href="./0A_sympy.html">SymPy</a></td>
+<td style="text-align: left;"><a href="./0A_sympy.html#exercise">ODEs</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">10</td>
+<td style="text-align: left;">10/27</td>
+<td style="text-align: left;"><a href="./0B_sklearn.html">Sklearn</a></td>
+<td style="text-align: left;"><a href="./0B_sklearn.html#exercise"><span class="math inline">\(k\)</span>-means</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">11</td>
+<td style="text-align: left;">11/03</td>
+<td style="text-align: left;">Quarto</td>
+<td style="text-align: left;"><em>Final Consultation</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">12</td>
+<td style="text-align: left;">11/10</td>
+<td style="text-align: left;">Pages</td>
+<td style="text-align: left;"><em>Final Due</em></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="midterm" class="level2">
+<h2 class="anchored" data-anchor-id="midterm">Midterm</h2>
+<p><strong>Due 10/10 at 12:00 noon</strong></p>
+<ol type="1">
+<li>Select a problem from CHEM-115, CS-151, MATH-150, PHYS-221.
+<ul>
+<li>Approve your problem by Friday, 10/03 (week 6).</li>
+</ul></li>
+<li>Create a GitHub repository.</li>
+<li>Create a Python (.py) file providing a solution.
+<ul>
+<li>You must use NumPy vectorization.</li>
+</ul></li>
+<li>Create a Matplotlib graphic (.png) illustrating your solution.</li>
+<li>Create a Markdown table using <strong>pandas</strong>.
+<ul>
+<li>Use <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_markdown.html"><code>.to_markdown()</code></a></li>
+</ul></li>
+<li>Create a Markdown document describing the solution.
+<ul>
+<li>Include an example of code use and output from class.</li>
+<li>Include an additional application.</li>
+<li>Include a Matplotlib graphic.</li>
+<li>Include a <strong>pandas</strong> dataframe.</li>
+<li>Include prose describing all four, approximately 500 words (1 page) each.</li>
+</ul></li>
+</ol>
+<p>Graded on <a href="https://apcentral.collegeboard.org/media/pdf/ap-english-language-and-composition-frqs-1-2-3-scoring-rubrics.pdf">AP Scale</a> as an argument essay in support (or against) scientific computing.</p>
+</section>
+<section id="final" class="level2">
+<h2 class="anchored" data-anchor-id="final">Final</h2>
+<p><strong>Due 11/14 at 12:00 noon</strong></p>
+<ol type="1">
+<li>Select a problem from CHEM-115, CS-151, MATH-150, PHYS-221.
+<ul>
+<li>Approve your problem by Friday, 11/07 (week 10).</li>
+</ul></li>
+<li>Create a GitHub repository.
+<ul>
+<li>Configure the repository to publish a webpage using GitHub pages</li>
+</ul></li>
+<li>Create a Jupyter (.ipynb) file providing a solution.
+<ul>
+<li>Use Jupyter and Quarto to additional create equivalent:
+<ul>
+<li>Quarto (.qmd) file.</li>
+<li>Python (.py) file.</li>
+<li>HTML (.html) file.
+<ul>
+<li>This file should be published via GitHub pages.</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>Include Matplotlib graphics illustrating your solution.</li>
+<li>Include LaTeX equations generated with SymPy in your solution.</li>
+<li>Your Quarto webpage should be approximately 3000 words (6 pages), plus tables and graphics.</li>
+</ol>
+<p>Graded on <a href="https://apcentral.collegeboard.org/media/pdf/ap-english-language-and-composition-frqs-1-2-3-scoring-rubrics.pdf">AP Scale</a> as an argument essay in support (or against) scientific computing.</p>
+
+
+<!-- -->
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">---</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="an">title:</span><span class="co"> Thinking Machines</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="an">author:</span><span class="co"> ""</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="an">subtitle:</span><span class="co"> ""</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="an">format:</span><span class="co"> html</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="co">---</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a></span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="fu"># IDS 101: College Colloquium</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a></span>
+<span id="cb1-10"><a href="#cb1-10"></a>MWThF 12:00-01:00, Ford 201</span>
+<span id="cb1-11"><a href="#cb1-11"></a></span>
+<span id="cb1-12"><a href="#cb1-12"></a>|Instructor|Assistant|Partner|</span>
+<span id="cb1-13"><a href="#cb1-13"></a>|-|-|-|</span>
+<span id="cb1-14"><a href="#cb1-14"></a>|<span class="co">[</span><span class="ot">Prof. Calvin (Deutschbein)</span><span class="co">](mailto:ckdeutschbein@willamette.edu)</span>|Addie Gage|Claire Hoffman|</span>
+<span id="cb1-15"><a href="#cb1-15"></a></span>
+<span id="cb1-16"><a href="#cb1-16"></a></span>
+<span id="cb1-17"><a href="#cb1-17"></a><span class="co">[</span><span class="ot">Syllabus</span><span class="co">](syllabus/syllabus.pdf)</span></span>
+<span id="cb1-18"><a href="#cb1-18"></a></span>
+<span id="cb1-19"><a href="#cb1-19"></a><span class="fu"># Calendar</span></span>
+<span id="cb1-20"><a href="#cb1-20"></a></span>
+<span id="cb1-21"><a href="#cb1-21"></a><span class="fu">## Opening Days</span></span>
+<span id="cb1-22"><a href="#cb1-22"></a></span>
+<span id="cb1-23"><a href="#cb1-23"></a>|Type|Day|Date|Time|Topic|</span>
+<span id="cb1-24"><a href="#cb1-24"></a>|----|---|----|----|-----|</span>
+<span id="cb1-25"><a href="#cb1-25"></a>|Class| Wed | 08/20 | 03:30-04:30 | <span class="co">[</span><span class="ot">Aims of Education</span><span class="co">](00_aims.qmd)</span> |</span>
+<span id="cb1-26"><a href="#cb1-26"></a>|Group| Thr | 08/21 | 09:00-10:30| <span class="co">[</span><span class="ot">Installing Python</span><span class="co">](01_python.qmd#installing-python)</span>|</span>
+<span id="cb1-27"><a href="#cb1-27"></a>|Class| Thr | 08/21 | 02:00-03:00 | <span class="co">[</span><span class="ot">Learning Python</span><span class="co">](01_python.qmd#why-python)</span>|</span>
+<span id="cb1-28"><a href="#cb1-28"></a>|Lab| Fri | 08/22 | 10:00-11:30| <span class="co">[</span><span class="ot">Exercise</span><span class="co">](01_python.qmd#exercise)</span>|</span>
+<span id="cb1-29"><a href="#cb1-29"></a></span>
+<span id="cb1-30"><a href="#cb1-30"></a><span class="fu">## Semester</span></span>
+<span id="cb1-31"><a href="#cb1-31"></a></span>
+<span id="cb1-32"><a href="#cb1-32"></a>|Week|Date (M) |Topic (MW)|Exercise (F)|</span>
+<span id="cb1-33"><a href="#cb1-33"></a>|:--:|:---|:----|:-------|</span>
+<span id="cb1-34"><a href="#cb1-34"></a>|01|08/25|<span class="co">[</span><span class="ot">Neovim</span><span class="co">](02_neovim.qmd)</span>|<span class="co">[</span><span class="ot">Arguments</span><span class="co">](02_neovim.qmd#exercise)</span>|</span>
+<span id="cb1-35"><a href="#cb1-35"></a>|02|09/01|<span class="co">[</span><span class="ot">Shell</span><span class="co">](03_shell.qmd)</span>|<span class="co">[</span><span class="ot">Intercepts</span><span class="co">](03_shell.qmd#exercise)</span>|</span>
+<span id="cb1-36"><a href="#cb1-36"></a>|03|09/08|<span class="co">[</span><span class="ot">Git</span><span class="co">](04_git.qmd)</span>|<span class="co">[</span><span class="ot">Repository</span><span class="co">](04_git.qmd#exercise)</span>|</span>
+<span id="cb1-37"><a href="#cb1-37"></a>|04|09/15|<span class="co">[</span><span class="ot">NumPy</span><span class="co">](05_numpy.qmd)</span>|<span class="co">[</span><span class="ot">Vectors</span><span class="co">](05_numpy.qmd#exercise)</span>|</span>
+<span id="cb1-38"><a href="#cb1-38"></a>|05|09/22|<span class="co">[</span><span class="ot">Matplotlib</span><span class="co">](06_matplotlib.qmd)</span>|<span class="co">[</span><span class="ot">Orbitals</span><span class="co">](06_matplotlib.qmd#exercise)</span>|</span>
+<span id="cb1-39"><a href="#cb1-39"></a>|06|09/29|<span class="co">[</span><span class="ot">Markdown</span><span class="co">](07_md.qmd)</span>|*Midterm Consultation*|</span>
+<span id="cb1-40"><a href="#cb1-40"></a>|07|10/06|<span class="co">[</span><span class="ot">**pandas**</span><span class="co">](08_pandas.qmd)</span>|*Midterm Due*|</span>
+<span id="cb1-41"><a href="#cb1-41"></a>|08|10/13|<span class="co">[</span><span class="ot">SciPy</span><span class="co">](09_scipy.qmd)</span>|<span class="co">[</span><span class="ot">Technetium</span><span class="co">](09_scipy.qmd#exercise)</span>|</span>
+<span id="cb1-42"><a href="#cb1-42"></a>|09|10/20|<span class="co">[</span><span class="ot">SymPy</span><span class="co">](0A_sympy.qmd)</span>|<span class="co">[</span><span class="ot">ODEs</span><span class="co">](0A_sympy.qmd#exercise)</span>|</span>
+<span id="cb1-43"><a href="#cb1-43"></a>|10|10/27|<span class="co">[</span><span class="ot">Sklearn</span><span class="co">](0B_sklearn.qmd)</span>|<span class="co">[</span><span class="ot">$k$-means</span><span class="co">](0B_sklearn.qmd#exercise)</span>|</span>
+<span id="cb1-44"><a href="#cb1-44"></a>|11|11/03|Quarto|*Final Consultation*||</span>
+<span id="cb1-45"><a href="#cb1-45"></a>|12|11/10|Pages|*Final Due*|</span>
+<span id="cb1-46"><a href="#cb1-46"></a></span>
+<span id="cb1-47"><a href="#cb1-47"></a><span class="fu">## Midterm</span></span>
+<span id="cb1-48"><a href="#cb1-48"></a></span>
+<span id="cb1-49"><a href="#cb1-49"></a>**Due 10/10 at 12:00 noon**</span>
+<span id="cb1-50"><a href="#cb1-50"></a></span>
+<span id="cb1-51"><a href="#cb1-51"></a><span class="ss">1. </span>Select a problem from CHEM-115, CS-151, MATH-150, PHYS-221.</span>
+<span id="cb1-52"><a href="#cb1-52"></a><span class="ss">    - </span>Approve your problem by Friday, 10/03 (week 6).</span>
+<span id="cb1-53"><a href="#cb1-53"></a><span class="ss">2. </span>Create a GitHub repository.</span>
+<span id="cb1-54"><a href="#cb1-54"></a><span class="ss">3. </span>Create a Python (.py) file providing a solution.</span>
+<span id="cb1-55"><a href="#cb1-55"></a><span class="ss">    - </span>You must use NumPy vectorization.</span>
+<span id="cb1-56"><a href="#cb1-56"></a><span class="ss">4. </span>Create a Matplotlib graphic (.png) illustrating your solution.</span>
+<span id="cb1-57"><a href="#cb1-57"></a><span class="ss">5. </span>Create a Markdown table using **pandas**.</span>
+<span id="cb1-58"><a href="#cb1-58"></a><span class="ss">    - </span>Use <span class="co">[</span><span class="ot">`.to_markdown()`</span><span class="co">](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_markdown.html)</span></span>
+<span id="cb1-59"><a href="#cb1-59"></a><span class="ss">6. </span>Create a Markdown document describing the solution.</span>
+<span id="cb1-60"><a href="#cb1-60"></a><span class="ss">    - </span>Include an example of code use and output from class.</span>
+<span id="cb1-61"><a href="#cb1-61"></a><span class="ss">    - </span>Include an additional application.</span>
+<span id="cb1-62"><a href="#cb1-62"></a><span class="ss">    - </span>Include a Matplotlib graphic.</span>
+<span id="cb1-63"><a href="#cb1-63"></a><span class="ss">    - </span>Include a **pandas** dataframe.</span>
+<span id="cb1-64"><a href="#cb1-64"></a><span class="ss">    - </span>Include prose describing all four, approximately 500 words (1 page) each.</span>
+<span id="cb1-65"><a href="#cb1-65"></a>    </span>
+<span id="cb1-66"><a href="#cb1-66"></a>Graded on <span class="co">[</span><span class="ot">AP Scale</span><span class="co">](https://apcentral.collegeboard.org/media/pdf/ap-english-language-and-composition-frqs-1-2-3-scoring-rubrics.pdf)</span> as an argument essay in support (or against) scientific computing.  </span>
+<span id="cb1-67"><a href="#cb1-67"></a>    </span>
+<span id="cb1-68"><a href="#cb1-68"></a><span class="fu">## Final</span></span>
+<span id="cb1-69"><a href="#cb1-69"></a></span>
+<span id="cb1-70"><a href="#cb1-70"></a>**Due 11/14 at 12:00 noon**</span>
+<span id="cb1-71"><a href="#cb1-71"></a></span>
+<span id="cb1-72"><a href="#cb1-72"></a><span class="ss">1. </span>Select a problem from CHEM-115, CS-151, MATH-150, PHYS-221.</span>
+<span id="cb1-73"><a href="#cb1-73"></a><span class="ss">    - </span>Approve your problem by Friday, 11/07 (week 10).</span>
+<span id="cb1-74"><a href="#cb1-74"></a><span class="ss">2. </span>Create a GitHub repository.</span>
+<span id="cb1-75"><a href="#cb1-75"></a><span class="ss">    - </span>Configure the repository to publish a webpage using GitHub pages</span>
+<span id="cb1-76"><a href="#cb1-76"></a><span class="ss">3. </span>Create a Jupyter (.ipynb) file providing a solution.</span>
+<span id="cb1-77"><a href="#cb1-77"></a><span class="ss">    - </span>Use Jupyter and Quarto to additional create equivalent:</span>
+<span id="cb1-78"><a href="#cb1-78"></a><span class="ss">        - </span>Quarto (.qmd) file.</span>
+<span id="cb1-79"><a href="#cb1-79"></a><span class="ss">        - </span>Python (.py) file.</span>
+<span id="cb1-80"><a href="#cb1-80"></a><span class="ss">        - </span>HTML (.html) file.</span>
+<span id="cb1-81"><a href="#cb1-81"></a><span class="ss">            - </span>This file should be published via GitHub pages.</span>
+<span id="cb1-82"><a href="#cb1-82"></a><span class="ss">4. </span>Include Matplotlib graphics illustrating your solution.</span>
+<span id="cb1-83"><a href="#cb1-83"></a><span class="ss">5. </span>Include LaTeX equations generated with SymPy in your solution.</span>
+<span id="cb1-84"><a href="#cb1-84"></a><span class="ss">6. </span>Your Quarto webpage should be approximately 3000 words (6 pages), plus tables and graphics.</span>
+<span id="cb1-85"><a href="#cb1-85"></a>    </span>
+<span id="cb1-86"><a href="#cb1-86"></a>Graded on <span class="co">[</span><span class="ot">AP Scale</span><span class="co">](https://apcentral.collegeboard.org/media/pdf/ap-english-language-and-composition-frqs-1-2-3-scoring-rubrics.pdf)</span> as an argument essay in support (or against) scientific computing.  </span>
+<span id="cb1-87"><a href="#cb1-87"></a>   </span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

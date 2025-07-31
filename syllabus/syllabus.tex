@@ -4,15 +4,19 @@
 \usepackage[left=1in,top=1in,right=1in,bottom=1in,headheight=3ex,headsep=3ex]{geometry}
 \usepackage{graphicx}
 \usepackage{float}
+\usepackage{quoting}
+
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
 
 \newcommand{\blankline}{\quad\pagebreak[2]}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Modify Course title, instructor name, semester here %%%%%%%%
 
-\title{CSCI 5400: Scientific Computing (3)}
-\author{Calvin Deutschbein}
-\date{2025 Summer, MS Computer Science Mini-Term I}
+\title{IDS-101-10: College Colloquium: Thinking Machines}
+\author{Calvin Deutschbein (they) and Addie Gage (Calvin needs to ask)}
+\date{Willamette University, Fall 2025}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -45,15 +49,13 @@
 \usepackage{lastpage}
 \usepackage{amsmath}
 \usepackage{layout}
-\usepackage{csquotes}
-\setlength\parindent{0pt}
 
 \lhead{}
 \chead{}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Modify header here %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\rhead{\footnotesize Text in header}
+\rhead{\footnotesize Thinking Machines}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Don't touch this %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -72,266 +74,118 @@
 
 \blankline
 
-\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lr}
+\begin{tabular*}{.93\textwidth}{@{\extracolsep{\fill}}lr}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Modify information %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-E-mail: \href{mailto:cdeutschbein@lagrange.edu}{\tt\bf cdeutschbein@lagrange.edu} & Web: \href{https://cd-public.github.io/scicom/}{\tt\bf https://cd-public.github.io/scicom/}  \\
+E-mail: \texttt{ckdeutschbein@willamette.edu} & Web: \href{https://cd-public.github.io/courses/soc}{\tt\bf cd-public.github.io/}  \\
 
-07/07/25 - 08/08/25 &  Asynchronous \\
+ Office Hours: MWF 11:30-12:00 \& Discord TTh  &  Lecture: MWF 12:00-1:00 \\
+
+ Office: Ford 307 & Chase Hour: Th 12:00-1:00  \\
+ & \\
 \hline
 \end{tabular*}
 
 \vspace{5 mm}
 
-% Zeroth Section %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section*{Modality and Credit Hour Compliance}
-
-\subsection*{Residency}  
-
-We will meet in person at LaGrange College from 8 AM to 6 PM on on 6/6-7/25
-and from 8 AM to 12 Noon on 6/8/2025. These lectures will also be recorded and posted on
-the course website. This is 22 of the 37.5 contact hours resulting in 3 credit hour course.
-
-\subsection*{Asynchronity} 
-
-I will upload a weekly lecture video to YouTube, with link posted to the course
-website on GitHub pages, every Monday from 7/13/25 to 3/3/25. This is 15.5 of the 37.5 contact
-hours resulting in a 3 credit hour course. Separately, I will be available asynchronous via email
-
-\subsection*{Dates}
-
-While instruction will be conducted  07/07/25 - 08/08/25, there are a few relevant dates outside of that range related to the academic calendar. Additional, students may begin working on the course at any time, with deadlines only falling in the  07/07/25 - 08/08/25 range.
-
-\begin{itemize}
-	\item Fri, June 20, 2025 Last Day of Add/Drop at 5:00pm
-	\item Wed, July 23, 2025 Last Day to Withdraw with a “W” at 5:00pm
-	\item Fri, August 08, 2025 Last Day
-\end{itemize}
-
-\subsection*{Deliverables} 
-
-Students will be responsible for submitting a scientific report using (1) scientific computing taught during the residency and (2) a scientific publishing technology taught asynchronously. Assignments will be due weekly from 6/16/25 to 7/25/25. Assignments will be due every Monday at 12 midnight AOE following the residency.  I
-will target 12 hours of effort each across weekly problem sets resulting in a 2-3 hours homework
-per contact hour ratio in accordance with my understanding of credit hour policy.
-
-I will exercise binary grading, where assignments that (1) meet requirements and are (2) submitted on time are scored, and otherwise a zero is earned on the assignment. Across the binary graded assignments, each will be evening weighted across all lectures (tentatively 7 in person and 6 remote). Completion will be translated to letter grades on what I consider a ``typical"\footnote{\url{https://en.wikipedia.org/wiki/Academic_grading_in_the_United_States}} grading scale.
-
-\begin{tabular}{|c|c|c|c|}
-\hline
-\textbf{Letter Grade} & \textbf{Percentage} & \textbf{GPA} & \textbf{Minimum Completed Assignments} \\
-\hline
-A & 90--100\% & 4.0 & 12 \\
-\hline
-B & 80--89\% & 3.0  & 11\\
-\hline
-C & 70--79\% & 2.0 & 9\\
-\hline
-D & 60--69\% & 1.0 & 8 \\
-\hline
-F & 0--59\% & 0.0 & 0 \\
-\hline
-\end{tabular}
-
 % First Section %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section*{Course Description}
 
-A study of high-performance computing for advanced scientific research on modern processors. Topics include high-performance computing techniques, floating point properties, and advanced numerical methods.
+\subsection*{College Colloquium}
+
+Topical seminars designed to pursue significant issues and questions of special interest to instructors and students. Seminars invite students into the intellectual life of the university, model rigorous engagement, and help them develop qualities of good scholarship -- effective writing, careful reading, critical thinking, and cogent argumentation. Seminars do not count toward majors or minors. Required for all entering firstyear students.
+
+\subsection*{Thinking Machines}
+
+Artifical intelligence, machine learning, big data, and large scale computing have captured the collective imaginations of millions people across a range of technical expertise. Yet each of these buzzwords is rooted in a central promise: that machines may think.
+
+Guided by student inquiry, we will learn how to construct thinking - or the appearance thereof - from basic computation. Using the shared language of computer code, we use programming as a way to bridge the gap between thinking humans and thinking machines. With this shared experience, we will be able to reflect more thoughtfully on the implications of thinking machines on the self, culture, and society. 
+
+\section*{About Us}
+Calvin Deutschbein is a 
+fifth-year professor of computer science and colloquia instructor.
+%They moved to Oregon from North Carolina in 2021 after being involved in a number of worker campaigns in the US South, including faculty unionization at Elon University and a number of moderate policing reforms in Chapel Hill.
+
+Addie Gage is a fourth-year student at Willamette studying Computer Science and Data Science in the MS Data Science program, and a STEM fellow.
 
 % Second Section %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section*{Course Materials}
+\section*{Required Materials}
 
-\begin{itemize}
-\item Course materials including e-book at \href{https://cd-public.github.io/scicom/}{\tt\bf https://cd-public.github.io/scicom}
-\item Optional Textbooks: 
-\begin{itemize}
-\item \href{https://sbu-python-class.github.io/python-science/Introduction.html}{PHY 546: Python for Scientific Computing}
-\item \href{https://numericalmethodssullivan.github.io/}{Numerical Methods: An Inquiry-Based Approach With Python }
-\item \href{https://pythoninchemistry.org/intro_python_chemists/intro.html}{An Introduction to Python for Chemistry}
-\end{itemize}
-\end{itemize}
+Required materials for a given class will be available on the \href{https://cd-public.github.io/scicom}{course webpage}. All course materials will be made available at no cost to the student.
+
 
 % Third Section %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section*{Prerequisite}
-B.S. Computer Science or equivalent.
+
+\section*{Accessability}
+
+I will make every effort to ensure all coursework and materials are accessible to all students, including working with on-campus specialists. However, there is always room for improvement. I always appreciate hearing from students about how I can make the course more accessible, so please reach out if there is something I can be doing better!
 
 % Fourth Section %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section*{Course Objectives}
-\textbf{\textit{LaGrange College Student Learning Outcomes (LC SLO):}}
-
-\begin{enumerate}
-\item Students will demonstrate \underline{creativity} by approaching complex problems with innovation and from
-\item Students will demonstrate \underline{critical thinking} by acquiring, interpreting, synthesizing, and evaluating
-information to reason out conclusions appropriately.
-\item Students will demonstrate proficiency in \underline{communication} skills that are applicable to any field of
-study.
-\end{enumerate}
-
-\textbf{\textit{Student Learning Outcomes (SLO) for CISC 5300}}
-
-\textit{All learning objectives pursuant to LC SLO \{1,2,3\} are to be assessed by homework assignments.}
-
-\begin{enumerate}
-    \item \textbf{Core Scientific Computing Environment and Tools}
-        \begin{itemize}
-            \item \textbf{SLO 1:} Utilize fundamental command-line tools (Bash) and a text editor (Neovim) for efficient scientific programming and workflow management.
-            \item \textbf{SLO 2:} Write and execute Python scripts for scientific computing tasks, demonstrating proficiency in basic Python syntax and structures.
-        \end{itemize}
-    \item \textbf{Numerical Computation and Data Analysis}
-        \begin{itemize}
-            \item \textbf{SLO 3:} Apply advanced numerical methods and understand the properties of floating-point arithmetic for accurate scientific computations.
-            \item \textbf{SLO 4:} Implement and analyze high-performance computing techniques using Python libraries such as NumPy, SciPy, and SymPy for numerical analysis and symbolic mathematics.
-            \item \textbf{SLO 5:} Process, analyze, and visualize scientific datasets effectively using Pandas and Matplotlib.
-        \end{itemize}
-    \item \textbf{Performance Optimization for Scientific Code}
-        \begin{itemize}
-            \item \textbf{SLO 6:} Optimize the performance of scientific code using techniques like Just-In-Time (JIT) compilation with Numba, static compilation with Cython, and integration with Fortran.
-            \item \textbf{SLO 7:} Compare and contrast the strengths and weaknesses of different programming languages and tools for high-performance scientific computing.
-        \end{itemize}
-    \item \textbf{Scientific Publishing and Communication}
-        \begin{itemize}
-            \item \textbf{SLO 8:} Create professional scientific documents and presentations using markup languages and tools such as Markdown, HTML/CSS, LaTeX, Quarto, Typst, and Sphinx.
-        \end{itemize}
-\end{enumerate}
-
-% 4.5th Section %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection*{Assignments and Assessment}
-
+Per the college, we learn and practice techniques to:
 \begin{itemize}
-    \item Students begin the term with a default grade of "A".
-    \item This course utilizes objective, automated, binary grading on five weekly assignments.
-        \begin{itemize}
-            \item  Every assignments comes furnished with an autograder.
-            \begin{itemize}
-                \item  It is provided to students with the assignment specification.
-                \item  It is documented and preserved under version control.
-                \item There are special allowances for the fourth assignment.
-            \end{itemize}
-            \item  Students submit C language source code that accomplishes the goals of the autograder.
-            \begin{itemize}
-                \item  Students may use any resources but,
-                \item  Students are responsible for knowing the content of the course.
-                \item  We accept the autograder as ground truth.
-            \end{itemize}
-            \item  Automated assessment will score student work.
-            \begin{itemize}
-                \item  Late assignments earn zero points.
-                \item  Assignments that do not fulfill the autograder requirements earn zero points.
-                \item  Students lose one letter grade per failed assignment.
-            \end{itemize}
-        \end{itemize}
+\item Critically examine information and/or texts (written, oral, artistic, or quantitative) by identifying central ideas or arguments, making inferences, questioning underlying assumptions, and assessing evidence.
+\item Learn to contribute to a constructive classroom climate through participation in thoughtful, informed, and responsive discussion, effective speaking, active listening, and the development of an iterative group process of critical analysis and interpretation.
+\item Effectively formulate ideas and arguments, develop them through an iterative process, and express them clearly and persuasively via linguistic, artistic, and/or quantitative modes of communication.
 \end{itemize}
+Additionally, I will attempt to construct the class in a manner that these techniques specifically create an inclusive academic environment.
 
 % Fifth Section %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section*{College Policies}
+\section*{Course Structure}
 
-\subsection*{ADA Statement}
+The course will be composed of lecture, demonstration, and labs on scientific computing, and out-of-class writing of both technical and non-technical nature.
 
-In compliance with Section 504 of the Rehabilitation Act and the Americans with Disabilities Act,
-LaGrange College will provide reasonable accommodation of all medically documented disabilities. If you
-have a disability and would like the College to provide reasonable accommodations of the disability during
-this course, please notify Ms. Lindsay Shaughnessy, Director of the Panther Academic Center for
-Excellence (PACE) and Coordinator of Accessibility Services at \href{mailto:accessability@lagrange.edu}{accessability@lagrange.edu} or 706-880-8652. PACE is located in the Moshell Learning Center \&
-Tutoring Lab in the Lewis Library.
+Students will also read and respond to each other's writing within class.
+
+\subsection*{Class Structure}
+
+Classes are scheduled for Monday, Wednesday, and Friday at 12:00 noon. There is a special supporting CHASE session on Thursdays at 12:00 noon. The lecture schedule is on the \href{https://cd-public.github.io/scicom}{course webpage}.
+
+\subsubsection*{Papers/Projects}
+
+There will be both a midterm paper/project and final paper/project for this course. Though we term them papers, they can more properly be considered scientific publications. The midterm will be a source code repository on GitHub with both Python code and Markdown documentation. The final will be a GitHub Pages website created using the Quarto platform for scientific publication. These tools will be taught during the course.
+
+The midterm will be due 10 October at 12:00 PM. 
+The final paper will be due 14 November at 12:00 PM.
 
 
-\subsection*{Academic Support}
+\subsection*{Feedback and Grading}
 
-Academic Support
-Academic support at LaGrange is provided through Panther Academic Center for Excellence (PACE), the
-Writing Center, and the advising deans. PACE provides peer tutoring, testing services, accessibility
-services, and other academic support as needed. For more information about PACE, please contact Mr.
-Steve Kenner (skenner@lagrange.edu). The Writing Center gives all writers a space to explore the potential of their ideas via peer review. For information about the Writing Center, contact Dr. Justin Thurman
-(jthurman@lagrange.edu).
-
-\subsection*{Academic Integrity Policy}
-
-Each student is bound by the LaGrange College Honor Code which is stated as follows:
-
-\begin{displayquote}
-As a member of the student body of LaGrange College, I confirm my
-commitment to the ideals of civility, diversity, service, and excellence.
-Recognizing the significance of personal integrity in establishing these ideals
-within our community, I pledge that I will not lie, cheat, steal, nor tolerate these
-unethical behaviors in others.
-\end{displayquote}
-
-The full text of the LaGrange College Honor Code along with policies and procedures in cases of academic
-dishonesty can be found at \url{http://www.lagrange.edu/resources/pdf/honorcode12-13.pdf}.
-
-\subsection*{Academic Integrity Policy}
-
-Email and LaGrange college accounts will be used in accordance with the following student handbook
-statement:
-
-\begin{displayquote}
-“Students are expected to treat their campus [e­mail] accounts as a business account.
-Faculty and administrators rely on these accounts to disseminate important information regarding
-College protocol and events. Therefore, students are responsible for any College information sent
-out over campus e­mail.”
-\end{displayquote}
-
-Consequently, personal email addresses will not be used for instructor/student email contact except in event a service interruption. The preferred
-method of contact will instead be by the official campus email. I target a 24 hour maximum response time on school days and 48 hours maximum response time on all emails while the course is active.
-
-As an adjunct, my LaGrange email may not persistent indefinitely. I maintain a persistent professional email at \href{calvindeu@gmail.com}{mailto:calvindeu@gmail.com} which can also be used in event service interrupts to the campus network or for professional references after the conclusion of the course.
-
-\subsection*{Netiquette}
-
-When leaving comments or asking questions in the forums of an online course, one is reminded to observe
-a few rules of internet etiquette:
+\subsubsection*{Exercises}
 
 \begin{itemize}
-\item All caps locks and/or multiple exclamation points typically imply anger. You should not use such
-emphases unless it accomplishes a learning objective.
-\item Vulgarity, rudeness, and/or disrespect are complete unacceptable and will not be tolerated.
-\item Emoticons (such as ‘:)’ for a ‘smiley face’) are fine for use in relaxed submissions (forum threads
-and posts).
-\item In general, do your best to use proper spelling, grammar, and punctuation. Writing correctly
-works to ensure that your meaning is conveyed.
+    \item For an A (100\%)
+    \begin{itemize}
+        \item Code that meets requirements.
+        \item On time.
+    \end{itemize}
+    \item For a B (90\%)
+    \begin{itemize}
+        \item Code that runs without error.
+        \item On time.
+    \end{itemize}
+    \item Erroneous code is an F (60\%).
+    \item Late work is a zero (0\%).
 \end{itemize}
 
-\subsubsection*{Technology Requirements}
+\subsubsection*{Papers}
 
-To achieve the learning objectives of this course, the following development environment is required, and available free of charge and open-source on any computing platform:
+Graded on \href{https://apcentral.collegeboard.org/media/pdf/ap-english-language-and-composition-frqs-1-2-3-scoring-rubrics.pdf}{AP Scale} as an argument essay in support (or against) scientific computing.  If I take take more than one week to return grades, I provide ``grading amnesty" of up to a letter grade.
 
-\begin{itemize}
-\item A Linux distribution (I recommend Ubuntu) with the following utilities:
-\begin{itemize}
-\item The "gcc" C compiler
-\item The "vim" modal text editor.
-\item The "git" version control system.
-\item The "podman" container management tool.
-\end{itemize}
-\end{itemize}
+\subsubsection*{Weighting}
 
-\subsubsection*{Technical Support}
+There will be 9 exercises of equal weight, and midterm weighted as 3 exercises and a final weighted as 6 exercises. I will drop the three lowest (which could be up to half the final or the entire midterm) and take the average of the top 15 scores. 
 
-I will independently offer technology support for the technology stack used to support this course. Contact me directly unless you have technical issues arising within LaGrange.edu realms, in which case you should reach out via email to \href{support@lagrange.edu}{mailto:support@lagrange.edu} or call 706.880.8053.
+Students should expect to earn to perfect scores on exercises unless skipping class, which essentially amounts to an attendance incentive of 60\% of the final grade.
 
-Precise technical writing is a core learning objective (LC SLO 3) for this course, and should be modeled in all technical support interactions.
-
-\subsubsection*{Agreement by Continued Enrollment}
-
-By remaining enrolled in the course, each student agrees to the terms of the syllabus as a binding contract between the student, the instructor, and LaGrange College.
-
-\subsubsection*{Note on attending asynchronous attendance:}
-
-I am confident I have formulated the assessment tools such that attendance or non-attendance by individuals, as measured by viewing of asynchronous lectures, will be obvious to me as an instructor. As such, I have folded my attendance considerations into the assessment formulation.
-
-It is trivial as an instructor to assess the level of engagement with asynchronous learning resources, and you should regard it as more, not less, clear what a student's level of participation is for asynchronous instruction.
-
-\subsubsection*{J1 Retention}
-
-J1 Retention is a tool used by LaGrange College faculty and staff to promote student academic and extra-curricular success. Expect us to use it to report information about attendance, engagement, or academic performance on specific assignments throughout the semester. Faculty and staff, such as coaches, the PACE Director, and advising deans, will be notified of relevant concerns. Based on provided information, you may receive automated messages from J1 Retention, referrals to the Tutoring or Writing Centers, or request to meet with your advising dean or the PACE director if there are indicators that you might benefit from additional support. 
-
+\input{college}
 
 \end{document}
+

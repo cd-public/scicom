@@ -1,0 +1,887 @@
+---
+title: SciPy
+---
+
+# Why SciPy?
+
+## What is SciPy?
+
+> [SciPy (pronounced “Sigh Pie”) is an open-source software for mathematics, science, and engineering.](https://docs.scipy.org/doc/scipy/index.html)
+
+* **Sci**entific **Py**thon
+* Basically a NumPy extension.
+
+## Why SciPy 
+
+* Most popular scientific computing platform in the world.
+* Basis of scikit-learn, the most popular machine learning platform in the world.
+* Extremely rigorous - most functions and documentation come with academic citations.
+
+## Why not SciPy
+
+- SciPy for statistics has basically one challenger (statsmodels, which is great).
+- Sometimes SciPy is too "heavyweight" and NumPy would be sufficient.
+- As a rule, I tend to use NumPy for easy things and scikit-learn for hard things, and don't use SciPy for much.
+
+## Relevance
+
+- This is a scientific computing course!
+- We'll do a bit of signal processing and interpolation.
+
+## Credits
+
+- SciPy is a big, complex library with many components.
+- I used each of:
+  	- The [User Guide](https://docs.scipy.org/doc/scipy/tutorial/index.html)
+	- The [API reference](https://docs.scipy.org/doc/scipy/reference/index.html)
+	  	- API is "application program interface" - a description of the functions in SciPy by their arguments and return values.
+	- The [Cookbook](https://scipy-cookbook.readthedocs.io/) which may be unofficial.
+
+# Install
+
+## pip again
+
+- Just like NumPy, Matplotlib is a Python package which we install via `pip`
+```{.bash code-line-numbers="false"}
+python3 -m pip install scipy
+```
+- That might take a moment, when it does we can check it worked!
+
+## Verify
+
+- We can quickly verify installation and introduce some conventions.
+- Open up Python and import the libraries:
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+import scipy
+
+print(scipy.__version__)
+```
+
+# Other Installs
+
+## Motivation
+
+- I thought it would be fun to do some signal processing on a recognizable data set:
+- [PSY - GANGNAM STYLE(강남스타일) M/V](https://www.youtube.com/watch?v=9bZkp7q19f0)
+
+## YouTube 
+
+::: {.callout-tip}
+## STOP
+
+Instructor's note:  Do not click this link while streaming.
+:::
+
+{{< video https://www.youtube.com/watch?v=9bZkp7q19f0 >}}
+
+## Problem Statement
+
+- SciPy has the ability to read some filetypes but not others.
+  	- Can read: ".wav" Waveform Audio File Format.
+	- Can't read: YouTube urls
+- We use Python package `yt-dlp` to download from YouTube.
+- We use non-Python package `ffmpeg` to translate .mp4 files to .wav
+- We use VideoLAN VLC Media Player to play the .wav files.
+
+## Note
+
+- You do not need to download any of these.
+- Here is the .wav:
+	- <audio controls src="src/psy.wav" type="audio/wav"></audio> 
+- Here is a link: 
+  	- [psy.wav](psy.wav)
+
+## yt-dlp
+
+- While I don't think you need it for anything, I installed `yt-dlp` as follows, from the shell:
+```{.bash code-line-numbers="false"}
+python -m pip install yt-dlp
+```
+
+## ffmpeg
+
+- I believe this is the best place to download `ffmpeg` for Windows and MacOS.
+- [https://www.ffmpeg.org/download.html](https://www.ffmpeg.org/download.html)
+- I used it on Ubuntu Linux and did not attempt and Windows or MacOS install.
+
+## Download
+
+- Both `yt-dlp` and `ffmpeg` are command line utilites (like Python, Neovim, or `ls`).
+- I didn't actually ever use `ffmpeg` directly, it is just used by `yt-dlp`.
+- Given the url, I used the following shell command:
+```{.bash code-line-numbers="false"}
+yt-dlp -x --audio-format wav https://www.youtube.com/watch?v=9bZkp7q19f0 -o psy.wav
+```
+- This tells `yt-dlp` to go to the url, download to video, convert it to a .wav, and save it as "psy.wav"
+
+## VLC
+
+- I *highly* recommend having VLC installed.
+- [https://www.videolan.org/vlc/#download](https://www.videolan.org/vlc/#download)
+
+## curl
+
+- As an alternative, you can `curl` the file.
+  	- Just the one I extracted.
+- The `curl` shell command downloads files from urls.
+  	- Can also be used to get ".csv" files for **pandas**!
+
+```{.bash code-line-number="false"}
+curl https://github.com/cd-public/scicom/raw/refs/heads/main/qmd/src/psy.wav -o psy.wav
+```
+
+- This directs the command line to download the file from the url and save it locally as "psy.wav"
+
+# `scipy.io`
+
+## wavfile
+
+- To load a wavfile into SciPy, it is a simple matter.
+- But first, we note one difference:
+  	- With NumPy, we imported as `np`
+	- With **pandas**, we import as `pd`
+- With Matplotlib, we imported Matplotlib "dot" something - pyplot
+  	- The "Python interface"
+
+## SciPy Modules
+
+- SciPy is composed of many *modules*
+- `matplotlib.pyplot` is a previous example of a module.
+- For example:
+  	- `scipy.io` includes ways to read files.
+	- `scipy.fft` does Fast Fourier Transforms.
+	- `scipy.stats` does statistics.
+
+## Load "psy.wav"
+
+- We will load a sound file as an np.array.
+```{python}
+rate, data = scipy.io.wavfile.read("psy.wav")
+```
+- This may look odd!
+
+## Multiple return
+
+- This uses a slightly advanced Python topic of "multiple return".
+```{python}
+def roots(x):
+	root = np.sqrt(x)
+	return -root, root
+```
+- Python can return multiple comma-separated values from a function.
+```{python}
+neg, pos = roots(25)
+[neg, pos]
+```
+- We can "unpack" the multiple values by providing comma separated variable names.
+
+## Aside: Tuples
+
+- These multiple returns are just tuples.
+	- The things that are like lists, but not exactly.
+```{python}
+both = roots(64)
+type(both)
+```
+- We can also use indexing to see individual elements of a tuple.
+```{python}
+both[0]
+```
+
+## vs. Lists
+
+- The only difference compared to lists is updates.
+- In a list, we can change an element with its index:
+```{python}
+color_lst = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"]
+color_lst[-1] = "purple"
+color_lst
+```
+
+## Aside: Errors
+
+- Attempting updates to a *tuple* will error.
+- Thus far we have avoided showing example code that won't work.
+- We can use `try` and `except` (like `if` and `else`) on erroneous code.
+```{python}
+color_tup = tuple(color_lst)
+try:
+	color_tup[-1] = "violet"
+except:
+	print("Tuples can't do that.")
+```
+
+## Reading files
+
+- Try/except is *very* handy when reading files.
+- A lot of files I try to read are garbled and can't be read.
+- Using `try` and `except` prevents Python errors.
+  	- More useful in big scripts than single-line things.
+
+## Example
+
+- While making these slides, I tried the `curl` command to get "psy.wav" while (unbeknownst to me) my internet was spotty.
+- I got a file named "psy.wav" that was of size `0`
+- Unsurprisingly, opening it with SciPy led to an error.
+- This happens all the time!
+
+## Data
+
+- Back to our .wav file.
+- Let's look at that data!
+```{python}
+data[:10]
+```
+
+## Rate
+
+```{python}
+rate
+```
+
+- You may have listened to the file (or not).
+- Audio doesn't come in for about 4 seconds.
+- The song ends and there's a kind of "outro".
+- We can see these on the plot.
+- But that explains the zeros.
+
+## Plot
+
+```{python}
+plt.plot(data)
+```
+
+## Back to Data
+
+- Given the rate, we can look at values ever `rate` amount of time.
+- I bet it's seconds, so we'll see 3 or 4 zero-only then some non-zero.
+```{python}
+data[:rate*10:rate]
+```
+
+## Why pairs?
+
+- Those two values may look initially suspicious, then I remembered.
+- Many mammals, including some assistant professors of computer science, have two ears!
+- This is a stereo file - the pairs are for each of two speakers.
+
+## Test it
+
+- Don't believe me?
+- Let's split into a "left" and "right" file.
+- We needn't necessarily get the labels right, but these are simply NumPy operations.
+- Then listen!
+
+## Transpose
+
+- Remember `.transpose`?
+- It will take an array of pairs and make a pair of arrays.
+```{python}
+tpose = data.transpose()
+tpose[0][:rate*10:rate]
+```
+
+## Split
+
+- I will arbitrarily call one "left" and one "rite" (not "right" because we don't know if we're right).
+```{python}
+left = tpose[0]
+rite = tpose[1]
+```
+
+## Zeros
+
+- We'll also make a zero-only array of the same length.
+```{python}
+# We note the "dtype" was "int16" so we do the same.
+# We do have to be clear it's NumPy int16 though!
+zero = np.zeros(len(left),dtype=np.int16)
+```
+
+## Combine
+
+- We can make left-only and rite-only arrays via:
+  - Combine
+  - Transpose
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+
+```{python}
+left_only = np.array([left,zero]).transpose()
+left_only[:rate*10:rate]
+```
+
+
+:::
+
+::: {.column width="50%"}
+
+```{python}
+rite_only = np.array([zero,rite]).transpose()
+rite_only[:rate*10:rate]
+```
+
+:::
+
+::::
+
+
+## Save
+
+- Let's write/save both then give 'um a listen.
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+
+```{python}
+scipy.io.wavfile.write("left.wav", rate, left_only)
+```
+
+
+:::
+
+::: {.column width="50%"}
+
+```{python}
+scipy.io.wavfile.write("rite.wav", rate, rite_only)
+```
+
+:::
+
+::::
+
+## Listen 
+
+- Let's write/save both then give 'um a listen.
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+
+
+<audio controls src="src/left.wav" type="audio/wav"></audio> 
+
+:::
+
+::: {.column width="50%"}
+
+
+<audio controls src="src/rite.wav" type="audio/wav"></audio> 
+
+:::
+
+::::
+
+# Noise
+
+## Noise Reduction
+
+- In a way, all sound is noise.
+- Let's try and isolate the vocals and music, regarding the other variously as noise at various points.
+- First identify where vocals come in.
+- To me, 0:04 to 0:09 seems instrumental.
+
+## View it
+
+- Look for patterns
+
+```{python}
+snip = left[4*rate:10*rate]
+plt.plot(snip)
+```
+
+## Repeats?
+
+- Looks like volume cuts low on a repeated pattern.
+- Maybe we can isolate that pattern.
+- Let's:
+  	- Pick a range
+	- Find a minimal value
+	- Find where that value occurs.
+```{python}
+low_val = min(snip)
+low_val
+```
+
+## Whoops!
+
+- Oh we need to use absolute value.
+- No worries!
+```{python}
+low_val = min(np.absolute(snip))
+low_val
+```
+
+# Where?
+
+- Use `np.where` to find where the low values occur.
+  	- We used with [**pandas**](08_pandas.qmd#metallic)
+```{python}
+lows = np.where(snip == 0)
+lows
+```
+
+## Patterns
+
+- Maybe there's something repeating on a periodicity of like... 65k?
+
+```{python}
+# We note that the result was enclosed in () so we get the [0] of it.
+lows = lows[0]
+# Then proceed
+lows = lows[np.where(lows > 500)]
+lows
+```
+
+## Visualize
+
+- Let's just plot the place the minimum occurs.
+```{python}
+_ = plt.hist(lows)
+```
+
+## More Bins
+
+- Hard to see, we increase the "bin" count.
+```{python}
+_ = plt.hist(lows, 100)
+```
+
+## A Pattern?
+
+```{python}
+_ = plt.hist(np.where(left == 0))
+```
+
+- Only before vocals enter?
+
+## Isolate
+
+- Let's see if we can isolate a motif.
+- We'll take the first zero past.
+- I hear about two repeats on this portion, so we'll take a zero in the middle.
+```{python}
+np.where(snip == 0)
+```
+
+## Motif
+
+```{python}
+stereo = np.array([snip,snip]).transpose()
+motif = stereo[13580:131204]
+scipy.io.wavfile.write("motif.wav", rate, motif)
+# os.system("open motif.wav") # After import, if you have VLC, on MacOS
+```
+
+<audio controls src="src/motif.wav" type="audio/wav"></audio> 
+
+```{python}
+other = stereo[13580:271632]
+scipy.io.wavfile.write("other.wav", rate, other)
+```
+
+<audio controls src="src/motif.wav" type="audio/wav"></audio> 
+
+```{python}
+scipy.io.wavfile.write("motifs.wav", rate, np.concatenate([motif,motif,motif]))
+scipy.io.wavfile.write("others.wav", rate, np.concatenate([other,other,other]))
+```
+
+<audio controls src="src/motifs.wav" type="audio/wav"></audio> 
+
+<audio controls src="src/others.wav" type="audio/wav"></audio> 
+
+- You can go become a dj, or...
+
+## FFT
+
+- The actual correct way to do this is with a SciPy FFT:
+  	- [Fast Fourier Transform](https://docs.scipy.org/doc/scipy/tutorial/fft.html)
+- And with a NumPy stride:
+  	- [Stride Tricks](https://numpy.org/devdocs/reference/generated/numpy.lib.stride_tricks.html)
+- Which is probably a bit much for now.
+
+# Stats
+
+## Regression
+
+- One of the most used computation techniques is regression.
+- It is used throughout the sciences, but most commonly in econometrics.
+- In my my undergraduate economics class, I had a homework assignment to "prove" that raising minimum wage increases unemployment.
+  	- It doesn't, but that isn't relevant here.
+
+## The Data
+
+- I usually get economic data from the "St. Louis Fed" which has a data portal called "FRED".
+  - Minimum wage [FEDMINNFRWG](https://fred.stlouisfed.org/series/FEDMINNFRWG)
+  - Unemployment rage [UNRATE](https://fred.stlouisfed.org/series/UNRATE)
+  - Inflation [CPIAUCSL](https://fred.stlouisfed.org/series/CPIAUCSL)
+
+## curl
+
+- It is actually possible to `curl` these but you probably have to navigate the websites to find the urls regardless.
+- I retrieved these manually on MS Windows on 31 May 2025 at 7:33 PM PT.
+```{.bash code-line-numbers="false"}
+curl https://github.com/cd-public/scicom/raw/refs/heads/main/qmd/src/FEMINNFRWG.csv -o FEDMINNFRWG.csv
+curl https://github.com/cd-public/scicom/raw/refs/heads/main/qmd/src/UNRATE.csv-o UNRATE.csv
+curl https://github.com/cd-public/scicom/raw/refs/heads/main/qmd/src/CPIAUCSL.csv -o CPIAUCSL.csv
+```
+
+## Within Python
+
+- You can of course also get these with out leaving Python.
+- Given some url with Python 
+  - `url = "https://..."`
+- You can of course also:
+  - **pandas** `pd.read_csv(url)`
+  - "os" `os.system("curl " + url + " -o name.csv")`
+
+## How I did it
+
+```{python}
+import pandas as pd
+
+minwage = pd.read_csv("https://github.com/cd-public/scicom/raw/refs/heads/main/qmd/src/FEDMINNFRWG.csv")
+unemploy = pd.read_csv("https://github.com/cd-public/scicom/raw/refs/heads/main/qmd/src/UNRATE.csv")
+inflate = pd.read_csv("https://github.com/cd-public/scicom/raw/refs/heads/main/qmd/src/CPIAUCSL.csv")
+inflate
+```
+
+## Check Columns
+
+```{python}
+minwage.columns
+```
+```{python}
+unemploy.columns
+```
+```{python}
+inflate.columns
+```
+
+## Merge
+
+- This is suitable for a merge.
+- Alternatively, set date as index then join.
+```{python}
+df = minwage.merge(unemploy).merge(inflate)
+df = df.drop(columns=["observation_date"])
+df[:3]
+```
+
+## Adjustments
+
+- Unemployment rate is rate.
+- Minimum wage is a nominal value (e.g. it's units are ill-defined).
+- Inflation is an index of wage units.
+- We can divide wage by inflation to get a "real wage".
+```{python}
+# I made so many types here.
+# In a pinch use df[df.columns[0]]
+df["REAL"] = df["FEDMINNFRWG"] / df["CPIAUCSL"]
+```
+
+## Percent Change
+
+- We measure percent change in real wages.
+  	- We use **pandas** `.pct_change()`
+	  	- It's recommend by SciPy
+	- We drop the *row* `0` which has no percent change.
+		- Drop rows by index, vs `column=<name>`
+	- We drop an undefined ("NaN") values
+```{python}
+df["REALPCT"] = df["REAL"].pct_change()
+df.drop(0)
+df = df.dropna()
+```
+
+## Unemployment
+
+- Oh we should probably take a percentage change in unemployment as well.
+```{python}
+df["UNRATE"] = df["UNRATE"].pct_change()
+```
+
+## Look at it
+
+```{python}
+plt.xlabel("REALPCT")
+plt.ylabel("UNRATE")
+_ = plt.scatter(df["REALPCT"],df["UNRATE"])
+```
+
+## Linear Regression
+
+- The standard measure of statistical significance.
+- We are assuming linearity, but it is already a comparison between rates.
+- For more, study statistics!
+```{python}
+from scipy import stats
+```
+
+## `linregress`
+
+```{python}
+res = stats.linregress(df["REALPCT"],df["UNRATE"])
+print(res)
+```
+
+## Tada!
+
+- Raising minimum wage doesn't predictable impact unemployment.
+
+# Exercise
+
+## Technetium
+
+- We recall the periodic table data
+```{python}
+df = pd.read_csv("https://gist.githubusercontent.com/GoodmanSciences/c2dd862cd38f21b0ad36b8f96b4bf1ee/raw/1d92663004489a5b6926e944c1b3d9ec5c40900e/Periodic%2520Table%2520of%2520Elements.csv")
+df[::30]
+```
+
+## Interpolation
+
+- When first setting out the table, a number of elements had not yet been "observed"
+  	- That is, no one determined their chemical properties while away they were an element.
+- Some *certainly* were never observed, namely technetium (Tc, 43) which does not exist in nature.
+- However, the layout of the table allowed scientists to predict properties of technetium 
+
+## Extract
+
+- We will:
+  	- Set aside technetium in a variable to check our predictions against.
+	- Remove the "transuranic" elements which were also not yet observed.
+```{python}
+df = df.iloc[:91]
+Tc = df.iloc[42]
+df = df.drop(42)
+Tc
+```
+
+## Import
+
+- To save some typing, we'll import it directly.
+```{python}
+from scipy.interpolate import LinearNDInterpolator
+```
+
+## Data
+
+- We recall electronegativity.
+
+```{python}
+#| code-fold: true
+# Plot
+plt.scatter(
+	x=df["Group"],
+	y=df["Period"],
+	c=df["Electronegativity"]
+)
+plt.gca().invert_yaxis()
+# Label
+plt.title("Electronegativity")
+plt.xlabel("Group")
+plt.ylabel("Period")
+_ = plt.colorbar()
+```
+
+## Reference
+
+- The documentation we're following is [here](https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.LinearNDInterpolator.html)
+ 
+```{python}
+#| code-fold: true
+from scipy.interpolate import LinearNDInterpolator
+import numpy as np
+import matplotlib.pyplot as plt
+rng = np.random.default_rng()
+x = rng.random(10) - 0.5
+y = rng.random(10) - 0.5
+z = np.hypot(x, y)
+X = np.linspace(min(x), max(x))
+Y = np.linspace(min(y), max(y))
+X, Y = np.meshgrid(X, Y)  # 2D grid for interpolation
+interp = LinearNDInterpolator(list(zip(x, y)), z)
+Z = interp(X, Y)
+plt.pcolormesh(X, Y, Z, shading='auto')
+plt.plot(x, y, "ok", label="input point")
+plt.legend()
+plt.colorbar()
+plt.axis("equal")
+plt.show()
+```
+
+## Working df
+
+- We need a `df` to work with.
+- We need only Group, Period, Electronegativity
+- We *must not* have any invalid entries.
+- We modify `df` to have only these 3 values, then `.dropna()`
+```{python}
+df = df[["Group", "Period", "Electronegativity"]]
+df = df.dropna()
+```
+
+
+## X 
+
+- We will:
+  	- Determine the input x values.
+	- We call this `X` (capitalized) to denote it is a vector or array.
+- We used "Group" for x.
+```{python}
+X = df["Group"]
+X[::20]
+```
+
+## Y 
+
+- We will:
+  	- Determine the input x values.
+	- We call this `Y` (capitalized) to denote it is a vector or array.
+- We used "Period" for y.
+```{python}
+Y = df["Period"]
+Y[::20]
+```
+
+
+## 2D
+
+- We will:
+  	- Create the 2D space given `X` and `Y`
+	- This is a "column stack"
+```{python}
+arr2d = np.column_stack((X,Y))
+arr2d[::20]
+```
+
+
+## Z
+
+- We will:
+  	- Provide known output values as `Z`
+```{python}
+Z = df["Electronegativity"]
+Z
+```
+
+## SciPy
+
+- Back to SciPy!
+	- Use `LinearNDInterpolar`
+- It basically makes a function that theoretically described electronegativity.
+
+
+
+## Stop!
+
+
+::: {.callout-note}
+
+- We are about to, essentially, conduct an experiment!
+- We should make a hypothesis first, then test it.
+- First, naively predict Tc's electronegativity, and write down your guess!
+
+:::
+
+- The next slides have my guess, but you should make your own guess first!
+
+
+## My Guess
+
+- I took the electronegativity of Tc's neighbors vertically and horizontally.
+```{python}
+Tc
+```
+
+## One Way
+
+- Tc is group 7 and period 5, so, perhaps...
+```{python}
+# DataFrame "vertical horizontal neighbors"
+vh = df[df["Group"] >= 6]
+vh = vh[vh["Group"] <= 8]
+vh = vh[vh["Period"] >= 4]
+vh = vh[vh["Period"] <= 6]
+vh
+```
+
+## Aside: Boolean Index
+
+- The previous example was not graceful.
+- We can use [Boolean Indexing](https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html)
+- The range detection method used earlier in `piecewise.py` doesn't work on arrays unfortunately.
+- But `(array < value) & (array > value)` works.
+
+## Aside: Example
+
+```{python}
+vh = df[(df["Group"] >= 6) & (df["Group"] <= 8) & (df["Period"] >= 4) & (df["Period"] <= 6)]
+vh
+```
+
+## Aside: Immediate Neighbor
+
+- It actually probably makes more sense to take
+  	- The sum, of
+	- The absolute values, of
+	- The differences, between
+	  	- Tc's group and period, and
+		- The tested row's group and period.
+
+## Immediate Example
+
+```{python}
+close = df[(abs(df["Group"] - 7) + abs(df["Period"] - 5)) < 2]
+close
+```
+
+## My Estimate:
+
+- After picking what I thought was things near Tc that should cancel out each other's distance, I calculate their mean.
+```{python}
+my_pred = close["Electronegativity"].mean()
+my_pred
+```
+- This is my naive prediction.
+- Now I interpolate.
+
+## Interpolate
+
+- `LinearNDInterpolator` takes an array of known inputs and an array of known outputs and returns a function that it thinks describes the relationship.
+- "Thinks" being a vague term here to convey a sense of learning or prediction or estimation.
+```{python}
+f = LinearNDInterpolator(arr2d, Z)
+scipy_pred = f(7,5)
+[scipy_pred, my_pred, Tc["Electronegativity"]]
+```
+
+## Exercise
+
+- Predict using your own methods the density of Tc.
+- Interpolate using SciPy the density of Tc.
+
+## Solution
+
+```{python}
+#| code-fold: true
+#| output: false
+df = pd.read_csv("https://gist.githubusercontent.com/GoodmanSciences/c2dd862cd38f21b0ad36b8f96b4bf1ee/raw/1d92663004489a5b6926e944c1b3d9ec5c40900e/Periodic%2520Table%2520of%2520Elements.csv")
+df.drop(42)
+df = df[["Group", "Period", "Density"]]
+df = df.dropna()
+f = LinearNDInterpolator(np.column_stack((df["Group"],df["Period"])), df["Density"])
+me = df[(abs(df["Group"] - 7) + abs(df["Period"] - 5)) < 2]["Density"].mean()
+[f(7,5), me, Tc["Density"]]
+```

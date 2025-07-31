@@ -1,0 +1,551 @@
+---
+title: LaTeX
+code-line-numbers: false
+---
+
+# Why LaTeX?
+
+## What is LaTeX?
+
+- A document preparation system that produces high-quality typesetting.
+- Ideal for complex documents, especially in scientific and academic fields.
+- Provides precise control over layout, formatting, and mathematical expressions.
+
+## Different Flavors of LaTeX
+
+- LaTeX is built on TeX, a typesetting engine.
+- Distributions like TeX Live (for Linux/Unix/Windows) and MiKTeX (for Windows) bundle everything you need.
+- Online editors like Overleaf simplify collaboration and compilation.
+
+## Where is LaTeX Used?
+
+- Primarily in academia for theses, dissertations, journal articles, and presentations.
+- Widely adopted in mathematics, physics, computer science, and engineering.
+- Excellent for consistent, professional-looking documents.
+
+## Conceptualizing
+
+- Imagine writing a research paper about a statistical model:
+    - You'd want to include complex equations, figures, and tables.
+    - You'd need precise control over citations and bibliographies.
+    - LaTeX handles these intricate elements beautifully.
+
+## Problem Solving
+
+- LaTeX:
+    - Separates content from formatting, allowing you to focus on writing.
+    - Automates cross-referencing, numbering, and table of contents generation.
+    - Produces consistent, high-quality output every time.
+- Can be:
+    - Written in any text editor.
+    - Authored in a dedicated LaTeX editor with live preview.
+
+## Stepping Back
+
+- For professional, polished documents, especially with a lot of math or figures, LaTeX is the gold standard.
+- While Markdown is great for quick documentation, LaTeX offers unparalleled power and flexibility for formal publications.
+
+## We will
+
+- Introduce basic LaTeX syntax:
+    - Structure documents
+    - Style text and equations
+    - Include figures and tables
+- Use LaTeX to:
+    - Create a simple academic document
+
+## Publishing
+
+- LaTeX files usually end with a `.tex` extension.
+- Compiling a `.tex` file generates a PDF document.
+- It's a powerful tool for creating professional, structured documents.
+
+# Essentials
+## A note
+
+- These slides are written in Markdown, but we'll show LaTeX source on the left and a conceptual rendering on the right.
+- You can try compiling LaTeX online at sites like Overleaf.
+
+## Getting stated
+
+- `\begin{document}` and `\end{document}```- These commands mark the **beginning and end of your document's content**.
+- Everything you want to appear in your final PDF goes between these two commands.
+- Anything before `\begin{document}` is called the **preamble**, where you set up document-wide settings.
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```tex
+\documentclass{article}
+
+\begin{document}
+Hello, LaTeX world!
+\end{document}
+```
+:::
+
+::: {.column width="50%"}
+$$
+\text{Hello, LaTeX world!}
+$$
+:::
+
+::::
+
+## Titles, Authors, and Dates
+
+- You can easily add a **title, author, and date** to your document.
+- Use `\maketitle` in the `document` environment to display this information.
+- No graceful way to display this...
+
+```tex
+\documentclass{article}
+\title{My Awesome Document}
+\author{Your Name}
+\date{June 2025}
+
+\begin{document}
+\maketitle
+\end{document}
+```
+
+## Packages
+
+- **Packages extend LaTeX's functionality**, allowing you to do more complex things.
+- You declare packages in the **preamble** using `\usepackage{packagename}`.
+- For example, `graphicx` lets you include images, and `amsmath` provides advanced math features.
+- No graceful way to display this...
+
+```tex
+\documentclass{article}
+\usepackage{graphicx} % For images
+
+\begin{document}
+We could include an image like so.
+
+\includegraphics{julia.png}
+\end{document}
+```
+
+# Text
+
+
+## Bold
+
+- Use `\textbf{}` or `{\bfseries}` to make text bold.
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```tex
+We can make text \textbf{bold}.
+```
+:::
+
+::: {.column width="50%"}
+
+$\text{We can make text \textbf{bold}.}$
+
+:::
+
+::::
+
+## Italic
+
+- Use `\textit{}` or `{\itshape}` to italicize text.
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```tex
+We can make text \textit{italic}.
+```
+:::
+
+::: {.column width="50%"}
+
+$\text{We can make text \textit{italic}.}$
+
+
+:::
+
+::::
+
+## Underline
+
+- Use `\underline{}` to underline text.
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```tex
+We can \underline{underline} text.
+```
+:::
+
+::: {.column width="50%"}
+
+$\text{We can } \underline{\text{underline}} \text{ text.}$
+
+:::
+
+::::
+
+## Sub/Superscript
+
+- In scientific publication, we often require subscripts and superscripts.
+- We enter "math mode" with `$` and use `^` or `_`
+- To style text normally in math mode, use `\text{}`
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```tex
+Squaring $x$ as $x^2$
+
+Denoting a Helium-3 isotope as $\text{He}_3$
+```
+:::
+
+::: {.column width="50%"}
+
+$\text{Squaring } x \text{ as } x^2$
+
+$\text{Denoting a Helium-3 isotope as He}_3$
+
+:::
+
+::::
+
+## Special Characters
+
+- Many characters have special meaning in LaTeX and need to be escaped.
+- `%` for comments and `&` for table alignment.
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```tex
+The percent sign is \%.
+An ampersand is \&.
+```
+:::
+
+::: {.column width="50%"}
+
+$\text{The percent sign is \%.}$
+$\text{An ampersand is \&.}$
+
+:::
+
+::::
+
+---
+
+# Equations
+
+## Inline Math
+
+- Use `$` delimiters for inline mathematical expressions.
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```tex
+$E=mc^2$
+```
+:::
+
+::: {.column width="50%"}
+
+$E=mc^2$
+
+:::
+
+::::
+
+## Displayed Math
+
+- Use `$$` delimiters or `\[ \]` for standalone, centered equations.
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```tex
+$$
+E=mc^2
+$$
+
+\[ \sum_{i=1}^n x_i \]
+```
+:::
+
+::: {.column width="50%"}
+
+$$E=mc^2
+$$
+
+$$
+\sum_{i=1}^n x_i
+$$
+
+:::
+
+::::
+
+## Numbered Equations
+
+- Use the `equation` environment to automatically number equations.
+- (Doesn't work on these slides!)
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```tex
+\begin{equation}
+    a^2 + b^2 = c^2
+\end{equation}
+```
+:::
+
+::: {.column width="50%"}
+
+\begin{equation}
+    a^2 + b^2 = c^2
+\end{equation}
+
+:::
+
+::::
+
+## Multiple Equations
+
+- Use the `align` environment for multiple aligned equations.
+- This is where `&` matters!
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```tex
+\begin{align}
+    2x + 3y &= 7 \\
+    x - y &= 1
+\end{align}
+```
+:::
+
+::: {.column width="50%"}
+
+\begin{align}
+    2x + 3y &= 7 \\
+    x - y &= 1
+\end{align}
+
+:::
+
+::::
+
+---
+
+# Lists
+
+## Unordered Lists
+
+- Use the `itemize` environment for bulleted lists.
+
+```tex
+\begin{itemize}
+    \item First item.
+    \item Second item.
+\end{itemize}
+```
+
+## Ordered Lists
+
+- Use the `enumerate` environment for numbered lists.
+
+```tex
+\begin{enumerate}
+    \item Step one.
+    \item Step two.
+\end{enumerate}
+```
+
+## Nested Lists
+
+- Lists can be nested by placing one list environment inside another.
+
+```tex
+\begin{itemize}
+    \item Main point.
+    \begin{enumerate}
+        \item Sub-point A.
+        \item Sub-point B.
+    \end{enumerate}
+\end{itemize}
+```
+
+---
+
+# Sections
+
+## Document Structure
+
+- LaTeX uses commands like `\section`, `\subsection`, etc., to structure your document.
+- These are the same intent as `#` and `##`.
+
+
+```tex
+\section{Introduction}
+\subsection{Background}
+```
+
+## Automatic Numbering
+
+- Sections, figures, and tables are automatically numbered.
+
+```tex
+\section{Results}
+See Section~\ref{sec:methods} for details.
+\section{Methods} \label{sec:methods}
+```
+
+# Tables
+
+## Basic Tables
+
+- Use the `tabular` environment to create tables.
+- `|` creates vertical lines, `h` for horizontal lines, `l`, `c`, `r` for column alignment.
+
+
+```tex
+\begin{tabular}{|l|c|r|}
+\hline
+Left & Center & Right \\
+\hline
+Data 1 & 2.5 & 100 \\
+Data 2 & 3.0 & 200 \\
+\hline
+\end{tabular}
+```
+
+## Table Caption
+
+- Use the `table` environment with `\caption` to add a caption and label.
+
+
+```tex
+\begin{table}[h!]
+\centering
+\caption{A simple table}
+\label{tab:simple}
+\begin{tabular}{|l|l|}
+\hline
+Header A & Header B \\
+\hline
+Row 1A & Row 1B \\
+\hline
+\end{tabular}
+\end{table}
+```
+
+---
+
+# Images
+
+## Including Images
+
+- Use the `graphicx` package and `\includegraphics` to add images.
+
+```tex
+\usepackage{graphicx} % in preamble
+\includegraphics[width=0.8\textwidth]{julia.png}
+```
+
+## Figure Environment
+
+- Use the `figure` environment with `\caption` and `\label` for proper referencing.
+
+
+```tex
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.8\textwidth]{julia.png}
+\caption{The Julia set.}
+\label{fig:julia}
+\end{figure}
+```
+---
+
+# References
+
+## Basic Citations
+
+- LaTeX has robust citation management with BibTeX or BibLaTeX.
+- This is programmable, and can look whoever you like, for example:
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```tex
+...as shown by Smith \cite{smith2020}.
+
+\begin{thebibliography}{9}
+\bibitem{smith2020}
+J. Smith, \textit{A Great Book}, Publisher, 2020.
+\end{thebibliography}
+```
+:::
+
+::: {.column width="50%"}
+
+...as shown by Smith [1].
+
+**References**
+[1] J. Smith, *A Great Book*, Publisher, 2020.
+
+:::
+
+::::
+
+## Cross-referencing
+
+- Refer to figures, tables, and sections using `\ref{}`.
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```tex
+As seen in Figure~\ref{fig:example} and Table~\ref{tab:simple}.
+```
+:::
+
+::: {.column width="50%"}
+
+As seen in Figure 1 and Table 1.
+
+:::
+
+::::
+
+---
+
+# Exercise
+
+## Exercise
+
+- Complete the "[Learn LaTeX in 30 minutes](https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes)" tutorial.
+- Download the PDF.
+- Add the PDF to your scientific computing repostitory as "30_min.pdf"
