@@ -12,9 +12,7 @@ MWThF 12:00-01:00, Ford 201
 |Instructor|Assistant|Partner|
 |-|-|-|
 |[Prof. Calvin (Deutschbein)](mailto:ckdeutschbein@willamette.edu)|Addie Gage|Claire Hoffman|
-
-
-[Syllabus](syllabus/syllabus.pdf)
+|[Course Syllabus](syllabus/syllabus.pdf)||Chase Syllabus|
 
 # Calendar
 
