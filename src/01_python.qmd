@@ -38,7 +38,7 @@ title: Python
 
 ## MacOS
 
-![](img/zsh.png)
+![](img/zsh.avif)
 
 ## Windows
 
