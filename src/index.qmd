@@ -7,7 +7,7 @@ format: html
 
 # IDS 101: College Colloquium
 
-MWThF 12:00-01:00, Ford 201
+MWThF 12:00-01:00 PM ET, Ford 201
 
 |Instructor|Assistant|Partner|
 |-|-|-|
@@ -20,10 +20,10 @@ MWThF 12:00-01:00, Ford 201
 
 |Type|Day|Date|Time|Topic|
 |----|---|----|----|-----|
-|Class| Wed | 08/20 | 03:30-04:30 | [Aims of Education](00_aims.qmd) |
-|Group| Thr | 08/21 | 09:00-10:30| [Installing Python](01_python.qmd#installing-python)|
-|Class| Thr | 08/21 | 02:00-03:00 | [Learning Python](01_python.qmd#why-python)|
-|Lab| Fri | 08/22 | 10:00-11:30| [Exercise](01_python.qmd#exercise)|
+|Class| Wed | 08/20 | 03:30-05:00 PM| [Aims of Education](00_aims.qmd) |
+|Group| Thr | 08/21 | 02:00-03:30 PM| [Installing Python](01_python.qmd#installing-python)|
+|Class| Thr | 08/21 | 04:00-05:30 PM| [Learning Python](01_python.qmd#why-python)|
+|Lab| Fri | 08/22 | 10:00-11:30 AM| [Exercise](01_python.qmd#exercise)|
 
 ## Semester
 
