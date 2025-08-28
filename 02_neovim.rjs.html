@@ -94,7 +94,7 @@
     code span.vs { color: #abe338; } /* VerbatimString */
     code span.wa { color: #dcc6e0; } /* Warning */
   </style>
-  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-0f071606cd187ea9c4f27a73aca9ddf7.css">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-83ff8eaca933b935d6975c751fe501e4.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -501,7 +501,7 @@ Prof.&nbsp;Calvin
 <h2>Solutions</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div id="345b92ab" class="cell" data-execution_count="1">
+<div id="345b92ab" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="kw">def</span> single_tax(pay):</span>
 <span id="cb1-2"><a></a>    tax <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb1-3"><a></a>    <span class="cf">if</span> pay <span class="op">&gt;</span> <span class="dv">415050</span>:</span>
@@ -525,7 +525,7 @@ Prof.&nbsp;Calvin
 <span id="cb1-21"><a></a>    <span class="cf">return</span> tax <span class="op">+</span> pay <span class="op">*</span> <span class="fl">.1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:50%;">
-<div id="f843245d" class="cell" data-execution_count="2">
+<div id="f843245d" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a><span class="kw">def</span> single_tax(pay):</span>
 <span id="cb2-2"><a></a>    tax_policy <span class="op">=</span> [</span>
 <span id="cb2-3"><a></a>        [<span class="dv">415050</span>, <span class="fl">.396</span>], </span>
@@ -915,7 +915,7 @@ Prof.&nbsp;Calvin
 <ul>
 <li><p>There are two common ways to use <code>.py</code> files</p></li>
 <li><p>I believe the most common is via <code>import</code></p></li>
-<li><p>To begin, at the command line, start Pythoni</p></li>
+<li><p>To begin, at the command line, start Python</p></li>
 <li><p>On Windows, type <code>python</code></p></li>
 </ul>
 <div class="code-with-filename">
@@ -1036,7 +1036,7 @@ Prof.&nbsp;Calvin
 <ul>
 <li>Use <code>exit()</code></li>
 <li>Use <code>quit()</code></li>
-<li>Use ctrl/cmd+z</li>
+<li>Use ctrl+z</li>
 </ul>
 <p>Practice starting and leaving Python a few times!</p>
 </div>
@@ -1285,7 +1285,7 @@ Prof.&nbsp;Calvin
 <li><em>Think about what is happening here</em></li>
 </ul></li>
 </ul>
-<div id="47052655" class="cell" data-execution_count="3">
+<div id="47052655" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a></a>[<span class="bu">type</span>(<span class="dv">1</span>), <span class="bu">type</span>(<span class="dv">1</span> <span class="op">==</span> <span class="dv">2</span>), <span class="bu">type</span>([<span class="dv">1</span>,<span class="dv">2</span>]), <span class="bu">type</span>({<span class="dv">1</span>,<span class="dv">2</span>})]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
 <pre><code>[int, bool, list, set]</code></pre>
@@ -1297,7 +1297,7 @@ Prof.&nbsp;Calvin
 <li>Short for “string” - as in string of characters</li>
 </ul></li>
 </ul>
-<div id="c6ad5b32" class="cell" data-execution_count="4">
+<div id="c6ad5b32" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a></a><span class="bu">type</span>(<span class="st">"Hello, world!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="9">
 <pre><code>str</code></pre>
@@ -1374,7 +1374,7 @@ Prof.&nbsp;Calvin
 <li>Add a wrinkle.</li>
 <li>Here’s an income tax solution:</li>
 </ul>
-<div id="2a870096" class="cell" data-execution_count="5">
+<div id="2a870096" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a></a><span class="kw">def</span> single_tax(pay):</span>

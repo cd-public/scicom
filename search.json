@@ -21,18 +21,18 @@
     "text": "Semester\n\n\n\nWeek\nDate (M)\nTopic (MW)\nExercise (F)\n\n\n\n\n01\n08/25\nNeovim\nArguments\n\n\n02\n09/01\nShell\nIntercepts\n\n\n03\n09/08\nGit\nRepository\n\n\n04\n09/15\nNumPy\nVectors\n\n\n05\n09/22\nMatplotlib\nOrbitals\n\n\n06\n09/29\nMarkdown\nMidterm Consultation\n\n\n07\n10/06\npandas\nMidterm Due\n\n\n08\n10/13\nSciPy\nTechnetium\n\n\n09\n10/20\nSymPy\nODEs\n\n\n10\n10/27\nSklearn\n\\(k\\)-means\n\n\n11\n11/03\nQuarto\nFinal Consultation\n\n\n12\n11/10\nPages\nFinal Due\n\n\n\nWe will also meet 11/17 (Monday) to discuss course registration."
   },
   {
-    "objectID": "index.rjs.html#opening-days",
-    "href": "index.rjs.html#opening-days",
+    "objectID": "index.html#midterm",
+    "href": "index.html#midterm",
     "title": "Thinking Machines",
-    "section": "Opening Days",
-    "text": "Opening Days\n\n\n\nType\nDay\nDate\nTime\nTopic\n\n\n\n\nClass\nWed\n08/20\n03:30-04:30\nAims of Education\n\n\nGroup\nThr\n08/21\n09:00-10:30\nInstalling Python\n\n\nClass\nThr\n08/21\n02:00-03:00\nLearning Python\n\n\nLab\nFri\n08/22\n09:30-11:30\nExercise"
+    "section": "Midterm",
+    "text": "Midterm\nDue 10/10 at 12:00 noon\n\nSelect a problem from CHEM-115, CS-151, MATH-150, PHYS-221.\n\nApprove your problem by Friday, 10/03 (week 6).\n\nCreate a GitHub repository.\nCreate a Python (.py) file providing a solution.\n\nYou must use NumPy vectorization.\n\nCreate a Matplotlib graphic (.png) illustrating your solution.\nCreate a Markdown table using pandas.\n\nUse .to_markdown()\n\nCreate a Markdown document describing the solution.\n\nInclude an example of code use and output from class.\nInclude an additional application.\nInclude a Matplotlib graphic.\nInclude a pandas dataframe.\nInclude prose describing all four, approximately 500 words (1 page) each.\n\n\nGraded on AP Scale as an argument essay in support (or against) scientific computing."
   },
   {
-    "objectID": "index.rjs.html#semester",
-    "href": "index.rjs.html#semester",
+    "objectID": "index.html#final",
+    "href": "index.html#final",
     "title": "Thinking Machines",
-    "section": "Semester",
-    "text": "Semester\n\n\n\nWeek\nDate (M)\nTopic (MW)\nExercise (F)\n\n\n\n\n01\n08/25\nNeovim\nArguments\n\n\n02\n09/01\nShell\nIntercepts\n\n\n03\n09/08\nGit\nRepository\n\n\n04\n09/15\nNumPy\nVectors\n\n\n05\n09/22\nMatplotlib\nOrbitals\n\n\n06\n09/29\nMarkdown\nMidterm Consultation\n\n\n07\n10/06\npandas\nMidterm Due\n\n\n08\n10/13\nSciPy\nTechnetium\n\n\n09\n10/20\nSymPy\nODEs\n\n\n10\n10/27\nSklearn\n\\(k\\)-means\n\n\n11\n11/03\nQuarto\nFinal Consultation\n\n\n12\n11/10\nPages\nFinal Due"
+    "section": "Final",
+    "text": "Final\nDue 11/14 at 12:00 noon\n\nSelect a problem from CHEM-115, CS-151, MATH-150, PHYS-221.\n\nApprove your problem by Friday, 11/07 (week 10).\n\nCreate a GitHub repository.\n\nConfigure the repository to publish a webpage using GitHub pages\n\nCreate a Jupyter (.ipynb) file providing a solution.\n\nUse Jupyter and Quarto to additional create equivalent:\n\nQuarto (.qmd) file.\nPython (.py) file.\nHTML (.html) file.\n\nThis file should be published via GitHub pages.\n\n\n\nInclude Matplotlib graphics illustrating your solution.\nInclude LaTeX equations generated with SymPy in your solution.\nYour Quarto webpage should be approximately 3000 words (6 pages), plus tables and graphics.\n\nGraded on AP Scale as an argument essay in support (or against) scientific computing."
   },
   {
     "objectID": "A0_keybinds.html#python",
@@ -6431,7 +6431,7 @@
     "href": "02_neovim.html#py-files",
     "title": "Neovim",
     "section": ".py files",
-    "text": ".py files\n\nThere are two common ways to use .py files\nI believe the most common is via import\nTo begin, at the command line, start Pythoni\nOn Windows, type python\n\n\n\nWindows\n\nPS C:\\Users\\calvin&gt; python\n\n\nOn MacOS, type python3\n\n\n\nMacOS\n\n$ python3\n\n\nOn both, press the ↵ᴇɴᴛᴇʀ key.",
+    "text": ".py files\n\nThere are two common ways to use .py files\nI believe the most common is via import\nTo begin, at the command line, start Python\nOn Windows, type python\n\n\n\nWindows\n\nPS C:\\Users\\calvin&gt; python\n\n\nOn MacOS, type python3\n\n\n\nMacOS\n\n$ python3\n\n\nOn both, press the ↵ᴇɴᴛᴇʀ key.",
     "crumbs": [
       "Neovim"
     ]
@@ -6501,7 +6501,7 @@
     "href": "02_neovim.html#exit-python",
     "title": "Neovim",
     "section": "Exit Python",
-    "text": "Exit Python\n\nOftentimes, we’ll run a bit of Python then want to go back to the command line to use nvim\n\n\n\n\n\n\n\nexit()\n\n\n\nYou can exit the Python &gt;&gt;&gt; prompt back to Windows &gt; or MacOS $ at any time:\n\nUse exit()\nUse quit()\nUse ctrl/cmd+z\n\nPractice starting and leaving Python a few times!",
+    "text": "Exit Python\n\nOftentimes, we’ll run a bit of Python then want to go back to the command line to use nvim\n\n\n\n\n\n\n\nexit()\n\n\n\nYou can exit the Python &gt;&gt;&gt; prompt back to Windows &gt; or MacOS $ at any time:\n\nUse exit()\nUse quit()\nUse ctrl+z\n\nPractice starting and leaving Python a few times!",
     "crumbs": [
       "Neovim"
     ]
@@ -7007,7 +7007,7 @@
     "href": "02_neovim.rjs.html#py-files",
     "title": "Neovim",
     "section": ".py files",
-    "text": ".py files\n\nThere are two common ways to use .py files\nI believe the most common is via import\nTo begin, at the command line, start Pythoni\nOn Windows, type python\n\n\n\nWindows\n\nPS C:\\Users\\calvin&gt; python\n\n\nOn MacOS, type python3\n\n\n\nMacOS\n\n$ python3\n\n\nOn both, press the ↵ᴇɴᴛᴇʀ key."
+    "text": ".py files\n\nThere are two common ways to use .py files\nI believe the most common is via import\nTo begin, at the command line, start Python\nOn Windows, type python\n\n\n\nWindows\n\nPS C:\\Users\\calvin&gt; python\n\n\nOn MacOS, type python3\n\n\n\nMacOS\n\n$ python3\n\n\nOn both, press the ↵ᴇɴᴛᴇʀ key."
   },
   {
     "objectID": "02_neovim.rjs.html#see-python",
@@ -7056,7 +7056,7 @@
     "href": "02_neovim.rjs.html#exit-python",
     "title": "Neovim",
     "section": "Exit Python",
-    "text": "Exit Python\n\nOftentimes, we’ll run a bit of Python then want to go back to the command line to use nvim\n\n\n\n\n\n\n\nexit()\n\n\nYou can exit the Python &gt;&gt;&gt; prompt back to Windows &gt; or MacOS $ at any time:\n\nUse exit()\nUse quit()\nUse ctrl/cmd+z\n\nPractice starting and leaving Python a few times!"
+    "text": "Exit Python\n\nOftentimes, we’ll run a bit of Python then want to go back to the command line to use nvim\n\n\n\n\n\n\n\nexit()\n\n\nYou can exit the Python &gt;&gt;&gt; prompt back to Windows &gt; or MacOS $ at any time:\n\nUse exit()\nUse quit()\nUse ctrl+z\n\nPractice starting and leaving Python a few times!"
   },
   {
     "objectID": "02_neovim.rjs.html#command-line-utilities",
@@ -15120,47 +15120,5 @@
     "crumbs": [
       "Appendix - Git Bash"
     ]
-  },
-  {
-    "objectID": "index.html#projects",
-    "href": "index.html#projects",
-    "title": "Thinking Machines",
-    "section": "Projects",
-    "text": "Projects"
-  },
-  {
-    "objectID": "index.rjs.html#projects",
-    "href": "index.rjs.html#projects",
-    "title": "Thinking Machines",
-    "section": "Projects",
-    "text": "Projects"
-  },
-  {
-    "objectID": "index.html#midterm",
-    "href": "index.html#midterm",
-    "title": "Thinking Machines",
-    "section": "Midterm",
-    "text": "Midterm\nDue 10/10 at 12:00 noon\n\nSelect a problem from CHEM-115, CS-151, MATH-150, PHYS-221.\n\nApprove your problem by Friday, 10/03 (week 6).\n\nCreate a GitHub repository.\nCreate a Python (.py) file providing a solution.\n\nYou must use NumPy vectorization.\n\nCreate a Matplotlib graphic (.png) illustrating your solution.\nCreate a Markdown table using pandas.\n\nUse .to_markdown()\n\nCreate a Markdown document describing the solution.\n\nInclude an example of code use and output from class.\nInclude an additional application.\nInclude a Matplotlib graphic.\nInclude a pandas dataframe.\nInclude prose describing all four, approximately 500 words (1 page) each.\n\n\nGraded on AP Scale as an argument essay in support (or against) scientific computing."
-  },
-  {
-    "objectID": "index.html#final",
-    "href": "index.html#final",
-    "title": "Thinking Machines",
-    "section": "Final",
-    "text": "Final\nDue 11/14 at 12:00 noon\n\nSelect a problem from CHEM-115, CS-151, MATH-150, PHYS-221.\n\nApprove your problem by Friday, 11/07 (week 10).\n\nCreate a GitHub repository.\n\nConfigure the repository to publish a webpage using GitHub pages\n\nCreate a Jupyter (.ipynb) file providing a solution.\n\nUse Jupyter and Quarto to additional create equivalent:\n\nQuarto (.qmd) file.\nPython (.py) file.\nHTML (.html) file.\n\nThis file should be published via GitHub pages.\n\n\n\nInclude Matplotlib graphics illustrating your solution.\nInclude LaTeX equations generated with SymPy in your solution.\nYour Quarto webpage should be approximately 3000 words (6 pages), plus tables and graphics.\n\nGraded on AP Scale as an argument essay in support (or against) scientific computing."
-  },
-  {
-    "objectID": "index.rjs.html#midterm",
-    "href": "index.rjs.html#midterm",
-    "title": "Thinking Machines",
-    "section": "Midterm",
-    "text": "Midterm\nDue 10/10 at 12:00 noon\n\nSelect a problem from CHEM-115, CS-151, MATH-150, PHYS-221.\n\nApprove your problem by Friday, 10/03 (week 6).\n\nCreate a GitHub repository.\nCreate a Python (.py) file providing a solution.\n\nYou must use NumPy vectorization.\n\nCreate a Matplotlib graphic (.png) illustrating your solution.\nCreate a Markdown table using pandas.\n\nUse .to_markdown()\n\nCreate a Markdown document describing the solution.\n\nInclude an example of code use and output from class.\nInclude an additional application.\nInclude a Matplotlib graphic.\nInclude a pandas dataframe.\nInclude prose describing all four, approximately 500 words (1 page) each.\n\n\nGraded on AP Scale as an argument essay in support (or against) scientific computing."
-  },
-  {
-    "objectID": "index.rjs.html#final",
-    "href": "index.rjs.html#final",
-    "title": "Thinking Machines",
-    "section": "Final",
-    "text": "Final\nDue 11/14 at 12:00 noon\n\nSelect a problem from CHEM-115, CS-151, MATH-150, PHYS-221.\n\nApprove your problem by Friday, 11/07 (week 10).\n\nCreate a GitHub repository.\n\nConfigure the repository to publish a webpage using GitHub pages\n\nCreate a Jupyter (.ipynb) file providing a solution.\n\nUse Jupyter and Quarto to additional create equivalent:\n\nQuarto (.qmd) file.\nPython (.py) file.\nHTML (.html) file.\n\nThis file should be published via GitHub pages.\n\n\n\nInclude Matplotlib graphics illustrating your solution.\nInclude LaTeX equations generated with SymPy in your solution.\nYour Quarto webpage should be approximately 3000 words (6 pages), plus tables and graphics.\n\nGraded on AP Scale as an argument essay in support (or against) scientific computing."
   }
 ]
