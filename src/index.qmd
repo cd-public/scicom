@@ -44,6 +44,10 @@ MWThF 12:00-01:00 PM ET, Ford 201
 
 We will also meet 11/17 (Monday) to discuss course registration.
 
+## Videos
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=7LRCSrr-ieE08vpl&amp;list=PLu3KAnn4RkAS6wHF13yIIXsK6wnRqcTP7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ## Midterm
 
 **Due 10/10 at 12:00 noon**
