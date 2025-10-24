@@ -1,0 +1,815 @@
+---
+title: Quarto
+code-line-numbers: false
+---
+
+# Why Quarto?
+
+## What is Quarto?
+
+- A piece of software, which does the following:
+    - An open-source scientific and technical publishing system
+    - Publish reproducible, production quality articles, presentations, dashboards, websites, blogs, and books in HTML, PDF, MS Word, ePub, and more.
+    - Author with plain text markdown in your favorite editor.
+
+## What is Quarto?
+
+- A *command-line interface*, like `python` or `nvim` or even `cat`.
+- It can take text files written in Markdown (.md) or Quarto Markdown (.qmd) and produce files like webpages (.html) or documents (.pdf).
+
+## Where is LaTeX Used?
+
+- As far as I know, the NIH and in instruction.
+- Used in Willamette's MS DS program and our scientific computing course, Data in the Cosmos.
+- Excellent for consistent, professional-looking documents.
+
+## Conceptualizing
+
+- Imagine writing a research paper about a statistical model:
+    - You'd want to include complex equations, figures, and tables.
+    - You'd want to include code blocks and the results of their computation.
+
+## Problem Solving
+
+- Markdown:
+    - Separates content from formatting, allowing you to focus on writing.
+    - Produces consistent, high-quality output every time.
+    - Allows embedding executable code in written documents.
+    
+
+## We will
+
+- Introduce basic Quarto workflows:
+    - Author a Markdown (.md) document.
+    - Render the document to a webpage (.HTML)
+    - Author a Quarto Markdown (.qmd) document.
+    - Render the documentation and the output of it's code blocks to a webpage (.HTML)
+
+## `pip` again
+
+- Just like NumPy, Matplotlib is a Python package which we install via `pip`
+```{.bash code-line-numbers="false"}
+python3 -m pip install quarto-cli
+```
+- That might take a moment, when it does we can check it worked!
+
+## Verify
+
+- Versus *every other Python module* this term.
+    - NumPy
+    - **pandas**
+    - Matplotlib
+- Quarto is *not* used from within Python via `import`!
+
+## Command line
+
+- Go to the command-line
+    - Reminder - the place we use `vim` or `python` or `ls`
+- Type the following:
+```sh
+quarto --help
+```
+- You will see *a lot* of text.
+
+# Essentials
+
+## A note
+
+- These slides are written in Quarto Markdown, but trying to show Quarto Markdown.
+- This isn't easy, so there will be a bit of "scuffiness".
+- That said, it is fairly close to the Markdown you already know and love.
+    - [Review Markdown](07_md.qmd)
+
+## Getting stated
+
+- We can trivially begin with "Hello, world".
+- Create a new file named `hello.qmd`
+```sh
+nvim hello.qmd
+```
+- Write some minimal text to the file.
+```{.md filename="hello.qmd"}
+Hello, world!
+```
+- Having done so, *render* the plaintext `.qmd` file to a webpage, a `.html` file.
+```sh
+quarto render hello.qmd
+```
+
+## View
+
+- Open the new file - which will have the same filename (`hello`) but a different *extension* (`.html` rather than `.qmd`).
+```sh
+open hello.html
+```
+- What do you see?
+    - What program is used to open the file?
+    - What do you notice about what you see?
+    - Compare it to these slides - which are also produced via `quarto render`
+    
+## Example 0
+
+- It probably looks something like this:
+
+```{python}
+#| echo: false
+print("Hello, world!")
+```
+
+- Not great, not terrible!
+
+## Example 1
+
+::::{.columns}
+
+:::{.column width="50%"}
+
+- Quarto provides an example of a relatively sophisticated document - we'll try it out.
+
+:::
+
+:::{.column width="50%"}
+
+````{.md filename="hello.qmd" max-height="10em"}
+For a demonstration of a line plot on a polar axis, see @fig-polar.
+
+```{{python}}
+#| label: fig-polar
+#| fig-cap: "A line plot on a polar axis"
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+r = np.arange(0, 2, 0.01)
+theta = 2 * np.pi * r
+fig, ax = plt.subplots(
+  subplot_kw = {'projection': 'polar'} 
+)
+ax.plot(theta, r);
+ax.set_rticks([0.5, 1, 1.5, 2]);
+ax.grid(True);
+plt.show()
+```
+
+````
+
+:::
+
+::::
+
+## Process
+
+- Save this as `basics.qmd` extension, then:
+```sh
+quarto render basics.qmd
+```
+- Then open, and view!
+    - Should look something like the next slide (but all in one column)
+
+## 
+
+For a demonstration of a line plot on a polar axis, see Figure 1.
+
+```{python}
+#| output-location: column
+#| echo: true
+import numpy as np
+import matplotlib.pyplot as plt
+
+r = np.arange(0, 2, 0.01)
+theta = 2 * np.pi * r
+fig, ax = plt.subplots(
+  subplot_kw = {'projection': 'polar'} 
+)
+ax.plot(theta, r);
+ax.set_rticks([0.5, 1, 1.5, 2]);
+ax.grid(True);
+plt.show()
+```
+
+Figure 1: A line plot on a polar axis 
+
+## Or view it here
+
+- I made this page and just put it online.
+- [hello.html](hello.html)
+
+## Similarities
+
+- Quarto Markdown is like Markdown
+    - You can make headings, bulleted lists, block quotes.
+    - You can make code blocks.
+    - You can add images and hyperlinks.
+    
+## Differences
+   
+- Quarto Markdown allows *running* code blocks.
+    - To run code use:
+    ````{.md}
+    ```{{python}}
+    print("Hi!")
+    ```
+    ````
+    - To display code use:
+    ````{.md}
+    ```python
+    print("Hi!")
+    ```
+    ````
+
+## Printing
+
+::::{.columns}
+
+:::{.column width="50%"}
+
+````{.md}
+```{{python}}
+print("Hi!")
+```
+````
+
+```{python}
+print("Hi!")
+```
+
+:::
+
+:::{.column width="50%"}
+
+````{.md}
+```python
+print("Hi!")
+```
+````
+
+```python
+print("Hi!")
+```
+
+:::
+
+::::
+
+## Computation
+
+- By the way, this should be zero.
+    - If you can't tell what it is, don't worry - we have another slide.
+
+::::{.columns}
+
+:::{.column width="50%"}
+
+````{.md}
+```{{python}}
+import numpy as np
+
+np.e ** (np.pi*1j) + 1
+```
+````
+
+```{python}
+import numpy as np
+
+np.e ** (np.pi*1j) + 1
+```
+
+:::
+
+:::{.column width="50%"}
+
+````{.md}
+```python
+import numpy as np
+
+np.e ** (np.pi*1j) + 1
+```
+````
+
+```python
+import numpy as np
+
+np.e ** (np.pi*1j) + 1
+```
+
+:::
+
+::::
+
+
+
+## Mathematics
+
+- Quarto will make `sympy` equations look *great*!
+    - Easier to tell what that is now I hope!
+
+::::{.columns}
+
+:::{.column width="50%"}
+
+````{.md}
+```{{python}}
+import sympy
+
+sympy.E ** (sympy.pi * 1j) + 1
+```
+````
+
+```{python}
+import sympy
+
+sympy.E ** (sympy.pi * 1j) + 1
+```
+
+:::
+
+:::{.column width="50%"}
+
+````{.md}
+```python
+import sympy
+
+sympy.E ** (sympy.pi * 1j) + 1
+```
+````
+
+```python
+import sympy
+
+sympy.E ** (sympy.pi * 1j) + 1
+```
+
+:::
+
+::::
+
+
+
+## Results
+
+- And you can also still see results!
+
+::::{.columns}
+
+:::{.column width="50%"}
+
+````{.md}
+```{{python}}
+import sympy
+
+eq = sympy.E ** (sympy.pi * 1j) + 1
+eq.evalf(10)
+```
+````
+
+```{python}
+import sympy
+
+eq = sympy.E ** (sympy.pi * 1j) + 1
+eq.evalf(10)
+```
+
+:::
+
+:::{.column width="50%"}
+
+````{.md}
+```python
+import sympy
+
+eq = sympy.E ** (sympy.pi * 1j) + 1
+eq.evalf(10)
+```
+````
+
+```python
+import sympy
+
+eq = sympy.E ** (sympy.pi * 1j) + 1
+eq.evalf(10)
+```
+
+:::
+
+::::
+
+
+
+## Tables
+
+::::{.columns}
+
+:::{.column width="50%"}
+
+````{.md}
+```{{python}}
+import pandas as pd
+
+pd.DataFrame([["One","Two","Three"],[1,2,3]])
+```
+````
+
+```{python}
+import pandas as pd
+
+pd.DataFrame([["One","Two","Three"],[1,2,3]])
+```
+
+:::
+
+:::{.column width="50%"}
+
+````{.md}
+```python
+import pandas as pd
+
+pd.DataFrame([["One","Two","Three"],[1,2,3]])
+```
+````
+
+```python
+import pandas as pd
+
+pd.DataFrame([["One","Two","Three"],[1,2,3]])
+```
+
+:::
+
+::::
+
+## Same if we use .md
+
+::::{.columns}
+
+:::{.column width="50%"}
+
+```{python}
+import pandas as pd
+
+df = pd.DataFrame([["One","Two","Three"],[1,2,3]])
+df.to_markdown()
+```
+
+```{python}
+df
+```
+
+:::
+
+:::{.column width="50%"}
+
+````{.md}
+|    | 0   | 1   | 2     |
+|---:|:----|:----|:------|
+|  0 | One | Two | Three |
+|  1 | 1   | 2   | 3     |
+````
+
+|    | 0   | 1   | 2     |
+|---:|:----|:----|:------|
+|  0 | One | Two | Three |
+|  1 | 1   | 2   | 3     |
+
+:::
+
+::::
+
+# YAML
+
+## Citation
+
+- Yoinked from [TDG](https://quarto-tdg.org/yaml.html)
+
+## Place
+
+- At the beginning of a `.qmd` file, you may add a "header" of sorts.
+- This header is formatted in yet another markup language - `.yaml`
+- We don't use a `.yaml` file, we just enclose the `.yaml` code in a preceding and terminating line of a 3 dashes `---`
+
+
+## YAML Mappings
+
+A YAML mapping uses the syntax `name: value`.
+
+``` {.yaml filename="document.qmd"}
+---
+title: My Document  #<1>
+toc: true           #<2> 
+toc-depth: 2        #<3>
+---
+```
+
+## Nesting
+
+When the value of a key is another mapping, indentation is used to keep track of scope.
+For example, here the value of the `author` key is another mapping, setting `name` to the value `Buchi Emecheta`:
+
+``` {.yaml filename="document.qmd"}
+---
+title: My document
+author:
+  name: Buchi Emecheta
+---
+```
+
+## Indentation
+
+- Use the same number of tabs or spaces consistently.
+    - Two spaces is common.
+- The `name` key nested under `author` is indented two spaces, whereas the `name` key nested under `affiliation`, which itself is nested under `author`, is indented four spaces:
+
+``` {.yaml filename="document.qmd"}
+---
+title: My document
+author:
+  name: Buchi Emecheta
+  affiliation: 
+    name: Fairleigh Dickinson University
+    url: https://www.fdu.edu/
+---
+```
+
+## YAML Sequences
+
+A YAML sequence is a way to provide a key a set of ordered values.
+There are two syntaxes to specify a YAML sequence.
+When the values in the sequence are simple, separate them with commas inside square brackets:
+
+``` {.yaml filename="document.qmd"}
+---
+theme: [cosmo, styles.scss]
+---
+```
+
+The alternate syntax puts each value on its own line, and adds a dash prefix followed by a space:
+
+``` {.yaml filename="document.qmd"}
+---
+theme: 
+  - cosmo
+  - styles.scss
+---
+```
+
+## Most advanced
+
+This alternate syntax can also handle situations where the values are further mappings.
+For example, here the value of `author` is a sequence of length two, where each element is a mapping of `name` and `affiliation`:
+
+``` {.yaml filename="document.qmd"}
+---
+title: My document
+author:
+  - name: Soraya Drake
+    affiliation: Everpine University    
+  - name: Zahir Kamarov
+    affiliation: Peregrine Heights Institute
+---
+```
+
+
+## Quotes
+
+Strings don't require quotes, but you may need them if your string contains characters that have special meaning in YAML (e.g. `#`, `:`, etc.), or is something that would otherwise be interpreted as a number or boolean:
+
+``` {.yaml filename="document.qmd"}
+---
+title: "Quotes: and things that need them"  
+author: "#quarto"
+subtitle: "100"
+---
+```
+
+## Using `default`
+
+You'll come across examples where the value of a Quarto option is `default`, like when you are specifying multiple formats:
+
+``` {.yaml filename="document.qmd"}
+---
+format:
+  html: default
+  pdf: default
+---
+```
+
+## What happens when you get it wrong?
+
+When you make a mistake in setting an option there are a few possible outcomes:
+
+1.  You get an error message, and the error message clearly points out your mistake.
+
+2.  You get an error message, but it's not clear from that message what or where your mistake is.
+
+3.  You don't get an error message at all.
+
+## Some Examples
+
+Some examples in this chapter will result in an error from `quarto render`---we've highlighted these examples with a red border (TODO: add an icon for PDF version), like this:
+
+``` {.yaml .error filename="render_error.qmd"}
+---
+title: Bad YAML : (
+---
+```
+
+## Kinds
+
+We've split the examples by the kind of mistake you make:
+
+-   Using the wrong YAML syntax
+-   Using the wrong name for an option
+-   Using the wrong type of value for an option
+
+## Using the wrong YAML syntax
+
+Forget the space after a colon when setting an option like `code-fold`?
+
+``` {.yaml .error filename="document.qmd"}
+---
+title: "Untitled"
+format:
+  html:
+    code-fold:true
+---
+```
+
+Validation error:
+
+``` default
+Validation of YAML front matter failed.
+(line 5, columns 5--18) Field "html" has value code-fold:true, which must instead be an object
+
+✖ The value code-fold:true is a string.
+ℹ The error happened in location format:html.
+ℹ In YAML, key-value pairs in objects must be separated by a space.
+ℹ Did you mean code-fold: true instead?
+```
+
+## Specifying the wrong name
+
+Pluralize the `lightbox` option `loop`?
+
+``` {.yaml .error filename="document.qmd"}
+title: "Presentation"
+format: html
+lightbox: 
+  loops: true 
+```
+
+YAML validation errors and reports the problem:
+
+``` default
+ERROR: Validation of YAML front matter failed.
+ERROR: In file long-string.qmd
+(line 5, columns 3--8) property name loops is invalid
+4: lightbox: 
+5:   loops: true 
+    ~~~~~~
+ℹ The error happened in location lightbox:loops.
+ℹ Did you mean loop?
+```
+
+## Typos
+
+Use an underscore instead of a hyphen in `code-fold`?
+
+``` {.yaml filename="document.qmd"}
+---
+title: My document
+format: 
+  html:
+    code_fold: true
+---
+```
+
+Even though `code_fold` isn't a recognized option for `html`, you'll get no error.
+But, you also won't get any code folding.
+
+## Nesting 
+
+Get `code-fold` right, but forget to nest `html` under `format`?
+
+``` {.yaml filename="document.qmd"}
+---
+title: My document
+html:
+  code-fold: true
+---
+```
+
+As a top-level option (e.g. not a format) `html` isn't something Quarto knows about, but it passes validation.
+The result is no error, and no folded code.
+
+## Specifying the wrong type of value
+
+Trying to add a table of contents like this?
+
+``` {.yaml .error filename="document.qmd"}
+---
+title: My document
+toc: yes
+---
+```
+
+Quarto returns the error:
+
+``` default
+ERROR: Validation of YAML front matter failed.
+ERROR: (line 3, columns 6--8) Field "toc" has value yes, which must instead be `true` or `false`
+
+✖ The value yes is a string.
+ℹ The error happened in location toc.
+ℹ Quarto uses YAML 1.2, which interprets booleans strictly.
+ℹ Try using true instead.
+
+ERROR: Render failed due to invalid YAML
+```
+
+# Fun Stuff!
+
+## Themes
+
+::::{.columns}
+
+:::{.column width="50%"}
+
+- I love using Quarto themes:
+
+```yaml
+format:
+  html:
+    theme: united
+```
+:::
+
+:::{.column width="50%"}
+
+-   [default](https://bootswatch.com/default/)
+-   [cerulean](https://bootswatch.com/cerulean/)
+-   [cosmo](https://bootswatch.com/cosmo/)
+-   [cyborg](https://bootswatch.com/cyborg/)
+-   [darkly](https://bootswatch.com/darkly/)
+-   [flatly](https://bootswatch.com/flatly/)
+-   [See the rest!](https://quarto.org/docs/output-formats/html-themes.html)
+
+:::
+
+::::
+
+## Easy Mode
+
+- By default, `quarto render` makes many files all that support one webpage.
+- This is complicated and can be frustrating to work with.
+- My advice: *always* use `embed-resources: true` under `html:`
+- Bookmark this page. When your page looks wrong I'll tell you to look back at it.
+
+```yaml
+format:
+  html:
+    embed-resources: true
+```
+
+
+# Exercise
+
+## Midterm Redux
+
+- `quarto render` your midterm.
+- Take a look.
+- Add a `.yaml` block to the top with your title, name, possible a theme and almost certainly `embed-resources: true`
+- Change all of your code blocks to execute.
+    - You may need to change some of them around!
+    - You no longer need to include an image or a markdown table - just use code!
+
+
+## This page
+
+- Navigate to the "page" version, not the "slides" version.
+- Go the top, there's a little icon like this:
+<button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i></button>
+- Click it to see the `.qmd` that created this page.
+- Try to make the page yourself.
+    - What do you see?
+    
+## My YAML
+
+- I use the following for these pages:
+```yaml
+format:
+    html:
+        toc: true
+        theme: darkly 
+        code-line-numbers: true
+        code-tools:
+            source: true
+            toggle: false
+            caption: none
+    revealjs: 
+        theme: dark
+        slide-number: true
+        show-slide-number: all
+        width: 1050
+        height: 700
+        footer: "[Home](index.html)"
+        output-ext: rjs.html
+```

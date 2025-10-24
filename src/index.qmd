@@ -38,8 +38,8 @@ MWThF 12:00-01:00 PM ET, Ford 201
 |07|10/06|[**pandas**](08_pandas.qmd)|*Midterm Due*|
 |08|10/13|[SciPy](09_scipy.qmd)|[Technetium](09_scipy.qmd#exercise)|
 |09|10/20|[SymPy](0A_sympy.qmd)|[ODEs](0A_sympy.qmd#exercise)|
-|10|10/27|[Sklearn](0B_sklearn.qmd)|[$k$-means](0B_sklearn.qmd#exercise)|
-|11|11/03|Quarto|*Final Consultation*||
+|10|10/27|Quarto|*Final Consultation*|
+|11|11/03|[Sklearn](0B_sklearn.qmd)|[$k$-means](0B_sklearn.qmd#exercise)|
 |12|11/10|Pages|*Final Due*|
 
 We will also meet 11/17 (Monday) to discuss course registration.
@@ -77,15 +77,20 @@ Graded on [AP Scale](https://apcentral.collegeboard.org/media/pdf/ap-english-lan
     - Approve your problem by Friday, 11/07 (week 10).
 2. Create a GitHub repository.
     - Configure the repository to publish a webpage using GitHub pages
-3. Create a Jupyter (.ipynb) file providing a solution.
-    - Use Jupyter and Quarto to additional create equivalent:
-        - Quarto (.qmd) file.
-        - Python (.py) file.
-        - HTML (.html) file.
-            - This file should be published via GitHub pages.
+3. Create a Quarto webpage file providing a solution.
+    - Write Quarto (.qmd) file and save it on GitHub
+        - Name it `index.qmd` for ease of use.
+    - Use `quarto render` to create an `index.html` file.
+    - Use the provided `.github/workflows/static.yml` to publish your `index.html` as a webpage.
 4. Include Matplotlib graphics illustrating your solution.
 5. Include LaTeX equations generated with SymPy in your solution.
-6. Your Quarto webpage should be approximately 3000 words (6 pages), plus tables and graphics.
+6. Your Quarto webpage must be:
+    - 2500+ words (~5+ pages), not counting:
+        - At least one equation using `sympy`, 
+        - At least one tables using `pandas`, and
+        - At least one graph using `matplotlib`.
+    - Late submissions and submissions not meeting minimum requirements will not be accepted.
     
-Graded on [AP Scale](https://apcentral.collegeboard.org/media/pdf/ap-english-language-and-composition-frqs-1-2-3-scoring-rubrics.pdf) as an argument essay in support (or against) scientific computing.  
-   
+Graded on [AP Scale](https://apcentral.collegeboard.org/media/pdf/ap-english-language-and-composition-frqs-1-2-3-scoring-rubrics.pdf) as an argument essay in support (or against) scientific computing.
+
+**If you cannot think of 2500+ words to say at AP-or-better quality, pick a harder problem or design a more complete solution.**

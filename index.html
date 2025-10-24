@@ -256,6 +256,12 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./0E_quarto.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Quarto</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./A0_keybinds.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Appendix - Commands</span></a>
   </div>
@@ -450,14 +456,14 @@ window.Quarto = {
 <tr class="even">
 <td style="text-align: center;">10</td>
 <td style="text-align: left;">10/27</td>
-<td style="text-align: left;"><a href="./0B_sklearn.html">Sklearn</a></td>
-<td style="text-align: left;"><a href="./0B_sklearn.html#exercise"><span class="math inline">\(k\)</span>-means</a></td>
+<td style="text-align: left;">Quarto</td>
+<td style="text-align: left;"><em>Final Consultation</em></td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">11</td>
 <td style="text-align: left;">11/03</td>
-<td style="text-align: left;">Quarto</td>
-<td style="text-align: left;"><em>Final Consultation</em></td>
+<td style="text-align: left;"><a href="./0B_sklearn.html">Sklearn</a></td>
+<td style="text-align: left;"><a href="./0B_sklearn.html#exercise"><span class="math inline">\(k\)</span>-means</a></td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">12</td>
@@ -515,23 +521,30 @@ window.Quarto = {
 <ul>
 <li>Configure the repository to publish a webpage using GitHub pages</li>
 </ul></li>
-<li>Create a Jupyter (.ipynb) file providing a solution.
+<li>Create a Quarto webpage file providing a solution.
 <ul>
-<li>Use Jupyter and Quarto to additional create equivalent:
+<li>Write Quarto (.qmd) file and save it on GitHub
 <ul>
-<li>Quarto (.qmd) file.</li>
-<li>Python (.py) file.</li>
-<li>HTML (.html) file.
-<ul>
-<li>This file should be published via GitHub pages.</li>
+<li>Name it <code>index.qmd</code> for ease of use.</li>
 </ul></li>
-</ul></li>
+<li>Use <code>quarto render</code> to create an <code>index.html</code> file.</li>
+<li>Use the provided <code>.github/workflows/static.yml</code> to publish your <code>index.html</code> as a webpage.</li>
 </ul></li>
 <li>Include Matplotlib graphics illustrating your solution.</li>
 <li>Include LaTeX equations generated with SymPy in your solution.</li>
-<li>Your Quarto webpage should be approximately 3000 words (6 pages), plus tables and graphics.</li>
+<li>Your Quarto webpage must be:
+<ul>
+<li>2500+ words (~5+ pages), not counting:
+<ul>
+<li>At least one equation using <code>sympy</code>,</li>
+<li>At least one tables using <code>pandas</code>, and</li>
+<li>At least one graph using <code>matplotlib</code>.</li>
+</ul></li>
+<li>Late submissions and submissions not meeting minimum requirements will not be accepted.</li>
+</ul></li>
 </ol>
 <p>Graded on <a href="https://apcentral.collegeboard.org/media/pdf/ap-english-language-and-composition-frqs-1-2-3-scoring-rubrics.pdf">AP Scale</a> as an argument essay in support (or against) scientific computing.</p>
+<p><strong>If you cannot think of 2500+ words to say at AP-or-better quality, pick a harder problem or design a more complete solution.</strong></p>
 
 
 <!-- -->
@@ -1051,8 +1064,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-38"><a href="#cb1-38"></a>|07|10/06|<span class="co">[</span><span class="ot">**pandas**</span><span class="co">](08_pandas.qmd)</span>|*Midterm Due*|</span>
 <span id="cb1-39"><a href="#cb1-39"></a>|08|10/13|<span class="co">[</span><span class="ot">SciPy</span><span class="co">](09_scipy.qmd)</span>|<span class="co">[</span><span class="ot">Technetium</span><span class="co">](09_scipy.qmd#exercise)</span>|</span>
 <span id="cb1-40"><a href="#cb1-40"></a>|09|10/20|<span class="co">[</span><span class="ot">SymPy</span><span class="co">](0A_sympy.qmd)</span>|<span class="co">[</span><span class="ot">ODEs</span><span class="co">](0A_sympy.qmd#exercise)</span>|</span>
-<span id="cb1-41"><a href="#cb1-41"></a>|10|10/27|<span class="co">[</span><span class="ot">Sklearn</span><span class="co">](0B_sklearn.qmd)</span>|<span class="co">[</span><span class="ot">$k$-means</span><span class="co">](0B_sklearn.qmd#exercise)</span>|</span>
-<span id="cb1-42"><a href="#cb1-42"></a>|11|11/03|Quarto|*Final Consultation*||</span>
+<span id="cb1-41"><a href="#cb1-41"></a>|10|10/27|Quarto|*Final Consultation*|</span>
+<span id="cb1-42"><a href="#cb1-42"></a>|11|11/03|<span class="co">[</span><span class="ot">Sklearn</span><span class="co">](0B_sklearn.qmd)</span>|<span class="co">[</span><span class="ot">$k$-means</span><span class="co">](0B_sklearn.qmd#exercise)</span>|</span>
 <span id="cb1-43"><a href="#cb1-43"></a>|12|11/10|Pages|*Final Due*|</span>
 <span id="cb1-44"><a href="#cb1-44"></a></span>
 <span id="cb1-45"><a href="#cb1-45"></a>We will also meet 11/17 (Monday) to discuss course registration.</span>
@@ -1090,18 +1103,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-77"><a href="#cb1-77"></a><span class="ss">    - </span>Approve your problem by Friday, 11/07 (week 10).</span>
 <span id="cb1-78"><a href="#cb1-78"></a><span class="ss">2. </span>Create a GitHub repository.</span>
 <span id="cb1-79"><a href="#cb1-79"></a><span class="ss">    - </span>Configure the repository to publish a webpage using GitHub pages</span>
-<span id="cb1-80"><a href="#cb1-80"></a><span class="ss">3. </span>Create a Jupyter (.ipynb) file providing a solution.</span>
-<span id="cb1-81"><a href="#cb1-81"></a><span class="ss">    - </span>Use Jupyter and Quarto to additional create equivalent:</span>
-<span id="cb1-82"><a href="#cb1-82"></a><span class="ss">        - </span>Quarto (.qmd) file.</span>
-<span id="cb1-83"><a href="#cb1-83"></a><span class="ss">        - </span>Python (.py) file.</span>
-<span id="cb1-84"><a href="#cb1-84"></a><span class="ss">        - </span>HTML (.html) file.</span>
-<span id="cb1-85"><a href="#cb1-85"></a><span class="ss">            - </span>This file should be published via GitHub pages.</span>
-<span id="cb1-86"><a href="#cb1-86"></a><span class="ss">4. </span>Include Matplotlib graphics illustrating your solution.</span>
-<span id="cb1-87"><a href="#cb1-87"></a><span class="ss">5. </span>Include LaTeX equations generated with SymPy in your solution.</span>
-<span id="cb1-88"><a href="#cb1-88"></a><span class="ss">6. </span>Your Quarto webpage should be approximately 3000 words (6 pages), plus tables and graphics.</span>
-<span id="cb1-89"><a href="#cb1-89"></a>    </span>
-<span id="cb1-90"><a href="#cb1-90"></a>Graded on <span class="co">[</span><span class="ot">AP Scale</span><span class="co">](https://apcentral.collegeboard.org/media/pdf/ap-english-language-and-composition-frqs-1-2-3-scoring-rubrics.pdf)</span> as an argument essay in support (or against) scientific computing.  </span>
-<span id="cb1-91"><a href="#cb1-91"></a>   </span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb1-80"><a href="#cb1-80"></a><span class="ss">3. </span>Create a Quarto webpage file providing a solution.</span>
+<span id="cb1-81"><a href="#cb1-81"></a><span class="ss">    - </span>Write Quarto (.qmd) file and save it on GitHub</span>
+<span id="cb1-82"><a href="#cb1-82"></a><span class="ss">        - </span>Name it <span class="in">`index.qmd`</span> for ease of use.</span>
+<span id="cb1-83"><a href="#cb1-83"></a><span class="ss">    - </span>Use <span class="in">`quarto render`</span> to create an <span class="in">`index.html`</span> file.</span>
+<span id="cb1-84"><a href="#cb1-84"></a><span class="ss">    - </span>Use the provided <span class="in">`.github/workflows/static.yml`</span> to publish your <span class="in">`index.html`</span> as a webpage.</span>
+<span id="cb1-85"><a href="#cb1-85"></a><span class="ss">4. </span>Include Matplotlib graphics illustrating your solution.</span>
+<span id="cb1-86"><a href="#cb1-86"></a><span class="ss">5. </span>Include LaTeX equations generated with SymPy in your solution.</span>
+<span id="cb1-87"><a href="#cb1-87"></a><span class="ss">6. </span>Your Quarto webpage must be:</span>
+<span id="cb1-88"><a href="#cb1-88"></a><span class="ss">    - </span>2500+ words (~5+ pages), not counting:</span>
+<span id="cb1-89"><a href="#cb1-89"></a><span class="ss">        - </span>At least one equation using <span class="in">`sympy`</span>, </span>
+<span id="cb1-90"><a href="#cb1-90"></a><span class="ss">        - </span>At least one tables using <span class="in">`pandas`</span>, and</span>
+<span id="cb1-91"><a href="#cb1-91"></a><span class="ss">        - </span>At least one graph using <span class="in">`matplotlib`</span>.</span>
+<span id="cb1-92"><a href="#cb1-92"></a><span class="ss">    - </span>Late submissions and submissions not meeting minimum requirements will not be accepted.</span>
+<span id="cb1-93"><a href="#cb1-93"></a>    </span>
+<span id="cb1-94"><a href="#cb1-94"></a>Graded on <span class="co">[</span><span class="ot">AP Scale</span><span class="co">](https://apcentral.collegeboard.org/media/pdf/ap-english-language-and-composition-frqs-1-2-3-scoring-rubrics.pdf)</span> as an argument essay in support (or against) scientific computing.</span>
+<span id="cb1-95"><a href="#cb1-95"></a></span>
+<span id="cb1-96"><a href="#cb1-96"></a>**If you cannot think of 2500+ words to say at AP-or-better quality, pick a harder problem or design a more complete solution.**</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
