@@ -1,0 +1,1683 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "title: NumPy\n",
+        "---\n",
+        "\n",
+        "\n",
+        "# Why NumPy?\n",
+        "\n",
+        "## What is “NumPy”?\n",
+        "\n",
+        "> [The fundamental package for scientific computing with Python.](https://github.com/numpy/numpy)\n",
+        "\n",
+        "* **Num**erical **Py**thon\n",
+        "* It is a package - addition features we can optional add to the Python language.\n",
+        "\n",
+        "## On NumPy\n",
+        "\n",
+        "Basically, to do scientific computing it would be nice to have:\n",
+        "\n",
+        "* a powerful N-dimensional array object\n",
+        "* sophisticated (broadcasting) functions\n",
+        "* tools for integrating C/C++ and Fortran code\n",
+        "* useful linear algebra, Fourier transform, and random number capabilities\n",
+        "\n",
+        "(These are the stated features of NumPy.)\n",
+        "\n",
+        "## Relevance\n",
+        "\n",
+        "* We have essentially been using 1- and 2-dimensional arrays already!\n",
+        "* Here is the examples `intercepts.py` solution from last time.\n",
+        "  \t- It will be cut off but you can copy/paste if you need it.\n"
+      ],
+      "id": "506ea1e9"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| code-fold: true\n",
+        "taxes = [\n",
+        "    [9275, .10],\n",
+        "    [37650, .15],\n",
+        "    [91150, .25],\n",
+        "    [190150, .28],\n",
+        "    [413350, .33],\n",
+        "    [415051, .35]\n",
+        "]\n",
+        "\n",
+        "cost = 0\n",
+        "start = 0\n",
+        "for tax in taxes:\n",
+        "    cost += (tax[0] - start) * tax[1]\n",
+        "    tax += [cost - tax[0] * tax[1]]\n",
+        "    start = tax[0]"
+      ],
+      "id": "cc0a2e34",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## We will\n",
+        "\n",
+        "* Change our existing _lists_, which we understand as “N-dimensional arrays” into NumPy arrays.\n",
+        "* Show the benefits of this arrangement.\n",
+        "* Show other NumPy features.\n",
+        "\n",
+        "# Package Management\n",
+        "\n",
+        "## PyPI\n",
+        "\n",
+        "> The Python Package Index (PyPI) is a repository of software for the Python programming language.\n",
+        "\n",
+        "* NumPy is a Python package.\n",
+        "    * It is installed separately from Python, but\n",
+        "    * May be installed using Python-based tools.\n",
+        "\n",
+        "## pip\n",
+        "\n",
+        "> The most popular tool for installing Python packages, and the one included with modern versions of Python.\n",
+        "\n",
+        "* `pip` is a command line utility\n",
+        "* For years `pip` was the only real options for installing Python programs, but has experienced limitations as the package ecosystem has grown quite large.\n",
+        "\n",
+        "## Using `pip`\n",
+        "\n",
+        "* Use as an argument to `python` or `python3`\n",
+        "\n",
+        "```{.bash code-line-numbers=\"false\"}\n",
+        "python3 -m pip install numpy\n",
+        "```\n",
+        "\n",
+        "* It may take a moment to install.\n",
+        "\n",
+        "## Verify Install\n",
+        "\n",
+        "* The following verifies the the NumPy install was successful\n",
+        "* We see the return of `import`\n",
+        "    * Introduce `as`, used to shorten names\n",
+        "    * We could have done `import pw as piecewise`\n"
+      ],
+      "id": "83d1a8f2"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "import numpy as np\n",
+        "\n",
+        "print(np.__version__)"
+      ],
+      "id": "83ab6ffc",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Aside: Dunder\n",
+        "\n",
+        "- Around \"version\" there are two underscores, called \"dunder\" for double underscore.\n",
+        "- These \"dunder\" values are special built-in Python values with a specific meaning.\n",
+        "- You can see another by just printing `np`"
+      ],
+      "id": "b92b9c61"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "print(np)"
+      ],
+      "id": "bf0d0249",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Recall\n",
+        "\n",
+        "* You may wish to review `import`\n",
+        "* Consult [Neovim -> \\`import’](02_neovim.qmd#import)\n",
+        "\n",
+        "# Arrays\n",
+        "\n",
+        "## NumPy Arrays\n",
+        "\n",
+        "* The first thing to do in NumPy is make an _array_.\n",
+        "* In general we use NumPy arrays when:\n",
+        "    * We are dealing with lists of numbers\n",
+        "    * We care about performance, or\n",
+        "    * We want to use advanced mathematical operations\n",
+        "\n",
+        "## List to Array\n",
+        "\n",
+        "* We define a list of lists:\n"
+      ],
+      "id": "bc8d12ec"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "taxes = [\n",
+        "    [9275, .10],\n",
+        "    [37650, .15],\n",
+        "    [91150, .25],\n",
+        "    [190150, .28],\n",
+        "    [413350, .33],\n",
+        "    [415051, .35]\n",
+        "]"
+      ],
+      "id": "0790ff52",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Lists of lists\n",
+        "\n",
+        "* It is worth while to examine `taxes` a bit\n"
+      ],
+      "id": "9ec308f2"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "taxes"
+      ],
+      "id": "7e1bf6a4",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Check Types\n",
+        "\n",
+        "* We can verify it is a list.\n"
+      ],
+      "id": "75910082"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "type(taxes)"
+      ],
+      "id": "ef821958",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "* We can verify it’s initial element is also a list.\n"
+      ],
+      "id": "d25f8cf0"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "type(taxes[0])"
+      ],
+      "id": "420bc84e",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "* Since `taxes[0]` is a list, we can look at _that_ list’s initial element.\n"
+      ],
+      "id": "1a0f145d"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "type(taxes[0][0])"
+      ],
+      "id": "553e97ba",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Metaphor\n",
+        "\n",
+        "- Perhaps we regard 0-indexed element of an array as the house on the corner of a block.\n",
+        "- Perhaps we regard the 0-indexed element of that \"house\" as the ground floor."
+      ],
+      "id": "b93535bd"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "taxes[0][0] # House on the corner, ground floor"
+      ],
+      "id": "2c808732",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Versus arrays\n",
+        "\n",
+        "* We have a list of lists of ints (like integers, round numbers).\n",
+        "* Or do we?\n"
+      ],
+      "id": "2e782316"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "type(taxes[0][1])"
+      ],
+      "id": "63f2bfb0",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "* In fact, the tax _rates_ are not round numbers, so they are “floats”.\n",
+        "* NumPy will help us manage when we use “floating point numbers” (have a decimal point) and integers (don’t).\n",
+        "\n",
+        "## Niceties\n",
+        "\n",
+        "* Each of the internal lists of numbers is of the same length.\n",
+        "* That lets us do this:\n",
+        "\n",
+        "| Cutoff | Rate |\n",
+        "| -----: | ---- |\n",
+        "| 9275   | .10  |\n",
+        "| 37650  | .15  |\n",
+        "| 91150  | .25  |\n",
+        "| 190150 | .28  |\n",
+        "| 413350 | .33  |\n",
+        "| 415051 | .35  |\n",
+        "\n",
+        "## Contingencies\n",
+        "\n",
+        "* This… isn’t always true.\n",
+        "* In our case, for example, we have a .396 rate with _no_ cutoff.\n",
+        "* We just can’t express this as an array:\n",
+        "\n",
+        "| Cutoff | Rate |\n",
+        "| -----: | --- |\n",
+        "| 413350 | .33  |\n",
+        "| 415051 | .35  |\n",
+        "|        | .396 |\n",
+        "\n",
+        "## Takeaways:\n",
+        "\n",
+        "* Be ready to deal with things being _almost_ arrays, but ultimately only being lists-of-lists.\n",
+        "* There’s ways to deal with this (we’ve seen a few, sneakily)\n",
+        "\n",
+        "## Arrays\n",
+        "\n",
+        "> In computer programming, an array is a structure for storing and retrieving data. We often talk about an array as if it were a grid in space, with each cell storing one element of the data. For instance, if each element of the data were a number, we might visualize a “one-dimensional” array like a list:\n",
+        "\n",
+        "\n",
+        "$$\n",
+        "    \\begin{array}{|c||c|c|c|}\n",
+        "    \\hline\n",
+        "    9275 & 37650 & 91150 & 190150 \\\\\n",
+        "    \\hline\n",
+        "    \\end{array}\n",
+        "$$\n",
+        "\n",
+        "## Tables\n",
+        "\n",
+        "> A two-dimensional array would be like a table:\n",
+        "\n",
+        "$$\n",
+        "    \\begin{array}{|c||c|c|c|}\n",
+        "    \\hline\n",
+        "    9275 & 37650 & 91150 & 190150 \\\\\n",
+        "    \\hline\n",
+        "    .10 & .15 & .25 & .28 \\\\\n",
+        "    \\hline\n",
+        "    0 & -463.75 & -6963.25 & -16470.75 \\\\\n",
+        "    \\hline\n",
+        "    \\end{array}\n",
+        "$$\n",
+        "\n",
+        "## ndarray\n",
+        "\n",
+        "> A three-dimensional array would be like a set of tables, perhaps stacked as though they were printed on separate pages. In NumPy, this idea is generalized to an arbitrary number of dimensions, and so the fundamental array class is called `ndarray`: it represents an “N-dimensional array”.\n",
+        "\n",
+        "- The most obvious 3D example would be that `taxes` part of an *array* of tax policies\n",
+        "```{.python}\n",
+        "[\"Single\", \"Married, joint\", \"Married, separate\", \"Head of Household\"]\n",
+        "```\n",
+        "\n",
+        "## Metaphor\n",
+        "\n",
+        "- Perhaps we have blocks in a city.\n",
+        "- Houses on a block.\n",
+        "- Stories on a house or floors in apartment.\n",
+        "\n",
+        "## Making Arrays\n",
+        "\n",
+        "- Make an array with `np.array()`\n",
+        "  \t- Or `numpy.array` if you used `import numpy`\n",
+        "- They look like this:"
+      ],
+      "id": "35040f66"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "arr = np.array(taxes)\n",
+        "arr"
+      ],
+      "id": "2a197992",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "- Our integers are gone - everything in scientific notation\n",
+        "\n",
+        "## Aside: Scientific Notation\n",
+        "\n",
+        "> [Scientific notation is a way of expressing numbers that are too large or too small to be conveniently written in decimal form, since to do so would require writing out an inconveniently long string of digits.](https://en.wikipedia.org/wiki/Scientific_notation)\n",
+        "\n",
+        "- In scientific notation, nonzero numbers are written in the form \n",
+        "\n",
+        "$$a \\times 10^b$$\n",
+        "\n",
+        "## Aside: Explanation\n",
+        "\n",
+        "\n",
+        "- In scientific notation, nonzero numbers are written in the form \n",
+        "\n",
+        "$$a \\times 10^b$$\n",
+        "\n",
+        "\n",
+        "* $a$ (the coefficient or mantissa) is a number greater than or equal to 1 and less than 10 ($1 \\le |a| < 10$).\n",
+        "* $10$ is the base.\n",
+        "* $b$ (the exponent) is an integer.\n",
+        "\n",
+        "\n",
+        "## Aside: Physical Examples\n",
+        "\n",
+        "1.  **Speed of light:** The speed of light in a vacuum is approximately $300,000,000 \\text{ m/s}$\n",
+        "$$\n",
+        "3 \\times 10^8 \\text{ m/s}\n",
+        "$$\n",
+        "\n",
+        "2.  **Mass of an electron:** The mass of an electron is approximately $0.00000000000000000000000000091093837 \\text{ g}$.\n",
+        "$$\n",
+        "9.1093837 \\times 10^{-28} \\text{ g}\n",
+        "$$\n",
+        "\n",
+        "## Aside: Economic Examples\n",
+        "\n",
+        "- We can use social science numbers.\n",
+        "- [Labor Market Outcomes of College Graduates by Major](https://www.newyorkfed.org/research/college-labor-market#--:explore:outcomes-by-major)\n",
+        "- Computer Science majors in 2025 have a \\$80,000 median wage\n",
+        "\t- $8.0000 \\times 10^4$\n",
+        "- And 6.1% unemployment\n",
+        "  \t- $6.1 \\times 10^{-2}$\n",
+        "\n",
+        "# Using Arrays\n",
+        "\n",
+        "## Inspecting Arrays\n",
+        "\n",
+        "- Given some array, we can look up elements in an array as we did with lists.\n",
+        "- We refer to zero as the \"index\" of the initial element of an array (or list).\n",
+        "\n",
+        ":::: {.carr[0]olumns}\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n"
+      ],
+      "id": "038f38c6"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "taxes[0]"
+      ],
+      "id": "227e1597",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n"
+      ],
+      "id": "01b246fe"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "arr[0]"
+      ],
+      "id": "4b27be9d",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::::\n",
+        "\n",
+        "- We look up the same element by the same index in both Python lists and NumPy arrays.\n",
+        "\n",
+        "## Slices\n",
+        "\n",
+        "- Python and NumPy support *slicing*\n",
+        "- This takes multiple elements of an array by specifying a *range* of indices\n",
+        "- Let's make a one-dimensional array to make matters simpler."
+      ],
+      "id": "49f63f9e"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "colors = [\"red\", \"orange\", \"yellow\", \"green\", \"blue\", \"indigo\", \"violet\"]"
+      ],
+      "id": "e29e600c",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::: {.columns}\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n"
+      ],
+      "id": "ecb6ced9"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "color_lst = colors\n",
+        "color_lst[1:4]"
+      ],
+      "id": "bcb77dee",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n"
+      ],
+      "id": "f7396cab"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "color_arr = np.array(colors)\n",
+        "color_arr[1:4]"
+      ],
+      "id": "8abc98d0",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::::\n",
+        "\n",
+        "- `dtype` is data type - We'll cover it soon.\n",
+        "\n",
+        "## Understanding slices\n",
+        "\n",
+        "- The slice `1:4` takes all elements at index beginning at `1` and stopping before getting to index `4`.\n",
+        "\n",
+        "$$\n",
+        "\\small\n",
+        "\\begin{array}{|c|c|c|c|c|c|}\n",
+        "\\hline\n",
+        " 0 & 1 & 2 & 3 & 4 & 5 & 6   \\\\\n",
+        "\\hline\n",
+        " red & orange& yellow& green& blue& indigo& violet\\\\\n",
+        "\\hline\n",
+        "\\end{array}\n",
+        "$$\n",
+        "\n",
+        "$$\n",
+        "\\small\n",
+        "\\begin{array}{|c|c|c|}\n",
+        "\\hline\n",
+        " 1 & 2 & 3   \\\\\n",
+        "\\hline\n",
+        " orange& yellow& green\\\\\n",
+        "\\hline\n",
+        "\\end{array}\n",
+        "$$\n",
+        "\n",
+        "## Omiting Values\n",
+        "\n",
+        "- If we omit the value before the `:` from the slice, it is treated as if a zero was provided.\n"
+      ],
+      "id": "109a4ffa"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "color_arr"
+      ],
+      "id": "aa281fa6",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "color_arr[0:4]"
+      ],
+      "id": "d8a5b00c",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "color_arr[:4]"
+      ],
+      "id": "69c4a37e",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Omiting End\n",
+        "\n",
+        "- If we omit the value after the `:` from the slice, it is as if the length was provided.\n"
+      ],
+      "id": "bc79011f"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "color_arr"
+      ],
+      "id": "ece728a6",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "- `len` gives the length of a list or array\n"
+      ],
+      "id": "30248087"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "len(color_arr)"
+      ],
+      "id": "8c60b469",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "color_arr[4:7]"
+      ],
+      "id": "2c30f8a1",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "color_arr[4:]"
+      ],
+      "id": "6278fc46",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Steps\n",
+        " \n",
+        "- Python and NumPy slices have an additional feature I find quite nice called \"steps\"\n",
+        "- We specify a slice:\n"
+      ],
+      "id": "9ed38027"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "color_arr[1:4]"
+      ],
+      "id": "8264106b",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "- We add a *third* value\n"
+      ],
+      "id": "04acdfb0"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "color_arr[1:4:1]"
+      ],
+      "id": "201ceec2",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Step Size\n",
+        "\n",
+        "- We add a *third* value\n"
+      ],
+      "id": "6bde25d4"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "color_arr[1:4:1]"
+      ],
+      "id": "b3589088",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "- This value determines how far to move over the original array between each element shown.\n",
+        "  - Let's look at `2` - every other element."
+      ],
+      "id": "d25259f8"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "color_arr[1:4:2]"
+      ],
+      "id": "a72bac5f",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Example\n",
+        "\n",
+        "- In kindergarten, I learned that red, yellow, and blue were primary colors.\n",
+        "\t- Less sure now but a good ex. "
+      ],
+      "id": "eccd1cc8"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "color_arr"
+      ],
+      "id": "0f77a4c4",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "- And the primaries:"
+      ],
+      "id": "177f66c1"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "color_arr[0:5:2]"
+      ],
+      "id": "ead3a80d",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Step Omissions\n",
+        "\n",
+        "- We can omit start, stop, or both and still take steps."
+      ],
+      "id": "42a7788a"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "color_arr[::3]"
+      ],
+      "id": "bb264c74",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "- We can use a *negative* step to reverse."
+      ],
+      "id": "c6ed302f"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "color_arr[::-1]"
+      ],
+      "id": "cb167e6e",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Aside: Negatives\n",
+        "\n",
+        "- Negative starts and stops can also be used"
+      ],
+      "id": "b0df23f6"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "color_arr"
+      ],
+      "id": "580cc0a1",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "- They simply measure distance from the end."
+      ],
+      "id": "035e99b1"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "color_arr[:-2]"
+      ],
+      "id": "34d8fd6d",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Coordinates\n",
+        "\n",
+        "- Versus Python lists-of-lists."
+      ],
+      "id": "de320e73"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "taxes[1][1]"
+      ],
+      "id": "6d357214",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "- NumPy arrays can specify coordinates - indices of multiple dimensions - in a single set of brackets."
+      ],
+      "id": "1da4bf78"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "arr[1][1], arr[1, 1]"
+      ],
+      "id": "e7c4dd77",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Coordinate slices\n",
+        "\n",
+        "- I recommend using the comma notation.\n",
+        "- Otherwise I get unexpected behavior.\n",
+        "\n",
+        ":::: {.columns}\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n"
+      ],
+      "id": "0ad8bfb8"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# reverse in both dimensions\n",
+        "arr[::-1][::-1] # Just reverses twice "
+      ],
+      "id": "8bd98b6b",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n"
+      ],
+      "id": "43cf8c33"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# reverse in both dimensions\n",
+        "arr[::-1,::-1] # It works!"
+      ],
+      "id": "6712a547",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::::\n",
+        "\n",
+        "- Takeaway:  Always use `[x,y]` instead of `[x][y]`\n",
+        "- Things like this are we use NumPy!\n",
+        "\n",
+        "## Example\n",
+        "\n",
+        "- I want all the tax rates\n",
+        "  \t- Metaphor: 1st floor of every apartment on the block.\n",
+        "\n",
+        ":::: {.columns}\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n"
+      ],
+      "id": "fcdab4e8"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Look at the whole block, take address 1\n",
+        "arr[:][1] # Gives house address one"
+      ],
+      "id": "d552b5dc",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n"
+      ],
+      "id": "169bedd4"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Look at the whole block, take address 1\n",
+        "arr[:, 1] # Gives all first floors on the block"
+      ],
+      "id": "91a5345c",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::::\n",
+        "\n",
+        "\n",
+        "## Updates\n",
+        "\n",
+        "- We can also update entries via `=`"
+      ],
+      "id": "417626db"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "color_arr"
+      ],
+      "id": "aeaeda3f",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "-  Use (1) name of array, (2) index of element, (3) `=`, (4) new element"
+      ],
+      "id": "2b4907f4"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "color_arr[-1] = 'purple'"
+      ],
+      "id": "cd13c17c",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "- The array now has that element/index."
+      ],
+      "id": "7da3a0b6"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "color_arr"
+      ],
+      "id": "16ed6f59",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "# Vectorization\n",
+        "\n",
+        "## Why NumPy?\n",
+        "\n",
+        "- NumPy vectors can do a *very* cool thing that lists can't.\n",
+        "- We use it a lot in science.\n",
+        "- *Vector operations*.\n",
+        "\n",
+        "## Vector Ops\n",
+        "\n",
+        "- Let's compare Python\n"
+      ],
+      "id": "a807b2be"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "l1 = [1,2,3]\n",
+        "l2 = [1,1,1]\n",
+        "l1 + l2"
+      ],
+      "id": "12e02d25",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "- To NumPy"
+      ],
+      "id": "4b99ad0c"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "a1 = np.array(l1)\n",
+        "a2 = np.array(l2)\n",
+        "a1 + a2"
+      ],
+      "id": "e4a77c79",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "- By the way, vectorization is really fast.\n",
+        "- Our first \"high performance computing\" idea.\n",
+        "\n",
+        "## Example\n",
+        "\n",
+        "- Suppose you need to convert some temperatures.\n"
+      ],
+      "id": "8b256467"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Portland highs and lows 5/26/25-6/2/25 in degF\n",
+        "temps = np.array([70, 50, 81, 60, 85, 57, 70, 52, 84, 58, 87, 58, 74, 53, 70, 54])\n",
+        "temps -= 32\n",
+        "temps *= 5\n",
+        "temps //= 9\n",
+        "temps"
+      ],
+      "id": "cdbbfb35",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Aside: `//`\n",
+        "\n",
+        "- NumPy requires arrays to be of a certain kind of number.\n",
+        "- `30` is an integer.\n",
+        "- `30/9` is a decimal value...\n",
+        "- Python furnishes special `//` integer division.\n",
+        "\t- It truncates (does not round) the result."
+      ],
+      "id": "41deafae"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "np.array([1,2,3,4,5,6,7,8,9,10]) // 3"
+      ],
+      "id": "5a129250",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "- Try using `/` there. What happens?\n",
+        "\n",
+        "## Use case \n",
+        "\n",
+        "- Slices and vectorization help with income tax.\n",
+        "- We:\n",
+        "  \t- Had income cutoffs, that were\n",
+        "\t- The *beginning* of some tax brackets, but\n",
+        "\t- The *end* of other tax brackets\n",
+        "\t- Offset by one (`1`)\n",
+        "\n",
+        "## Building Brackets\n",
+        "\n",
+        "- Let's refresh on what the tax bracket array looked like."
+      ],
+      "id": "8ac57ee9"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "arr"
+      ],
+      "id": "bf677758",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "- Initial tax bracket goes zero and to `9275`\n",
+        "- The next goes from `9275` to `37650`.\n",
+        "- So `9275` is useful to two brackets.\n",
+        "\n",
+        "## Begin and end\n",
+        "\n",
+        "- Let's grab just the cutoffs."
+      ],
+      "id": "42e3ab85"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "cutoffs = arr[:,0]\n",
+        "cutoffs"
+      ],
+      "id": "f87caeae",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "- `[:, 0]` means for every row (slice `:`) take the initial columns (index `0`)\n",
+        "\t- Take the ground floor of every house on the block.\n",
+        "\n",
+        "## Insert\n",
+        "\n",
+        "- The initial bracket begins at `0` and the last bracket ends at infinity.\n",
+        "\t- NumPy knows about infinity! `np.inf`\n",
+        "- We can use NumPy `insert` to add an element at an index:"
+      ],
+      "id": "77b28a4a"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Insert to (a) an array at (b) some index (c) some value\n",
+        "a = cutoffs\n",
+        "b = len(cutoffs)\n",
+        "c = np.inf\n",
+        "cutoffs = np.insert(a, b, c)\n",
+        "cutoffs"
+      ],
+      "id": "b5803ad2",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Append\n",
+        "\n",
+        "- I usually don't insert, I append.\n",
+        "- This allows adding two arrays together, like how Python `+` works on lists.\n",
+        "  \t- Remember, NumPy can treat a value like `0` as a 0-D (zero dimensional) array.\n",
+        "\t- `[0]` would also work."
+      ],
+      "id": "f6e175fc"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Smoosh arrays, including scalars, together.\n",
+        "cutoffs = np.append(0,cutoffs)\n",
+        "cutoffs"
+      ],
+      "id": "15de9f0b",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Slicing\n",
+        "\n",
+        "- Now we can take the beginning of every bracket, by index:"
+      ],
+      "id": "7f0b2fce"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "begin = cutoffs[:-1]\n",
+        "begin"
+      ],
+      "id": "3282dd27",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "- And the end"
+      ],
+      "id": "ca29862e"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "end = cutoffs[1:]\n",
+        "end"
+      ],
+      "id": "f58c8f2d",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Vector Minus\n",
+        "\n",
+        "- We can see how big each bracket is."
+      ],
+      "id": "a9d29b23"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "bracket_size = end - begin\n",
+        "bracket_size"
+      ],
+      "id": "8a857732",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Vector Times\n",
+        "\n",
+        "- We can see how much tax is spent in each bracket.\n",
+        "  - We will \"cut off\" the last bracket first\n",
+        "  - It doesn't really have a size?"
+      ],
+      "id": "dc1b3ee7"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "bracket_cost = bracket_size[:-1] * arr[:, 1]\n",
+        "bracket_cost"
+      ],
+      "id": "8aab67f0",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "- What happens if we don't cut off the last bracket and try to multiply a vector of length `7` by a vector of length `6`?\n",
+        "\n",
+        "## Accumulation\n",
+        "\n",
+        "- While `bracket_cost` does correctly describe the cost within on bracket, someone in the `n+1`'th bracket pays the cost the previous `n` brackets.\n",
+        "- Someone how we want to sum those up.\n",
+        "- NumPy has many built-in array functions, including `np.cumsum`."
+      ],
+      "id": "440d97d5"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "total_cost = np.cumsum(bracket_cost)\n",
+        "total_cost"
+      ],
+      "id": "17258c3e",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Aside: Mean\n",
+        "\n",
+        "- Other than `np.cumsum`, there are other functions over arrays we often use.\n",
+        "- It isn't particularly useful here, but `np.mean` is quite common:"
+      ],
+      "id": "54daccce"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "np.mean(total_cost)"
+      ],
+      "id": "e4c8dec6",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "- Takeaway: Some functions convert arrays back to values.\n",
+        "\n",
+        "# Takeaways\n",
+        "\n",
+        "## NumPy does a lot!\n",
+        "- [Arrays](https://numpy.org/doc/stable/user/basics.creation.html) mostly, but including:\n",
+        "- Vector operations called [\"broadcasting\"](https://numpy.org/doc/stable/user/basics.broadcasting.html).\n",
+        "- [Indices and slices](https://numpy.org/doc/stable/user/basics.indexing.html) matter a lot.\n",
+        "- [Contants](https://numpy.org/devdocs/reference/constants.html) like `np.inf` support mathematics\n",
+        "- [Accumulation functions](https://numpy.org/doc/2.1/reference/routines.math.html#sums-products-differences) we don't have to write ourselves (which we'd have to do via loops)\n",
+        "\n",
+        "## On Names{.smaller}\n",
+        "\n",
+        "> You might hear of a 0-D (zero-dimensional) array referred to as a “scalar”, a 1-D (one-dimensional) array as a “vector”, a 2-D (two-dimensional) array as a “matrix”, or an N-D (N-dimensional, where “N” is typically an integer greater than 2) array as a “tensor”. \n",
+        "\n",
+        "> For clarity, it is best to avoid the mathematical terms when referring to an array because the mathematical objects with these names behave differently than arrays (e.g. “matrix” multiplication is fundamentally different from “array” multiplication), and there are other objects in the scientific Python ecosystem that have these names (e.g. the fundamental data structure of PyTorch is the “tensor”).\n",
+        "\n",
+        "\n",
+        "# Exercise\n",
+        "\n",
+        "## Using NumPy\n",
+        "\n",
+        "- Today we successfully recomputed the points of the point-intercept form of the income tax problem.\n",
+        "- Using NumPy, starting with `taxes`, create the array on the right:\n",
+        "\n",
+        ":::: {.columns}\n",
+        "\n",
+        "::: {.column width=\"28%\"}\n"
+      ],
+      "id": "8ceff2dd"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "taxes = np.array([\n",
+        "    [9275, .1],\n",
+        "    [37650, .15],\n",
+        "    [91150, .25],\n",
+        "    [190150, .28],\n",
+        "    [413350, .33],\n",
+        "    [415051, .35]\n",
+        "])"
+      ],
+      "id": "bb3031db",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::: {.column width=\"72%\"}\n"
+      ],
+      "id": "410b0c79"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| eval: false\n",
+        "np.array([[ 9.275000e+03,  1.000000e-01,  0.000000e+00],\n",
+        "          [ 3.765000e+04,  1.500000e-01, -4.637500e+02],\n",
+        "          [ 9.115000e+04,  2.500000e-01, -4.228750e+03],\n",
+        "          [ 1.901500e+05,  2.800000e-01, -6.963250e+03],\n",
+        "          [ 4.133500e+05,  3.300000e-01, -1.647075e+04],\n",
+        "          [ 4.150510e+05,  3.500000e-01, -2.473775e+04]])"
+      ],
+      "id": "475050dd",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::::\n",
+        "\n",
+        "## Transpose\n",
+        "\n",
+        "- There are many ways to solve this problem!\n",
+        "- Things will be easier with the following:"
+      ],
+      "id": "ae2bc246"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "taxes.shape"
+      ],
+      "id": "31e247b8",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "taxes.reshape(2,6)"
+      ],
+      "id": "b0e9d6f7",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "taxes.transpose()"
+      ],
+      "id": "6a35c2d6",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Bonus Problem\n",
+        "\n",
+        "- NumPy allows random number generation.\n",
+        "- Generate one million random numbers between, say, `0` and `500000`.\n",
+        "  - There will be repeats, which is okay.\n",
+        "- Use Python with and without NumPy to compute every tax cost.\n",
+        "- See which one is faster! You can use the shell command `time`\n",
+        "\n",
+        "## Aside: Random\n",
+        "\n",
+        "- The following:\n",
+        "  - Generates 1 million random integers from `0` to `50000`\n",
+        "  - Prints every 10 thousandth integer."
+      ],
+      "id": "c31bd5ad"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "import numpy as np\n",
+        "rng = np.random.default_rng()\n",
+        "incomes = rng.integers(0, 500000, 1000000)\n",
+        "print(incomes[::10000])"
+      ],
+      "id": "f2886825",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "- Read more: [Random sample](https://numpy.org/doc/stable/reference/random/index.html)\n",
+        "\n",
+        "## Aside: `time`\n",
+        "\n",
+        "- Use `time` before a command.\n",
+        "  - `real` time is how much passes in real life\n",
+        "\n",
+        "```{.bash code-line-numbers=\"false}\n",
+        "$ time python3 onemil.py\n",
+        "[123177 422613 471310 380518  95385 143328 426503 453832 427403 106416\n",
+        " 327306 476263  65814 281381 422404  59938  14231 232824 342190 329545\n",
+        " 412684 112339 202498   5071  59114 394601 451216  92268 381107 487447\n",
+        "  55089 339493 344836 261917 148326 452850 409130 484951 427839 307217\n",
+        " 259268 485208 331277 183015 132480 345930 439366   6814  39743 268276\n",
+        "  80739 293355 170394   4220  48082  15668 453927  58059 320294 101182\n",
+        "   1864 492297 130465   9920  76321 345944 268312 255875  46614 195236\n",
+        " 233737 443948 343483 116870 165561 326265 103567 327780 475672 392212\n",
+        " 396479 328248  43273  32596 246212   4258  60202  66783 135035 155327\n",
+        " 469638 378485 175496 428130 493185 154716 193012 424037 197666 103758]\n",
+        "\n",
+        "real    0m0.155s\n",
+        "user    0m1.883s\n",
+        "sys     0m0.033s\n",
+        "```\n",
+        "\n",
+        "## Solution\n"
+      ],
+      "id": "2df1eca9"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| code-fold: true\n",
+        "cutoffs = taxes[:,0]\n",
+        "rates = taxes[:,1]\n",
+        "\n",
+        "# If you are confused, print(arr) after every line\n",
+        "arr = np.append([0], cutoffs)\n",
+        "arr = arr[1:] - arr[:-1]\n",
+        "arr *= rates\n",
+        "arr = np.cumsum(arr)\n",
+        "arr = arr - cutoffs * rates\n",
+        "\n",
+        "taxes = np.array([cutoffs,rates,arr])\n",
+        "\n",
+        "taxes = taxes.transpose()"
+      ],
+      "id": "69310f3a",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Using it\n",
+        "\n",
+        "- I used the exact same `single_tax` function as in the \"Shell\" exercise.\n"
+      ],
+      "id": "d9ee43ec"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| code-fold: true\n",
+        "def single_tax(income):\n",
+        "    # Check all brackets\n",
+        "    for tax in taxes:\n",
+        "        if income < tax[0]:\n",
+        "            return income * tax[1] + tax[2]\n",
+        "    # We calculated the top bracket earlier\n",
+        "    return income * .396 + -43830.05"
+      ],
+      "id": "e2168430",
+      "execution_count": null,
+      "outputs": []
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "python3",
+      "language": "python",
+      "display_name": "Python 3 (ipykernel)",
+      "path": "C:\\Users\\cd-desk\\AppData\\Local\\Programs\\Python\\Python312\\share\\jupyter\\kernels\\python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}

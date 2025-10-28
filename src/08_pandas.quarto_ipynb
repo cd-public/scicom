@@ -1,0 +1,1952 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "title: <strong>pandas</strong>\n",
+        "---\n",
+        "\n",
+        "\n",
+        "# Why **pandas**?\n",
+        "\n",
+        "# What is **pandas**?\n",
+        "\n",
+        "- In its own words:\n",
+        "\n",
+        "> a fast, powerful, flexible and easy to use open source data analysis and manipulation tool\n",
+        "\n",
+        "- In my words:\n",
+        "\n",
+        "\"The basis of the modern 'boom' in data and data analysis\"\n",
+        "\n",
+        "## **pandas**\n",
+        "\n",
+        "- Stands for \"panel data\"\n",
+        "- Original built on NumPy, now on supercomputing technologies.\n",
+        "- Core innovation: The DataFrame\n",
+        "\n",
+        "> [A DataFrame is a data structure that organizes data into a 2-dimensional table of rows and columns, much like a spreadsheet.](https://www.databricks.com/glossary/what-are-dataframes)\n",
+        "\n",
+        "## \"like a spreadsheet\"\n",
+        "\n",
+        "- With **pandas**, we can do all the things we can do in a spreadsheet, but:\n",
+        "  \t- Automatically\n",
+        "\t- Repeatedly\n",
+        "\t- Consistently\n",
+        "- Basically, we never have to find a button again, but instead we have to learn functions from code documentation.\n",
+        "\n",
+        "## Spreadsheet Usage\n",
+        "\n",
+        "- I mostly (used to) use spreadsheets to make charts.\n",
+        "- **pandas** works *very* well with Matplotlib (better than NumPy does, I think)\n",
+        "- In the NumPy tutorial, **pandas** and Matplotlib are the two other Python packages mentioned, to read spreadsheets and plot them, respectively.\n",
+        "\n",
+        "## Why not **pandas**?\n",
+        "\n",
+        "- After years undisputed prominence as the best data library, **pandas** has recently received a challenger called \"Polars\" which is situationally faster and rapidly gaining popularity.\n",
+        "- I expect Polars to take over in cloud computing but not in scientific computing.\n",
+        "- Polars uses neither NumPy not Matplotlib, but plots with Altair, which I found insuitable for scientific applications.\n",
+        "\n",
+        "## Relevance\n",
+        "\n",
+        "- We have only calculated and plotted data we have typed in ourselves!\n",
+        "- Yuck!\n",
+        "\n",
+        "# Install\n",
+        "\n",
+        "## pip again\n",
+        "\n",
+        "- Just like NumPy and Matplotlib, **pandas** is a Python package which we install via `pip`\n",
+        "```{.bash code-line-numbers=\"false\"}\n",
+        "python3 -m pip install pandas\n",
+        "```\n",
+        "- That might take a moment, when it does we can check it worked!\n",
+        "\n",
+        "## Two First Steps\n",
+        "\n",
+        "- There are two *great* ways to get a **pandas** DataFrame.\n",
+        "- We quickly show both."
+      ],
+      "id": "3c46050c"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "import numpy as np\n",
+        "import pandas as pd"
+      ],
+      "id": "3ab15645",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## From NumPy\n"
+      ],
+      "id": "29e21ba7"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "taxes = np.array([\n",
+        "    [9275, .1],\n",
+        "    [37650, .15],\n",
+        "    [91150, .25],\n",
+        "    [190150, .28],\n",
+        "    [413350, .33],\n",
+        "    [415051, .35]\n",
+        "])\n",
+        "df = pd.DataFrame(taxes) # use \"df\" for dataframes by convention\n",
+        "df # You'll notice this may look a lot nicer"
+      ],
+      "id": "75e226c7",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Get a File\n",
+        "\n",
+        "- I will use some nuclear data.\n",
+        "- Usually data will come from your research group or experiments.\n",
+        "- Often stored as a CSV.\n",
+        "  \t- A \".csv\" file, for \"comma separated value\"\n",
+        "- We'll use \"Periodic Table of Elements.csv\"\n",
+        "  \t- Spaces in maes are annoying; we'll manage.\n",
+        "- It's from [here](https://gist.github.com/GoodmanSciences/c2dd862cd38f21b0ad36b8f96b4bf1ee)\n",
+        "\n",
+        "## From a URL\n",
+        "\n",
+        "- You can use files on your computer, or...\n",
+        "- From a url.\n",
+        "- But the url must be the address *of the file*\n",
+        "  - Not a page that talks about the file.\n",
+        "  - Not a page with the same data but presented in a pretty table.\n",
+        "\n",
+        "## \"Raw\" Files\n",
+        "\n",
+        "- On GitHub (common place to keep files) these are called \"raw\" files.\n",
+        "  - [https://gist.githubusercontent.com/GoodmanSciences/c2dd862cd38f21b0ad36b8f96b4bf1ee/raw/1d92663004489a5b6926e944c1b3d9ec5c40900e/Periodic%2520Table%2520of%2520Elements.csv](https://gist.githubusercontent.com/GoodmanSciences/c2dd862cd38f21b0ad36b8f96b4bf1ee/raw/1d92663004489a5b6926e944c1b3d9ec5c40900e/Periodic%2520Table%2520of%2520Elements.csv)\n",
+        "- Note - that ends in `.csv`\n",
+        "\n",
+        "## From File\n"
+      ],
+      "id": "4f73de61"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "df = pd.read_csv(\"https://gist.githubusercontent.com/GoodmanSciences/c2dd862cd38f21b0ad36b8f96b4bf1ee/raw/1d92663004489a5b6926e944c1b3d9ec5c40900e/Periodic%2520Table%2520of%2520Elements.csv\")\n",
+        "df"
+      ],
+      "id": "9d52af28",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "# DataFrames\n",
+        "\n",
+        "## DataFrames and Arrays\n",
+        "\n",
+        "- DataFrames:\n",
+        "  \t- Have row and column labels\n",
+        "\t- Can store multiple types of data (strings/words, integers, and floating point numbers)\n",
+        "- Arrays:\n",
+        "  \t- Don't\n",
+        "\t- Can't\n",
+        "\n",
+        "## Subsetting\n",
+        "\n",
+        "- One of the most common uses for **pandas** is to *subset*, to look at part of DataFrame but not all.\n",
+        "- Usually by looking at a specific column or columns - by name.\n",
+        "  \t- Vs. arrays and lists, DataFrames still have indices, but they are now usually strings."
+      ],
+      "id": "8da79542"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "df[\"Element\"]"
+      ],
+      "id": "76d39c3b",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Multiple Indices\n",
+        "\n",
+        "- We can also subset multiple indices using a *list* of *indices* (column names).\n"
+      ],
+      "id": "fc75f1d3"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "df[[\"Element\",\"Symbol\"]]"
+      ],
+      "id": "34663cd9",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Filtering\n",
+        "\n",
+        "- We can subset rows by *filtering*\n",
+        "- Basically we write what would be an `if` statement, but use it as an index.\n",
+        "- The \"transuranic\" elements are elements higher than number 92."
+      ],
+      "id": "89e1b230"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "df[df[\"AtomicNumber\"] > 92]"
+      ],
+      "id": "7cbdda18",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Double `df`\n",
+        "\n",
+        "- We use `df` twice in that expression:\n",
+        "  - Once to check the `df` if some value is greater than 92\n",
+        "  - Once to look up all elements *for which* the value is greater."
+      ],
+      "id": "238552c7"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "df[\"AtomicNumber\"] > 92"
+      ],
+      "id": "aad060e6",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## .columns\n",
+        "\n",
+        "- By the way, what all do we know?"
+      ],
+      "id": "61ba436e"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "df.columns"
+      ],
+      "id": "30dee8ac",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "- Oh that's a lot of information!\n",
+        "\n",
+        "## How big?\n",
+        "\n",
+        "- How big is `df`?"
+      ],
+      "id": "1ea056e8"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "df.shape"
+      ],
+      "id": "f8f357ae",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "- And by the way, `np.array`'s have `shape` too."
+      ],
+      "id": "aaba6a08"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "taxes.shape"
+      ],
+      "id": "82b31f9f",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "- Aside: Multiple values within a `()` are asically lists but called tuples."
+      ],
+      "id": "48f05fe7"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "type(taxes.shape)"
+      ],
+      "id": "a58b9c43",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Locating Entries\n",
+        "\n",
+        "- Sometimes you want to use an integer index. "
+      ],
+      "id": "0e70d7cf"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "df.iloc[10] # \"Integer Location\""
+      ],
+      "id": "4c5a65b3",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Zero/One index\n",
+        "\n",
+        "- DataFrames are 0-indexed"
+      ],
+      "id": "ef02aa67"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "df[\"AtomicNumber\"].iloc[0]"
+      ],
+      "id": "f0ea8545",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "- Elements are 1-indexed[^1] with good reason."
+      ],
+      "id": "c7d491df"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "df[[\"AtomicNumber\",\"NumberofProtons\"]].head(1)"
+      ],
+      "id": "d4af6f87",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "[^1]: Neutronium is a proposed but not academically interesting element with atomic number `0`.\n",
+        "\n",
+        "\n",
+        "\n",
+        "## Data Manipulation\n",
+        "\n",
+        "- Check out these columns"
+      ],
+      "id": "a9a99123"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "df.iloc[::20][[\"NumberofNeutrons\", \"NumberofProtons\"]]"
+      ],
+      "id": "79feb57e",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Pattern\n",
+        "\n",
+        "- It *looks* like atoms with fewer protons have the same number of protons and neutrons, and atoms with many protons have many more neutrons.\n",
+        "- Let's calculate the difference."
+      ],
+      "id": "c4824806"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "df[\"NumberofProtons\"] - df[\"NumberofNeutrons\"]"
+      ],
+      "id": "856d4034",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "# Plots\n",
+        "\n",
+        "## Visualize\n",
+        "\n",
+        "- Easier to visualize."
+      ],
+      "id": "808263eb"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# import Matplotlib if you don't have it yet!\n",
+        "import matplotlib.pyplot as plt"
+      ],
+      "id": "9c2bf389",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Scatterplot\n"
+      ],
+      "id": "a42ad262"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "plt.scatter(df[\"NumberofProtons\"], df[\"NumberofNeutrons\"])"
+      ],
+      "id": "675f37e2",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Insights\n",
+        "\n",
+        "- A lot of science, as far as I can tell is finding novel insights.\n",
+        "- I noticed that boiling/melting point seemed to go up and down at some intervals.\n",
+        "- I recall that the number of outermost electrons did that too...\n",
+        "- Let's make `num_es` again, from last time.\n",
+        "\n",
+        "## `num_es`\n"
+      ],
+      "id": "7ccc116f"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "es = np.array([2, 8, 8, 18, 18, 32, 32])\n",
+        "num_es = np.array([]) # The first zero elements\n",
+        "for e in es:\n",
+        "    num_es = np.append(num_es, np.arange(e))\n",
+        "num_es += 1\n",
+        "num_es"
+      ],
+      "id": "04a07c18",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Expanding DataFrames\n",
+        "\n",
+        "- We can create a new column and add new data to it from a `np.array`\n",
+        "- At least if the dimensions work out..."
+      ],
+      "id": "76398ecc"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "df.shape, num_es.shape"
+      ],
+      "id": "b788d881",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "- We have 118 elements, so it is good we have 118 possible outermost electron counts!\n",
+        "\n",
+        "## Update list\n",
+        "\n",
+        "- Like updating the element of a list by index..."
+      ],
+      "id": "f302de22"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet']\n",
+        "colors[-1] = \"purple\"\n",
+        "colors"
+      ],
+      "id": "7c36ff1b",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Update DataFrame\n",
+        "\n",
+        "- We can update *or add* a column to a DataFrame by index:"
+      ],
+      "id": "e49d120a"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "df[\"OutermostElectrons\"] = num_es\n",
+        "df.iloc[::20][[\"Element\",\"OutermostElectrons\"]]"
+      ],
+      "id": "633d1232",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Patterns\n",
+        "\n",
+        "- For a scatter, that is two (`2`) DataFrames (or subsets), **not** one DataFrame with two columns\n"
+      ],
+      "id": "9e1b3a6c"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "plt.scatter(df[\"OutermostElectrons\"], df[\"MeltingPoint\"])"
+      ],
+      "id": "959b220f",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## 3D\n",
+        "\n",
+        "- Third dimension via `s=` for size \n"
+      ],
+      "id": "76b1404b"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "plt.scatter(df[\"OutermostElectrons\"], df[\"MeltingPoint\"], s=df[\"AtomicNumber\"])"
+      ],
+      "id": "0643dd44",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Columns to Columns\n",
+        "\n",
+        "- Using vector operations, we can make novel columns from existing columns."
+      ],
+      "id": "7dae6a95"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "df[\"NeutronsLessProtons\"] = df[\"NumberofNeutrons\"] - df[\"NumberofProtons\"]\n",
+        "plt.plot(df[\"NeutronsLessProtons\"])"
+      ],
+      "id": "39b98ed4",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## 4D\n"
+      ],
+      "id": "bc3a5e5a"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "plt.scatter(x=df[\"OutermostElectrons\"], # we can optional specify x and y \n",
+        "            y=df[\"MeltingPoint\"], \n",
+        "            s=df[\"AtomicNumber\"], \n",
+        "            c=df[\"NeutronsLessProtons\"]) # color\n",
+        "plt.colorbar() # Like a legend for colors."
+      ],
+      "id": "b9707854",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## \"kwargs\"\n",
+        "\n",
+        "- When we call a function and use something like `x=` in the arguments, `x` is a keyword so we call these \"kwargs\" for \"keyword arguments\".\n",
+        "- You may see this when looking up functions.\n",
+        "- Just follow examples."
+      ],
+      "id": "cc224b97"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "def triple(x):\n",
+        "\treturn 3 * x\n",
+        "\n",
+        "[triple(x=7), triple(7)]"
+      ],
+      "id": "3ebf5e24",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Dropping\n",
+        "\n",
+        "- Some columns may be useless or redundant."
+      ],
+      "id": "c681ed3a"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "df.iloc[::20][[\"AtomicNumber\",\"NumberofProtons\",\"NumberofElectrons\"]]"
+      ],
+      "id": "857bd0ad",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Drop it\n",
+        "\n",
+        "- We can remove such columns."
+      ],
+      "id": "5e1fd192"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "df.shape"
+      ],
+      "id": "1c365158",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Have to specify columns (we can also drop rows)\n",
+        "df = df.drop(columns=[\"NumberofProtons\",\"NumberofElectrons\"])\n",
+        "df.shape"
+      ],
+      "id": "02e4ebde",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "# Summaries\n",
+        "\n",
+        "## Summary Statistics\n",
+        "\n",
+        "- There's a variety of ways to describe a DataFrame other than just seeing all of it's data.\n"
+      ],
+      "id": "2697d9b7"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "df.describe()"
+      ],
+      "id": "72314ce7",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Info\n",
+        "\n",
+        "- Info is often helpful\n"
+      ],
+      "id": "306dd390"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "df.info()"
+      ],
+      "id": "9fc743bc",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Columns\n",
+        "\n",
+        "- And remember we can see all the column names!\n",
+        "- No `()`!\n"
+      ],
+      "id": "64a8ff75"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "df.columns"
+      ],
+      "id": "7fb32a16",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Shape\n",
+        "\n",
+        "- And of course shape!\n"
+      ],
+      "id": "5abf1fac"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "df.shape"
+      ],
+      "id": "eaa1f53e",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Column-wise\n",
+        "\n",
+        "- We can do all kinds of operations over a single column."
+      ],
+      "id": "c5963ddb"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "mp = df[\"MeltingPoint\"] # Copy column to save some typing.\n",
+        "[mp.min(), mp.max(), mp.mean(), mp.median(), mp.mode(), mp.std()]"
+      ],
+      "id": "8f6f3778",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "# Using `loc`\n",
+        "\n",
+        "## Metal or not\n",
+        "\n",
+        "- We helpfully can already see what metals are."
+      ],
+      "id": "22320cc7"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "df.iloc[15:25:2][[\"Element\",\"Metal\"]]"
+      ],
+      "id": "a96ca55e",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## NaN\n",
+        "\n",
+        "- `NaN` means \"not a number\" and is used by **pandas** (not generally by Python) to fill in missing data."
+      ],
+      "id": "c63d1dac"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "np.sqrt(-1)"
+      ],
+      "id": "8790f4ed",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "- I find this idea a bit odd (and e.g. Polars does not do this) but we can work with it.\n",
+        "\n",
+        "\n",
+        "\n",
+        "## (Non)metal(loid)\n",
+        "\n",
+        "- Elements are \"metal\", \"nonmetal\", or \"metalloid\".\n",
+        "- I regard this as how *metallic* an element is."
+      ],
+      "id": "fdc8cfa5"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "df.iloc[12:16][[\"Element\",\"Metal\",\"Nonmetal\",\"Metalloid\"]]"
+      ],
+      "id": "f995c0f9",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Metallic \n",
+        "\n",
+        "- We introduce and use `np.where`, which takes\n",
+        "  - A condition\n",
+        "  - A value if condition\n",
+        "  - A value else"
+      ],
+      "id": "7cbde3c6"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "df[\"Metallic\"] = np.where(df[\"Metal\"] == \"yes\", \"Metal\", \"Nonmetal\")\n",
+        "df.iloc[12:16][[\"Metal\",\"Nonmetal\",\"Metalloid\",\"Metallic\"]]"
+      ],
+      "id": "bf0ef197",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Metalloids\n",
+        "\n",
+        "- Additionally deal with metalloids."
+      ],
+      "id": "bd9ac215"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "df[df[\"Metalloid\"] == \"yes\"][\"Metallic\"] = \"Metalloid\"\n",
+        "df.iloc[12:16][[\"Metal\",\"Nonmetal\",\"Metalloid\",\"Metallic\"]]"
+      ],
+      "id": "d168f9fe",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "- Whoops!\n",
+        "\n",
+        "## `loc`\n",
+        "\n",
+        "- `df[df[\"Metalloid\"] == \"yes\"]` is not the same dataframe as `df`\n",
+        "- Changes to it will not change `df`.\n",
+        "- We use `.loc`, the cousin of `.iloc` to update `df`.\n",
+        "- **We must also very carefully put all indices, comma separated, in single brackets.**\n",
+        "  \t- Row and column, together, within `[]`\n",
+        "\n",
+        "## Recall: [NumPy](05_numpy.qmd#coordinate-slices)\n",
+        "\n",
+        ":::{.hidden}\n"
+      ],
+      "id": "7cb5e38b"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "arr = np.array([\n",
+        "    [9275, .10],\n",
+        "    [37650, .15],\n",
+        "    [91150, .25],\n",
+        "    [190150, .28],\n",
+        "    [413350, .33],\n",
+        "    [415051, .35]\n",
+        "])"
+      ],
+      "id": "578ecf2c",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "- I recommend using the comma notation.\n",
+        "- Otherwise I get unexpected behavior.\n",
+        "\n",
+        ":::: {.columns}\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n"
+      ],
+      "id": "0f9aa19c"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# reverse in both dimensions\n",
+        "arr[::-1][::-1] "
+      ],
+      "id": "4d2ef287",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n"
+      ],
+      "id": "9d59287c"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# reverse in both dimensions\n",
+        "arr[::-1,::-1]"
+      ],
+      "id": "d5f664f2",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::::\n",
+        "\n",
+        "- Takeaway:  Always use `[x,y]` instead of `[x][y]`\n",
+        "- This is why we use <s>NumPy</s>**pandas**!\n",
+        "\n",
+        "\n",
+        "## Update\n"
+      ],
+      "id": "e1ceade7"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "df.loc[df[\"Metalloid\"] == \"yes\", \"Metallic\"] = \"Metalloid\"\n",
+        "df.iloc[12:16][[\"Metal\",\"Nonmetal\",\"Metalloid\",\"Metallic\"]]"
+      ],
+      "id": "82f12562",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "- Much nicer.\n",
+        "\n",
+        "## Another drop\n",
+        "\n",
+        "- Let's just keep \"Metallic\" now that we have it."
+      ],
+      "id": "c87b6965"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Have to specify columns (we can also drop rows)\n",
+        "df = df.drop(columns=[\"Metal\",\"Nonmetal\",\"Metalloid\"])\n",
+        "df.columns "
+      ],
+      "id": "a435333a",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "# Groups\n",
+        "\n",
+        "## On groups\n",
+        "\n",
+        "- In chemistry:\n",
+        "\n",
+        "> a group (also known as a family) is a column of elements in the periodic table of the chemical elements.\n",
+        "\n",
+        "- In computing\n",
+        "\n",
+        "> a set together with a binary operation satisfying certain algebraic conditions.\n",
+        "\n",
+        "## On groupby\n",
+        "\n",
+        "- In **pandas**\n",
+        "\n",
+        "> A `groupby` operation involves some combination of splitting the object, applying a function, and combining the results. This can be used to group large amounts of data and compute operations on these groups.\n",
+        "\n",
+        "## Element Groups\n"
+      ],
+      "id": "5b5b3586"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "df.iloc[:60:10][[\"Element\",\"Group\"]]"
+      ],
+      "id": "39d7e69f",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Counting\n",
+        "\n",
+        "- Let's see how many elements are in each group!"
+      ],
+      "id": "c474a1da"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "df.groupby(\"Group\").count()"
+      ],
+      "id": "e72795f4",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Goofy\n",
+        "\n",
+        "- Oh it took the count of all columns.\n",
+        "- But... that isn't useless?\n",
+        "- Let's perhaps look a melting point by group."
+      ],
+      "id": "62c98089"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "df.groupby(\"Group\")[\"MeltingPoint\"].mean()"
+      ],
+      "id": "6c2172c1",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Plot it\n",
+        "\n",
+        "- That was too hard to see."
+      ],
+      "id": "24dca0c4"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "df.groupby(\"Group\")[\"MeltingPoint\"].mean().plot()"
+      ],
+      "id": "7659e3c0",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## `groupby`\n",
+        "\n",
+        "- Groupby is a cool and powerful tool.\n",
+        "- I tend to use it with summary statistics, and you can usually work around it with filters, but with a bit of practice it's a real joy to work with.\n",
+        "\n",
+        "# Merge \n",
+        "\n",
+        "## Names\n",
+        "\n",
+        "- An astute learning will note a few oddities with names and symbols in the table.\n",
+        "- Some symbols and elements start with different letters.\n",
+        "\n",
+        "## Strings\n",
+        "\n",
+        "- Like lists, arrays, and DataFrames, we can use indices on strings of characters."
+      ],
+      "id": "27eac212"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "ele = df.iloc[1]\n",
+        "symbol = ele[\"Symbol\"]\n",
+        "element = ele[\"Element\"]\n",
+        "symbol[0] == element[0], symbol, element"
+      ],
+      "id": "91eaa3f8",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Differing\n",
+        "\n",
+        "- Sometimes the first letter differs - but not often."
+      ],
+      "id": "55d74611"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "ele = df.iloc[18]\n",
+        "symbol = ele[\"Symbol\"]\n",
+        "element = ele[\"Element\"]\n",
+        "symbol[0] == element[0], symbol, element"
+      ],
+      "id": "00ba681a",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Write a function\n",
+        "\n",
+        "- We make a function that checks if two things start with the same letter."
+      ],
+      "id": "ea11e2d5"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "def differ(x,y):\n",
+        "\t# != means \"does not equal\"\n",
+        "\treturn x[0] != y[0]"
+      ],
+      "id": "f49bcedb",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Vectorize\n",
+        "\n",
+        "- To apply to DataFrames, we must vectorize it.\n",
+        "  \t- `x[0]` of a DataFrame is a row\n",
+        "\t- `x[0]` of a string is a letter\n",
+        "\t- We wanted letters!"
+      ],
+      "id": "18cbc7b9"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "diff_vector = np.vectorize(differ)"
+      ],
+      "id": "50a7b6d6",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## The Elements\n"
+      ],
+      "id": "68573f36"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "df[diff_vector(df[\"Symbol\"], df[\"Element\"])][\"Element\"]"
+      ],
+      "id": "998152d8",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "- Basically, these elements have archaic Latin names that were in use when symbols were set before developing their modern names, or something. [Read more](https://www.compoundchem.com/2016/02/02/confusing-elements/)\n",
+        "\n",
+        "##\n",
+        "\n",
+        "![](https://i0.wp.com/www.compoundchem.com/wp-content/uploads/2016/02/11-Confusing-Chemical-Element-Symbols-Explained.png)\n",
+        "\n",
+        "## Adding Names\n",
+        "\n",
+        "- Let's make another DataFrame\n",
+        "  \t- We'll call if `ad` for \"artus datus\", which might (I have no idea) be Latin for data frame."
+      ],
+      "id": "ba2ea5a8"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "names = [\n",
+        "    [\"Sodium\", \"Natrium\"],\n",
+        "    [\"Potassium\", \"Kalium\"],\n",
+        "    [\"Iron\", \"Ferrum\"],\n",
+        "    [\"Silver\", \"Argentum\"],\n",
+        "    [\"Tin\", \"Stannum\"],\n",
+        "    [\"Antimony\", \"Stibium\"],\n",
+        "    [\"Tungsten\", \"Wolfram\"],\n",
+        "    [\"Gold\", \"Aurum\"],\n",
+        "    [\"Mercury\", \"Hydrargyrum\"],\n",
+        "    [\"Lead\", \"Plumbum\"]\n",
+        "]"
+      ],
+      "id": "a2778267",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## To DataFrame\n",
+        "\n",
+        "- `ad` for \"artus datus\", which may be Latin for data frame."
+      ],
+      "id": "69ef0607"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "ad = pd.DataFrame(names)\n",
+        "ad"
+      ],
+      "id": "a7dee8bb",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Column Names\n",
+        "\n",
+        "- Remember `.columns`?"
+      ],
+      "id": "90853d10"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "df.columns"
+      ],
+      "id": "fc1f44d5",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "- We can actually use `=` with `.columns`"
+      ],
+      "id": "3ac7cbb2"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "ad.columns = [\"Element\", \"Latin\"] \n",
+        "ad.iloc[0]"
+      ],
+      "id": "88bcb7d3",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Merge\n"
+      ],
+      "id": "18cda4b7"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "df.merge(ad) "
+      ],
+      "id": "8a765bfd",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Oh no!\n",
+        "\n",
+        "- So we successfully added Latin names, but...\n",
+        "- We lost all elements *without* a Latin name.\n",
+        "- The merge only kept elements in both `df` and `ad`\n",
+        "\n",
+        "# Join\n",
+        "\n",
+        "## Don't merge\n",
+        "\n",
+        "- In my experience, merges never work, but...\n",
+        "- They explain *how* joins, the good thing, work.\n",
+        "\n",
+        "## Background\n",
+        "\n",
+        "- To make learning joins easier, we'll work with two DataFrames."
+      ],
+      "id": "35a83e9d"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "metalloids = df[df[\"Metallic\"] == \"Metalloid\"]\n",
+        "latin_name = df.merge(ad)"
+      ],
+      "id": "dbbdd836",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Index\n",
+        "\n",
+        "- Versus `merge`, which just figures it out, `join` likes to look at indices.\n",
+        "- So we have to make sure we have the same index on both data frames.\n",
+        "- We'll use `\"Symbol\"`"
+      ],
+      "id": "94bdc89d"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "metalloids.index = metalloids[\"Symbol\"]\n",
+        "latin_name.index = latin_name[\"Symbol\"]"
+      ],
+      "id": "176ad24c",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Simplify\n",
+        "\n",
+        "- To make things easier on us, let's just only look at a few columns.\n",
+        "- We will avoid having two columns of the same name.\n",
+        "  \t- This is manageable, but let's learn joins first."
+      ],
+      "id": "7898ef6f"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "metalloids = metalloids[[\"AtomicNumber\",\"Metallic\"]]\n",
+        "latin_name = latin_name[[\"Element\",\"Latin\"]]"
+      ],
+      "id": "8f3b33cf",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## The df's\n",
+        "\n",
+        ":::: {.columns}\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n"
+      ],
+      "id": "a1bfc524"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "metalloids"
+      ],
+      "id": "0dee9fa2",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n"
+      ],
+      "id": "5f7bcb04"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "latin_name"
+      ],
+      "id": "53ae7f75",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::::\n",
+        "\n",
+        "## Visuals\n",
+        "\n",
+        "- I will also visualize this using venn diagrams.\n",
+        "- To my knowledge, there is no graceful way to visualize venn diagrams, but `matplotlib-venn` is okay.\n",
+        "- I'm spoiler-marking code that shows how I make the venn diagrams.\n",
+        "\n",
+        "##\n"
+      ],
+      "id": "55e589ec"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| code-fold: true\n",
+        "from matplotlib_venn import venn2, venn2_circles\n",
+        "\n",
+        "def show_join(how, left, right, mid):\n",
+        "    v = venn2((2, 2, 1), ('metalloids', 'latin_name'))\n",
+        "    v.get_patch_by_id('100').set_color('darkblue' if left else 'white')\n",
+        "    v.get_patch_by_id('010').set_color('darkblue' if right else 'white')\n",
+        "    v.get_patch_by_id('110').set_color('darkblue' if mid else 'white')\n",
+        "    v.get_patch_by_id('100').set_alpha(1.0)\n",
+        "    v.get_patch_by_id('010').set_alpha(1.0)\n",
+        "    v.get_patch_by_id('110').set_alpha(1.0)\n",
+        "    venn2_circles((2, 2, 1))\n",
+        "    for idx, subset in enumerate(v.subset_labels):\n",
+        "        v.subset_labels[idx].set_visible(False)\n",
+        "        plt.title(\"metalloids.join(latin_name, how=\\\"\" + how + \"\\\")\")\n",
+        "    plt.show()"
+      ],
+      "id": "79c401fa",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Quoth [**pandas**](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.join.html){.smaller}\n",
+        "\n",
+        "how: `{‘left’,‘right’,‘outer’,‘inner’,‘cross’}`\n",
+        "\n",
+        "- How to handle operation of the two objects.\n",
+        "\n",
+        "  - `'left'`: use calling frame’s index  \n",
+        "  - `'right'`: use other’s index.\n",
+        "  - `'outer'`: form union of calling frame’s index with other’s index.\n",
+        "  - `'inner'`: form intersection of calling frame’s index with other’s index.\n",
+        "  - `'cross'`: creates the cartesian product from both frames.\n",
+        "\n",
+        "\n",
+        "## Join\n",
+        "\n",
+        "- Join uses all columns, filling with \"NaN\".\n"
+      ],
+      "id": "ce8670b1"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "metalloids.join(latin_name)"
+      ],
+      "id": "756e2326",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Left\n",
+        "\n",
+        "\n",
+        ":::: {.columns}\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n"
+      ],
+      "id": "7bfaea5b"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "metalloids.join(latin_name, how='left')[\"Element\"]"
+      ],
+      "id": "f2d4c76d",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n"
+      ],
+      "id": "6a3a3761"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "show_join('left',1,0,1)"
+      ],
+      "id": "d4bb0f11",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::::\n",
+        "\n",
+        "## Right\n",
+        "\n",
+        "\n",
+        ":::: {.columns}\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n"
+      ],
+      "id": "7365664f"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "metalloids.join(latin_name, how='right')[\"Element\"]"
+      ],
+      "id": "2e827281",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n"
+      ],
+      "id": "ca5c427e"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "show_join('right',0,1,1)"
+      ],
+      "id": "b4f0aa3c",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::::\n",
+        "\n",
+        "\n",
+        "## Outer \n",
+        "\n",
+        "\n",
+        ":::: {.columns}\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n"
+      ],
+      "id": "624f9651"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "metalloids.join(latin_name, how='outer')[\"Element\"]"
+      ],
+      "id": "a109c462",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n"
+      ],
+      "id": "42440f5f"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "show_join('outer',1,1,1)"
+      ],
+      "id": "cbb451fc",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::::\n",
+        "\n",
+        "\n",
+        "## Inner \n",
+        "\n",
+        "\n",
+        ":::: {.columns}\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n"
+      ],
+      "id": "3a8614be"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "metalloids.join(latin_name, how='inner')[\"Element\"]"
+      ],
+      "id": "8829221b",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n"
+      ],
+      "id": "706550d9"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "show_join('inner',0,0,1)"
+      ],
+      "id": "d9dd1847",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::::\n",
+        "\n",
+        "\n",
+        "## Cross\n",
+        "\n",
+        "- Cross makes pairs.\n",
+        "- I don't see it used often.\n"
+      ],
+      "id": "3655cac9"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "metalloids.join(latin_name, how='cross')"
+      ],
+      "id": "24d246d9",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "# Exercise\n",
+        "\n",
+        "## The Table\n",
+        "\n",
+        "- The periodic table was developed by laying out elements by \"Groups\" and \"Periods\"\n",
+        "- Basically, number of outer electrons (that can bond) and number of layers of inner \"shells\" of electrons that can't bond.\n",
+        "  \t- Or something. I'm not a real scientist.\n",
+        "- We can plot these against each other.\n",
+        "\n",
+        "## Electronegativity\n",
+        "\n",
+        "> [Electronegativity is a measure of the tendency of an atom to attract a bonding pair of electrons. The Pauling scale is the most commonly used. Fluorine (the most electronegative element) is assigned a value of 4.0, and values range down to cesium and francium which are the least electronegative at 0.7.](https://chem.libretexts.org/Bookshelves/Physical_and_Theoretical_Chemistry_Textbook_Maps/Supplemental_Modules_(Physical_and_Theoretical_Chemistry)/Physical_Properties_of_Matter/Atomic_and_Molecular_Properties/Electronegativity)\n",
+        "\n",
+        "## Exercise\n",
+        "\n",
+        "- Plot the table, by plotting \"Groups\" vs \"Periods\"\n",
+        "- Plot electronegativity using color.\n",
+        "- Confirm the claims from the chemistry text about electronegativity trends.\n",
+        "- Annotate the location of fluorine (F).\n",
+        "\n",
+        "## Aside: Inversion\n",
+        "\n",
+        "- There's a few ways to invert an axis that you may want to use."
+      ],
+      "id": "61ebb4f6"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "taxes = pd.DataFrame(taxes)\n",
+        "plt.scatter(taxes[0],taxes[1])"
+      ],
+      "id": "c001897b",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Supply a `-`\n",
+        "\n",
+        "- You can negate, but it impacts labels.\n"
+      ],
+      "id": "c234d459"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Not there's a negative on taxes[1]\n",
+        "plt.scatter(taxes[0],-taxes[1])"
+      ],
+      "id": "195113b3",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Get axes\n",
+        "\n",
+        "- You can use `.gca()` (get current axes) and set one negative.\n"
+      ],
+      "id": "33c3083d"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "plt.scatter(taxes[0],taxes[1])\n",
+        "plt.gca().invert_yaxis()"
+      ],
+      "id": "f9d8d9e7",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Solution \n"
+      ],
+      "id": "c4f0c33d"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| code-fold: true\n",
+        "# Plot\n",
+        "plt.scatter(\n",
+        "\tx=df[\"Group\"],\n",
+        "\ty=df[\"Period\"],\n",
+        "\tc=df[\"Electronegativity\"]\n",
+        ")\n",
+        "plt.gca().invert_yaxis()\n",
+        "# Label\n",
+        "plt.title(\"Electronegativity\")\n",
+        "plt.xlabel(\"Group\")\n",
+        "plt.ylabel(\"Period\")\n",
+        "plt.colorbar()\n",
+        "# Annotate\n",
+        "_ = plt.annotate(\"F\",(17,2)) "
+      ],
+      "id": "0dfa13bd",
+      "execution_count": null,
+      "outputs": []
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "python3",
+      "language": "python",
+      "display_name": "Python 3 (ipykernel)",
+      "path": "C:\\Users\\cd-desk\\AppData\\Local\\Programs\\Python\\Python312\\share\\jupyter\\kernels\\python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}

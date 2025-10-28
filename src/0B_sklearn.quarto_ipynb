@@ -1,0 +1,1747 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "title: Sklearn \n",
+        "---\n",
+        "\n",
+        "\n",
+        "# Why Sklearn?\n",
+        "\n",
+        "## What is Sklearn?{.smaller}\n",
+        "\n",
+        "- `Sklearn` or `scikit-learn`, originally conceived as an extension to SciPy.\n",
+        "\n",
+        "> [Scikit-learn is an open source machine learning library that supports supervised and unsupervised learning. It also provides various tools for model fitting, data preprocessing, model selection, model evaluation, and many other utilities.Scikit-learn is an open source machine learning library that supports supervised and unsupervised learning. It also provides various tools for model fitting, data preprocessing, model selection, model evaluation, and many other utilities.](https://scikit-learn.org/stable/getting_started.html)\n",
+        "\n",
+        "## Why sklearn? \n",
+        "\n",
+        "* \"Simple and efficient tools for predictive data analysis\"\n",
+        "* \"Accessible to everybody, and reusable in various contexts\"\n",
+        "* \"Built on NumPy, SciPy, and matplotlib\"\n",
+        "* \"Open source, commercially usable - BSD license\"\n",
+        "\n",
+        "## Why not sklearn?\n",
+        "\n",
+        "- The closest thing to competitors, to my knowledge, are Torch and Tensorflow.\n",
+        "  - The Meta and Google GPU-accelerated frameworks, respectively.\n",
+        "- I don't like that the other frameworks are managed by big tech companies, and I don't think they are as well suited to science.\n",
+        "\n",
+        "## Using Sklearn\n",
+        "\n",
+        "- Sklearn/scikit-learn is incrementally more involved to install via `pip` because, well, sometimes it is called \"sklearn\" and sometimes \"scikit-learn\".\n",
+        "- This gets me almost every time:\n",
+        "```{.bash code-line-numbers=\"false\"}\n",
+        "$ python3 -m pip install sklearn\n",
+        "Collecting sklearn\n",
+        "  Downloading sklearn-0.0.post12.tar.gz (2.6 kB)\n",
+        "  Preparing metadata (setup.py) ... error\n",
+        "  error: subprocess-exited-with-error\n",
+        "\n",
+        "  × python setup.py egg_info did not run successfully.\n",
+        "  │ exit code: 1\n",
+        "  ╰─> [15 lines of output]\n",
+        "      The 'sklearn' PyPI package is deprecated, use 'scikit-learn'\n",
+        "      rather than 'sklearn' for pip commands.\n",
+        "```\n",
+        "\n",
+        "## Use `scikit-learn`\n",
+        "\n",
+        "- Scikit-learn recommends the following:\n",
+        "```{.bash code-line-numbers=\"false\"}\n",
+        "python3 -m pip install scikit-learn\n",
+        "python3 -m pip show scikit-learn  # show scikit-learn version and location\n",
+        "python3 -m pip freeze             # show all installed packages in the environment\n",
+        "python3 -c \"import sklearn; sklearn.show_versions()\"\n",
+        "```\n",
+        "- You will see *a lot* of text.\n",
+        "\n",
+        "## Easier\n",
+        "\n",
+        "- Just open `python`/`python3` and "
+      ],
+      "id": "f0096ca3"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "import sklearn"
+      ],
+      "id": "00b55af8",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "- Like SciPy, usually *parts* of Sklearn are imported, so that isn't an expected two-letter name like `np` or `pd`\n",
+        "- I *never* use sklearn without at least **pandas**, NumPy, and Matplotlib."
+      ],
+      "id": "82ee3fad"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "import numpy as np\n",
+        "import pandas as pd\n",
+        "import matplotlib.pyplot as plt"
+      ],
+      "id": "b3b9d493",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## These Slides\n",
+        "\n",
+        "- We will focus on *cognitive* and *vision* science, motivated by the legendary example that drove early machine learning research...\n",
+        "\n",
+        "# [THE MNIST DATABASE](https://web.archive.org/web/20200430193701/http://yann.lecun.com/exdb/mnist/)\n",
+        "\n",
+        "of handwritten digits\n",
+        "\n",
+        "## Citation\n",
+        "\n",
+        "```{.LaTeX filename=\"mnist.bib\" code-line-numbers=\"false\"}\n",
+        "@article{lecun1998mnist,\n",
+        "  title={The MNIST database of handwritten digits},\n",
+        "  author={LeCun, Yann},\n",
+        "  journal={http://yann. lecun. com/exdb/mnist/},\n",
+        "  year={1998}\n",
+        "}\n",
+        "```\n",
+        "\n",
+        "## Credit\n",
+        "\n",
+        "- I will follow this guide:\n",
+        "- [Recognizing hand-written digits](https://scikit-learn.org/stable/auto_examples/classification/plot_digits_classification.html)\n",
+        "\n",
+        "## The Data\n",
+        "\n",
+        "- The MNIST dataset is pretty easy to find, even if the original source isn't maintained anymore.\n",
+        "- In fairness, it was posted before *I* started **kindergarten**\n",
+        "  \t- German for \"children garden\"\n",
+        "- It is so much everywhere, it is built into sklearn!"
+      ],
+      "id": "a0a47d31"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "from sklearn import datasets\n",
+        "\n",
+        "digits = datasets.load_digits()"
+      ],
+      "id": "a777ce3b",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Look at it\n"
+      ],
+      "id": "203a5fbe"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "digits"
+      ],
+      "id": "bcc802fd",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Okay\n",
+        "\n",
+        "- `digits` is a \"bunch\", which I'd never actually heard of before in my life, but appears almost identical to a Python `dict` or \"dictionary."
+      ],
+      "id": "6b7df816"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "type(digits)"
+      ],
+      "id": "1eb67541",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "- Here's a `dict`"
+      ],
+      "id": "84dc5c59"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "d = {\"data\" : np.arange(10), \"target\" : np.arange(10), \"frame\" : None}\n",
+        "type(d)"
+      ],
+      "id": "34a5b338",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "# Dictionaries\n",
+        "\n",
+        "## What is a Dictionary?\n",
+        "\n",
+        "- A dictionary is a built-in Python data type used to store collections of data.\n",
+        "- It stores data in \"key-value\" pairs.\n",
+        "- Dictionaries are unordered, mutable (like lists, not like tuples), and indexed by *keys*.\n"
+      ],
+      "id": "42951ece"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "my_dict = {\"one\": 1, \"two\": 2, \"three\": 3}\n",
+        "print(my_dict)"
+      ],
+      "id": "7a2c4925",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Key-Value Storage\n",
+        "\n",
+        "- Each item in a dictionary consists of a *key* and its corresponding *value*.\n",
+        "- **Keys** must be unique and immutable (e.g., strings, numbers, tuples).\n",
+        "  \t- Cannot be lists!\n",
+        "- **Values** can be of any data type and can be duplicated.\n"
+      ],
+      "id": "d24edd69"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "number_strings = {1: \"one\", 2: \"two\", 11: \"eleven\", 20: \"twenty\"}\n",
+        "number_strings[11], number_strings[2]"
+      ],
+      "id": "a325a91e",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Why dictionaries?\n",
+        "\n",
+        "- Think of a physical dictionary: a \"key\" (the word) points to a \"value\" (its definition).\n",
+        "- Python dictionaries work similarly, storing unique keys that retrieve associated values.\n",
+        "- This structure is powerful for organizing data where each piece needs a distinct label.\n"
+      ],
+      "id": "a6f52c0a"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "meanings = {\"earth\": \"ground, soil, land\", \"wind\": \"air in natural motion\", \"fire\": \"combustion or burning\", \"water\": \"colorless, transparent, odorless liquid\"}\n",
+        "meanings[\"earth\"]"
+      ],
+      "id": "530026d0",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Accessing Values\n",
+        "\n",
+        "- Values are accessed by referring to their associated key.\n",
+        "- You can use square brackets `[]` or the `.get()` method.\n",
+        "- `.get()` returns `None` or a default value if the key is not found, preventing errors.\n"
+      ],
+      "id": "459976c6"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "my_dict = {\"apple\": \"red\", \"banana\": \"yellow\"}\n",
+        "my_dict[\"apple\"], my_dict.get(\"strawberry\", \"idk\")"
+      ],
+      "id": "9182582c",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Adding and Updating Items\n",
+        "\n",
+        "- New key-value pairs can be added by assigning a value to a new key.\n",
+        "- Existing values can be updated by assigning a new value to an existing key.\n"
+      ],
+      "id": "743eb8a2"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "my_dict = {\"name\": \"Alice\"}\n",
+        "my_dict[\"age\"] = 30\n",
+        "my_dict[\"name\"] = \"Bob\"\n",
+        "my_dict"
+      ],
+      "id": "924e2fef",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Deleting Items\n",
+        "\n",
+        "- Items can be removed using the `del` keyword or the `.pop()` method.\n",
+        "- `.pop()` also returns the value of the removed item.\n"
+      ],
+      "id": "56af151e"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "my_dict = {\"a\": 1, \"b\": 2, \"c\": 3}\n",
+        "del my_dict[\"a\"]\n",
+        "my_dict.pop(\"b\")"
+      ],
+      "id": "00a6df9d",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "- Also check `my_dict`:"
+      ],
+      "id": "99adc78d"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "my_dict"
+      ],
+      "id": "bab37e62",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## NumPy Arrays\n",
+        "\n",
+        "- While `np.ndarray` is a homogeneous data structure, dictionaries can store heterogeneous data.\n",
+        "- Dictionaries can be used to organize parameters or metadata associated with NumPy arrays.\n"
+      ],
+      "id": "7aca404d"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "data_info = {\"name\": \"Measurements\", \"unit\": \"meters\", \"data\": np.array([10.1, 12.5, 11.3])}\n",
+        "data_info[\"data\"].mean()"
+      ],
+      "id": "b83a3bef",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## **pandas** DataFrames\n",
+        "\n",
+        "- Dictionaries are commonly used to create `pd.DataFrame` objects.\n",
+        "- Keys become column names, and values (lists or arrays) become column data.\n",
+        "- This provides a natural way to structure tabular data before DataFrame creation.\n"
+      ],
+      "id": "5094b0f2"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "import pandas as pd\n",
+        "data = {\n",
+        "    \"City\": [\"Portland\", \"Seattle\", \"Boise\"],\n",
+        "    \"Population\": [650000, 750000, 230000],\n",
+        "    \"State\": [\"OR\", \"WA\", \"ID\"]\n",
+        "}\n",
+        "pd.DataFrame(data)"
+      ],
+      "id": "e1bed3f3",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## DataFrame Column Selection\n",
+        "\n",
+        "- Dictionaries can be used to map original column names to new, more descriptive names.\n",
+        "- This is useful for renaming columns in a `pd.DataFrame`.\n"
+      ],
+      "id": "5d5ff435"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "df = pd.DataFrame({'col_a': [1,2], 'col_b': [3,4]})\n",
+        "column_rename_map = {'col_a': 'Feature_1', 'col_b': 'Feature_2'}\n",
+        "df.rename(columns=column_rename_map)"
+      ],
+      "id": "e82ccd65",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## In sklearn\n",
+        "\n",
+        "- Dictionaries are fundamental for defining model parameters (hyperparameters) in `sklearn`.\n",
+        "- They are used in `GridSearchCV` or `RandomizedSearchCV` to specify parameter grids for tuning.\n"
+      ],
+      "id": "838f19b7"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "from sklearn.linear_model import LogisticRegression\n",
+        "params = {\"penalty\": \"l1\", \"C\": 0.1, \"solver\": \"liblinear\"}\n",
+        "model = LogisticRegression(**params)\n",
+        "model.get_params()"
+      ],
+      "id": "6e8bf9e4",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Model Configuration\n",
+        "\n",
+        "- Dictionaries can store various configuration settings for an `sklearn` pipeline or model.\n",
+        "- This makes configurations easily readable, modifiable, and transportable.\n"
+      ],
+      "id": "8419b490"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "model_config = {\n",
+        "    \"model_type\": \"RandomForestClassifier\",\n",
+        "    \"n_estimators\": 100,\n",
+        "    \"max_depth\": 10,\n",
+        "    \"random_state\": 42\n",
+        "}\n",
+        "print(f\"Model Type: {model_config['model_type']}\")\n",
+        "print(f\"Number of Estimators: {model_config['n_estimators']}\")"
+      ],
+      "id": "e798f866",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Aside: f-Strings (Format Strings)\n",
+        "\n",
+        "- f-strings offer a concise and readable way to embed Python expressions inside string literals.\n",
+        "- They are prefixed with an `f` (or `F`) and use curly braces `{}` to contain expressions.\n",
+        "- This feature, introduced in Python 3.6, makes string formatting much more straightforward.\n"
+      ],
+      "id": "d3eeea09"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "model_config = {\"model_type\": \"LogisticRegression\", \"n_estimators\": 100}\n",
+        "print(f\"Model Type: {model_config['model_type']}\")"
+      ],
+      "id": "6b7b3852",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Why Use f-Strings?\n",
+        "\n",
+        "- **Readability**: The expressions are right within the string, making it easy to see what's being formatted.\n",
+        "- **Conciseness**: Less boilerplate code compared to older formatting methods like `.format()` or `%`.\n",
+        "- **Performance**: Generally faster than other string formatting methods.\n"
+      ],
+      "id": "d624b377"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "my_name = \"Alice\"\n",
+        "my_age = 30\n",
+        "print(f\"Hello, my name is {my_name} and I am {my_age} years old.\")\n",
+        "print(f\"Number of Estimators: {model_config['n_estimators']}\")"
+      ],
+      "id": "f141d925",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Feature Store\n",
+        "\n",
+        "- Dictionaries can temporarily hold features for a single sample before passing to a model.\n",
+        "- This is particularly useful when working with `DictVectorizer` in text processing.\n"
+      ],
+      "id": "25812939"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "from sklearn.feature_extraction import DictVectorizer\n",
+        "data = [{\"color\": \"red\", \"size\": \"small\"}, {\"color\": \"blue\", \"size\": \"large\"}]\n",
+        "vec = DictVectorizer(sparse=False)\n",
+        "features = vec.fit_transform(data)\n",
+        "print(features)\n",
+        "print(vec.get_feature_names_out())"
+      ],
+      "id": "c26feeda",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Key Takeaways\n",
+        "\n",
+        "- Dictionaries provide flexible key-value storage for diverse data.\n",
+        "- They are crucial for organizing data, especially when converting to `pd.DataFrame`.\n",
+        "- In `sklearn`, dictionaries are indispensable for hyperparameter tuning and model configuration, making your machine learning workflows more organized and reproducible.\n",
+        "\n",
+        "\n",
+        "# The Dataset\n",
+        "\n",
+        "## MNIST\n",
+        "\n",
+        "- Basically, MNIST contains:\n",
+        "  - Handwritten digits from government forms\n",
+        "  - What digit someone thought the person was trying to write.\n",
+        "- We will:\n",
+        "  - Try to get a computer to do this work for us.\n",
+        "- Let's look at an example.\n",
+        "\n",
+        "## \"target\"\n",
+        "\n",
+        "- \"target\" gives what a human *thought* the digit was.\n",
+        "- It is generally regard that whoever set the targets was mostly correct.\n",
+        "- The first ten digits are thought to be:"
+      ],
+      "id": "238c0f24"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "digits[\"target\"][:10]"
+      ],
+      "id": "763ce30d",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## \"images\"\n",
+        "\n",
+        "- \"images\" are more complicated.\n",
+        "- Let's take a look at just the initial image:"
+      ],
+      "id": "eed58432"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "im = digits[\"images\"][0]\n",
+        "im"
+      ],
+      "id": "062be20c",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Examine\n"
+      ],
+      "id": "aa3dc474"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "im.shape, im.size, im.ndim"
+      ],
+      "id": "1cfca2de",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "im.mean(), im.max()"
+      ],
+      "id": "e5f35242",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "digits[\"images\"].mean(), digits[\"images\"].max()"
+      ],
+      "id": "50bdb4e2",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Takeways\n",
+        "\n",
+        "- `im` is an 8-by-8 array of values from 0 to 16"
+      ],
+      "id": "6bf0e5b0"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "plt.imshow(im)"
+      ],
+      "id": "a8a9ed35",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Coloration\n"
+      ],
+      "id": "c81a9828"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "plt.imshow(im)\n",
+        "plt.colorbar()"
+      ],
+      "id": "d43536b2",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "- Might be easier in grayscale.\n",
+        "\n",
+        "## cmap\n",
+        "\n",
+        "- Matplotlib provides colormaps we can specify.\n",
+        "  - I say a `'Greys'` in there."
+      ],
+      "id": "d5e3d7fd"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "from matplotlib import colormaps\n",
+        "list(colormaps)[:20]"
+      ],
+      "id": "e821b499",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Greyscale\n"
+      ],
+      "id": "6741c8ed"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "plt.imshow(im, cmap='Greys')\n",
+        "plt.colorbar()"
+      ],
+      "id": "e4a15957",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Interpolation\n",
+        "\n",
+        "- Use an interpolater (`'spline16'` looked good).\n",
+        "\n",
+        ":::: {.columns}\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n"
+      ],
+      "id": "e1a46013"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "plt.imshow(im) # I am writing a comment here to align vertically"
+      ],
+      "id": "d72f2668",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n"
+      ],
+      "id": "6b73cfec"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "plt.imshow(im, cmap='Greys', interpolation=\"spline16\")"
+      ],
+      "id": "64c9378a",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::::\n",
+        "\n",
+        "\n",
+        "## It's a zero \n",
+        "\n",
+        ":::: {.columns}\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n"
+      ],
+      "id": "0c5e4251"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "digits[\"target\"][0]"
+      ],
+      "id": "045b5a14",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n"
+      ],
+      "id": "120cf031"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "plt.imshow(digits[\"images\"][0], cmap='Greys', interpolation=\"spline16\")"
+      ],
+      "id": "ac572033",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::::\n",
+        "\n",
+        "## Look at more\n",
+        "\n",
+        "- Write a function to check some images out.\n"
+      ],
+      "id": "10895da1"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "def see_im(n):\n",
+        "\tplt.imshow(digits[\"images\"][n], cmap='Greys', interpolation='spline16')\n",
+        "\tplt.axis('off') # Just looked up how to remove axes\n",
+        "\tplt.title(digits[\"target\"][n])\n",
+        "\tplt.show() # Like print, for images, or you can save"
+      ],
+      "id": "22dda744",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "- Wait how many do I have?"
+      ],
+      "id": "dac5d4f4"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "digits[\"target\"].shape"
+      ],
+      "id": "53fa0f7e",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## See More\n",
+        "\n",
+        ":::: {.columns}\n",
+        "\n",
+        "::: {.column width=\"33%\"}\n"
+      ],
+      "id": "e89946e5"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "see_im(10)"
+      ],
+      "id": "1367a103",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::: {.column width=\"33%\"}\n"
+      ],
+      "id": "11e75df6"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "see_im(100)"
+      ],
+      "id": "78b0e538",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "\n",
+        "::: {.column width=\"33%\"}\n"
+      ],
+      "id": "b0080a02"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "see_im(1000)"
+      ],
+      "id": "37cd426c",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::::\n",
+        "\n",
+        "\n",
+        "# Classification\n",
+        "\n",
+        "## Classification\n",
+        "\n",
+        "> [Classification is the activity of assigning objects to some pre-existing classes or categories. This is distinct from the task of establishing the classes themselves (for example through cluster analysis). Examples include diagnostic tests, identifying spam emails and deciding whether to give someone a driving license.](https://en.wikipedia.org/wiki/Classification)\n",
+        "\n",
+        "## Flatten\n",
+        "\n",
+        "- We, as humans, recognize that those things look a lot like images.\n",
+        "- But the images are 3D array, which is more more annoying to work with than one-row-per-digit.\n",
+        "- To begin, we \"flatten\" to 2D images into 1D arrays.\n",
+        "- We want `1794` arrays of length `64` (was: 8-by-8)\n",
+        "\n",
+        "## Reshape\n",
+        "\n",
+        "- We use NumPy `.reshape`"
+      ],
+      "id": "14587432"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "count = len(digits[\"images\"])\n",
+        "data = digits[\"images\"].reshape(count, 64)\n",
+        "data[:3]"
+      ],
+      "id": "d72bae93",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Models\n",
+        "\n",
+        "- Foundation to the notion of machine learning is *training* and *testing*.\n",
+        "  \t- More properly to *supervised* machine learning, but more on that latter.\n",
+        "- Specifically, using training data, we will set the coefficients and parameters of a model, which we can think of as a function with a number of parameters.\n",
+        "\n",
+        "## Splits\n",
+        "\n",
+        "- We split up our data, and\n",
+        "  \t- Some data we use to *train* a model.\n",
+        "\t  \t- Basically, find coefficients of a function.\n",
+        "\t- Some data we use to *test* a classifier\n",
+        "\t  \t- Compare model to actual.\n",
+        "\n",
+        "# Supervised Learning\n",
+        "\n",
+        "## Train-Test Split\n",
+        "\n",
+        "- The **training set** is used to teach our model to identify patterns and relationships.\n",
+        "- The **testing set** is held-out to evaluate the trained model on new, unseen data.\n"
+      ],
+      "id": "06137705"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "from sklearn.model_selection import train_test_split\n",
+        "\n",
+        "X = np.array([[1, 2], [3, 4], [5, 6], [7, 8]])\n",
+        "y = np.array([0, 1, 0, 1])\n",
+        "\n",
+        "# Train on 75%, test on 25% by default\n",
+        "X_train, X_test, y_train, y_test = train_test_split(X, y)\n",
+        "X_test, y_test"
+      ],
+      "id": "212d867d",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Supervised Learning\n",
+        "\n",
+        "- **Supervised learning** is a type of machine learning where the algorithm learns from **labeled data**.\n",
+        "- Labeled data consists of input features (`X`) and corresponding outcomes (`y`).\n"
+      ],
+      "id": "c5f9abd9"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "from sklearn.linear_model import LinearRegression\n",
+        "\n",
+        "# Example labeled data (house size in sqft, price in $1000s)\n",
+        "X_train = np.array([[1000], [1500], [1200], [1800]])\n",
+        "y_train = np.array([200, 300, 240, 360])\n",
+        "\n",
+        "model = LinearRegression()\n",
+        "_ = model.fit(X_train, y_train) # The \"supervision\" happens here"
+      ],
+      "id": "048165f8",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Models and Coefficients\n",
+        "\n",
+        "- A **model** represents the learned relationship inputs-to-targets \n",
+        "- Sometimes this relationship is expressed through **coefficients**.\n",
+        "- Change in the target a unit change in input feature with other features constant.\n"
+      ],
+      "id": "fddf0942"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# The model learns the equation: price = coefficient * size + intercept\n",
+        "model.coef_, model.intercept_"
+      ],
+      "id": "cae20c62",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Higher Dimensions\n",
+        "\n",
+        "- With multiple input features, each has a **coefficient**.\n",
+        "- The sign and magnitude of each coefficient show the influence of a feature.\n"
+      ],
+      "id": "b7977a62"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "d = {'size': [1000, 1500, 1200, 1800], 'bedrooms': [2, 3, 2, 4], 'price': [200, 300, 240, 360]}\n",
+        "df = pd.DataFrame(d)\n",
+        "X_train, y_train = df[['size', 'bedrooms']], df['price']\n",
+        "\n",
+        "model = LinearRegression()\n",
+        "model.fit(X_train, y_train)\n",
+        "model.coef_, model.intercept_"
+      ],
+      "id": "7d574d81",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## The Digits\n",
+        "\n",
+        "- We can train/test split the digits like so:"
+      ],
+      "id": "47925dfb"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Recall we \"flattened\" images into \"data\"\n",
+        "X_train, X_test, y_train, y_test = train_test_split(data, digits[\"target\"])"
+      ],
+      "id": "2369f12f",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "# Classifiers\n",
+        "\n",
+        "## Perceptron \n",
+        "\n",
+        "- We use a *perceptron*, one of the oldest and most famous machine learning frameworks.\n",
+        "\n",
+        "> The artificial neuron network was invented in 1943 by Warren McCulloch and Walter Pitts in A logical calculus of the ideas immanent in nervous activity.\n",
+        "\n",
+        "- Described visually in textbooks in [1958](https://commons.wikimedia.org/wiki/File:Organization_of_a_biological_brain_and_a_perceptron.png)\n",
+        "- Inspired by neuroscience ideas of the time.\n",
+        " \n",
+        "\n",
+        "##\n",
+        "\n",
+        "<center>\n",
+        "<img width=\"70%\" style=\"filter:invert(.9)\" src=\"https://upload.wikimedia.org/wikipedia/commons/0/08/Organization_of_a_biological_brain_and_a_perceptron.png\"></img>\n",
+        "</center>\n",
+        "\n",
+        "## Import\n",
+        "\n",
+        "- Import and create a perceptron.\n"
+      ],
+      "id": "5775a53a"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "from sklearn.linear_model import Perceptron\n",
+        "clf = Perceptron() # This will be the model that will contain coefficients\n",
+        "clf # At first, not fitted to anything!"
+      ],
+      "id": "5f892ea7",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Training\n",
+        "\n",
+        "- We train or `.fit()` the model to the data.\n"
+      ],
+      "id": "c7b6208f"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "clf.fit(X_train, y_train)"
+      ],
+      "id": "ca6bd1da",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "- Then we can predict over the testing set!\n"
+      ],
+      "id": "9c2e942f"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "y_pred = clf.predict(X_test)\n",
+        "y_pred[:10], y_test[:10]"
+      ],
+      "id": "1535c656",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Not bad!\n",
+        "\n",
+        "- More detailed reporting from `metrics`\n"
+      ],
+      "id": "a5e771d6"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "from sklearn import metrics\n",
+        "\n",
+        "# We print so it looks a bit nicer\n",
+        "print(metrics.classification_report(y_test, y_pred))"
+      ],
+      "id": "4ba5de51",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Where did we miss?\n",
+        "\n",
+        "- We can see what we got wrong."
+      ],
+      "id": "08a5c9d3"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# That [0] prevents us from getting tuple of length 1\n",
+        "misses = np.where(y_test != y_pred)[0]\n",
+        "misses"
+      ],
+      "id": "4dafc336",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "- Let's look at the first two of those.\n",
+        "\n",
+        "## Two Misses\n",
+        "\n",
+        ":::: {.columns}\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n"
+      ],
+      "id": "d5aac4a4"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "i = misses[0]\n",
+        "print(y_test[i], y_pred[i])\n",
+        "plt.imshow(X_test[i].reshape((8,8)), cmap=\"Greys\")"
+      ],
+      "id": "d85d1992",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n"
+      ],
+      "id": "167a7f59"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "i = misses[1]\n",
+        "print(y_test[i], y_pred[i])\n",
+        "plt.imshow(X_test[i].reshape((8,8)), cmap=\"Greys\")"
+      ],
+      "id": "6719c7d0",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::::\n",
+        "\n",
+        "## On Accuracy\n",
+        "\n",
+        "- Machine learning frameworks were doing better than I could do around ~2010\n",
+        "- On these older datasets with:\n",
+        "  \t- Greyscale\n",
+        "\t- 16 color\n",
+        "\t- 64 pixel\n",
+        "- Maybe your eyes are better than the perceptron, but mine aren't!\n",
+        "\n",
+        "# Clustering\n",
+        "\n",
+        "## Unsupervised Learning\n",
+        "\n",
+        "- **Unsupervised learning** deals with unlabeled data, where there are no predefined target variables (`y`).\n",
+        "- Find hidden patterns, structures, or relationships within the data itself.\n",
+        "\n",
+        "## Clustering\n",
+        "\n",
+        "- **Clustering** is an unsupervised learning task that groups data points into clusters based on their similarity.\n",
+        "- Data points within the same cluster are more similar to each other than to those in other clusters.\n",
+        "- The goal is to discover natural groupings in the data without any prior knowledge of those groups.\n",
+        "\n",
+        "\n",
+        "## $k$-means Clustering\n",
+        "\n",
+        "- **$k$-means clustering** is a popular partitioning algorithm that divides data into `k` predefined clusters.\n",
+        "- It aims to minimize the sum of squared distances between data points and their assigned cluster's centroid.\n",
+        "- The `k` parameter (number of clusters) must be specified in advance.\n"
+      ],
+      "id": "26a7118f"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "from sklearn.cluster import KMeans\n",
+        "\n",
+        "X = np.array([[1, 2], [1.5, 1.8], [5, 8], [8, 8], [1, 0.6], [9, 11]])\n",
+        "model = KMeans(2) # 2 \"clusters\""
+      ],
+      "id": "363dbac2",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## How $k$-means Works \n",
+        "\n",
+        "- **Start**: $k$ data points as cluster centroids.\n",
+        "- **Assign**: To the cluster with closest center.\n",
+        "- **Update**: Recalculate the cluster mean.\n",
+        "- **Repeat**: Until the assignments no longer change.\n"
+      ],
+      "id": "47a60d90"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Fit the KMeans model to the data\n",
+        "model.fit(X)\n",
+        "model.cluster_centers_"
+      ],
+      "id": "c1ec6815",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Interpreting $k$-means Results\n",
+        "\n",
+        "- After fitting, $k$-means provides cluster labels for each data point and the coordinates of the cluster centroids.\n",
+        "- The labels indicate which cluster each data point belongs to.\n",
+        "- The centroids represent the \"center\" of each cluster.\n",
+        "\n",
+        ":::: {.columns}\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n"
+      ],
+      "id": "156906c9"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "X[model.labels_ == 0]"
+      ],
+      "id": "bd08ef1e",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n"
+      ],
+      "id": "37b6eb7a"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "X[model.labels_ == 1]"
+      ],
+      "id": "2cac7751",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::::\n",
+        "\n",
+        "## Plot it\n"
+      ],
+      "id": "4ca5b493"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "x, y = X.transpose()\n",
+        "plt.scatter(x,y,c=model.labels_)"
+      ],
+      "id": "5f542739",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Choosing $k$\n",
+        "\n",
+        "- Determining the optimal `k` is a common challenge in $k$-means.\n",
+        "- The choice of `k` often depends on domain knowledge and the goal of the clustering.\n",
+        "- We \"cheat\" on the digits set - there are 10 digits (exact)\n",
+        "\n",
+        "# Exercise\n",
+        "\n",
+        "## Cluster Digits\n",
+        "\n",
+        "- For the exercise we will cluster the digits.\n",
+        "- We will use Principle Component Analysis (PCA) to reduce from 64 to fewer dimensions.\n",
+        "\n",
+        "## Principal Component Analysis\n",
+        "\n",
+        "- **Dimensionality reduction** technique.\n",
+        "- Transforms high-dimensional data into fewer, uncorrelated **principal components**.\n",
+        "- Components capture maximum data variance.\n"
+      ],
+      "id": "c02d4914"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "from sklearn.decomposition import PCA\n",
+        "from sklearn.preprocessing import StandardScaler\n",
+        "X = np.random.rand(50, 5) # 50 samples, 5 features\n",
+        "scaler = StandardScaler()\n",
+        "scaled_X = scaler.fit_transform(X)"
+      ],
+      "id": "2740b1fc",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## PCA: Explained Variance\n",
+        "\n",
+        "- Each principal component captures a proportion of the total variance (**explained variance ratio**).\n",
+        "- Helps decide how many components to keep.\n",
+        "\n",
+        "![](https://upload.wikimedia.org/wikipedia/commons/f/f5/GaussianScatterPCA.svg)\n",
+        "\n",
+        "## Code Sample\n"
+      ],
+      "id": "7baa09fd"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "pca = PCA(2)\n",
+        "X_reduced = pca.fit_transform(scaled_X)\n",
+        "X[:5], X_reduced[5]"
+      ],
+      "id": "78e48b5a",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Benefits of PCA\n",
+        "\n",
+        "- **Simplifies data** and reduces storage.\n",
+        "- Can **reduce noise**.\n",
+        "- Useful for **visualization**.\n",
+        "- **Important**: Data scaling is crucial.\n",
+        "  \t- `StandardScaler().fit_transform()`\n",
+        "\n",
+        "## Exercise\n",
+        "\n",
+        "- Use PCA and $k$-means on the digit data.\n",
+        "  \t- You may need to try different PCA numbers.\n",
+        "- Look at a 2+ examples in 2+ clusters.\n",
+        "- Plot the classification.\n",
+        "  \t- I'll use PCA with 2 dimensions for `x` and `y`\n",
+        "\t- Two plots, colored for actual and predicted.\n",
+        "\n",
+        "## Solution\n",
+        "\n",
+        "- $k$-means\n"
+      ],
+      "id": "e4615931"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| code-fold: true\n",
+        "scaled = StandardScaler().fit_transform(data)\n",
+        "reduced = PCA(10).fit_transform(scaled)\n",
+        "model = KMeans(10)\n",
+        "_ = model.fit(reduced)"
+      ],
+      "id": "1ecf746c",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Looker\n",
+        "\n",
+        "- I wrote a function to look at things."
+      ],
+      "id": "35deba51"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| code-fold: true\n",
+        "\n",
+        "def looker(cluster, index):\n",
+        "\tplt.imshow(data[model.labels_ == cluster][index].reshape(8,8), cmap='Greys')\n",
+        "\tplt.axis('off')\n",
+        "\tplt.show()"
+      ],
+      "id": "5094f6de",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Cluster 0\n",
+        "\n",
+        ":::: {.columns}\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n"
+      ],
+      "id": "393c866e"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "looker(0,0)"
+      ],
+      "id": "ab176a2e",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n"
+      ],
+      "id": "507dd75d"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "looker(0,1)"
+      ],
+      "id": "3c679f88",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::::\n",
+        "\n",
+        "## Cluster 1\n",
+        "\n",
+        ":::: {.columns}\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n"
+      ],
+      "id": "cca356e8"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "looker(1,0)"
+      ],
+      "id": "2ea7b8cd",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n"
+      ],
+      "id": "0ca7e005"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "looker(1,1)"
+      ],
+      "id": "48cd0c61",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::::\n",
+        "\n",
+        "## Plot\n",
+        "\n",
+        "\n",
+        "\n",
+        "\n",
+        ":::: {.columns}\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n"
+      ],
+      "id": "b387db30"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| code-fold: true\n",
+        "reduced = PCA(2).fit_transform(scaled)\n",
+        "x, y = reduced.transpose()\n",
+        "plt.scatter(x,y,c=digits[\"target\"])\n",
+        "plt.axis('off') # They are not relative to anything \"real\"\n",
+        "_ = plt.title(\"Actual\")"
+      ],
+      "id": "c80840cb",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n"
+      ],
+      "id": "0502782e"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| code-fold: true\n",
+        "reduced = PCA(2).fit_transform(scaled)\n",
+        "x, y = reduced.transpose()\n",
+        "plt.scatter(x,y,c=model.labels_)\n",
+        "plt.axis('off') # They are not relative to anything \"real\"\n",
+        "_ = plt.title(\"Predicted\")"
+      ],
+      "id": "3b69ded2",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::::"
+      ],
+      "id": "47e3223d"
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "python3",
+      "language": "python",
+      "display_name": "Python 3 (ipykernel)",
+      "path": "C:\\Users\\cd-desk\\AppData\\Local\\Programs\\Python\\Python312\\share\\jupyter\\kernels\\python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}

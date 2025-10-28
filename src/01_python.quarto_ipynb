@@ -1,0 +1,2045 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "title: Python\n",
+        "---\n",
+        "\n",
+        "\n",
+        "# Installing Python\n",
+        "\n",
+        "## Warning!\n",
+        "\n",
+        "- There is a very important box to check while installing!\n",
+        "    - Be careful working ahead!\n",
+        "    - We'll teach how to fix not checking this box *but not for a while*\n",
+        "\n",
+        "## Installation\n",
+        "\n",
+        "- We go to the offial webpage to get an installer for our computer:\n",
+        "    - [https://www.python.org/downloads/](https://www.python.org/downloads/)\n",
+        "- Be careful about starting it!\n",
+        "    - You can open it and check the next slide.\n",
+        "\n",
+        "## Add Python to PATH\n",
+        "\n",
+        "![](img/add-python-to-path.png)\n",
+        "\n",
+        "## Why?\n",
+        "\n",
+        "- The benefit of adding Python to path is that we can use it at\n",
+        "- &lt;dramatic music&gt;\n",
+        "- *The Command Line*\n",
+        "    - A text-based interface to computing resources, including its ability to do e.g. arithmetic and save notes.\n",
+        "\n",
+        "## Terminal\n",
+        "\n",
+        "- On MS Windows\n",
+        "    - I press Windows key, type \"terminal\" then press enter.\n",
+        "- On MacOS\n",
+        "    - I open Launchpad, type \"terminal\" then press enter.\n",
+        "\n",
+        "\n",
+        "## MacOS\n",
+        "\n",
+        "![](img/zsh.avif)\n",
+        "\n",
+        "## Windows\n",
+        "\n",
+        "![](img/ps.webp)\n",
+        "\n",
+        "\n",
+        "## Expression evaluation\n",
+        "\n",
+        "- Returning to the terminal, we can type at the \"prompt\".\n",
+        "- On MacOS, perhaps a line that begins with `$` and a flashing cursor\n",
+        "- On Window, perhaps `PS C:\\Users\\calvin>`\n",
+        "    - `PS` stands for \"powershell\" - more latter.\n",
+        "    - `C:\\Users\\calvin` is the name of a folder - more latter\n",
+        "    - `>` is the prompt, with a flashing cursor.\n",
+        "\n",
+        "## \"Run\" Python\n",
+        "\n",
+        "*In the following examples, I remove line numbers to denote they are not Python code snippets.*\n",
+        "\n",
+        "- On Windows, type `python`\n",
+        "```{.ps filename=\"Windows\" code-line-numbers=\"false\"}\n",
+        "PS C:\\Users\\calvin> python\n",
+        "```\n",
+        "- On MacOS, type `python3`\n",
+        "```{.zsh filename=\"MacOS\" code-line-numbers=\"false\"}\n",
+        "$ python3\n",
+        "```\n",
+        "- On both, press the **↵ᴇɴᴛᴇʀ** key.\n",
+        "\n",
+        "## See Python\n",
+        "\n",
+        "- You'll see something like this:\n",
+        "```{.email code-line-numbers=\"false\"}\n",
+        "Python 3.12.5 (tags/v3.12.5:ff3bc82, Aug  6 2024, 20:45:27) [MSC v.1940 64 bit (AMD64)] on win32\n",
+        "Type \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n",
+        ">>>\n",
+        "```\n",
+        "- Take note of the prompt!\n",
+        "- `>>>`\n",
+        "- Those three are how you know it is Python, and not the Terminal, that you are working in.\n",
+        "\n",
+        "## Example\n",
+        "\n",
+        "- If I type `python` at the command line\n",
+        "- Then `9 * -1 * -1 + 5` *within* Python\n",
+        "- It will look like this:\n",
+        "\n",
+        "```{.email code-line-numbers=\"false\"}\n",
+        "PS C:\\Users\\calvin> python\n",
+        "Python 3.12.5 (tags/v3.12.5:ff3bc82, Aug  6 2024, 20:45:27) [MSC v.1940 64 bit (AMD64)] on win32\n",
+        "Type \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n",
+        ">>> 9 * -1 * -1 + 5\n",
+        "14\n",
+        ">>>\n",
+        "```\n",
+        "\n",
+        "- This is how Python shows that `9 * -1 * -1 + 5` is `14`\n",
+        "\n",
+        "\n",
+        "# Why Python?\n",
+        "\n",
+        "## On Python\n",
+        "\n",
+        "* Python is free,\n",
+        "* Python is very widely used,\n",
+        "* Python is flexible,\n",
+        "* Python is relatively easy to learn,\n",
+        "* and Python is quite powerful.\n",
+        "\n",
+        "## Why not Python?\n",
+        "\n",
+        "- Python is a general purpose language used for Scientific Computing. \n",
+        "- _Not_ to build apps, build software, manage databases, or develop user interfaces. \n",
+        "- Solve scientific and mathematical problems.\n",
+        "\n",
+        "## Python libraries\n",
+        "\n",
+        "Scientists often use the following:\n",
+        "\n",
+        "* [Python](https://www.python.org/),\n",
+        "* [`numpy` (numerical Python)](https://www.numpy.org/),\n",
+        "* [`matplotlib` (a suite of plotting tools)](https://matplotlib.org/),\n",
+        "* [`scipy` (scientific Python)](https://www.scipy.org/), and\n",
+        "* [`sympy` (symbolic Python)](https://www.sympy.org/en/index.html).\n",
+        "\n",
+        "We'll get to these.\n",
+        "\n",
+        "# Running Example\n",
+        "\n",
+        "## Diving In\n",
+        "\n",
+        "- Taking Python as a given, we'll:\n",
+        "    - Use an example of something I helped a student with recently\n",
+        "    - Show step-by-step how to use Python\n",
+        "    - Introduce a number of Python features to solve the problem more easily.\n",
+        "- This was from an introductory physics class I believe; I don't know the context.\n",
+        "\n",
+        "## Motivating Example\n",
+        "\n",
+        "- Recently, I helped a student stuck on this:\n",
+        "\n",
+        "$$\n",
+        "f(x) =\n",
+        "\\begin{cases}\n",
+        "  9x^2 + 5 & x < 4 \\\\\n",
+        "  9 & 4 \\leq x \\leq 8 \\\\\n",
+        "  2 - x & x > 8\n",
+        "\\end{cases}\n",
+        "$$\n",
+        "\n",
+        "- Find $f(x)$ for each of the following $x$ values:\n",
+        "$$\n",
+        "\\{-1, 4, 5, 8, 11\\}\n",
+        "$$\n",
+        "\n",
+        "## Is this \"real\"?\n",
+        "\n",
+        "- Models income tax brackets, one of the most important drivers of human behavior in the largest economies in the world.\n",
+        "- We use a simpler contrived example for now...\n",
+        "\n",
+        "<table style=\"font-size:12px\">\n",
+        "<th>Marginal Tax Rate</th>\n",
+        "<th>Single Taxable Income</th>\n",
+        "<th>Married Filing Jointly or Qualified Widow(er) Taxable Income</th>\n",
+        "<th>Married Filing Separately Taxable Income</th>\n",
+        "<th>Head of Household Taxable Income</th>\n",
+        "</tr>\n",
+        "<tr>\n",
+        "<th>10%</th>\n",
+        "<td>$0 – $9,275</td>\n",
+        "<td>$0 – $18,550</td>\n",
+        "<td>$0 – $9,275</td>\n",
+        "<td>$0 – $13,250</td>\n",
+        "</tr>\n",
+        "<tr>\n",
+        "<th>15%</th>\n",
+        "<td>$9,276 – $37,650</td>\n",
+        "<td>$18,551 – $75,300</td>\n",
+        "<td>$9,276 – $37,650</td>\n",
+        "<td>$13,251 – $50,400</td>\n",
+        "</tr>\n",
+        "<tr>\n",
+        "<th>25%</th>\n",
+        "<td>$37,651 – $91,150</td>\n",
+        "<td>$75,301 – $151,900</td>\n",
+        "<td>$37,651 – $75,950</td>\n",
+        "<td>$50,401 – $130,150</td>\n",
+        "</tr>\n",
+        "<tr>\n",
+        "<th>28%</th>\n",
+        "<td>$91,151 – $190,150</td>\n",
+        "<td>$151,901 – $231,450</td>\n",
+        "<td>$75,951 – $115,725</td>\n",
+        "<td>$130,151 – $210,800</td>\n",
+        "</tr>\n",
+        "<tr>\n",
+        "<th>33%</th>\n",
+        "<td>$190,151 – $413,350</td>\n",
+        "<td>$231,451 – $413,350</td>\n",
+        "<td>$115,726 – $206,675</td>\n",
+        "<td>$210,801 – $413,350</td>\n",
+        "</tr>\n",
+        "<tr>\n",
+        "<th>35%</th>\n",
+        "<td>$413,351 – $415,050</td>\n",
+        "<td>$413,351 – $466,950</td>\n",
+        "<td>$206,676 – $233,475</td>\n",
+        "<td>$413,351 – $441,000</td>\n",
+        "</tr>\n",
+        "<tr>\n",
+        "<th>39.6%</th>\n",
+        "<td>$415,051+</td>\n",
+        "<td>$466,951+</td>\n",
+        "<td>$233,476+</td>\n",
+        "<td>$441,001+</td>\n",
+        "</table>\n",
+        "\n",
+        "\n",
+        "## How to solve?\n",
+        "\n",
+        "- Think about how you would solve such a problem.\n",
+        "- What steps would you take?\n",
+        "- What would making solving it hard?\n",
+        "    - Keep track of details?\n",
+        "    - Performing the arithmetic?\n",
+        "    - Anything else?\n",
+        "- Python, in my view, is a way to solve these problems.\n",
+        "\n",
+        "## Python in action\n",
+        "\n",
+        "- My preferred way to do calculation as an experienced Python user is writing *code*:\n",
+        "\n",
+        ":::: {.columns}\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n",
+        "- Mathematical expression\n",
+        "$$\n",
+        "\\begin{cases}\n",
+        "  9x^2 + 5 & x < 4 \\\\\n",
+        "  9 & 4 \\leq x \\leq 8 \\\\\n",
+        "  2 - x & x > 8\n",
+        "\\end{cases}\n",
+        "$$\n",
+        ":::\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n",
+        "\n",
+        "- Python expression (code)\n"
+      ],
+      "id": "989d5223"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "9 * -1 * -1 + 5"
+      ],
+      "id": "8bc38b13",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::::\n",
+        "\n",
+        "- I write `x * x` for $x^2$ because it's non-obvious how to write \"squared\" yet.\n",
+        "\n",
+        "## Arithmetic Operations\n",
+        "\n",
+        "- In Python, we can write many of the same arithmetic operations we use in our math and science classes."
+      ],
+      "id": "32b41be8"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "6 + 3"
+      ],
+      "id": "fca302fa",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "6 - 3"
+      ],
+      "id": "445700e2",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "6 * 3"
+      ],
+      "id": "ccdf368c",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "6 / 3"
+      ],
+      "id": "564572ec",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "# Evaluating Expressions\n",
+        "\n",
+        "## Recall\n",
+        "\n",
+        ":::: {.columns}\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n",
+        "\n",
+        "$$\n",
+        "\\begin{cases}\n",
+        "  9x^2 + 5 & x < 4 \\\\\n",
+        "  9 & 4 \\leq x \\leq 8 \\\\\n",
+        "  2 - x & x > 8\n",
+        "\\end{cases}\n",
+        "$$\n",
+        "$$\n",
+        "\\{-1, 4, 5, 8, 11\\}\n",
+        "$$\n",
+        "\n",
+        ":::\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n",
+        "\n",
+        "```{.python code-line-numbers=\"false\"}\n",
+        ">>> 9 * -1 * -1 + 5\n",
+        "14\n",
+        ">>> 9\n",
+        "9\n",
+        ">>> 9\n",
+        "9\n",
+        ">>> 9\n",
+        "9\n",
+        ">>> 2 - 11\n",
+        "-9\n",
+        "```\n",
+        "\n",
+        ":::\n",
+        "\n",
+        "::::\n",
+        "\n",
+        "- This is still quite tedious and annoying!\n",
+        "\n",
+        "## (In)equality testing\n",
+        "\n",
+        "- Like `+` or `-` which we use to calculate numbers...\n",
+        "- We can use `<` or `>` to calculate inequalities.\n",
+        "- Specifically, we see whether an inequality is `True` or `False`\n"
+      ],
+      "id": "bc6305e3"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "-1 < 4"
+      ],
+      "id": "845cca29",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "4 < 4"
+      ],
+      "id": "37d56dd2",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Accomodating Keyboards\n",
+        "\n",
+        "- Some things aren't super easy to type.\n",
+        "- I don't have a \"$\\leq$\" key on my keyboard.\n",
+        "- Combine with `=` as `<=` for \"less than or equal\" or \"$\\leq$\"\n"
+      ],
+      "id": "b591ddb4"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "4 <= 4"
+      ],
+      "id": "3049d2b3",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "- We can \"chain\" inequalities as well - one after another."
+      ],
+      "id": "870e7080"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "4 <= 4 <= 8"
+      ],
+      "id": "abd48ca2",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## A note\n",
+        "\n",
+        "- We always put the equal sign `=` second.\n"
+      ],
+      "id": "555c9d87"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "4 <= 5"
+      ],
+      "id": "79a8ea13",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "5 >= 4"
+      ],
+      "id": "6345c037",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "- A (somewhat confusing) error if we try `=>`\n",
+        "\n",
+        "```{.email code-line-numbers=\"false\"}\n",
+        ">>> 4 => 5\n",
+        "  File \"<stdin>\", line 1\n",
+        "    4 => 5\n",
+        "    ^\n",
+        "SyntaxError: cannot assign to literal\n",
+        "```\n",
+        "\n",
+        "# `=` and `==`\n",
+        "\n",
+        "## New Topics\n",
+        "\n",
+        "- We have now touch on two new topics:\n",
+        "    - `True` and `False`\n",
+        "        - Expressions which don't *evaluate* to a number\n",
+        "        - Called \"booleans\"\n",
+        "    - \"Assignment\"\n",
+        "        - Associated with the `=` sign\n",
+        "        - Different from inequality testing!\n",
+        "- We'll explore both!\n",
+        "\n",
+        "## Booleans\n",
+        "\n",
+        "- Sometimes, a Python *expression* is a numerical value."
+      ],
+      "id": "a6424493"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "2 + 2"
+      ],
+      "id": "384ad86e",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "7"
+      ],
+      "id": "de2d5e55",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "- But it doesn't have to be!"
+      ],
+      "id": "bbf01506"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "2 < 2"
+      ],
+      "id": "1c67c209",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## If\n",
+        "\n",
+        "- Booleans are mostly useful for writing `if` statements.\n",
+        "    - These are *multiline* expressions in Python.\n",
+        "- To see the result of multi-line expression, we have to print the result..."
+      ],
+      "id": "f3df5733"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "if (1 <= 1):\n",
+        "    print(2 + 2)"
+      ],
+      "id": "39ce8eef",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "if (1 < 1):\n",
+        "    print(2 + 2)"
+      ],
+      "id": "7682a88d",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Piecewise\n",
+        "\n",
+        "- We can see the immediate use of this in a piecewise function!\n",
+        "\n",
+        ":::: {.columns}\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n",
+        "\n",
+        "$$\n",
+        "\\begin{cases}\n",
+        "  9x^2 + 5 & x < 4 \\\\\n",
+        "  9 & 4 \\leq x \\leq 8 \\\\\n",
+        "  2 - x & x > 8\n",
+        "\\end{cases}\n",
+        "$$\n",
+        "$$\n",
+        "\\{-1, 4, 5, 8, 11\\}\n",
+        "$$\n",
+        "\n",
+        ":::\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n"
+      ],
+      "id": "42b795f7"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "if (-1 < 4):\n",
+        "    print(9 * -1 * -1 + 5)"
+      ],
+      "id": "bc526ea8",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "- Or least part of one...\n"
+      ],
+      "id": "dcfd85a6"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "if (4 < 4):\n",
+        "    print(9 * 4 * 4 + 5)"
+      ],
+      "id": "69967d17",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "- Uh oh!\n",
+        "\n",
+        ":::\n",
+        "\n",
+        "::::\n",
+        "\n",
+        "\n",
+        "## Else\n",
+        "\n",
+        "- Oftentimes, we use `if` with `else`\n"
+      ],
+      "id": "80e3425e"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "if (1 < 1):\n",
+        "    print(\"1 is less than 1\")\n",
+        "else:\n",
+        "    print(\"1 is not less than 1\")"
+      ],
+      "id": "de23e87d",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Elif\n",
+        "\n",
+        "- If we have more than two options, we can place a special `elif` in the middle.\n",
+        "\n",
+        ":::: {.columns}\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n"
+      ],
+      "id": "1215dbd7"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "if (1 < 1):\n",
+        "    print(\"1 is less than 1\")\n",
+        "elif (1 > 1):\n",
+        "    print(\"1 is greater than 1\")\n",
+        "else:\n",
+        "    print(\"1 is equal to 1\")"
+      ],
+      "id": "70c00908",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n"
+      ],
+      "id": "481f30c8"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "if (2 < 1):\n",
+        "    print(\"2 is less than 1\")\n",
+        "elif (2 > 1):\n",
+        "    print(\"2 is greater than 1\")\n",
+        "else:\n",
+        "    print(\"2 is equal to 1\")"
+      ],
+      "id": "f9ff2b76",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::::\n",
+        "\n",
+        "- By the way, it is extremely obnoxious to manually type `2` in *5 different places*\n",
+        "\n",
+        "## Assignment\n",
+        "\n",
+        "- We can also assign variables!\n",
+        "    - I call this *single-equals assignment*\n",
+        "    - Use a single equals sign `=` and some variable name, like `x`\n",
+        "\n",
+        ":::: {.columns}\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n"
+      ],
+      "id": "c72b0546"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "x = 1\n",
+        "if (x < 1):\n",
+        "    print(\"x is less than 1\")\n",
+        "elif (x > 1):\n",
+        "    print(\"x is greater than 1\")\n",
+        "else:\n",
+        "    print(\"x is equal to 1\")"
+      ],
+      "id": "b6734155",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n"
+      ],
+      "id": "ebd61f19"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "x = 2\n",
+        "if (x < 1):\n",
+        "    print(\"x is less than 1\")\n",
+        "elif (x > 1):\n",
+        "    print(\"x is greater than 1\")\n",
+        "else:\n",
+        "    print(\"x is equal to 1\")"
+      ],
+      "id": "e7e98a4c",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::::\n",
+        "\n",
+        "## Double equals equality\n",
+        "\n",
+        "- I call it *single-equals assignment* because sometimes we check if a variable is precisely equal to some value.\n",
+        "- That is somewhat confusingly done with `==` *double equals equality* test.\n",
+        "\n",
+        ":::: {.columns}\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n"
+      ],
+      "id": "10622ae8"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "x = 1\n",
+        "if (x == 1):\n",
+        "    print(\"x is equal to 1\")\n",
+        "else:\n",
+        "    print(\"x is not equal to 1\")"
+      ],
+      "id": "6bfce293",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n"
+      ],
+      "id": "3edcf1ba"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "x = 2\n",
+        "if (x == 1):\n",
+        "    print(\"x is equal to 1\")\n",
+        "else:\n",
+        "    print(\"x is not equal to 1\")"
+      ],
+      "id": "5af950d9",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::::\n",
+        "\n",
+        "## Double ** Exponentation\n",
+        "\n",
+        "- Doubling is used in a few other cases.\n",
+        "- Double asterisk `**` is exponentiation."
+      ],
+      "id": "874f3d4f"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "5 ** 2"
+      ],
+      "id": "c866a766",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "- We note that `^` - sometimes used for exponentiation - is something different (and confusing!) in Python."
+      ],
+      "id": "5278bfe3"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "5 ^ 2"
+      ],
+      "id": "66dbfcaf",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "- Always use `**`\n",
+        "\n",
+        "## Piecewise\n",
+        "\n",
+        "- We can finally write the piecewise expression!\n",
+        "\n",
+        ":::: {.columns}\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n",
+        "\n",
+        "$$\n",
+        "\\begin{cases}\n",
+        "  9x^2 + 5 & x < 4 \\\\\n",
+        "  9 & 4 \\leq x \\leq 8 \\\\\n",
+        "  2 - x & x > 8\n",
+        "\\end{cases}\n",
+        "$$\n",
+        "$$\n",
+        "\\{-1, 4, 5, 8, 11\\}\n",
+        "$$\n",
+        "\n",
+        ":::\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n"
+      ],
+      "id": "84ce76a6"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "x = 11\n",
+        "if (x < 4):\n",
+        "    print(9 * x ** 2 + 5)\n",
+        "elif (4 <= x <= 8):\n",
+        "    print(9)\n",
+        "elif (x > 8):\n",
+        "    print(2 - x)"
+      ],
+      "id": "fe903ea9",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::::\n",
+        "\n",
+        "# Code Reuse\n",
+        "\n",
+        "## Recycle\n",
+        "\n",
+        "- It is still extremely tedious to either:\n",
+        "    - Copy-paste, or\n",
+        "    - Type more than once.\n",
+        "- Also very annoying/difficult to write them many lines without error!\n",
+        "- We introduce the `def` keyword to define `functions`\n",
+        "- A way to reuse code we have already written.\n",
+        "\n",
+        "## `def`\n",
+        "\n",
+        "- We recall we use `print` in a multi-line."
+      ],
+      "id": "c1a5a5db"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "def double(x):\n",
+        "    print(x + x)"
+      ],
+      "id": "b9cd0c94",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "- `def` + *some function name* + `(` + *some variable name* + `):`"
+      ],
+      "id": "36e002c6"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "double(7)"
+      ],
+      "id": "8446b15d",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "- \"Call\" functions the same way we call `print` - with parens.\n",
+        "\n",
+        "## Metaphor\n",
+        "\n",
+        "- `def` is like asking a friend for something.\n",
+        "- \"Hey can you add `x` and `x` together?\"\n",
+        "- `print` is how your friend tells you the result.\n",
+        "- \"Can you print out the result of `x + x` for me?\"\n",
+        "\n",
+        "## `return`\n",
+        "\n",
+        "- It is more common to use `return` than `print` in a function.\n",
+        "- When we call a function, we can think of it as expression with some value.\n",
+        "- That value is defined by the value that is return.\n",
+        "\n",
+        ":::: {.columns}\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n"
+      ],
+      "id": "47473e13"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "def six_gt_five_print():\n",
+        "    print(True)\n",
+        "\n",
+        "if (six_gt_five_print()):\n",
+        "    print(123)"
+      ],
+      "id": "caa59d74",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n"
+      ],
+      "id": "67f2ce15"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "def six_gt_five_print():\n",
+        "    return True\n",
+        "\n",
+        "if (six_gt_five_print()):\n",
+        "    print(123)"
+      ],
+      "id": "99928e48",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::::\n",
+        "\n",
+        "## Example\n",
+        "\n",
+        "- Suppose an interest rate doubles our savings every ~7 years.\n",
+        "- How much savings in 14 years?\n"
+      ],
+      "id": "7e71735c"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "savings = 10\n",
+        "double(savings)"
+      ],
+      "id": "bb09597a",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Use return\n"
+      ],
+      "id": "53a8f3dd"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "def double(x):\n",
+        "    return x + x"
+      ],
+      "id": "7b5e92e1",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "- Now, `double(savings)` becomes equal to `x + x`\n"
+      ],
+      "id": "5129c2bc"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "savings = 10\n",
+        "savings = double(savings)\n",
+        "savings"
+      ],
+      "id": "28938324",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "double(savings)"
+      ],
+      "id": "f1bbc8d9",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "- Or even"
+      ],
+      "id": "c9fc4357"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "double(double(10))"
+      ],
+      "id": "e19d305e",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Piecewise\n",
+        "\n",
+        "- We can finally write the piecewise function (was: expression)!\n",
+        "    - Function: use many times in many expressions\n",
+        "    - Expression: evaluate once and get one answer\n",
+        "\n",
+        ":::: {.columns}\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n",
+        "\n",
+        "$$\n",
+        "\\begin{cases}\n",
+        "  9x^2 + 5 & x < 4 \\\\\n",
+        "  9 & 4 \\leq x \\leq 8 \\\\\n",
+        "  2 - x & x > 8\n",
+        "\\end{cases}\n",
+        "$$\n",
+        "$$\n",
+        "\\{-1, 4, 5, 8, 11\\}\n",
+        "$$\n",
+        "\n",
+        ":::\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n"
+      ],
+      "id": "a641c53e"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "def piecewise(x):\n",
+        "    if (x < 4):\n",
+        "        return 9 * x ** 2 + 5\n",
+        "    elif (4 <= x <= 8):\n",
+        "        return 9\n",
+        "    elif (x > 8):\n",
+        "        return 2 - x"
+      ],
+      "id": "db366a88",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "piecewise(4)"
+      ],
+      "id": "538a1a45",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::::\n",
+        "\n",
+        "# Iteration\n",
+        "\n",
+        "## Tedium\n",
+        "\n",
+        "- This is still quite tedious.\n"
+      ],
+      "id": "9fa57746"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "piecewise(-1)"
+      ],
+      "id": "44d41cdd",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "piecewise(4)"
+      ],
+      "id": "13ab260b",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "piecewise(5)"
+      ],
+      "id": "ff70e16b",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "piecewise(8)"
+      ],
+      "id": "958cc005",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "piecewise(11)"
+      ],
+      "id": "4e469b7e",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Sets\n",
+        "\n",
+        "- This is a *set*:\n",
+        "\n",
+        "$$\n",
+        "\\{-1, 4, 5, 8, 11\\}\n",
+        "$$\n",
+        "\n",
+        "- A set is an *unordered* collection of *elements*.\n",
+        "    - In this case, elements are integers - whole numbers.\n",
+        "- Python can also recognize sets!\n"
+      ],
+      "id": "2dae103c"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "{-1, 4, 5, 8, 11}"
+      ],
+      "id": "8cbd2457",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Type\n",
+        "\n",
+        "- To be sure that is, in fact, a set, we use the helpful built-in `type()` to ask Python.\n"
+      ],
+      "id": "6553fe8f"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "s = {-1, 4, 5, 8, 11}\n",
+        "type(s)"
+      ],
+      "id": "86d10dec",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "- We have also worked with **int**egers.\n"
+      ],
+      "id": "a50adbf9"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "type(1)"
+      ],
+      "id": "e4c5ad8d",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "- And ***bool**eans* - `True` and `False` values."
+      ],
+      "id": "e5826877"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "type(1 == 1)"
+      ],
+      "id": "5982a8ce",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Loops\n",
+        "\n",
+        "- With a set, do something *to each element*\n",
+        "- In Python, use a `for` loop:\n",
+        "    - The `for` keyword\n",
+        "    - The name to refer to an element, like `e` or `x`\n",
+        "    - The `in` keyword\n",
+        "    - The set/collection (or its variable name)\n",
+        "    - The `:` colon special character\n",
+        "    - An indented new line of code\n",
+        "\n",
+        "## Example\n",
+        "\n",
+        "- for element in collection\n",
+        "    - do thing"
+      ],
+      "id": "dc6291fe"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "for e in {-1, 4, 5, 8, 11}:\n",
+        "    print(piecewise(e))"
+      ],
+      "id": "7e8087eb",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "- What do you see?\n",
+        "\n",
+        "## Example\n",
+        "\n",
+        "- What if we just try to print the elements?\n",
+        "    - Easier to think about!"
+      ],
+      "id": "ba86fb65"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "for e in {-1, 4, 5, 8, 11}:\n",
+        "    print(e)"
+      ],
+      "id": "dc146615",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "- What do you see?\n",
+        "\n",
+        "## Ordering\n",
+        "\n",
+        "- Recall: \"A set is an *unordered* collection of *elements*\".\n",
+        "- We need to put things in order!\n",
+        "- The most common way to do this in Python is with a *list*.\n",
+        "- Almost the same as sets, just use \"boxy brackets\" `[]`"
+      ],
+      "id": "5d798049"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "type([1,2,3])"
+      ],
+      "id": "7a8d1b6c",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Example\n",
+        "\n",
+        "- for element in collection\n",
+        "    - do thing"
+      ],
+      "id": "2a2f3f64"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "for e in [-1, 4, 5, 8, 11]:\n",
+        "    print(piecewise(e))"
+      ],
+      "id": "048aa6db",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "- What do you see?\n",
+        "\n",
+        "## Seeing lists\n",
+        "\n",
+        "- We can also use lists to print multiple values!\n",
+        "    - Very helpful for keeping track of things!"
+      ],
+      "id": "c670019a"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "for e in [-1, 4, 5, 8, 11]:\n",
+        "    print([e, piecewise(e)])"
+      ],
+      "id": "7a33047f",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Updating lists\n",
+        "\n",
+        "- Each element is a lot like a variable.\n",
+        "    - They just have a name *and* number, use `[]`\n",
+        "    - The initial element is number `0` (*not* 1)"
+      ],
+      "id": "9dd3f933"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "xs = [-1, 4, 5, 8, 11]\n",
+        "xs[0]"
+      ],
+      "id": "b0b89193",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "- And like variables, we can assign a value with `=`"
+      ],
+      "id": "b920b506"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "xs[0] = -2\n",
+        "xs"
+      ],
+      "id": "e945669f",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Metaphor\n",
+        "\n",
+        "- Think of a list like a block in a neighborhood.\n",
+        "  \t- Perhaps to \"400\" block or \"8000\"\n",
+        "- The house on the corner has the block number.\n",
+        "  \t- 400 1st St, 8000 9th Ave\n",
+        "- Latter houses have higher numbers.\n",
+        "  \t- 404 1st St, 8019 9th Ave\n",
+        "\n",
+        "## Adding lists\n",
+        "\n",
+        "- Lists also helpfully support addition with `+`"
+      ],
+      "id": "0f7b70cc"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "[-1] + [4, 5, 8, 11]"
+      ],
+      "id": "0cdadbb1",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "- We often use this to make new lists.\n"
+      ],
+      "id": "670f1f61"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "result = []\n",
+        "for e in [-1, 4, 5, 8, 11]:\n",
+        "    result = result + [piecewise(e)]\n",
+        "result"
+      ],
+      "id": "14d6a6f9",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "- This pattern also works with numbers!"
+      ],
+      "id": "52fe3fff"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "x = 0 \n",
+        "x = x + 1\n",
+        "x"
+      ],
+      "id": "77e5ae3d",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Careful!\n",
+        "\n",
+        "- We cannot add numbers directly to lists\n",
+        "  \t- `[1] + 2` doesn't work!\n",
+        "- I think of this as adding a house to block without having an address for it.\n",
+        "  \t- Where would the house go?\n",
+        "- To add a house to block, we need to have a new \"lot\" for the house to be on.\n",
+        "\n",
+        "# Exercise\n",
+        "\n",
+        "## Income tax\n",
+        "\n",
+        "- Recall the example of a piecewise function:\n",
+        "\n",
+        "<table style=\"font-size:12px\">\n",
+        "<th>Marginal Tax Rate</th>\n",
+        "<th>Single Taxable Income</th>\n",
+        "<th>Married Filing Jointly or Qualified Widow(er) Taxable Income</th>\n",
+        "<th>Married Filing Separately Taxable Income</th>\n",
+        "<th>Head of Household Taxable Income</th>\n",
+        "</tr>\n",
+        "<tr>\n",
+        "<th>10%</th>\n",
+        "<td>$0 – $9,275</td>\n",
+        "<td>$0 – $18,550</td>\n",
+        "<td>$0 – $9,275</td>\n",
+        "<td>$0 – $13,250</td>\n",
+        "</tr>\n",
+        "<tr>\n",
+        "<th>15%</th>\n",
+        "<td>$9,276 – $37,650</td>\n",
+        "<td>$18,551 – $75,300</td>\n",
+        "<td>$9,276 – $37,650</td>\n",
+        "<td>$13,251 – $50,400</td>\n",
+        "</tr>\n",
+        "<tr>\n",
+        "<th>25%</th>\n",
+        "<td>$37,651 – $91,150</td>\n",
+        "<td>$75,301 – $151,900</td>\n",
+        "<td>$37,651 – $75,950</td>\n",
+        "<td>$50,401 – $130,150</td>\n",
+        "</tr>\n",
+        "<tr>\n",
+        "<th>28%</th>\n",
+        "<td>$91,151 – $190,150</td>\n",
+        "<td>$151,901 – $231,450</td>\n",
+        "<td>$75,951 – $115,725</td>\n",
+        "<td>$130,151 – $210,800</td>\n",
+        "</tr>\n",
+        "<tr>\n",
+        "<th>33%</th>\n",
+        "<td>$190,151 – $413,350</td>\n",
+        "<td>$231,451 – $413,350</td>\n",
+        "<td>$115,726 – $206,675</td>\n",
+        "<td>$210,801 – $413,350</td>\n",
+        "</tr>\n",
+        "<tr>\n",
+        "<th>35%</th>\n",
+        "<td>$413,351 – $415,050</td>\n",
+        "<td>$413,351 – $466,950</td>\n",
+        "<td>$206,676 – $233,475</td>\n",
+        "<td>$413,351 – $441,000</td>\n",
+        "</tr>\n",
+        "<tr>\n",
+        "<th>39.6%</th>\n",
+        "<td>$415,051+</td>\n",
+        "<td>$466,951+</td>\n",
+        "<td>$233,476+</td>\n",
+        "<td>$441,001+</td>\n",
+        "</table>\n",
+        "\n",
+        "## [Singles](https://www.youtube.com/watch?v=4m1EFMoRFvY) only...\n",
+        "\n",
+        "| Rate   | From    |\n",
+        "|--------|--------:|\n",
+        "| 10%    | 0       |\n",
+        "| 15%    | 9275    |\n",
+        "| 25%    | 37650   |\n",
+        "| 28%    | 91150   |\n",
+        "| 33%    | 190150  |\n",
+        "| 35%    | 413350  |\n",
+        "| 39.6%  | 415050  |\n",
+        "\n",
+        "## Motivating example\n",
+        "\n",
+        "- How much would a single making 400k pay?\n",
+        "\n",
+        ":::: {.columns}\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n",
+        "\n",
+        "- 10% on 9275\n",
+        "- 15% on 37650 - 9275\n",
+        "- 25% on 91150 - 37650\n",
+        "- 28% on 190150 - 91150\n",
+        "- 33% on 400000 - 190150\n",
+        "\n",
+        ":::\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n",
+        "\n",
+        "| Rate   | From    |\n",
+        "|--------|--------:|\n",
+        "| 10%    | 0       |\n",
+        "| 15%    | 9275    |\n",
+        "| 25%    | 37650   |\n",
+        "| 28%    | 91150   |\n",
+        "| 33%    | 190150  |\n",
+        "| 35%    | 413350  |\n",
+        "| 39.6%  | 415050  |\n",
+        "\n",
+        ":::\n",
+        "\n",
+        "::::\n",
+        "\n",
+        "## Sum it up!\n",
+        "\n",
+        "- Watch out for order-of-operations!\n",
+        "\n",
+        ":::: {.columns}\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n",
+        "\n",
+        "- 10% on 9275\n",
+        "- 15% on 37650 - 9275\n",
+        "- 25% on 91150 - 37650\n",
+        "- 28% on 190150 - 91150\n",
+        "- 33% on 400000 - 190150\n",
+        "\n",
+        ":::\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n"
+      ],
+      "id": "658ab91d"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "x = .10 * 9275\n",
+        "y = .15 * (37650 - 9275)\n",
+        "z = .25 * (91150 - 37650)\n",
+        "r = .28 * (190150 - 91150)\n",
+        "s = .33 * (400000 - 190150)\n",
+        "x + y + z + r + s"
+      ],
+      "id": "9aaff662",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::::\n",
+        "\n",
+        "## Add as you go\n",
+        "\n",
+        "- We may set a variable to an expression *over that variable*\n",
+        "    - I think of this as an \"old\" version of the variable on the right side of the equal sign.\n",
+        "\n",
+        ":::: {.columns}\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n"
+      ],
+      "id": "368e8032"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "x = .10 * 9275\n",
+        "x = x + .15 * (37650 - 9275)\n",
+        "x = x + .25 * (91150 - 37650)\n",
+        "x = x + .28 * (190150 - 91150)\n",
+        "x + .33 * (400000 - 190150)"
+      ],
+      "id": "65f6902f",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n"
+      ],
+      "id": "4cc11fa4"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "x = .10 * 9275\n",
+        "y = .15 * (37650 - 9275)\n",
+        "z = .25 * (91150 - 37650)\n",
+        "r = .28 * (190150 - 91150)\n",
+        "s = .33 * (400000 - 190150)\n",
+        "x + y + z + r + s"
+      ],
+      "id": "2f590127",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::::\n",
+        "\n",
+        "## Assign-update\n",
+        "\n",
+        "- We may use an \"assignment operator\" `+=`\n",
+        "    - Reassign a variable based on the result of an arithmetic operation.\n",
+        "\n",
+        ":::: {.columns}\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n"
+      ],
+      "id": "1327fc15"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "x = .10 * 9275\n",
+        "x = x + .15 * (37650 - 9275)\n",
+        "x = x + .25 * (91150 - 37650)\n",
+        "x = x + .28 * (190150 - 91150)\n",
+        "x + .33 * (400000 - 190150)"
+      ],
+      "id": "ce94a9df",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n"
+      ],
+      "id": "6ffdf727"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "x = .10 * 9275\n",
+        "x += .15 * (37650 - 9275)\n",
+        "x += .25 * (91150 - 37650)\n",
+        "x += .28 * (190150 - 91150)\n",
+        "x + .33 * (400000 - 190150)"
+      ],
+      "id": "d3db22f8",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::::\n",
+        "\n",
+        "## Exercise\n",
+        "\n",
+        ":::: {.columns}\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n",
+        "\n",
+        "- Write function\n",
+        "- `def single_tax(pay):`\n",
+        "- *Return* tax cost.\n",
+        "    - Return not print!\n",
+        "- Bonus: Also write `single_tax_rate` which returns the percent tax rate at some income level.\n",
+        "\n",
+        ":::\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n",
+        "\n",
+        "| Rate   | From    |\n",
+        "|--------|--------:|\n",
+        "| 10%    | 0       |\n",
+        "| 15%    | 9275    |\n",
+        "| 25%    | 37650   |\n",
+        "| 28%    | 91150   |\n",
+        "| 33%    | 190150  |\n",
+        "| 35%    | 413350  |\n",
+        "| 39.6%  | 415050  |\n",
+        "\n",
+        ":::\n",
+        "\n",
+        "::::\n",
+        "\n",
+        "## Solution\n",
+        "\n",
+        ":::: {.columns}\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n",
+        "\n",
+        "- Spoiler alert!\n"
+      ],
+      "id": "cfa8ebcf"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| code-fold: true\n",
+        "def single_tax(pay):\n",
+        "    tax = 0\n",
+        "    if pay > 415050:\n",
+        "        tax += (pay - 415050) * .396\n",
+        "        pay = 415050\n",
+        "    if pay > 413350:\n",
+        "        tax += (pay - 413350) * .35\n",
+        "        pay = 413350\n",
+        "    if pay > 190150:\n",
+        "        tax += (pay - 190150) * .33\n",
+        "        pay = 190150\n",
+        "    if pay > 91150:\n",
+        "        tax += (pay - 91150) * .28\n",
+        "        pay = 91150\n",
+        "    if pay > 37650:\n",
+        "        tax += (pay - 37650) * .25\n",
+        "        pay = 37650\n",
+        "    if pay > 9275:\n",
+        "        tax += (pay - 9275) * .15\n",
+        "        pay = 9275\n",
+        "    return tax + pay * .1"
+      ],
+      "id": "ab8fa077",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n",
+        "\n",
+        "- The solution gives the following results!\n"
+      ],
+      "id": "5e18e8f9"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "[\n",
+        "    single_tax(100000),\n",
+        "    single_tax(100000),\n",
+        "    single_tax(200000),\n",
+        "    single_tax(300000),\n",
+        "    single_tax(400000),\n",
+        "]"
+      ],
+      "id": "f5ed90e4",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "- `115529.25` matches our calculations.\n",
+        "\n",
+        ":::\n",
+        "\n",
+        "::::\n",
+        "\n",
+        "## Challenge Problem\n",
+        "\n",
+        "- Calculate at what income does the tax rate reach the second highest marginal tax rate of 35%?\n",
+        "    - That is, at what `pay` does `tax == pay * .35`"
+      ],
+      "id": "3ea245b0"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| code-fold: true\n",
+        "m = .396\n",
+        "b = 0\n",
+        "b += (415050 - 413350) * .35\n",
+        "b += (413350 - 190150) * .33\n",
+        "b += (190150 - 91150) * .28\n",
+        "b += (91150 - 37650) * .25\n",
+        "b += (37650 - 9275) * .15\n",
+        "b += 9275 * .1\n",
+        "(m * -415050 + b)/(.35 - m)"
+      ],
+      "id": "fa09174a",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Bonus Solution\n",
+        "\n",
+        "- `single_tax` with loops"
+      ],
+      "id": "35438c7f"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| code-fold: true\n",
+        "def single_tax(pay):\n",
+        "    tax_policy = [\n",
+        "        [415050, .396], \n",
+        "        [413350, .35],\n",
+        "        [190150, .33],\n",
+        "        [91150, .28],\n",
+        "        [37650, .25],\n",
+        "        [9275, .15]\n",
+        "    ]\n",
+        "    tax = 0\n",
+        "    for bracket in tax_policy:\n",
+        "        if pay > bracket[0]:\n",
+        "            tax += (pay - bracket[0]) * bracket[1]\n",
+        "            pay = bracket[0]\n",
+        "    return tax + pay * .1"
+      ],
+      "id": "74280529",
+      "execution_count": null,
+      "outputs": []
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "python3",
+      "language": "python",
+      "display_name": "Python 3 (ipykernel)",
+      "path": "C:\\Users\\cd-desk\\AppData\\Local\\Programs\\Python\\Python312\\share\\jupyter\\kernels\\python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}

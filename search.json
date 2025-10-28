@@ -15936,5 +15936,683 @@
     "crumbs": [
       "Appendix - Git Bash"
     ]
+  },
+  {
+    "objectID": "A2_pages.html#scientific-publication-on-github",
+    "href": "A2_pages.html#scientific-publication-on-github",
+    "title": "",
+    "section": "Scientific Publication on GitHub",
+    "text": "Scientific Publication on GitHub\n\nYou can use GitHub Pages to showcase some open source projects, host a blog, or even share your résumé. This guide will help get you started on creating your next website.",
+    "crumbs": [
+      "Appendix - GitHub Pages"
+    ]
+  },
+  {
+    "objectID": "A2_pages.html#why-github-pages",
+    "href": "A2_pages.html#why-github-pages",
+    "title": "",
+    "section": "Why GitHub Pages?",
+    "text": "Why GitHub Pages?\n\nFree as in speech and free as in price.\n“Easy” by the standards of web-hosting and scientific publication.\nCool as heck.",
+    "crumbs": [
+      "Appendix - GitHub Pages"
+    ]
+  },
+  {
+    "objectID": "A2_pages.html#why-not-github-pages",
+    "href": "A2_pages.html#why-not-github-pages",
+    "title": "",
+    "section": "Why not GitHub Pages?",
+    "text": "Why not GitHub Pages?\n\nReliant on the enduring good graces of Microsoft, which funds GitHub\nSeems to change often in terms of years (not e.g. months)\nRequires lots of tiny changes in lots of places.",
+    "crumbs": [
+      "Appendix - GitHub Pages"
+    ]
+  },
+  {
+    "objectID": "A2_pages.html#requirements",
+    "href": "A2_pages.html#requirements",
+    "title": "",
+    "section": "Requirements",
+    "text": "Requirements\n\nA GitHub account.\n\nGit\n\nAn HTML file.\n\nQuarto",
+    "crumbs": [
+      "Appendix - GitHub Pages"
+    ]
+  },
+  {
+    "objectID": "A2_pages.html#steps",
+    "href": "A2_pages.html#steps",
+    "title": "",
+    "section": "Steps",
+    "text": "Steps\n\nCreate a repository.\n\nGitHub: About repositories\nThis class: Repositories\n\nAdd an HTML file to the repository.\nConfigure the repository to publish to GitHub Pages.",
+    "crumbs": [
+      "Appendix - GitHub Pages"
+    ]
+  },
+  {
+    "objectID": "A2_pages.html#step-1",
+    "href": "A2_pages.html#step-1",
+    "title": "",
+    "section": "Step 1",
+    "text": "Step 1\n\nAlready covered in Git - Repositories\n\nFollow until you have an index.qmd on GitHub.com\n\nExtra considerations:\n\nName the repository some that will be in the URL\n\nIt will be &lt;your-github-user&gt;.github.io/&lt;your-repository-name&gt;\n\nName your Quarto Markdown (.qmd) file index.qmd\n\nThis is the default name for a webpage, and makes your life easier.",
+    "crumbs": [
+      "Appendix - GitHub Pages"
+    ]
+  },
+  {
+    "objectID": "A2_pages.html#step-2",
+    "href": "A2_pages.html#step-2",
+    "title": "",
+    "section": "Step 2",
+    "text": "Step 2\n\nAlready covered in Quarto - Essentials\n\nFollow until you have an index.qmd on GitHub.com\n\nExtra considerations:\n\nInclude embed-resources: true in your YAML header.\n\nQuarto - Easy Mode\n\nDouble check you have a file named index.html\n\nIt is possible to use another name, but not easy.",
+    "crumbs": [
+      "Appendix - GitHub Pages"
+    ]
+  },
+  {
+    "objectID": "A2_pages.rjs.html#scientific-publication-on-github",
+    "href": "A2_pages.rjs.html#scientific-publication-on-github",
+    "title": "Thinking Machines",
+    "section": "Scientific Publication on GitHub",
+    "text": "Scientific Publication on GitHub\n\nYou can use GitHub Pages to showcase some open source projects, host a blog, or even share your résumé. This guide will help get you started on creating your next website."
+  },
+  {
+    "objectID": "A2_pages.rjs.html#why-github-pages",
+    "href": "A2_pages.rjs.html#why-github-pages",
+    "title": "Thinking Machines",
+    "section": "Why GitHub Pages?",
+    "text": "Why GitHub Pages?\n\nFree as in speech and free as in price.\n“Easy” by the standards of web-hosting and scientific publication.\nCool as heck."
+  },
+  {
+    "objectID": "A2_pages.rjs.html#why-not-github-pages",
+    "href": "A2_pages.rjs.html#why-not-github-pages",
+    "title": "Thinking Machines",
+    "section": "Why not GitHub Pages?",
+    "text": "Why not GitHub Pages?\n\nReliant on the enduring good graces of Microsoft, which funds GitHub\nSeems to change often in terms of years (not e.g. months)\nRequires lots of tiny changes in lots of places."
+  },
+  {
+    "objectID": "A2_pages.rjs.html#requirements",
+    "href": "A2_pages.rjs.html#requirements",
+    "title": "Thinking Machines",
+    "section": "Requirements",
+    "text": "Requirements\n\nA GitHub account.\n\nGit\n\nAn HTML file.\n\nQuarto"
+  },
+  {
+    "objectID": "A2_pages.rjs.html#steps",
+    "href": "A2_pages.rjs.html#steps",
+    "title": "Thinking Machines",
+    "section": "Steps",
+    "text": "Steps\n\nCreate a repository.\n\nGitHub: About repositories\nThis class: Repositories\n\nAdd an HTML file to the repository.\nConfigure the repository to publish to GitHub Pages."
+  },
+  {
+    "objectID": "A2_pages.rjs.html#step-1",
+    "href": "A2_pages.rjs.html#step-1",
+    "title": "Thinking Machines",
+    "section": "Step 1",
+    "text": "Step 1\n\nAlready covered in Git - Repositories\n\nFollow until you have an index.qmd on GitHub.com\n\nExtra considerations:\n\nName the repository some that will be in the URL\n\nIt will be &lt;your-github-user&gt;.github.io/&lt;your-repository-name&gt;\n\nName your Quarto Markdown (.qmd) file index.qmd\n\nThis is the default name for a webpage, and makes your life easier."
+  },
+  {
+    "objectID": "A2_pages.rjs.html#step-2",
+    "href": "A2_pages.rjs.html#step-2",
+    "title": "Thinking Machines",
+    "section": "Step 2",
+    "text": "Step 2\n\nAlready covered in Quarto - Essentials\n\nFollow until you have an index.qmd on GitHub.com\n\nExtra considerations:\n\nInclude embed-resources: true in your YAML header.\n\nQuarto - Easy Mode\n\nDouble check you have a file named index.html\n\nIt is possible to use another name, but not easy."
+  },
+  {
+    "objectID": "A2_pages.html#step-3",
+    "href": "A2_pages.html#step-3",
+    "title": "",
+    "section": "Step 3",
+    "text": "Step 3\n\nThis is new content.\nThere are many steps, each is essential.\nSkip no steps; perform checks at all steps.",
+    "crumbs": [
+      "Appendix - GitHub Pages"
+    ]
+  },
+  {
+    "objectID": "A2_pages.rjs.html#step-3",
+    "href": "A2_pages.rjs.html#step-3",
+    "title": "Thinking Machines",
+    "section": "Step 3",
+    "text": "Step 3\n\nThis is new content.\nThere are many steps, each is essential.\nSkip no steps; perform checks at all steps."
+  },
+  {
+    "objectID": "A2_pages.html#check-1---folder",
+    "href": "A2_pages.html#check-1---folder",
+    "title": "",
+    "section": "Check 1 - Folder",
+    "text": "Check 1 - Folder\n\nYou should be working in a local (on your computer) folder that corresponds to a remote (on GitHub) repository.\nI should contain exactly two files.\n\nVerify with ls\n\n$ ls\nindex.html  index.qmd\nIf you see anything else, it is wrong, and you should fix it or start over.",
+    "crumbs": [
+      "Appendix - GitHub Pages"
+    ]
+  },
+  {
+    "objectID": "A2_pages.rjs.html#check-1---folder",
+    "href": "A2_pages.rjs.html#check-1---folder",
+    "title": "Thinking Machines",
+    "section": "Check 1 - Folder",
+    "text": "Check 1 - Folder\n\nYou should be working in a local (on your computer) folder that corresponds to a remote (on GitHub) repository.\nI should contain exactly two files.\n\nVerify with ls\n\n$ ls\nindex.html  index.qmd\nIf you see anything else, it is wrong, and you should fix it or start over."
+  },
+  {
+    "objectID": "A2_pages.html#check-1---likely-mistake",
+    "href": "A2_pages.html#check-1---likely-mistake",
+    "title": "",
+    "section": "Check 1 - Likely mistake",
+    "text": "Check 1 - Likely mistake\n\nThe most likely other thing to see is the following:\n\n$ ls\nindex.html  index.qmd  index_files/\n\nTo fix this:\n\nRemove index_files\n\nrm -rf index_files\n\nAdd the following to the YAML header of index.qmd\n\nformat:\n  html:\n      embed-resources: true",
+    "crumbs": [
+      "Appendix - GitHub Pages"
+    ]
+  },
+  {
+    "objectID": "A2_pages.rjs.html#check-1---likely-mistake",
+    "href": "A2_pages.rjs.html#check-1---likely-mistake",
+    "title": "Thinking Machines",
+    "section": "Check 1 - Likely mistake",
+    "text": "Check 1 - Likely mistake\n\nThe most likely other thing to see is the following:\n\n$ ls\nindex.html  index.qmd  index_files/\n\nTo fix this:\n\nRemove index_files\n\nrm -rf index_files\n\nAdd the following to the YAML header of index.qmd\n\nformat:\n  html:\n      embed-resources: true"
+  },
+  {
+    "objectID": "A2_pages.html#remote",
+    "href": "A2_pages.html#remote",
+    "title": "",
+    "section": "Remote",
+    "text": "Remote\n\nCreate a new repository\n\nChoose names you want.\nSet to public\n\nIf you are uncomfortable publishing under your own name, use a pseudonym and tell me the pseudonym.\nI publish anonymously under names of cities.",
+    "crumbs": [
+      "Appendix - GitHub Pages"
+    ]
+  },
+  {
+    "objectID": "A2_pages.html#visually-pt.-1",
+    "href": "A2_pages.html#visually-pt.-1",
+    "title": "",
+    "section": "Visually pt. 1",
+    "text": "Visually pt. 1",
+    "crumbs": [
+      "Appendix - GitHub Pages"
+    ]
+  },
+  {
+    "objectID": "A2_pages.html#visually-pt.-2",
+    "href": "A2_pages.html#visually-pt.-2",
+    "title": "",
+    "section": "Visually pt. 2",
+    "text": "Visually pt. 2",
+    "crumbs": [
+      "Appendix - GitHub Pages"
+    ]
+  },
+  {
+    "objectID": "A2_pages.rjs.html#remote",
+    "href": "A2_pages.rjs.html#remote",
+    "title": "Thinking Machines",
+    "section": "Remote",
+    "text": "Remote\n\nCreate a new repository\n\nChoose names you want.\nSet to public\n\nIf you are uncomfortable publishing under your own name, use a pseudonym and tell me the pseudonym.\nI publish anonymously under names of cities."
+  },
+  {
+    "objectID": "A2_pages.rjs.html#visually-pt.-1",
+    "href": "A2_pages.rjs.html#visually-pt.-1",
+    "title": "Thinking Machines",
+    "section": "Visually pt. 1",
+    "text": "Visually pt. 1"
+  },
+  {
+    "objectID": "A2_pages.rjs.html#visually-pt.-2",
+    "href": "A2_pages.rjs.html#visually-pt.-2",
+    "title": "Thinking Machines",
+    "section": "Visually pt. 2",
+    "text": "Visually pt. 2"
+  },
+  {
+    "objectID": "A2_pages.html#the-bridge",
+    "href": "A2_pages.html#the-bridge",
+    "title": "",
+    "section": "The Bridge",
+    "text": "The Bridge\n\nWe connect to the remote as follows…\n\nYou may encounter authentication issues depending on how you set up your account last time.\nThis assumes you completed Git - ssh",
+    "crumbs": [
+      "Appendix - GitHub Pages"
+    ]
+  },
+  {
+    "objectID": "A2_pages.rjs.html#the-bridge",
+    "href": "A2_pages.rjs.html#the-bridge",
+    "title": "Thinking Machines",
+    "section": "The Bridge",
+    "text": "The Bridge\n\nWe connect to the remote as follows…\n\nYou may encounter authentication issues depending on how you set up your account last time.\nThis assumes you completed Git - ssh"
+  },
+  {
+    "objectID": "A2_pages.html#bridge-setup",
+    "href": "A2_pages.html#bridge-setup",
+    "title": "",
+    "section": "Bridge Setup",
+    "text": "Bridge Setup\n\nWherever your local folder is, do the following:\n\ngit init\ngit add index.qmd index.html\ngit commit -m \"First commit\"\ngit branch -M main",
+    "crumbs": [
+      "Appendix - GitHub Pages"
+    ]
+  },
+  {
+    "objectID": "A2_pages.html#connect-to-remote",
+    "href": "A2_pages.html#connect-to-remote",
+    "title": "",
+    "section": "Connect to Remote",
+    "text": "Connect to Remote\n\nTake not of the following, which you will have to ensure reflects your repository:\n\nDo not simply copy-paste this command.\n\ngit remote add origin git@github.com:&lt;your-github-user&gt;/&lt;your-repository-name&gt;.git",
+    "crumbs": [
+      "Appendix - GitHub Pages"
+    ]
+  },
+  {
+    "objectID": "A2_pages.html#finalize",
+    "href": "A2_pages.html#finalize",
+    "title": "",
+    "section": "Finalize",
+    "text": "Finalize\n\nThen push local changes to remote.\n\ngit push -u origin main",
+    "crumbs": [
+      "Appendix - GitHub Pages"
+    ]
+  },
+  {
+    "objectID": "A2_pages.html#verify",
+    "href": "A2_pages.html#verify",
+    "title": "",
+    "section": "Verify",
+    "text": "Verify\n\nVerify remote\n\nEnsure your remote repository looks like this:\n\nIt must have exactly two files with exactly these names.\nBy the way, exactly means exactly.\nIndex.html is not acceptable; index.md is not acceptable.",
+    "crumbs": [
+      "Appendix - GitHub Pages"
+    ]
+  },
+  {
+    "objectID": "A2_pages.rjs.html#bridge-setup",
+    "href": "A2_pages.rjs.html#bridge-setup",
+    "title": "Thinking Machines",
+    "section": "Bridge Setup",
+    "text": "Bridge Setup\n\nWherever your local folder is, do the following:\n\ngit init\ngit add index.qmd index.html\ngit commit -m \"First commit\"\ngit branch -M main"
+  },
+  {
+    "objectID": "A2_pages.rjs.html#connect-to-remote",
+    "href": "A2_pages.rjs.html#connect-to-remote",
+    "title": "Thinking Machines",
+    "section": "Connect to Remote",
+    "text": "Connect to Remote\n\nTake not of the following, which you will have to ensure reflects your repository:\n\nDo not simply copy-paste this command.\n\ngit remote add origin git@github.com:&lt;your-github-user&gt;/&lt;your-repository-name&gt;.git"
+  },
+  {
+    "objectID": "A2_pages.rjs.html#finalize",
+    "href": "A2_pages.rjs.html#finalize",
+    "title": "Thinking Machines",
+    "section": "Finalize",
+    "text": "Finalize\n\nThen push local changes to remote.\n\ngit push -u origin main"
+  },
+  {
+    "objectID": "A2_pages.rjs.html#verify",
+    "href": "A2_pages.rjs.html#verify",
+    "title": "Thinking Machines",
+    "section": "Verify",
+    "text": "Verify\n\nVerify remote\n\nEnsure your remote repository looks like this:\n\nIt must have exactly two files with exactly these names.\nBy the way, exactly means exactly.\nIndex.html is not acceptable; index.md is not acceptable."
+  },
+  {
+    "objectID": "A2_pages.html#verify-remove",
+    "href": "A2_pages.html#verify-remove",
+    "title": "",
+    "section": "Verify Remove",
+    "text": "Verify Remove\n\nEnsure your remote repository looks like this:\n\nIt must have exactly two files with exactly these names.\nBy the way, exactly means exactly.\nIndex.html will not work; index.md will not work.",
+    "crumbs": [
+      "Appendix - GitHub Pages"
+    ]
+  },
+  {
+    "objectID": "A2_pages.rjs.html#verify-remove",
+    "href": "A2_pages.rjs.html#verify-remove",
+    "title": "Thinking Machines",
+    "section": "Verify Remove",
+    "text": "Verify Remove\n\nEnsure your remote repository looks like this:\n\nIt must have exactly two files with exactly these names.\nBy the way, exactly means exactly.\nIndex.html will not work; index.md will not work."
+  },
+  {
+    "objectID": "A2_pages.html#verify-local",
+    "href": "A2_pages.html#verify-local",
+    "title": "",
+    "section": "Verify Local",
+    "text": "Verify Local\n\nTwo checks determine the local folder is correctly:\nThe presence of a hidden, .git folder when using the -a flag on ls\n\n$ ls -a\n./  ../  .git/  index.html  index.qmd\n\nThe following status, with git status\n\nYou may get a hint here, which may be ignored.\n\n\n$ git status\nOn branch main\nYour branch is up to date with 'origin/main'.\n\nnothing to commit, working tree clean",
+    "crumbs": [
+      "Appendix - GitHub Pages"
+    ]
+  },
+  {
+    "objectID": "A2_pages.rjs.html#verify-local",
+    "href": "A2_pages.rjs.html#verify-local",
+    "title": "Thinking Machines",
+    "section": "Verify Local",
+    "text": "Verify Local\n\nTwo checks determine the local folder is correctly:\nThe presence of a hidden, .git folder when using the -a flag on ls\n\n$ ls -a\n./  ../  .git/  index.html  index.qmd\n\nThe following status, with git status\n\nYou may get a hint here, which may be ignored.\n\n\n$ git status\nOn branch main\nYour branch is up to date with 'origin/main'.\n\nnothing to commit, working tree clean"
+  },
+  {
+    "objectID": "A2_pages.html#check-1---likely-mistake-1",
+    "href": "A2_pages.html#check-1---likely-mistake-1",
+    "title": "",
+    "section": "Check 1 - Likely mistake",
+    "text": "Check 1 - Likely mistake\n\nThe most likely other thing to see is the following:\n\n$ ls\nindex.html  index.qmd  index_files/\n\nTo fix this:\n\nRemove index_files\n\nrm -rf index_files\n\nAdd the following to the YAML header of index.qmd\n\nformat:\n  html:\n      embed-resources: true",
+    "crumbs": [
+      "Appendix - GitHub Pages"
+    ]
+  },
+  {
+    "objectID": "A2_pages.html#remote-1",
+    "href": "A2_pages.html#remote-1",
+    "title": "",
+    "section": "Remote",
+    "text": "Remote\n\nCreate a new repository\n\nChoose names you want.\nSet to public\n\nIf you are uncomfortable publishing under your own name, use a pseudonym and tell me the pseudonym.\nI publish anonymously under names of cities.",
+    "crumbs": [
+      "Appendix - GitHub Pages"
+    ]
+  },
+  {
+    "objectID": "A2_pages.html#visually-pt.-1-1",
+    "href": "A2_pages.html#visually-pt.-1-1",
+    "title": "",
+    "section": "Visually pt. 1",
+    "text": "Visually pt. 1",
+    "crumbs": [
+      "Appendix - GitHub Pages"
+    ]
+  },
+  {
+    "objectID": "A2_pages.html#visually-pt.-2-1",
+    "href": "A2_pages.html#visually-pt.-2-1",
+    "title": "",
+    "section": "Visually pt. 2",
+    "text": "Visually pt. 2",
+    "crumbs": [
+      "Appendix - GitHub Pages"
+    ]
+  },
+  {
+    "objectID": "A2_pages.html#the-bridge-1",
+    "href": "A2_pages.html#the-bridge-1",
+    "title": "",
+    "section": "The Bridge",
+    "text": "The Bridge\n\nWe connect to the remote as follows…\n\nYou may encounter authentication issues depending on how you set up your account last time.\nThis assumes you completed Git - ssh",
+    "crumbs": [
+      "Appendix - GitHub Pages"
+    ]
+  },
+  {
+    "objectID": "A2_pages.html#bridge-setup-1",
+    "href": "A2_pages.html#bridge-setup-1",
+    "title": "",
+    "section": "Bridge Setup",
+    "text": "Bridge Setup\n\nWherever your local folder is, do the following:\n\ngit init\ngit add index.qmd index.html\ngit commit -m \"First commit\"\ngit branch -M main",
+    "crumbs": [
+      "Appendix - GitHub Pages"
+    ]
+  },
+  {
+    "objectID": "A2_pages.html#connect-to-remote-1",
+    "href": "A2_pages.html#connect-to-remote-1",
+    "title": "",
+    "section": "Connect to Remote",
+    "text": "Connect to Remote\n\nTake not of the following, which you will have to ensure reflects your repository:\n\nDo not simply copy-paste this command.\n\ngit remote add origin git@github.com:&lt;your-github-user&gt;/&lt;your-repository-name&gt;.git",
+    "crumbs": [
+      "Appendix - GitHub Pages"
+    ]
+  },
+  {
+    "objectID": "A2_pages.html#finalize-1",
+    "href": "A2_pages.html#finalize-1",
+    "title": "",
+    "section": "Finalize",
+    "text": "Finalize\n\nThen push local changes to remote.\n\ngit push -u origin main",
+    "crumbs": [
+      "Appendix - GitHub Pages"
+    ]
+  },
+  {
+    "objectID": "A2_pages.html#verify-remove-1",
+    "href": "A2_pages.html#verify-remove-1",
+    "title": "",
+    "section": "Verify Remove",
+    "text": "Verify Remove\n\nEnsure your remote repository looks like this:\n\nIt must have exactly two files with exactly these names.\nBy the way, exactly means exactly.\nIndex.html will not work; index.md will not work.",
+    "crumbs": [
+      "Appendix - GitHub Pages"
+    ]
+  },
+  {
+    "objectID": "A2_pages.html#verify-local-1",
+    "href": "A2_pages.html#verify-local-1",
+    "title": "",
+    "section": "Verify Local",
+    "text": "Verify Local\n\nTwo checks determine the local folder is correctly:\n\nThe presence of a hidden, .git folder when using the -a flag on ls\n\n$ ls -a\n./  ../  .git/  index.html  index.qmd\n\nThe following status, with git status\n\nYou may get a hint here, which may be ignored. ```sh $ git status On branch main Your branch is up to date with ‘origin/main’.\n\n\n\nnothing to commit, working tree clean\n\n:::",
+    "crumbs": [
+      "Appendix - GitHub Pages"
+    ]
+  },
+  {
+    "objectID": "A2_pages.html#verify-local-two-checks",
+    "href": "A2_pages.html#verify-local-two-checks",
+    "title": "",
+    "section": "Verify Local (Two Checks)",
+    "text": "Verify Local (Two Checks)\n\nVerify The presence of a hidden, .git folder when using the -a flag on ls\n\nIt will not show up with ls as it starts with a .\n\n\n$ ls -a\n./  ../  .git/  index.html  index.qmd\n\nThe following status, with git status\n\nYou may get a hint here, which may be ignored.\n\n\n$ git status\nOn branch main\nYour branch is up to date with 'origin/main'.\n\nnothing to commit, working tree clean",
+    "crumbs": [
+      "Appendix - GitHub Pages"
+    ]
+  },
+  {
+    "objectID": "A2_pages.rjs.html#verify-local-two-checks",
+    "href": "A2_pages.rjs.html#verify-local-two-checks",
+    "title": "Thinking Machines",
+    "section": "Verify Local (Two Checks)",
+    "text": "Verify Local (Two Checks)\n\nVerify The presence of a hidden, .git folder when using the -a flag on ls\n\nIt will not show up with ls as it starts with a .\n\n\n$ ls -a\n./  ../  .git/  index.html  index.qmd\n\nThe following status, with git status\n\nYou may get a hint here, which may be ignored.\n\n\n$ git status\nOn branch main\nYour branch is up to date with 'origin/main'.\n\nnothing to commit, working tree clean"
+  },
+  {
+    "objectID": "A2_pages.html#verify-remote",
+    "href": "A2_pages.html#verify-remote",
+    "title": "",
+    "section": "Verify Remote",
+    "text": "Verify Remote\n\nEnsure your remote repository looks like this:\n\nIt must have exactly two files with exactly these names.\nBy the way, exactly means exactly.\nIndex.html will not work; index.md will not work.",
+    "crumbs": [
+      "Appendix - GitHub Pages"
+    ]
+  },
+  {
+    "objectID": "A2_pages.rjs.html#verify-remote",
+    "href": "A2_pages.rjs.html#verify-remote",
+    "title": "Thinking Machines",
+    "section": "Verify Remote",
+    "text": "Verify Remote\n\nEnsure your remote repository looks like this:\n\nIt must have exactly two files with exactly these names.\nBy the way, exactly means exactly.\nIndex.html will not work; index.md will not work."
+  },
+  {
+    "objectID": "A2_pages.html#final-check",
+    "href": "A2_pages.html#final-check",
+    "title": "",
+    "section": "Final Check",
+    "text": "Final Check\n\nTry making a minor change to your index.qmd\n\nRender with quarto\nCommit with git\nPush with git\nCheck that change shows up on GitHub.\n\nPerhaps add or remove a middle initial from the author.\n\nEnsure both the .qmd and .html file change.",
+    "crumbs": [
+      "Appendix - GitHub Pages"
+    ]
+  },
+  {
+    "objectID": "A2_pages.html#scientific-publication",
+    "href": "A2_pages.html#scientific-publication",
+    "title": "",
+    "section": "Scientific Publication",
+    "text": "Scientific Publication\n\nPublishing Science is important:\n\n\n…researchers from [industry and academia] often have similar goals and are motivated by common incentives. Their common interests converge in the forum of scientific publication.",
+    "crumbs": [
+      "Appendix - GitHub Pages"
+    ]
+  },
+  {
+    "objectID": "A2_pages.rjs.html#final-check",
+    "href": "A2_pages.rjs.html#final-check",
+    "title": "Thinking Machines",
+    "section": "Final Check",
+    "text": "Final Check\n\nTry making a minor change to your index.qmd\n\nRender with quarto\nCommit with git\nPush with git\nCheck that change shows up on GitHub.\n\nPerhaps add or remove a middle initial from the author.\n\nEnsure both the .qmd and .html file change."
+  },
+  {
+    "objectID": "A2_pages.rjs.html#scientific-publication",
+    "href": "A2_pages.rjs.html#scientific-publication",
+    "title": "Thinking Machines",
+    "section": "Scientific Publication",
+    "text": "Scientific Publication\n\nPublishing Science is important:\n\n\n…researchers from [industry and academia] often have similar goals and are motivated by common incentives. Their common interests converge in the forum of scientific publication."
+  },
+  {
+    "objectID": "A2_pages.html#clickops",
+    "href": "A2_pages.html#clickops",
+    "title": "",
+    "section": "“ClickOps”",
+    "text": "“ClickOps”\n\nClick the following things on your screen to publish.\nIf your screen looks differently, it means you clicked something else.\nStart over, and if necessary, make a new repository.",
+    "crumbs": [
+      "Appendix - GitHub Pages"
+    ]
+  },
+  {
+    "objectID": "A2_pages.html#click-0",
+    "href": "A2_pages.html#click-0",
+    "title": "",
+    "section": "Click 0",
+    "text": "Click 0",
+    "crumbs": [
+      "Appendix - GitHub Pages"
+    ]
+  },
+  {
+    "objectID": "A2_pages.rjs.html#clickops",
+    "href": "A2_pages.rjs.html#clickops",
+    "title": "Thinking Machines",
+    "section": "“ClickOps”",
+    "text": "“ClickOps”\n\nClick the following things on your screen to publish.\nIf your screen looks differently, it means you clicked something else.\nStart over, and if necessary, make a new repository."
+  },
+  {
+    "objectID": "A2_pages.rjs.html#click-0",
+    "href": "A2_pages.rjs.html#click-0",
+    "title": "Thinking Machines",
+    "section": "Click 0",
+    "text": "Click 0"
+  },
+  {
+    "objectID": "A2_pages.html#click-1",
+    "href": "A2_pages.html#click-1",
+    "title": "",
+    "section": "Click 1",
+    "text": "Click 1",
+    "crumbs": [
+      "Appendix - GitHub Pages"
+    ]
+  },
+  {
+    "objectID": "A2_pages.rjs.html#click-1",
+    "href": "A2_pages.rjs.html#click-1",
+    "title": "Thinking Machines",
+    "section": "Click 1",
+    "text": "Click 1"
+  },
+  {
+    "objectID": "A2_pages.html#click-2",
+    "href": "A2_pages.html#click-2",
+    "title": "",
+    "section": "Click 2",
+    "text": "Click 2",
+    "crumbs": [
+      "Appendix - GitHub Pages"
+    ]
+  },
+  {
+    "objectID": "A2_pages.rjs.html#click-2",
+    "href": "A2_pages.rjs.html#click-2",
+    "title": "Thinking Machines",
+    "section": "Click 2",
+    "text": "Click 2"
+  },
+  {
+    "objectID": "A2_pages.html#click-3",
+    "href": "A2_pages.html#click-3",
+    "title": "",
+    "section": "Click 3",
+    "text": "Click 3",
+    "crumbs": [
+      "Appendix - GitHub Pages"
+    ]
+  },
+  {
+    "objectID": "A2_pages.html#click-4",
+    "href": "A2_pages.html#click-4",
+    "title": "",
+    "section": "Click 4",
+    "text": "Click 4",
+    "crumbs": [
+      "Appendix - GitHub Pages"
+    ]
+  },
+  {
+    "objectID": "A2_pages.rjs.html#click-3",
+    "href": "A2_pages.rjs.html#click-3",
+    "title": "Thinking Machines",
+    "section": "Click 3",
+    "text": "Click 3"
+  },
+  {
+    "objectID": "A2_pages.rjs.html#click-4",
+    "href": "A2_pages.rjs.html#click-4",
+    "title": "Thinking Machines",
+    "section": "Click 4",
+    "text": "Click 4"
+  },
+  {
+    "objectID": "A2_pages.html#youre-done.",
+    "href": "A2_pages.html#youre-done.",
+    "title": "",
+    "section": "You’re done.",
+    "text": "You’re done.",
+    "crumbs": [
+      "Appendix - GitHub Pages"
+    ]
+  },
+  {
+    "objectID": "A2_pages.html#check-it-0",
+    "href": "A2_pages.html#check-it-0",
+    "title": "",
+    "section": "Check it 0",
+    "text": "Check it 0",
+    "crumbs": [
+      "Appendix - GitHub Pages"
+    ]
+  },
+  {
+    "objectID": "A2_pages.html#check-it-1",
+    "href": "A2_pages.html#check-it-1",
+    "title": "",
+    "section": "Check it 1",
+    "text": "Check it 1",
+    "crumbs": [
+      "Appendix - GitHub Pages"
+    ]
+  },
+  {
+    "objectID": "A2_pages.html#heres-mine",
+    "href": "A2_pages.html#heres-mine",
+    "title": "",
+    "section": "Here’s mine",
+    "text": "Here’s mine\nhttps://cd-public.github.io/scicom_demo/",
+    "crumbs": [
+      "Appendix - GitHub Pages"
+    ]
+  },
+  {
+    "objectID": "A2_pages.rjs.html#youre-done.",
+    "href": "A2_pages.rjs.html#youre-done.",
+    "title": "Thinking Machines",
+    "section": "You’re done.",
+    "text": "You’re done."
+  },
+  {
+    "objectID": "A2_pages.rjs.html#check-it-0",
+    "href": "A2_pages.rjs.html#check-it-0",
+    "title": "Thinking Machines",
+    "section": "Check it 0",
+    "text": "Check it 0"
+  },
+  {
+    "objectID": "A2_pages.rjs.html#check-it-1",
+    "href": "A2_pages.rjs.html#check-it-1",
+    "title": "Thinking Machines",
+    "section": "Check it 1",
+    "text": "Check it 1"
+  },
+  {
+    "objectID": "A2_pages.rjs.html#heres-mine",
+    "href": "A2_pages.rjs.html#heres-mine",
+    "title": "Thinking Machines",
+    "section": "Here’s mine",
+    "text": "Here’s mine\nhttps://cd-public.github.io/scicom_demo/"
   }
 ]

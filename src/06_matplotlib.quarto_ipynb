@@ -1,0 +1,1555 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "title: Matplotlib \n",
+        "---\n",
+        "\n",
+        "\n",
+        "# Why Matplotlib?\n",
+        "\n",
+        "## What's Matplotlib?\n",
+        "\n",
+        "> [Matplotlib is a comprehensive library for creating static, animated, and interactive visualizations.](https://matplotlib.org/stable/)\n",
+        "\n",
+        "* **MAT**LAB **Plot** **Lib**rary\n",
+        "* Based on the \"industry standard\" library that predates Python\n",
+        "* Basis of many more modern tools (namely [Seaborn](https://seaborn.pydata.org/tutorial/objects_interface.html))\n",
+        "\n",
+        "## Why Matplotlib\n",
+        "\n",
+        "* Versus its closest competitors (Altair, Seaborn, ggplot2, Plotly):\n",
+        "  * Allows dramatically more control over created plots.\n",
+        "  * Extremely good NumPy and pandas (our next library) integration.\n",
+        "  * Wealth of resources\n",
+        "  * Entirely free and open-source\n",
+        "\n",
+        "## Why not Matplotlib\n",
+        "\n",
+        "- Altair and Plotly have far better web integration and interaction.\n",
+        "- Seaborn has beautiful defaults.\n",
+        "- Statisticians like ggplot2, which is from another language (R)\n",
+        "- Many modern data visualizations go on websites, which is not to Matplotlib's strengths.\n",
+        "\n",
+        "## Relevance\n",
+        "\n",
+        "- We have been working with a piecewise function for sometime!\n",
+        "- Can we finally visualize it?\n",
+        "\n",
+        "# Install\n",
+        "\n",
+        "## pip like NumPy\n",
+        "\n",
+        "- Just like NumPy, Matplotlib is a Python package which we install via `pip`\n",
+        "```{.bash code-line-numbers=\"false\"}\n",
+        "python3 -m pip install matplotlib \n",
+        "```\n",
+        "- That might take a moment, when it does we can check it worked!\n",
+        "\n",
+        "## Verify\n",
+        "\n",
+        "- We can quickly verify installation and introduce some conventions.\n",
+        "- Open up Python and import the libraries:\n"
+      ],
+      "id": "f1ae3c23"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "import numpy as np\n",
+        "import matplotlib.pyplot as plt"
+      ],
+      "id": "4c319211",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Plotting\n",
+        "\n",
+        "- Let's plot something\n",
+        "\n",
+        "> [A period is a horizontal row of the periodic table. There are seven periods in the periodic table, with each one beginning at the far left. A new period begins when a new principal energy level begins filling with electrons.](https://chem.libretexts.org/Bookshelves/Introductory_Chemistry/Introductory_Chemistry_(CK-12)/06%3A_The_Periodic_Table/6.04%3A_Modern_Periodic_Table-_Periods_and_Groups)\n",
+        "\n",
+        "## The Table\n",
+        "\n",
+        "<a style=\"filter:invert(.9)\" title=\"Cepheus, Public domain, via Wikimedia Commons\" href=\"https://commons.wikimedia.org/wiki/File:Periodic_table.svg\"><img width=\"100%\" alt=\"Periodic Table\" src=\"https://upload.wikimedia.org/wikipedia/commons/8/84/Periodic_table.svg\"></a>\n",
+        "\n",
+        "## Rows\n",
+        "\n",
+        "> [Period 1 has only two elements (hydrogen and helium), while periods 2 and 3 have 8 elements. Periods 4 and 5 have 18 elements. Periods 6 and 7 have 32 elements, because the two bottom rows that are separate from the rest of the table belong to those periods.](https://chem.libretexts.org/Bookshelves/Introductory_Chemistry/Introductory_Chemistry_(CK-12)/06%3A_The_Periodic_Table/6.04%3A_Modern_Periodic_Table-_Periods_and_Groups)\n",
+        "\n",
+        " This also happens to be the maximum number of electrons in the outermost \"shell\" of an atom.\n"
+      ],
+      "id": "d93bf8ae"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "es = np.array([2, 8, 8, 18, 18, 32, 32])"
+      ],
+      "id": "df300493",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Plots\n",
+        "\n",
+        "- Creating a naive (that is, specifying no options) plot is *very* easy.\n"
+      ],
+      "id": "d94df5fc"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "plt.plot(es)"
+      ],
+      "id": "dfafd4a3",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "- Wait a minute - we're at the command line... where does the image go?\n",
+        "\n",
+        "## Command Line\n",
+        "\n",
+        "- When I do this at the command line, I usually see the following:\n",
+        "```{.bash code-line-numbers=\"false\"}\n",
+        ">>> plt.plot(a)\n",
+        "[<matplotlib.lines.Line2D object at 0x7f34f7094cd0>]\n",
+        "```\n",
+        "- That is... not a chart.\n",
+        "- No worries!\n",
+        "\n",
+        "\n",
+        "## Making Charts\n",
+        "\n",
+        "- My preferred way to work with charts is by *saving them as an image file*.\n",
+        "  \t- Can include them as attachments in emails.\n",
+        "\t- Can incorporate them into scientific writing.\n",
+        "\t- Can post interesting findings on social media.\n",
+        "- We simply save the file.\n",
+        "\t- I always save a \".svg\" file - \"scalable vector graphic\"\n",
+        "\t- These don't get fuzzy when you zoom in.\n",
+        "\n",
+        "## Saving Charts\n",
+        "\n",
+        "- I use the following to save my chart as a \".svg\" image file.\n",
+        "```{.python}\n",
+        "plt.savefig(\"my_chart.svg\")\n",
+        "```\n",
+        "\n",
+        "\n",
+        "## Viewing Charts\n",
+        "\n",
+        "- I usually exit Python to view charts, or wrote scripts that generate charts and run them at the command line.\n",
+        "\n",
+        "```{.python filename=\"chart_maker.py\"}\n",
+        "import numpy as np\n",
+        "import matplotlib.pyplot as plt\n",
+        "\n",
+        "es = np.array([2, 8, 8, 18, 18, 32, 32])\n",
+        "plt.plot(es)\n",
+        "plt.savefig(\"my_chart.svg\")\n",
+        "```\n",
+        "\n",
+        "## Open Image\n",
+        "\n",
+        "- On Windows, view image from terminal:\n",
+        "```{.bash code-line-numbers=\"false\"}\n",
+        "nvim chart_maker.py # code from last slide\n",
+        "python chart_maker.py\n",
+        "start my_chart.svg\n",
+        "```\n",
+        "- On MacOS, view image from terminal:\n",
+        "```{.bash code-line-numbers=\"false\"}\n",
+        "nvim chart_maker.py # code from last slide\n",
+        "python3 chart_maker.py \n",
+        "open my_chart.svg\n",
+        "```\n",
+        "- Should open in your default image viewer.\n",
+        "\n",
+        "## Reference\n",
+        "\n",
+        "- Recall: We should see this:"
+      ],
+      "id": "3bd812db"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "plt.plot(es) # how this was made"
+      ],
+      "id": "6e30e5be",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "# OS\n",
+        "\n",
+        "## The OS package\n",
+        "\n",
+        "- I often use one other `import` when working with images.\n",
+        "- Often times, I end up with a NumPy array where I'm trying various ways of plotting, and don't want to close Python.\n",
+        "- I could open another terminal tab, but there's another option:"
+      ],
+      "id": "bde04715"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "import os # stands for \"operating system\""
+      ],
+      "id": "17d563e7",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Using OS\n",
+        "\n",
+        "- OS let's us do a lot of the things we do in the shell without leaving Python.\n",
+        "- The most useful technique is `os.system()` which allows us to run a shell command from within Python.\n",
+        "- For example, the following would open \"my_chart.svg\" on MacOS \n",
+        "```{.python}\n",
+        "os.system(\"open my_chart.svg\")\n",
+        "```\n",
+        "\n",
+        "## On OS\n",
+        "\n",
+        "- Historically, an operating system was considered synonmous with its command line.\n",
+        "- This is reflected within how we use the `os` module with the requirement to use `start` on Windows and `open` on MacOS.\n",
+        "- In both cases, the same file is opened in a photo viewer, but\n",
+        "- The command differs due to the different *operating system* (OS)\n",
+        "\n",
+        "\n",
+        "## Use of OS \n",
+        "\n",
+        "- The `os` module has largely fallen out of favor versus `subprocess`, which more robust but harder to use.\n",
+        "- As with Matplotlib vs. e.g. Altair or Seaborn, I teach the older, easier, less-snazzy version.\n",
+        "- In general, `os` is no longer recommended for use outside of scientific computing.\n",
+        "\n",
+        "## Another example\n",
+        "\n",
+        "- By the way, you now know how to:\n",
+        "  - Open `nvim`, write a file, and save it\n",
+        "  - `import` that file\n",
+        "  - Run the contents of that file to create an image and\n",
+        "  - View the image\n",
+        "- All without leaving Python!\n",
+        "\n",
+        "# Plot Elements \n",
+        "\n",
+        "## Piecewise \n",
+        "\n",
+        "- We return now to the income tax example to show some ways of plotting.\n",
+        "- Let's recall the `taxes` array quickly."
+      ],
+      "id": "de63d6a7"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "taxes = np.array([\n",
+        "    [9275, .1],\n",
+        "    [37650, .15],\n",
+        "    [91150, .25],\n",
+        "    [190150, .28],\n",
+        "    [413350, .33],\n",
+        "    [415051, .35]\n",
+        "])"
+      ],
+      "id": "db6ad3be",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Naive Plotting\n",
+        "\n",
+        "- This is probably not what we intended! "
+      ],
+      "id": "3b6063e0"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "plt.plot(taxes)"
+      ],
+      "id": "34b84806",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## x and y\n",
+        "\n",
+        "- Plot \"cutoff vs rate\" by providing both."
+      ],
+      "id": "92994c22"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "x = taxes[:,0]\n",
+        "y = taxes[:,1]\n",
+        "plt.plot(x,y)"
+      ],
+      "id": "8fb8e365",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Plotting Functions\n",
+        "\n",
+        "- Really though, we want to:\n",
+        "  - Create an array of possible incomes.\n",
+        "  - Calculate tax at that income.\n",
+        "  - Plot that tax.\n",
+        "- This is plotting a function!\n",
+        "\n",
+        "## The function\n",
+        "\n",
+        "- Spoilers for earlier exercises.\n"
+      ],
+      "id": "3cd83d05"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| code-fold: true\n",
+        "taxes = [\n",
+        "    [9275, 0.1, 0.0],\n",
+        "    [37650, 0.15, -463.75],\n",
+        "    [91150, 0.25, -4228.75],\n",
+        "    [190150, 0.28, -6963.25],\n",
+        "    [413350, 0.33, -16470.75],\n",
+        "    [415051, 0.35, -24737.75],\n",
+        "]\n",
+        "\n",
+        "def single_tax(income):\n",
+        "    for tax in taxes:\n",
+        "        if income < tax[0]:\n",
+        "            return income * tax[1] + tax[2]\n",
+        "    return income * .396 + -43830.05"
+      ],
+      "id": "52045838",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Creating Arrays\n",
+        "\n",
+        "- Let's consider some possible incomes.\n",
+        "- We can use `np.arange()` to create a range of values using the same idea as *slices*\n",
+        "  \t- Start\n",
+        "\t- Stop\n",
+        "\t- Step"
+      ],
+      "id": "a31c7c5a"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "incomes = np.arange(10000,400000,100000)\n",
+        "incomes"
+      ],
+      "id": "77832414",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## linspace\n",
+        "\n",
+        "- `np.linspace()` is a bit more common and may be easier.\n",
+        "- Give a start, stop, and a number of values..."
+      ],
+      "id": "e0bfab79"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "incomes = np.linspace(10000,400000,5)\n",
+        "incomes"
+      ],
+      "id": "20317af7",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Aside: 0s and 1s\n",
+        "\n",
+        "- More generally, we can create arrays with `np.ones()` or `np.zeros()`\n",
+        "- Just provide a length.\n",
+        "\n",
+        ":::: {.columns}\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n"
+      ],
+      "id": "9aa2751e"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "np.ones(3)"
+      ],
+      "id": "124f1f05",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n"
+      ],
+      "id": "ce7a2230"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "np.zeros(2)"
+      ],
+      "id": "6922abdd",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::::\n",
+        "\n",
+        "## Aside: `dtype`\n",
+        "\n",
+        "- By default, these are floating point values."
+      ],
+      "id": "3c079ade"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "np.ones(3) / np.arange(2,5,1)"
+      ],
+      "id": "53a9d8b8",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "- You can get integers by specifying a NumPy `dtype` (for data type)"
+      ],
+      "id": "d672bc03"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "np.ones(3, dtype=int) // np.arange(2,5,1)"
+      ],
+      "id": "3c6422ea",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "- *Always* think about whether you want round numbers or not.\n",
+        "\n",
+        "## Plotting Taxation\n",
+        "\n",
+        "- Let's make a linspace from, say, `1` to `500000`."
+      ],
+      "id": "5541d205"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "incomes = np.linspace(1,500000,100)"
+      ],
+      "id": "dfe18dfd",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Vectorizing\n",
+        "\n",
+        "- Unlike, say `+` and `-`, `single_tax` is not a built-in, vectorized operation in NumPy.\n",
+        "- Not to worry, we just ask NumPy to `np.vectorize` it!"
+      ],
+      "id": "6af6792a"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "vector_tax = np.vectorize(single_tax)\n",
+        "costs = vector_tax(incomes)\n",
+        "costs[::20] # Just look at 5 examples"
+      ],
+      "id": "1e55c94f",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Plot Vector Functions\n",
+        "\n",
+        "- Let's take a look!"
+      ],
+      "id": "0fc3dc14"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "plt.plot(incomes,costs)"
+      ],
+      "id": "196b85e6",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## More fun\n",
+        "\n",
+        "- We can also plot tax *rate*"
+      ],
+      "id": "dce36fc9"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "plt.plot(incomes, costs / incomes)"
+      ],
+      "id": "4782489f",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Or Both\n"
+      ],
+      "id": "b9d01740"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "plt.plot(incomes, costs)\n",
+        "plt.plot(incomes, costs / incomes)"
+      ],
+      "id": "1e74472e",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "- Probably should put them on different scales!\n",
+        "\n",
+        "# Chart Elements\n",
+        "\n",
+        "## Well-formed Charts\n",
+        "\n",
+        "- I learned charts should have:\n",
+        "\t- Labels on the vertical and horizontal axes\n",
+        "\t- A title\n",
+        "\t- A legend\n",
+        "- Let's add these.\n",
+        "\n",
+        "## \n",
+        "\n",
+        "- `plt.title`\n"
+      ],
+      "id": "45b7b6f4"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "plt.title(\"Income Tax % by Income (USD)\")\n",
+        "plt.plot(incomes, costs / incomes)"
+      ],
+      "id": "e4b211bd",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "##  \n",
+        "\n",
+        "- `plt.xlabel` and `plt.ylabel`\n"
+      ],
+      "id": "5881e244"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "plt.title(\"Income Tax % by Income (USD)\")\n",
+        "plt.xlabel(\"Income in USD\")\n",
+        "plt.ylabel(\"Percent Tax Rate\")\n",
+        "plt.plot(incomes, costs / incomes)"
+      ],
+      "id": "aa5f0b33",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "##   \n",
+        "\n",
+        "- `plt.legend` \n"
+      ],
+      "id": "f835de83"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "plt.title(\"Income Tax % by Income (USD)\")\n",
+        "plt.xlabel(\"Income in USD\")\n",
+        "plt.ylabel(\"Percent Tax Rate\")\n",
+        "plt.plot(incomes, costs / incomes)\n",
+        "plt.legend() # We didn't label any of our plots!"
+      ],
+      "id": "57dbec51",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "##   \n",
+        "\n",
+        "- `label=`\n"
+      ],
+      "id": "69d83acf"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "plt.title(\"Income Tax % by Income (USD)\")\n",
+        "plt.xlabel(\"Income in USD\")\n",
+        "plt.ylabel(\"Percent Tax Rate\")\n",
+        "plt.plot(incomes, costs / incomes * 100, label = \"Tax/Income\")\n",
+        "plt.legend() # This shows the labels "
+      ],
+      "id": "af2c88ae",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Annotation\n",
+        "\n",
+        "- We'll add a note where median income (about 40k) is."
+      ],
+      "id": "728cc1ec"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "med_inc = 40000\n",
+        "med_tax = single_tax(40000)\n",
+        "med_pct = med_tax / med_inc * 100\n",
+        "xy = [med_inc, med_pct]\n",
+        "xy"
+      ],
+      "id": "b9e17558",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "- We'll use `plt.annotate`\n",
+        "\n",
+        "## \n",
+        "\n",
+        "- `plt.annotate()`\n"
+      ],
+      "id": "851f7798"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "plt.plot(incomes, costs / incomes * 100, label = \"Tax/Income\")\n",
+        "plt.annotate(\"Median Income\", xy)"
+      ],
+      "id": "cbfaa2dc",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Using functions\n",
+        "\n",
+        "- We can use functions to add anotations."
+      ],
+      "id": "79b0d654"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "def add_note(inc, note):\n",
+        "\ttax = single_tax(inc)\n",
+        "\tpct = tax / inc * 100\n",
+        "\txy = [inc, pct]\n",
+        "\tplt.annotate(note, xy)"
+      ],
+      "id": "9319d99e",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "##\n"
+      ],
+      "id": "6d02b109"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "plt.plot(incomes, costs / incomes * 100, label = \"Tax/Income\")\n",
+        "add_note(115000, \"CS Mid Career\")\n",
+        "add_note(80000, \"CS New Grads\")\n",
+        "add_note(70000, \"Physics New Grads\")\n",
+        "add_note(55000, \"All New Grads\")\n",
+        "add_note(40000, \"Median Income\")\n",
+        "plt.title(\"Labor Market Outcomes of College Graduates by Major\")"
+      ],
+      "id": "f8ef757d",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Multiple Functions\n",
+        "\n",
+        "- I think it would be helpful to see actual tax percentage versus marginal tax percentage.\n",
+        "- No one actually pays the highest 39.6%!\n",
+        "- We recall our array:"
+      ],
+      "id": "c7d8d6c6"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "taxes"
+      ],
+      "id": "5dea8e08",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Bracket %\n",
+        "\n",
+        ":::: {.columns}\n",
+        "\n",
+        "::: {.column width=\"40%\"}\n"
+      ],
+      "id": "0c3a2db9"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "taxes"
+      ],
+      "id": "98b75fab",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::: {.column width=\"60%\"}\n"
+      ],
+      "id": "069b5074"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "def bracket_pct(income):\n",
+        "\tfor bracket in taxes:\n",
+        "\t\tif income < bracket[0]:\n",
+        "\t\t\treturn bracket[1]\n",
+        "\treturn .396\n",
+        "\n",
+        "bracket_vector = np.vectorize(bracket_pct)\n",
+        "brackets = bracket_vector(incomes) * 100\n",
+        "brackets[::20]"
+      ],
+      "id": "2cf697cd",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::::\n",
+        "\n",
+        "## \n",
+        "\n",
+        "- `color=`\n"
+      ],
+      "id": "3432673c"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "plt.plot(incomes, costs / incomes * 100, label = \"Tax Rate\", color=\"blue\")\n",
+        "plt.plot(incomes, brackets, label=\"Marginal Rate\", color=\"red\")\n",
+        "plt.legend()"
+      ],
+      "id": "26536a38",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## \n",
+        "\n",
+        "- `color=`\n"
+      ],
+      "id": "1339dabf"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "rates = costs / incomes * 100\n",
+        "plt.plot(incomes, rates, label = \"Tax Rate\", color=\"blue\")\n",
+        "plt.plot(incomes, brackets, label=\"Marginal Rate\", color=\"red\")\n",
+        "plt.plot(incomes, brackets - rates, label=\"Discount Rate\", color=\"green\")\n",
+        "plt.legend()"
+      ],
+      "id": "25d7097c",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "# Histogram\n",
+        "\n",
+        "## More than lines\n",
+        "\n",
+        "- We are not restricted to line plots (of course)\n",
+        "- Histograms, boxplots, and scatterplots are all popular as well.\n",
+        "- We'll show a histogram quickly."
+      ],
+      "id": "81594fba"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "es # number of electrons to fill outermost shell"
+      ],
+      "id": "ccc6de68",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Electron Shells\n",
+        "\n",
+        "- That first `2` means:\n",
+        "  \t- There are two elements with a single electron shell\n",
+        "\t- One has `1` of `2` electrons (Hydrogen)\n",
+        "\t- One has `2` of `2` electrons (Helium)\n",
+        "- So those elements have this many outermost electrons each:"
+      ],
+      "id": "ffcb0dfb"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "np.arange(2) + 1"
+      ],
+      "id": "4f745486",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Ordering Shells\n",
+        "\n",
+        "- Let's take a look at the distribution of how many electrons are present in the outermost shell.\n",
+        "- Basically, we need to take an `np.arange()` or each element of the `es`"
+      ],
+      "id": "3400b2df"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "for e in es:\n",
+        "\tnp.arange(e) + 1"
+      ],
+      "id": "56cf5d09",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Accumulate\n",
+        "\n",
+        "- We can just create some NumPy array and add to it over time.\n",
+        "  - Since we are combining *arrays* we use "
+      ],
+      "id": "0c789526"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "num_es = np.array([]) # The first zero elements\n",
+        "for e in es:\n",
+        "\tnum_es = np.append(num_es, np.arange(e))\n",
+        "num_es += 1"
+      ],
+      "id": "ffe57c79",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## What?\n",
+        "\n",
+        "- Hard to tell what is going on here."
+      ],
+      "id": "52bc28eb"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "num_es"
+      ],
+      "id": "9af24afd",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Histogram\n"
+      ],
+      "id": "b5cbd2b7"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "plt.hist(num_es)"
+      ],
+      "id": "94331167",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Nicety\n",
+        "\n",
+        "- I don't really like seeing all that text about arrays and boxes and so on.\n",
+        "- I start plotting lines-of-code with `_ =`\n",
+        "\t- `_` is a variable which, convention (just a social construction) means \"ignore this\"\n",
+        "\t- This is a good way to say \"I don't care what this code *returns* but I do care what it prints, makes, saves, etc.\"\n",
+        "\n",
+        "# Gallery\n",
+        "\n",
+        "## Histogram\n"
+      ],
+      "id": "e4f7b01f"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "_ = plt.hist(num_es)"
+      ],
+      "id": "ebe4ec03",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Box\n"
+      ],
+      "id": "d7c797dc"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "_ = plt.boxplot(num_es)"
+      ],
+      "id": "350bbecd",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Pie\n"
+      ],
+      "id": "7fe13cc1"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "_ = plt.pie(es) # NOT num_es"
+      ],
+      "id": "83b3f80e",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "- This appears to be one color per \"row\" but we didn't label the rows so it's hard to say.\n",
+        "\n",
+        "## Many more!\n",
+        "\n",
+        "- There are many more plot types that require having both two-dimensional data, the most famous being the scatter plot.\n",
+        "- [Read more](https://matplotlib.org/stable/plot_types/index.html)\n",
+        "- For now, it is tough to use other charts well, but soon we will learn to read data files and plot them, with `pandas`.\n",
+        "\n",
+        "# Exercise\n",
+        "\n",
+        "## Credit\n",
+        "\n",
+        "- This exercise, with great appreciation, is adapted from \n",
+        "\t- [An Introduction to Python for Chemistry](https://pythoninchemistry.org/intro_python_chemists/data_work/simple_plots.html)\n",
+        "- I reviewed the chemistry at play in:\n",
+        "  \t- [3.3 Atomic Orbitals](https://chem.libretexts.org/Courses/University_of_Florida/CHM2047%3A_One-Semester_General_Chemistry_(Kleiman)/03%3A__Atoms_Orbitals_and_Electronic_Configurations/3.03%3A_Atomic_Orbitals)\n",
+        "\n",
+        "## Orbitals\n",
+        "\n",
+        "- Those outermost electrons in an atom have to be somewhere.\n",
+        "- Using the aforementioned `plotly`, it is possible to plot these orbitals interactively in 3D\n",
+        "\n",
+        "##\n"
+      ],
+      "id": "52c610a4"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| code-fold: true\n",
+        "#| output: slide\n",
+        "import plotly.graph_objects as go\n",
+        "\n",
+        "# --- Constants and Orbital Parameters ---\n",
+        "# Atomic number (Z) for the hydrogenic atom.\n",
+        "# Z=1 for Hydrogen. You can change this to visualize for other single-electron ions.\n",
+        "Z = 1\n",
+        "\n",
+        "# Principal quantum number (n) for the 3d orbital.\n",
+        "n = 3\n",
+        "\n",
+        "# --- Radial Wavefunction R_3d(r, Z) ---\n",
+        "# This function calculates the radial part of the 3d orbital wavefunction.\n",
+        "# It is based on the formula provided by the user:\n",
+        "# R3d = (1/9√30) × ρ^2 × Z^(3/2) × e^(-ρ/2)\n",
+        "# where ρ (rho) is defined as 2 * Z * r / n for hydrogenic atoms.\n",
+        "def R_3d(r, Z_val):\n",
+        "    \"\"\"\n",
+        "    Calculates the radial part of the 3d orbital wavefunction.\n",
+        "\n",
+        "    Args:\n",
+        "        r (numpy.ndarray): Radial distance from the nucleus.\n",
+        "        Z_val (int): Atomic number.\n",
+        "\n",
+        "    Returns:\n",
+        "        numpy.ndarray: The value of the radial wavefunction at distance r.\n",
+        "    \"\"\"\n",
+        "    # Calculate rho based on the principal quantum number (n=3 for 3d)\n",
+        "    rho = 2 * Z_val * r / n\n",
+        "    \n",
+        "    # The constant factor from the user's formula\n",
+        "    constant_factor = 1 / (9 * np.sqrt(30))\n",
+        "    \n",
+        "    # Calculate the radial part according to the user's formula\n",
+        "    # Handles potential division by zero or NaN values if r is zero,\n",
+        "    # as rho will be zero, leading to rho**2 = 0 and exp(-0) = 1.\n",
+        "    radial_part = constant_factor * (rho**2) * (Z_val**(3/2)) * np.exp(-rho / 2)\n",
+        "    \n",
+        "    return radial_part\n",
+        "\n",
+        "# --- Angular Wavefunction Y_3dz2(theta) ---\n",
+        "# This function calculates the angular part of the 3d_z^2 orbital wavefunction.\n",
+        "# It is based on the formula provided by the user:\n",
+        "# Y3dz2 = √(5/4) × (3z^2 – r^2)/r^2 × (1/4π)^1/2\n",
+        "# This simplifies to √(5/16π) * (3cos^2(theta) - 1), where theta is the polar angle.\n",
+        "def Y_3dz2(theta):\n",
+        "    \"\"\"\n",
+        "    Calculates the angular part of the 3d_z^2 orbital wavefunction.\n",
+        "\n",
+        "    Args:\n",
+        "        theta (numpy.ndarray): Polar angle (angle from the positive z-axis).\n",
+        "\n",
+        "    Returns:\n",
+        "        numpy.ndarray: The value of the angular wavefunction at angle theta.\n",
+        "    \"\"\"\n",
+        "    # The constant factor from the user's formula, simplified\n",
+        "    constant_factor = np.sqrt(5 / (16 * np.pi))\n",
+        "    \n",
+        "    # Calculate the angular part\n",
+        "    angular_part = constant_factor * (3 * np.cos(theta)**2 - 1)\n",
+        "    \n",
+        "    return angular_part\n",
+        "\n",
+        "# --- Create 3D Grid for Visualization ---\n",
+        "# Define the resolution of the 3D grid. Higher values mean better detail but slower computation.\n",
+        "grid_points = 60 # Number of points along each axis (x, y, z)\n",
+        "max_range = 25   # Maximum extent of the plot in each direction (arbitrary units, e.g., Bohr radii)\n",
+        "\n",
+        "# Create 1D arrays for x, y, and z coordinates\n",
+        "x_coords = np.linspace(-max_range, max_range, grid_points)\n",
+        "y_coords = np.linspace(-max_range, max_range, grid_points)\n",
+        "z_coords = np.linspace(-max_range, max_range, grid_points)\n",
+        "\n",
+        "# Create a 3D meshgrid from the 1D coordinate arrays\n",
+        "# 'indexing='ij'' ensures that X, Y, Z_grid have shapes (grid_points, grid_points, grid_points)\n",
+        "# Z_grid is renamed to avoid conflict with the atomic number Z.\n",
+        "X, Y, Z_grid = np.meshgrid(x_coords, y_coords, z_coords, indexing='ij')\n",
+        "\n",
+        "# --- Convert Cartesian to Spherical Coordinates ---\n",
+        "# Calculate radial distance (r)\n",
+        "r = np.sqrt(X**2 + Y**2 + Z_grid**2)\n",
+        "\n",
+        "# Calculate polar angle (theta)\n",
+        "# Using arctan2(sqrt(x^2+y^2), z) is more numerically stable than arccos(z/r)\n",
+        "# as it handles cases where r is zero or very small more gracefully.\n",
+        "r_xy_plane = np.sqrt(X**2 + Y**2)\n",
+        "theta = np.arctan2(r_xy_plane, Z_grid)\n",
+        "\n",
+        "# --- Calculate the Full Wavefunction (psi) ---\n",
+        "# The full wavefunction is the product of the radial and angular parts.\n",
+        "# Handle potential runtime warnings for very small r values if they lead to issues.\n",
+        "# np.where is used to prevent division by zero for r=0 in R_3d, although the current R_3d\n",
+        "# implementation handles it gracefully. It's a good practice for general cases.\n",
+        "psi = np.where(r == 0, 0, R_3d(r, Z) * Y_3dz2(theta))\n",
+        "\n",
+        "# --- Determine Isosurface Thresholds ---\n",
+        "# To visualize the shape of the orbital, we plot isosurfaces of the wavefunction (psi).\n",
+        "# The 3d_z^2 orbital has positive lobes along the z-axis and a negative toroidal (donut) lobe\n",
+        "# in the xy-plane. We will plot two isosurfaces: one for a positive psi value and one for a\n",
+        "# negative psi value to represent these lobes.\n",
+        "#\n",
+        "# We find the maximum absolute value of psi to set a reasonable threshold.\n",
+        "# The threshold determines the 'size' or 'extent' of the visualized orbital lobes.\n",
+        "max_abs_psi = np.max(np.abs(psi))\n",
+        "# Adjust this factor (e.g., 0.05 to 0.2) to change the size of the rendered orbital.\n",
+        "# A smaller factor will show a larger, more diffuse orbital.\n",
+        "threshold = max_abs_psi * 0.08 \n",
+        "\n",
+        "# --- Create Plotly Figure ---\n",
+        "fig = go.Figure(data=[\n",
+        "    # Isosurface for the positive lobe (e.g., blue color)\n",
+        "    go.Isosurface(\n",
+        "        x=X.flatten(),\n",
+        "        y=Y.flatten(),\n",
+        "        z=Z_grid.flatten(),\n",
+        "        value=psi.flatten(),\n",
+        "        isomin=threshold,  # Only show values at or above this positive threshold\n",
+        "        isomax=threshold,  # Create a single surface at this threshold\n",
+        "        surface_count=1,   # Draw only one surface for this data trace\n",
+        "        caps=dict(x_show=False, y_show=False, z_show=False), # Hide caps for a cleaner look\n",
+        "        colorscale=[[0, 'blue'], [1, 'blue']], # Solid blue color for positive lobe\n",
+        "        showscale=False,   # Hide the color scale bar\n",
+        "        opacity=0.6,       # Transparency of the surface\n",
+        "        name='Positive Lobe (ψ > 0)', # Name for legend\n",
+        "        showlegend=True    # Show this trace in the legend\n",
+        "    ),\n",
+        "    # Isosurface for the negative lobe (e.g., red color)\n",
+        "    go.Isosurface(\n",
+        "        x=X.flatten(),\n",
+        "        y=Y.flatten(),\n",
+        "        z=Z_grid.flatten(),\n",
+        "        value=psi.flatten(),\n",
+        "        isomin=-threshold, # Only show values at or below this negative threshold\n",
+        "        isomax=-threshold, # Create a single surface at this threshold\n",
+        "        surface_count=1,\n",
+        "        caps=dict(x_show=False, y_show=False, z_show=False),\n",
+        "        colorscale=[[0, 'red'], [1, 'red']], # Solid red color for negative lobe\n",
+        "        showscale=False,\n",
+        "        opacity=0.6,\n",
+        "        name='Negative Lobe (ψ < 0)', # Name for legend\n",
+        "        showlegend=True\n",
+        "    )\n",
+        "])\n",
+        "\n",
+        "# --- Update Layout and Scene Settings ---\n",
+        "fig.update_layout(\n",
+        "    title=f'Interactive 3d_z² Orbital Visualization (Z={Z})', # Title of the plot\n",
+        "    # --- Add or modify these lines for a dark theme ---\n",
+        "    paper_bgcolor='rgba(0,0,0,0)',  # Dark background for the entire figure\n",
+        "    plot_bgcolor='rgba(0,0,0,0)',   # Dark background for the plotting area\n",
+        "    font=dict(color='white'),         # White font color for better contrast\n",
+        "    scene=dict(\n",
+        "        xaxis_title='X', # X-axis label\n",
+        "        yaxis_title='Y', # Y-axis label\n",
+        "        zaxis_title='Z', # Z-axis label\n",
+        "        aspectmode='cube', # Ensures equal scaling for all axes for correct shape representation\n",
+        "        # Optionally set camera position for initial view\n",
+        "        xaxis=dict(\n",
+        "            backgroundcolor=\"rgba(0,0,0,0)\", # Transparent background for axis planes\n",
+        "            gridcolor=\"gray\",                # Gray grid lines\n",
+        "            zerolinecolor=\"white\"            # White zero line\n",
+        "        ),\n",
+        "        yaxis=dict(\n",
+        "            backgroundcolor=\"rgba(0,0,0,0)\",\n",
+        "            gridcolor=\"gray\",\n",
+        "            zerolinecolor=\"white\"\n",
+        "        ),\n",
+        "        zaxis=dict(\n",
+        "            backgroundcolor=\"rgba(0,0,0,0)\",\n",
+        "            gridcolor=\"gray\",\n",
+        "            zerolinecolor=\"white\"\n",
+        "        ),\n",
+        "        camera=dict(\n",
+        "            eye=dict(x=1.5, y=1.5, z=1.5) # Adjust camera angle for better initial view\n",
+        "        )\n",
+        "    ),\n",
+        "    margin=dict(l=0, r=0, b=0, t=40), # Adjust margins\n",
+        "    height=700, # Height of the plot\n",
+        "    width=700,  # Width of the plot\n",
+        "    hovermode=False, # Disable hover to improve performance on large datasets\n",
+        "    legend=dict(\n",
+        "        x=0.01,\n",
+        "        y=0.99,\n",
+        "        bgcolor='rgba(255,255,255,0.7)',\n",
+        "        bordercolor='Black',\n",
+        "        borderwidth=1\n",
+        "    )\n",
+        ")"
+      ],
+      "id": "ab5592ac",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Orbitals\n",
+        "\n",
+        "- I believe these are called orbitals, specifically in this case the $3d_z^2$ orbital (which I selected because I thought it looked cool).\n",
+        "- It is defined by the following equations:\n",
+        "$$R_{3d} = \\frac{1}{9\\sqrt{30}} \\times \\rho^2 \\times Z^{3/2} \\times e^{-\\rho/2}$$\n",
+        "$$Y_{3d_{z^2}} = \\sqrt{\\frac{5}{4}} \\times \\frac{3z^2 - r^2}{r^2} \\times \\left(\\frac{1}{4\\pi}\\right)^{1/2}$$\n",
+        "\n",
+        "## Constants\n",
+        "\n",
+        "- I also need to know what $\\rho$ (rho) is, which is apparently:\n",
+        "\n",
+        "> $\\frac{2Zr}{n}$ where $n$ is the principal quantum number (3 for the $3d$ orbitals)\n",
+        "\n",
+        "\n",
+        "## Onward\n",
+        "\n",
+        "- Now let's go to our exercise.\n",
+        "\n",
+        "> Say we want to compare the probability distribution of three atomic orbitals on the same graph... The radial wavefunctions, $R$, for the hydrogenic $3s$, $3p$ and $3d$ orbitals respectively are...\n",
+        "\n",
+        "## Equations\n",
+        "\n",
+        "$$\n",
+        "R_{3s} = \\frac{2}{3\\sqrt{3}} \\left(1 - \\frac{2r}{3} + \\frac{2}{27}r^2\\right) e^{-r/3}\n",
+        "$$\n",
+        "\n",
+        "$$\n",
+        "R_{3p} = \\frac{2\\sqrt{2}}{9\\sqrt{3}} \\left(\\frac{2r}{3}\\right) \\left(1 - \\frac{1}{6}r\\right) e^{-r/3}\n",
+        "$$\n",
+        "\n",
+        "$$\n",
+        "R_{3d} = \\frac{1}{9\\sqrt{30}} \\left(\\frac{2r}{3}\\right)^2 e^{-r/3}\n",
+        "$$\n",
+        "\n",
+        "## NumPy\n",
+        "\n",
+        "- NumPy provides $e^x$ as `np.exp(x)` and $\\sqrt(x)$ as `np.sqrt(x)` \n",
+        "\n",
+        "$$\n",
+        "R_{3s} = \\frac{2}{3\\sqrt{3}} \\left(1 - \\frac{2r}{3} + \\frac{2}{27}r^2\\right) e^{-r/3}\n",
+        "$$\n"
+      ],
+      "id": "b2843f7a"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "def r3s(r):\n",
+        "\treturn 2/(3*np.sqrt(3)) * (1 - 2*r/3 + 2/27*r**2) * np.exp(-r/3)\n",
+        "\n",
+        "# and the others:\n",
+        "def r3p(r):\n",
+        "\treturn (2*np.sqrt(2))/(9*np.sqrt(3)) * ((2*r)/3) * (1 - 1/6*r) * np.exp(-r/3)\n",
+        "\n",
+        "def r3d(r):\n",
+        "\treturn 1 /(9*np.sqrt(30)) * ( (2*r/3)**2 ) * np.exp(-r/3)"
+      ],
+      "id": "ffb616d4",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Vectors\n",
+        "\n",
+        "- Vs. `single_tax`, which contained `if` and `else`, everything in `r3s` is vectorizable *already*\n",
+        "  - Python arithmetic, like `*`, `-`, `+`\n",
+        "    \t- We also introduced `**` for \"power\"\n"
+      ],
+      "id": "644bf2ec"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "2 ** np.arange(4)"
+      ],
+      "id": "a737e9e3",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "  - NumPy operations, which are designed to work on arrays!\n",
+        "\n",
+        "## Matplotlib\n"
+      ],
+      "id": "710170cc"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "vals = np.arange(30) # 30 is the highest number I saw, so try it\n",
+        "plt.plot(r3s(vals), label=\"r3s\")\n",
+        "plt.plot(r3p(vals), label=\"r3p\")\n",
+        "plt.plot(r3d(vals), label=\"r3d\")\n",
+        "plt.legend()"
+      ],
+      "id": "df6139e4",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## \n"
+      ],
+      "id": "cd87fde2"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "vals = np.arange(30) # 30 is the highest number I saw, so try it\n",
+        "plt.plot(r3s(vals), label=\"r3s\")\n",
+        "plt.plot(r3p(vals), label=\"r3p\")\n",
+        "plt.plot(r3d(vals), label=\"r3d\")\n",
+        "plt.legend()\n",
+        "# These were just provided by the textbook\n",
+        "plt.xlabel('r / Bohr radii' )       # label x-axis\n",
+        "plt.ylabel('R')                     # label y-axis\n",
+        "plt.title('Radial wavefunctions of $3s$, $3p$ and $3d$ orbitals') # $ gives \"math font\""
+      ],
+      "id": "7bafdc63",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Exercise\n",
+        "\n",
+        "- Plot $R_{1s}, R_{2s},$ and $R_{3s}$ on the same plot, with labels, and save a \".svg\" file.\n",
+        "- $R_{3s}$ is a provided above.\n",
+        "$$\n",
+        "R_{1s} = 2e^{-r}\n",
+        "$$\n",
+        "\n",
+        "$$\n",
+        "R_{2s} = \\frac{1}{2\\sqrt{2}} (2 - r)e^{-r/2}\n",
+        "$$\n",
+        "\n",
+        "## Solution\n"
+      ],
+      "id": "b6d3310b"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| code-fold: true\n",
+        "import numpy as np\n",
+        "import matplotlib.pyplot as plt\n",
+        "\n",
+        "def r1s(r):\n",
+        "\treturn 2 * np.exp(-r)\n",
+        "\n",
+        "def r2s(r):\n",
+        "\treturn (1 / (2 * np.sqrt(2))) * (2 - r) * np.exp(-r/2)\n",
+        "\n",
+        "def r3s(r):\n",
+        "\treturn 2/(3*np.sqrt(3)) * (1 - 2*r/3 + 2/27*r**2) * np.exp(-r/3)\n",
+        "\n",
+        "vals = np.arange(30)\n",
+        "\n",
+        "plt.plot(r1s(vals), label=\"r1s\")\n",
+        "plt.plot(r2s(vals), label=\"r2s\")\n",
+        "plt.plot(r3s(vals), label=\"r3s\")\n",
+        "plt.legend()\n",
+        "plt.xlabel('r / Bohr radii' )       # label x-axis\n",
+        "plt.ylabel('R')                     # label y-axis\n",
+        "plt.title('Radial wavefunctions of $1s$, $2s$ and $3s$ orbitals')\n",
+        "plt.savefig(\"s_orbitals.svg\")"
+      ],
+      "id": "8fb95624",
+      "execution_count": null,
+      "outputs": []
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "python3",
+      "language": "python",
+      "display_name": "Python 3 (ipykernel)",
+      "path": "C:\\Users\\cd-desk\\AppData\\Local\\Programs\\Python\\Python312\\share\\jupyter\\kernels\\python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}

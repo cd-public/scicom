@@ -1,0 +1,240 @@
+---
+Title: Appendix - GitHub Pages
+---
+
+# Appendix - GitHub Pages
+
+## Scientific Publication on GitHub
+
+> You can use GitHub Pages to showcase some open source projects, host a blog, or even share your résumé. This guide will help get you started on creating your next website.
+
+## Why GitHub Pages?
+
+- Free as in speech and free as in price.
+- "Easy" by the standards of web-hosting and scientific publication.
+- Cool as heck.
+
+
+## Why not GitHub Pages?
+
+- Reliant on the enduring good graces of Microsoft, which funds GitHub
+- Seems to change often in terms of years (not e.g. months)
+- Requires lots of tiny changes in lots of places.
+
+## Requirements
+
+- A GitHub account.
+	- [Git](04_git.qmd)
+- An HTML file.
+	- [Quarto](0E_quarto.qmd)
+
+# Steps
+
+1. Create a repository.
+	- GitHub: [About repositories](https://docs.github.com/en/repositories/creating-and-managing-repositories/about-repositories)
+	- This class: [Repositories](04_git.qmd#repositories)
+2. Add an HTML file to the repository.
+3. Configure the repository to publish to GitHub Pages.
+
+## Step 1
+
+- Already covered in [Git - Repositories](04_git.qmd#repositories)
+	- Follow until you have an `index.qmd` on GitHub.com
+- Extra considerations:
+	- Name the repository some that will be in the URL
+		- It will be `<your-github-user>.github.io/<your-repository-name>`
+	- Name your Quarto Markdown (.`qmd`) file `index.qmd`
+		- This is the default name for a webpage, and makes your life easier.
+
+## Step 2
+
+- Already covered in [Quarto - Essentials](0E_quarto.qmd#essentials)
+	- Follow until you have an `index.qmd` on GitHub.com
+- Extra considerations:
+	- Include `embed-resources: true` in your YAML header.
+		- [Quarto - Easy Mode](0E_quarto.qmd#easy-mode)
+	- Double check you have a file named `index.html`
+		- It is possible to use another name, but not easy.
+
+## Step 3
+
+- This is new content.
+- There are many steps, each is essential.
+- Skip no steps; perform checks at all steps.
+
+# Check 1 - Folder
+
+- You should be working in a local (on your computer) *folder* that corresponds to a remote (on GitHub) *repository*.
+- I should contain **exactly** two files.
+	- Verify with `ls`
+```sh
+$ ls
+index.html  index.qmd
+```
+- If you see anything else, it is wrong, and you should fix it or start over.
+
+## Check 1 - Likely mistake
+
+- The most likely other thing to see is the following:
+```sh
+$ ls
+index.html  index.qmd  index_files/
+```
+- To fix this:
+	- Remove `index_files`
+```sh
+rm -rf index_files
+```
+	- Add the following to the YAML header of `index.qmd`
+```yaml
+format:
+	html:
+		embed-resources: true
+```
+
+# Check 2 - Repository
+
+- We split this into two checks:
+	- The *local* check, at command line.
+	- The *remote* check, on GitHub
+
+## Remote
+
+- Create a new repository
+	- Choose names you want.
+	- Set to public
+		- If you are uncomfortable publishing under your own name, use a pseudonym and tell me the pseudonym.
+		- I publish anonymously under names of cities.
+
+## Visually pt. 1
+
+![](img/new_repo.png)
+
+## Visually pt. 2
+
+![](img/new_isns.png)
+
+## The Bridge
+
+- We connect to the remote as follows...
+	- You may encounter authentication issues depending on how you set up your account last time.
+	- This assumes you completed [Git - ssh](04_git.qmd#ssh)
+
+## Bridge Setup
+
+- Wherever your local folder is, do the following:
+```sh
+git init
+git add index.qmd index.html
+git commit -m "First commit"
+git branch -M main
+```
+
+## Connect to Remote
+
+- Take not of the following, which you will have to ensure reflects your repository:
+	- Do not simply copy-paste this command.
+```sh
+git remote add origin git@github.com:<your-github-user>/<your-repository-name>.git
+```
+
+## Finalize
+
+- Then push local changes to remote.
+```sh
+git push -u origin main
+```
+
+## Verify Remote
+
+- Ensure your remote repository looks like this:
+  - It must have **exactly** two files with **exactly** these names.
+  - By the way, **exactly** means **exactly**.
+  - `Index.html` will not work; `index.md` will not work.
+![](img/exact.png)
+
+## Verify Local (Two Checks)
+
+- Verify The presence of a hidden, `.git` folder when using the `-a` flag on `ls`
+	- It will not show up with `ls` as it starts with a `.`
+
+```sh
+$ ls -a
+./  ../  .git/  index.html  index.qmd
+```
+
+- The following status, with `git status`
+  - You may get a `hint` here, which may be ignored.
+
+```sh
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+```
+
+## Final Check
+
+- Try making a minor change to your index.qmd
+	- Render with `quarto`
+	- Commit with `git`
+	- Push with `git`
+	- Check that change shows up on GitHub.
+- Perhaps add or remove a middle initial from the author.
+	- Ensure both the `.qmd` and `.html` file change.
+
+# Step 3
+
+## Scientific Publication
+
+- Publishing Science is important:
+
+> [...researchers from [industry and academia] often have similar goals and are motivated by common incentives. Their common interests converge in the forum of scientific publication.](https://www.ncbi.nlm.nih.gov/books/NBK97153/)
+
+## "ClickOps"
+
+- Click the following things on your screen to publish.
+- If your screen looks differently, it means you clicked something else.
+- Start over, and if necessary, make a new repository.
+
+## Click 0
+
+![](img/pub0.png)
+
+## Click 1
+
+![](img/pub1.png)
+
+## Click 2
+
+![](img/pub2.png)
+
+## Click 3
+
+![](img/pub3.png)
+
+## Click 4
+
+![](img/pub4.png)
+
+## You're done.
+
+
+![](img/pubfin.png)
+
+## Check it 0
+
+![](img/see0.png)
+
+## Check it 1
+
+![](img/see1.png)
+
+## Here's mine
+
+[https://cd-public.github.io/scicom_demo/](https://cd-public.github.io/scicom_demo/)
+
+# Exercise
+
+- Publish something.
