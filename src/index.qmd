@@ -37,10 +37,10 @@ MWThF 12:00-01:00 PM ET, Ford 201
 |06|09/29|[Markdown](07_md.qmd)|*Midterm Consultation*|
 |07|10/06|[**pandas**](08_pandas.qmd)|*Midterm Due*|
 |08|10/13|[SciPy](09_scipy.qmd)|[Technetium](09_scipy.qmd#exercise)|
-|09|10/20|[SymPy](0A_sympy.qmd)|[ODEs](0A_sympy.qmd#exercise)|
-|10|10/27|Quarto|*Final Consultation*|
+|09|10/20|[SymPy](0A_sympy.qmd)|[Quarto](0E_quarto.qmd)|
+|10|10/27|[Quarto](0E_quarto.qmd)|[Pages](A2_pages.qmd)|
 |11|11/03|[Sklearn](0B_sklearn.qmd)|[$k$-means](0B_sklearn.qmd#exercise)|
-|12|11/10|Pages|*Final Due*|
+|12|11/10|Final Consultation|*Final Due*|
 
 We will also meet 11/17 (Monday) to discuss course registration.
 
@@ -84,8 +84,9 @@ Graded on [AP Scale](https://apcentral.collegeboard.org/media/pdf/ap-english-lan
     - Use the provided `.github/workflows/static.yml` to publish your `index.html` as a webpage.
 4. Include Matplotlib graphics illustrating your solution.
 5. Include LaTeX equations generated with SymPy in your solution.
+    - You do not need to write $\LaTeX$ yourself, SymPy in Quarto is sufficient.
 6. Your Quarto webpage must be:
-    - 2500+ words (~5+ pages), not counting:
+    - 2500+ words (~5+ pages, assessed via `wc` over the `.qmd`) with:
         - At least one equation using `sympy`, 
         - At least one tables using `pandas`, and
         - At least one graph using `matplotlib`.
