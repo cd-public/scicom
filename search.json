@@ -16429,5 +16429,967 @@
     "crumbs": [
       "Appendix - GitHub Pages"
     ]
+  },
+  {
+    "objectID": "0F_json.html",
+    "href": "0F_json.html",
+    "title": "JSON",
+    "section": "",
+    "text": "JSON stands for JavaScript Object Notation.\nIt’s a lightweight, human-readable format for storing and transmitting data.\nIt has become the de facto standard for data interchange on the web, especially for APIs (Application Programming Interfaces).\nDespite its name, JSON is language-agnostic and supported by every relevant programming language used today.\n\n\n\n\n\nThe main goal is to represent structured data that can be easily serialized (converted into a string) and deserialized (converted back into native data types).\nIt maps perfectly to common data structures like dictionaries and lists.\nThis makes complex, nested data easy to handle.\n\n\n\n\n\nScientific data is rarely flat. It often involves hierarchical relationships.\nOne example: There are groups (or periods) that contain elements.\nJSON can capture this nesting naturally, unlike flat CSV files.\n\nComma-separated values - used with pandas.\n\n\n\n\n\n\nJSON data is built using only two universal structures:\n\nDictionaries\n\nCollection of Key/Value Pairs\nLike state-to-capital or zip-to-state.\n\nList\n\nOrdered Collection of Values)\nHave numerical indicies rather than keys.\n\n\nNested to any depth: a list of dictionaries of lists",
+    "crumbs": [
+      "JSON"
+    ]
+  },
+  {
+    "objectID": "0F_json.html#what-is-json",
+    "href": "0F_json.html#what-is-json",
+    "title": "JSON",
+    "section": "",
+    "text": "JSON stands for JavaScript Object Notation.\nIt’s a lightweight, human-readable format for storing and transmitting data.\nIt has become the de facto standard for data interchange on the web, especially for APIs (Application Programming Interfaces).\nDespite its name, JSON is language-agnostic and supported by every relevant programming language used today.",
+    "crumbs": [
+      "JSON"
+    ]
+  },
+  {
+    "objectID": "0F_json.html#jsons-core-purpose",
+    "href": "0F_json.html#jsons-core-purpose",
+    "title": "JSON",
+    "section": "",
+    "text": "The main goal is to represent structured data that can be easily serialized (converted into a string) and deserialized (converted back into native data types).\nIt maps perfectly to common data structures like dictionaries and lists.\nThis makes complex, nested data easy to handle.",
+    "crumbs": [
+      "JSON"
+    ]
+  },
+  {
+    "objectID": "0F_json.html#json-vs.-csv-and-formats",
+    "href": "0F_json.html#json-vs.-csv-and-formats",
+    "title": "JSON",
+    "section": "",
+    "text": "Scientific data is rarely flat. It often involves hierarchical relationships.\nOne example: There are groups (or periods) that contain elements.\nJSON can capture this nesting naturally, unlike flat CSV files.\n\nComma-separated values - used with pandas.",
+    "crumbs": [
+      "JSON"
+    ]
+  },
+  {
+    "objectID": "0F_json.html#two-core-json-structures",
+    "href": "0F_json.html#two-core-json-structures",
+    "title": "JSON",
+    "section": "",
+    "text": "JSON data is built using only two universal structures:\n\nDictionaries\n\nCollection of Key/Value Pairs\nLike state-to-capital or zip-to-state.\n\nList\n\nOrdered Collection of Values)\nHave numerical indicies rather than keys.\n\n\nNested to any depth: a list of dictionaries of lists",
+    "crumbs": [
+      "JSON"
+    ]
+  },
+  {
+    "objectID": "0F_json.html#python-aside-dictionaries",
+    "href": "0F_json.html#python-aside-dictionaries",
+    "title": "JSON",
+    "section": "Python Aside: Dictionaries",
+    "text": "Python Aside: Dictionaries\n\nWe review the most-beloved Python dictionaries.\nDictionaries are Python’s core implementation of a common archetype.\n\nOften called a hash map or associative array.\nI call them hash tables because I’m set in my ways.\n\nThey store data as unordered collections of key-value pairs.\n\nIn a “normal” dictionary, keys are words and values are definitions.",
+    "crumbs": [
+      "JSON"
+    ]
+  },
+  {
+    "objectID": "0F_json.html#dictionary-syntax-and-keys",
+    "href": "0F_json.html#dictionary-syntax-and-keys",
+    "title": "JSON",
+    "section": "Dictionary Syntax and Keys",
+    "text": "Dictionary Syntax and Keys\n\nDictionaries are defined using curly braces:\n\nd = {}`.\n\nKeys and values are separated by a colon:\n\n{\"key\": \"value\"}\n\nKeys are usually strings, but can be some other types.",
+    "crumbs": [
+      "JSON"
+    ]
+  },
+  {
+    "objectID": "0F_json.html#accessing-values-by-key",
+    "href": "0F_json.html#accessing-values-by-key",
+    "title": "JSON",
+    "section": "Accessing Values by Key",
+    "text": "Accessing Values by Key\n\nValues are retrieved using the key inside square brackets ([]).\nThis is the standard way to access data fields parsed from a JSON object.\n\n\n# We previously read in `he`\nhe[\"symbol\"]\n\n'He'",
+    "crumbs": [
+      "JSON"
+    ]
+  },
+  {
+    "objectID": "0F_json.html#adding-or-updating-pairs",
+    "href": "0F_json.html#adding-or-updating-pairs",
+    "title": "JSON",
+    "section": "Adding or Updating Pairs",
+    "text": "Adding or Updating Pairs\n\nOnce in Python, we can use the dictionary read from JSON like any other dictionary.\nWe can add something, like the atomic number.\n\nI would see (scroll to end to see number):\n\n\n\nhe[\"number\"] = 2\nhe\n\n{'symbol': 'He',\n 'phase_stp': 'gas',\n 'group': 18,\n 'period': 1,\n 'boiling_point': {'K': 4.222, 'C': -268.928, 'F': -452.07},\n 'number': 2}",
+    "crumbs": [
+      "JSON"
+    ]
+  },
+  {
+    "objectID": "0F_json.html#the-get-method",
+    "href": "0F_json.html#the-get-method",
+    "title": "JSON",
+    "section": "The get() Method",
+    "text": "The get() Method\n\nAccessing a missing key with [] causes a KeyError and crashes.\nSimply use .get.\n\n\ntry:\n    print(he[\"density\"])\nexcept:\n    print(\"Use `.get()!`\")\nprint(he.get(\"density\")) # Will be `None` so we print to see it\n\nUse `.get()!`\nNone",
+    "crumbs": [
+      "JSON"
+    ]
+  },
+  {
+    "objectID": "0F_json.html#iterating-over-keys",
+    "href": "0F_json.html#iterating-over-keys",
+    "title": "JSON",
+    "section": "Iterating over Keys",
+    "text": "Iterating over Keys\n\nBy default, iterating over a dictionary iterates over its keys.\nThis is useful for inspection or processing.\n\n\nfor key in he:\n    print(key)\n\nsymbol\nphase_stp\ngroup\nperiod\nboiling_point\nnumber",
+    "crumbs": [
+      "JSON"
+    ]
+  },
+  {
+    "objectID": "0F_json.html#iterating-over-values",
+    "href": "0F_json.html#iterating-over-values",
+    "title": "JSON",
+    "section": "Iterating over Values",
+    "text": "Iterating over Values\n\nUse the .values() method to iterate only through the values in the dictionary.\n\n\nfor value in he.values():\n    print(value)\n\nHe\ngas\n18\n1\n{'K': 4.222, 'C': -268.928, 'F': -452.07}\n2",
+    "crumbs": [
+      "JSON"
+    ]
+  },
+  {
+    "objectID": "0F_json.html#iterating-over-key-value-pairs",
+    "href": "0F_json.html#iterating-over-key-value-pairs",
+    "title": "JSON",
+    "section": "Iterating over Key-Value Pairs",
+    "text": "Iterating over Key-Value Pairs\n\nThe .items() method returns a tuple of (key, value) for each pair, which you can unpack in the loop.\n\n\nfor key, value in he.items():\n    print(key, \":\", value) # Take note of that : I use as a nicety\n\nsymbol : He\nphase_stp : gas\ngroup : 18\nperiod : 1\nboiling_point : {'K': 4.222, 'C': -268.928, 'F': -452.07}\nnumber : 2",
+    "crumbs": [
+      "JSON"
+    ]
+  },
+  {
+    "objectID": "0F_json.html#nested-dictionaries",
+    "href": "0F_json.html#nested-dictionaries",
+    "title": "JSON",
+    "section": "Nested Dictionaries",
+    "text": "Nested Dictionaries\n\nSince a value can be any type, a value can be another dictionary (or a list of dictionaries).\n\n\nhe[\"boiling_point\"][\"K\"]\n\n4.222\n\n\n\nCould also be a list, in which case you’d use a numerical index.",
+    "crumbs": [
+      "JSON"
+    ]
+  },
+  {
+    "objectID": "0F_json.html#dictionary-size-and-membership",
+    "href": "0F_json.html#dictionary-size-and-membership",
+    "title": "JSON",
+    "section": "Dictionary Size and Membership",
+    "text": "Dictionary Size and Membership\n\nUse len() to get the number of key-value pairs.\nUse the in keyword to check for key existence (membership).\n\nprint(f\"Keys: {len(country_data)}\")\n# Keys: 4\n\nif \"iso_code\" in country_data:\n    print(\"ISO code is present.\")\n# ISO code is present.",
+    "crumbs": [
+      "JSON"
+    ]
+  },
+  {
+    "objectID": "0F_json.html#json-object-syntax",
+    "href": "0F_json.html#json-object-syntax",
+    "title": "JSON",
+    "section": "JSON Object Syntax",
+    "text": "JSON Object Syntax\n\nAn dictionary, in JSON called an “object”, represents an unordered collection of key/value pairs.\nStarts with { and ends with }.\nKeys must be strings and enclosed in double quotes.\n\nThis differs from Python, which allows keys to be some other stuff.\n\nKeys and values are separated by a colon (:). Pairs are separated by commas (,).",
+    "crumbs": [
+      "JSON"
+    ]
+  },
+  {
+    "objectID": "0F_json.html#object-example-daily-data",
+    "href": "0F_json.html#object-example-daily-data",
+    "title": "JSON",
+    "section": "Object Example: Daily Data",
+    "text": "Object Example: Daily Data\n\nAn object describing a single point in the time series:\n\n{\n  \"date\": \"2022-01-01\",\n  \"total_vaccinations\": 435000000,\n  \"people_fully_vaccinated\": 210000000\n}\n\nKeys are \"date\", \"total_vaccinations\", and \"people_fully_vaccinated\".",
+    "crumbs": [
+      "JSON"
+    ]
+  },
+  {
+    "objectID": "0F_json.html#json-array-syntax",
+    "href": "0F_json.html#json-array-syntax",
+    "title": "JSON",
+    "section": "JSON Array Syntax",
+    "text": "JSON Array Syntax\n\nAn Array represents an ordered sequence of values.\nStarts with [ and ends with ].\nValues are separated by commas (,).\nValues can be of any valid JSON data type.",
+    "crumbs": [
+      "JSON"
+    ]
+  },
+  {
+    "objectID": "0F_json.html#array-example-time-series",
+    "href": "0F_json.html#array-example-time-series",
+    "title": "JSON",
+    "section": "Array Example: Time Series",
+    "text": "Array Example: Time Series\n\nThis array holds the time-series data for one country:\n\"data\": [\n  { \"date\": \"2022-01-01\", \"total_vaccinations\": 435000000 },\n  { \"date\": \"2022-01-02\", \"total_vaccinations\": 435500000 }\n]\nThe array contains two JSON objects.",
+    "crumbs": [
+      "JSON"
+    ]
+  },
+  {
+    "objectID": "0F_json.html#valid-json-data-types",
+    "href": "0F_json.html#valid-json-data-types",
+    "title": "JSON",
+    "section": "Valid JSON Data Types",
+    "text": "Valid JSON Data Types\n\nA value in a key/value pair or an array can be:\n\nString: Text, double-quoted. E.g., \"United States\".\nNumber: Integer or float. E.g., 331002651 or 3.14.\nBoolean: Either true or false.\nNull: Indicates a missing value. E.g., null.\nObject: Nested structure {...}.\nArray: Nested structure [...].",
+    "crumbs": [
+      "JSON"
+    ]
+  },
+  {
+    "objectID": "0F_json.html#data-structure-top-level",
+    "href": "0F_json.html#data-structure-top-level",
+    "title": "JSON",
+    "section": "Data Structure: Top Level",
+    "text": "Data Structure: Top Level\n\nThe entire vax file is one single JSON array.\nEach element in this top-level array is a JSON object, representing a single country/region.\n[\n  { \"country\": \"USA\", \"data\": [...] }, \n  { \"country\": \"India\", \"data\": [...] },\n  ...\n]",
+    "crumbs": [
+      "JSON"
+    ]
+  },
+  {
+    "objectID": "0F_json.html#data-structure-nested-data",
+    "href": "0F_json.html#data-structure-nested-data",
+    "title": "JSON",
+    "section": "Data Structure: Nested Data",
+    "text": "Data Structure: Nested Data\n\nInside each country object, there is a key called \"data\".\nThe value of \"data\" is an array of daily vaccination records.\n{\n  \"country\": \"United States\",\n  \"iso_code\": \"USA\",\n  \"data\": [\n    { \"date\": \"...\", \"total_vaccinations\": ... },\n    ... \n  ]\n}",
+    "crumbs": [
+      "JSON"
+    ]
+  },
+  {
+    "objectID": "0F_json.html#syntax-rule-double-quotes",
+    "href": "0F_json.html#syntax-rule-double-quotes",
+    "title": "JSON",
+    "section": "Syntax Rule: Double Quotes",
+    "text": "Syntax Rule: Double Quotes\n\nJSON is very strict about syntax. Keys and string values must use double quotes (\").\nInvalid JSON: { 'country': 'USA' } (Uses single quotes).\nValid JSON: { \"country\": \"USA\" }\nNumbers, booleans, and null are NOT quoted.",
+    "crumbs": [
+      "JSON"
+    ]
+  },
+  {
+    "objectID": "0F_json.html#syntax-rule-no-trailing-commas",
+    "href": "0F_json.html#syntax-rule-no-trailing-commas",
+    "title": "JSON",
+    "section": "Syntax Rule: No Trailing Commas",
+    "text": "Syntax Rule: No Trailing Commas\n\nThe last key/value pair in an object, or the last item in an array, must not be followed by a comma.\nInvalid JSON: json     [       \"item1\",       \"item2\",      ]",
+    "crumbs": [
+      "JSON"
+    ]
+  },
+  {
+    "objectID": "0F_json.html#parsing-json-in-python",
+    "href": "0F_json.html#parsing-json-in-python",
+    "title": "JSON",
+    "section": "Parsing JSON in Python",
+    "text": "Parsing JSON in Python\n\nWhen we download the data from the URL (vax), we get a JSON string.\nParsing converts this string into native Python data structures (lists and dictionaries).\nThe json library is built-in. If using requests, it handles the parsing automatically.",
+    "crumbs": [
+      "JSON"
+    ]
+  },
+  {
+    "objectID": "0F_json.html#reading-data-with-requests",
+    "href": "0F_json.html#reading-data-with-requests",
+    "title": "JSON",
+    "section": "Reading Data with Requests",
+    "text": "Reading Data with Requests\n\nWe fetch the content and use the .json() method to parse it.\nimport requests\n# vax = \"...\" # The OWID URL\n\nresponse = requests.get(vax)\n\n# vax_data is now a Python list of dictionaries\nvax_data = response.json() \n\nprint(type(vax_data)) \n# &lt;class 'list'&gt;",
+    "crumbs": [
+      "JSON"
+    ]
+  },
+  {
+    "objectID": "0F_json.html#accessing-top-level-data",
+    "href": "0F_json.html#accessing-top-level-data",
+    "title": "JSON",
+    "section": "Accessing Top Level Data",
+    "text": "Accessing Top Level Data\n\nThe parsed data is a list. We access countries by list index.\n# Get the dictionary for the first country\nfirst_country_obj = vax_data[0] \n\n# Access key/value pairs using dictionary syntax\ncountry_name = first_country_obj[\"country\"]\niso_code = first_country_obj[\"iso_code\"]\n\nprint(f\"First country: {country_name} ({iso_code})\")",
+    "crumbs": [
+      "JSON"
+    ]
+  },
+  {
+    "objectID": "0F_json.html#accessing-nested-data",
+    "href": "0F_json.html#accessing-nested-data",
+    "title": "JSON",
+    "section": "Accessing Nested Data",
+    "text": "Accessing Nested Data\n\nWe chain dictionary lookups and list indexing to drill down.\n# 1. Get the list of daily records from the country object\ndaily_data_list = vax_data[0][\"data\"]\n\n# 2. Get the first record (an object/dict) from the list\nfirst_day_record = daily_data_list[0]\n\n# 3. Get a value from the daily record\nfirst_date = first_day_record[\"date\"]\n\nprint(f\"First record date: {first_date}\")",
+    "crumbs": [
+      "JSON"
+    ]
+  },
+  {
+    "objectID": "0F_json.html#iterating-and-extracting",
+    "href": "0F_json.html#iterating-and-extracting",
+    "title": "JSON",
+    "section": "Iterating and Extracting",
+    "text": "Iterating and Extracting\n\nTo get summary stats, we loop over the top-level array.\nfor country_dict in vax_data:\n    name = country_dict[\"country\"]\n    records = country_dict[\"data\"]\n\n    # Check if the list of daily records is not empty\n    if records:\n        # The last record in the list is usually the most recent data\n        latest_record = records[-1] \n        latest_vax = latest_record.get(\"total_vaccinations\")\n\n        # print(f\"{name}: {latest_vax}\")",
+    "crumbs": [
+      "JSON"
+    ]
+  },
+  {
+    "objectID": "0F_json.html#handling-missing-null-values",
+    "href": "0F_json.html#handling-missing-null-values",
+    "title": "JSON",
+    "section": "Handling Missing (null) Values",
+    "text": "Handling Missing (null) Values\n\nIn JSON, a missing value is explicitly represented by null.\nWhen parsed in Python, null becomes None.\nAlways check for None before trying to perform arithmetic or string operations.\n# Example: 'people_fully_vaccinated' might be null\nfully_vax = latest_record.get(\"people_fully_vaccinated\")\n\nif fully_vax is None:\n    print(\"Fully vaccinated data is missing for this country.\")\nelse:\n    # We can safely use the number\n    print(f\"Fully vaccinated: {fully_vax}\")",
+    "crumbs": [
+      "JSON"
+    ]
+  },
+  {
+    "objectID": "0F_json.html#writing-json-in-python",
+    "href": "0F_json.html#writing-json-in-python",
+    "title": "JSON",
+    "section": "Writing JSON in Python",
+    "text": "Writing JSON in Python\n\nUse json.dump() to write a Python object (dict or list) to a file.\nUse json.dumps() to convert it to a JSON formatted string.\nimport json\n\n# A dictionary containing processed data\nsummary = {\n    \"report_country\": \"USA\",\n    \"latest_total_vax\": vax_data[0][\"data\"][-1][\"total_vaccinations\"]\n}\n\nwith open(\"vax_summary.json\", \"w\") as f:\n    json.dump(summary, f)",
+    "crumbs": [
+      "JSON"
+    ]
+  },
+  {
+    "objectID": "0F_json.html#pretty-printing-json",
+    "href": "0F_json.html#pretty-printing-json",
+    "title": "JSON",
+    "section": "Pretty Printing JSON",
+    "text": "Pretty Printing JSON\n\nThe indent argument makes the JSON human-readable for debugging or configuration files.\nwith open(\"vax_summary_pretty.json\", \"w\") as f:\n    # Indent by 4 spaces\n    json.dump(summary, f, indent=4)\nOutput: json     {         \"report_country\": \"USA\",         \"latest_total_vax\": 435500000      }",
+    "crumbs": [
+      "JSON"
+    ]
+  },
+  {
+    "objectID": "0F_json.html#json-and-command-line-jq",
+    "href": "0F_json.html#json-and-command-line-jq",
+    "title": "JSON",
+    "section": "JSON and Command Line (jq)",
+    "text": "JSON and Command Line (jq)\n\njq is a powerful, lightweight command-line JSON processor. It’s essential for working with JSON in bash scripts.\nIt allows you to filter, transform, and map over JSON data without writing Python or R code.",
+    "crumbs": [
+      "JSON"
+    ]
+  },
+  {
+    "objectID": "0F_json.html#jq-identity-query",
+    "href": "0F_json.html#jq-identity-query",
+    "title": "JSON",
+    "section": "jq: Identity Query",
+    "text": "jq: Identity Query\n\nThe identity filter . simply outputs the entire JSON document.\n# Assume we have the full data saved in vax.json\ncat vax.json | jq '.' | head -n 5\n# [\n#   {\n#     \"country\": \"Afghanistan\",",
+    "crumbs": [
+      "JSON"
+    ]
+  },
+  {
+    "objectID": "0F_json.html#jq-array-length-indexing",
+    "href": "0F_json.html#jq-array-length-indexing",
+    "title": "JSON",
+    "section": "jq: Array Length & Indexing",
+    "text": "jq: Array Length & Indexing\n\nGet the total number of countries (the length of the top-level array).\nGet the object for the first country (index 0).\n# Total countries\ncat vax.json | jq '. | length' \n\n# First country object\ncat vax.json | jq '.[0]'",
+    "crumbs": [
+      "JSON"
+    ]
+  },
+  {
+    "objectID": "0F_json.html#jq-accessing-nested-keys",
+    "href": "0F_json.html#jq-accessing-nested-keys",
+    "title": "JSON",
+    "section": "jq: Accessing Nested Keys",
+    "text": "jq: Accessing Nested Keys\n\nUse the dot operator (.) to chain key access.\n# Get the country name from the first object\ncat vax.json | jq '.[0].country' \n# \"Afghanistan\"\n\n# Get the 'data' array for the first country\ncat vax.json | jq '.[0].data'",
+    "crumbs": [
+      "JSON"
+    ]
+  },
+  {
+    "objectID": "0F_json.html#jq-iterating-arrays",
+    "href": "0F_json.html#jq-iterating-arrays",
+    "title": "JSON",
+    "section": "jq: Iterating Arrays",
+    "text": "jq: Iterating Arrays\n\nThe [] operator acts as an iterator, applying the subsequent filter to every element in the array.\n# List the country name for every object in the top array\ncat vax.json | jq '.[].country'\n# \"Afghanistan\"\n# \"Albania\"\n# ...",
+    "crumbs": [
+      "JSON"
+    ]
+  },
+  {
+    "objectID": "0F_json.html#jq-accessing-deeply-nested",
+    "href": "0F_json.html#jq-accessing-deeply-nested",
+    "title": "JSON",
+    "section": "jq: Accessing Deeply Nested",
+    "text": "jq: Accessing Deeply Nested\n\nLet’s get the date from the first daily record for every country:\n# .[] iterates over countries\n# .data gets the array of records\n# .[0] gets the first record object\n# .date gets the value\ncat vax.json | jq '.[].data[0].date'",
+    "crumbs": [
+      "JSON"
+    ]
+  },
+  {
+    "objectID": "0F_json.html#jq-filtering-with-select",
+    "href": "0F_json.html#jq-filtering-with-select",
+    "title": "JSON",
+    "section": "jq: Filtering with select()",
+    "text": "jq: Filtering with select()\n\nUse select() to keep only the objects that satisfy a condition.\nFind the object for the country “Canada”:\n# .[] iterates over countries\n# select(.country==\"Canada\") filters the stream\ncat vax.json | jq '.[] | select(.country==\"Canada\")'",
+    "crumbs": [
+      "JSON"
+    ]
+  },
+  {
+    "objectID": "0F_json.html#jq-filter-and-extract",
+    "href": "0F_json.html#jq-filter-and-extract",
+    "title": "JSON",
+    "section": "jq: Filter and Extract",
+    "text": "jq: Filter and Extract\n\nCombine filtering and extraction. Get the iso_code for the country “Canada”.\ncat vax.json | jq '.[] | select(.country==\"Canada\").iso_code'\n# \"CAN\"",
+    "crumbs": [
+      "JSON"
+    ]
+  },
+  {
+    "objectID": "0F_json.html#comparing-json-to-xml",
+    "href": "0F_json.html#comparing-json-to-xml",
+    "title": "JSON",
+    "section": "Comparing JSON to XML",
+    "text": "Comparing JSON to XML\n\nXML (Extensible Markup Language): Another hierarchical format, but uses tags (like HTML).\nJSON is generally more compact and easier to read for developers.\nJSON is far more common in modern APIs and web services due to its simplicity and faster parsing speed.",
+    "crumbs": [
+      "JSON"
+    ]
+  },
+  {
+    "objectID": "0F_json.html#json-vs.-yaml-quarto",
+    "href": "0F_json.html#json-vs.-yaml-quarto",
+    "title": "JSON",
+    "section": "JSON vs. YAML (Quarto)",
+    "text": "JSON vs. YAML (Quarto)\n\nYAML (YAML Ain’t Markup Language) uses indentation for structure.\nQuarto uses YAML for its document metadata (the header block, e.g., title, format).\nJSON is technically a subset of YAML, but YAML is often favored for human-written configuration because it omits quotes and braces.\nJSON is preferred for machine-to-machine data transfer.",
+    "crumbs": [
+      "JSON"
+    ]
+  },
+  {
+    "objectID": "0F_json.html#json-for-configuration",
+    "href": "0F_json.html#json-for-configuration",
+    "title": "JSON",
+    "section": "JSON for Configuration",
+    "text": "JSON for Configuration\n\nJSON files are excellent for storing configuration parameters for a scientific pipeline.\nExample: A JSON file defining countries to include/exclude and the start date for a report.\n{\n  \"start_date\": \"2021-01-01\",\n  \"countries_of_interest\": [\"USA\", \"GBR\", \"CAN\"],\n  \"output_format\": \"html\"\n}",
+    "crumbs": [
+      "JSON"
+    ]
+  },
+  {
+    "objectID": "0F_json.html#reading-json-config",
+    "href": "0F_json.html#reading-json-config",
+    "title": "JSON",
+    "section": "Reading JSON Config",
+    "text": "Reading JSON Config\n\nLoading the configuration in Python is straightforward using the json library’s load() function.\nimport json\n\nwith open(\"config.json\", \"r\") as f:\n    config = json.load(f)\n\nprint(config[\"start_date\"])\n# 2021-01-01",
+    "crumbs": [
+      "JSON"
+    ]
+  },
+  {
+    "objectID": "0F_json.html#data-validation-schema",
+    "href": "0F_json.html#data-validation-schema",
+    "title": "JSON",
+    "section": "Data Validation: Schema",
+    "text": "Data Validation: Schema\n\nJSON Schema is a vocabulary that allows you to annotate and validate JSON documents.\nIt defines the required structure: what keys must be present, what data types they should be, and array constraints.\nEssential for robust data pipelines to ensure the incoming data (like the OWID file) is in the expected format before processing.",
+    "crumbs": [
+      "JSON"
+    ]
+  },
+  {
+    "objectID": "0F_json.html#debugging-json-linting",
+    "href": "0F_json.html#debugging-json-linting",
+    "title": "JSON",
+    "section": "Debugging: JSON Linting",
+    "text": "Debugging: JSON Linting\n\nBecause JSON is so strict, any misplaced comma, quotation mark, or capital letter will cause the entire file to fail to parse.\nUse online JSON validators/linters (like JSONLint) or built-in IDE features to quickly find syntax errors.",
+    "crumbs": [
+      "JSON"
+    ]
+  },
+  {
+    "objectID": "0F_json.html#handling-numbers",
+    "href": "0F_json.html#handling-numbers",
+    "title": "JSON",
+    "section": "Handling Numbers",
+    "text": "Handling Numbers\n\nJSON distinguishes between integers and floating-point numbers.\nThe vaccination counts are large, so they are often represented as integers: \"population\": 331002651.\nRates and percentages would be floats: \"daily_vaccinations_per_hundred\": 0.52.\nYour programming language (Python) will handle this distinction automatically upon parsing.",
+    "crumbs": [
+      "JSON"
+    ]
+  },
+  {
+    "objectID": "0F_json.html#quarto-embedding-data",
+    "href": "0F_json.html#quarto-embedding-data",
+    "title": "JSON",
+    "section": "Quarto: Embedding Data",
+    "text": "Quarto: Embedding Data\n\nQuarto can embed data directly into a document for creating figures.\nThis data is often supplied as a JSON object, either generated from a data frame or loaded from a file.\nThis allows for powerful visualizations driven by structured data.",
+    "crumbs": [
+      "JSON"
+    ]
+  },
+  {
+    "objectID": "0F_json.html#summary-key-takeaways",
+    "href": "0F_json.html#summary-key-takeaways",
+    "title": "JSON",
+    "section": "Summary: Key Takeaways",
+    "text": "Summary: Key Takeaways\n\nJSON is the foundation of modern data exchange, built on objects ({}) and arrays ([]).\nIt excels at handling nested, hierarchical data like the Country/Time-series structure of the OWID data.\nPython’s json library and the requests.json() method are your primary tools.\nAlways be vigilant for strict syntax rules (double quotes, no trailing commas) and handle null values.",
+    "crumbs": [
+      "JSON"
+    ]
+  },
+  {
+    "objectID": "0F_json.html#final-review-structure",
+    "href": "0F_json.html#final-review-structure",
+    "title": "JSON",
+    "section": "Final Review: Structure",
+    "text": "Final Review: Structure\n[ &lt; TOP LEVEL ARRAY\n  { &lt; COUNTRY OBJECT\n    \"country\": \"United States\", \n    \"iso_code\": \"USA\",\n    \"population\": 331002651,\n    \"data\": [                  &lt;-- NESTED ARRAY\n      { &lt; DAILY RECORD OBJECT\n        \"date\": \"2021-01-01\",\n        \"total_vaccinations\": 100000 \n      },                       \n      {\n        \"date\": \"2021-01-02\",\n        \"total_vaccinations\": 150000 \n      }\n    ]\n  },\n  ...\n]",
+    "crumbs": [
+      "JSON"
+    ]
+  },
+  {
+    "objectID": "0F_json.rjs.html#what-is-json",
+    "href": "0F_json.rjs.html#what-is-json",
+    "title": "JSON",
+    "section": "What is JSON?",
+    "text": "What is JSON?\n\nJSON stands for JavaScript Object Notation.\nIt’s a lightweight, human-readable format for storing and transmitting data.\nIt has become the de facto standard for data interchange on the web, especially for APIs (Application Programming Interfaces).\nDespite its name, JSON is language-agnostic and supported by every relevant programming language used today."
+  },
+  {
+    "objectID": "0F_json.rjs.html#jsons-core-purpose",
+    "href": "0F_json.rjs.html#jsons-core-purpose",
+    "title": "JSON",
+    "section": "JSON’s Core Purpose",
+    "text": "JSON’s Core Purpose\n\nThe main goal is to represent structured data that can be easily serialized (converted into a string) and deserialized (converted back into native data types).\nIt maps perfectly to common data structures like dictionaries and lists.\nThis makes complex, nested data easy to handle."
+  },
+  {
+    "objectID": "0F_json.rjs.html#json-vs.-csv-and-formats",
+    "href": "0F_json.rjs.html#json-vs.-csv-and-formats",
+    "title": "JSON",
+    "section": "JSON vs. CSV and Formats",
+    "text": "JSON vs. CSV and Formats\n\nScientific data is rarely flat. It often involves hierarchical relationships.\nOne example: There are groups (or periods) that contain elements.\nJSON can capture this nesting naturally, unlike flat CSV files.\n\nComma-separated values - used with pandas."
+  },
+  {
+    "objectID": "0F_json.rjs.html#two-core-json-structures",
+    "href": "0F_json.rjs.html#two-core-json-structures",
+    "title": "JSON",
+    "section": "Two Core JSON Structures",
+    "text": "Two Core JSON Structures\n\nJSON data is built using only two universal structures:\n\nDictionaries\n\nCollection of Key/Value Pairs\nLike state-to-capital or zip-to-state.\n\nList\n\nOrdered Collection of Values)\nHave numerical indicies rather than keys.\n\n\nNested to any depth: a list of dictionaries of lists"
+  },
+  {
+    "objectID": "0F_json.rjs.html#python-aside-dictionaries",
+    "href": "0F_json.rjs.html#python-aside-dictionaries",
+    "title": "JSON",
+    "section": "Python Aside: Dictionaries",
+    "text": "Python Aside: Dictionaries\n\nWe review the most-beloved Python dictionaries.\nDictionaries are Python’s core implementation of a common archetype.\n\nOften called a hash map or associative array.\nI call them hash tables because I’m set in my ways.\n\nThey store data as unordered collections of key-value pairs.\n\nIn a “normal” dictionary, keys are words and values are definitions."
+  },
+  {
+    "objectID": "0F_json.rjs.html#dictionary-syntax-and-keys",
+    "href": "0F_json.rjs.html#dictionary-syntax-and-keys",
+    "title": "JSON",
+    "section": "Dictionary Syntax and Keys",
+    "text": "Dictionary Syntax and Keys\n\nDictionaries are defined using curly braces:\n\nd = {}`.\n\nKeys and values are separated by a colon:\n\n{\"key\": \"value\"}\n\nKeys are usually strings, but can be some other types."
+  },
+  {
+    "objectID": "0F_json.rjs.html#accessing-values-by-key",
+    "href": "0F_json.rjs.html#accessing-values-by-key",
+    "title": "JSON",
+    "section": "Accessing Values by Key",
+    "text": "Accessing Values by Key\n\nValues are retrieved using the key inside square brackets ([]).\nThis is the standard way to access data fields parsed from a JSON object.\n\n\n# We previously read in `he`\nhe[\"symbol\"]\n\n'He'"
+  },
+  {
+    "objectID": "0F_json.rjs.html#adding-or-updating-pairs",
+    "href": "0F_json.rjs.html#adding-or-updating-pairs",
+    "title": "JSON",
+    "section": "Adding or Updating Pairs",
+    "text": "Adding or Updating Pairs\n\nOnce in Python, we can use the dictionary read from JSON like any other dictionary.\nWe can add something, like the atomic number.\n\nI would see (scroll to end to see number):\n\n\n\nhe[\"number\"] = 2\nhe\n\n{'symbol': 'He',\n 'phase_stp': 'gas',\n 'group': 18,\n 'period': 1,\n 'boiling_point': {'K': 4.222, 'C': -268.928, 'F': -452.07},\n 'number': 2}"
+  },
+  {
+    "objectID": "0F_json.rjs.html#the-get-method",
+    "href": "0F_json.rjs.html#the-get-method",
+    "title": "JSON",
+    "section": "The get() Method",
+    "text": "The get() Method\n\nAccessing a missing key with [] causes a KeyError and crashes.\nSimply use .get.\n\n\ntry:\n    print(he[\"density\"])\nexcept:\n    print(\"Use `.get()!`\")\nprint(he.get(\"density\")) # Will be `None` so we print to see it\n\nUse `.get()!`\nNone"
+  },
+  {
+    "objectID": "0F_json.rjs.html#iterating-over-keys",
+    "href": "0F_json.rjs.html#iterating-over-keys",
+    "title": "JSON",
+    "section": "Iterating over Keys",
+    "text": "Iterating over Keys\n\nBy default, iterating over a dictionary iterates over its keys.\nThis is useful for inspection or processing.\n\n\nfor key in he:\n    print(key)\n\nsymbol\nphase_stp\ngroup\nperiod\nboiling_point\nnumber"
+  },
+  {
+    "objectID": "0F_json.rjs.html#iterating-over-values",
+    "href": "0F_json.rjs.html#iterating-over-values",
+    "title": "JSON",
+    "section": "Iterating over Values",
+    "text": "Iterating over Values\n\nUse the .values() method to iterate only through the values in the dictionary.\n\n\nfor value in he.values():\n    print(value)\n\nHe\ngas\n18\n1\n{'K': 4.222, 'C': -268.928, 'F': -452.07}\n2"
+  },
+  {
+    "objectID": "0F_json.rjs.html#iterating-over-key-value-pairs",
+    "href": "0F_json.rjs.html#iterating-over-key-value-pairs",
+    "title": "JSON",
+    "section": "Iterating over Key-Value Pairs",
+    "text": "Iterating over Key-Value Pairs\n\nThe .items() method returns a tuple of (key, value) for each pair, which you can unpack in the loop.\n\n\nfor key, value in he.items():\n    print(key, \":\", value) # Take note of that : I use as a nicety\n\nsymbol : He\nphase_stp : gas\ngroup : 18\nperiod : 1\nboiling_point : {'K': 4.222, 'C': -268.928, 'F': -452.07}\nnumber : 2"
+  },
+  {
+    "objectID": "0F_json.rjs.html#nested-dictionaries",
+    "href": "0F_json.rjs.html#nested-dictionaries",
+    "title": "JSON",
+    "section": "Nested Dictionaries",
+    "text": "Nested Dictionaries\n\nSince a value can be any type, a value can be another dictionary (or a list of dictionaries).\n\n\nhe[\"boiling_point\"][\"K\"]\n\n4.222\n\n\n\nCould also be a list, in which case you’d use a numerical index."
+  },
+  {
+    "objectID": "0F_json.rjs.html#dictionary-size-and-membership",
+    "href": "0F_json.rjs.html#dictionary-size-and-membership",
+    "title": "JSON",
+    "section": "Dictionary Size and Membership",
+    "text": "Dictionary Size and Membership\n\nUse len() to get the number of key-value pairs.\nUse the in keyword to check for key existence (membership).\n\nprint(f\"Keys: {len(country_data)}\")\n# Keys: 4\n\nif \"iso_code\" in country_data:\n    print(\"ISO code is present.\")\n# ISO code is present."
+  },
+  {
+    "objectID": "0F_json.rjs.html#json-object-syntax",
+    "href": "0F_json.rjs.html#json-object-syntax",
+    "title": "JSON",
+    "section": "JSON Object Syntax",
+    "text": "JSON Object Syntax\n\nAn dictionary, in JSON called an “object”, represents an unordered collection of key/value pairs.\nStarts with { and ends with }.\nKeys must be strings and enclosed in double quotes.\n\nThis differs from Python, which allows keys to be some other stuff.\n\nKeys and values are separated by a colon (:). Pairs are separated by commas (,)."
+  },
+  {
+    "objectID": "0F_json.rjs.html#object-example-daily-data",
+    "href": "0F_json.rjs.html#object-example-daily-data",
+    "title": "JSON",
+    "section": "Object Example: Daily Data",
+    "text": "Object Example: Daily Data\n\nAn object describing a single point in the time series:\n\n{\n  \"date\": \"2022-01-01\",\n  \"total_vaccinations\": 435000000,\n  \"people_fully_vaccinated\": 210000000\n}\n\nKeys are \"date\", \"total_vaccinations\", and \"people_fully_vaccinated\"."
+  },
+  {
+    "objectID": "0F_json.rjs.html#json-array-syntax",
+    "href": "0F_json.rjs.html#json-array-syntax",
+    "title": "JSON",
+    "section": "JSON Array Syntax",
+    "text": "JSON Array Syntax\n\nAn Array represents an ordered sequence of values.\nStarts with [ and ends with ].\nValues are separated by commas (,).\nValues can be of any valid JSON data type."
+  },
+  {
+    "objectID": "0F_json.rjs.html#array-example-time-series",
+    "href": "0F_json.rjs.html#array-example-time-series",
+    "title": "JSON",
+    "section": "Array Example: Time Series",
+    "text": "Array Example: Time Series\n\nThis array holds the time-series data for one country:\n\"data\": [\n  { \"date\": \"2022-01-01\", \"total_vaccinations\": 435000000 },\n  { \"date\": \"2022-01-02\", \"total_vaccinations\": 435500000 }\n]\nThe array contains two JSON objects."
+  },
+  {
+    "objectID": "0F_json.rjs.html#valid-json-data-types",
+    "href": "0F_json.rjs.html#valid-json-data-types",
+    "title": "JSON",
+    "section": "Valid JSON Data Types",
+    "text": "Valid JSON Data Types\n\nA value in a key/value pair or an array can be:\n\nString: Text, double-quoted. E.g., \"United States\".\nNumber: Integer or float. E.g., 331002651 or 3.14.\nBoolean: Either true or false.\nNull: Indicates a missing value. E.g., null.\nObject: Nested structure {...}.\nArray: Nested structure [...]."
+  },
+  {
+    "objectID": "0F_json.rjs.html#data-structure-top-level",
+    "href": "0F_json.rjs.html#data-structure-top-level",
+    "title": "JSON",
+    "section": "Data Structure: Top Level",
+    "text": "Data Structure: Top Level\n\nThe entire vax file is one single JSON array.\nEach element in this top-level array is a JSON object, representing a single country/region.\n[\n  { \"country\": \"USA\", \"data\": [...] }, \n  { \"country\": \"India\", \"data\": [...] },\n  ...\n]"
+  },
+  {
+    "objectID": "0F_json.rjs.html#data-structure-nested-data",
+    "href": "0F_json.rjs.html#data-structure-nested-data",
+    "title": "JSON",
+    "section": "Data Structure: Nested Data",
+    "text": "Data Structure: Nested Data\n\nInside each country object, there is a key called \"data\".\nThe value of \"data\" is an array of daily vaccination records.\n{\n  \"country\": \"United States\",\n  \"iso_code\": \"USA\",\n  \"data\": [\n    { \"date\": \"...\", \"total_vaccinations\": ... },\n    ... \n  ]\n}"
+  },
+  {
+    "objectID": "0F_json.rjs.html#syntax-rule-double-quotes",
+    "href": "0F_json.rjs.html#syntax-rule-double-quotes",
+    "title": "JSON",
+    "section": "Syntax Rule: Double Quotes",
+    "text": "Syntax Rule: Double Quotes\n\nJSON is very strict about syntax. Keys and string values must use double quotes (\").\nInvalid JSON: { 'country': 'USA' } (Uses single quotes).\nValid JSON: { \"country\": \"USA\" }\nNumbers, booleans, and null are NOT quoted."
+  },
+  {
+    "objectID": "0F_json.rjs.html#syntax-rule-no-trailing-commas",
+    "href": "0F_json.rjs.html#syntax-rule-no-trailing-commas",
+    "title": "JSON",
+    "section": "Syntax Rule: No Trailing Commas",
+    "text": "Syntax Rule: No Trailing Commas\n\nThe last key/value pair in an object, or the last item in an array, must not be followed by a comma.\nInvalid JSON: json     [       \"item1\",       \"item2\",      ]"
+  },
+  {
+    "objectID": "0F_json.rjs.html#parsing-json-in-python",
+    "href": "0F_json.rjs.html#parsing-json-in-python",
+    "title": "JSON",
+    "section": "Parsing JSON in Python",
+    "text": "Parsing JSON in Python\n\nWhen we download the data from the URL (vax), we get a JSON string.\nParsing converts this string into native Python data structures (lists and dictionaries).\nThe json library is built-in. If using requests, it handles the parsing automatically."
+  },
+  {
+    "objectID": "0F_json.rjs.html#reading-data-with-requests",
+    "href": "0F_json.rjs.html#reading-data-with-requests",
+    "title": "JSON",
+    "section": "Reading Data with Requests",
+    "text": "Reading Data with Requests\n\nWe fetch the content and use the .json() method to parse it.\nimport requests\n# vax = \"...\" # The OWID URL\n\nresponse = requests.get(vax)\n\n# vax_data is now a Python list of dictionaries\nvax_data = response.json() \n\nprint(type(vax_data)) \n# &lt;class 'list'&gt;"
+  },
+  {
+    "objectID": "0F_json.rjs.html#accessing-top-level-data",
+    "href": "0F_json.rjs.html#accessing-top-level-data",
+    "title": "JSON",
+    "section": "Accessing Top Level Data",
+    "text": "Accessing Top Level Data\n\nThe parsed data is a list. We access countries by list index.\n# Get the dictionary for the first country\nfirst_country_obj = vax_data[0] \n\n# Access key/value pairs using dictionary syntax\ncountry_name = first_country_obj[\"country\"]\niso_code = first_country_obj[\"iso_code\"]\n\nprint(f\"First country: {country_name} ({iso_code})\")"
+  },
+  {
+    "objectID": "0F_json.rjs.html#accessing-nested-data",
+    "href": "0F_json.rjs.html#accessing-nested-data",
+    "title": "JSON",
+    "section": "Accessing Nested Data",
+    "text": "Accessing Nested Data\n\nWe chain dictionary lookups and list indexing to drill down.\n# 1. Get the list of daily records from the country object\ndaily_data_list = vax_data[0][\"data\"]\n\n# 2. Get the first record (an object/dict) from the list\nfirst_day_record = daily_data_list[0]\n\n# 3. Get a value from the daily record\nfirst_date = first_day_record[\"date\"]\n\nprint(f\"First record date: {first_date}\")"
+  },
+  {
+    "objectID": "0F_json.rjs.html#iterating-and-extracting",
+    "href": "0F_json.rjs.html#iterating-and-extracting",
+    "title": "JSON",
+    "section": "Iterating and Extracting",
+    "text": "Iterating and Extracting\n\nTo get summary stats, we loop over the top-level array.\nfor country_dict in vax_data:\n    name = country_dict[\"country\"]\n    records = country_dict[\"data\"]\n\n    # Check if the list of daily records is not empty\n    if records:\n        # The last record in the list is usually the most recent data\n        latest_record = records[-1] \n        latest_vax = latest_record.get(\"total_vaccinations\")\n\n        # print(f\"{name}: {latest_vax}\")"
+  },
+  {
+    "objectID": "0F_json.rjs.html#handling-missing-null-values",
+    "href": "0F_json.rjs.html#handling-missing-null-values",
+    "title": "JSON",
+    "section": "Handling Missing (null) Values",
+    "text": "Handling Missing (null) Values\n\nIn JSON, a missing value is explicitly represented by null.\nWhen parsed in Python, null becomes None.\nAlways check for None before trying to perform arithmetic or string operations.\n# Example: 'people_fully_vaccinated' might be null\nfully_vax = latest_record.get(\"people_fully_vaccinated\")\n\nif fully_vax is None:\n    print(\"Fully vaccinated data is missing for this country.\")\nelse:\n    # We can safely use the number\n    print(f\"Fully vaccinated: {fully_vax}\")"
+  },
+  {
+    "objectID": "0F_json.rjs.html#writing-json-in-python",
+    "href": "0F_json.rjs.html#writing-json-in-python",
+    "title": "JSON",
+    "section": "Writing JSON in Python",
+    "text": "Writing JSON in Python\n\nUse json.dump() to write a Python object (dict or list) to a file.\nUse json.dumps() to convert it to a JSON formatted string.\nimport json\n\n# A dictionary containing processed data\nsummary = {\n    \"report_country\": \"USA\",\n    \"latest_total_vax\": vax_data[0][\"data\"][-1][\"total_vaccinations\"]\n}\n\nwith open(\"vax_summary.json\", \"w\") as f:\n    json.dump(summary, f)"
+  },
+  {
+    "objectID": "0F_json.rjs.html#pretty-printing-json",
+    "href": "0F_json.rjs.html#pretty-printing-json",
+    "title": "JSON",
+    "section": "Pretty Printing JSON",
+    "text": "Pretty Printing JSON\n\nThe indent argument makes the JSON human-readable for debugging or configuration files.\nwith open(\"vax_summary_pretty.json\", \"w\") as f:\n    # Indent by 4 spaces\n    json.dump(summary, f, indent=4)\nOutput: json     {         \"report_country\": \"USA\",         \"latest_total_vax\": 435500000      }"
+  },
+  {
+    "objectID": "0F_json.rjs.html#json-and-command-line-jq",
+    "href": "0F_json.rjs.html#json-and-command-line-jq",
+    "title": "JSON",
+    "section": "JSON and Command Line (jq)",
+    "text": "JSON and Command Line (jq)\n\njq is a powerful, lightweight command-line JSON processor. It’s essential for working with JSON in bash scripts.\nIt allows you to filter, transform, and map over JSON data without writing Python or R code."
+  },
+  {
+    "objectID": "0F_json.rjs.html#jq-identity-query",
+    "href": "0F_json.rjs.html#jq-identity-query",
+    "title": "JSON",
+    "section": "jq: Identity Query",
+    "text": "jq: Identity Query\n\nThe identity filter . simply outputs the entire JSON document.\n# Assume we have the full data saved in vax.json\ncat vax.json | jq '.' | head -n 5\n# [\n#   {\n#     \"country\": \"Afghanistan\","
+  },
+  {
+    "objectID": "0F_json.rjs.html#jq-array-length-indexing",
+    "href": "0F_json.rjs.html#jq-array-length-indexing",
+    "title": "JSON",
+    "section": "jq: Array Length & Indexing",
+    "text": "jq: Array Length & Indexing\n\nGet the total number of countries (the length of the top-level array).\nGet the object for the first country (index 0).\n# Total countries\ncat vax.json | jq '. | length' \n\n# First country object\ncat vax.json | jq '.[0]'"
+  },
+  {
+    "objectID": "0F_json.rjs.html#jq-accessing-nested-keys",
+    "href": "0F_json.rjs.html#jq-accessing-nested-keys",
+    "title": "JSON",
+    "section": "jq: Accessing Nested Keys",
+    "text": "jq: Accessing Nested Keys\n\nUse the dot operator (.) to chain key access.\n# Get the country name from the first object\ncat vax.json | jq '.[0].country' \n# \"Afghanistan\"\n\n# Get the 'data' array for the first country\ncat vax.json | jq '.[0].data'"
+  },
+  {
+    "objectID": "0F_json.rjs.html#jq-iterating-arrays",
+    "href": "0F_json.rjs.html#jq-iterating-arrays",
+    "title": "JSON",
+    "section": "jq: Iterating Arrays",
+    "text": "jq: Iterating Arrays\n\nThe [] operator acts as an iterator, applying the subsequent filter to every element in the array.\n# List the country name for every object in the top array\ncat vax.json | jq '.[].country'\n# \"Afghanistan\"\n# \"Albania\"\n# ..."
+  },
+  {
+    "objectID": "0F_json.rjs.html#jq-accessing-deeply-nested",
+    "href": "0F_json.rjs.html#jq-accessing-deeply-nested",
+    "title": "JSON",
+    "section": "jq: Accessing Deeply Nested",
+    "text": "jq: Accessing Deeply Nested\n\nLet’s get the date from the first daily record for every country:\n# .[] iterates over countries\n# .data gets the array of records\n# .[0] gets the first record object\n# .date gets the value\ncat vax.json | jq '.[].data[0].date'"
+  },
+  {
+    "objectID": "0F_json.rjs.html#jq-filtering-with-select",
+    "href": "0F_json.rjs.html#jq-filtering-with-select",
+    "title": "JSON",
+    "section": "jq: Filtering with select()",
+    "text": "jq: Filtering with select()\n\nUse select() to keep only the objects that satisfy a condition.\nFind the object for the country “Canada”:\n# .[] iterates over countries\n# select(.country==\"Canada\") filters the stream\ncat vax.json | jq '.[] | select(.country==\"Canada\")'"
+  },
+  {
+    "objectID": "0F_json.rjs.html#jq-filter-and-extract",
+    "href": "0F_json.rjs.html#jq-filter-and-extract",
+    "title": "JSON",
+    "section": "jq: Filter and Extract",
+    "text": "jq: Filter and Extract\n\nCombine filtering and extraction. Get the iso_code for the country “Canada”.\ncat vax.json | jq '.[] | select(.country==\"Canada\").iso_code'\n# \"CAN\""
+  },
+  {
+    "objectID": "0F_json.rjs.html#comparing-json-to-xml",
+    "href": "0F_json.rjs.html#comparing-json-to-xml",
+    "title": "JSON",
+    "section": "Comparing JSON to XML",
+    "text": "Comparing JSON to XML\n\nXML (Extensible Markup Language): Another hierarchical format, but uses tags (like HTML).\nJSON is generally more compact and easier to read for developers.\nJSON is far more common in modern APIs and web services due to its simplicity and faster parsing speed."
+  },
+  {
+    "objectID": "0F_json.rjs.html#json-vs.-yaml-quarto",
+    "href": "0F_json.rjs.html#json-vs.-yaml-quarto",
+    "title": "JSON",
+    "section": "JSON vs. YAML (Quarto)",
+    "text": "JSON vs. YAML (Quarto)\n\nYAML (YAML Ain’t Markup Language) uses indentation for structure.\nQuarto uses YAML for its document metadata (the header block, e.g., title, format).\nJSON is technically a subset of YAML, but YAML is often favored for human-written configuration because it omits quotes and braces.\nJSON is preferred for machine-to-machine data transfer."
+  },
+  {
+    "objectID": "0F_json.rjs.html#json-for-configuration",
+    "href": "0F_json.rjs.html#json-for-configuration",
+    "title": "JSON",
+    "section": "JSON for Configuration",
+    "text": "JSON for Configuration\n\nJSON files are excellent for storing configuration parameters for a scientific pipeline.\nExample: A JSON file defining countries to include/exclude and the start date for a report.\n{\n  \"start_date\": \"2021-01-01\",\n  \"countries_of_interest\": [\"USA\", \"GBR\", \"CAN\"],\n  \"output_format\": \"html\"\n}"
+  },
+  {
+    "objectID": "0F_json.rjs.html#reading-json-config",
+    "href": "0F_json.rjs.html#reading-json-config",
+    "title": "JSON",
+    "section": "Reading JSON Config",
+    "text": "Reading JSON Config\n\nLoading the configuration in Python is straightforward using the json library’s load() function.\nimport json\n\nwith open(\"config.json\", \"r\") as f:\n    config = json.load(f)\n\nprint(config[\"start_date\"])\n# 2021-01-01"
+  },
+  {
+    "objectID": "0F_json.rjs.html#data-validation-schema",
+    "href": "0F_json.rjs.html#data-validation-schema",
+    "title": "JSON",
+    "section": "Data Validation: Schema",
+    "text": "Data Validation: Schema\n\nJSON Schema is a vocabulary that allows you to annotate and validate JSON documents.\nIt defines the required structure: what keys must be present, what data types they should be, and array constraints.\nEssential for robust data pipelines to ensure the incoming data (like the OWID file) is in the expected format before processing."
+  },
+  {
+    "objectID": "0F_json.rjs.html#debugging-json-linting",
+    "href": "0F_json.rjs.html#debugging-json-linting",
+    "title": "JSON",
+    "section": "Debugging: JSON Linting",
+    "text": "Debugging: JSON Linting\n\nBecause JSON is so strict, any misplaced comma, quotation mark, or capital letter will cause the entire file to fail to parse.\nUse online JSON validators/linters (like JSONLint) or built-in IDE features to quickly find syntax errors."
+  },
+  {
+    "objectID": "0F_json.rjs.html#handling-numbers",
+    "href": "0F_json.rjs.html#handling-numbers",
+    "title": "JSON",
+    "section": "Handling Numbers",
+    "text": "Handling Numbers\n\nJSON distinguishes between integers and floating-point numbers.\nThe vaccination counts are large, so they are often represented as integers: \"population\": 331002651.\nRates and percentages would be floats: \"daily_vaccinations_per_hundred\": 0.52.\nYour programming language (Python) will handle this distinction automatically upon parsing."
+  },
+  {
+    "objectID": "0F_json.rjs.html#quarto-embedding-data",
+    "href": "0F_json.rjs.html#quarto-embedding-data",
+    "title": "JSON",
+    "section": "Quarto: Embedding Data",
+    "text": "Quarto: Embedding Data\n\nQuarto can embed data directly into a document for creating figures.\nThis data is often supplied as a JSON object, either generated from a data frame or loaded from a file.\nThis allows for powerful visualizations driven by structured data."
+  },
+  {
+    "objectID": "0F_json.rjs.html#summary-key-takeaways",
+    "href": "0F_json.rjs.html#summary-key-takeaways",
+    "title": "JSON",
+    "section": "Summary: Key Takeaways",
+    "text": "Summary: Key Takeaways\n\nJSON is the foundation of modern data exchange, built on objects ({}) and arrays ([]).\nIt excels at handling nested, hierarchical data like the Country/Time-series structure of the OWID data.\nPython’s json library and the requests.json() method are your primary tools.\nAlways be vigilant for strict syntax rules (double quotes, no trailing commas) and handle null values."
+  },
+  {
+    "objectID": "0F_json.rjs.html#final-review-structure",
+    "href": "0F_json.rjs.html#final-review-structure",
+    "title": "JSON",
+    "section": "Final Review: Structure",
+    "text": "Final Review: Structure\n[ &lt; TOP LEVEL ARRAY\n  { &lt; COUNTRY OBJECT\n    \"country\": \"United States\", \n    \"iso_code\": \"USA\",\n    \"population\": 331002651,\n    \"data\": [                  &lt;-- NESTED ARRAY\n      { &lt; DAILY RECORD OBJECT\n        \"date\": \"2021-01-01\",\n        \"total_vaccinations\": 100000 \n      },                       \n      {\n        \"date\": \"2021-01-02\",\n        \"total_vaccinations\": 150000 \n      }\n    ]\n  },\n  ...\n]"
+  },
+  {
+    "objectID": "0F_json.html#citation",
+    "href": "0F_json.html#citation",
+    "title": "JSON",
+    "section": "Citation",
+    "text": "Citation\n\nLoosely adapted from “The JSON format”\nIt uses this data:\n\n\nURL = \"https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/vaccinations/vaccinations.json\"",
+    "crumbs": [
+      "JSON"
+    ]
+  },
+  {
+    "objectID": "0F_json.rjs.html#citation",
+    "href": "0F_json.rjs.html#citation",
+    "title": "JSON",
+    "section": "Citation",
+    "text": "Citation\n\nLoosely adapted from “The JSON format”\nIt uses this data:\n\n\nURL = \"https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/vaccinations/vaccinations.json\""
+  },
+  {
+    "objectID": "0F_json.html#example",
+    "href": "0F_json.html#example",
+    "title": "JSON",
+    "section": "Example",
+    "text": "Example\n\n\nhelium.json\n\n{\n    \"symbol\": \"He\",\n    \"phase_stp\": \"gas\",\n    \"group\": 18,\n    \"period\": 1,\n    \"boiling_point\": {\n        \"K\": 4.222,\n        \"C\": -268.928,\n        \"F\": -452.070\n     }\n}",
+    "crumbs": [
+      "JSON"
+    ]
+  },
+  {
+    "objectID": "0F_json.rjs.html#example",
+    "href": "0F_json.rjs.html#example",
+    "title": "JSON",
+    "section": "Example",
+    "text": "Example\n\n\nhelium.json\n\n{\n    \"symbol\": \"He\",\n    \"phase_stp\": \"gas\",\n    \"group\": 18,\n    \"period\": 1,\n    \"boiling_point\": {\n        \"K\": 4.222,\n        \"C\": -268.928,\n        \"F\": -452.070\n     }\n}"
+  },
+  {
+    "objectID": "0F_json.html#a-note",
+    "href": "0F_json.html#a-note",
+    "title": "JSON",
+    "section": "A note",
+    "text": "A note\n\nWe can ensure these files are well-formed relatively easily.\n\n\n\n\nAt command line\n\npython3 -mjson.tool helium.json\n\nWill show an error if bad.\nWill show the file otherwise.\n\n\n\nWithin Python\n\n\nimport json\n\nFILE_NAME = \"helium.json\"\n\n# Can expand to multiple lines\nhe = json.loads(open(FILE_NAME).read())\n\n\nWill show an error if bad.",
+    "crumbs": [
+      "JSON"
+    ]
+  },
+  {
+    "objectID": "0F_json.rjs.html#a-note",
+    "href": "0F_json.rjs.html#a-note",
+    "title": "JSON",
+    "section": "A note",
+    "text": "A note\n\nWe can ensure these files are well-formed relatively easily.\n\n\n\n\nAt command line\n\npython3 -mjson.tool helium.json\n\nWill show an error if bad.\nWill show the file otherwise.\n\n\n\nWithin Python\n\n\nimport json\n\nFILE_NAME = \"helium.json\"\n\n# Can expand to multiple lines\nhe = json.loads(open(FILE_NAME).read())\n\n\nWill show an error if bad."
+  },
+  {
+    "objectID": "0F_json.html#example-1",
+    "href": "0F_json.html#example-1",
+    "title": "JSON",
+    "section": "Example",
+    "text": "Example\n\nWe will",
+    "crumbs": [
+      "JSON"
+    ]
+  },
+  {
+    "objectID": "0F_json.rjs.html#example-1",
+    "href": "0F_json.rjs.html#example-1",
+    "title": "JSON",
+    "section": "Example",
+    "text": "Example\n\nWe will"
+  },
+  {
+    "objectID": "0F_json.html#requests",
+    "href": "0F_json.html#requests",
+    "title": "JSON",
+    "section": "Requests",
+    "text": "Requests\n\nIt is extremely common to use JSON directly from a URL.\n\nThis is possible with e.g. CSV files but less common.\nJSON is a de facto internet format.\n(You can open them in browsers!)\nhelium.json",
+    "crumbs": [
+      "JSON"
+    ]
+  },
+  {
+    "objectID": "0F_json.rjs.html#requests",
+    "href": "0F_json.rjs.html#requests",
+    "title": "JSON",
+    "section": "Requests",
+    "text": "Requests\n\nIt is extremely common to use JSON directly from a URL.\n\nThis is possible with e.g. CSV files but less common.\nJSON is a de facto internet format.\n(You can open them in browsers!)\nhelium.json"
+  },
+  {
+    "objectID": "0F_json.html#urls",
+    "href": "0F_json.html#urls",
+    "title": "JSON",
+    "section": "URLs",
+    "text": "URLs\n\nIt is extremely common to use JSON directly from a URL.\n\nThis is possible with e.g. CSV files but less common.\nJSON is a de facto internet format.\n(You can open them in browsers!)\nhelium.json",
+    "crumbs": [
+      "JSON"
+    ]
+  },
+  {
+    "objectID": "0F_json.html#read-from-url",
+    "href": "0F_json.html#read-from-url",
+    "title": "JSON",
+    "section": "Read from URL",
+    "text": "Read from URL\n\nWe follow this solution\n\nImport the json and urllib.request modules to Python.\nUse urllib.request.urlopen to open a url as if it is a file.\nUse json.loads to read the url as if it is a file.\n\n\n\nURL = \"\"",
+    "crumbs": [
+      "JSON"
+    ]
+  },
+  {
+    "objectID": "0F_json.rjs.html#urls",
+    "href": "0F_json.rjs.html#urls",
+    "title": "JSON",
+    "section": "URLs",
+    "text": "URLs\n\nIt is extremely common to use JSON directly from a URL.\n\nThis is possible with e.g. CSV files but less common.\nJSON is a de facto internet format.\n(You can open them in browsers!)\nhelium.json"
+  },
+  {
+    "objectID": "0F_json.rjs.html#read-from-url",
+    "href": "0F_json.rjs.html#read-from-url",
+    "title": "JSON",
+    "section": "Read from URL",
+    "text": "Read from URL\n\nWe follow this solution\n\nImport the json and urllib.request modules to Python.\nUse urllib.request.urlopen to open a url as if it is a file.\nUse json.loads to read the url as if it is a file.\n\n\n\nURL = \"\""
   }
 ]

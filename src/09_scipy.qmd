@@ -130,7 +130,7 @@ yt-dlp -x --audio-format wav https://www.youtube.com/watch?v=9bZkp7q19f0 -o psy.
   	- Can also be used to get ".csv" files for **pandas**!
 
 ```{.bash code-line-number="false"}
-curl https://github.com/cd-public/scicom/raw/refs/heads/main/qmd/src/psy.wav -o psy.wav
+curl https://cd-public.github.io/scicom/psy.wav -o psy.wav
 ```
 
 - This directs the command line to download the file from the url and save it locally as "psy.wav"

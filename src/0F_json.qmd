@@ -1,0 +1,594 @@
+---
+title: JSON
+code-line-numbers: false
+---
+
+# Why JSON?
+
+## What is JSON?
+
+- **JSON** stands for **JavaScript Object Notation**.
+- It's a lightweight, human-readable format for storing and transmitting data.
+- It has become the de facto standard for data interchange on the web, especially for APIs (Application Programming Interfaces).
+- Despite its name, JSON is **language-agnostic** and supported by every relevant programming language used today.
+
+
+## JSON's Core Purpose
+
+- The main goal is to represent structured data that can be easily **serialized** (converted into a string) and **deserialized** (converted back into native data types).
+- It maps perfectly to common data structures like **dictionaries** and **lists**.
+- This makes complex, nested data easy to handle.
+
+## JSON vs. CSV and Formats
+
+- Scientific data is rarely flat. It often involves **hierarchical relationships**.
+- One example: There are groups (or periods) that contain elements.
+- JSON can capture this nesting naturally, unlike flat CSV files.
+    - Comma-separated values - used with **pandas**.
+
+## Two Core JSON Structures
+
+- JSON data is built using only two universal structures:
+    1.  **Dictionaries** 
+        - Collection of Key/Value Pairs 
+        - Like state-to-capital or zip-to-state.
+    2.  **List** 
+        - Ordered Collection of Values)
+        - Have numerical indicies rather than keys.
+- **Nested** to any depth: a *list* of *dictionaries* of *lists*
+
+# Dictionaries
+
+## Python Aside: Dictionaries
+
+- We review the most-beloved **Python dictionaries**.
+- Dictionaries are Python's core implementation of a common archetype.
+    - Often called a **hash map** or **associative array**.
+    - I call them hash tables because I'm set in my ways.
+- They store data as **unordered** collections of key-value pairs.
+    - In a "normal" dictionary, keys are words and values are definitions.
+
+## Dictionary Syntax and Keys
+
+- Dictionaries are defined using curly braces: 
+
+```{.py}
+d = {}`.
+```
+
+- Keys and values are separated by a colon: 
+
+```py
+{"key": "value"}
+```
+
+- **Keys** are usually strings, but can be some other types.
+
+## Example
+
+```{.json filename="helium.json"}
+{
+    "symbol": "He",
+    "phase_stp": "gas",
+    "group": 18,
+    "period": 1,
+    "boiling_point": {
+        "K": 4.222,
+        "C": -268.928,
+        "F": -452.070
+     }
+}
+```
+
+## A note
+
+- We can ensure these files are well-formed relatively easily.
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+- At command line
+
+```{.sh}
+python3 -mjson.tool helium.json
+```
+
+- Will show an error if bad.
+- Will show the file otherwise.
+
+
+:::
+
+::: {.column width="50%"}
+
+- Within Python
+
+```{python}
+import json
+
+FILE_NAME = "helium.json"
+
+# Can expand to multiple lines
+he = json.loads(open(FILE_NAME).read())
+```
+
+- Will show an error if bad.
+
+:::
+
+::::
+
+
+## Accessing Values by Key
+
+- Values are retrieved using the key inside square brackets (`[]`).
+- This is the standard way to access data fields parsed from a JSON object.
+
+```{python}
+# We previously read in `he`
+he["symbol"]
+```
+
+## Adding or Updating Pairs
+
+- Once in Python, we can use the dictionary read from JSON like any other dictionary.
+- We can add something, like the atomic number.
+    - I would see (scroll to end to see `number`):
+
+
+```{python}
+he["number"] = 2
+he
+```
+
+## The `get()` Method
+
+- Accessing a missing key with `[]` causes a **KeyError** and crashes.
+- Simply use `.get`.
+
+```{python}
+try:
+    print(he["density"])
+except:
+    print("Use `.get()!`")
+print(he.get("density")) # Will be `None` so we print to see it
+```
+
+
+## Iterating over Keys
+
+- By default, iterating over a dictionary iterates over its **keys**.
+- This is useful for inspection or processing.
+
+```{python}
+for key in he:
+    print(key)
+```
+
+
+
+## Iterating over Values
+
+- Use the **`.values()`** method to iterate only through the values in the dictionary.
+
+```{python}
+for value in he.values():
+    print(value)
+
+```
+
+
+## Iterating over Key-Value Pairs
+
+- The **`.items()`** method returns a tuple of `(key, value)` for each pair, which you can unpack in the loop.
+
+```{python}
+for key, value in he.items():
+    print(key, ":", value) # Take note of that : I use as a nicety
+```
+
+
+## Nested Dictionaries
+
+- Since a value can be any type, a value can be *another* dictionary (or a list of dictionaries).
+
+```{python}
+he["boiling_point"]["K"]
+```
+
+- Could also be a list, in which case you'd use a numerical index.
+
+
+# JSON
+
+## JSON Object Syntax
+
+- An dictionary, in JSON called an "object", represents an unordered collection of key/value pairs.
+- Starts with `{` and ends with `}`.
+- **Keys** must be **strings** and enclosed in **double quotes**.
+    - This differs from Python, which allows keys to be some other stuff.
+- Keys and values are separated by a colon (`:`). Pairs are separated by commas (`,`).
+
+
+## URLs
+
+- It is extremely common to use JSON directly from a URL.
+    - This is possible with e.g. CSV files but less common.
+    - JSON is a de facto internet format.
+    - (You can open them in browsers!)
+    - [helium.json](helium.json)
+    
+## Read from URL
+
+- We follow [this solution](https://stackoverflow.com/a/12965254)
+    - Import the `json` and `urllib.request` modules to Python.
+    - Use `urllib.request.urlopen` to open a url as if it is a file.
+    - Use `json.loads` to read the url as if it is a file.
+```{python}
+URL = ""
+```
+```py
+import urllib.request, json 
+
+file = urllib.request.urlopen(URL):
+he = json.loads(file.read().decode())
+he # Note that "number" is gone - we have the original file again.
+```
+
+
+## Citation
+
+- Loosely adapted from ["The JSON format"](https://sciencecomputing.org/files/the-json-format/)
+- It uses this data:
+```{python}
+URL = "https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/vaccinations/vaccinations.json"
+```
+
+
+## Object Example: Daily Data
+
+- An object describing a single point in the time series:
+
+```json
+{
+  "date": "2022-01-01",
+  "total_vaccinations": 435000000,
+  "people_fully_vaccinated": 210000000
+}
+```
+
+- Keys are `"date"`, `"total_vaccinations"`, and `"people_fully_vaccinated"`.
+
+
+
+## JSON Array Syntax
+
+- An Array represents an ordered sequence of values.
+- Starts with `[` and ends with `]`.
+- Values are separated by commas (`,`).
+- Values can be of any valid JSON data type.
+
+
+
+## Array Example: Time Series
+
+- This array holds the time-series data for one country:
+
+    ```json
+    "data": [
+      { "date": "2022-01-01", "total_vaccinations": 435000000 },
+      { "date": "2022-01-02", "total_vaccinations": 435500000 }
+    ]
+    ```
+
+- The array contains two JSON **objects**.
+
+
+
+## Valid JSON Data Types
+
+- A value in a key/value pair or an array can be:
+    1.  **String**: Text, double-quoted. E.g., `"United States"`.
+    2.  **Number**: Integer or float. E.g., `331002651` or `3.14`.
+    3.  **Boolean**: Either `true` or `false`.
+    4.  **Null**: Indicates a missing value. E.g., `null`.
+    5.  **Object**: Nested structure `{...}`.
+    6.  **Array**: Nested structure `[...]`.
+
+
+
+## Data Structure: Top Level
+
+- The entire `vax` file is one single JSON **array**.
+- Each element in this top-level array is a JSON **object**, representing a single country/region.
+
+    ```json
+    [
+      { "country": "USA", "data": [...] }, 
+      { "country": "India", "data": [...] },
+      ...
+    ]
+    ```
+
+
+
+## Data Structure: Nested Data
+
+- Inside each country object, there is a key called `"data"`.
+- The value of `"data"` is an **array** of daily vaccination records.
+
+    ```json
+    {
+      "country": "United States",
+      "iso_code": "USA",
+      "data": [
+        { "date": "...", "total_vaccinations": ... },
+        ... 
+      ]
+    }
+    ```
+
+
+
+## Syntax Rule: Double Quotes
+
+- JSON is **very strict** about syntax. Keys and string values **must** use double quotes (`"`).
+- **Invalid JSON:** `{ 'country': 'USA' }` (Uses single quotes).
+- **Valid JSON:** `{ "country": "USA" }`
+- Numbers, booleans, and `null` are NOT quoted.
+
+
+
+## Syntax Rule: No Trailing Commas
+
+- The last key/value pair in an object, or the last item in an array, **must not** be followed by a comma.
+- **Invalid JSON:** ```json
+    [
+      "item1",
+      "item2", 
+    ]
+    ```
+
+
+
+## Parsing JSON in Python
+
+- When we download the data from the URL (`vax`), we get a JSON string.
+- **Parsing** converts this string into native Python data structures (lists and dictionaries).
+- The `json` library is built-in. If using `requests`, it handles the parsing automatically.
+
+
+
+## Reading Data with Requests
+
+- We fetch the content and use the `.json()` method to parse it.
+
+    ```{.py}
+    import requests
+    # vax = "..." # The OWID URL
+
+    response = requests.get(vax)
+
+    # vax_data is now a Python list of dictionaries
+    vax_data = response.json() 
+
+    print(type(vax_data)) 
+    # <class 'list'>
+    ```
+
+
+
+## Accessing Top Level Data
+
+- The parsed data is a list. We access countries by list index.
+
+    ```{.py}
+    # Get the dictionary for the first country
+    first_country_obj = vax_data[0] 
+    
+    # Access key/value pairs using dictionary syntax
+    country_name = first_country_obj["country"]
+    iso_code = first_country_obj["iso_code"]
+
+    print(f"First country: {country_name} ({iso_code})")
+    ```
+
+
+
+## Accessing Nested Data
+
+- We chain dictionary lookups and list indexing to drill down.
+
+    ```{.py}
+    # 1. Get the list of daily records from the country object
+    daily_data_list = vax_data[0]["data"]
+    
+    # 2. Get the first record (an object/dict) from the list
+    first_day_record = daily_data_list[0]
+    
+    # 3. Get a value from the daily record
+    first_date = first_day_record["date"]
+
+    print(f"First record date: {first_date}")
+    ```
+
+
+
+## Iterating and Extracting
+
+- To get summary stats, we loop over the top-level array.
+
+    ```{.py}
+    for country_dict in vax_data:
+        name = country_dict["country"]
+        records = country_dict["data"]
+        
+        # Check if the list of daily records is not empty
+        if records:
+            # The last record in the list is usually the most recent data
+            latest_record = records[-1] 
+            latest_vax = latest_record.get("total_vaccinations")
+            
+            # print(f"{name}: {latest_vax}")
+    ```
+
+
+
+## Handling Missing (null) Values
+
+- In JSON, a missing value is explicitly represented by `null`.
+- When parsed in Python, `null` becomes **`None`**.
+- Always check for `None` before trying to perform arithmetic or string operations.
+
+    ```{.py}
+    # Example: 'people_fully_vaccinated' might be null
+    fully_vax = latest_record.get("people_fully_vaccinated")
+
+    if fully_vax is None:
+        print("Fully vaccinated data is missing for this country.")
+    else:
+        # We can safely use the number
+        print(f"Fully vaccinated: {fully_vax}")
+    ```
+
+
+
+## Writing JSON in Python
+
+- Use `json.dump()` to write a Python object (dict or list) to a file.
+- Use `json.dumps()` to convert it to a JSON formatted string.
+
+    ```{.py}
+    import json
+    
+    # A dictionary containing processed data
+    summary = {
+        "report_country": "USA",
+        "latest_total_vax": vax_data[0]["data"][-1]["total_vaccinations"]
+    }
+
+    with open("vax_summary.json", "w") as f:
+        json.dump(summary, f)
+    ```
+
+
+
+## Pretty Printing JSON
+
+- The `indent` argument makes the JSON human-readable for debugging or configuration files.
+
+    ```{.py}
+    with open("vax_summary_pretty.json", "w") as f:
+        # Indent by 4 spaces
+        json.dump(summary, f, indent=4)
+    ```
+
+- Output:
+    ```json
+    {
+        "report_country": "USA",
+        "latest_total_vax": 435500000 
+    }
+    ```
+
+## JSON vs. YAML (Quarto)
+
+- **YAML** (YAML Ain't Markup Language) uses indentation for structure.
+- Quarto uses **YAML** for its document metadata (the header block, e.g., title, format).
+- JSON is technically a subset of YAML, but YAML is often favored for human-written configuration because it omits quotes and braces.
+- JSON is preferred for machine-to-machine data transfer.
+
+
+## JSON for Configuration
+
+- JSON files are excellent for storing **configuration parameters** for a scientific pipeline.
+- Example: A JSON file defining countries to include/exclude and the start date for a report.
+
+    ```json
+    {
+      "start_date": "2021-01-01",
+      "countries_of_interest": ["USA", "GBR", "CAN"],
+      "output_format": "html"
+    }
+    ```
+
+
+
+## Reading JSON Config
+
+- Loading the configuration in Python is straightforward using the `json` library's `load()` function.
+
+    ```{.py}
+    import json
+    
+    with open("config.json", "r") as f:
+        config = json.load(f)
+    
+    print(config["start_date"])
+    # 2021-01-01
+    ```
+
+
+
+## Data Validation: Schema
+
+- **JSON Schema** is a vocabulary that allows you to annotate and validate JSON documents.
+- It defines the required structure: what keys must be present, what data types they should be, and array constraints.
+- Essential for robust data pipelines to ensure the incoming data (like the OWID file) is in the expected format before processing.
+
+
+
+## Debugging: JSON Linting
+
+- Because JSON is so strict, any misplaced comma, quotation mark, or capital letter will cause the entire file to fail to parse.
+- Use **online JSON validators/linters** (like JSONLint) or built-in IDE features to quickly find syntax errors.
+
+
+
+## Handling Numbers
+
+- JSON distinguishes between integers and floating-point numbers.
+- The vaccination counts are large, so they are often represented as integers: `"population": 331002651`.
+- Rates and percentages would be floats: `"daily_vaccinations_per_hundred": 0.52`.
+- Your programming language (Python) will handle this distinction automatically upon parsing.
+
+
+
+## Quarto: Embedding Data
+
+- Quarto can embed data directly into a document for creating figures.
+- This data is often supplied as a JSON object, either generated from a data frame or loaded from a file.
+- This allows for powerful visualizations driven by structured data.
+
+
+## Summary: Key Takeaways
+
+- JSON is the foundation of modern data exchange, built on **objects** (`{}`) and **arrays** (`[]`).
+- It excels at handling **nested, hierarchical data** like the Country/Time-series structure of the OWID data.
+- Python's `json` library and the `requests.json()` method are your primary tools.
+- Always be vigilant for strict syntax rules (double quotes, no trailing commas) and handle **`null`** values.
+
+
+## Final Review: Structure
+
+```json
+[ < TOP LEVEL ARRAY
+  { < COUNTRY OBJECT
+    "country": "United States", 
+    "iso_code": "USA",
+    "population": 331002651,
+    "data": [                  <-- NESTED ARRAY
+      { < DAILY RECORD OBJECT
+        "date": "2021-01-01",
+        "total_vaccinations": 100000 
+      },                       
+      {
+        "date": "2021-01-02",
+        "total_vaccinations": 150000 
+      }
+    ]
+  },
+  ...
+]
+```
