@@ -436,14 +436,6 @@ print(json.dumps(summary, indent=4))
 - Your programming language (Python) will handle this distinction automatically upon parsing.
 
 
-
-## Quarto: Embedding Data
-
-- Quarto can embed data directly into a document for creating figures.
-- This data is often supplied as a JSON object, either generated from a data frame or loaded from a file.
-- This allows for powerful visualizations driven by structured data.
-
-
 ## Summary: Key Takeaways
 
 - JSON is the foundation of modern data exchange, built on **objects** (`{}`) and **arrays** (`[]`).
@@ -453,8 +445,6 @@ print(json.dumps(summary, indent=4))
 
 
 ## Final Review: Structure
-
-
 
 
 :::: {.columns}
@@ -509,3 +499,17 @@ end array
 :::
 
 ::::
+
+## Final Review: Py vs. Js
+
+```{python}
+#| output-location: column
+x = [
+  {
+    'quotes': 'double', 
+    "boolean_capitalization": False,
+    "terminating_commas": None,
+  },
+]
+print(json.dumps(x, indent=4))
+```

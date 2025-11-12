@@ -308,9 +308,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#writing-json-in-python" id="toc-writing-json-in-python" class="nav-link" data-scroll-target="#writing-json-in-python">Writing JSON in Python</a></li>
   <li><a href="#pretty-printing-json" id="toc-pretty-printing-json" class="nav-link" data-scroll-target="#pretty-printing-json">Pretty Printing JSON</a></li>
   <li><a href="#handling-numbers" id="toc-handling-numbers" class="nav-link" data-scroll-target="#handling-numbers">Handling Numbers</a></li>
-  <li><a href="#quarto-embedding-data" id="toc-quarto-embedding-data" class="nav-link" data-scroll-target="#quarto-embedding-data">Quarto: Embedding Data</a></li>
   <li><a href="#summary-key-takeaways" id="toc-summary-key-takeaways" class="nav-link" data-scroll-target="#summary-key-takeaways">Summary: Key Takeaways</a></li>
   <li><a href="#final-review-structure" id="toc-final-review-structure" class="nav-link" data-scroll-target="#final-review-structure">Final Review: Structure</a></li>
+  <li><a href="#final-review-py-vs.-js" id="toc-final-review-py-vs.-js" class="nav-link" data-scroll-target="#final-review-py-vs.-js">Final Review: Py vs.&nbsp;Js</a></li>
   </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="0F_json.rjs.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
@@ -463,7 +463,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>Within Python</li>
 </ul>
-<div id="6a8d3a0b" class="cell" data-execution_count="2">
+<div id="c6aaaacb" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>FILE_NAME <span class="op">=</span> <span class="st">"helium.json"</span></span>
@@ -483,10 +483,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Values are retrieved using the key inside square brackets (<code>[]</code>).</li>
 <li>This is the standard way to access data fields parsed from a JSON object.</li>
 </ul>
-<div id="0b9336bf" class="cell" data-execution_count="3">
+<div id="ed819d2a" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We previously read in `he`</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>he[<span class="st">"symbol"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="50">
+<div class="cell-output cell-output-display" data-execution_count="70">
 <pre><code>'He'</code></pre>
 </div>
 </div>
@@ -500,10 +500,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>I would see (scroll to end to see <code>number</code>):</li>
 </ul></li>
 </ul>
-<div id="4d4d3bf1" class="cell" data-execution_count="4">
+<div id="d97f10c4" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>he[<span class="st">"number"</span>] <span class="op">=</span> <span class="dv">2</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>he</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="51">
+<div class="cell-output cell-output-display" data-execution_count="71">
 <pre><code>{'symbol': 'He',
  'phase_stp': 'gas',
  'group': 18,
@@ -519,7 +519,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Accessing a missing key with <code>[]</code> causes a <strong>KeyError</strong> and crashes.</li>
 <li>Simply use <code>.get</code>.</li>
 </ul>
-<div id="79c1422c" class="cell" data-execution_count="5">
+<div id="05e917fd" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(he[<span class="st">"density"</span>])</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span>:</span>
@@ -537,7 +537,7 @@ None</code></pre>
 <li>By default, iterating over a dictionary iterates over its <strong>keys</strong>.</li>
 <li>This is useful for inspection or processing.</li>
 </ul>
-<div id="737bd4ad" class="cell" data-execution_count="6">
+<div id="320d45be" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> key <span class="kw">in</span> he:</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(key)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -555,7 +555,7 @@ number</code></pre>
 <ul>
 <li>Use the <strong><code>.values()</code></strong> method to iterate only through the values in the dictionary.</li>
 </ul>
-<div id="c8c54fe5" class="cell" data-execution_count="7">
+<div id="22d2d68f" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> value <span class="kw">in</span> he.values():</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(value)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -573,7 +573,7 @@ gas
 <ul>
 <li>The <strong><code>.items()</code></strong> method returns a tuple of <code>(key, value)</code> for each pair, which you can unpack in the loop.</li>
 </ul>
-<div id="893be708" class="cell" data-execution_count="8">
+<div id="60eb39ad" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> key, value <span class="kw">in</span> he.items():</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(key, <span class="st">":"</span>, value) <span class="co"># Take note of that : I use as a nicety</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -591,9 +591,9 @@ number : 2</code></pre>
 <ul>
 <li>Since a value can be any type, a value can be <em>another</em> dictionary (or a list of dictionaries).</li>
 </ul>
-<div id="bf091460" class="cell" data-execution_count="9">
+<div id="436d8979" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>he[<span class="st">"boiling_point"</span>][<span class="st">"K"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="56">
+<div class="cell-output cell-output-display" data-execution_count="76">
 <pre><code>4.222</code></pre>
 </div>
 </div>
@@ -633,7 +633,7 @@ number : 2</code></pre>
 <ul>
 <li>We can easily read JSON from urls with <code>requests</code></li>
 </ul>
-<div id="e8aced45" class="cell" data-execution_count="10">
+<div id="d232136f" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>URL <span class="op">=</span> <span class="st">"https://cd-public.github.io/scicom/helium.json"</span></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -643,7 +643,7 @@ number : 2</code></pre>
 <span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>he <span class="op">=</span> response.json() </span>
 <span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>he <span class="co"># Note that "number" is gone - we have the original file again.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="57">
+<div class="cell-output cell-output-display" data-execution_count="77">
 <pre><code>{'symbol': 'He',
  'phase_stp': 'gas',
  'group': 18,
@@ -658,7 +658,7 @@ number : 2</code></pre>
 <li>Loosely adapted from <a href="https://sciencecomputing.org/files/the-json-format/">“The JSON format”</a></li>
 <li>It uses this data:</li>
 </ul>
-<div id="f9cc2e80" class="cell" data-execution_count="11">
+<div id="47a3c3c1" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>URL <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/vaccinations/vaccinations.json"</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Can do it in one line by the way.</span></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>vax <span class="op">=</span> requests.get(URL).json()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -684,7 +684,7 @@ number : 2</code></pre>
 </section>
 <section id="traverse" class="level2">
 <h2 class="anchored" data-anchor-id="traverse">Traverse</h2>
-<div id="a5ee72b2" class="cell" data-execution_count="12">
+<div id="e99880f6" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>loc <span class="op">=</span> vax <span class="co"># for location</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="bu">type</span>(loc) <span class="op">==</span> <span class="bu">type</span>({}) <span class="kw">or</span> <span class="bu">type</span>(loc) <span class="op">==</span> <span class="bu">type</span>([]):</span>
@@ -740,9 +740,9 @@ Afghanistan</code></pre>
 <ul>
 <li>An object of a single date in a single country:</li>
 </ul>
-<div id="b37d2022" class="cell" data-execution_count="13">
+<div id="701c2fc3" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>vax[<span class="dv">0</span>][<span class="st">"data"</span>][<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="60">
+<div class="cell-output cell-output-display" data-execution_count="80">
 <pre><code>{'date': '2021-02-22',
  'total_vaccinations': 0,
  'people_vaccinated': 0,
@@ -765,9 +765,9 @@ Afghanistan</code></pre>
 <ul>
 <li>This array holds the time-series data for one country:</li>
 </ul>
-<div id="1beb284a" class="cell" data-execution_count="14">
+<div id="49820d8d" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>vax[<span class="dv">0</span>][<span class="st">"data"</span>][<span class="dv">0</span>:<span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="61">
+<div class="cell-output cell-output-display" data-execution_count="81">
 <pre><code>[{'date': '2021-02-22',
   'total_vaccinations': 0,
   'people_vaccinated': 0,
@@ -872,7 +872,7 @@ Afghanistan</code></pre>
 <li>When parsed in Python, <code>null</code> becomes <strong><code>None</code></strong>.</li>
 <li>Always check for <code>None</code> before trying to perform arithmetic or string operations.</li>
 </ul>
-<div id="980d4098" class="cell" data-execution_count="15">
+<div id="b4afb171" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: "daily_vaccinations" might be null</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> <span class="dv">0</span></span>
@@ -892,7 +892,7 @@ Afghanistan</code></pre>
 <li>Use <code>json.dump()</code> to write a Python object (dict or list) to a file.</li>
 <li>Use <code>json.dumps()</code> to convert it to a JSON formatted string.</li>
 </ul>
-<div id="bfcc2afb" class="cell" data-execution_count="16">
+<div id="3bd34caf" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A dictionary containing processed data</span></span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>summary <span class="op">=</span> {</span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"report_country"</span>: vax[<span class="dv">0</span>][<span class="st">"country"</span>],</span>
@@ -900,7 +900,7 @@ Afghanistan</code></pre>
 <span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>json.dumps(summary)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="63">
+<div class="cell-output cell-output-display" data-execution_count="83">
 <pre><code>'{"report_country": "Afghanistan", "latest_total_vax": 22964750}'</code></pre>
 </div>
 </div>
@@ -910,7 +910,7 @@ Afghanistan</code></pre>
 <ul>
 <li>The <code>indent</code> argument makes the JSON human-readable for debugging or configuration files.</li>
 </ul>
-<div id="5e767c54" class="cell" data-execution_count="17">
+<div id="ec8f9292" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(json.dumps(summary, indent<span class="op">=</span><span class="dv">4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>{
@@ -927,14 +927,6 @@ Afghanistan</code></pre>
 <li>The vaccination counts are large, so they are often represented as integers: <code>"population": 331002651</code>.</li>
 <li>Rates and percentages would be floats: <code>"daily_vaccinations_per_hundred": 0.52</code>.</li>
 <li>Your programming language (Python) will handle this distinction automatically upon parsing.</li>
-</ul>
-</section>
-<section id="quarto-embedding-data" class="level2">
-<h2 class="anchored" data-anchor-id="quarto-embedding-data">Quarto: Embedding Data</h2>
-<ul>
-<li>Quarto can embed data directly into a document for creating figures.</li>
-<li>This data is often supplied as a JSON object, either generated from a data frame or loaded from a file.</li>
-<li>This allows for powerful visualizations driven by structured data.</li>
 </ul>
 </section>
 <section id="summary-key-takeaways" class="level2">
@@ -985,6 +977,28 @@ Afghanistan</code></pre>
 <span id="cb39-15"><a href="#cb39-15" aria-hidden="true" tabindex="-1"></a>  end object,</span>
 <span id="cb39-16"><a href="#cb39-16" aria-hidden="true" tabindex="-1"></a>  ...</span>
 <span id="cb39-17"><a href="#cb39-17" aria-hidden="true" tabindex="-1"></a>end array</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="final-review-py-vs.-js" class="level2">
+<h2 class="anchored" data-anchor-id="final-review-py-vs.-js">Final Review: Py vs.&nbsp;Js</h2>
+<div id="e2382632" class="cell" data-output-location="column" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> [</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  {</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'quotes'</span>: <span class="st">'double'</span>, </span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"boolean_capitalization"</span>: <span class="va">False</span>,</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"terminating_commas"</span>: <span class="va">None</span>,</span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>  },</span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(json.dumps(x, indent<span class="op">=</span><span class="dv">4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[
+    {
+        "quotes": "double",
+        "boolean_capitalization": false,
+        "terminating_commas": null
+    }
+]</code></pre>
 </div>
 </div>
 
@@ -1478,516 +1492,520 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb40" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> JSON</span></span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="an">code-line-numbers:</span><span class="co"> false</span></span>
-<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a><span class="fu"># Why JSON?</span></span>
-<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a><span class="fu">## What is JSON?</span></span>
-<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**JSON** stands for **JavaScript Object Notation**.</span>
-<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>It's a lightweight, human-readable format for storing and transmitting data.</span>
-<span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>It has become the de facto standard for data interchange on the web, especially for APIs (Application Programming Interfaces).</span>
-<span id="cb40-13"><a href="#cb40-13" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Despite its name, JSON is **language-agnostic** and supported by every relevant programming language used today.</span>
-<span id="cb40-14"><a href="#cb40-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-15"><a href="#cb40-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-16"><a href="#cb40-16" aria-hidden="true" tabindex="-1"></a><span class="fu">## JSON's Core Purpose</span></span>
-<span id="cb40-17"><a href="#cb40-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-18"><a href="#cb40-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The main goal is to represent structured data that can be easily **serialized** (converted into a string) and **deserialized** (converted back into native data types).</span>
-<span id="cb40-19"><a href="#cb40-19" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>It maps perfectly to common data structures like **dictionaries** and **lists**.</span>
-<span id="cb40-20"><a href="#cb40-20" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>This makes complex, nested data easy to handle.</span>
-<span id="cb40-21"><a href="#cb40-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-22"><a href="#cb40-22" aria-hidden="true" tabindex="-1"></a><span class="fu">## JSON vs. CSV and Formats</span></span>
-<span id="cb40-23"><a href="#cb40-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-24"><a href="#cb40-24" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Scientific data is rarely flat. It often involves **hierarchical relationships**.</span>
-<span id="cb40-25"><a href="#cb40-25" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>One example: There are groups (or periods) that contain elements.</span>
-<span id="cb40-26"><a href="#cb40-26" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>JSON can capture this nesting naturally, unlike flat CSV files.</span>
-<span id="cb40-27"><a href="#cb40-27" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Comma-separated values - used with **pandas**.</span>
-<span id="cb40-28"><a href="#cb40-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-29"><a href="#cb40-29" aria-hidden="true" tabindex="-1"></a><span class="fu">## Two Core JSON Structures</span></span>
-<span id="cb40-30"><a href="#cb40-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-31"><a href="#cb40-31" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>JSON data is built using only two universal structures:</span>
-<span id="cb40-32"><a href="#cb40-32" aria-hidden="true" tabindex="-1"></a><span class="ss">    1.  </span>**Dictionaries** </span>
-<span id="cb40-33"><a href="#cb40-33" aria-hidden="true" tabindex="-1"></a><span class="ss">        - </span>Collection of Key/Value Pairs </span>
-<span id="cb40-34"><a href="#cb40-34" aria-hidden="true" tabindex="-1"></a><span class="ss">        - </span>Like state-to-capital or zip-to-state.</span>
-<span id="cb40-35"><a href="#cb40-35" aria-hidden="true" tabindex="-1"></a><span class="ss">    2.  </span>**List** </span>
-<span id="cb40-36"><a href="#cb40-36" aria-hidden="true" tabindex="-1"></a><span class="ss">        - </span>Ordered Collection of Values)</span>
-<span id="cb40-37"><a href="#cb40-37" aria-hidden="true" tabindex="-1"></a><span class="ss">        - </span>Have numerical indicies rather than keys.</span>
-<span id="cb40-38"><a href="#cb40-38" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Nested** to any depth: a *list* of *dictionaries* of *lists*</span>
-<span id="cb40-39"><a href="#cb40-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-40"><a href="#cb40-40" aria-hidden="true" tabindex="-1"></a><span class="fu"># Dictionaries</span></span>
-<span id="cb40-41"><a href="#cb40-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-42"><a href="#cb40-42" aria-hidden="true" tabindex="-1"></a><span class="fu">## Python Aside: Dictionaries</span></span>
-<span id="cb40-43"><a href="#cb40-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-44"><a href="#cb40-44" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>We review the most-beloved **Python dictionaries**.</span>
-<span id="cb40-45"><a href="#cb40-45" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Dictionaries are Python's core implementation of a common archetype.</span>
-<span id="cb40-46"><a href="#cb40-46" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Often called a **hash map** or **associative array**.</span>
-<span id="cb40-47"><a href="#cb40-47" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>I call them hash tables because I'm set in my ways.</span>
-<span id="cb40-48"><a href="#cb40-48" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>They store data as **unordered** collections of key-value pairs.</span>
-<span id="cb40-49"><a href="#cb40-49" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>In a "normal" dictionary, keys are words and values are definitions.</span>
-<span id="cb40-50"><a href="#cb40-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-51"><a href="#cb40-51" aria-hidden="true" tabindex="-1"></a><span class="fu">## Dictionary Syntax and Keys</span></span>
-<span id="cb40-52"><a href="#cb40-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-53"><a href="#cb40-53" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Dictionaries are defined using curly braces: </span>
-<span id="cb40-54"><a href="#cb40-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-55"><a href="#cb40-55" aria-hidden="true" tabindex="-1"></a><span class="in">```{.py}</span></span>
-<span id="cb40-56"><a href="#cb40-56" aria-hidden="true" tabindex="-1"></a><span class="in">d = {}`.</span></span>
-<span id="cb40-57"><a href="#cb40-57" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb40-58"><a href="#cb40-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-59"><a href="#cb40-59" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Keys and values are separated by a colon: </span>
-<span id="cb40-60"><a href="#cb40-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-61"><a href="#cb40-61" aria-hidden="true" tabindex="-1"></a><span class="in">```py</span></span>
-<span id="cb40-62"><a href="#cb40-62" aria-hidden="true" tabindex="-1"></a>{<span class="st">"key"</span>: <span class="st">"value"</span>}</span>
-<span id="cb40-63"><a href="#cb40-63" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb40-64"><a href="#cb40-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-65"><a href="#cb40-65" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Keys** are usually strings, but can be some other types.</span>
-<span id="cb40-66"><a href="#cb40-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-67"><a href="#cb40-67" aria-hidden="true" tabindex="-1"></a><span class="fu">## Example</span></span>
-<span id="cb40-68"><a href="#cb40-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-69"><a href="#cb40-69" aria-hidden="true" tabindex="-1"></a><span class="in">```{.json filename="helium.json"}</span></span>
-<span id="cb40-70"><a href="#cb40-70" aria-hidden="true" tabindex="-1"></a><span class="in">{</span></span>
-<span id="cb40-71"><a href="#cb40-71" aria-hidden="true" tabindex="-1"></a><span class="in">    "symbol": "He",</span></span>
-<span id="cb40-72"><a href="#cb40-72" aria-hidden="true" tabindex="-1"></a><span class="in">    "phase_stp": "gas",</span></span>
-<span id="cb40-73"><a href="#cb40-73" aria-hidden="true" tabindex="-1"></a><span class="in">    "group": 18,</span></span>
-<span id="cb40-74"><a href="#cb40-74" aria-hidden="true" tabindex="-1"></a><span class="in">    "period": 1,</span></span>
-<span id="cb40-75"><a href="#cb40-75" aria-hidden="true" tabindex="-1"></a><span class="in">    "boiling_point": {</span></span>
-<span id="cb40-76"><a href="#cb40-76" aria-hidden="true" tabindex="-1"></a><span class="in">        "K": 4.222,</span></span>
-<span id="cb40-77"><a href="#cb40-77" aria-hidden="true" tabindex="-1"></a><span class="in">        "C": -268.928,</span></span>
-<span id="cb40-78"><a href="#cb40-78" aria-hidden="true" tabindex="-1"></a><span class="in">        "F": -452.070</span></span>
-<span id="cb40-79"><a href="#cb40-79" aria-hidden="true" tabindex="-1"></a><span class="in">     }</span></span>
-<span id="cb40-80"><a href="#cb40-80" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
-<span id="cb40-81"><a href="#cb40-81" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb40-82"><a href="#cb40-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-83"><a href="#cb40-83" aria-hidden="true" tabindex="-1"></a><span class="fu">## A note</span></span>
-<span id="cb40-84"><a href="#cb40-84" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-85"><a href="#cb40-85" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>We can ensure these files are well-formed relatively easily.</span>
-<span id="cb40-86"><a href="#cb40-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-87"><a href="#cb40-87" aria-hidden="true" tabindex="-1"></a>:::: {.columns}</span>
-<span id="cb40-88"><a href="#cb40-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-89"><a href="#cb40-89" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
-<span id="cb40-90"><a href="#cb40-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-91"><a href="#cb40-91" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>At command line</span>
-<span id="cb40-92"><a href="#cb40-92" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-93"><a href="#cb40-93" aria-hidden="true" tabindex="-1"></a><span class="in">```{.sh}</span></span>
-<span id="cb40-94"><a href="#cb40-94" aria-hidden="true" tabindex="-1"></a><span class="in">python3 -mjson.tool helium.json</span></span>
-<span id="cb40-95"><a href="#cb40-95" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb40-96"><a href="#cb40-96" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-97"><a href="#cb40-97" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Will show an error if bad.</span>
-<span id="cb40-98"><a href="#cb40-98" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Will show the file otherwise.</span>
-<span id="cb40-99"><a href="#cb40-99" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-100"><a href="#cb40-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-101"><a href="#cb40-101" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb40-102"><a href="#cb40-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-103"><a href="#cb40-103" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
-<span id="cb40-104"><a href="#cb40-104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-105"><a href="#cb40-105" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Within Python</span>
-<span id="cb40-106"><a href="#cb40-106" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-109"><a href="#cb40-109" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb40-110"><a href="#cb40-110" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
-<span id="cb40-111"><a href="#cb40-111" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-112"><a href="#cb40-112" aria-hidden="true" tabindex="-1"></a>FILE_NAME <span class="op">=</span> <span class="st">"helium.json"</span></span>
-<span id="cb40-113"><a href="#cb40-113" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-114"><a href="#cb40-114" aria-hidden="true" tabindex="-1"></a><span class="co"># Can expand to multiple lines</span></span>
-<span id="cb40-115"><a href="#cb40-115" aria-hidden="true" tabindex="-1"></a>he <span class="op">=</span> json.loads(<span class="bu">open</span>(FILE_NAME).read())</span>
-<span id="cb40-116"><a href="#cb40-116" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb40-117"><a href="#cb40-117" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-118"><a href="#cb40-118" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Will show an error if bad.</span>
-<span id="cb40-119"><a href="#cb40-119" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-120"><a href="#cb40-120" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb40-121"><a href="#cb40-121" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-122"><a href="#cb40-122" aria-hidden="true" tabindex="-1"></a>::::</span>
-<span id="cb40-123"><a href="#cb40-123" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-124"><a href="#cb40-124" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-125"><a href="#cb40-125" aria-hidden="true" tabindex="-1"></a><span class="fu">## Accessing Values by Key</span></span>
-<span id="cb40-126"><a href="#cb40-126" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-127"><a href="#cb40-127" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Values are retrieved using the key inside square brackets (<span class="in">`[]`</span>).</span>
-<span id="cb40-128"><a href="#cb40-128" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>This is the standard way to access data fields parsed from a JSON object.</span>
-<span id="cb40-129"><a href="#cb40-129" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-132"><a href="#cb40-132" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb40-133"><a href="#cb40-133" aria-hidden="true" tabindex="-1"></a><span class="co"># We previously read in `he`</span></span>
-<span id="cb40-134"><a href="#cb40-134" aria-hidden="true" tabindex="-1"></a>he[<span class="st">"symbol"</span>]</span>
-<span id="cb40-135"><a href="#cb40-135" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb40-136"><a href="#cb40-136" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-137"><a href="#cb40-137" aria-hidden="true" tabindex="-1"></a><span class="fu">## Adding or Updating Pairs</span></span>
-<span id="cb40-138"><a href="#cb40-138" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-139"><a href="#cb40-139" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Once in Python, we can use the dictionary read from JSON like any other dictionary.</span>
-<span id="cb40-140"><a href="#cb40-140" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>We can add something, like the atomic number.</span>
-<span id="cb40-141"><a href="#cb40-141" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>I would see (scroll to end to see <span class="in">`number`</span>):</span>
-<span id="cb40-142"><a href="#cb40-142" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-143"><a href="#cb40-143" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-146"><a href="#cb40-146" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb40-147"><a href="#cb40-147" aria-hidden="true" tabindex="-1"></a>he[<span class="st">"number"</span>] <span class="op">=</span> <span class="dv">2</span></span>
-<span id="cb40-148"><a href="#cb40-148" aria-hidden="true" tabindex="-1"></a>he</span>
-<span id="cb40-149"><a href="#cb40-149" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb40-150"><a href="#cb40-150" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-151"><a href="#cb40-151" aria-hidden="true" tabindex="-1"></a><span class="fu">## The `get()` Method</span></span>
-<span id="cb40-152"><a href="#cb40-152" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-153"><a href="#cb40-153" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Accessing a missing key with <span class="in">`[]`</span> causes a **KeyError** and crashes.</span>
-<span id="cb40-154"><a href="#cb40-154" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Simply use <span class="in">`.get`</span>.</span>
-<span id="cb40-155"><a href="#cb40-155" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-158"><a href="#cb40-158" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb40-159"><a href="#cb40-159" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
-<span id="cb40-160"><a href="#cb40-160" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(he[<span class="st">"density"</span>])</span>
-<span id="cb40-161"><a href="#cb40-161" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span>:</span>
-<span id="cb40-162"><a href="#cb40-162" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Use `.get()!`"</span>)</span>
-<span id="cb40-163"><a href="#cb40-163" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(he.get(<span class="st">"density"</span>)) <span class="co"># Will be `None` so we print to see it</span></span>
-<span id="cb40-164"><a href="#cb40-164" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb40-165"><a href="#cb40-165" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-166"><a href="#cb40-166" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-167"><a href="#cb40-167" aria-hidden="true" tabindex="-1"></a><span class="fu">## Iterating over Keys</span></span>
-<span id="cb40-168"><a href="#cb40-168" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-169"><a href="#cb40-169" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>By default, iterating over a dictionary iterates over its **keys**.</span>
-<span id="cb40-170"><a href="#cb40-170" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>This is useful for inspection or processing.</span>
-<span id="cb40-171"><a href="#cb40-171" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-174"><a href="#cb40-174" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb40-175"><a href="#cb40-175" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> key <span class="kw">in</span> he:</span>
-<span id="cb40-176"><a href="#cb40-176" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(key)</span>
-<span id="cb40-177"><a href="#cb40-177" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb40-178"><a href="#cb40-178" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-179"><a href="#cb40-179" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-180"><a href="#cb40-180" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-181"><a href="#cb40-181" aria-hidden="true" tabindex="-1"></a><span class="fu">## Iterating over Values</span></span>
-<span id="cb40-182"><a href="#cb40-182" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-183"><a href="#cb40-183" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use the **`.values()`** method to iterate only through the values in the dictionary.</span>
-<span id="cb40-184"><a href="#cb40-184" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-187"><a href="#cb40-187" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb40-188"><a href="#cb40-188" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> value <span class="kw">in</span> he.values():</span>
-<span id="cb40-189"><a href="#cb40-189" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(value)</span>
-<span id="cb40-190"><a href="#cb40-190" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-191"><a href="#cb40-191" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb40-192"><a href="#cb40-192" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-193"><a href="#cb40-193" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-194"><a href="#cb40-194" aria-hidden="true" tabindex="-1"></a><span class="fu">## Iterating over Key-Value Pairs</span></span>
-<span id="cb40-195"><a href="#cb40-195" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-196"><a href="#cb40-196" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The **`.items()`** method returns a tuple of <span class="in">`(key, value)`</span> for each pair, which you can unpack in the loop.</span>
-<span id="cb40-197"><a href="#cb40-197" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-200"><a href="#cb40-200" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb40-201"><a href="#cb40-201" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> key, value <span class="kw">in</span> he.items():</span>
-<span id="cb40-202"><a href="#cb40-202" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(key, <span class="st">":"</span>, value) <span class="co"># Take note of that : I use as a nicety</span></span>
-<span id="cb40-203"><a href="#cb40-203" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb40-204"><a href="#cb40-204" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-205"><a href="#cb40-205" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-206"><a href="#cb40-206" aria-hidden="true" tabindex="-1"></a><span class="fu">## Nested Dictionaries</span></span>
-<span id="cb40-207"><a href="#cb40-207" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-208"><a href="#cb40-208" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Since a value can be any type, a value can be *another* dictionary (or a list of dictionaries).</span>
-<span id="cb40-209"><a href="#cb40-209" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-212"><a href="#cb40-212" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb40-213"><a href="#cb40-213" aria-hidden="true" tabindex="-1"></a>he[<span class="st">"boiling_point"</span>][<span class="st">"K"</span>]</span>
-<span id="cb40-214"><a href="#cb40-214" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb40-215"><a href="#cb40-215" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-216"><a href="#cb40-216" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Could also be a list, in which case you'd use a numerical index.</span>
-<span id="cb40-217"><a href="#cb40-217" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-218"><a href="#cb40-218" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-219"><a href="#cb40-219" aria-hidden="true" tabindex="-1"></a><span class="fu"># JSON</span></span>
-<span id="cb40-220"><a href="#cb40-220" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-221"><a href="#cb40-221" aria-hidden="true" tabindex="-1"></a><span class="fu">## JSON Object Syntax</span></span>
-<span id="cb40-222"><a href="#cb40-222" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-223"><a href="#cb40-223" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>An dictionary, in JSON called an "object", represents an unordered collection of key/value pairs.</span>
-<span id="cb40-224"><a href="#cb40-224" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Starts with <span class="in">`{`</span> and ends with <span class="in">`}`</span>.</span>
-<span id="cb40-225"><a href="#cb40-225" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Keys** must be **strings** and enclosed in **double quotes**.</span>
-<span id="cb40-226"><a href="#cb40-226" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>This differs from Python, which allows keys to be some other stuff.</span>
-<span id="cb40-227"><a href="#cb40-227" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Keys and values are separated by a colon (<span class="in">`:`</span>). Pairs are separated by commas (<span class="in">`,`</span>).</span>
-<span id="cb40-228"><a href="#cb40-228" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-229"><a href="#cb40-229" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-230"><a href="#cb40-230" aria-hidden="true" tabindex="-1"></a><span class="fu">## URLs</span></span>
-<span id="cb40-231"><a href="#cb40-231" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-232"><a href="#cb40-232" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>It is extremely common to use JSON directly from a URL.</span>
-<span id="cb40-233"><a href="#cb40-233" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>This is possible with e.g. CSV files but less common.</span>
-<span id="cb40-234"><a href="#cb40-234" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>JSON is a de facto internet format.</span>
-<span id="cb40-235"><a href="#cb40-235" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>(You can open them in browsers!)</span>
-<span id="cb40-236"><a href="#cb40-236" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span><span class="co">[</span><span class="ot">helium.json</span><span class="co">](helium.json)</span></span>
-<span id="cb40-237"><a href="#cb40-237" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-238"><a href="#cb40-238" aria-hidden="true" tabindex="-1"></a><span class="fu">## Requests</span></span>
-<span id="cb40-239"><a href="#cb40-239" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-240"><a href="#cb40-240" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>We can easily read JSON from urls with <span class="in">`requests`</span></span>
-<span id="cb40-241"><a href="#cb40-241" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb40-244"><a href="#cb40-244" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb40-245"><a href="#cb40-245" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
-<span id="cb40-246"><a href="#cb40-246" aria-hidden="true" tabindex="-1"></a>URL <span class="op">=</span> <span class="st">"https://cd-public.github.io/scicom/helium.json"</span></span>
-<span id="cb40-247"><a href="#cb40-247" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-248"><a href="#cb40-248" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(URL)</span>
-<span id="cb40-249"><a href="#cb40-249" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-250"><a href="#cb40-250" aria-hidden="true" tabindex="-1"></a><span class="co"># vax_data is now a Python list of dictionaries</span></span>
-<span id="cb40-251"><a href="#cb40-251" aria-hidden="true" tabindex="-1"></a>he <span class="op">=</span> response.json() </span>
-<span id="cb40-252"><a href="#cb40-252" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-253"><a href="#cb40-253" aria-hidden="true" tabindex="-1"></a>he <span class="co"># Note that "number" is gone - we have the original file again.</span></span>
-<span id="cb40-254"><a href="#cb40-254" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb40-255"><a href="#cb40-255" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-256"><a href="#cb40-256" aria-hidden="true" tabindex="-1"></a><span class="fu">## Our data</span></span>
-<span id="cb40-257"><a href="#cb40-257" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-258"><a href="#cb40-258" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Loosely adapted from <span class="co">[</span><span class="ot">"The JSON format"</span><span class="co">](https://sciencecomputing.org/files/the-json-format/)</span></span>
-<span id="cb40-259"><a href="#cb40-259" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>It uses this data:</span>
-<span id="cb40-260"><a href="#cb40-260" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-263"><a href="#cb40-263" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb40-264"><a href="#cb40-264" aria-hidden="true" tabindex="-1"></a>URL <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/vaccinations/vaccinations.json"</span></span>
-<span id="cb40-265"><a href="#cb40-265" aria-hidden="true" tabindex="-1"></a><span class="co"># Can do it in one line by the way.</span></span>
-<span id="cb40-266"><a href="#cb40-266" aria-hidden="true" tabindex="-1"></a>vax <span class="op">=</span> requests.get(URL).json()</span>
-<span id="cb40-267"><a href="#cb40-267" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb40-268"><a href="#cb40-268" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-269"><a href="#cb40-269" aria-hidden="true" tabindex="-1"></a><span class="fu">## It's big!</span></span>
-<span id="cb40-270"><a href="#cb40-270" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-271"><a href="#cb40-271" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Don't try to print that whole thing; it's huge.</span>
-<span id="cb40-272"><a href="#cb40-272" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>2031952 lines.</span>
-<span id="cb40-273"><a href="#cb40-273" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>We will *traverse* it.</span>
-<span id="cb40-274"><a href="#cb40-274" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Check the type.</span>
-<span id="cb40-275"><a href="#cb40-275" aria-hidden="true" tabindex="-1"></a><span class="ss">        - </span>If dictionary, look at an arbitrary key.</span>
-<span id="cb40-276"><a href="#cb40-276" aria-hidden="true" tabindex="-1"></a><span class="ss">        - </span>If list, look at index zero.</span>
-<span id="cb40-277"><a href="#cb40-277" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>We'll repeat this until we get something that isn't a dictionary or list.</span>
-<span id="cb40-278"><a href="#cb40-278" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb40-279"><a href="#cb40-279" aria-hidden="true" tabindex="-1"></a><span class="fu">## Traverse</span></span>
-<span id="cb40-280"><a href="#cb40-280" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-283"><a href="#cb40-283" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb40-284"><a href="#cb40-284" aria-hidden="true" tabindex="-1"></a>loc <span class="op">=</span> vax <span class="co"># for location</span></span>
-<span id="cb40-285"><a href="#cb40-285" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-286"><a href="#cb40-286" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="bu">type</span>(loc) <span class="op">==</span> <span class="bu">type</span>({}) <span class="kw">or</span> <span class="bu">type</span>(loc) <span class="op">==</span> <span class="bu">type</span>([]):</span>
-<span id="cb40-287"><a href="#cb40-287" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">type</span>(loc) <span class="op">==</span> <span class="bu">type</span>({}):</span>
-<span id="cb40-288"><a href="#cb40-288" aria-hidden="true" tabindex="-1"></a>            keys <span class="op">=</span> <span class="bu">list</span>(loc.keys())</span>
-<span id="cb40-289"><a href="#cb40-289" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(keys[<span class="dv">0</span>])</span>
-<span id="cb40-290"><a href="#cb40-290" aria-hidden="true" tabindex="-1"></a>            loc <span class="op">=</span> loc[keys[<span class="dv">0</span>]]</span>
-<span id="cb40-291"><a href="#cb40-291" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">type</span>(loc) <span class="op">==</span> <span class="bu">type</span>([]):</span>
-<span id="cb40-292"><a href="#cb40-292" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="dv">0</span>)</span>
-<span id="cb40-293"><a href="#cb40-293" aria-hidden="true" tabindex="-1"></a>            loc <span class="op">=</span> loc[<span class="dv">0</span>]</span>
-<span id="cb40-294"><a href="#cb40-294" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(loc)</span>
-<span id="cb40-295"><a href="#cb40-295" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb40-296"><a href="#cb40-296" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-297"><a href="#cb40-297" aria-hidden="true" tabindex="-1"></a><span class="fu">## What this means?</span></span>
-<span id="cb40-298"><a href="#cb40-298" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-299"><a href="#cb40-299" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>We have a list of somethings.</span>
-<span id="cb40-300"><a href="#cb40-300" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Those somethings are dictionaries of which one has the key "country"</span>
-<span id="cb40-301"><a href="#cb40-301" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The values in that dictionary are strings, of which one is "Afghanistan"</span>
-<span id="cb40-302"><a href="#cb40-302" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Are we correct?</span>
-<span id="cb40-303"><a href="#cb40-303" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Check the url: <span class="co">[</span><span class="ot">Link!</span><span class="co">](https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/vaccinations/vaccinations.json)</span></span>
-<span id="cb40-304"><a href="#cb40-304" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-305"><a href="#cb40-305" aria-hidden="true" tabindex="-1"></a><span class="fu">## Okay, so</span></span>
-<span id="cb40-306"><a href="#cb40-306" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-307"><a href="#cb40-307" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>List of </span>
-<span id="cb40-308"><a href="#cb40-308" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Dictionaries, representing countries, of</span>
-<span id="cb40-309"><a href="#cb40-309" aria-hidden="true" tabindex="-1"></a><span class="ss">        - </span><span class="in">`"country"`</span>: name and <span class="in">`"iso_code"`</span>: whatever that is</span>
-<span id="cb40-310"><a href="#cb40-310" aria-hidden="true" tabindex="-1"></a><span class="ss">        - </span><span class="in">`"data"`</span>, a list of</span>
-<span id="cb40-311"><a href="#cb40-311" aria-hidden="true" tabindex="-1"></a><span class="ss">            - </span>dictionaries, representing dates, of</span>
-<span id="cb40-312"><a href="#cb40-312" aria-hidden="true" tabindex="-1"></a><span class="ss">                - </span><span class="in">`"date"`</span>: a date as a string, like <span class="in">`"2021-02-22"`</span></span>
-<span id="cb40-313"><a href="#cb40-313" aria-hidden="true" tabindex="-1"></a><span class="ss">                - </span>some other stuff on vaccination.</span>
-<span id="cb40-314"><a href="#cb40-314" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-315"><a href="#cb40-315" aria-hidden="true" tabindex="-1"></a><span class="fu">## Object Example: Daily Data</span></span>
-<span id="cb40-316"><a href="#cb40-316" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-317"><a href="#cb40-317" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>An object of a single date in a single country:</span>
-<span id="cb40-318"><a href="#cb40-318" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-321"><a href="#cb40-321" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb40-322"><a href="#cb40-322" aria-hidden="true" tabindex="-1"></a>vax[<span class="dv">0</span>][<span class="st">"data"</span>][<span class="dv">0</span>]</span>
-<span id="cb40-323"><a href="#cb40-323" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb40-324"><a href="#cb40-324" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-325"><a href="#cb40-325" aria-hidden="true" tabindex="-1"></a><span class="fu">## JSON Array Syntax</span></span>
-<span id="cb40-326"><a href="#cb40-326" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-327"><a href="#cb40-327" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>An Array represents an ordered sequence of values.</span>
-<span id="cb40-328"><a href="#cb40-328" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Starts with <span class="in">`[`</span> and ends with <span class="in">`]`</span>.</span>
-<span id="cb40-329"><a href="#cb40-329" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Values are separated by commas (<span class="in">`,`</span>).</span>
-<span id="cb40-330"><a href="#cb40-330" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Values can be of any valid JSON data type.</span>
-<span id="cb40-331"><a href="#cb40-331" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-332"><a href="#cb40-332" aria-hidden="true" tabindex="-1"></a><span class="fu">## Array Example: Time Series</span></span>
-<span id="cb40-333"><a href="#cb40-333" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-334"><a href="#cb40-334" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>This array holds the time-series data for one country:</span>
-<span id="cb40-335"><a href="#cb40-335" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-338"><a href="#cb40-338" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb40-339"><a href="#cb40-339" aria-hidden="true" tabindex="-1"></a>vax[<span class="dv">0</span>][<span class="st">"data"</span>][<span class="dv">0</span>:<span class="dv">3</span>]</span>
-<span id="cb40-340"><a href="#cb40-340" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb40-341"><a href="#cb40-341" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-342"><a href="#cb40-342" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The array contains JSON **objects**.</span>
-<span id="cb40-343"><a href="#cb40-343" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-344"><a href="#cb40-344" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-345"><a href="#cb40-345" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-346"><a href="#cb40-346" aria-hidden="true" tabindex="-1"></a><span class="fu">## Valid JSON Data Types{.smaller}</span></span>
-<span id="cb40-347"><a href="#cb40-347" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-348"><a href="#cb40-348" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**String**: text, double-quoted. E.g., <span class="in">`"Olive Drab"`</span>.</span>
-<span id="cb40-349"><a href="#cb40-349" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Can't be single quote as in Python</span>
-<span id="cb40-350"><a href="#cb40-350" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Number**: integer or float. E.g., <span class="in">`7`</span> or <span class="in">`3.14`</span>.</span>
-<span id="cb40-351"><a href="#cb40-351" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**Boolean**: <span class="in">`true`</span> or <span class="in">`false`</span>.</span>
-<span id="cb40-352"><a href="#cb40-352" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Lowercase, unlike Python <span class="in">`True`</span> and <span class="in">`False`</span></span>
-<span id="cb40-353"><a href="#cb40-353" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**null**: missing value</span>
-<span id="cb40-354"><a href="#cb40-354" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Like Python <span class="in">`None`</span></span>
-<span id="cb40-355"><a href="#cb40-355" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span>**Object**: a dictionary <span class="in">`{}`</span></span>
-<span id="cb40-356"><a href="#cb40-356" aria-hidden="true" tabindex="-1"></a><span class="ss">6.  </span>**Array**: a list <span class="in">`[]`</span></span>
-<span id="cb40-357"><a href="#cb40-357" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-358"><a href="#cb40-358" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-359"><a href="#cb40-359" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Structure: Top Level</span></span>
-<span id="cb40-360"><a href="#cb40-360" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-361"><a href="#cb40-361" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The entire <span class="in">`vax`</span> file is one single JSON **array**.</span>
-<span id="cb40-362"><a href="#cb40-362" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Each element in this top-level array is a JSON **object**, representing a single country/region.</span>
-<span id="cb40-363"><a href="#cb40-363" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>This is fake, to fit on screen.</span>
-<span id="cb40-364"><a href="#cb40-364" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-365"><a href="#cb40-365" aria-hidden="true" tabindex="-1"></a><span class="in">```json</span></span>
-<span id="cb40-366"><a href="#cb40-366" aria-hidden="true" tabindex="-1"></a><span class="ot">[</span></span>
-<span id="cb40-367"><a href="#cb40-367" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span> <span class="dt">"country"</span><span class="fu">:</span> <span class="st">"Narnia"</span><span class="fu">,</span> <span class="dt">"data"</span><span class="fu">:</span> <span class="ot">[</span><span class="er">...</span><span class="ot">]</span> <span class="fu">}</span><span class="ot">,</span> </span>
-<span id="cb40-368"><a href="#cb40-368" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span> <span class="dt">"country"</span><span class="fu">:</span> <span class="st">"Wakanda"</span><span class="fu">,</span> <span class="dt">"data"</span><span class="fu">:</span> <span class="ot">[</span><span class="er">...</span><span class="ot">]</span> <span class="fu">}</span><span class="ot">,</span></span>
-<span id="cb40-369"><a href="#cb40-369" aria-hidden="true" tabindex="-1"></a>  <span class="er">...</span></span>
-<span id="cb40-370"><a href="#cb40-370" aria-hidden="true" tabindex="-1"></a><span class="ot">]</span></span>
-<span id="cb40-371"><a href="#cb40-371" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb40-372"><a href="#cb40-372" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-373"><a href="#cb40-373" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Structure: Nested Data</span></span>
-<span id="cb40-374"><a href="#cb40-374" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-375"><a href="#cb40-375" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Inside each country object, there is a key called <span class="in">`"data"`</span>.</span>
-<span id="cb40-376"><a href="#cb40-376" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The value of <span class="in">`"data"`</span> is an **array** of daily vaccination records.</span>
-<span id="cb40-377"><a href="#cb40-377" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>This is fake, to fit on screen.</span>
-<span id="cb40-378"><a href="#cb40-378" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-379"><a href="#cb40-379" aria-hidden="true" tabindex="-1"></a><span class="in">```json</span></span>
-<span id="cb40-380"><a href="#cb40-380" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb40-381"><a href="#cb40-381" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"country"</span><span class="fu">:</span> <span class="st">"Guilder"</span><span class="fu">,</span></span>
-<span id="cb40-382"><a href="#cb40-382" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"iso_code"</span><span class="fu">:</span> <span class="st">"GG"</span><span class="fu">,</span></span>
-<span id="cb40-383"><a href="#cb40-383" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"data"</span><span class="fu">:</span> <span class="ot">[</span></span>
-<span id="cb40-384"><a href="#cb40-384" aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span> <span class="dt">"date"</span><span class="fu">:</span> <span class="st">"..."</span><span class="fu">,</span> <span class="dt">"total_vaccinations"</span><span class="fu">:</span> <span class="er">...</span> <span class="fu">}</span><span class="ot">,</span></span>
-<span id="cb40-385"><a href="#cb40-385" aria-hidden="true" tabindex="-1"></a>    <span class="er">...</span> </span>
-<span id="cb40-386"><a href="#cb40-386" aria-hidden="true" tabindex="-1"></a>  <span class="ot">]</span></span>
-<span id="cb40-387"><a href="#cb40-387" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span>
-<span id="cb40-388"><a href="#cb40-388" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb40-389"><a href="#cb40-389" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-390"><a href="#cb40-390" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-391"><a href="#cb40-391" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-392"><a href="#cb40-392" aria-hidden="true" tabindex="-1"></a><span class="fu">## Syntax Rule: Double Quotes</span></span>
-<span id="cb40-393"><a href="#cb40-393" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-394"><a href="#cb40-394" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>JSON is **very strict** about syntax. Keys and string values **must** use double quotes (<span class="in">`"`</span>).</span>
-<span id="cb40-395"><a href="#cb40-395" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Invalid JSON:** <span class="in">`{ 'country': 'Elysium' }`</span> (Uses single quotes).</span>
-<span id="cb40-396"><a href="#cb40-396" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Valid JSON:** <span class="in">`{ "country": "Cascadia" }`</span></span>
-<span id="cb40-397"><a href="#cb40-397" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Numbers, booleans, and <span class="in">`null`</span> are NOT quoted.</span>
-<span id="cb40-398"><a href="#cb40-398" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-399"><a href="#cb40-399" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-400"><a href="#cb40-400" aria-hidden="true" tabindex="-1"></a><span class="fu">## Syntax Rule: No Trailing Commas</span></span>
-<span id="cb40-401"><a href="#cb40-401" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-402"><a href="#cb40-402" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The last key/value pair in an object, or the last item in an array, **must not** be followed by a comma.</span>
-<span id="cb40-403"><a href="#cb40-403" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>This is fake, to fit on screen.</span>
-<span id="cb40-404"><a href="#cb40-404" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Invalid JSON:** </span>
-<span id="cb40-405"><a href="#cb40-405" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-406"><a href="#cb40-406" aria-hidden="true" tabindex="-1"></a><span class="in">```json</span></span>
-<span id="cb40-407"><a href="#cb40-407" aria-hidden="true" tabindex="-1"></a><span class="ot">[</span></span>
-<span id="cb40-408"><a href="#cb40-408" aria-hidden="true" tabindex="-1"></a>  <span class="st">"item1"</span><span class="ot">,</span></span>
-<span id="cb40-409"><a href="#cb40-409" aria-hidden="true" tabindex="-1"></a>  <span class="st">"item2"</span><span class="ot">,</span> </span>
-<span id="cb40-410"><a href="#cb40-410" aria-hidden="true" tabindex="-1"></a><span class="ot">]</span></span>
-<span id="cb40-411"><a href="#cb40-411" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb40-412"><a href="#cb40-412" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-413"><a href="#cb40-413" aria-hidden="true" tabindex="-1"></a><span class="fu">## Handling Missing (null) Values</span></span>
-<span id="cb40-414"><a href="#cb40-414" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-415"><a href="#cb40-415" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>In JSON, a missing value is explicitly represented by <span class="in">`null`</span>.</span>
-<span id="cb40-416"><a href="#cb40-416" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>When parsed in Python, <span class="in">`null`</span> becomes **`None`**.</span>
-<span id="cb40-417"><a href="#cb40-417" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Always check for <span class="in">`None`</span> before trying to perform arithmetic or string operations.</span>
-<span id="cb40-418"><a href="#cb40-418" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-421"><a href="#cb40-421" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb40-422"><a href="#cb40-422" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: "daily_vaccinations" might be null</span></span>
-<span id="cb40-423"><a href="#cb40-423" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-424"><a href="#cb40-424" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb40-425"><a href="#cb40-425" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-426"><a href="#cb40-426" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> vax[<span class="dv">0</span>][<span class="st">"data"</span>][i].get(<span class="st">"daily_vaccinations"</span>) <span class="kw">is</span> <span class="va">None</span>:</span>
-<span id="cb40-427"><a href="#cb40-427" aria-hidden="true" tabindex="-1"></a>    i <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb40-428"><a href="#cb40-428" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb40-429"><a href="#cb40-429" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(i, vax[<span class="dv">0</span>][<span class="st">"data"</span>][i].get(<span class="st">"daily_vaccinations"</span>))</span>
-<span id="cb40-430"><a href="#cb40-430" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb40-431"><a href="#cb40-431" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-432"><a href="#cb40-432" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-433"><a href="#cb40-433" aria-hidden="true" tabindex="-1"></a><span class="fu">## Writing JSON in Python</span></span>
-<span id="cb40-434"><a href="#cb40-434" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-435"><a href="#cb40-435" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use <span class="in">`json.dump()`</span> to write a Python object (dict or list) to a file.</span>
-<span id="cb40-436"><a href="#cb40-436" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use <span class="in">`json.dumps()`</span> to convert it to a JSON formatted string.</span>
-<span id="cb40-437"><a href="#cb40-437" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-440"><a href="#cb40-440" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb40-441"><a href="#cb40-441" aria-hidden="true" tabindex="-1"></a><span class="co"># A dictionary containing processed data</span></span>
-<span id="cb40-442"><a href="#cb40-442" aria-hidden="true" tabindex="-1"></a>summary <span class="op">=</span> {</span>
-<span id="cb40-443"><a href="#cb40-443" aria-hidden="true" tabindex="-1"></a>    <span class="st">"report_country"</span>: vax[<span class="dv">0</span>][<span class="st">"country"</span>],</span>
-<span id="cb40-444"><a href="#cb40-444" aria-hidden="true" tabindex="-1"></a>    <span class="st">"latest_total_vax"</span>: vax[<span class="dv">0</span>][<span class="st">"data"</span>][<span class="op">-</span><span class="dv">1</span>][<span class="st">"total_vaccinations"</span>]</span>
-<span id="cb40-445"><a href="#cb40-445" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb40-446"><a href="#cb40-446" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-447"><a href="#cb40-447" aria-hidden="true" tabindex="-1"></a>json.dumps(summary)</span>
-<span id="cb40-448"><a href="#cb40-448" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb40-449"><a href="#cb40-449" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-450"><a href="#cb40-450" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-451"><a href="#cb40-451" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-452"><a href="#cb40-452" aria-hidden="true" tabindex="-1"></a><span class="fu">## Pretty Printing JSON</span></span>
-<span id="cb40-453"><a href="#cb40-453" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-454"><a href="#cb40-454" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The <span class="in">`indent`</span> argument makes the JSON human-readable for debugging or configuration files.</span>
-<span id="cb40-455"><a href="#cb40-455" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-458"><a href="#cb40-458" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb40-459"><a href="#cb40-459" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(json.dumps(summary, indent<span class="op">=</span><span class="dv">4</span>))</span>
-<span id="cb40-460"><a href="#cb40-460" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb40-461"><a href="#cb40-461" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-462"><a href="#cb40-462" aria-hidden="true" tabindex="-1"></a><span class="fu">## Handling Numbers</span></span>
-<span id="cb40-463"><a href="#cb40-463" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-464"><a href="#cb40-464" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>JSON distinguishes between integers and floating-point numbers.</span>
-<span id="cb40-465"><a href="#cb40-465" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The vaccination counts are large, so they are often represented as integers: <span class="in">`"population": 331002651`</span>.</span>
-<span id="cb40-466"><a href="#cb40-466" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Rates and percentages would be floats: <span class="in">`"daily_vaccinations_per_hundred": 0.52`</span>.</span>
-<span id="cb40-467"><a href="#cb40-467" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Your programming language (Python) will handle this distinction automatically upon parsing.</span>
-<span id="cb40-468"><a href="#cb40-468" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-469"><a href="#cb40-469" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-470"><a href="#cb40-470" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-471"><a href="#cb40-471" aria-hidden="true" tabindex="-1"></a><span class="fu">## Quarto: Embedding Data</span></span>
-<span id="cb40-472"><a href="#cb40-472" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-473"><a href="#cb40-473" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Quarto can embed data directly into a document for creating figures.</span>
-<span id="cb40-474"><a href="#cb40-474" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>This data is often supplied as a JSON object, either generated from a data frame or loaded from a file.</span>
-<span id="cb40-475"><a href="#cb40-475" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>This allows for powerful visualizations driven by structured data.</span>
-<span id="cb40-476"><a href="#cb40-476" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-477"><a href="#cb40-477" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-478"><a href="#cb40-478" aria-hidden="true" tabindex="-1"></a><span class="fu">## Summary: Key Takeaways</span></span>
-<span id="cb40-479"><a href="#cb40-479" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-480"><a href="#cb40-480" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>JSON is the foundation of modern data exchange, built on **objects** (`{}`) and **arrays** (<span class="in">`[]`</span>).</span>
-<span id="cb40-481"><a href="#cb40-481" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>It excels at handling **nested, hierarchical data** like the Country/Time-series structure of the OWID data.</span>
-<span id="cb40-482"><a href="#cb40-482" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Python's <span class="in">`json`</span> library and the <span class="in">`requests.json()`</span> method are your primary tools.</span>
-<span id="cb40-483"><a href="#cb40-483" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Always be vigilant for strict syntax rules (double quotes, no trailing commas) and handle **`null`** values.</span>
-<span id="cb40-484"><a href="#cb40-484" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-485"><a href="#cb40-485" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-486"><a href="#cb40-486" aria-hidden="true" tabindex="-1"></a><span class="fu">## Final Review: Structure</span></span>
-<span id="cb40-487"><a href="#cb40-487" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-488"><a href="#cb40-488" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-489"><a href="#cb40-489" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-490"><a href="#cb40-490" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-491"><a href="#cb40-491" aria-hidden="true" tabindex="-1"></a>:::: {.columns}</span>
-<span id="cb40-492"><a href="#cb40-492" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-493"><a href="#cb40-493" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
-<span id="cb40-494"><a href="#cb40-494" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-495"><a href="#cb40-495" aria-hidden="true" tabindex="-1"></a><span class="in">```json</span></span>
-<span id="cb40-496"><a href="#cb40-496" aria-hidden="true" tabindex="-1"></a><span class="ot">[</span></span>
-<span id="cb40-497"><a href="#cb40-497" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span></span>
-<span id="cb40-498"><a href="#cb40-498" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"planet"</span><span class="fu">:</span> <span class="st">"Acheron"</span><span class="fu">,</span> </span>
-<span id="cb40-499"><a href="#cb40-499" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"designation"</span><span class="fu">:</span> <span class="st">"LV-426"</span><span class="fu">,</span></span>
-<span id="cb40-500"><a href="#cb40-500" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"data"</span><span class="fu">:</span> <span class="ot">[</span>                  </span>
-<span id="cb40-501"><a href="#cb40-501" aria-hidden="true" tabindex="-1"></a>      <span class="fu">{</span></span>
-<span id="cb40-502"><a href="#cb40-502" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"film"</span><span class="fu">:</span> <span class="st">"Alien"</span><span class="fu">,</span></span>
-<span id="cb40-503"><a href="#cb40-503" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"population"</span><span class="fu">:</span> <span class="dv">0</span><span class="fu">,</span></span>
-<span id="cb40-504"><a href="#cb40-504" aria-hidden="true" tabindex="-1"></a>      <span class="fu">}</span><span class="ot">,</span>                       </span>
-<span id="cb40-505"><a href="#cb40-505" aria-hidden="true" tabindex="-1"></a>      <span class="fu">{</span></span>
-<span id="cb40-506"><a href="#cb40-506" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"film"</span><span class="fu">:</span> <span class="st">"Aliens"</span><span class="fu">,</span></span>
-<span id="cb40-507"><a href="#cb40-507" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"population"</span><span class="fu">:</span> <span class="dv">158</span><span class="fu">,</span></span>
-<span id="cb40-508"><a href="#cb40-508" aria-hidden="true" tabindex="-1"></a>      <span class="fu">}</span></span>
-<span id="cb40-509"><a href="#cb40-509" aria-hidden="true" tabindex="-1"></a>    <span class="ot">]</span></span>
-<span id="cb40-510"><a href="#cb40-510" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span><span class="ot">,</span></span>
-<span id="cb40-511"><a href="#cb40-511" aria-hidden="true" tabindex="-1"></a>  <span class="er">...</span></span>
-<span id="cb40-512"><a href="#cb40-512" aria-hidden="true" tabindex="-1"></a><span class="ot">]</span></span>
-<span id="cb40-513"><a href="#cb40-513" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb40-514"><a href="#cb40-514" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-515"><a href="#cb40-515" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb40-516"><a href="#cb40-516" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-517"><a href="#cb40-517" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
-<span id="cb40-518"><a href="#cb40-518" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-519"><a href="#cb40-519" aria-hidden="true" tabindex="-1"></a><span class="in">```email</span></span>
-<span id="cb40-520"><a href="#cb40-520" aria-hidden="true" tabindex="-1"></a>begin array</span>
-<span id="cb40-521"><a href="#cb40-521" aria-hidden="true" tabindex="-1"></a>  begin object</span>
-<span id="cb40-522"><a href="#cb40-522" aria-hidden="true" tabindex="-1"></a>    key: value, </span>
-<span id="cb40-523"><a href="#cb40-523" aria-hidden="true" tabindex="-1"></a>    key: value, </span>
-<span id="cb40-524"><a href="#cb40-524" aria-hidden="true" tabindex="-1"></a>    key: begin array                </span>
-<span id="cb40-525"><a href="#cb40-525" aria-hidden="true" tabindex="-1"></a>      begin object</span>
-<span id="cb40-526"><a href="#cb40-526" aria-hidden="true" tabindex="-1"></a>        key: value, </span>
-<span id="cb40-527"><a href="#cb40-527" aria-hidden="true" tabindex="-1"></a>        key: value, </span>
-<span id="cb40-528"><a href="#cb40-528" aria-hidden="true" tabindex="-1"></a>      end object,                       </span>
-<span id="cb40-529"><a href="#cb40-529" aria-hidden="true" tabindex="-1"></a>      begin object</span>
-<span id="cb40-530"><a href="#cb40-530" aria-hidden="true" tabindex="-1"></a>        key: value, </span>
-<span id="cb40-531"><a href="#cb40-531" aria-hidden="true" tabindex="-1"></a>        key: value, </span>
-<span id="cb40-532"><a href="#cb40-532" aria-hidden="true" tabindex="-1"></a>      end object</span>
-<span id="cb40-533"><a href="#cb40-533" aria-hidden="true" tabindex="-1"></a>    end array</span>
-<span id="cb40-534"><a href="#cb40-534" aria-hidden="true" tabindex="-1"></a>  end object,</span>
-<span id="cb40-535"><a href="#cb40-535" aria-hidden="true" tabindex="-1"></a>  ...</span>
-<span id="cb40-536"><a href="#cb40-536" aria-hidden="true" tabindex="-1"></a>end array</span>
-<span id="cb40-537"><a href="#cb40-537" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb40-538"><a href="#cb40-538" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-539"><a href="#cb40-539" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-540"><a href="#cb40-540" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb40-541"><a href="#cb40-541" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-542"><a href="#cb40-542" aria-hidden="true" tabindex="-1"></a>::::</span>
+<div class="sourceCode" id="cb42" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> JSON</span></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="an">code-line-numbers:</span><span class="co"> false</span></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a><span class="fu"># Why JSON?</span></span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a><span class="fu">## What is JSON?</span></span>
+<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**JSON** stands for **JavaScript Object Notation**.</span>
+<span id="cb42-11"><a href="#cb42-11" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>It's a lightweight, human-readable format for storing and transmitting data.</span>
+<span id="cb42-12"><a href="#cb42-12" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>It has become the de facto standard for data interchange on the web, especially for APIs (Application Programming Interfaces).</span>
+<span id="cb42-13"><a href="#cb42-13" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Despite its name, JSON is **language-agnostic** and supported by every relevant programming language used today.</span>
+<span id="cb42-14"><a href="#cb42-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-15"><a href="#cb42-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-16"><a href="#cb42-16" aria-hidden="true" tabindex="-1"></a><span class="fu">## JSON's Core Purpose</span></span>
+<span id="cb42-17"><a href="#cb42-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-18"><a href="#cb42-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The main goal is to represent structured data that can be easily **serialized** (converted into a string) and **deserialized** (converted back into native data types).</span>
+<span id="cb42-19"><a href="#cb42-19" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>It maps perfectly to common data structures like **dictionaries** and **lists**.</span>
+<span id="cb42-20"><a href="#cb42-20" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>This makes complex, nested data easy to handle.</span>
+<span id="cb42-21"><a href="#cb42-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-22"><a href="#cb42-22" aria-hidden="true" tabindex="-1"></a><span class="fu">## JSON vs. CSV and Formats</span></span>
+<span id="cb42-23"><a href="#cb42-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-24"><a href="#cb42-24" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Scientific data is rarely flat. It often involves **hierarchical relationships**.</span>
+<span id="cb42-25"><a href="#cb42-25" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>One example: There are groups (or periods) that contain elements.</span>
+<span id="cb42-26"><a href="#cb42-26" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>JSON can capture this nesting naturally, unlike flat CSV files.</span>
+<span id="cb42-27"><a href="#cb42-27" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Comma-separated values - used with **pandas**.</span>
+<span id="cb42-28"><a href="#cb42-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-29"><a href="#cb42-29" aria-hidden="true" tabindex="-1"></a><span class="fu">## Two Core JSON Structures</span></span>
+<span id="cb42-30"><a href="#cb42-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-31"><a href="#cb42-31" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>JSON data is built using only two universal structures:</span>
+<span id="cb42-32"><a href="#cb42-32" aria-hidden="true" tabindex="-1"></a><span class="ss">    1.  </span>**Dictionaries** </span>
+<span id="cb42-33"><a href="#cb42-33" aria-hidden="true" tabindex="-1"></a><span class="ss">        - </span>Collection of Key/Value Pairs </span>
+<span id="cb42-34"><a href="#cb42-34" aria-hidden="true" tabindex="-1"></a><span class="ss">        - </span>Like state-to-capital or zip-to-state.</span>
+<span id="cb42-35"><a href="#cb42-35" aria-hidden="true" tabindex="-1"></a><span class="ss">    2.  </span>**List** </span>
+<span id="cb42-36"><a href="#cb42-36" aria-hidden="true" tabindex="-1"></a><span class="ss">        - </span>Ordered Collection of Values)</span>
+<span id="cb42-37"><a href="#cb42-37" aria-hidden="true" tabindex="-1"></a><span class="ss">        - </span>Have numerical indicies rather than keys.</span>
+<span id="cb42-38"><a href="#cb42-38" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Nested** to any depth: a *list* of *dictionaries* of *lists*</span>
+<span id="cb42-39"><a href="#cb42-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-40"><a href="#cb42-40" aria-hidden="true" tabindex="-1"></a><span class="fu"># Dictionaries</span></span>
+<span id="cb42-41"><a href="#cb42-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-42"><a href="#cb42-42" aria-hidden="true" tabindex="-1"></a><span class="fu">## Python Aside: Dictionaries</span></span>
+<span id="cb42-43"><a href="#cb42-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-44"><a href="#cb42-44" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>We review the most-beloved **Python dictionaries**.</span>
+<span id="cb42-45"><a href="#cb42-45" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Dictionaries are Python's core implementation of a common archetype.</span>
+<span id="cb42-46"><a href="#cb42-46" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Often called a **hash map** or **associative array**.</span>
+<span id="cb42-47"><a href="#cb42-47" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>I call them hash tables because I'm set in my ways.</span>
+<span id="cb42-48"><a href="#cb42-48" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>They store data as **unordered** collections of key-value pairs.</span>
+<span id="cb42-49"><a href="#cb42-49" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>In a "normal" dictionary, keys are words and values are definitions.</span>
+<span id="cb42-50"><a href="#cb42-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-51"><a href="#cb42-51" aria-hidden="true" tabindex="-1"></a><span class="fu">## Dictionary Syntax and Keys</span></span>
+<span id="cb42-52"><a href="#cb42-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-53"><a href="#cb42-53" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Dictionaries are defined using curly braces: </span>
+<span id="cb42-54"><a href="#cb42-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-55"><a href="#cb42-55" aria-hidden="true" tabindex="-1"></a><span class="in">```{.py}</span></span>
+<span id="cb42-56"><a href="#cb42-56" aria-hidden="true" tabindex="-1"></a><span class="in">d = {}`.</span></span>
+<span id="cb42-57"><a href="#cb42-57" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb42-58"><a href="#cb42-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-59"><a href="#cb42-59" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Keys and values are separated by a colon: </span>
+<span id="cb42-60"><a href="#cb42-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-61"><a href="#cb42-61" aria-hidden="true" tabindex="-1"></a><span class="in">```py</span></span>
+<span id="cb42-62"><a href="#cb42-62" aria-hidden="true" tabindex="-1"></a>{<span class="st">"key"</span>: <span class="st">"value"</span>}</span>
+<span id="cb42-63"><a href="#cb42-63" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb42-64"><a href="#cb42-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-65"><a href="#cb42-65" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Keys** are usually strings, but can be some other types.</span>
+<span id="cb42-66"><a href="#cb42-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-67"><a href="#cb42-67" aria-hidden="true" tabindex="-1"></a><span class="fu">## Example</span></span>
+<span id="cb42-68"><a href="#cb42-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-69"><a href="#cb42-69" aria-hidden="true" tabindex="-1"></a><span class="in">```{.json filename="helium.json"}</span></span>
+<span id="cb42-70"><a href="#cb42-70" aria-hidden="true" tabindex="-1"></a><span class="in">{</span></span>
+<span id="cb42-71"><a href="#cb42-71" aria-hidden="true" tabindex="-1"></a><span class="in">    "symbol": "He",</span></span>
+<span id="cb42-72"><a href="#cb42-72" aria-hidden="true" tabindex="-1"></a><span class="in">    "phase_stp": "gas",</span></span>
+<span id="cb42-73"><a href="#cb42-73" aria-hidden="true" tabindex="-1"></a><span class="in">    "group": 18,</span></span>
+<span id="cb42-74"><a href="#cb42-74" aria-hidden="true" tabindex="-1"></a><span class="in">    "period": 1,</span></span>
+<span id="cb42-75"><a href="#cb42-75" aria-hidden="true" tabindex="-1"></a><span class="in">    "boiling_point": {</span></span>
+<span id="cb42-76"><a href="#cb42-76" aria-hidden="true" tabindex="-1"></a><span class="in">        "K": 4.222,</span></span>
+<span id="cb42-77"><a href="#cb42-77" aria-hidden="true" tabindex="-1"></a><span class="in">        "C": -268.928,</span></span>
+<span id="cb42-78"><a href="#cb42-78" aria-hidden="true" tabindex="-1"></a><span class="in">        "F": -452.070</span></span>
+<span id="cb42-79"><a href="#cb42-79" aria-hidden="true" tabindex="-1"></a><span class="in">     }</span></span>
+<span id="cb42-80"><a href="#cb42-80" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
+<span id="cb42-81"><a href="#cb42-81" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb42-82"><a href="#cb42-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-83"><a href="#cb42-83" aria-hidden="true" tabindex="-1"></a><span class="fu">## A note</span></span>
+<span id="cb42-84"><a href="#cb42-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-85"><a href="#cb42-85" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>We can ensure these files are well-formed relatively easily.</span>
+<span id="cb42-86"><a href="#cb42-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-87"><a href="#cb42-87" aria-hidden="true" tabindex="-1"></a>:::: {.columns}</span>
+<span id="cb42-88"><a href="#cb42-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-89"><a href="#cb42-89" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb42-90"><a href="#cb42-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-91"><a href="#cb42-91" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>At command line</span>
+<span id="cb42-92"><a href="#cb42-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-93"><a href="#cb42-93" aria-hidden="true" tabindex="-1"></a><span class="in">```{.sh}</span></span>
+<span id="cb42-94"><a href="#cb42-94" aria-hidden="true" tabindex="-1"></a><span class="in">python3 -mjson.tool helium.json</span></span>
+<span id="cb42-95"><a href="#cb42-95" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb42-96"><a href="#cb42-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-97"><a href="#cb42-97" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Will show an error if bad.</span>
+<span id="cb42-98"><a href="#cb42-98" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Will show the file otherwise.</span>
+<span id="cb42-99"><a href="#cb42-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-100"><a href="#cb42-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-101"><a href="#cb42-101" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb42-102"><a href="#cb42-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-103"><a href="#cb42-103" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb42-104"><a href="#cb42-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-105"><a href="#cb42-105" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Within Python</span>
+<span id="cb42-106"><a href="#cb42-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-109"><a href="#cb42-109" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb42-110"><a href="#cb42-110" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<span id="cb42-111"><a href="#cb42-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-112"><a href="#cb42-112" aria-hidden="true" tabindex="-1"></a>FILE_NAME <span class="op">=</span> <span class="st">"helium.json"</span></span>
+<span id="cb42-113"><a href="#cb42-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-114"><a href="#cb42-114" aria-hidden="true" tabindex="-1"></a><span class="co"># Can expand to multiple lines</span></span>
+<span id="cb42-115"><a href="#cb42-115" aria-hidden="true" tabindex="-1"></a>he <span class="op">=</span> json.loads(<span class="bu">open</span>(FILE_NAME).read())</span>
+<span id="cb42-116"><a href="#cb42-116" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb42-117"><a href="#cb42-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-118"><a href="#cb42-118" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Will show an error if bad.</span>
+<span id="cb42-119"><a href="#cb42-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-120"><a href="#cb42-120" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb42-121"><a href="#cb42-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-122"><a href="#cb42-122" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb42-123"><a href="#cb42-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-124"><a href="#cb42-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-125"><a href="#cb42-125" aria-hidden="true" tabindex="-1"></a><span class="fu">## Accessing Values by Key</span></span>
+<span id="cb42-126"><a href="#cb42-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-127"><a href="#cb42-127" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Values are retrieved using the key inside square brackets (<span class="in">`[]`</span>).</span>
+<span id="cb42-128"><a href="#cb42-128" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>This is the standard way to access data fields parsed from a JSON object.</span>
+<span id="cb42-129"><a href="#cb42-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-132"><a href="#cb42-132" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb42-133"><a href="#cb42-133" aria-hidden="true" tabindex="-1"></a><span class="co"># We previously read in `he`</span></span>
+<span id="cb42-134"><a href="#cb42-134" aria-hidden="true" tabindex="-1"></a>he[<span class="st">"symbol"</span>]</span>
+<span id="cb42-135"><a href="#cb42-135" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb42-136"><a href="#cb42-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-137"><a href="#cb42-137" aria-hidden="true" tabindex="-1"></a><span class="fu">## Adding or Updating Pairs</span></span>
+<span id="cb42-138"><a href="#cb42-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-139"><a href="#cb42-139" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Once in Python, we can use the dictionary read from JSON like any other dictionary.</span>
+<span id="cb42-140"><a href="#cb42-140" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>We can add something, like the atomic number.</span>
+<span id="cb42-141"><a href="#cb42-141" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>I would see (scroll to end to see <span class="in">`number`</span>):</span>
+<span id="cb42-142"><a href="#cb42-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-143"><a href="#cb42-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-146"><a href="#cb42-146" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb42-147"><a href="#cb42-147" aria-hidden="true" tabindex="-1"></a>he[<span class="st">"number"</span>] <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb42-148"><a href="#cb42-148" aria-hidden="true" tabindex="-1"></a>he</span>
+<span id="cb42-149"><a href="#cb42-149" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb42-150"><a href="#cb42-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-151"><a href="#cb42-151" aria-hidden="true" tabindex="-1"></a><span class="fu">## The `get()` Method</span></span>
+<span id="cb42-152"><a href="#cb42-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-153"><a href="#cb42-153" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Accessing a missing key with <span class="in">`[]`</span> causes a **KeyError** and crashes.</span>
+<span id="cb42-154"><a href="#cb42-154" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Simply use <span class="in">`.get`</span>.</span>
+<span id="cb42-155"><a href="#cb42-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-158"><a href="#cb42-158" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb42-159"><a href="#cb42-159" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb42-160"><a href="#cb42-160" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(he[<span class="st">"density"</span>])</span>
+<span id="cb42-161"><a href="#cb42-161" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span>:</span>
+<span id="cb42-162"><a href="#cb42-162" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Use `.get()!`"</span>)</span>
+<span id="cb42-163"><a href="#cb42-163" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(he.get(<span class="st">"density"</span>)) <span class="co"># Will be `None` so we print to see it</span></span>
+<span id="cb42-164"><a href="#cb42-164" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb42-165"><a href="#cb42-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-166"><a href="#cb42-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-167"><a href="#cb42-167" aria-hidden="true" tabindex="-1"></a><span class="fu">## Iterating over Keys</span></span>
+<span id="cb42-168"><a href="#cb42-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-169"><a href="#cb42-169" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>By default, iterating over a dictionary iterates over its **keys**.</span>
+<span id="cb42-170"><a href="#cb42-170" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>This is useful for inspection or processing.</span>
+<span id="cb42-171"><a href="#cb42-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-174"><a href="#cb42-174" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb42-175"><a href="#cb42-175" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> key <span class="kw">in</span> he:</span>
+<span id="cb42-176"><a href="#cb42-176" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(key)</span>
+<span id="cb42-177"><a href="#cb42-177" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb42-178"><a href="#cb42-178" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-179"><a href="#cb42-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-180"><a href="#cb42-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-181"><a href="#cb42-181" aria-hidden="true" tabindex="-1"></a><span class="fu">## Iterating over Values</span></span>
+<span id="cb42-182"><a href="#cb42-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-183"><a href="#cb42-183" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use the **`.values()`** method to iterate only through the values in the dictionary.</span>
+<span id="cb42-184"><a href="#cb42-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-187"><a href="#cb42-187" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb42-188"><a href="#cb42-188" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> value <span class="kw">in</span> he.values():</span>
+<span id="cb42-189"><a href="#cb42-189" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(value)</span>
+<span id="cb42-190"><a href="#cb42-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-191"><a href="#cb42-191" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb42-192"><a href="#cb42-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-193"><a href="#cb42-193" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-194"><a href="#cb42-194" aria-hidden="true" tabindex="-1"></a><span class="fu">## Iterating over Key-Value Pairs</span></span>
+<span id="cb42-195"><a href="#cb42-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-196"><a href="#cb42-196" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The **`.items()`** method returns a tuple of <span class="in">`(key, value)`</span> for each pair, which you can unpack in the loop.</span>
+<span id="cb42-197"><a href="#cb42-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-200"><a href="#cb42-200" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb42-201"><a href="#cb42-201" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> key, value <span class="kw">in</span> he.items():</span>
+<span id="cb42-202"><a href="#cb42-202" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(key, <span class="st">":"</span>, value) <span class="co"># Take note of that : I use as a nicety</span></span>
+<span id="cb42-203"><a href="#cb42-203" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb42-204"><a href="#cb42-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-205"><a href="#cb42-205" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-206"><a href="#cb42-206" aria-hidden="true" tabindex="-1"></a><span class="fu">## Nested Dictionaries</span></span>
+<span id="cb42-207"><a href="#cb42-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-208"><a href="#cb42-208" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Since a value can be any type, a value can be *another* dictionary (or a list of dictionaries).</span>
+<span id="cb42-209"><a href="#cb42-209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-212"><a href="#cb42-212" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb42-213"><a href="#cb42-213" aria-hidden="true" tabindex="-1"></a>he[<span class="st">"boiling_point"</span>][<span class="st">"K"</span>]</span>
+<span id="cb42-214"><a href="#cb42-214" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb42-215"><a href="#cb42-215" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-216"><a href="#cb42-216" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Could also be a list, in which case you'd use a numerical index.</span>
+<span id="cb42-217"><a href="#cb42-217" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-218"><a href="#cb42-218" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-219"><a href="#cb42-219" aria-hidden="true" tabindex="-1"></a><span class="fu"># JSON</span></span>
+<span id="cb42-220"><a href="#cb42-220" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-221"><a href="#cb42-221" aria-hidden="true" tabindex="-1"></a><span class="fu">## JSON Object Syntax</span></span>
+<span id="cb42-222"><a href="#cb42-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-223"><a href="#cb42-223" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>An dictionary, in JSON called an "object", represents an unordered collection of key/value pairs.</span>
+<span id="cb42-224"><a href="#cb42-224" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Starts with <span class="in">`{`</span> and ends with <span class="in">`}`</span>.</span>
+<span id="cb42-225"><a href="#cb42-225" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Keys** must be **strings** and enclosed in **double quotes**.</span>
+<span id="cb42-226"><a href="#cb42-226" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>This differs from Python, which allows keys to be some other stuff.</span>
+<span id="cb42-227"><a href="#cb42-227" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Keys and values are separated by a colon (<span class="in">`:`</span>). Pairs are separated by commas (<span class="in">`,`</span>).</span>
+<span id="cb42-228"><a href="#cb42-228" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-229"><a href="#cb42-229" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-230"><a href="#cb42-230" aria-hidden="true" tabindex="-1"></a><span class="fu">## URLs</span></span>
+<span id="cb42-231"><a href="#cb42-231" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-232"><a href="#cb42-232" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>It is extremely common to use JSON directly from a URL.</span>
+<span id="cb42-233"><a href="#cb42-233" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>This is possible with e.g. CSV files but less common.</span>
+<span id="cb42-234"><a href="#cb42-234" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>JSON is a de facto internet format.</span>
+<span id="cb42-235"><a href="#cb42-235" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>(You can open them in browsers!)</span>
+<span id="cb42-236"><a href="#cb42-236" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span><span class="co">[</span><span class="ot">helium.json</span><span class="co">](helium.json)</span></span>
+<span id="cb42-237"><a href="#cb42-237" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-238"><a href="#cb42-238" aria-hidden="true" tabindex="-1"></a><span class="fu">## Requests</span></span>
+<span id="cb42-239"><a href="#cb42-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-240"><a href="#cb42-240" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>We can easily read JSON from urls with <span class="in">`requests`</span></span>
+<span id="cb42-241"><a href="#cb42-241" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb42-244"><a href="#cb42-244" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb42-245"><a href="#cb42-245" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb42-246"><a href="#cb42-246" aria-hidden="true" tabindex="-1"></a>URL <span class="op">=</span> <span class="st">"https://cd-public.github.io/scicom/helium.json"</span></span>
+<span id="cb42-247"><a href="#cb42-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-248"><a href="#cb42-248" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(URL)</span>
+<span id="cb42-249"><a href="#cb42-249" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-250"><a href="#cb42-250" aria-hidden="true" tabindex="-1"></a><span class="co"># vax_data is now a Python list of dictionaries</span></span>
+<span id="cb42-251"><a href="#cb42-251" aria-hidden="true" tabindex="-1"></a>he <span class="op">=</span> response.json() </span>
+<span id="cb42-252"><a href="#cb42-252" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-253"><a href="#cb42-253" aria-hidden="true" tabindex="-1"></a>he <span class="co"># Note that "number" is gone - we have the original file again.</span></span>
+<span id="cb42-254"><a href="#cb42-254" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb42-255"><a href="#cb42-255" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-256"><a href="#cb42-256" aria-hidden="true" tabindex="-1"></a><span class="fu">## Our data</span></span>
+<span id="cb42-257"><a href="#cb42-257" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-258"><a href="#cb42-258" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Loosely adapted from <span class="co">[</span><span class="ot">"The JSON format"</span><span class="co">](https://sciencecomputing.org/files/the-json-format/)</span></span>
+<span id="cb42-259"><a href="#cb42-259" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>It uses this data:</span>
+<span id="cb42-260"><a href="#cb42-260" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-263"><a href="#cb42-263" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb42-264"><a href="#cb42-264" aria-hidden="true" tabindex="-1"></a>URL <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/vaccinations/vaccinations.json"</span></span>
+<span id="cb42-265"><a href="#cb42-265" aria-hidden="true" tabindex="-1"></a><span class="co"># Can do it in one line by the way.</span></span>
+<span id="cb42-266"><a href="#cb42-266" aria-hidden="true" tabindex="-1"></a>vax <span class="op">=</span> requests.get(URL).json()</span>
+<span id="cb42-267"><a href="#cb42-267" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb42-268"><a href="#cb42-268" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-269"><a href="#cb42-269" aria-hidden="true" tabindex="-1"></a><span class="fu">## It's big!</span></span>
+<span id="cb42-270"><a href="#cb42-270" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-271"><a href="#cb42-271" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Don't try to print that whole thing; it's huge.</span>
+<span id="cb42-272"><a href="#cb42-272" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>2031952 lines.</span>
+<span id="cb42-273"><a href="#cb42-273" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>We will *traverse* it.</span>
+<span id="cb42-274"><a href="#cb42-274" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Check the type.</span>
+<span id="cb42-275"><a href="#cb42-275" aria-hidden="true" tabindex="-1"></a><span class="ss">        - </span>If dictionary, look at an arbitrary key.</span>
+<span id="cb42-276"><a href="#cb42-276" aria-hidden="true" tabindex="-1"></a><span class="ss">        - </span>If list, look at index zero.</span>
+<span id="cb42-277"><a href="#cb42-277" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>We'll repeat this until we get something that isn't a dictionary or list.</span>
+<span id="cb42-278"><a href="#cb42-278" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb42-279"><a href="#cb42-279" aria-hidden="true" tabindex="-1"></a><span class="fu">## Traverse</span></span>
+<span id="cb42-280"><a href="#cb42-280" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-283"><a href="#cb42-283" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb42-284"><a href="#cb42-284" aria-hidden="true" tabindex="-1"></a>loc <span class="op">=</span> vax <span class="co"># for location</span></span>
+<span id="cb42-285"><a href="#cb42-285" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-286"><a href="#cb42-286" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="bu">type</span>(loc) <span class="op">==</span> <span class="bu">type</span>({}) <span class="kw">or</span> <span class="bu">type</span>(loc) <span class="op">==</span> <span class="bu">type</span>([]):</span>
+<span id="cb42-287"><a href="#cb42-287" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">type</span>(loc) <span class="op">==</span> <span class="bu">type</span>({}):</span>
+<span id="cb42-288"><a href="#cb42-288" aria-hidden="true" tabindex="-1"></a>            keys <span class="op">=</span> <span class="bu">list</span>(loc.keys())</span>
+<span id="cb42-289"><a href="#cb42-289" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(keys[<span class="dv">0</span>])</span>
+<span id="cb42-290"><a href="#cb42-290" aria-hidden="true" tabindex="-1"></a>            loc <span class="op">=</span> loc[keys[<span class="dv">0</span>]]</span>
+<span id="cb42-291"><a href="#cb42-291" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">type</span>(loc) <span class="op">==</span> <span class="bu">type</span>([]):</span>
+<span id="cb42-292"><a href="#cb42-292" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="dv">0</span>)</span>
+<span id="cb42-293"><a href="#cb42-293" aria-hidden="true" tabindex="-1"></a>            loc <span class="op">=</span> loc[<span class="dv">0</span>]</span>
+<span id="cb42-294"><a href="#cb42-294" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(loc)</span>
+<span id="cb42-295"><a href="#cb42-295" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb42-296"><a href="#cb42-296" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-297"><a href="#cb42-297" aria-hidden="true" tabindex="-1"></a><span class="fu">## What this means?</span></span>
+<span id="cb42-298"><a href="#cb42-298" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-299"><a href="#cb42-299" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>We have a list of somethings.</span>
+<span id="cb42-300"><a href="#cb42-300" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Those somethings are dictionaries of which one has the key "country"</span>
+<span id="cb42-301"><a href="#cb42-301" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The values in that dictionary are strings, of which one is "Afghanistan"</span>
+<span id="cb42-302"><a href="#cb42-302" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Are we correct?</span>
+<span id="cb42-303"><a href="#cb42-303" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Check the url: <span class="co">[</span><span class="ot">Link!</span><span class="co">](https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/vaccinations/vaccinations.json)</span></span>
+<span id="cb42-304"><a href="#cb42-304" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-305"><a href="#cb42-305" aria-hidden="true" tabindex="-1"></a><span class="fu">## Okay, so</span></span>
+<span id="cb42-306"><a href="#cb42-306" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-307"><a href="#cb42-307" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>List of </span>
+<span id="cb42-308"><a href="#cb42-308" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Dictionaries, representing countries, of</span>
+<span id="cb42-309"><a href="#cb42-309" aria-hidden="true" tabindex="-1"></a><span class="ss">        - </span><span class="in">`"country"`</span>: name and <span class="in">`"iso_code"`</span>: whatever that is</span>
+<span id="cb42-310"><a href="#cb42-310" aria-hidden="true" tabindex="-1"></a><span class="ss">        - </span><span class="in">`"data"`</span>, a list of</span>
+<span id="cb42-311"><a href="#cb42-311" aria-hidden="true" tabindex="-1"></a><span class="ss">            - </span>dictionaries, representing dates, of</span>
+<span id="cb42-312"><a href="#cb42-312" aria-hidden="true" tabindex="-1"></a><span class="ss">                - </span><span class="in">`"date"`</span>: a date as a string, like <span class="in">`"2021-02-22"`</span></span>
+<span id="cb42-313"><a href="#cb42-313" aria-hidden="true" tabindex="-1"></a><span class="ss">                - </span>some other stuff on vaccination.</span>
+<span id="cb42-314"><a href="#cb42-314" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-315"><a href="#cb42-315" aria-hidden="true" tabindex="-1"></a><span class="fu">## Object Example: Daily Data</span></span>
+<span id="cb42-316"><a href="#cb42-316" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-317"><a href="#cb42-317" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>An object of a single date in a single country:</span>
+<span id="cb42-318"><a href="#cb42-318" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-321"><a href="#cb42-321" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb42-322"><a href="#cb42-322" aria-hidden="true" tabindex="-1"></a>vax[<span class="dv">0</span>][<span class="st">"data"</span>][<span class="dv">0</span>]</span>
+<span id="cb42-323"><a href="#cb42-323" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb42-324"><a href="#cb42-324" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-325"><a href="#cb42-325" aria-hidden="true" tabindex="-1"></a><span class="fu">## JSON Array Syntax</span></span>
+<span id="cb42-326"><a href="#cb42-326" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-327"><a href="#cb42-327" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>An Array represents an ordered sequence of values.</span>
+<span id="cb42-328"><a href="#cb42-328" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Starts with <span class="in">`[`</span> and ends with <span class="in">`]`</span>.</span>
+<span id="cb42-329"><a href="#cb42-329" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Values are separated by commas (<span class="in">`,`</span>).</span>
+<span id="cb42-330"><a href="#cb42-330" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Values can be of any valid JSON data type.</span>
+<span id="cb42-331"><a href="#cb42-331" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-332"><a href="#cb42-332" aria-hidden="true" tabindex="-1"></a><span class="fu">## Array Example: Time Series</span></span>
+<span id="cb42-333"><a href="#cb42-333" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-334"><a href="#cb42-334" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>This array holds the time-series data for one country:</span>
+<span id="cb42-335"><a href="#cb42-335" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-338"><a href="#cb42-338" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb42-339"><a href="#cb42-339" aria-hidden="true" tabindex="-1"></a>vax[<span class="dv">0</span>][<span class="st">"data"</span>][<span class="dv">0</span>:<span class="dv">3</span>]</span>
+<span id="cb42-340"><a href="#cb42-340" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb42-341"><a href="#cb42-341" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-342"><a href="#cb42-342" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The array contains JSON **objects**.</span>
+<span id="cb42-343"><a href="#cb42-343" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-344"><a href="#cb42-344" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-345"><a href="#cb42-345" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-346"><a href="#cb42-346" aria-hidden="true" tabindex="-1"></a><span class="fu">## Valid JSON Data Types{.smaller}</span></span>
+<span id="cb42-347"><a href="#cb42-347" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-348"><a href="#cb42-348" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**String**: text, double-quoted. E.g., <span class="in">`"Olive Drab"`</span>.</span>
+<span id="cb42-349"><a href="#cb42-349" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Can't be single quote as in Python</span>
+<span id="cb42-350"><a href="#cb42-350" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Number**: integer or float. E.g., <span class="in">`7`</span> or <span class="in">`3.14`</span>.</span>
+<span id="cb42-351"><a href="#cb42-351" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**Boolean**: <span class="in">`true`</span> or <span class="in">`false`</span>.</span>
+<span id="cb42-352"><a href="#cb42-352" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Lowercase, unlike Python <span class="in">`True`</span> and <span class="in">`False`</span></span>
+<span id="cb42-353"><a href="#cb42-353" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**null**: missing value</span>
+<span id="cb42-354"><a href="#cb42-354" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Like Python <span class="in">`None`</span></span>
+<span id="cb42-355"><a href="#cb42-355" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span>**Object**: a dictionary <span class="in">`{}`</span></span>
+<span id="cb42-356"><a href="#cb42-356" aria-hidden="true" tabindex="-1"></a><span class="ss">6.  </span>**Array**: a list <span class="in">`[]`</span></span>
+<span id="cb42-357"><a href="#cb42-357" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-358"><a href="#cb42-358" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-359"><a href="#cb42-359" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Structure: Top Level</span></span>
+<span id="cb42-360"><a href="#cb42-360" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-361"><a href="#cb42-361" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The entire <span class="in">`vax`</span> file is one single JSON **array**.</span>
+<span id="cb42-362"><a href="#cb42-362" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Each element in this top-level array is a JSON **object**, representing a single country/region.</span>
+<span id="cb42-363"><a href="#cb42-363" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>This is fake, to fit on screen.</span>
+<span id="cb42-364"><a href="#cb42-364" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-365"><a href="#cb42-365" aria-hidden="true" tabindex="-1"></a><span class="in">```json</span></span>
+<span id="cb42-366"><a href="#cb42-366" aria-hidden="true" tabindex="-1"></a><span class="ot">[</span></span>
+<span id="cb42-367"><a href="#cb42-367" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span> <span class="dt">"country"</span><span class="fu">:</span> <span class="st">"Narnia"</span><span class="fu">,</span> <span class="dt">"data"</span><span class="fu">:</span> <span class="ot">[</span><span class="er">...</span><span class="ot">]</span> <span class="fu">}</span><span class="ot">,</span> </span>
+<span id="cb42-368"><a href="#cb42-368" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span> <span class="dt">"country"</span><span class="fu">:</span> <span class="st">"Wakanda"</span><span class="fu">,</span> <span class="dt">"data"</span><span class="fu">:</span> <span class="ot">[</span><span class="er">...</span><span class="ot">]</span> <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb42-369"><a href="#cb42-369" aria-hidden="true" tabindex="-1"></a>  <span class="er">...</span></span>
+<span id="cb42-370"><a href="#cb42-370" aria-hidden="true" tabindex="-1"></a><span class="ot">]</span></span>
+<span id="cb42-371"><a href="#cb42-371" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb42-372"><a href="#cb42-372" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-373"><a href="#cb42-373" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Structure: Nested Data</span></span>
+<span id="cb42-374"><a href="#cb42-374" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-375"><a href="#cb42-375" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Inside each country object, there is a key called <span class="in">`"data"`</span>.</span>
+<span id="cb42-376"><a href="#cb42-376" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The value of <span class="in">`"data"`</span> is an **array** of daily vaccination records.</span>
+<span id="cb42-377"><a href="#cb42-377" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>This is fake, to fit on screen.</span>
+<span id="cb42-378"><a href="#cb42-378" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-379"><a href="#cb42-379" aria-hidden="true" tabindex="-1"></a><span class="in">```json</span></span>
+<span id="cb42-380"><a href="#cb42-380" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb42-381"><a href="#cb42-381" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"country"</span><span class="fu">:</span> <span class="st">"Guilder"</span><span class="fu">,</span></span>
+<span id="cb42-382"><a href="#cb42-382" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"iso_code"</span><span class="fu">:</span> <span class="st">"GG"</span><span class="fu">,</span></span>
+<span id="cb42-383"><a href="#cb42-383" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"data"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb42-384"><a href="#cb42-384" aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span> <span class="dt">"date"</span><span class="fu">:</span> <span class="st">"..."</span><span class="fu">,</span> <span class="dt">"total_vaccinations"</span><span class="fu">:</span> <span class="er">...</span> <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb42-385"><a href="#cb42-385" aria-hidden="true" tabindex="-1"></a>    <span class="er">...</span> </span>
+<span id="cb42-386"><a href="#cb42-386" aria-hidden="true" tabindex="-1"></a>  <span class="ot">]</span></span>
+<span id="cb42-387"><a href="#cb42-387" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span>
+<span id="cb42-388"><a href="#cb42-388" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb42-389"><a href="#cb42-389" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-390"><a href="#cb42-390" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-391"><a href="#cb42-391" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-392"><a href="#cb42-392" aria-hidden="true" tabindex="-1"></a><span class="fu">## Syntax Rule: Double Quotes</span></span>
+<span id="cb42-393"><a href="#cb42-393" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-394"><a href="#cb42-394" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>JSON is **very strict** about syntax. Keys and string values **must** use double quotes (<span class="in">`"`</span>).</span>
+<span id="cb42-395"><a href="#cb42-395" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Invalid JSON:** <span class="in">`{ 'country': 'Elysium' }`</span> (Uses single quotes).</span>
+<span id="cb42-396"><a href="#cb42-396" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Valid JSON:** <span class="in">`{ "country": "Cascadia" }`</span></span>
+<span id="cb42-397"><a href="#cb42-397" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Numbers, booleans, and <span class="in">`null`</span> are NOT quoted.</span>
+<span id="cb42-398"><a href="#cb42-398" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-399"><a href="#cb42-399" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-400"><a href="#cb42-400" aria-hidden="true" tabindex="-1"></a><span class="fu">## Syntax Rule: No Trailing Commas</span></span>
+<span id="cb42-401"><a href="#cb42-401" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-402"><a href="#cb42-402" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The last key/value pair in an object, or the last item in an array, **must not** be followed by a comma.</span>
+<span id="cb42-403"><a href="#cb42-403" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>This is fake, to fit on screen.</span>
+<span id="cb42-404"><a href="#cb42-404" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Invalid JSON:** </span>
+<span id="cb42-405"><a href="#cb42-405" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-406"><a href="#cb42-406" aria-hidden="true" tabindex="-1"></a><span class="in">```json</span></span>
+<span id="cb42-407"><a href="#cb42-407" aria-hidden="true" tabindex="-1"></a><span class="ot">[</span></span>
+<span id="cb42-408"><a href="#cb42-408" aria-hidden="true" tabindex="-1"></a>  <span class="st">"item1"</span><span class="ot">,</span></span>
+<span id="cb42-409"><a href="#cb42-409" aria-hidden="true" tabindex="-1"></a>  <span class="st">"item2"</span><span class="ot">,</span> </span>
+<span id="cb42-410"><a href="#cb42-410" aria-hidden="true" tabindex="-1"></a><span class="ot">]</span></span>
+<span id="cb42-411"><a href="#cb42-411" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb42-412"><a href="#cb42-412" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-413"><a href="#cb42-413" aria-hidden="true" tabindex="-1"></a><span class="fu">## Handling Missing (null) Values</span></span>
+<span id="cb42-414"><a href="#cb42-414" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-415"><a href="#cb42-415" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>In JSON, a missing value is explicitly represented by <span class="in">`null`</span>.</span>
+<span id="cb42-416"><a href="#cb42-416" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>When parsed in Python, <span class="in">`null`</span> becomes **`None`**.</span>
+<span id="cb42-417"><a href="#cb42-417" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Always check for <span class="in">`None`</span> before trying to perform arithmetic or string operations.</span>
+<span id="cb42-418"><a href="#cb42-418" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-421"><a href="#cb42-421" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb42-422"><a href="#cb42-422" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: "daily_vaccinations" might be null</span></span>
+<span id="cb42-423"><a href="#cb42-423" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-424"><a href="#cb42-424" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb42-425"><a href="#cb42-425" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-426"><a href="#cb42-426" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> vax[<span class="dv">0</span>][<span class="st">"data"</span>][i].get(<span class="st">"daily_vaccinations"</span>) <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb42-427"><a href="#cb42-427" aria-hidden="true" tabindex="-1"></a>    i <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb42-428"><a href="#cb42-428" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb42-429"><a href="#cb42-429" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(i, vax[<span class="dv">0</span>][<span class="st">"data"</span>][i].get(<span class="st">"daily_vaccinations"</span>))</span>
+<span id="cb42-430"><a href="#cb42-430" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb42-431"><a href="#cb42-431" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-432"><a href="#cb42-432" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-433"><a href="#cb42-433" aria-hidden="true" tabindex="-1"></a><span class="fu">## Writing JSON in Python</span></span>
+<span id="cb42-434"><a href="#cb42-434" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-435"><a href="#cb42-435" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use <span class="in">`json.dump()`</span> to write a Python object (dict or list) to a file.</span>
+<span id="cb42-436"><a href="#cb42-436" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use <span class="in">`json.dumps()`</span> to convert it to a JSON formatted string.</span>
+<span id="cb42-437"><a href="#cb42-437" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-440"><a href="#cb42-440" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb42-441"><a href="#cb42-441" aria-hidden="true" tabindex="-1"></a><span class="co"># A dictionary containing processed data</span></span>
+<span id="cb42-442"><a href="#cb42-442" aria-hidden="true" tabindex="-1"></a>summary <span class="op">=</span> {</span>
+<span id="cb42-443"><a href="#cb42-443" aria-hidden="true" tabindex="-1"></a>    <span class="st">"report_country"</span>: vax[<span class="dv">0</span>][<span class="st">"country"</span>],</span>
+<span id="cb42-444"><a href="#cb42-444" aria-hidden="true" tabindex="-1"></a>    <span class="st">"latest_total_vax"</span>: vax[<span class="dv">0</span>][<span class="st">"data"</span>][<span class="op">-</span><span class="dv">1</span>][<span class="st">"total_vaccinations"</span>]</span>
+<span id="cb42-445"><a href="#cb42-445" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb42-446"><a href="#cb42-446" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-447"><a href="#cb42-447" aria-hidden="true" tabindex="-1"></a>json.dumps(summary)</span>
+<span id="cb42-448"><a href="#cb42-448" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb42-449"><a href="#cb42-449" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-450"><a href="#cb42-450" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-451"><a href="#cb42-451" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-452"><a href="#cb42-452" aria-hidden="true" tabindex="-1"></a><span class="fu">## Pretty Printing JSON</span></span>
+<span id="cb42-453"><a href="#cb42-453" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-454"><a href="#cb42-454" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The <span class="in">`indent`</span> argument makes the JSON human-readable for debugging or configuration files.</span>
+<span id="cb42-455"><a href="#cb42-455" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-458"><a href="#cb42-458" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb42-459"><a href="#cb42-459" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(json.dumps(summary, indent<span class="op">=</span><span class="dv">4</span>))</span>
+<span id="cb42-460"><a href="#cb42-460" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb42-461"><a href="#cb42-461" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-462"><a href="#cb42-462" aria-hidden="true" tabindex="-1"></a><span class="fu">## Handling Numbers</span></span>
+<span id="cb42-463"><a href="#cb42-463" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-464"><a href="#cb42-464" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>JSON distinguishes between integers and floating-point numbers.</span>
+<span id="cb42-465"><a href="#cb42-465" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The vaccination counts are large, so they are often represented as integers: <span class="in">`"population": 331002651`</span>.</span>
+<span id="cb42-466"><a href="#cb42-466" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Rates and percentages would be floats: <span class="in">`"daily_vaccinations_per_hundred": 0.52`</span>.</span>
+<span id="cb42-467"><a href="#cb42-467" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Your programming language (Python) will handle this distinction automatically upon parsing.</span>
+<span id="cb42-468"><a href="#cb42-468" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-469"><a href="#cb42-469" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-470"><a href="#cb42-470" aria-hidden="true" tabindex="-1"></a><span class="fu">## Summary: Key Takeaways</span></span>
+<span id="cb42-471"><a href="#cb42-471" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-472"><a href="#cb42-472" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>JSON is the foundation of modern data exchange, built on **objects** (`{}`) and **arrays** (<span class="in">`[]`</span>).</span>
+<span id="cb42-473"><a href="#cb42-473" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>It excels at handling **nested, hierarchical data** like the Country/Time-series structure of the OWID data.</span>
+<span id="cb42-474"><a href="#cb42-474" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Python's <span class="in">`json`</span> library and the <span class="in">`requests.json()`</span> method are your primary tools.</span>
+<span id="cb42-475"><a href="#cb42-475" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Always be vigilant for strict syntax rules (double quotes, no trailing commas) and handle **`null`** values.</span>
+<span id="cb42-476"><a href="#cb42-476" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-477"><a href="#cb42-477" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-478"><a href="#cb42-478" aria-hidden="true" tabindex="-1"></a><span class="fu">## Final Review: Structure</span></span>
+<span id="cb42-479"><a href="#cb42-479" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-480"><a href="#cb42-480" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-481"><a href="#cb42-481" aria-hidden="true" tabindex="-1"></a>:::: {.columns}</span>
+<span id="cb42-482"><a href="#cb42-482" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-483"><a href="#cb42-483" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb42-484"><a href="#cb42-484" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-485"><a href="#cb42-485" aria-hidden="true" tabindex="-1"></a><span class="in">```json</span></span>
+<span id="cb42-486"><a href="#cb42-486" aria-hidden="true" tabindex="-1"></a><span class="ot">[</span></span>
+<span id="cb42-487"><a href="#cb42-487" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span></span>
+<span id="cb42-488"><a href="#cb42-488" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"planet"</span><span class="fu">:</span> <span class="st">"Acheron"</span><span class="fu">,</span> </span>
+<span id="cb42-489"><a href="#cb42-489" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"designation"</span><span class="fu">:</span> <span class="st">"LV-426"</span><span class="fu">,</span></span>
+<span id="cb42-490"><a href="#cb42-490" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"data"</span><span class="fu">:</span> <span class="ot">[</span>                  </span>
+<span id="cb42-491"><a href="#cb42-491" aria-hidden="true" tabindex="-1"></a>      <span class="fu">{</span></span>
+<span id="cb42-492"><a href="#cb42-492" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"film"</span><span class="fu">:</span> <span class="st">"Alien"</span><span class="fu">,</span></span>
+<span id="cb42-493"><a href="#cb42-493" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"population"</span><span class="fu">:</span> <span class="dv">0</span><span class="fu">,</span></span>
+<span id="cb42-494"><a href="#cb42-494" aria-hidden="true" tabindex="-1"></a>      <span class="fu">}</span><span class="ot">,</span>                       </span>
+<span id="cb42-495"><a href="#cb42-495" aria-hidden="true" tabindex="-1"></a>      <span class="fu">{</span></span>
+<span id="cb42-496"><a href="#cb42-496" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"film"</span><span class="fu">:</span> <span class="st">"Aliens"</span><span class="fu">,</span></span>
+<span id="cb42-497"><a href="#cb42-497" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"population"</span><span class="fu">:</span> <span class="dv">158</span><span class="fu">,</span></span>
+<span id="cb42-498"><a href="#cb42-498" aria-hidden="true" tabindex="-1"></a>      <span class="fu">}</span></span>
+<span id="cb42-499"><a href="#cb42-499" aria-hidden="true" tabindex="-1"></a>    <span class="ot">]</span></span>
+<span id="cb42-500"><a href="#cb42-500" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb42-501"><a href="#cb42-501" aria-hidden="true" tabindex="-1"></a>  <span class="er">...</span></span>
+<span id="cb42-502"><a href="#cb42-502" aria-hidden="true" tabindex="-1"></a><span class="ot">]</span></span>
+<span id="cb42-503"><a href="#cb42-503" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb42-504"><a href="#cb42-504" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-505"><a href="#cb42-505" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb42-506"><a href="#cb42-506" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-507"><a href="#cb42-507" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb42-508"><a href="#cb42-508" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-509"><a href="#cb42-509" aria-hidden="true" tabindex="-1"></a><span class="in">```email</span></span>
+<span id="cb42-510"><a href="#cb42-510" aria-hidden="true" tabindex="-1"></a>begin array</span>
+<span id="cb42-511"><a href="#cb42-511" aria-hidden="true" tabindex="-1"></a>  begin object</span>
+<span id="cb42-512"><a href="#cb42-512" aria-hidden="true" tabindex="-1"></a>    key: value, </span>
+<span id="cb42-513"><a href="#cb42-513" aria-hidden="true" tabindex="-1"></a>    key: value, </span>
+<span id="cb42-514"><a href="#cb42-514" aria-hidden="true" tabindex="-1"></a>    key: begin array                </span>
+<span id="cb42-515"><a href="#cb42-515" aria-hidden="true" tabindex="-1"></a>      begin object</span>
+<span id="cb42-516"><a href="#cb42-516" aria-hidden="true" tabindex="-1"></a>        key: value, </span>
+<span id="cb42-517"><a href="#cb42-517" aria-hidden="true" tabindex="-1"></a>        key: value, </span>
+<span id="cb42-518"><a href="#cb42-518" aria-hidden="true" tabindex="-1"></a>      end object,                       </span>
+<span id="cb42-519"><a href="#cb42-519" aria-hidden="true" tabindex="-1"></a>      begin object</span>
+<span id="cb42-520"><a href="#cb42-520" aria-hidden="true" tabindex="-1"></a>        key: value, </span>
+<span id="cb42-521"><a href="#cb42-521" aria-hidden="true" tabindex="-1"></a>        key: value, </span>
+<span id="cb42-522"><a href="#cb42-522" aria-hidden="true" tabindex="-1"></a>      end object</span>
+<span id="cb42-523"><a href="#cb42-523" aria-hidden="true" tabindex="-1"></a>    end array</span>
+<span id="cb42-524"><a href="#cb42-524" aria-hidden="true" tabindex="-1"></a>  end object,</span>
+<span id="cb42-525"><a href="#cb42-525" aria-hidden="true" tabindex="-1"></a>  ...</span>
+<span id="cb42-526"><a href="#cb42-526" aria-hidden="true" tabindex="-1"></a>end array</span>
+<span id="cb42-527"><a href="#cb42-527" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb42-528"><a href="#cb42-528" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-529"><a href="#cb42-529" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-530"><a href="#cb42-530" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb42-531"><a href="#cb42-531" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-532"><a href="#cb42-532" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb42-533"><a href="#cb42-533" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-534"><a href="#cb42-534" aria-hidden="true" tabindex="-1"></a><span class="fu">## Final Review: Py vs. Js</span></span>
+<span id="cb42-535"><a href="#cb42-535" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-538"><a href="#cb42-538" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb42-539"><a href="#cb42-539" aria-hidden="true" tabindex="-1"></a><span class="co">#| output-location: column</span></span>
+<span id="cb42-540"><a href="#cb42-540" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> [</span>
+<span id="cb42-541"><a href="#cb42-541" aria-hidden="true" tabindex="-1"></a>  {</span>
+<span id="cb42-542"><a href="#cb42-542" aria-hidden="true" tabindex="-1"></a>    <span class="st">'quotes'</span>: <span class="st">'double'</span>, </span>
+<span id="cb42-543"><a href="#cb42-543" aria-hidden="true" tabindex="-1"></a>    <span class="st">"boolean_capitalization"</span>: <span class="va">False</span>,</span>
+<span id="cb42-544"><a href="#cb42-544" aria-hidden="true" tabindex="-1"></a>    <span class="st">"terminating_commas"</span>: <span class="va">None</span>,</span>
+<span id="cb42-545"><a href="#cb42-545" aria-hidden="true" tabindex="-1"></a>  },</span>
+<span id="cb42-546"><a href="#cb42-546" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb42-547"><a href="#cb42-547" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(json.dumps(x, indent<span class="op">=</span><span class="dv">4</span>))</span>
+<span id="cb42-548"><a href="#cb42-548" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

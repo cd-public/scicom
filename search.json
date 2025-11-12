@@ -17085,5 +17085,22 @@
     "crumbs": [
       "Appendix - GitHub Pages"
     ]
+  },
+  {
+    "objectID": "0F_json.html#final-review-py-vs.-js",
+    "href": "0F_json.html#final-review-py-vs.-js",
+    "title": "JSON",
+    "section": "Final Review: Py vs. Js",
+    "text": "Final Review: Py vs. Js\n\nx = [\n  {\n    'quotes': 'double', \n    \"boolean_capitalization\": False,\n    \"terminating_commas\": None,\n  },\n]\nprint(json.dumps(x, indent=4))\n\n[\n    {\n        \"quotes\": \"double\",\n        \"boolean_capitalization\": false,\n        \"terminating_commas\": null\n    }\n]",
+    "crumbs": [
+      "JSON"
+    ]
+  },
+  {
+    "objectID": "0F_json.rjs.html#final-review-py-vs.-js",
+    "href": "0F_json.rjs.html#final-review-py-vs.-js",
+    "title": "JSON",
+    "section": "Final Review: Py vs. Js",
+    "text": "Final Review: Py vs. Js\n\n\nx = [\n  {\n    'quotes': 'double', \n    \"boolean_capitalization\": False,\n    \"terminating_commas\": None,\n  },\n]\nprint(json.dumps(x, indent=4))\n\n\n[\n    {\n        \"quotes\": \"double\",\n        \"boolean_capitalization\": false,\n        \"terminating_commas\": null\n    }\n]"
   }
 ]

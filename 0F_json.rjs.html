@@ -526,7 +526,7 @@ Prof.&nbsp;Calvin
 <ul>
 <li>Within Python</li>
 </ul>
-<div id="6a8d3a0b" class="cell" data-execution_count="2">
+<div id="6f9b6fbc" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
 <span id="cb5-2"><a aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a aria-hidden="true" tabindex="-1"></a>FILE_NAME <span class="op">=</span> <span class="st">"helium.json"</span></span>
@@ -545,10 +545,10 @@ Prof.&nbsp;Calvin
 <li>Values are retrieved using the key inside square brackets (<code>[]</code>).</li>
 <li>This is the standard way to access data fields parsed from a JSON object.</li>
 </ul>
-<div id="0b9336bf" class="cell" data-execution_count="3">
+<div id="08b10966" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># We previously read in `he`</span></span>
 <span id="cb6-2"><a aria-hidden="true" tabindex="-1"></a>he[<span class="st">"symbol"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="50">
+<div class="cell-output cell-output-display" data-execution_count="87">
 <pre><code>'He'</code></pre>
 </div>
 </div>
@@ -562,10 +562,10 @@ Prof.&nbsp;Calvin
 <li>I would see (scroll to end to see <code>number</code>):</li>
 </ul></li>
 </ul>
-<div id="4d4d3bf1" class="cell" data-execution_count="4">
+<div id="f9a944df" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a aria-hidden="true" tabindex="-1"></a>he[<span class="st">"number"</span>] <span class="op">=</span> <span class="dv">2</span></span>
 <span id="cb8-2"><a aria-hidden="true" tabindex="-1"></a>he</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="51">
+<div class="cell-output cell-output-display" data-execution_count="88">
 <pre><code>{'symbol': 'He',
  'phase_stp': 'gas',
  'group': 18,
@@ -581,7 +581,7 @@ Prof.&nbsp;Calvin
 <li>Accessing a missing key with <code>[]</code> causes a <strong>KeyError</strong> and crashes.</li>
 <li>Simply use <code>.get</code>.</li>
 </ul>
-<div id="79c1422c" class="cell" data-execution_count="5">
+<div id="41b0ba3f" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
 <span id="cb10-2"><a aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(he[<span class="st">"density"</span>])</span>
 <span id="cb10-3"><a aria-hidden="true" tabindex="-1"></a><span class="cf">except</span>:</span>
@@ -599,7 +599,7 @@ None</code></pre>
 <li>By default, iterating over a dictionary iterates over its <strong>keys</strong>.</li>
 <li>This is useful for inspection or processing.</li>
 </ul>
-<div id="737bd4ad" class="cell" data-execution_count="6">
+<div id="e4cf5a84" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> key <span class="kw">in</span> he:</span>
 <span id="cb12-2"><a aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(key)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -617,7 +617,7 @@ number</code></pre>
 <ul>
 <li>Use the <strong><code>.values()</code></strong> method to iterate only through the values in the dictionary.</li>
 </ul>
-<div id="c8c54fe5" class="cell" data-execution_count="7">
+<div id="55ff4f59" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> value <span class="kw">in</span> he.values():</span>
 <span id="cb14-2"><a aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(value)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -635,7 +635,7 @@ gas
 <ul>
 <li>The <strong><code>.items()</code></strong> method returns a tuple of <code>(key, value)</code> for each pair, which you can unpack in the loop.</li>
 </ul>
-<div id="893be708" class="cell" data-execution_count="8">
+<div id="8ea8966d" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> key, value <span class="kw">in</span> he.items():</span>
 <span id="cb16-2"><a aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(key, <span class="st">":"</span>, value) <span class="co"># Take note of that : I use as a nicety</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -653,9 +653,9 @@ number : 2</code></pre>
 <ul>
 <li>Since a value can be any type, a value can be <em>another</em> dictionary (or a list of dictionaries).</li>
 </ul>
-<div id="bf091460" class="cell" data-execution_count="9">
+<div id="670b2774" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a aria-hidden="true" tabindex="-1"></a>he[<span class="st">"boiling_point"</span>][<span class="st">"K"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="56">
+<div class="cell-output cell-output-display" data-execution_count="93">
 <pre><code>4.222</code></pre>
 </div>
 </div>
@@ -697,7 +697,7 @@ number : 2</code></pre>
 <ul>
 <li>We can easily read JSON from urls with <code>requests</code></li>
 </ul>
-<div id="e8aced45" class="cell" data-execution_count="10">
+<div id="93cf6afc" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
 <span id="cb20-2"><a aria-hidden="true" tabindex="-1"></a>URL <span class="op">=</span> <span class="st">"https://cd-public.github.io/scicom/helium.json"</span></span>
 <span id="cb20-3"><a aria-hidden="true" tabindex="-1"></a></span>
@@ -707,7 +707,7 @@ number : 2</code></pre>
 <span id="cb20-7"><a aria-hidden="true" tabindex="-1"></a>he <span class="op">=</span> response.json() </span>
 <span id="cb20-8"><a aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-9"><a aria-hidden="true" tabindex="-1"></a>he <span class="co"># Note that "number" is gone - we have the original file again.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="57">
+<div class="cell-output cell-output-display" data-execution_count="94">
 <pre><code>{'symbol': 'He',
  'phase_stp': 'gas',
  'group': 18,
@@ -722,7 +722,7 @@ number : 2</code></pre>
 <li>Loosely adapted from <a href="https://sciencecomputing.org/files/the-json-format/">“The JSON format”</a></li>
 <li>It uses this data:</li>
 </ul>
-<div id="f9cc2e80" class="cell" data-execution_count="11">
+<div id="fca584f7" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a aria-hidden="true" tabindex="-1"></a>URL <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/vaccinations/vaccinations.json"</span></span>
 <span id="cb22-2"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Can do it in one line by the way.</span></span>
 <span id="cb22-3"><a aria-hidden="true" tabindex="-1"></a>vax <span class="op">=</span> requests.get(URL).json()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -748,7 +748,7 @@ number : 2</code></pre>
 </section>
 <section id="traverse" class="slide level2">
 <h2>Traverse</h2>
-<div id="a5ee72b2" class="cell" data-execution_count="12">
+<div id="5fabde54" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a aria-hidden="true" tabindex="-1"></a>loc <span class="op">=</span> vax <span class="co"># for location</span></span>
 <span id="cb23-2"><a aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-3"><a aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="bu">type</span>(loc) <span class="op">==</span> <span class="bu">type</span>({}) <span class="kw">or</span> <span class="bu">type</span>(loc) <span class="op">==</span> <span class="bu">type</span>([]):</span>
@@ -804,9 +804,9 @@ Afghanistan</code></pre>
 <ul>
 <li>An object of a single date in a single country:</li>
 </ul>
-<div id="b37d2022" class="cell" data-execution_count="13">
+<div id="f2a85fab" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a aria-hidden="true" tabindex="-1"></a>vax[<span class="dv">0</span>][<span class="st">"data"</span>][<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="60">
+<div class="cell-output cell-output-display" data-execution_count="97">
 <pre><code>{'date': '2021-02-22',
  'total_vaccinations': 0,
  'people_vaccinated': 0,
@@ -829,9 +829,9 @@ Afghanistan</code></pre>
 <ul>
 <li>This array holds the time-series data for one country:</li>
 </ul>
-<div id="1beb284a" class="cell" data-execution_count="14">
+<div id="824c7b49" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a aria-hidden="true" tabindex="-1"></a>vax[<span class="dv">0</span>][<span class="st">"data"</span>][<span class="dv">0</span>:<span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="61">
+<div class="cell-output cell-output-display" data-execution_count="98">
 <pre><code>[{'date': '2021-02-22',
   'total_vaccinations': 0,
   'people_vaccinated': 0,
@@ -936,7 +936,7 @@ Afghanistan</code></pre>
 <li>When parsed in Python, <code>null</code> becomes <strong><code>None</code></strong>.</li>
 <li>Always check for <code>None</code> before trying to perform arithmetic or string operations.</li>
 </ul>
-<div id="980d4098" class="cell" data-execution_count="15">
+<div id="99015f24" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Example: "daily_vaccinations" might be null</span></span>
 <span id="cb32-2"><a aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-3"><a aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> <span class="dv">0</span></span>
@@ -956,7 +956,7 @@ Afghanistan</code></pre>
 <li>Use <code>json.dump()</code> to write a Python object (dict or list) to a file.</li>
 <li>Use <code>json.dumps()</code> to convert it to a JSON formatted string.</li>
 </ul>
-<div id="bfcc2afb" class="cell" data-execution_count="16">
+<div id="bd80ba96" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># A dictionary containing processed data</span></span>
 <span id="cb34-2"><a aria-hidden="true" tabindex="-1"></a>summary <span class="op">=</span> {</span>
 <span id="cb34-3"><a aria-hidden="true" tabindex="-1"></a>    <span class="st">"report_country"</span>: vax[<span class="dv">0</span>][<span class="st">"country"</span>],</span>
@@ -964,7 +964,7 @@ Afghanistan</code></pre>
 <span id="cb34-5"><a aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb34-6"><a aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb34-7"><a aria-hidden="true" tabindex="-1"></a>json.dumps(summary)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="63">
+<div class="cell-output cell-output-display" data-execution_count="100">
 <pre><code>'{"report_country": "Afghanistan", "latest_total_vax": 22964750}'</code></pre>
 </div>
 </div>
@@ -974,7 +974,7 @@ Afghanistan</code></pre>
 <ul>
 <li>The <code>indent</code> argument makes the JSON human-readable for debugging or configuration files.</li>
 </ul>
-<div id="5e767c54" class="cell" data-execution_count="17">
+<div id="23e28886" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(json.dumps(summary, indent<span class="op">=</span><span class="dv">4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>{
@@ -991,14 +991,6 @@ Afghanistan</code></pre>
 <li>The vaccination counts are large, so they are often represented as integers: <code>"population": 331002651</code>.</li>
 <li>Rates and percentages would be floats: <code>"daily_vaccinations_per_hundred": 0.52</code>.</li>
 <li>Your programming language (Python) will handle this distinction automatically upon parsing.</li>
-</ul>
-</section>
-<section id="quarto-embedding-data" class="slide level2">
-<h2>Quarto: Embedding Data</h2>
-<ul>
-<li>Quarto can embed data directly into a document for creating figures.</li>
-<li>This data is often supplied as a JSON object, either generated from a data frame or loaded from a file.</li>
-<li>This allows for powerful visualizations driven by structured data.</li>
 </ul>
 </section>
 <section id="summary-key-takeaways" class="slide level2">
@@ -1049,6 +1041,30 @@ Afghanistan</code></pre>
 <span id="cb39-15"><a aria-hidden="true" tabindex="-1"></a>  end object,</span>
 <span id="cb39-16"><a aria-hidden="true" tabindex="-1"></a>  ...</span>
 <span id="cb39-17"><a aria-hidden="true" tabindex="-1"></a>end array</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
+</section>
+<section id="final-review-py-vs.-js" class="slide level2">
+<h2>Final Review: Py vs.&nbsp;Js</h2>
+<div id="86009bcf" class="cell columns column-output-location" data-execution_count="18">
+<div class="column">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> [</span>
+<span id="cb40-2"><a aria-hidden="true" tabindex="-1"></a>  {</span>
+<span id="cb40-3"><a aria-hidden="true" tabindex="-1"></a>    <span class="st">'quotes'</span>: <span class="st">'double'</span>, </span>
+<span id="cb40-4"><a aria-hidden="true" tabindex="-1"></a>    <span class="st">"boolean_capitalization"</span>: <span class="va">False</span>,</span>
+<span id="cb40-5"><a aria-hidden="true" tabindex="-1"></a>    <span class="st">"terminating_commas"</span>: <span class="va">None</span>,</span>
+<span id="cb40-6"><a aria-hidden="true" tabindex="-1"></a>  },</span>
+<span id="cb40-7"><a aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb40-8"><a aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(json.dumps(x, indent<span class="op">=</span><span class="dv">4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output cell-output-stdout">
+<pre><code>[
+    {
+        "quotes": "double",
+        "boolean_capitalization": false,
+        "terminating_commas": null
+    }
+]</code></pre>
+</div>
 </div></div>
 
 
