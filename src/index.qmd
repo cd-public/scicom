@@ -81,7 +81,10 @@ Graded on [AP Scale](https://apcentral.collegeboard.org/media/pdf/ap-english-lan
     - Write Quarto (.qmd) file and save it on GitHub
         - Name it `index.qmd` for ease of use.
     - Use `quarto render` to create an `index.html` file.
-    - Use the provided `.github/workflows/static.yml` to publish your `index.html` as a webpage.
+    - Host on GitHub pages, two options:
+        - Follow the guide in the "GitHub pages appendix"
+        - You may use a GtiHub-provided `.github/workflows/static.yml` to publish your `index.html` as a webpage.
+            - If you don't know what this means, and your webpage shows up, then you did the right thing - don't worry!
 4. Include Matplotlib graphics illustrating your solution.
 5. Include LaTeX equations generated with SymPy in your solution.
     - You do not need to write $\LaTeX$ yourself, SymPy in Quarto is sufficient.

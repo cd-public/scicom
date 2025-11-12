@@ -540,7 +540,14 @@ window.Quarto = {
 <li>Name it <code>index.qmd</code> for ease of use.</li>
 </ul></li>
 <li>Use <code>quarto render</code> to create an <code>index.html</code> file.</li>
-<li>Use the provided <code>.github/workflows/static.yml</code> to publish your <code>index.html</code> as a webpage.</li>
+<li>Host on GitHub pages, two options:
+<ul>
+<li>Follow the guide in the “GitHub pages appendix”</li>
+<li>You may use a GtiHub-provided <code>.github/workflows/static.yml</code> to publish your <code>index.html</code> as a webpage.
+<ul>
+<li>If you don’t know what this means, and your webpage shows up, then you did the right thing - don’t worry!</li>
+</ul></li>
+</ul></li>
 </ul></li>
 <li>Include Matplotlib graphics illustrating your solution.</li>
 <li>Include LaTeX equations generated with SymPy in your solution.
@@ -1122,20 +1129,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-81"><a href="#cb1-81"></a><span class="ss">    - </span>Write Quarto (.qmd) file and save it on GitHub</span>
 <span id="cb1-82"><a href="#cb1-82"></a><span class="ss">        - </span>Name it <span class="in">`index.qmd`</span> for ease of use.</span>
 <span id="cb1-83"><a href="#cb1-83"></a><span class="ss">    - </span>Use <span class="in">`quarto render`</span> to create an <span class="in">`index.html`</span> file.</span>
-<span id="cb1-84"><a href="#cb1-84"></a><span class="ss">    - </span>Use the provided <span class="in">`.github/workflows/static.yml`</span> to publish your <span class="in">`index.html`</span> as a webpage.</span>
-<span id="cb1-85"><a href="#cb1-85"></a><span class="ss">4. </span>Include Matplotlib graphics illustrating your solution.</span>
-<span id="cb1-86"><a href="#cb1-86"></a><span class="ss">5. </span>Include LaTeX equations generated with SymPy in your solution.</span>
-<span id="cb1-87"><a href="#cb1-87"></a><span class="ss">    - </span>You do not need to write $\LaTeX$ yourself, SymPy in Quarto is sufficient.</span>
-<span id="cb1-88"><a href="#cb1-88"></a><span class="ss">6. </span>Your Quarto webpage must be:</span>
-<span id="cb1-89"><a href="#cb1-89"></a><span class="ss">    - </span>2500+ words (~5+ pages, assessed via <span class="in">`wc`</span> over the <span class="in">`.qmd`</span>) with:</span>
-<span id="cb1-90"><a href="#cb1-90"></a><span class="ss">        - </span>At least one equation using <span class="in">`sympy`</span>, </span>
-<span id="cb1-91"><a href="#cb1-91"></a><span class="ss">        - </span>At least one tables using <span class="in">`pandas`</span>, and</span>
-<span id="cb1-92"><a href="#cb1-92"></a><span class="ss">        - </span>At least one graph using <span class="in">`matplotlib`</span>.</span>
-<span id="cb1-93"><a href="#cb1-93"></a><span class="ss">    - </span>Late submissions and submissions not meeting minimum requirements will not be accepted.</span>
-<span id="cb1-94"><a href="#cb1-94"></a>    </span>
-<span id="cb1-95"><a href="#cb1-95"></a>Graded on <span class="co">[</span><span class="ot">AP Scale</span><span class="co">](https://apcentral.collegeboard.org/media/pdf/ap-english-language-and-composition-frqs-1-2-3-scoring-rubrics.pdf)</span> as an argument essay in support (or against) scientific computing.</span>
-<span id="cb1-96"><a href="#cb1-96"></a></span>
-<span id="cb1-97"><a href="#cb1-97"></a>**If you cannot think of 2500+ words to say at AP-or-better quality, pick a harder problem or design a more complete solution.**</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb1-84"><a href="#cb1-84"></a><span class="ss">    - </span>Host on GitHub pages, two options:</span>
+<span id="cb1-85"><a href="#cb1-85"></a><span class="ss">        - </span>Follow the guide in the "GitHub pages appendix"</span>
+<span id="cb1-86"><a href="#cb1-86"></a><span class="ss">        - </span>You may use a GtiHub-provided <span class="in">`.github/workflows/static.yml`</span> to publish your <span class="in">`index.html`</span> as a webpage.</span>
+<span id="cb1-87"><a href="#cb1-87"></a><span class="ss">            - </span>If you don't know what this means, and your webpage shows up, then you did the right thing - don't worry!</span>
+<span id="cb1-88"><a href="#cb1-88"></a><span class="ss">4. </span>Include Matplotlib graphics illustrating your solution.</span>
+<span id="cb1-89"><a href="#cb1-89"></a><span class="ss">5. </span>Include LaTeX equations generated with SymPy in your solution.</span>
+<span id="cb1-90"><a href="#cb1-90"></a><span class="ss">    - </span>You do not need to write $\LaTeX$ yourself, SymPy in Quarto is sufficient.</span>
+<span id="cb1-91"><a href="#cb1-91"></a><span class="ss">6. </span>Your Quarto webpage must be:</span>
+<span id="cb1-92"><a href="#cb1-92"></a><span class="ss">    - </span>2500+ words (~5+ pages, assessed via <span class="in">`wc`</span> over the <span class="in">`.qmd`</span>) with:</span>
+<span id="cb1-93"><a href="#cb1-93"></a><span class="ss">        - </span>At least one equation using <span class="in">`sympy`</span>, </span>
+<span id="cb1-94"><a href="#cb1-94"></a><span class="ss">        - </span>At least one tables using <span class="in">`pandas`</span>, and</span>
+<span id="cb1-95"><a href="#cb1-95"></a><span class="ss">        - </span>At least one graph using <span class="in">`matplotlib`</span>.</span>
+<span id="cb1-96"><a href="#cb1-96"></a><span class="ss">    - </span>Late submissions and submissions not meeting minimum requirements will not be accepted.</span>
+<span id="cb1-97"><a href="#cb1-97"></a>    </span>
+<span id="cb1-98"><a href="#cb1-98"></a>Graded on <span class="co">[</span><span class="ot">AP Scale</span><span class="co">](https://apcentral.collegeboard.org/media/pdf/ap-english-language-and-composition-frqs-1-2-3-scoring-rubrics.pdf)</span> as an argument essay in support (or against) scientific computing.</span>
+<span id="cb1-99"><a href="#cb1-99"></a></span>
+<span id="cb1-100"><a href="#cb1-100"></a>**If you cannot think of 2500+ words to say at AP-or-better quality, pick a harder problem or design a more complete solution.**</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
