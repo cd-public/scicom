@@ -218,51 +218,85 @@ he["boiling_point"]["K"]
     - JSON is a de facto internet format.
     - (You can open them in browsers!)
     - [helium.json](helium.json)
+
+## Requests
+
+- We can easily read JSON from urls with `requests`
     
-## Read from URL
-
-- We follow [this solution](https://stackoverflow.com/a/12965254)
-    - Import the `json` and `urllib.request` modules to Python.
-    - Use `urllib.request.urlopen` to open a url as if it is a file.
-    - Use `json.loads` to read the url as if it is a file.
 ```{python}
-URL = ""
-```
+import requests
+URL = "https://cd-public.github.io/scicom/helium.json"
 
+response = requests.get(URL)
 
-```py
-import urllib.request, json 
+# vax_data is now a Python list of dictionaries
+he = response.json() 
 
-file = urllib.request.urlopen(URL):
-he = json.loads(file.read().decode())
 he # Note that "number" is gone - we have the original file again.
 ```
 
-
-## Citation
+## Our data
 
 - Loosely adapted from ["The JSON format"](https://sciencecomputing.org/files/the-json-format/)
 - It uses this data:
+
 ```{python}
 URL = "https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/vaccinations/vaccinations.json"
+# Can do it in one line by the way.
+vax = requests.get(URL).json()
 ```
 
+## It's big!
+
+- Don't try to print that whole thing; it's huge.
+    - 2031952 lines.
+- We will *traverse* it.
+    - Check the type.
+        - If dictionary, look at an arbitrary key.
+        - If list, look at index zero.
+    - We'll repeat this until we get something that isn't a dictionary or list.
+    
+## Traverse
+
+```{python}
+loc = vax # for location
+
+while type(loc) == type({}) or type(loc) == type([]):
+        if type(loc) == type({}):
+            keys = list(loc.keys())
+            print(keys[0])
+            loc = loc[keys[0]]
+        if type(loc) == type([]):
+            print(0)
+            loc = loc[0]
+print(loc)
+```
+
+## What this means?
+
+- We have a list of somethings.
+- Those somethings are dictionaries of which one has the key "country"
+- The values in that dictionary are strings, of which one is "Afghanistan"
+- Are we correct?
+    - Check the url: [Link!](https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/vaccinations/vaccinations.json)
+
+## Okay, so
+
+- List of 
+    - Dictionaries, representing countries, of
+        - `"country"`: name and `"iso_code"`: whatever that is
+        - `"data"`, a list of
+            - dictionaries, representing dates, of
+                - `"date"`: a date as a string, like `"2021-02-22"`
+                - some other stuff on vaccination.
 
 ## Object Example: Daily Data
 
-- An object describing a single point in the time series:
+- An object of a single date in a single country:
 
-```json
-{
-  "date": "2022-01-01",
-  "total_vaccinations": 435000000,
-  "people_fully_vaccinated": 210000000
-}
+```{python}
+vax[0]["data"][0]
 ```
-
-- Keys are `"date"`, `"total_vaccinations"`, and `"people_fully_vaccinated"`.
-
-
 
 ## JSON Array Syntax
 
@@ -271,171 +305,84 @@ URL = "https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/v
 - Values are separated by commas (`,`).
 - Values can be of any valid JSON data type.
 
-
-
 ## Array Example: Time Series
 
 - This array holds the time-series data for one country:
 
-    ```json
-    "data": [
-      { "date": "2022-01-01", "total_vaccinations": 435000000 },
-      { "date": "2022-01-02", "total_vaccinations": 435500000 }
-    ]
-    ```
+```{python}
+vax[0]["data"][0:3]
+```
 
-- The array contains two JSON **objects**.
+- The array contains JSON **objects**.
 
 
 
-## Valid JSON Data Types
+## Valid JSON Data Types{.smaller}
 
-- A value in a key/value pair or an array can be:
-    1.  **String**: Text, double-quoted. E.g., `"United States"`.
-    2.  **Number**: Integer or float. E.g., `331002651` or `3.14`.
-    3.  **Boolean**: Either `true` or `false`.
-    4.  **Null**: Indicates a missing value. E.g., `null`.
-    5.  **Object**: Nested structure `{...}`.
-    6.  **Array**: Nested structure `[...]`.
-
+1.  **String**: text, double-quoted. E.g., `"Olive Drab"`.
+    - Can't be single quote as in Python
+2.  **Number**: integer or float. E.g., `7` or `3.14`.
+3.  **Boolean**: `true` or `false`.
+    - Lowercase, unlike Python `True` and `False`
+4.  **null**: missing value
+    - Like Python `None`
+5.  **Object**: a dictionary `{}`
+6.  **Array**: a list `[]`
 
 
 ## Data Structure: Top Level
 
 - The entire `vax` file is one single JSON **array**.
 - Each element in this top-level array is a JSON **object**, representing a single country/region.
+    - This is fake, to fit on screen.
 
-    ```json
-    [
-      { "country": "USA", "data": [...] }, 
-      { "country": "India", "data": [...] },
-      ...
-    ]
-    ```
-
-
+```json
+[
+  { "country": "Narnia", "data": [...] }, 
+  { "country": "Wakanda", "data": [...] },
+  ...
+]
+```
 
 ## Data Structure: Nested Data
 
 - Inside each country object, there is a key called `"data"`.
 - The value of `"data"` is an **array** of daily vaccination records.
+    - This is fake, to fit on screen.
 
-    ```json
-    {
-      "country": "United States",
-      "iso_code": "USA",
-      "data": [
-        { "date": "...", "total_vaccinations": ... },
-        ... 
-      ]
-    }
-    ```
+```json
+{
+  "country": "Guilder",
+  "iso_code": "GG",
+  "data": [
+    { "date": "...", "total_vaccinations": ... },
+    ... 
+  ]
+}
+```
 
 
 
 ## Syntax Rule: Double Quotes
 
 - JSON is **very strict** about syntax. Keys and string values **must** use double quotes (`"`).
-- **Invalid JSON:** `{ 'country': 'USA' }` (Uses single quotes).
-- **Valid JSON:** `{ "country": "USA" }`
+- **Invalid JSON:** `{ 'country': 'Elysium' }` (Uses single quotes).
+- **Valid JSON:** `{ "country": "Cascadia" }`
 - Numbers, booleans, and `null` are NOT quoted.
-
 
 
 ## Syntax Rule: No Trailing Commas
 
 - The last key/value pair in an object, or the last item in an array, **must not** be followed by a comma.
-- **Invalid JSON:** ```json
-    [
-      "item1",
-      "item2", 
-    ]
-    ```
+    - This is fake, to fit on screen.
+- **Invalid JSON:** 
 
-
-
-## Parsing JSON in Python
-
-- When we download the data from the URL (`vax`), we get a JSON string.
-- **Parsing** converts this string into native Python data structures (lists and dictionaries).
-- The `json` library is built-in. If using `requests`, it handles the parsing automatically.
-
-
-
-## Reading Data with Requests
-
-- We fetch the content and use the `.json()` method to parse it.
-
-    ```{.py}
-    import requests
-    # vax = "..." # The OWID URL
-
-    response = requests.get(vax)
-
-    # vax_data is now a Python list of dictionaries
-    vax_data = response.json() 
-
-    print(type(vax_data)) 
-    # <class 'list'>
-    ```
-
-
-
-## Accessing Top Level Data
-
-- The parsed data is a list. We access countries by list index.
-
-    ```{.py}
-    # Get the dictionary for the first country
-    first_country_obj = vax_data[0] 
-    
-    # Access key/value pairs using dictionary syntax
-    country_name = first_country_obj["country"]
-    iso_code = first_country_obj["iso_code"]
-
-    print(f"First country: {country_name} ({iso_code})")
-    ```
-
-
-
-## Accessing Nested Data
-
-- We chain dictionary lookups and list indexing to drill down.
-
-    ```{.py}
-    # 1. Get the list of daily records from the country object
-    daily_data_list = vax_data[0]["data"]
-    
-    # 2. Get the first record (an object/dict) from the list
-    first_day_record = daily_data_list[0]
-    
-    # 3. Get a value from the daily record
-    first_date = first_day_record["date"]
-
-    print(f"First record date: {first_date}")
-    ```
-
-
-
-## Iterating and Extracting
-
-- To get summary stats, we loop over the top-level array.
-
-    ```{.py}
-    for country_dict in vax_data:
-        name = country_dict["country"]
-        records = country_dict["data"]
-        
-        # Check if the list of daily records is not empty
-        if records:
-            # The last record in the list is usually the most recent data
-            latest_record = records[-1] 
-            latest_vax = latest_record.get("total_vaccinations")
-            
-            # print(f"{name}: {latest_vax}")
-    ```
-
-
+```json
+[
+  "item1",
+  "item2", 
+]
+```
 
 ## Handling Missing (null) Values
 
@@ -443,17 +390,16 @@ URL = "https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/v
 - When parsed in Python, `null` becomes **`None`**.
 - Always check for `None` before trying to perform arithmetic or string operations.
 
-    ```{.py}
-    # Example: 'people_fully_vaccinated' might be null
-    fully_vax = latest_record.get("people_fully_vaccinated")
+```{python}
+# Example: "daily_vaccinations" might be null
 
-    if fully_vax is None:
-        print("Fully vaccinated data is missing for this country.")
-    else:
-        # We can safely use the number
-        print(f"Fully vaccinated: {fully_vax}")
-    ```
+i = 0
 
+while vax[0]["data"][i].get("daily_vaccinations") is None:
+    i += 1
+    
+print(i, vax[0]["data"][i].get("daily_vaccinations"))
+```
 
 
 ## Writing JSON in Python
@@ -461,18 +407,16 @@ URL = "https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/v
 - Use `json.dump()` to write a Python object (dict or list) to a file.
 - Use `json.dumps()` to convert it to a JSON formatted string.
 
-    ```{.py}
-    import json
-    
-    # A dictionary containing processed data
-    summary = {
-        "report_country": "USA",
-        "latest_total_vax": vax_data[0]["data"][-1]["total_vaccinations"]
-    }
+```{python}
 
-    with open("vax_summary.json", "w") as f:
-        json.dump(summary, f)
-    ```
+# A dictionary containing processed data
+summary = {
+    "report_country": vax[0]["country"],
+    "latest_total_vax": vax[0]["data"][-1]["total_vaccinations"]
+}
+
+json.dumps(summary)
+```
 
 
 
@@ -480,73 +424,9 @@ URL = "https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/v
 
 - The `indent` argument makes the JSON human-readable for debugging or configuration files.
 
-    ```{.py}
-    with open("vax_summary_pretty.json", "w") as f:
-        # Indent by 4 spaces
-        json.dump(summary, f, indent=4)
-    ```
-
-- Output:
-    ```json
-    {
-        "report_country": "USA",
-        "latest_total_vax": 435500000 
-    }
-    ```
-
-## JSON vs. YAML (Quarto)
-
-- **YAML** (YAML Ain't Markup Language) uses indentation for structure.
-- Quarto uses **YAML** for its document metadata (the header block, e.g., title, format).
-- JSON is technically a subset of YAML, but YAML is often favored for human-written configuration because it omits quotes and braces.
-- JSON is preferred for machine-to-machine data transfer.
-
-
-## JSON for Configuration
-
-- JSON files are excellent for storing **configuration parameters** for a scientific pipeline.
-- Example: A JSON file defining countries to include/exclude and the start date for a report.
-
-    ```json
-    {
-      "start_date": "2021-01-01",
-      "countries_of_interest": ["USA", "GBR", "CAN"],
-      "output_format": "html"
-    }
-    ```
-
-
-
-## Reading JSON Config
-
-- Loading the configuration in Python is straightforward using the `json` library's `load()` function.
-
-    ```{.py}
-    import json
-    
-    with open("config.json", "r") as f:
-        config = json.load(f)
-    
-    print(config["start_date"])
-    # 2021-01-01
-    ```
-
-
-
-## Data Validation: Schema
-
-- **JSON Schema** is a vocabulary that allows you to annotate and validate JSON documents.
-- It defines the required structure: what keys must be present, what data types they should be, and array constraints.
-- Essential for robust data pipelines to ensure the incoming data (like the OWID file) is in the expected format before processing.
-
-
-
-## Debugging: JSON Linting
-
-- Because JSON is so strict, any misplaced comma, quotation mark, or capital letter will cause the entire file to fail to parse.
-- Use **online JSON validators/linters** (like JSONLint) or built-in IDE features to quickly find syntax errors.
-
-
+```{python}
+print(json.dumps(summary, indent=4))
+```
 
 ## Handling Numbers
 
@@ -574,23 +454,58 @@ URL = "https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/v
 
 ## Final Review: Structure
 
+
+
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
 ```json
-[ < TOP LEVEL ARRAY
-  { < COUNTRY OBJECT
-    "country": "United States", 
-    "iso_code": "USA",
-    "population": 331002651,
-    "data": [                  <-- NESTED ARRAY
-      { < DAILY RECORD OBJECT
-        "date": "2021-01-01",
-        "total_vaccinations": 100000 
+[
+  {
+    "planet": "Acheron", 
+    "designation": "LV-426",
+    "data": [                  
+      {
+        "film": "Alien",
+        "population": 0,
       },                       
       {
-        "date": "2021-01-02",
-        "total_vaccinations": 150000 
+        "film": "Aliens",
+        "population": 158,
       }
     ]
   },
   ...
 ]
 ```
+
+:::
+
+::: {.column width="50%"}
+
+```email
+begin array
+  begin object
+    key: value, 
+    key: value, 
+    key: begin array                
+      begin object
+        key: value, 
+        key: value, 
+      end object,                       
+      begin object
+        key: value, 
+        key: value, 
+      end object
+    end array
+  end object,
+  ...
+end array
+```
+
+
+:::
+
+::::

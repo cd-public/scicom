@@ -562,21 +562,61 @@
     ]
   },
   {
-    "objectID": "0F_json.html#read-from-url",
-    "href": "0F_json.html#read-from-url",
+    "objectID": "0F_json.html#requests",
+    "href": "0F_json.html#requests",
     "title": "JSON",
-    "section": "Read from URL",
-    "text": "Read from URL\n\nWe follow this solution\n\nImport the json and urllib.request modules to Python.\nUse urllib.request.urlopen to open a url as if it is a file.\nUse json.loads to read the url as if it is a file.\n\n\n\nURL = \"\"\n\nimport urllib.request, json \n\nfile = urllib.request.urlopen(URL):\nhe = json.loads(file.read().decode())\nhe # Note that \"number\" is gone - we have the original file again.",
+    "section": "Requests",
+    "text": "Requests\n\nWe can easily read JSON from urls with requests\n\n\nimport requests\nURL = \"https://cd-public.github.io/scicom/helium.json\"\n\nresponse = requests.get(URL)\n\n# vax_data is now a Python list of dictionaries\nhe = response.json() \n\nhe # Note that \"number\" is gone - we have the original file again.\n\n{'symbol': 'He',\n 'phase_stp': 'gas',\n 'group': 18,\n 'period': 1,\n 'boiling_point': {'K': 4.222, 'C': -268.928, 'F': -452.07}}",
     "crumbs": [
       "JSON"
     ]
   },
   {
-    "objectID": "0F_json.html#citation",
-    "href": "0F_json.html#citation",
+    "objectID": "0F_json.html#our-data",
+    "href": "0F_json.html#our-data",
     "title": "JSON",
-    "section": "Citation",
-    "text": "Citation\n\nLoosely adapted from “The JSON format”\nIt uses this data:\n\n\nURL = \"https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/vaccinations/vaccinations.json\"",
+    "section": "Our data",
+    "text": "Our data\n\nLoosely adapted from “The JSON format”\nIt uses this data:\n\n\nURL = \"https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/vaccinations/vaccinations.json\"\n# Can do it in one line by the way.\nvax = requests.get(URL).json()",
+    "crumbs": [
+      "JSON"
+    ]
+  },
+  {
+    "objectID": "0F_json.html#its-big",
+    "href": "0F_json.html#its-big",
+    "title": "JSON",
+    "section": "It’s big!",
+    "text": "It’s big!\n\nDon’t try to print that whole thing; it’s huge.\n\n2031952 lines.\n\nWe will traverse it.\n\nCheck the type.\n\nIf dictionary, look at an arbitrary key.\nIf list, look at index zero.\n\nWe’ll repeat this until we get something that isn’t a dictionary or list.",
+    "crumbs": [
+      "JSON"
+    ]
+  },
+  {
+    "objectID": "0F_json.html#traverse",
+    "href": "0F_json.html#traverse",
+    "title": "JSON",
+    "section": "Traverse",
+    "text": "Traverse\n\nloc = vax # for location\n\nwhile type(loc) == type({}) or type(loc) == type([]):\n        if type(loc) == type({}):\n            keys = list(loc.keys())\n            print(keys[0])\n            loc = loc[keys[0]]\n        if type(loc) == type([]):\n            print(0)\n            loc = loc[0]\nprint(loc)\n\n0\ncountry\nAfghanistan",
+    "crumbs": [
+      "JSON"
+    ]
+  },
+  {
+    "objectID": "0F_json.html#what-this-means",
+    "href": "0F_json.html#what-this-means",
+    "title": "JSON",
+    "section": "What this means?",
+    "text": "What this means?\n\nWe have a list of somethings.\nThose somethings are dictionaries of which one has the key “country”\nThe values in that dictionary are strings, of which one is “Afghanistan”\nAre we correct?\n\nCheck the url: Link!",
+    "crumbs": [
+      "JSON"
+    ]
+  },
+  {
+    "objectID": "0F_json.html#okay-so",
+    "href": "0F_json.html#okay-so",
+    "title": "JSON",
+    "section": "Okay, so",
+    "text": "Okay, so\n\nList of\n\nDictionaries, representing countries, of\n\n\"country\": name and \"iso_code\": whatever that is\n\"data\", a list of\n\ndictionaries, representing dates, of\n\n\"date\": a date as a string, like \"2021-02-22\"\nsome other stuff on vaccination.",
     "crumbs": [
       "JSON"
     ]
@@ -586,7 +626,7 @@
     "href": "0F_json.html#object-example-daily-data",
     "title": "JSON",
     "section": "Object Example: Daily Data",
-    "text": "Object Example: Daily Data\n\nAn object describing a single point in the time series:\n\n{\n  \"date\": \"2022-01-01\",\n  \"total_vaccinations\": 435000000,\n  \"people_fully_vaccinated\": 210000000\n}\n\nKeys are \"date\", \"total_vaccinations\", and \"people_fully_vaccinated\".",
+    "text": "Object Example: Daily Data\n\nAn object of a single date in a single country:\n\n\nvax[0][\"data\"][0]\n\n{'date': '2021-02-22',\n 'total_vaccinations': 0,\n 'people_vaccinated': 0,\n 'total_vaccinations_per_hundred': 0.0,\n 'people_vaccinated_per_hundred': 0.0}",
     "crumbs": [
       "JSON"
     ]
@@ -606,7 +646,7 @@
     "href": "0F_json.html#array-example-time-series",
     "title": "JSON",
     "section": "Array Example: Time Series",
-    "text": "Array Example: Time Series\n\nThis array holds the time-series data for one country:\n\"data\": [\n  { \"date\": \"2022-01-01\", \"total_vaccinations\": 435000000 },\n  { \"date\": \"2022-01-02\", \"total_vaccinations\": 435500000 }\n]\nThe array contains two JSON objects.",
+    "text": "Array Example: Time Series\n\nThis array holds the time-series data for one country:\n\n\nvax[0][\"data\"][0:3]\n\n[{'date': '2021-02-22',\n  'total_vaccinations': 0,\n  'people_vaccinated': 0,\n  'total_vaccinations_per_hundred': 0.0,\n  'people_vaccinated_per_hundred': 0.0},\n {'date': '2021-02-23',\n  'daily_vaccinations': 1367,\n  'daily_vaccinations_per_million': 33,\n  'daily_people_vaccinated': 1367,\n  'daily_people_vaccinated_per_hundred': 0.003},\n {'date': '2021-02-24',\n  'daily_vaccinations': 1367,\n  'daily_vaccinations_per_million': 33,\n  'daily_people_vaccinated': 1367,\n  'daily_people_vaccinated_per_hundred': 0.003}]\n\n\n\nThe array contains JSON objects.",
     "crumbs": [
       "JSON"
     ]
@@ -616,7 +656,7 @@
     "href": "0F_json.html#valid-json-data-types",
     "title": "JSON",
     "section": "Valid JSON Data Types",
-    "text": "Valid JSON Data Types\n\nA value in a key/value pair or an array can be:\n\nString: Text, double-quoted. E.g., \"United States\".\nNumber: Integer or float. E.g., 331002651 or 3.14.\nBoolean: Either true or false.\nNull: Indicates a missing value. E.g., null.\nObject: Nested structure {...}.\nArray: Nested structure [...].",
+    "text": "Valid JSON Data Types\n\nString: text, double-quoted. E.g., \"Olive Drab\".\n\nCan’t be single quote as in Python\n\nNumber: integer or float. E.g., 7 or 3.14.\nBoolean: true or false.\n\nLowercase, unlike Python True and False\n\nnull: missing value\n\nLike Python None\n\nObject: a dictionary {}\nArray: a list []",
     "crumbs": [
       "JSON"
     ]
@@ -626,7 +666,7 @@
     "href": "0F_json.html#data-structure-top-level",
     "title": "JSON",
     "section": "Data Structure: Top Level",
-    "text": "Data Structure: Top Level\n\nThe entire vax file is one single JSON array.\nEach element in this top-level array is a JSON object, representing a single country/region.\n[\n  { \"country\": \"USA\", \"data\": [...] }, \n  { \"country\": \"India\", \"data\": [...] },\n  ...\n]",
+    "text": "Data Structure: Top Level\n\nThe entire vax file is one single JSON array.\nEach element in this top-level array is a JSON object, representing a single country/region.\n\nThis is fake, to fit on screen.\n\n\n[\n  { \"country\": \"Narnia\", \"data\": [...] }, \n  { \"country\": \"Wakanda\", \"data\": [...] },\n  ...\n]",
     "crumbs": [
       "JSON"
     ]
@@ -636,7 +676,7 @@
     "href": "0F_json.html#data-structure-nested-data",
     "title": "JSON",
     "section": "Data Structure: Nested Data",
-    "text": "Data Structure: Nested Data\n\nInside each country object, there is a key called \"data\".\nThe value of \"data\" is an array of daily vaccination records.\n{\n  \"country\": \"United States\",\n  \"iso_code\": \"USA\",\n  \"data\": [\n    { \"date\": \"...\", \"total_vaccinations\": ... },\n    ... \n  ]\n}",
+    "text": "Data Structure: Nested Data\n\nInside each country object, there is a key called \"data\".\nThe value of \"data\" is an array of daily vaccination records.\n\nThis is fake, to fit on screen.\n\n\n{\n  \"country\": \"Guilder\",\n  \"iso_code\": \"GG\",\n  \"data\": [\n    { \"date\": \"...\", \"total_vaccinations\": ... },\n    ... \n  ]\n}",
     "crumbs": [
       "JSON"
     ]
@@ -646,7 +686,7 @@
     "href": "0F_json.html#syntax-rule-double-quotes",
     "title": "JSON",
     "section": "Syntax Rule: Double Quotes",
-    "text": "Syntax Rule: Double Quotes\n\nJSON is very strict about syntax. Keys and string values must use double quotes (\").\nInvalid JSON: { 'country': 'USA' } (Uses single quotes).\nValid JSON: { \"country\": \"USA\" }\nNumbers, booleans, and null are NOT quoted.",
+    "text": "Syntax Rule: Double Quotes\n\nJSON is very strict about syntax. Keys and string values must use double quotes (\").\nInvalid JSON: { 'country': 'Elysium' } (Uses single quotes).\nValid JSON: { \"country\": \"Cascadia\" }\nNumbers, booleans, and null are NOT quoted.",
     "crumbs": [
       "JSON"
     ]
@@ -656,57 +696,7 @@
     "href": "0F_json.html#syntax-rule-no-trailing-commas",
     "title": "JSON",
     "section": "Syntax Rule: No Trailing Commas",
-    "text": "Syntax Rule: No Trailing Commas\n\nThe last key/value pair in an object, or the last item in an array, must not be followed by a comma.\nInvalid JSON: json     [       \"item1\",       \"item2\",      ]",
-    "crumbs": [
-      "JSON"
-    ]
-  },
-  {
-    "objectID": "0F_json.html#parsing-json-in-python",
-    "href": "0F_json.html#parsing-json-in-python",
-    "title": "JSON",
-    "section": "Parsing JSON in Python",
-    "text": "Parsing JSON in Python\n\nWhen we download the data from the URL (vax), we get a JSON string.\nParsing converts this string into native Python data structures (lists and dictionaries).\nThe json library is built-in. If using requests, it handles the parsing automatically.",
-    "crumbs": [
-      "JSON"
-    ]
-  },
-  {
-    "objectID": "0F_json.html#reading-data-with-requests",
-    "href": "0F_json.html#reading-data-with-requests",
-    "title": "JSON",
-    "section": "Reading Data with Requests",
-    "text": "Reading Data with Requests\n\nWe fetch the content and use the .json() method to parse it.\nimport requests\n# vax = \"...\" # The OWID URL\n\nresponse = requests.get(vax)\n\n# vax_data is now a Python list of dictionaries\nvax_data = response.json() \n\nprint(type(vax_data)) \n# &lt;class 'list'&gt;",
-    "crumbs": [
-      "JSON"
-    ]
-  },
-  {
-    "objectID": "0F_json.html#accessing-top-level-data",
-    "href": "0F_json.html#accessing-top-level-data",
-    "title": "JSON",
-    "section": "Accessing Top Level Data",
-    "text": "Accessing Top Level Data\n\nThe parsed data is a list. We access countries by list index.\n# Get the dictionary for the first country\nfirst_country_obj = vax_data[0] \n\n# Access key/value pairs using dictionary syntax\ncountry_name = first_country_obj[\"country\"]\niso_code = first_country_obj[\"iso_code\"]\n\nprint(f\"First country: {country_name} ({iso_code})\")",
-    "crumbs": [
-      "JSON"
-    ]
-  },
-  {
-    "objectID": "0F_json.html#accessing-nested-data",
-    "href": "0F_json.html#accessing-nested-data",
-    "title": "JSON",
-    "section": "Accessing Nested Data",
-    "text": "Accessing Nested Data\n\nWe chain dictionary lookups and list indexing to drill down.\n# 1. Get the list of daily records from the country object\ndaily_data_list = vax_data[0][\"data\"]\n\n# 2. Get the first record (an object/dict) from the list\nfirst_day_record = daily_data_list[0]\n\n# 3. Get a value from the daily record\nfirst_date = first_day_record[\"date\"]\n\nprint(f\"First record date: {first_date}\")",
-    "crumbs": [
-      "JSON"
-    ]
-  },
-  {
-    "objectID": "0F_json.html#iterating-and-extracting",
-    "href": "0F_json.html#iterating-and-extracting",
-    "title": "JSON",
-    "section": "Iterating and Extracting",
-    "text": "Iterating and Extracting\n\nTo get summary stats, we loop over the top-level array.\nfor country_dict in vax_data:\n    name = country_dict[\"country\"]\n    records = country_dict[\"data\"]\n\n    # Check if the list of daily records is not empty\n    if records:\n        # The last record in the list is usually the most recent data\n        latest_record = records[-1] \n        latest_vax = latest_record.get(\"total_vaccinations\")\n\n        # print(f\"{name}: {latest_vax}\")",
+    "text": "Syntax Rule: No Trailing Commas\n\nThe last key/value pair in an object, or the last item in an array, must not be followed by a comma.\n\nThis is fake, to fit on screen.\n\nInvalid JSON:\n\n[\n  \"item1\",\n  \"item2\", \n]",
     "crumbs": [
       "JSON"
     ]
@@ -716,7 +706,7 @@
     "href": "0F_json.html#handling-missing-null-values",
     "title": "JSON",
     "section": "Handling Missing (null) Values",
-    "text": "Handling Missing (null) Values\n\nIn JSON, a missing value is explicitly represented by null.\nWhen parsed in Python, null becomes None.\nAlways check for None before trying to perform arithmetic or string operations.\n# Example: 'people_fully_vaccinated' might be null\nfully_vax = latest_record.get(\"people_fully_vaccinated\")\n\nif fully_vax is None:\n    print(\"Fully vaccinated data is missing for this country.\")\nelse:\n    # We can safely use the number\n    print(f\"Fully vaccinated: {fully_vax}\")",
+    "text": "Handling Missing (null) Values\n\nIn JSON, a missing value is explicitly represented by null.\nWhen parsed in Python, null becomes None.\nAlways check for None before trying to perform arithmetic or string operations.\n\n\n# Example: \"daily_vaccinations\" might be null\n\ni = 0\n\nwhile vax[0][\"data\"][i].get(\"daily_vaccinations\") is None:\n    i += 1\n    \nprint(i, vax[0][\"data\"][i].get(\"daily_vaccinations\"))\n\n1 1367",
     "crumbs": [
       "JSON"
     ]
@@ -726,7 +716,7 @@
     "href": "0F_json.html#writing-json-in-python",
     "title": "JSON",
     "section": "Writing JSON in Python",
-    "text": "Writing JSON in Python\n\nUse json.dump() to write a Python object (dict or list) to a file.\nUse json.dumps() to convert it to a JSON formatted string.\nimport json\n\n# A dictionary containing processed data\nsummary = {\n    \"report_country\": \"USA\",\n    \"latest_total_vax\": vax_data[0][\"data\"][-1][\"total_vaccinations\"]\n}\n\nwith open(\"vax_summary.json\", \"w\") as f:\n    json.dump(summary, f)",
+    "text": "Writing JSON in Python\n\nUse json.dump() to write a Python object (dict or list) to a file.\nUse json.dumps() to convert it to a JSON formatted string.\n\n\n# A dictionary containing processed data\nsummary = {\n    \"report_country\": vax[0][\"country\"],\n    \"latest_total_vax\": vax[0][\"data\"][-1][\"total_vaccinations\"]\n}\n\njson.dumps(summary)\n\n'{\"report_country\": \"Afghanistan\", \"latest_total_vax\": 22964750}'",
     "crumbs": [
       "JSON"
     ]
@@ -736,57 +726,7 @@
     "href": "0F_json.html#pretty-printing-json",
     "title": "JSON",
     "section": "Pretty Printing JSON",
-    "text": "Pretty Printing JSON\n\nThe indent argument makes the JSON human-readable for debugging or configuration files.\nwith open(\"vax_summary_pretty.json\", \"w\") as f:\n    # Indent by 4 spaces\n    json.dump(summary, f, indent=4)\nOutput: json     {         \"report_country\": \"USA\",         \"latest_total_vax\": 435500000      }",
-    "crumbs": [
-      "JSON"
-    ]
-  },
-  {
-    "objectID": "0F_json.html#json-vs.-yaml-quarto",
-    "href": "0F_json.html#json-vs.-yaml-quarto",
-    "title": "JSON",
-    "section": "JSON vs. YAML (Quarto)",
-    "text": "JSON vs. YAML (Quarto)\n\nYAML (YAML Ain’t Markup Language) uses indentation for structure.\nQuarto uses YAML for its document metadata (the header block, e.g., title, format).\nJSON is technically a subset of YAML, but YAML is often favored for human-written configuration because it omits quotes and braces.\nJSON is preferred for machine-to-machine data transfer.",
-    "crumbs": [
-      "JSON"
-    ]
-  },
-  {
-    "objectID": "0F_json.html#json-for-configuration",
-    "href": "0F_json.html#json-for-configuration",
-    "title": "JSON",
-    "section": "JSON for Configuration",
-    "text": "JSON for Configuration\n\nJSON files are excellent for storing configuration parameters for a scientific pipeline.\nExample: A JSON file defining countries to include/exclude and the start date for a report.\n{\n  \"start_date\": \"2021-01-01\",\n  \"countries_of_interest\": [\"USA\", \"GBR\", \"CAN\"],\n  \"output_format\": \"html\"\n}",
-    "crumbs": [
-      "JSON"
-    ]
-  },
-  {
-    "objectID": "0F_json.html#reading-json-config",
-    "href": "0F_json.html#reading-json-config",
-    "title": "JSON",
-    "section": "Reading JSON Config",
-    "text": "Reading JSON Config\n\nLoading the configuration in Python is straightforward using the json library’s load() function.\nimport json\n\nwith open(\"config.json\", \"r\") as f:\n    config = json.load(f)\n\nprint(config[\"start_date\"])\n# 2021-01-01",
-    "crumbs": [
-      "JSON"
-    ]
-  },
-  {
-    "objectID": "0F_json.html#data-validation-schema",
-    "href": "0F_json.html#data-validation-schema",
-    "title": "JSON",
-    "section": "Data Validation: Schema",
-    "text": "Data Validation: Schema\n\nJSON Schema is a vocabulary that allows you to annotate and validate JSON documents.\nIt defines the required structure: what keys must be present, what data types they should be, and array constraints.\nEssential for robust data pipelines to ensure the incoming data (like the OWID file) is in the expected format before processing.",
-    "crumbs": [
-      "JSON"
-    ]
-  },
-  {
-    "objectID": "0F_json.html#debugging-json-linting",
-    "href": "0F_json.html#debugging-json-linting",
-    "title": "JSON",
-    "section": "Debugging: JSON Linting",
-    "text": "Debugging: JSON Linting\n\nBecause JSON is so strict, any misplaced comma, quotation mark, or capital letter will cause the entire file to fail to parse.\nUse online JSON validators/linters (like JSONLint) or built-in IDE features to quickly find syntax errors.",
+    "text": "Pretty Printing JSON\n\nThe indent argument makes the JSON human-readable for debugging or configuration files.\n\n\nprint(json.dumps(summary, indent=4))\n\n{\n    \"report_country\": \"Afghanistan\",\n    \"latest_total_vax\": 22964750\n}",
     "crumbs": [
       "JSON"
     ]
@@ -826,7 +766,7 @@
     "href": "0F_json.html#final-review-structure",
     "title": "JSON",
     "section": "Final Review: Structure",
-    "text": "Final Review: Structure\n[ &lt; TOP LEVEL ARRAY\n  { &lt; COUNTRY OBJECT\n    \"country\": \"United States\", \n    \"iso_code\": \"USA\",\n    \"population\": 331002651,\n    \"data\": [                  &lt;-- NESTED ARRAY\n      { &lt; DAILY RECORD OBJECT\n        \"date\": \"2021-01-01\",\n        \"total_vaccinations\": 100000 \n      },                       \n      {\n        \"date\": \"2021-01-02\",\n        \"total_vaccinations\": 150000 \n      }\n    ]\n  },\n  ...\n]",
+    "text": "Final Review: Structure\n\n\n[\n  {\n    \"planet\": \"Acheron\", \n    \"designation\": \"LV-426\",\n    \"data\": [                  \n      {\n        \"film\": \"Alien\",\n        \"population\": 0,\n      },                       \n      {\n        \"film\": \"Aliens\",\n        \"population\": 158,\n      }\n    ]\n  },\n  ...\n]\n\nbegin array\n  begin object\n    key: value, \n    key: value, \n    key: begin array                \n      begin object\n        key: value, \n        key: value, \n      end object,                       \n      begin object\n        key: value, \n        key: value, \n      end object\n    end array\n  end object,\n  ...\nend array",
     "crumbs": [
       "JSON"
     ]
@@ -951,25 +891,53 @@
     "text": "URLs\n\nIt is extremely common to use JSON directly from a URL.\n\nThis is possible with e.g. CSV files but less common.\nJSON is a de facto internet format.\n(You can open them in browsers!)\nhelium.json"
   },
   {
-    "objectID": "0F_json.rjs.html#read-from-url",
-    "href": "0F_json.rjs.html#read-from-url",
+    "objectID": "0F_json.rjs.html#requests",
+    "href": "0F_json.rjs.html#requests",
     "title": "JSON",
-    "section": "Read from URL",
-    "text": "Read from URL\n\nWe follow this solution\n\nImport the json and urllib.request modules to Python.\nUse urllib.request.urlopen to open a url as if it is a file.\nUse json.loads to read the url as if it is a file.\n\n\n\nURL = \"\"\n\nimport urllib.request, json \n\nfile = urllib.request.urlopen(URL):\nhe = json.loads(file.read().decode())\nhe # Note that \"number\" is gone - we have the original file again."
+    "section": "Requests",
+    "text": "Requests\n\nWe can easily read JSON from urls with requests\n\n\nimport requests\nURL = \"https://cd-public.github.io/scicom/helium.json\"\n\nresponse = requests.get(URL)\n\n# vax_data is now a Python list of dictionaries\nhe = response.json() \n\nhe # Note that \"number\" is gone - we have the original file again.\n\n{'symbol': 'He',\n 'phase_stp': 'gas',\n 'group': 18,\n 'period': 1,\n 'boiling_point': {'K': 4.222, 'C': -268.928, 'F': -452.07}}"
   },
   {
-    "objectID": "0F_json.rjs.html#citation",
-    "href": "0F_json.rjs.html#citation",
+    "objectID": "0F_json.rjs.html#our-data",
+    "href": "0F_json.rjs.html#our-data",
     "title": "JSON",
-    "section": "Citation",
-    "text": "Citation\n\nLoosely adapted from “The JSON format”\nIt uses this data:\n\n\nURL = \"https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/vaccinations/vaccinations.json\""
+    "section": "Our data",
+    "text": "Our data\n\nLoosely adapted from “The JSON format”\nIt uses this data:\n\n\nURL = \"https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/vaccinations/vaccinations.json\"\n# Can do it in one line by the way.\nvax = requests.get(URL).json()"
+  },
+  {
+    "objectID": "0F_json.rjs.html#its-big",
+    "href": "0F_json.rjs.html#its-big",
+    "title": "JSON",
+    "section": "It’s big!",
+    "text": "It’s big!\n\nDon’t try to print that whole thing; it’s huge.\n\n2031952 lines.\n\nWe will traverse it.\n\nCheck the type.\n\nIf dictionary, look at an arbitrary key.\nIf list, look at index zero.\n\nWe’ll repeat this until we get something that isn’t a dictionary or list."
+  },
+  {
+    "objectID": "0F_json.rjs.html#traverse",
+    "href": "0F_json.rjs.html#traverse",
+    "title": "JSON",
+    "section": "Traverse",
+    "text": "Traverse\n\nloc = vax # for location\n\nwhile type(loc) == type({}) or type(loc) == type([]):\n        if type(loc) == type({}):\n            keys = list(loc.keys())\n            print(keys[0])\n            loc = loc[keys[0]]\n        if type(loc) == type([]):\n            print(0)\n            loc = loc[0]\nprint(loc)\n\n0\ncountry\nAfghanistan"
+  },
+  {
+    "objectID": "0F_json.rjs.html#what-this-means",
+    "href": "0F_json.rjs.html#what-this-means",
+    "title": "JSON",
+    "section": "What this means?",
+    "text": "What this means?\n\nWe have a list of somethings.\nThose somethings are dictionaries of which one has the key “country”\nThe values in that dictionary are strings, of which one is “Afghanistan”\nAre we correct?\n\nCheck the url: Link!"
+  },
+  {
+    "objectID": "0F_json.rjs.html#okay-so",
+    "href": "0F_json.rjs.html#okay-so",
+    "title": "JSON",
+    "section": "Okay, so",
+    "text": "Okay, so\n\nList of\n\nDictionaries, representing countries, of\n\n\"country\": name and \"iso_code\": whatever that is\n\"data\", a list of\n\ndictionaries, representing dates, of\n\n\"date\": a date as a string, like \"2021-02-22\"\nsome other stuff on vaccination."
   },
   {
     "objectID": "0F_json.rjs.html#object-example-daily-data",
     "href": "0F_json.rjs.html#object-example-daily-data",
     "title": "JSON",
     "section": "Object Example: Daily Data",
-    "text": "Object Example: Daily Data\n\nAn object describing a single point in the time series:\n\n{\n  \"date\": \"2022-01-01\",\n  \"total_vaccinations\": 435000000,\n  \"people_fully_vaccinated\": 210000000\n}\n\nKeys are \"date\", \"total_vaccinations\", and \"people_fully_vaccinated\"."
+    "text": "Object Example: Daily Data\n\nAn object of a single date in a single country:\n\n\nvax[0][\"data\"][0]\n\n{'date': '2021-02-22',\n 'total_vaccinations': 0,\n 'people_vaccinated': 0,\n 'total_vaccinations_per_hundred': 0.0,\n 'people_vaccinated_per_hundred': 0.0}"
   },
   {
     "objectID": "0F_json.rjs.html#json-array-syntax",
@@ -983,133 +951,63 @@
     "href": "0F_json.rjs.html#array-example-time-series",
     "title": "JSON",
     "section": "Array Example: Time Series",
-    "text": "Array Example: Time Series\n\nThis array holds the time-series data for one country:\n\"data\": [\n  { \"date\": \"2022-01-01\", \"total_vaccinations\": 435000000 },\n  { \"date\": \"2022-01-02\", \"total_vaccinations\": 435500000 }\n]\nThe array contains two JSON objects."
+    "text": "Array Example: Time Series\n\nThis array holds the time-series data for one country:\n\n\nvax[0][\"data\"][0:3]\n\n[{'date': '2021-02-22',\n  'total_vaccinations': 0,\n  'people_vaccinated': 0,\n  'total_vaccinations_per_hundred': 0.0,\n  'people_vaccinated_per_hundred': 0.0},\n {'date': '2021-02-23',\n  'daily_vaccinations': 1367,\n  'daily_vaccinations_per_million': 33,\n  'daily_people_vaccinated': 1367,\n  'daily_people_vaccinated_per_hundred': 0.003},\n {'date': '2021-02-24',\n  'daily_vaccinations': 1367,\n  'daily_vaccinations_per_million': 33,\n  'daily_people_vaccinated': 1367,\n  'daily_people_vaccinated_per_hundred': 0.003}]\n\n\n\nThe array contains JSON objects."
   },
   {
     "objectID": "0F_json.rjs.html#valid-json-data-types",
     "href": "0F_json.rjs.html#valid-json-data-types",
     "title": "JSON",
     "section": "Valid JSON Data Types",
-    "text": "Valid JSON Data Types\n\nA value in a key/value pair or an array can be:\n\nString: Text, double-quoted. E.g., \"United States\".\nNumber: Integer or float. E.g., 331002651 or 3.14.\nBoolean: Either true or false.\nNull: Indicates a missing value. E.g., null.\nObject: Nested structure {...}.\nArray: Nested structure [...]."
+    "text": "Valid JSON Data Types\n\nString: text, double-quoted. E.g., \"Olive Drab\".\n\nCan’t be single quote as in Python\n\nNumber: integer or float. E.g., 7 or 3.14.\nBoolean: true or false.\n\nLowercase, unlike Python True and False\n\nnull: missing value\n\nLike Python None\n\nObject: a dictionary {}\nArray: a list []"
   },
   {
     "objectID": "0F_json.rjs.html#data-structure-top-level",
     "href": "0F_json.rjs.html#data-structure-top-level",
     "title": "JSON",
     "section": "Data Structure: Top Level",
-    "text": "Data Structure: Top Level\n\nThe entire vax file is one single JSON array.\nEach element in this top-level array is a JSON object, representing a single country/region.\n[\n  { \"country\": \"USA\", \"data\": [...] }, \n  { \"country\": \"India\", \"data\": [...] },\n  ...\n]"
+    "text": "Data Structure: Top Level\n\nThe entire vax file is one single JSON array.\nEach element in this top-level array is a JSON object, representing a single country/region.\n\nThis is fake, to fit on screen.\n\n\n[\n  { \"country\": \"Narnia\", \"data\": [...] }, \n  { \"country\": \"Wakanda\", \"data\": [...] },\n  ...\n]"
   },
   {
     "objectID": "0F_json.rjs.html#data-structure-nested-data",
     "href": "0F_json.rjs.html#data-structure-nested-data",
     "title": "JSON",
     "section": "Data Structure: Nested Data",
-    "text": "Data Structure: Nested Data\n\nInside each country object, there is a key called \"data\".\nThe value of \"data\" is an array of daily vaccination records.\n{\n  \"country\": \"United States\",\n  \"iso_code\": \"USA\",\n  \"data\": [\n    { \"date\": \"...\", \"total_vaccinations\": ... },\n    ... \n  ]\n}"
+    "text": "Data Structure: Nested Data\n\nInside each country object, there is a key called \"data\".\nThe value of \"data\" is an array of daily vaccination records.\n\nThis is fake, to fit on screen.\n\n\n{\n  \"country\": \"Guilder\",\n  \"iso_code\": \"GG\",\n  \"data\": [\n    { \"date\": \"...\", \"total_vaccinations\": ... },\n    ... \n  ]\n}"
   },
   {
     "objectID": "0F_json.rjs.html#syntax-rule-double-quotes",
     "href": "0F_json.rjs.html#syntax-rule-double-quotes",
     "title": "JSON",
     "section": "Syntax Rule: Double Quotes",
-    "text": "Syntax Rule: Double Quotes\n\nJSON is very strict about syntax. Keys and string values must use double quotes (\").\nInvalid JSON: { 'country': 'USA' } (Uses single quotes).\nValid JSON: { \"country\": \"USA\" }\nNumbers, booleans, and null are NOT quoted."
+    "text": "Syntax Rule: Double Quotes\n\nJSON is very strict about syntax. Keys and string values must use double quotes (\").\nInvalid JSON: { 'country': 'Elysium' } (Uses single quotes).\nValid JSON: { \"country\": \"Cascadia\" }\nNumbers, booleans, and null are NOT quoted."
   },
   {
     "objectID": "0F_json.rjs.html#syntax-rule-no-trailing-commas",
     "href": "0F_json.rjs.html#syntax-rule-no-trailing-commas",
     "title": "JSON",
     "section": "Syntax Rule: No Trailing Commas",
-    "text": "Syntax Rule: No Trailing Commas\n\nThe last key/value pair in an object, or the last item in an array, must not be followed by a comma.\nInvalid JSON: json     [       \"item1\",       \"item2\",      ]"
-  },
-  {
-    "objectID": "0F_json.rjs.html#parsing-json-in-python",
-    "href": "0F_json.rjs.html#parsing-json-in-python",
-    "title": "JSON",
-    "section": "Parsing JSON in Python",
-    "text": "Parsing JSON in Python\n\nWhen we download the data from the URL (vax), we get a JSON string.\nParsing converts this string into native Python data structures (lists and dictionaries).\nThe json library is built-in. If using requests, it handles the parsing automatically."
-  },
-  {
-    "objectID": "0F_json.rjs.html#reading-data-with-requests",
-    "href": "0F_json.rjs.html#reading-data-with-requests",
-    "title": "JSON",
-    "section": "Reading Data with Requests",
-    "text": "Reading Data with Requests\n\nWe fetch the content and use the .json() method to parse it.\nimport requests\n# vax = \"...\" # The OWID URL\n\nresponse = requests.get(vax)\n\n# vax_data is now a Python list of dictionaries\nvax_data = response.json() \n\nprint(type(vax_data)) \n# &lt;class 'list'&gt;"
-  },
-  {
-    "objectID": "0F_json.rjs.html#accessing-top-level-data",
-    "href": "0F_json.rjs.html#accessing-top-level-data",
-    "title": "JSON",
-    "section": "Accessing Top Level Data",
-    "text": "Accessing Top Level Data\n\nThe parsed data is a list. We access countries by list index.\n# Get the dictionary for the first country\nfirst_country_obj = vax_data[0] \n\n# Access key/value pairs using dictionary syntax\ncountry_name = first_country_obj[\"country\"]\niso_code = first_country_obj[\"iso_code\"]\n\nprint(f\"First country: {country_name} ({iso_code})\")"
-  },
-  {
-    "objectID": "0F_json.rjs.html#accessing-nested-data",
-    "href": "0F_json.rjs.html#accessing-nested-data",
-    "title": "JSON",
-    "section": "Accessing Nested Data",
-    "text": "Accessing Nested Data\n\nWe chain dictionary lookups and list indexing to drill down.\n# 1. Get the list of daily records from the country object\ndaily_data_list = vax_data[0][\"data\"]\n\n# 2. Get the first record (an object/dict) from the list\nfirst_day_record = daily_data_list[0]\n\n# 3. Get a value from the daily record\nfirst_date = first_day_record[\"date\"]\n\nprint(f\"First record date: {first_date}\")"
-  },
-  {
-    "objectID": "0F_json.rjs.html#iterating-and-extracting",
-    "href": "0F_json.rjs.html#iterating-and-extracting",
-    "title": "JSON",
-    "section": "Iterating and Extracting",
-    "text": "Iterating and Extracting\n\nTo get summary stats, we loop over the top-level array.\nfor country_dict in vax_data:\n    name = country_dict[\"country\"]\n    records = country_dict[\"data\"]\n\n    # Check if the list of daily records is not empty\n    if records:\n        # The last record in the list is usually the most recent data\n        latest_record = records[-1] \n        latest_vax = latest_record.get(\"total_vaccinations\")\n\n        # print(f\"{name}: {latest_vax}\")"
+    "text": "Syntax Rule: No Trailing Commas\n\nThe last key/value pair in an object, or the last item in an array, must not be followed by a comma.\n\nThis is fake, to fit on screen.\n\nInvalid JSON:\n\n[\n  \"item1\",\n  \"item2\", \n]"
   },
   {
     "objectID": "0F_json.rjs.html#handling-missing-null-values",
     "href": "0F_json.rjs.html#handling-missing-null-values",
     "title": "JSON",
     "section": "Handling Missing (null) Values",
-    "text": "Handling Missing (null) Values\n\nIn JSON, a missing value is explicitly represented by null.\nWhen parsed in Python, null becomes None.\nAlways check for None before trying to perform arithmetic or string operations.\n# Example: 'people_fully_vaccinated' might be null\nfully_vax = latest_record.get(\"people_fully_vaccinated\")\n\nif fully_vax is None:\n    print(\"Fully vaccinated data is missing for this country.\")\nelse:\n    # We can safely use the number\n    print(f\"Fully vaccinated: {fully_vax}\")"
+    "text": "Handling Missing (null) Values\n\nIn JSON, a missing value is explicitly represented by null.\nWhen parsed in Python, null becomes None.\nAlways check for None before trying to perform arithmetic or string operations.\n\n\n# Example: \"daily_vaccinations\" might be null\n\ni = 0\n\nwhile vax[0][\"data\"][i].get(\"daily_vaccinations\") is None:\n    i += 1\n    \nprint(i, vax[0][\"data\"][i].get(\"daily_vaccinations\"))\n\n1 1367"
   },
   {
     "objectID": "0F_json.rjs.html#writing-json-in-python",
     "href": "0F_json.rjs.html#writing-json-in-python",
     "title": "JSON",
     "section": "Writing JSON in Python",
-    "text": "Writing JSON in Python\n\nUse json.dump() to write a Python object (dict or list) to a file.\nUse json.dumps() to convert it to a JSON formatted string.\nimport json\n\n# A dictionary containing processed data\nsummary = {\n    \"report_country\": \"USA\",\n    \"latest_total_vax\": vax_data[0][\"data\"][-1][\"total_vaccinations\"]\n}\n\nwith open(\"vax_summary.json\", \"w\") as f:\n    json.dump(summary, f)"
+    "text": "Writing JSON in Python\n\nUse json.dump() to write a Python object (dict or list) to a file.\nUse json.dumps() to convert it to a JSON formatted string.\n\n\n# A dictionary containing processed data\nsummary = {\n    \"report_country\": vax[0][\"country\"],\n    \"latest_total_vax\": vax[0][\"data\"][-1][\"total_vaccinations\"]\n}\n\njson.dumps(summary)\n\n'{\"report_country\": \"Afghanistan\", \"latest_total_vax\": 22964750}'"
   },
   {
     "objectID": "0F_json.rjs.html#pretty-printing-json",
     "href": "0F_json.rjs.html#pretty-printing-json",
     "title": "JSON",
     "section": "Pretty Printing JSON",
-    "text": "Pretty Printing JSON\n\nThe indent argument makes the JSON human-readable for debugging or configuration files.\nwith open(\"vax_summary_pretty.json\", \"w\") as f:\n    # Indent by 4 spaces\n    json.dump(summary, f, indent=4)\nOutput: json     {         \"report_country\": \"USA\",         \"latest_total_vax\": 435500000      }"
-  },
-  {
-    "objectID": "0F_json.rjs.html#json-vs.-yaml-quarto",
-    "href": "0F_json.rjs.html#json-vs.-yaml-quarto",
-    "title": "JSON",
-    "section": "JSON vs. YAML (Quarto)",
-    "text": "JSON vs. YAML (Quarto)\n\nYAML (YAML Ain’t Markup Language) uses indentation for structure.\nQuarto uses YAML for its document metadata (the header block, e.g., title, format).\nJSON is technically a subset of YAML, but YAML is often favored for human-written configuration because it omits quotes and braces.\nJSON is preferred for machine-to-machine data transfer."
-  },
-  {
-    "objectID": "0F_json.rjs.html#json-for-configuration",
-    "href": "0F_json.rjs.html#json-for-configuration",
-    "title": "JSON",
-    "section": "JSON for Configuration",
-    "text": "JSON for Configuration\n\nJSON files are excellent for storing configuration parameters for a scientific pipeline.\nExample: A JSON file defining countries to include/exclude and the start date for a report.\n{\n  \"start_date\": \"2021-01-01\",\n  \"countries_of_interest\": [\"USA\", \"GBR\", \"CAN\"],\n  \"output_format\": \"html\"\n}"
-  },
-  {
-    "objectID": "0F_json.rjs.html#reading-json-config",
-    "href": "0F_json.rjs.html#reading-json-config",
-    "title": "JSON",
-    "section": "Reading JSON Config",
-    "text": "Reading JSON Config\n\nLoading the configuration in Python is straightforward using the json library’s load() function.\nimport json\n\nwith open(\"config.json\", \"r\") as f:\n    config = json.load(f)\n\nprint(config[\"start_date\"])\n# 2021-01-01"
-  },
-  {
-    "objectID": "0F_json.rjs.html#data-validation-schema",
-    "href": "0F_json.rjs.html#data-validation-schema",
-    "title": "JSON",
-    "section": "Data Validation: Schema",
-    "text": "Data Validation: Schema\n\nJSON Schema is a vocabulary that allows you to annotate and validate JSON documents.\nIt defines the required structure: what keys must be present, what data types they should be, and array constraints.\nEssential for robust data pipelines to ensure the incoming data (like the OWID file) is in the expected format before processing."
-  },
-  {
-    "objectID": "0F_json.rjs.html#debugging-json-linting",
-    "href": "0F_json.rjs.html#debugging-json-linting",
-    "title": "JSON",
-    "section": "Debugging: JSON Linting",
-    "text": "Debugging: JSON Linting\n\nBecause JSON is so strict, any misplaced comma, quotation mark, or capital letter will cause the entire file to fail to parse.\nUse online JSON validators/linters (like JSONLint) or built-in IDE features to quickly find syntax errors."
+    "text": "Pretty Printing JSON\n\nThe indent argument makes the JSON human-readable for debugging or configuration files.\n\n\nprint(json.dumps(summary, indent=4))\n\n{\n    \"report_country\": \"Afghanistan\",\n    \"latest_total_vax\": 22964750\n}"
   },
   {
     "objectID": "0F_json.rjs.html#handling-numbers",
@@ -1137,7 +1035,7 @@
     "href": "0F_json.rjs.html#final-review-structure",
     "title": "JSON",
     "section": "Final Review: Structure",
-    "text": "Final Review: Structure\n[ &lt; TOP LEVEL ARRAY\n  { &lt; COUNTRY OBJECT\n    \"country\": \"United States\", \n    \"iso_code\": \"USA\",\n    \"population\": 331002651,\n    \"data\": [                  &lt;-- NESTED ARRAY\n      { &lt; DAILY RECORD OBJECT\n        \"date\": \"2021-01-01\",\n        \"total_vaccinations\": 100000 \n      },                       \n      {\n        \"date\": \"2021-01-02\",\n        \"total_vaccinations\": 150000 \n      }\n    ]\n  },\n  ...\n]"
+    "text": "Final Review: Structure\n\n\n[\n  {\n    \"planet\": \"Acheron\", \n    \"designation\": \"LV-426\",\n    \"data\": [                  \n      {\n        \"film\": \"Alien\",\n        \"population\": 0,\n      },                       \n      {\n        \"film\": \"Aliens\",\n        \"population\": 158,\n      }\n    ]\n  },\n  ...\n]\n\nbegin array\n  begin object\n    key: value, \n    key: value, \n    key: begin array                \n      begin object\n        key: value, \n        key: value, \n      end object,                       \n      begin object\n        key: value, \n        key: value, \n      end object\n    end array\n  end object,\n  ...\nend array"
   },
   {
     "objectID": "0D_tex.html",

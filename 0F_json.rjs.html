@@ -526,7 +526,7 @@ Prof.&nbsp;Calvin
 <ul>
 <li>Within Python</li>
 </ul>
-<div id="f752b18a" class="cell" data-execution_count="2">
+<div id="6a8d3a0b" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
 <span id="cb5-2"><a aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a aria-hidden="true" tabindex="-1"></a>FILE_NAME <span class="op">=</span> <span class="st">"helium.json"</span></span>
@@ -545,10 +545,10 @@ Prof.&nbsp;Calvin
 <li>Values are retrieved using the key inside square brackets (<code>[]</code>).</li>
 <li>This is the standard way to access data fields parsed from a JSON object.</li>
 </ul>
-<div id="d8a2cf8f" class="cell" data-execution_count="3">
+<div id="0b9336bf" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># We previously read in `he`</span></span>
 <span id="cb6-2"><a aria-hidden="true" tabindex="-1"></a>he[<span class="st">"symbol"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="12">
+<div class="cell-output cell-output-display" data-execution_count="50">
 <pre><code>'He'</code></pre>
 </div>
 </div>
@@ -562,10 +562,10 @@ Prof.&nbsp;Calvin
 <li>I would see (scroll to end to see <code>number</code>):</li>
 </ul></li>
 </ul>
-<div id="e43e1b72" class="cell" data-execution_count="4">
+<div id="4d4d3bf1" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a aria-hidden="true" tabindex="-1"></a>he[<span class="st">"number"</span>] <span class="op">=</span> <span class="dv">2</span></span>
 <span id="cb8-2"><a aria-hidden="true" tabindex="-1"></a>he</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="13">
+<div class="cell-output cell-output-display" data-execution_count="51">
 <pre><code>{'symbol': 'He',
  'phase_stp': 'gas',
  'group': 18,
@@ -581,7 +581,7 @@ Prof.&nbsp;Calvin
 <li>Accessing a missing key with <code>[]</code> causes a <strong>KeyError</strong> and crashes.</li>
 <li>Simply use <code>.get</code>.</li>
 </ul>
-<div id="218db512" class="cell" data-execution_count="5">
+<div id="79c1422c" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
 <span id="cb10-2"><a aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(he[<span class="st">"density"</span>])</span>
 <span id="cb10-3"><a aria-hidden="true" tabindex="-1"></a><span class="cf">except</span>:</span>
@@ -599,7 +599,7 @@ None</code></pre>
 <li>By default, iterating over a dictionary iterates over its <strong>keys</strong>.</li>
 <li>This is useful for inspection or processing.</li>
 </ul>
-<div id="cd5dd9cb" class="cell" data-execution_count="6">
+<div id="737bd4ad" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> key <span class="kw">in</span> he:</span>
 <span id="cb12-2"><a aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(key)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -617,7 +617,7 @@ number</code></pre>
 <ul>
 <li>Use the <strong><code>.values()</code></strong> method to iterate only through the values in the dictionary.</li>
 </ul>
-<div id="ef38456c" class="cell" data-execution_count="7">
+<div id="c8c54fe5" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> value <span class="kw">in</span> he.values():</span>
 <span id="cb14-2"><a aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(value)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -635,7 +635,7 @@ gas
 <ul>
 <li>The <strong><code>.items()</code></strong> method returns a tuple of <code>(key, value)</code> for each pair, which you can unpack in the loop.</li>
 </ul>
-<div id="0598f3c3" class="cell" data-execution_count="8">
+<div id="893be708" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> key, value <span class="kw">in</span> he.items():</span>
 <span id="cb16-2"><a aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(key, <span class="st">":"</span>, value) <span class="co"># Take note of that : I use as a nicety</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -653,9 +653,9 @@ number : 2</code></pre>
 <ul>
 <li>Since a value can be any type, a value can be <em>another</em> dictionary (or a list of dictionaries).</li>
 </ul>
-<div id="c3941908" class="cell" data-execution_count="9">
+<div id="bf091460" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a aria-hidden="true" tabindex="-1"></a>he[<span class="st">"boiling_point"</span>][<span class="st">"K"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="18">
+<div class="cell-output cell-output-display" data-execution_count="56">
 <pre><code>4.222</code></pre>
 </div>
 </div>
@@ -692,48 +692,128 @@ number : 2</code></pre>
 </ul></li>
 </ul>
 </section>
-<section id="read-from-url" class="slide level2">
-<h2>Read from URL</h2>
+<section id="requests" class="slide level2">
+<h2>Requests</h2>
 <ul>
-<li>We follow <a href="https://stackoverflow.com/a/12965254">this solution</a>
-<ul>
-<li>Import the <code>json</code> and <code>urllib.request</code> modules to Python.</li>
-<li>Use <code>urllib.request.urlopen</code> to open a url as if it is a file.</li>
-<li>Use <code>json.loads</code> to read the url as if it is a file.</li>
-</ul></li>
+<li>We can easily read JSON from urls with <code>requests</code></li>
 </ul>
-<div id="3e270401" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a aria-hidden="true" tabindex="-1"></a>URL <span class="op">=</span> <span class="st">""</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="e8aced45" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb20-2"><a aria-hidden="true" tabindex="-1"></a>URL <span class="op">=</span> <span class="st">"https://cd-public.github.io/scicom/helium.json"</span></span>
+<span id="cb20-3"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(URL)</span>
+<span id="cb20-5"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-6"><a aria-hidden="true" tabindex="-1"></a><span class="co"># vax_data is now a Python list of dictionaries</span></span>
+<span id="cb20-7"><a aria-hidden="true" tabindex="-1"></a>he <span class="op">=</span> response.json() </span>
+<span id="cb20-8"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-9"><a aria-hidden="true" tabindex="-1"></a>he <span class="co"># Note that "number" is gone - we have the original file again.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="57">
+<pre><code>{'symbol': 'He',
+ 'phase_stp': 'gas',
+ 'group': 18,
+ 'period': 1,
+ 'boiling_point': {'K': 4.222, 'C': -268.928, 'F': -452.07}}</code></pre>
 </div>
-<div class="sourceCode" id="cb21"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a aria-hidden="true" tabindex="-1"></a><span class="im">import</span> urllib.request, json </span>
-<span id="cb21-2"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-3"><a aria-hidden="true" tabindex="-1"></a><span class="bu">file</span> <span class="op">=</span> urllib.request.urlopen(URL):</span>
-<span id="cb21-4"><a aria-hidden="true" tabindex="-1"></a>he <span class="op">=</span> json.loads(<span class="bu">file</span>.read().decode())</span>
-<span id="cb21-5"><a aria-hidden="true" tabindex="-1"></a>he <span class="co"># Note that "number" is gone - we have the original file again.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
-<section id="citation" class="slide level2">
-<h2>Citation</h2>
+<section id="our-data" class="slide level2">
+<h2>Our data</h2>
 <ul>
 <li>Loosely adapted from <a href="https://sciencecomputing.org/files/the-json-format/">“The JSON format”</a></li>
 <li>It uses this data:</li>
 </ul>
-<div id="7ebf47dd" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a aria-hidden="true" tabindex="-1"></a>URL <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/vaccinations/vaccinations.json"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="f9cc2e80" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a aria-hidden="true" tabindex="-1"></a>URL <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/vaccinations/vaccinations.json"</span></span>
+<span id="cb22-2"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Can do it in one line by the way.</span></span>
+<span id="cb22-3"><a aria-hidden="true" tabindex="-1"></a>vax <span class="op">=</span> requests.get(URL).json()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
+<section id="its-big" class="slide level2">
+<h2>It’s big!</h2>
+<ul>
+<li>Don’t try to print that whole thing; it’s huge.
+<ul>
+<li>2031952 lines.</li>
+</ul></li>
+<li>We will <em>traverse</em> it.
+<ul>
+<li>Check the type.
+<ul>
+<li>If dictionary, look at an arbitrary key.</li>
+<li>If list, look at index zero.</li>
+</ul></li>
+<li>We’ll repeat this until we get something that isn’t a dictionary or list.</li>
+</ul></li>
+</ul>
+</section>
+<section id="traverse" class="slide level2">
+<h2>Traverse</h2>
+<div id="a5ee72b2" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a aria-hidden="true" tabindex="-1"></a>loc <span class="op">=</span> vax <span class="co"># for location</span></span>
+<span id="cb23-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="bu">type</span>(loc) <span class="op">==</span> <span class="bu">type</span>({}) <span class="kw">or</span> <span class="bu">type</span>(loc) <span class="op">==</span> <span class="bu">type</span>([]):</span>
+<span id="cb23-4"><a aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">type</span>(loc) <span class="op">==</span> <span class="bu">type</span>({}):</span>
+<span id="cb23-5"><a aria-hidden="true" tabindex="-1"></a>            keys <span class="op">=</span> <span class="bu">list</span>(loc.keys())</span>
+<span id="cb23-6"><a aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(keys[<span class="dv">0</span>])</span>
+<span id="cb23-7"><a aria-hidden="true" tabindex="-1"></a>            loc <span class="op">=</span> loc[keys[<span class="dv">0</span>]]</span>
+<span id="cb23-8"><a aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">type</span>(loc) <span class="op">==</span> <span class="bu">type</span>([]):</span>
+<span id="cb23-9"><a aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="dv">0</span>)</span>
+<span id="cb23-10"><a aria-hidden="true" tabindex="-1"></a>            loc <span class="op">=</span> loc[<span class="dv">0</span>]</span>
+<span id="cb23-11"><a aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(loc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>0
+country
+Afghanistan</code></pre>
+</div>
+</div>
+</section>
+<section id="what-this-means" class="slide level2">
+<h2>What this means?</h2>
+<ul>
+<li>We have a list of somethings.</li>
+<li>Those somethings are dictionaries of which one has the key “country”</li>
+<li>The values in that dictionary are strings, of which one is “Afghanistan”</li>
+<li>Are we correct?
+<ul>
+<li>Check the url: <a href="https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/vaccinations/vaccinations.json">Link!</a></li>
+</ul></li>
+</ul>
+</section>
+<section id="okay-so" class="slide level2">
+<h2>Okay, so</h2>
+<ul>
+<li>List of
+<ul>
+<li>Dictionaries, representing countries, of
+<ul>
+<li><code>"country"</code>: name and <code>"iso_code"</code>: whatever that is</li>
+<li><code>"data"</code>, a list of
+<ul>
+<li>dictionaries, representing dates, of
+<ul>
+<li><code>"date"</code>: a date as a string, like <code>"2021-02-22"</code></li>
+<li>some other stuff on vaccination.</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
 </section>
 <section id="object-example-daily-data" class="slide level2">
 <h2>Object Example: Daily Data</h2>
 <ul>
-<li>An object describing a single point in the time series:</li>
+<li>An object of a single date in a single country:</li>
 </ul>
-<div class="sourceCode" id="cb23"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb23-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb23-2"><a aria-hidden="true" tabindex="-1"></a>  <span class="dt">"date"</span><span class="fu">:</span> <span class="st">"2022-01-01"</span><span class="fu">,</span></span>
-<span id="cb23-3"><a aria-hidden="true" tabindex="-1"></a>  <span class="dt">"total_vaccinations"</span><span class="fu">:</span> <span class="dv">435000000</span><span class="fu">,</span></span>
-<span id="cb23-4"><a aria-hidden="true" tabindex="-1"></a>  <span class="dt">"people_fully_vaccinated"</span><span class="fu">:</span> <span class="dv">210000000</span></span>
-<span id="cb23-5"><a aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li>Keys are <code>"date"</code>, <code>"total_vaccinations"</code>, and <code>"people_fully_vaccinated"</code>.</li>
-</ul>
+<div id="b37d2022" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a aria-hidden="true" tabindex="-1"></a>vax[<span class="dv">0</span>][<span class="st">"data"</span>][<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="60">
+<pre><code>{'date': '2021-02-22',
+ 'total_vaccinations': 0,
+ 'people_vaccinated': 0,
+ 'total_vaccinations_per_hundred': 0.0,
+ 'people_vaccinated_per_hundred': 0.0}</code></pre>
+</div>
+</div>
 </section>
 <section id="json-array-syntax" class="slide level2">
 <h2>JSON Array Syntax</h2>
@@ -747,233 +827,162 @@ number : 2</code></pre>
 <section id="array-example-time-series" class="slide level2">
 <h2>Array Example: Time Series</h2>
 <ul>
-<li><p>This array holds the time-series data for one country:</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb24-1"><a aria-hidden="true" tabindex="-1"></a><span class="er">"data":</span> <span class="ot">[</span></span>
-<span id="cb24-2"><a aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span> <span class="dt">"date"</span><span class="fu">:</span> <span class="st">"2022-01-01"</span><span class="fu">,</span> <span class="dt">"total_vaccinations"</span><span class="fu">:</span> <span class="dv">435000000</span> <span class="fu">}</span><span class="ot">,</span></span>
-<span id="cb24-3"><a aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span> <span class="dt">"date"</span><span class="fu">:</span> <span class="st">"2022-01-02"</span><span class="fu">,</span> <span class="dt">"total_vaccinations"</span><span class="fu">:</span> <span class="dv">435500000</span> <span class="fu">}</span></span>
-<span id="cb24-4"><a aria-hidden="true" tabindex="-1"></a><span class="ot">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p>The array contains two JSON <strong>objects</strong>.</p></li>
+<li>This array holds the time-series data for one country:</li>
+</ul>
+<div id="1beb284a" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a aria-hidden="true" tabindex="-1"></a>vax[<span class="dv">0</span>][<span class="st">"data"</span>][<span class="dv">0</span>:<span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="61">
+<pre><code>[{'date': '2021-02-22',
+  'total_vaccinations': 0,
+  'people_vaccinated': 0,
+  'total_vaccinations_per_hundred': 0.0,
+  'people_vaccinated_per_hundred': 0.0},
+ {'date': '2021-02-23',
+  'daily_vaccinations': 1367,
+  'daily_vaccinations_per_million': 33,
+  'daily_people_vaccinated': 1367,
+  'daily_people_vaccinated_per_hundred': 0.003},
+ {'date': '2021-02-24',
+  'daily_vaccinations': 1367,
+  'daily_vaccinations_per_million': 33,
+  'daily_people_vaccinated': 1367,
+  'daily_people_vaccinated_per_hundred': 0.003}]</code></pre>
+</div>
+</div>
+<ul>
+<li>The array contains JSON <strong>objects</strong>.</li>
 </ul>
 </section>
-<section id="valid-json-data-types" class="slide level2">
+<section id="valid-json-data-types" class="slide level2 smaller">
 <h2>Valid JSON Data Types</h2>
-<ul>
-<li>A value in a key/value pair or an array can be:
 <ol type="1">
-<li><strong>String</strong>: Text, double-quoted. E.g., <code>"United States"</code>.</li>
-<li><strong>Number</strong>: Integer or float. E.g., <code>331002651</code> or <code>3.14</code>.</li>
-<li><strong>Boolean</strong>: Either <code>true</code> or <code>false</code>.</li>
-<li><strong>Null</strong>: Indicates a missing value. E.g., <code>null</code>.</li>
-<li><strong>Object</strong>: Nested structure <code>{...}</code>.</li>
-<li><strong>Array</strong>: Nested structure <code>[...]</code>.</li>
-</ol></li>
-</ul>
+<li><strong>String</strong>: text, double-quoted. E.g., <code>"Olive Drab"</code>.
+<ul>
+<li>Can’t be single quote as in Python</li>
+</ul></li>
+<li><strong>Number</strong>: integer or float. E.g., <code>7</code> or <code>3.14</code>.</li>
+<li><strong>Boolean</strong>: <code>true</code> or <code>false</code>.
+<ul>
+<li>Lowercase, unlike Python <code>True</code> and <code>False</code></li>
+</ul></li>
+<li><strong>null</strong>: missing value
+<ul>
+<li>Like Python <code>None</code></li>
+</ul></li>
+<li><strong>Object</strong>: a dictionary <code>{}</code></li>
+<li><strong>Array</strong>: a list <code>[]</code></li>
+</ol>
 </section>
 <section id="data-structure-top-level" class="slide level2">
 <h2>Data Structure: Top Level</h2>
 <ul>
-<li><p>The entire <code>vax</code> file is one single JSON <strong>array</strong>.</p></li>
-<li><p>Each element in this top-level array is a JSON <strong>object</strong>, representing a single country/region.</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb25-1"><a aria-hidden="true" tabindex="-1"></a><span class="ot">[</span></span>
-<span id="cb25-2"><a aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span> <span class="dt">"country"</span><span class="fu">:</span> <span class="st">"USA"</span><span class="fu">,</span> <span class="dt">"data"</span><span class="fu">:</span> <span class="ot">[</span><span class="er">...</span><span class="ot">]</span> <span class="fu">}</span><span class="ot">,</span> </span>
-<span id="cb25-3"><a aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span> <span class="dt">"country"</span><span class="fu">:</span> <span class="st">"India"</span><span class="fu">,</span> <span class="dt">"data"</span><span class="fu">:</span> <span class="ot">[</span><span class="er">...</span><span class="ot">]</span> <span class="fu">}</span><span class="ot">,</span></span>
-<span id="cb25-4"><a aria-hidden="true" tabindex="-1"></a>  <span class="er">...</span></span>
-<span id="cb25-5"><a aria-hidden="true" tabindex="-1"></a><span class="ot">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li>The entire <code>vax</code> file is one single JSON <strong>array</strong>.</li>
+<li>Each element in this top-level array is a JSON <strong>object</strong>, representing a single country/region.
+<ul>
+<li>This is fake, to fit on screen.</li>
+</ul></li>
 </ul>
+<div class="sourceCode" id="cb29"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb29-1"><a aria-hidden="true" tabindex="-1"></a><span class="ot">[</span></span>
+<span id="cb29-2"><a aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span> <span class="dt">"country"</span><span class="fu">:</span> <span class="st">"Narnia"</span><span class="fu">,</span> <span class="dt">"data"</span><span class="fu">:</span> <span class="ot">[</span><span class="er">...</span><span class="ot">]</span> <span class="fu">}</span><span class="ot">,</span> </span>
+<span id="cb29-3"><a aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span> <span class="dt">"country"</span><span class="fu">:</span> <span class="st">"Wakanda"</span><span class="fu">,</span> <span class="dt">"data"</span><span class="fu">:</span> <span class="ot">[</span><span class="er">...</span><span class="ot">]</span> <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb29-4"><a aria-hidden="true" tabindex="-1"></a>  <span class="er">...</span></span>
+<span id="cb29-5"><a aria-hidden="true" tabindex="-1"></a><span class="ot">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="data-structure-nested-data" class="slide level2">
 <h2>Data Structure: Nested Data</h2>
 <ul>
-<li><p>Inside each country object, there is a key called <code>"data"</code>.</p></li>
-<li><p>The value of <code>"data"</code> is an <strong>array</strong> of daily vaccination records.</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb26-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb26-2"><a aria-hidden="true" tabindex="-1"></a>  <span class="dt">"country"</span><span class="fu">:</span> <span class="st">"United States"</span><span class="fu">,</span></span>
-<span id="cb26-3"><a aria-hidden="true" tabindex="-1"></a>  <span class="dt">"iso_code"</span><span class="fu">:</span> <span class="st">"USA"</span><span class="fu">,</span></span>
-<span id="cb26-4"><a aria-hidden="true" tabindex="-1"></a>  <span class="dt">"data"</span><span class="fu">:</span> <span class="ot">[</span></span>
-<span id="cb26-5"><a aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span> <span class="dt">"date"</span><span class="fu">:</span> <span class="st">"..."</span><span class="fu">,</span> <span class="dt">"total_vaccinations"</span><span class="fu">:</span> <span class="er">...</span> <span class="fu">}</span><span class="ot">,</span></span>
-<span id="cb26-6"><a aria-hidden="true" tabindex="-1"></a>    <span class="er">...</span> </span>
-<span id="cb26-7"><a aria-hidden="true" tabindex="-1"></a>  <span class="ot">]</span></span>
-<span id="cb26-8"><a aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li>Inside each country object, there is a key called <code>"data"</code>.</li>
+<li>The value of <code>"data"</code> is an <strong>array</strong> of daily vaccination records.
+<ul>
+<li>This is fake, to fit on screen.</li>
+</ul></li>
 </ul>
+<div class="sourceCode" id="cb30"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb30-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb30-2"><a aria-hidden="true" tabindex="-1"></a>  <span class="dt">"country"</span><span class="fu">:</span> <span class="st">"Guilder"</span><span class="fu">,</span></span>
+<span id="cb30-3"><a aria-hidden="true" tabindex="-1"></a>  <span class="dt">"iso_code"</span><span class="fu">:</span> <span class="st">"GG"</span><span class="fu">,</span></span>
+<span id="cb30-4"><a aria-hidden="true" tabindex="-1"></a>  <span class="dt">"data"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb30-5"><a aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span> <span class="dt">"date"</span><span class="fu">:</span> <span class="st">"..."</span><span class="fu">,</span> <span class="dt">"total_vaccinations"</span><span class="fu">:</span> <span class="er">...</span> <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb30-6"><a aria-hidden="true" tabindex="-1"></a>    <span class="er">...</span> </span>
+<span id="cb30-7"><a aria-hidden="true" tabindex="-1"></a>  <span class="ot">]</span></span>
+<span id="cb30-8"><a aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="syntax-rule-double-quotes" class="slide level2">
 <h2>Syntax Rule: Double Quotes</h2>
 <ul>
 <li>JSON is <strong>very strict</strong> about syntax. Keys and string values <strong>must</strong> use double quotes (<code>"</code>).</li>
-<li><strong>Invalid JSON:</strong> <code>{ 'country': 'USA' }</code> (Uses single quotes).</li>
-<li><strong>Valid JSON:</strong> <code>{ "country": "USA" }</code></li>
+<li><strong>Invalid JSON:</strong> <code>{ 'country': 'Elysium' }</code> (Uses single quotes).</li>
+<li><strong>Valid JSON:</strong> <code>{ "country": "Cascadia" }</code></li>
 <li>Numbers, booleans, and <code>null</code> are NOT quoted.</li>
 </ul>
 </section>
 <section id="syntax-rule-no-trailing-commas" class="slide level2">
 <h2>Syntax Rule: No Trailing Commas</h2>
 <ul>
-<li>The last key/value pair in an object, or the last item in an array, <strong>must not</strong> be followed by a comma.</li>
-<li><strong>Invalid JSON:</strong> <code>json     [       "item1",       "item2",      ]</code></li>
-</ul>
-</section>
-<section id="parsing-json-in-python" class="slide level2">
-<h2>Parsing JSON in Python</h2>
+<li>The last key/value pair in an object, or the last item in an array, <strong>must not</strong> be followed by a comma.
 <ul>
-<li>When we download the data from the URL (<code>vax</code>), we get a JSON string.</li>
-<li><strong>Parsing</strong> converts this string into native Python data structures (lists and dictionaries).</li>
-<li>The <code>json</code> library is built-in. If using <code>requests</code>, it handles the parsing automatically.</li>
+<li>This is fake, to fit on screen.</li>
+</ul></li>
+<li><strong>Invalid JSON:</strong></li>
 </ul>
-</section>
-<section id="reading-data-with-requests" class="slide level2">
-<h2>Reading Data with Requests</h2>
-<ul>
-<li><p>We fetch the content and use the <code>.json()</code> method to parse it.</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
-<span id="cb27-2"><a aria-hidden="true" tabindex="-1"></a><span class="co"># vax = "..." # The OWID URL</span></span>
-<span id="cb27-3"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-4"><a aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(vax)</span>
-<span id="cb27-5"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-6"><a aria-hidden="true" tabindex="-1"></a><span class="co"># vax_data is now a Python list of dictionaries</span></span>
-<span id="cb27-7"><a aria-hidden="true" tabindex="-1"></a>vax_data <span class="op">=</span> response.json() </span>
-<span id="cb27-8"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-9"><a aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(vax_data)) </span>
-<span id="cb27-10"><a aria-hidden="true" tabindex="-1"></a><span class="co"># &lt;class 'list'&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul>
-</section>
-<section id="accessing-top-level-data" class="slide level2">
-<h2>Accessing Top Level Data</h2>
-<ul>
-<li><p>The parsed data is a list. We access countries by list index.</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Get the dictionary for the first country</span></span>
-<span id="cb28-2"><a aria-hidden="true" tabindex="-1"></a>first_country_obj <span class="op">=</span> vax_data[<span class="dv">0</span>] </span>
-<span id="cb28-3"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-4"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Access key/value pairs using dictionary syntax</span></span>
-<span id="cb28-5"><a aria-hidden="true" tabindex="-1"></a>country_name <span class="op">=</span> first_country_obj[<span class="st">"country"</span>]</span>
-<span id="cb28-6"><a aria-hidden="true" tabindex="-1"></a>iso_code <span class="op">=</span> first_country_obj[<span class="st">"iso_code"</span>]</span>
-<span id="cb28-7"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-8"><a aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"First country: </span><span class="sc">{</span>country_name<span class="sc">}</span><span class="ss"> (</span><span class="sc">{</span>iso_code<span class="sc">}</span><span class="ss">)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul>
-</section>
-<section id="accessing-nested-data" class="slide level2">
-<h2>Accessing Nested Data</h2>
-<ul>
-<li><p>We chain dictionary lookups and list indexing to drill down.</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Get the list of daily records from the country object</span></span>
-<span id="cb29-2"><a aria-hidden="true" tabindex="-1"></a>daily_data_list <span class="op">=</span> vax_data[<span class="dv">0</span>][<span class="st">"data"</span>]</span>
-<span id="cb29-3"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-4"><a aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Get the first record (an object/dict) from the list</span></span>
-<span id="cb29-5"><a aria-hidden="true" tabindex="-1"></a>first_day_record <span class="op">=</span> daily_data_list[<span class="dv">0</span>]</span>
-<span id="cb29-6"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-7"><a aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Get a value from the daily record</span></span>
-<span id="cb29-8"><a aria-hidden="true" tabindex="-1"></a>first_date <span class="op">=</span> first_day_record[<span class="st">"date"</span>]</span>
-<span id="cb29-9"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-10"><a aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"First record date: </span><span class="sc">{</span>first_date<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul>
-</section>
-<section id="iterating-and-extracting" class="slide level2">
-<h2>Iterating and Extracting</h2>
-<ul>
-<li><p>To get summary stats, we loop over the top-level array.</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> country_dict <span class="kw">in</span> vax_data:</span>
-<span id="cb30-2"><a aria-hidden="true" tabindex="-1"></a>    name <span class="op">=</span> country_dict[<span class="st">"country"</span>]</span>
-<span id="cb30-3"><a aria-hidden="true" tabindex="-1"></a>    records <span class="op">=</span> country_dict[<span class="st">"data"</span>]</span>
-<span id="cb30-4"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-5"><a aria-hidden="true" tabindex="-1"></a>    <span class="co"># Check if the list of daily records is not empty</span></span>
-<span id="cb30-6"><a aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> records:</span>
-<span id="cb30-7"><a aria-hidden="true" tabindex="-1"></a>        <span class="co"># The last record in the list is usually the most recent data</span></span>
-<span id="cb30-8"><a aria-hidden="true" tabindex="-1"></a>        latest_record <span class="op">=</span> records[<span class="op">-</span><span class="dv">1</span>] </span>
-<span id="cb30-9"><a aria-hidden="true" tabindex="-1"></a>        latest_vax <span class="op">=</span> latest_record.get(<span class="st">"total_vaccinations"</span>)</span>
-<span id="cb30-10"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-11"><a aria-hidden="true" tabindex="-1"></a>        <span class="co"># print(f"{name}: {latest_vax}")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul>
+<div class="sourceCode" id="cb31"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb31-1"><a aria-hidden="true" tabindex="-1"></a><span class="ot">[</span></span>
+<span id="cb31-2"><a aria-hidden="true" tabindex="-1"></a>  <span class="st">"item1"</span><span class="ot">,</span></span>
+<span id="cb31-3"><a aria-hidden="true" tabindex="-1"></a>  <span class="st">"item2"</span><span class="ot">,</span> </span>
+<span id="cb31-4"><a aria-hidden="true" tabindex="-1"></a><span class="ot">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="handling-missing-null-values" class="slide level2">
 <h2>Handling Missing (null) Values</h2>
 <ul>
-<li><p>In JSON, a missing value is explicitly represented by <code>null</code>.</p></li>
-<li><p>When parsed in Python, <code>null</code> becomes <strong><code>None</code></strong>.</p></li>
-<li><p>Always check for <code>None</code> before trying to perform arithmetic or string operations.</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Example: 'people_fully_vaccinated' might be null</span></span>
-<span id="cb31-2"><a aria-hidden="true" tabindex="-1"></a>fully_vax <span class="op">=</span> latest_record.get(<span class="st">"people_fully_vaccinated"</span>)</span>
-<span id="cb31-3"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-4"><a aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> fully_vax <span class="kw">is</span> <span class="va">None</span>:</span>
-<span id="cb31-5"><a aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Fully vaccinated data is missing for this country."</span>)</span>
-<span id="cb31-6"><a aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb31-7"><a aria-hidden="true" tabindex="-1"></a>    <span class="co"># We can safely use the number</span></span>
-<span id="cb31-8"><a aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Fully vaccinated: </span><span class="sc">{</span>fully_vax<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li>In JSON, a missing value is explicitly represented by <code>null</code>.</li>
+<li>When parsed in Python, <code>null</code> becomes <strong><code>None</code></strong>.</li>
+<li>Always check for <code>None</code> before trying to perform arithmetic or string operations.</li>
 </ul>
+<div id="980d4098" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Example: "daily_vaccinations" might be null</span></span>
+<span id="cb32-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-3"><a aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb32-4"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-5"><a aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> vax[<span class="dv">0</span>][<span class="st">"data"</span>][i].get(<span class="st">"daily_vaccinations"</span>) <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb32-6"><a aria-hidden="true" tabindex="-1"></a>    i <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb32-7"><a aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb32-8"><a aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(i, vax[<span class="dv">0</span>][<span class="st">"data"</span>][i].get(<span class="st">"daily_vaccinations"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>1 1367</code></pre>
+</div>
+</div>
 </section>
 <section id="writing-json-in-python" class="slide level2">
 <h2>Writing JSON in Python</h2>
 <ul>
-<li><p>Use <code>json.dump()</code> to write a Python object (dict or list) to a file.</p></li>
-<li><p>Use <code>json.dumps()</code> to convert it to a JSON formatted string.</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
-<span id="cb32-2"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-3"><a aria-hidden="true" tabindex="-1"></a><span class="co"># A dictionary containing processed data</span></span>
-<span id="cb32-4"><a aria-hidden="true" tabindex="-1"></a>summary <span class="op">=</span> {</span>
-<span id="cb32-5"><a aria-hidden="true" tabindex="-1"></a>    <span class="st">"report_country"</span>: <span class="st">"USA"</span>,</span>
-<span id="cb32-6"><a aria-hidden="true" tabindex="-1"></a>    <span class="st">"latest_total_vax"</span>: vax_data[<span class="dv">0</span>][<span class="st">"data"</span>][<span class="op">-</span><span class="dv">1</span>][<span class="st">"total_vaccinations"</span>]</span>
-<span id="cb32-7"><a aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb32-8"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-9"><a aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">"vax_summary.json"</span>, <span class="st">"w"</span>) <span class="im">as</span> f:</span>
-<span id="cb32-10"><a aria-hidden="true" tabindex="-1"></a>    json.dump(summary, f)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li>Use <code>json.dump()</code> to write a Python object (dict or list) to a file.</li>
+<li>Use <code>json.dumps()</code> to convert it to a JSON formatted string.</li>
 </ul>
+<div id="bfcc2afb" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># A dictionary containing processed data</span></span>
+<span id="cb34-2"><a aria-hidden="true" tabindex="-1"></a>summary <span class="op">=</span> {</span>
+<span id="cb34-3"><a aria-hidden="true" tabindex="-1"></a>    <span class="st">"report_country"</span>: vax[<span class="dv">0</span>][<span class="st">"country"</span>],</span>
+<span id="cb34-4"><a aria-hidden="true" tabindex="-1"></a>    <span class="st">"latest_total_vax"</span>: vax[<span class="dv">0</span>][<span class="st">"data"</span>][<span class="op">-</span><span class="dv">1</span>][<span class="st">"total_vaccinations"</span>]</span>
+<span id="cb34-5"><a aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb34-6"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-7"><a aria-hidden="true" tabindex="-1"></a>json.dumps(summary)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="63">
+<pre><code>'{"report_country": "Afghanistan", "latest_total_vax": 22964750}'</code></pre>
+</div>
+</div>
 </section>
 <section id="pretty-printing-json" class="slide level2">
 <h2>Pretty Printing JSON</h2>
 <ul>
-<li><p>The <code>indent</code> argument makes the JSON human-readable for debugging or configuration files.</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">"vax_summary_pretty.json"</span>, <span class="st">"w"</span>) <span class="im">as</span> f:</span>
-<span id="cb33-2"><a aria-hidden="true" tabindex="-1"></a>    <span class="co"># Indent by 4 spaces</span></span>
-<span id="cb33-3"><a aria-hidden="true" tabindex="-1"></a>    json.dump(summary, f, indent<span class="op">=</span><span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p>Output: <code>json     {         "report_country": "USA",         "latest_total_vax": 435500000      }</code></p></li>
+<li>The <code>indent</code> argument makes the JSON human-readable for debugging or configuration files.</li>
 </ul>
-</section>
-<section id="json-vs.-yaml-quarto" class="slide level2">
-<h2>JSON vs.&nbsp;YAML (Quarto)</h2>
-<ul>
-<li><strong>YAML</strong> (YAML Ain’t Markup Language) uses indentation for structure.</li>
-<li>Quarto uses <strong>YAML</strong> for its document metadata (the header block, e.g., title, format).</li>
-<li>JSON is technically a subset of YAML, but YAML is often favored for human-written configuration because it omits quotes and braces.</li>
-<li>JSON is preferred for machine-to-machine data transfer.</li>
-</ul>
-</section>
-<section id="json-for-configuration" class="slide level2">
-<h2>JSON for Configuration</h2>
-<ul>
-<li><p>JSON files are excellent for storing <strong>configuration parameters</strong> for a scientific pipeline.</p></li>
-<li><p>Example: A JSON file defining countries to include/exclude and the start date for a report.</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb34-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb34-2"><a aria-hidden="true" tabindex="-1"></a>  <span class="dt">"start_date"</span><span class="fu">:</span> <span class="st">"2021-01-01"</span><span class="fu">,</span></span>
-<span id="cb34-3"><a aria-hidden="true" tabindex="-1"></a>  <span class="dt">"countries_of_interest"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"USA"</span><span class="ot">,</span> <span class="st">"GBR"</span><span class="ot">,</span> <span class="st">"CAN"</span><span class="ot">]</span><span class="fu">,</span></span>
-<span id="cb34-4"><a aria-hidden="true" tabindex="-1"></a>  <span class="dt">"output_format"</span><span class="fu">:</span> <span class="st">"html"</span></span>
-<span id="cb34-5"><a aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul>
-</section>
-<section id="reading-json-config" class="slide level2">
-<h2>Reading JSON Config</h2>
-<ul>
-<li><p>Loading the configuration in Python is straightforward using the <code>json</code> library’s <code>load()</code> function.</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
-<span id="cb35-2"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-3"><a aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">"config.json"</span>, <span class="st">"r"</span>) <span class="im">as</span> f:</span>
-<span id="cb35-4"><a aria-hidden="true" tabindex="-1"></a>    config <span class="op">=</span> json.load(f)</span>
-<span id="cb35-5"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-6"><a aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(config[<span class="st">"start_date"</span>])</span>
-<span id="cb35-7"><a aria-hidden="true" tabindex="-1"></a><span class="co"># 2021-01-01</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul>
-</section>
-<section id="data-validation-schema" class="slide level2">
-<h2>Data Validation: Schema</h2>
-<ul>
-<li><strong>JSON Schema</strong> is a vocabulary that allows you to annotate and validate JSON documents.</li>
-<li>It defines the required structure: what keys must be present, what data types they should be, and array constraints.</li>
-<li>Essential for robust data pipelines to ensure the incoming data (like the OWID file) is in the expected format before processing.</li>
-</ul>
-</section>
-<section id="debugging-json-linting" class="slide level2">
-<h2>Debugging: JSON Linting</h2>
-<ul>
-<li>Because JSON is so strict, any misplaced comma, quotation mark, or capital letter will cause the entire file to fail to parse.</li>
-<li>Use <strong>online JSON validators/linters</strong> (like JSONLint) or built-in IDE features to quickly find syntax errors.</li>
-</ul>
+<div id="5e767c54" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(json.dumps(summary, indent<span class="op">=</span><span class="dv">4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{
+    "report_country": "Afghanistan",
+    "latest_total_vax": 22964750
+}</code></pre>
+</div>
+</div>
 </section>
 <section id="handling-numbers" class="slide level2">
 <h2>Handling Numbers</h2>
@@ -1003,24 +1012,44 @@ number : 2</code></pre>
 </section>
 <section id="final-review-structure" class="slide level2">
 <h2>Final Review: Structure</h2>
-<div class="sourceCode" id="cb36"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb36-1"><a aria-hidden="true" tabindex="-1"></a><span class="ot">[</span> <span class="er">&lt;</span> <span class="er">TOP</span> <span class="er">LEVEL</span> <span class="er">ARRAY</span></span>
-<span id="cb36-2"><a aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span> <span class="er">&lt;</span> <span class="er">COUNTRY</span> <span class="er">OBJECT</span></span>
-<span id="cb36-3"><a aria-hidden="true" tabindex="-1"></a>    <span class="dt">"country"</span><span class="fu">:</span> <span class="st">"United States"</span><span class="fu">,</span> </span>
-<span id="cb36-4"><a aria-hidden="true" tabindex="-1"></a>    <span class="dt">"iso_code"</span><span class="fu">:</span> <span class="st">"USA"</span><span class="fu">,</span></span>
-<span id="cb36-5"><a aria-hidden="true" tabindex="-1"></a>    <span class="dt">"population"</span><span class="fu">:</span> <span class="dv">331002651</span><span class="fu">,</span></span>
-<span id="cb36-6"><a aria-hidden="true" tabindex="-1"></a>    <span class="dt">"data"</span><span class="fu">:</span> <span class="ot">[</span>                  <span class="er">&lt;--</span> <span class="er">NESTED</span> <span class="er">ARRAY</span></span>
-<span id="cb36-7"><a aria-hidden="true" tabindex="-1"></a>      <span class="fu">{</span> <span class="er">&lt;</span> <span class="er">DAILY</span> <span class="er">RECORD</span> <span class="er">OBJECT</span></span>
-<span id="cb36-8"><a aria-hidden="true" tabindex="-1"></a>        <span class="dt">"date"</span><span class="fu">:</span> <span class="st">"2021-01-01"</span><span class="fu">,</span></span>
-<span id="cb36-9"><a aria-hidden="true" tabindex="-1"></a>        <span class="dt">"total_vaccinations"</span><span class="fu">:</span> <span class="dv">100000</span> </span>
-<span id="cb36-10"><a aria-hidden="true" tabindex="-1"></a>      <span class="fu">}</span><span class="ot">,</span>                       </span>
-<span id="cb36-11"><a aria-hidden="true" tabindex="-1"></a>      <span class="fu">{</span></span>
-<span id="cb36-12"><a aria-hidden="true" tabindex="-1"></a>        <span class="dt">"date"</span><span class="fu">:</span> <span class="st">"2021-01-02"</span><span class="fu">,</span></span>
-<span id="cb36-13"><a aria-hidden="true" tabindex="-1"></a>        <span class="dt">"total_vaccinations"</span><span class="fu">:</span> <span class="dv">150000</span> </span>
-<span id="cb36-14"><a aria-hidden="true" tabindex="-1"></a>      <span class="fu">}</span></span>
-<span id="cb36-15"><a aria-hidden="true" tabindex="-1"></a>    <span class="ot">]</span></span>
-<span id="cb36-16"><a aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span><span class="ot">,</span></span>
-<span id="cb36-17"><a aria-hidden="true" tabindex="-1"></a>  <span class="er">...</span></span>
-<span id="cb36-18"><a aria-hidden="true" tabindex="-1"></a><span class="ot">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb38"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb38-1"><a aria-hidden="true" tabindex="-1"></a><span class="ot">[</span></span>
+<span id="cb38-2"><a aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span></span>
+<span id="cb38-3"><a aria-hidden="true" tabindex="-1"></a>    <span class="dt">"planet"</span><span class="fu">:</span> <span class="st">"Acheron"</span><span class="fu">,</span> </span>
+<span id="cb38-4"><a aria-hidden="true" tabindex="-1"></a>    <span class="dt">"designation"</span><span class="fu">:</span> <span class="st">"LV-426"</span><span class="fu">,</span></span>
+<span id="cb38-5"><a aria-hidden="true" tabindex="-1"></a>    <span class="dt">"data"</span><span class="fu">:</span> <span class="ot">[</span>                  </span>
+<span id="cb38-6"><a aria-hidden="true" tabindex="-1"></a>      <span class="fu">{</span></span>
+<span id="cb38-7"><a aria-hidden="true" tabindex="-1"></a>        <span class="dt">"film"</span><span class="fu">:</span> <span class="st">"Alien"</span><span class="fu">,</span></span>
+<span id="cb38-8"><a aria-hidden="true" tabindex="-1"></a>        <span class="dt">"population"</span><span class="fu">:</span> <span class="dv">0</span><span class="fu">,</span></span>
+<span id="cb38-9"><a aria-hidden="true" tabindex="-1"></a>      <span class="fu">}</span><span class="ot">,</span>                       </span>
+<span id="cb38-10"><a aria-hidden="true" tabindex="-1"></a>      <span class="fu">{</span></span>
+<span id="cb38-11"><a aria-hidden="true" tabindex="-1"></a>        <span class="dt">"film"</span><span class="fu">:</span> <span class="st">"Aliens"</span><span class="fu">,</span></span>
+<span id="cb38-12"><a aria-hidden="true" tabindex="-1"></a>        <span class="dt">"population"</span><span class="fu">:</span> <span class="dv">158</span><span class="fu">,</span></span>
+<span id="cb38-13"><a aria-hidden="true" tabindex="-1"></a>      <span class="fu">}</span></span>
+<span id="cb38-14"><a aria-hidden="true" tabindex="-1"></a>    <span class="ot">]</span></span>
+<span id="cb38-15"><a aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb38-16"><a aria-hidden="true" tabindex="-1"></a>  <span class="er">...</span></span>
+<span id="cb38-17"><a aria-hidden="true" tabindex="-1"></a><span class="ot">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<div class="sourceCode" id="cb39"><pre class="sourceCode email code-with-copy"><code class="sourceCode email"><span id="cb39-1"><a aria-hidden="true" tabindex="-1"></a>begin array</span>
+<span id="cb39-2"><a aria-hidden="true" tabindex="-1"></a>  begin object</span>
+<span id="cb39-3"><a aria-hidden="true" tabindex="-1"></a>    key: value, </span>
+<span id="cb39-4"><a aria-hidden="true" tabindex="-1"></a>    key: value, </span>
+<span id="cb39-5"><a aria-hidden="true" tabindex="-1"></a>    key: begin array                </span>
+<span id="cb39-6"><a aria-hidden="true" tabindex="-1"></a>      begin object</span>
+<span id="cb39-7"><a aria-hidden="true" tabindex="-1"></a>        key: value, </span>
+<span id="cb39-8"><a aria-hidden="true" tabindex="-1"></a>        key: value, </span>
+<span id="cb39-9"><a aria-hidden="true" tabindex="-1"></a>      end object,                       </span>
+<span id="cb39-10"><a aria-hidden="true" tabindex="-1"></a>      begin object</span>
+<span id="cb39-11"><a aria-hidden="true" tabindex="-1"></a>        key: value, </span>
+<span id="cb39-12"><a aria-hidden="true" tabindex="-1"></a>        key: value, </span>
+<span id="cb39-13"><a aria-hidden="true" tabindex="-1"></a>      end object</span>
+<span id="cb39-14"><a aria-hidden="true" tabindex="-1"></a>    end array</span>
+<span id="cb39-15"><a aria-hidden="true" tabindex="-1"></a>  end object,</span>
+<span id="cb39-16"><a aria-hidden="true" tabindex="-1"></a>  ...</span>
+<span id="cb39-17"><a aria-hidden="true" tabindex="-1"></a>end array</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
 
 
 </section></section>
